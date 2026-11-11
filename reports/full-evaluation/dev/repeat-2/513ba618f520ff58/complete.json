@@ -1,0 +1,937 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "9b85aa4e2b2a4b248c0a6381e3918ca1",
+  "created_at": "2026-10-12T15:07:34.980547+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "40f5a657dd214a23592496e23794a13902fa0c03ac9d62627175fb033eee4385",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\513ba618f520ff58\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 15.809,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 15.809,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.614538,
+          "p50": 1.614538,
+          "p95": 1.614538,
+          "max": 1.614538,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 14.194426,
+          "p50": 14.194426,
+          "p95": 14.194426,
+          "max": 14.194426,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.998301,
+          "p50": 2.998301,
+          "p95": 2.998301,
+          "max": 2.998301,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 10.420817,
+          "p50": 10.420817,
+          "p95": 10.420817,
+          "max": 10.420817,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.434554,
+          "p50": 0.434554,
+          "p95": 0.434554,
+          "max": 0.434554,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.05622,
+          "p50": 0.05622,
+          "p95": 0.05622,
+          "max": 0.05622,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.279672,
+          "p50": 0.279672,
+          "p95": 0.279672,
+          "max": 0.279672,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 14.194613,
+          "p50": 14.194613,
+          "p95": 14.194613,
+          "max": 14.194613,
+          "samples": 1
+        },
+        "total": {
+          "mean": 15.809152,
+          "p50": 15.809152,
+          "p95": 15.809152,
+          "max": 15.809152,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 1.925,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 1.925,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.614538,
+          "p50": 1.614538,
+          "p95": 1.614538,
+          "max": 1.614538,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.309893,
+          "p50": 0.309893,
+          "p95": 0.309893,
+          "max": 0.309893,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.200252,
+          "p50": 0.200252,
+          "p95": 0.200252,
+          "max": 0.200252,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.033315,
+          "p50": 0.033315,
+          "p95": 0.033315,
+          "max": 0.033315,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.075291,
+          "p50": 0.075291,
+          "p95": 0.075291,
+          "max": 0.075291,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.310061,
+          "p50": 0.310061,
+          "p95": 0.310061,
+          "max": 0.310061,
+          "samples": 1
+        },
+        "total": {
+          "mean": 1.9246,
+          "p50": 1.9246,
+          "p95": 1.9246,
+          "max": 1.9246,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 2.504,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 2.504,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.614538,
+          "p50": 1.614538,
+          "p95": 1.614538,
+          "max": 1.614538,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.254026,
+          "p50": 0.254026,
+          "p95": 0.254026,
+          "max": 0.254026,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.166223,
+          "p50": 0.166223,
+          "p95": 0.166223,
+          "max": 0.166223,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.023265,
+          "p50": 0.023265,
+          "p95": 0.023265,
+          "max": 0.023265,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.06339,
+          "p50": 0.06339,
+          "p95": 0.06339,
+          "max": 0.06339,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.635299,
+          "p50": 0.635299,
+          "p95": 0.635299,
+          "max": 0.635299,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.889543,
+          "p50": 0.889543,
+          "p95": 0.889543,
+          "max": 0.889543,
+          "samples": 1
+        },
+        "total": {
+          "mean": 2.504082,
+          "p50": 2.504082,
+          "p95": 2.504082,
+          "max": 2.504082,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-114",
+      "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-114",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+        "answer": "",
+        "sections": [
+          {
+            "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "XQ-UNPUBLISHED 2026年8月 生产故障 精确时间线"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "XQ-UNPUBLISHED 2026-08 生产事故 故障时间线 开始时间 恢复时间"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "XQ-UNPUBLISHED 2026年8月 线上生产事故 时间轴 复盘"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "XQ-UNPUBLISHED 项目 2026 年 8 月生产故障精确时间线:2026-08-12 13:58:10 CST 灰度发布 v2.8.3 至 10% 生产节点,变更项包含 Redis 缓存键序列化逻辑。14:03:22 监控触发 P1 告警,订单服务 API 5xx 错误率从 0.1% 升至 37%,P99 延迟 2.3s。14:05:10 SRE 介入,链路追踪显示热点 Key 集中于 user:session:*,Redis 主节点 CPU 98%,连接池耗尽。14:07:45 Kubernetes HPA 扩容至 50 个 Pod,新 Pod 因 readiness probe 失败进入 CrashLoopBackOff。14:12:30 根因初步定位为缓存键冲突导致缓存击穿,流量穿透至 MySQL,数据库连接池活跃连接 500/500。14:15:00 执行熔断降级,关闭订单创建非核心依赖,并开始回滚至 v2.8.2。14:22:18 Kafka 订单事件积压峰值 120 万条,消费滞后 18 分钟。14:30:40 回滚完成,Redis CPU 降至 45%,API 错误率降至 5%。14:45:00 Kafka 积压清零,消费恢复。15:10:00 全链路成功率恢复至 99.95%,P99 延迟 180ms,故障关闭。MTTR 67 分钟,影响订单创建与支付回调,SLO 错误预算消耗 23%。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2046788106581958347,
+            "title": "附录 A 可检索事实清单",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 附录 A 可检索事实清单\n\n以下事实是精确问答的基准答案。可按编号评估召回、排序与引用准确率。\n事实编号 主题 标准答案\nF-001 立项日 2024-03-18\nF-002 试点片区 北湾、河西、松岭\nF-006 最终温度失控率 2.1%\nF-007 预算/准备金 480 万元 / 36 万元\nF-008 采样间隔 2 分钟\nF-009 TEE 样本条件 连续 4 个超界样本\nF-010 北湾中转仓代码 BW-H1\nF-011 预冷条件 2-6°C,至少 12 分钟\nF-012 告警确认时限 5 分钟\nF-014 严重事件条件 >20 分钟或 >10°C\nF-015 默认切块 500 字,重叠 75 字\nF-017 候选数量 去重后最多 16,取前 5\nF-018 二次召回阈值 0.42\nF-019 遥测/个人数据保留 18 个月 / 6 个月\nF-021 L2 导出授权 最长 8 小时\nF-023 当前换电阈值 低于 30%\nF-025 案例 A 根因 车门闭合不完整\nF-027 案例 B 根因 金属夹层信号屏蔽\nF-029 YG-0512 CCI 95.0%\nF-032 标签/网关缓存 48 小时 / 12 小时\nF-033 时钟自动校正阈值 90 秒",
+            "vector_score": 0.7647794187068939,
+            "keyword_score": 0.726528419290784,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2508096369409604890,
+            "title": "6 常见故障与处置",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 6 常见故障与处置\n\n故障条目有相似症状但不同诊断路径,适合测试精确匹配与 rerank。\n代码 症状 优先检查 处置 升级条件\nE101 标签无上报,网关正常 标签电量与遮挡 移位或换电 10 分钟未恢复\nE102 多枚标签同时无上报 G-2 网关供电 重启网关并查保险 重启两次失败\nE207 温度缓慢持续上升 制冷机设定与冷媒 切换备用制冷 温度达 8°C\nE214 开门后短时尖峰 门磁与装卸时长 关门并观察 3 个样本 形成 TEE\nE330 位置漂移但温度正常 天线与隧道环境 保留温度监控 漂移超过 15\n分钟",
+            "vector_score": 0.742012083530426,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1458862979105628462,
+            "title": "4 数据、权限与保留政策",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 4 数据、权限与保留政策\n\n本章用于测试结构化过滤、访问控制、时间版本与否定事实。\n数据类别 示例 访问级别 默认保留期 删除方式\n公开资料 项目简介、公开指标 L0 长期 版本归档\n运营数据 订单状态、片区汇总 L1 24 个月 到期批量删除\n设备遥测 温度、网关信号 L2 18 个月 到期自动清除\n个人信息 司机姓名、电话 L3 6 个月 去标识化后清除映射\n安全事件 审计日志、调查材料 L3-S 36 个月 安全负责人批准\nF-019 设备遥测默认保留 18 个月;个人信息默认保留 6 个月。\nF-020 安全事件材料保留 36 个月,级别为 L3-S。",
+            "vector_score": 0.7501923441886902,
+            "keyword_score": 0.7702817390733453,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 15.809,
+      "timings_seconds": {
+        "decomposition": 1.614538,
+        "retrieval": 14.194426,
+        "mqe": 2.998301,
+        "hyde": 10.420817,
+        "embedding": 0.434554,
+        "vector_search": 0.05622,
+        "keyword_search": 0.279672,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 14.194613,
+        "total": 15.809152,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-114",
+      "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-114",
+      "variant": "hybrid",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+        "answer": "",
+        "sections": [
+          {
+            "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2046788106581958347,
+            "title": "附录 A 可检索事实清单",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 附录 A 可检索事实清单\n\n以下事实是精确问答的基准答案。可按编号评估召回、排序与引用准确率。\n事实编号 主题 标准答案\nF-001 立项日 2024-03-18\nF-002 试点片区 北湾、河西、松岭\nF-006 最终温度失控率 2.1%\nF-007 预算/准备金 480 万元 / 36 万元\nF-008 采样间隔 2 分钟\nF-009 TEE 样本条件 连续 4 个超界样本\nF-010 北湾中转仓代码 BW-H1\nF-011 预冷条件 2-6°C,至少 12 分钟\nF-012 告警确认时限 5 分钟\nF-014 严重事件条件 >20 分钟或 >10°C\nF-015 默认切块 500 字,重叠 75 字\nF-017 候选数量 去重后最多 16,取前 5\nF-018 二次召回阈值 0.42\nF-019 遥测/个人数据保留 18 个月 / 6 个月\nF-021 L2 导出授权 最长 8 小时\nF-023 当前换电阈值 低于 30%\nF-025 案例 A 根因 车门闭合不完整\nF-027 案例 B 根因 金属夹层信号屏蔽\nF-029 YG-0512 CCI 95.0%\nF-032 标签/网关缓存 48 小时 / 12 小时\nF-033 时钟自动校正阈值 90 秒",
+            "vector_score": 0.7365950047969818,
+            "keyword_score": 0.726528419290784,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 4084720815424544864,
+            "title": "1.1 项目背景",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 1.1 项目背景\n### 月 31 日。试点城市为青岚市,覆盖北湾、河西和松岭三个片区。\n\nF-001 云杉计划的正式立项日期是 2024 年 3 月 18 日。\nF-002 试点只覆盖青岚市的北湾、河西、松岭三个片区,不包含东港片区。\nF-003 项目目标约束是“不增加配送车辆总数”,而不是“不增加仓库数量”。",
+            "vector_score": 0.7216176390647888,
+            "keyword_score": 0.756289386725739,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2508096369409604890,
+            "title": "6 常见故障与处置",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 6 常见故障与处置\n\n故障条目有相似症状但不同诊断路径,适合测试精确匹配与 rerank。\n代码 症状 优先检查 处置 升级条件\nE101 标签无上报,网关正常 标签电量与遮挡 移位或换电 10 分钟未恢复\nE102 多枚标签同时无上报 G-2 网关供电 重启网关并查保险 重启两次失败\nE207 温度缓慢持续上升 制冷机设定与冷媒 切换备用制冷 温度达 8°C\nE214 开门后短时尖峰 门磁与装卸时长 关门并观察 3 个样本 形成 TEE\nE330 位置漂移但温度正常 天线与隧道环境 保留温度监控 漂移超过 15\n分钟",
+            "vector_score": 0.7106695175170898,
+            "keyword_score": 0.9566213544542105,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 1.925,
+      "timings_seconds": {
+        "decomposition": 1.614538,
+        "retrieval": 0.309893,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.200252,
+        "vector_search": 0.033315,
+        "keyword_search": 0.075291,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.310061,
+        "total": 1.9246,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-114",
+      "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-114",
+      "variant": "hybrid_reranked",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+        "answer": "",
+        "sections": [
+          {
+            "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 0,
+              "selected_sources": []
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 2.504,
+      "timings_seconds": {
+        "decomposition": 1.614538,
+        "retrieval": 0.254026,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.166223,
+        "vector_search": 0.023265,
+        "keyword_search": 0.06339,
+        "rerank": 0.635299,
+        "generation": 0.0,
+        "pipeline": 0.889543,
+        "total": 2.504082,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-114",
+      "subquestions": [
+        {
+          "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 1.6145383000002766
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.008,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

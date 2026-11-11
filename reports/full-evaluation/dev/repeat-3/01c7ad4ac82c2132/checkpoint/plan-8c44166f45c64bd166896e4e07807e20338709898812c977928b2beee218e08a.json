@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-087",
+  "subquestions": [
+    {
+      "question": "模型变成能执行任务的助手需要哪些变化？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "能执行任务的助手由哪些模块组成？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.4074250999983633
+}

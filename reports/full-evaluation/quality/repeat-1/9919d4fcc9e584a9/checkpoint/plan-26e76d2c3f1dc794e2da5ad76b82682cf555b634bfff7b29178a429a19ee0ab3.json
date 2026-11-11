@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-064",
+  "subquestions": [
+    {
+      "question": "在已经检索到材料的情况下，如何约束模型使其生成的结论必须有检索到的材料作为证据支撑，避免编造结论？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在已经检索到材料但材料不足以支持结论或与结论不一致时，如何让模型拒答而不是编造结论？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.25748509999903
+}

@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-081",
+  "subquestions": [
+    {
+      "question": "MCP在本地进程与远程服务之间怎样传输消息？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.847884300001169
+}

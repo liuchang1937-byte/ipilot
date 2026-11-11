@@ -1,0 +1,30 @@
+{
+  "case_id": "V2-005",
+  "subquestions": [
+    {
+      "question": "助手先推理再调用工具、读完工具结果继续推理的循环具体包含哪些步骤和状态流转？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "实现助手推理与工具调用交替循环需要哪些核心组件，例如推理引擎、工具调用协议、状态管理和结果回传机制？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "助手如何根据当前推理决定调用哪个工具、传递什么参数以及何时进入工具调用？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "工具执行结果如何返回给助手，并让助手基于工具结果继续推理？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "有哪些框架、设计模式或工程实践可以落地助手先推理再调用工具、读完结果继续推理的循环？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.784521699999459
+}

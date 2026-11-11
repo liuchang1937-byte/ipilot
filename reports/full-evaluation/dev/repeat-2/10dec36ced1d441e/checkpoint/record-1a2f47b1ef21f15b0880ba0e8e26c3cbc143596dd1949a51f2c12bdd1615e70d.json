@@ -1,0 +1,234 @@
+{
+  "case_id": "V2-104",
+  "question": "部署模型时如何选择量化方案？CPU和GPU服务框架如何取舍？",
+  "category": "compound",
+  "split": "dev",
+  "group": "L015",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L015",
+    "interview-question://L020"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "量化用低比特表示权重或激活，以降低显存、带宽和计算成本，代价是精度风险。INT8通常损失小，INT4压缩更强；GPTQ利用校准数据做逐层训练后权重量化，通用性强；AWQ保护对输出敏感的重要权重，常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化，以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化，AWQ 利用激活信息调整重要通道的缩放，减少关键权重的误差；不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快，需要核对算子支持，并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。",
+    "vLLM适合GPU高吞吐服务，强调PagedAttention和连续批处理；TGI提供较完整的Hugging Face生产服务生态；llama.cpp适合CPU、边缘和量化本地部署；SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本，并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持，再用相同输入输出长度、并发与精度设置测试，避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列，重复前缀场景需要看缓存命中，本地部署则更关心内存与量化兼容。框架特性和维护状态会变化，不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力，而不是只说某框架最快。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L015",
+    "interview-question://L020",
+    "interview-question://L008",
+    "interview-question://L022",
+    "interview-question://T016"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.5,
+  "ndcg_at_k": 0.8065735963827292,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "部署模型时如何选择量化方案？CPU和GPU服务框架如何取舍？",
+    "answer": "1. 部署模型时如何选择量化方案？\n\n\n2. 部署模型时，CPU 服务框架和 GPU 服务框架如何取舍？\n",
+    "sections": [
+      {
+        "question": "部署模型时如何选择量化方案？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "部署模型时如何选择量化方案?"
+            },
+            {
+              "kind": "mqe",
+              "text": "部署模型时如何选择量化方案 精度 速度 显存 权衡"
+            },
+            {
+              "kind": "mqe",
+              "text": "模型部署 量化方法 对比 PTQ QAT 动态量化 静态量化 选择标准"
+            },
+            {
+              "kind": "mqe",
+              "text": "How to choose quantization scheme for model deployment accuracy latency hardware compatibility"
+            },
+            {
+              "kind": "hyde",
+              "text": "部署模型选择量化方案时,需权衡精度、延迟、吞吐、显存/内存、硬件支持和工程复杂度。通常以 FP16/BF16 为精度基线;GPU 显存受限且以 LLM 推理为主,可选 weight-only INT8/INT4,如 GPTQ、AWQ、bitsandbytes NF4,采用 group-wise、per-channel/per-token 量化降低离群值影响。CPU 或边缘部署常用 GGUF/llama.cpp 的 Q4_K_M、Q5_K_M 等,按内存和困惑度选型。激活离群值明显时用 SmoothQuant、AWQ 做激活-权重协同量化;精度敏感或校准集不足时用 QAT、混合精度,保留 embedding、LayerNorm、lm_head、首尾层为 FP16/BF16。高并发服务端可结合 TensorRT-LLM、vLLM、ONNX Runtime 使用 INT8/FP8、KV cache 量化。评估指标包括 PPL、任务准确率、端到端延迟、吞吐、显存占用和校准误差。选择流程:确定硬件与推理框架,设定精度损失阈值,从 FP16/BF16 基线开始,依次测试 INT8 weight-only、INT4 group-wise、激活量化与 KV cache 量化,按业务 SLA 选择最优方案。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L015",
+            "interview-question://L020",
+            "interview-question://L008"
+          ]
+        }
+      },
+      {
+        "question": "部署模型时，CPU 服务框架和 GPU 服务框架如何取舍？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "部署模型时,CPU 服务框架和 GPU 服务框架如何取舍?"
+            },
+            {
+              "kind": "mqe",
+              "text": "部署模型时 CPU 推理服务框架和 GPU 推理服务框架如何选型对比"
+            },
+            {
+              "kind": "mqe",
+              "text": "模型部署 CPU 与 GPU 服务框架的性能成本延迟吞吐量权衡"
+            },
+            {
+              "kind": "mqe",
+              "text": "CPU 服务框架和 GPU 服务框架适用场景区别:ONNX Runtime OpenVINO Triton TensorRT 选择"
+            },
+            {
+              "kind": "hyde",
+              "text": "在部署模型时,CPU 服务框架与 GPU 服务框架的取舍主要依据模型规模、推理延迟、吞吐量、并发量、成本与硬件环境。CPU 服务框架如 ONNX Runtime、OpenVINO、TensorFlow Serving CPU、TorchServe CPU、Triton CPU,适合小/中型模型、低 QPS、成本敏感、边缘/无 GPU 环境、批处理不密集、P99 延迟 SLO 宽松的场景,优点是部署简单、兼容性好、TCO 低,但大模型或高并发下延迟高、吞吐低。GPU 服务框架如 TensorRT、vLLM、TGI、Triton Inference Server、TorchServe GPU、DeepSpeed-MII,适合 LLM、CV/NLP 大模型、高吞吐、低延迟、动态批处理、连续批处理、FP16/INT8 量化、张量并行/流水线并行场景,优点是算力强、吞吐高、延迟低,但成本、功耗、显存、CUDA/cuDNN 版本兼容、扩缩容和运维复杂度更高。若模型经量化裁剪后满足 SLO,优先 CPU;若延迟/吞吐/并发要求高或模型参数量大,优先 GPU;也可采用 CPU+GPU 混合、分层服务、自动扩缩容,按 QPS、P99 延迟、GPU 利用率和单位请求成本做基准测试后决策。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L020",
+            "interview-question://L022",
+            "interview-question://T016"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4463257598973586641,
+        "title": "大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?",
+        "source": "interview-question://L015",
+        "domain": "llm-engineering",
+        "content": "# 大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?\n\n题目编号:L015\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:量化用低比特表示权重或激活,以降低显存、带宽和计算成本,代价是精度风险。INT8通常损失小,INT4压缩更强;GPTQ利用校准数据做逐层训练后权重量化,通用性强;AWQ保护对输出敏感的重要权重,常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化,以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化,AWQ 利用激活信息调整重要通道的缩放,减少关键权重的误差;不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快,需要核对算子支持,并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。\n\n评分要点:量化对象、比特权衡、AWQ/GPTQ思路及硬件适配。",
+        "vector_score": 0.8983271718025208,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2755254194570667966,
+        "title": "大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?",
+        "source": "interview-question://L020",
+        "domain": "llm-engineering",
+        "content": "# 大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?\n\n题目编号:L020\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:vLLM适合GPU高吞吐服务,强调PagedAttention和连续批处理;TGI提供较完整的Hugging Face生产服务生态;llama.cpp适合CPU、边缘和量化本地部署;SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本,并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持,再用相同输入输出长度、并发与精度设置测试,避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列,重复前缀场景需要看缓存命中,本地部署则更关心内存与量化兼容。框架特性和维护状态会变化,不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力,而不是只说某框架最快。\n\n评分要点:各方案定位和基于指标的选型。",
+        "vector_score": 0.8641762733459473,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 986183218169772871,
+        "title": "大模型微调的方案有哪些?",
+        "source": "interview-question://L008",
+        "domain": "llm-engineering",
+        "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+        "vector_score": 0.7923946380615234,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.7805630266666412,
+        "keyword_score": 0.5179053719355602,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 2169899495911519092,
+        "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+        "source": "interview-question://T016",
+        "domain": "llm-tool-calling",
+        "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+        "vector_score": 0.7540323734283447,
+        "keyword_score": 0.6727967849611458,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 23.747,
+  "timings_seconds": {
+    "decomposition": 2.677239,
+    "retrieval": 21.069089,
+    "mqe": 5.357021,
+    "hyde": 14.129388,
+    "embedding": 0.922449,
+    "vector_search": 0.130006,
+    "keyword_search": 0.52119,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 21.069369,
+    "total": 23.746607,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "case_id": "V2-075",
+  "question": "仅接一个内部函数与接多个外部服务，何时采用MCP更合适？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "T007",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T007"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "如果工具少、只在单个应用内部使用，直接Function Calling加本地函数注册最简单；当工具需要跨应用复用、独立部署、动态发现或由第三方维护时，MCP可减少适配成本。两者并非互斥：MCP提供标准工具接入，模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如，应用内部只有一个查天气函数，直接注册通常足够；多个产品都需要共享同一订单服务，可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP，还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界，而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T007",
+    "interview-question://T006",
+    "interview-question://T011",
+    "interview-question://T004",
+    "interview-question://T008"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.8769765845238192,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "仅接一个内部函数与接多个外部服务，何时采用MCP更合适？",
+    "answer": "1. 当一个系统仅接入一个内部函数时，采用MCP更合适的条件是什么？\n\n\n2. 当一个系统接入多个外部服务时，采用MCP更合适的条件是什么？\n\n\n3. 在系统仅接入一个内部函数与接入多个外部服务两种情况下，采用MCP更合适的判断标准和权衡因素是什么？\n",
+    "sections": [
+      {
+        "question": "当一个系统仅接入一个内部函数时，采用MCP更合适的条件是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当一个系统仅接入一个内部函数时,采用MCP更合适的条件是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "当一个系统仅接入一个内部函数时,采用 MCP 更合适的条件是什么"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP 与直接函数调用对比:单内部函数或单工具场景下何时选择 MCP"
+            },
+            {
+              "kind": "mqe",
+              "text": "When is MCP more appropriate for a system that only integrates one internal function? Model Context Protocol single tool use cases"
+            },
+            {
+              "kind": "hyde",
+              "text": "当一个系统仅接入一个内部函数时,采用 MCP(Model Context Protocol)更合适的条件通常是:该内部函数需要以标准化 tool 暴露给多个 MCP client/host 或 Agent 运行时复用;函数提供方与宿主需要跨进程、跨语言或跨团队解耦,并由独立 MCP server 实现;预期后续会扩展为多 tool、resource、prompt;需要 capability negotiation、tools/list 动态发现、inputSchema 校验、JSON-RPC 2.0 统一调用、stdio 或 Streamable HTTP/SSE 传输、认证授权/OAuth scope、审计与权限边界;或需要取消、进度通知、日志、session 等生命周期语义。若只是单一应用内直接调用、无跨客户端复用、无扩展和安全隔离需求,则直接函数调用或内部 API 更合适,MCP 反而增加协议与运维开销。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T007",
+            "interview-question://T006",
+            "interview-question://T011"
+          ]
+        }
+      },
+      {
+        "question": "当一个系统接入多个外部服务时，采用MCP更合适的条件是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当一个系统接入多个外部服务时,采用MCP更合适的条件是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "当一个系统接入多个外部服务时,什么条件下更适合采用 MCP(Model Context Protocol)?"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP 协议 多外部服务集成 适用场景 判断条件 优势 对比 API"
+            },
+            {
+              "kind": "mqe",
+              "text": "when is MCP Model Context Protocol more suitable than traditional integrations for connecting multiple external services"
+            },
+            {
+              "kind": "hyde",
+              "text": "当系统需要以统一协议接入多个异构外部服务,并被 LLM/Agent 动态发现、调用和编排时,采用 MCP(Model Context Protocol)更合适。典型条件包括:外部服务数量多且持续增加,存在 N×M 自定义连接器集成复杂度;服务需以 tools、resources、prompts 等标准原语暴露;需要运行时注册/发现、权限隔离、审计、超时重试、上下文注入和结果回传;多个 host/client 或不同模型需复用同一 MCP server;本地与远程服务需统一编排,传输可采用 stdio、HTTP+SSE 或 Streamable HTTP,消息基于 JSON-RPC。若仅接入少量稳定 API、单客户端紧耦合且无需动态发现,则直接 SDK/适配层更简单。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T004",
+            "interview-question://T007",
+            "interview-question://T008"
+          ]
+        }
+      },
+      {
+        "question": "在系统仅接入一个内部函数与接入多个外部服务两种情况下，采用MCP更合适的判断标准和权衡因素是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在系统仅接入一个内部函数与接入多个外部服务两种情况下,采用MCP更合适的判断标准和权衡因素是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP 适用场景判断标准:仅接入一个内部函数与接入多个外部服务时如何权衡"
+            },
+            {
+              "kind": "mqe",
+              "text": "模型上下文协议 MCP 对比直接函数调用和多个外部 API 集成的决策因素与优缺点"
+            },
+            {
+              "kind": "mqe",
+              "text": "When to use MCP vs a single internal function vs multiple external service integrations: criteria and trade-offs"
+            },
+            {
+              "kind": "hyde",
+              "text": "当系统仅接入一个内部函数且该函数与宿主同进程、接口稳定、仅被单一调用方使用、无动态发现和多租户隔离需求时,采用 MCP 通常不划算;直接函数调用、本地 SDK 或轻量 function calling 可避免 JSON-RPC/stdio/SSE 传输、client-server 生命周期、schema 注册与额外故障域。仅当需要把该函数标准化为 MCP tool/resource、跨 host 复用、权限隔离、审计或插件化热插拔时,才值得引入 MCP。接入多个外部服务时,MCP 更合适的判断标准包括:服务数量多且异构(REST/gRPC/GraphQL/CLI/WebSocket)、由不同团队或供应商维护、需要统一能力发现、工具 schema、鉴权、授权、限流、重试、熔断、审计和版本管理,以及多客户端/多模型复用同一工具层;此时 MCP 作为 host-client-server 抽象可降低 N×M 集成复杂度,支持动态工具注册与上下文裁剪。权衡因素:协议开销、端到端延迟、部署与运维复杂度、调试可观测性、安全攻击面、密钥管理、schema 演进与兼容性、事务一致性和供应商锁定;若服务少、接口稳定、已有 API 网关/BFF 或延迟预算极紧,则直接网关封装或编排层可能优于 MCP。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T007",
+            "interview-question://T004",
+            "interview-question://T006"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.9168371558189392,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1644641191381467949,
+        "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+        "source": "interview-question://T006",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+        "vector_score": 0.9061782658100128,
+        "keyword_score": 0.9555719173902557,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4412077096281725584,
+        "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+        "source": "interview-question://T011",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+        "vector_score": 0.8716839551925659,
+        "keyword_score": 0.8963710571426522,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 4536864493093651401,
+        "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+        "source": "interview-question://T004",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+        "vector_score": 0.8880287408828735,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 1010957861723506751,
+        "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+        "source": "interview-question://T008",
+        "domain": "llm-tool-calling",
+        "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+        "vector_score": 0.8700435757637024,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 55.013,
+  "timings_seconds": {
+    "decomposition": 15.735527,
+    "retrieval": 39.277308,
+    "mqe": 11.132033,
+    "hyde": 26.047694,
+    "embedding": 1.042234,
+    "vector_search": 0.172256,
+    "keyword_search": 0.869076,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 39.277652,
+    "total": 55.013179,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 15,
+    "chat_calls": 6,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

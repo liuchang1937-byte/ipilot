@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-037",
+  "subquestions": [
+    {
+      "question": "temperature 对生成分布有什么影响？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "top_p 对生成分布有什么影响？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "top_k 对生成分布有什么影响？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.062980400001834
+}

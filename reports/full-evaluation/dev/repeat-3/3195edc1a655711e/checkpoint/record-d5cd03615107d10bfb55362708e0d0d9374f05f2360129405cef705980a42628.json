@@ -1,0 +1,230 @@
+{
+  "case_id": "V2-018",
+  "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "A018",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A018"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A018",
+    "interview-question://A002",
+    "interview-question://A016",
+    "interview-question://A022",
+    "interview-question://T018"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+    "answer": "1. 对话进行到一半时服务重启，如何恢复任务阶段？\n\n\n2. 对话进行到一半时服务重启，如何防止任务重复执行？\n",
+    "sections": [
+      {
+        "question": "对话进行到一半时服务重启，如何恢复任务阶段？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对话进行到一半时服务重启,如何恢复任务阶段?"
+            },
+            {
+              "kind": "mqe",
+              "text": "对话进行到一半服务重启 如何恢复任务阶段 会话状态持久化 断点恢复"
+            },
+            {
+              "kind": "mqe",
+              "text": "多轮对话中途服务重启 恢复任务进度 对话上下文 任务状态 恢复方案"
+            },
+            {
+              "kind": "mqe",
+              "text": "service restart mid-conversation resume task stage session state persistence checkpoint recovery"
+            },
+            {
+              "kind": "hyde",
+              "text": "服务重启后恢复对话任务阶段,核心是将会话与任务进度持久化到外部状态存储,并在启动时按 session_id/thread_id 加载最新 checkpoint。使用状态机或工作流引擎记录 current_phase、turn_index、pending_slot、tool_call 中间结果、LLM messages、memory、变量槽位和未确认事件;通过事件溯源/WAL 重放已提交事件,从 last completed activity 或稳定快照恢复。对未完成 activity 使用幂等键、去重表和 exactly-once/at-least-once 语义重试,已产生的副作用通过 outbox、事务消息或补偿事务保证不重复。重启实例先校验 lease、fencing token、分布式锁与版本号,旧实例失联后接管,从最后一致 checkpoint 继续推进任务阶段,并向用户发送恢复确认或继续提示。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A018",
+            "interview-question://A002",
+            "interview-question://A016"
+          ]
+        }
+      },
+      {
+        "question": "对话进行到一半时服务重启，如何防止任务重复执行？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对话进行到一半时服务重启,如何防止任务重复执行?"
+            },
+            {
+              "kind": "mqe",
+              "text": "对话中途服务重启 如何防止任务重复执行 幂等设计 状态持久化"
+            },
+            {
+              "kind": "mqe",
+              "text": "会话过程中服务重启 任务重复执行 解决方案 分布式锁 消息去重 检查点"
+            },
+            {
+              "kind": "mqe",
+              "text": "prevent duplicate task execution after service restart mid-conversation idempotency exactly-once semantics checkpointing"
+            },
+            {
+              "kind": "hyde",
+              "text": "在对话进行到一半服务重启的场景中,防止任务重复执行的核心是端到端幂等、状态持久化与可恢复状态机。为每轮对话和每个副作用任务生成稳定全局唯一的 task_id/request_id,并用 conversation_id + turn_id + intent_hash + tool_call_id 构造幂等键。任务提交前先持久化会话快照、执行进度 checkpoint、任务状态 PENDING/RUNNING/SUCCEEDED/FAILED 和版本号。通过数据库唯一约束或去重表插入幂等键实现去重,冲突则直接返回已有结果。执行阶段使用分布式锁或租约 lease 加 fencing token,防止旧 worker 并发写入;状态迁移用 CAS 乐观锁,仅允许 PENDING→RUNNING→SUCCEEDED。消息队列消费采用手动 ACK、visibility timeout、消息去重和至少一次投递下的幂等消费者。服务重启恢复时,扫描 RUNNING 且租约过期的任务,从 checkpoint、WAL 或事件溯源重放恢复;已 SUCCEEDED 的任务跳过,未完成且幂等可重入的任务重新执行。对外部 API 调用携带 idempotency key;跨服务副作用使用 transactional outbox 与 Saga/补偿事务,最终达到 exactly-once 效果。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A018",
+            "interview-question://A022",
+            "interview-question://T018"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2584544441468433340,
+        "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+        "source": "interview-question://A018",
+        "domain": "agent",
+        "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+        "vector_score": 0.844535619020462,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1979822055872710034,
+        "title": "Agent 的基本架构由哪些核心组件构成?",
+        "source": "interview-question://A002",
+        "domain": "agent",
+        "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+        "vector_score": 0.7717549204826355,
+        "keyword_score": 0.531444569052409,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2769771559713974979,
+        "title": "如何设计多 Agent 的协作与动态切换机制?",
+        "source": "interview-question://A016",
+        "domain": "agent",
+        "content": "# 如何设计多 Agent 的协作与动态切换机制?\n\n题目编号:A016\n\n领域:agent\n\n难度:3\n\n标签:Agent 路由、任务交接、协议\n- 考察方向:能力描述、上下文传递、结果契约及动态切换。\n\n参考答案:多Agent协作主要依靠消息传递和共享状态:前者把上一个Agent的产物交给下一个,后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。同步协作可用结构化调用,长任务可用消息队列和任务表,所有路径都由协调器追踪。动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。共享状态应通过受控更新接口提交,不能让多个 Agent 随意覆盖同一份任务记录。\n\n评分要点:角色契约、路由依据、上下文交接和故障接管完整。",
+        "vector_score": 0.7690729796886444,
+        "keyword_score": 0.7798256759162641,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.8042789399623871,
+        "keyword_score": 0.7325948536750937,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 3035522643108457551,
+        "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+        "source": "interview-question://T018",
+        "domain": "llm-tool-calling",
+        "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+        "vector_score": 0.7872840166091919,
+        "keyword_score": 0.7370275704144917,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 28.909,
+  "timings_seconds": {
+    "decomposition": 4.127712,
+    "retrieval": 24.781365,
+    "mqe": 8.065364,
+    "hyde": 15.426856,
+    "embedding": 0.928375,
+    "vector_search": 0.066946,
+    "keyword_search": 0.288688,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 24.781532,
+    "total": 28.909244,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

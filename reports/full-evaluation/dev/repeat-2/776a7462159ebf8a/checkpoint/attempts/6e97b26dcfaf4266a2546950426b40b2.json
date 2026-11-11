@@ -1,0 +1,144 @@
+{
+  "case_id": "V2-112",
+  "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-112",
+  "variant": "hybrid",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "C:\\Users\\orzlc\\Desktop\\test.pdf"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 607069691282008855,
+        "title": "文档结束",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 文档结束\n\n校验摘要:本文包含 33 个编号事实、8 组 FAQ、11 道基准测试题、3\n\n个案例,以及多个表格、否定陈述和版本冲突。所有组织、人物和业务数据均为虚构。\n\n云杉计划知识手册 | RAG 测试语料 第 11 页 / 共 11 页",
+        "vector_score": 0.7566005885601044,
+        "keyword_score": 0.625806365780455,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1899617201102809291,
+        "title": "云杉计划知识手册",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 云杉计划知识手册\n## 一份专为 RAG 系统设计的中文综合测试资料\n\n文档代号 SPRUCE-RAG-2026\n版本 1.0(测试版)\n发布日期 2026 年 9 月 15 日\n\n虚构声明 本文中的组织、人物、项目、数据均为虚构,仅用于检索测试。\n\n用途:测试 chunk\n\n切分、embedding、向量检索、关键词检索、混合检索、rerank、引用定位、跨段问答、冲突消解与拒答能力。\n\n云杉计划知识手册 | RAG 测试语料 第 1 页 / 共 11 页\n\n---",
+        "vector_score": 0.7371962666511536,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1582090342757356371,
+        "title": "4.2 版本优先级示例",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 4.2 版本优先级示例\n### 的规则。\n\nF-023 当前标签换电阈值为电量低于 30%,依据 v1.4。\n否定事实:云杉计划没有使用人脸识别;没有采集司机的私人聊天内容;没有把原始个人信息用于路线推荐模型训练。\nF-024 路线推荐模型不使用原始个人信息训练。\n\n云杉计划知识手册 | RAG 测试语料 第 6 页 / 共 11 页\n\n---",
+        "vector_score": 0.7442165017127991,
+        "keyword_score": 0.4844004248631238,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 1.965,
+  "timings_seconds": {
+    "decomposition": 1.604826,
+    "retrieval": 0.359817,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.273058,
+    "vector_search": 0.02272,
+    "keyword_search": 0.062879,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.359977,
+    "total": 1.964803,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-062",
+      "question": "Self-RAG、Corrective RAG和Agentic RAG控制流程有何差别？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R015"
+      ],
+      "answerable": true,
+      "reference_answer": "常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益，不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号；Corrective RAG 根据检索质量决定修正路径；Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本，也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用，以及对什么失败样本产生了收益。",
+      "group": "R015",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

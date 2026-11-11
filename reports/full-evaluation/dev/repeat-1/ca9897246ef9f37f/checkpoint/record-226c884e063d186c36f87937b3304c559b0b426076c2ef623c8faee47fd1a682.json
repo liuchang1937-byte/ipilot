@@ -1,0 +1,230 @@
+{
+  "case_id": "V2-028",
+  "question": "模型为何需要知道词的位置？旋转位置编码和线性偏置有什么差别？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "L003",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L004"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "自注意力本身对顺序不敏感，因此需要位置编码。sin/cos把绝对位置向量加入表示，可一定程度外推；RoPE通过旋转Q/K把相对位置信息编码进注意力内积，是当前常用方案；ALiBi直接给注意力分数加入与距离相关的线性偏置，简单且具备长度外推特性。三者在实现、相对位置表达和长上下文表现上不同。如果没有位置信息，注意力难以区分同一组词的不同顺序。sin/cos 使用固定频率的位置向量，RoPE 对 Q/K 做与位置有关的旋转，使点积体现相对位置关系，ALiBi 则在注意力分数中加入与距离相关的偏置。它们影响长度泛化，但支持更长窗口还与训练长度、缩放方案和任务有关。不能仅因使用 RoPE 就保证超出训练长度后仍准确，应该测不同位置和跨段依赖任务。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L004",
+    "interview-question://L005",
+    "interview-question://L023",
+    "interview-question://R007",
+    "interview-question://L003"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.75,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "模型为何需要知道词的位置？旋转位置编码和线性偏置有什么差别？",
+    "answer": "1. 模型为何需要知道词的位置？\n\n\n2. 旋转位置编码和线性偏置有什么差别？\n",
+    "sections": [
+      {
+        "question": "模型为何需要知道词的位置？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "模型为何需要知道词的位置?"
+            },
+            {
+              "kind": "mqe",
+              "text": "模型为何需要知道词的位置"
+            },
+            {
+              "kind": "mqe",
+              "text": "为什么语言模型需要位置编码或词序信息"
+            },
+            {
+              "kind": "mqe",
+              "text": "Why do neural language models need positional information or word order?"
+            },
+            {
+              "kind": "hyde",
+              "text": "在 Transformer 等基于自注意力的模型中,自注意力对输入 token 的排列具有置换不变性;若不注入位置信息,模型等价于词袋模型,无法区分“猫追狗”与“狗追猫”,也无法建模词序、句法结构、局部邻接、长距离依赖和共指关系。位置编码或位置嵌入通过绝对位置、相对位置、正弦编码、可学习位置嵌入、RoPE、ALiBi 等机制,将 token 的顺序、距离和方向信息注入表示与注意力计算,使模型能够捕捉序列依赖、组合语义和下一个词预测所需的顺序约束。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L004",
+            "interview-question://L005",
+            "interview-question://L023"
+          ]
+        }
+      },
+      {
+        "question": "旋转位置编码和线性偏置有什么差别？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "旋转位置编码和线性偏置有什么差别?"
+            },
+            {
+              "kind": "mqe",
+              "text": "旋转位置编码 RoPE 和线性偏置 ALiBi 有什么区别"
+            },
+            {
+              "kind": "mqe",
+              "text": "RoPE 与 ALiBi 位置编码对比 优缺点"
+            },
+            {
+              "kind": "mqe",
+              "text": "rotary position embedding vs attention with linear biases difference"
+            },
+            {
+              "kind": "hyde",
+              "text": "旋转位置编码(RoPE)与线性偏置(linear bias,如 ALiBi)的核心区别在于位置信息注入注意力的方式:RoPE 属于乘性/旋转式位置编码,它对 query 和 key 向量按位置分组为二维子空间并乘以旋转矩阵,使 QK^T 内积包含 cos((m-n)θ) 等相对位置项,通过旋转角度差编码相对距离。线性偏置属于加性/偏置式位置编码,它直接在注意力分数 A_{i,j}=Q_i K_j^T / sqrt(d) 上加 bias(i,j),常见形式为 ALiBi 的 -m_h*(i-j) 或相对位置线性偏置,按注意力头设置不同斜率,不改变 Q/K 表示。效果上,RoPE 保持向量范数、通常无可学习位置参数、改变键查询交互的几何结构,利于相对位置建模和长度外推;线性偏置计算简单、参数少、仅调整注意力权重分布,提供线性距离衰减或局部性归纳偏置。实现上,RoPE 是旋转 Q/K,线性偏置是加在 attention logits 上;前者乘性、相对位置通过旋转差体现,后者加性、相对位置通过偏置函数体现。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R007",
+            "interview-question://L003",
+            "interview-question://L004"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2551140976894006908,
+        "title": "大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?",
+        "source": "interview-question://L004",
+        "domain": "llm-engineering",
+        "content": "# 大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?\n\n题目编号:L004\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:自注意力本身对顺序不敏感,因此需要位置编码。sin/cos把绝对位置向量加入表示,可一定程度外推;RoPE通过旋转Q/K把相对位置信息编码进注意力内积,是当前常用方案;ALiBi直接给注意力分数加入与距离相关的线性偏置,简单且具备长度外推特性。三者在实现、相对位置表达和长上下文表现上不同。如果没有位置信息,注意力难以区分同一组词的不同顺序。sin/cos 使用固定频率的位置向量,RoPE 对 Q/K 做与位置有关的旋转,使点积体现相对位置关系,ALiBi 则在注意力分数中加入与距离相关的偏置。它们影响长度泛化,但支持更长窗口还与训练长度、缩放方案和任务有关。不能仅因使用 RoPE 就保证超出训练长度后仍准确,应该测不同位置和跨段依赖任务。\n\n评分要点:为何需要位置;三种方案的作用位置与特点。",
+        "vector_score": 0.9141943454742432,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3992986612229194933,
+        "title": "什么是大模型项目的分词器?原理是什么?",
+        "source": "interview-question://L005",
+        "domain": "llm-engineering",
+        "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+        "vector_score": 0.7614745497703552,
+        "keyword_score": 0.5560052777504996,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3770684538166052564,
+        "title": "为什么长上下文会出现 Lost in the Middle?上下文窗口越大越好吗?",
+        "source": "interview-question://L023",
+        "domain": "llm-engineering",
+        "content": "# 为什么长上下文会出现 Lost in the Middle?上下文窗口越大越好吗?\n\n题目编号:L023\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:模型对上下文不同位置的利用不均,常更关注开头和结尾,中间证据可能因位置偏差、注意力稀释和训练分布不足被忽略。更大窗口只能表示“放得下”,不代表能稳定使用,还会增加预填充延迟和成本。可通过检索筛选、重排、分层摘要和把关键证据靠近问题缓解,并用不同位置的针测试和真实长文问答评测。可以把相同证据分别放在开头、中间和末尾,逐步增加无关文本,比较正确率和引用准确性;还要测试跨段关联,不能只用找一个关键词的针测试代替真实任务。改善手段包括检索筛选、分层摘要、相关证据重排与清晰分区,但不能把重复灌入大量信息当作通用解法。更大窗口有时能减少检索遗漏,也会增加处理与维护成本,选择应依据有效上下文表现而不是输入上限。\n\n评分要点:有效上下文与标称窗口区分;原因、成本、缓解和评测。",
+        "vector_score": 0.7557299435138702,
+        "keyword_score": 0.4226730509586469,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1225609568031859411,
+        "title": "Embedding 有哪几种算法你了解过吗?",
+        "source": "interview-question://R007",
+        "domain": "rag",
+        "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+        "vector_score": 0.7766890823841095,
+        "keyword_score": 0.8405626044612413,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 3401652904786247161,
+        "title": "多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?",
+        "source": "interview-question://L003",
+        "domain": "llm-engineering",
+        "content": "# 多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?\n\n题目编号:L003\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MHA 中每个查询头有独立的 K/V 头,长序列下 KV Cache 与显存带宽开销较大;稠密注意力还需要比较序列中的大量位置,计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V,GQA 则把查询头分组,每组共享 K/V,以减少缓存和访存,在速度、显存与表达能力间折中。FlashAttention 从实现层优化:通过分块与在线 Softmax,避免把完整注意力矩阵反复写入显存,从而降低 IO 与中间存储,仍计算精确注意力。它通常不将理论二次计算复杂度改成线性,也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用;实际收益需要在目标模型、序列长度、并发和硬件上测试,而不是只比较算法名称。\n\n评分要点:区分 MQA/GQA 的 K/V 共享与 FlashAttention 的 IO 优化;不把精确稠密注意力说成线性计算。",
+        "vector_score": 0.7740830183029175,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 23.31,
+  "timings_seconds": {
+    "decomposition": 3.26598,
+    "retrieval": 20.04383,
+    "mqe": 5.207224,
+    "hyde": 13.466151,
+    "embedding": 0.705395,
+    "vector_search": 0.128742,
+    "keyword_search": 0.524331,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 20.044032,
+    "total": 23.310012,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

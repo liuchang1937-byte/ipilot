@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-046",
+  "question": "为业务选择模型时如何比较效果、延迟、费用与部署限制？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "L022",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L022"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "回答应先说明候选模型和业务约束，再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据，并说明是否采用模型路由，例如简单任务用低成本模型、复杂任务升级更强模型，而不是只说某模型“效果最好”。例如，如果系统主要做中文题库评分，应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用，而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致，记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选，不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则，避免更换模型后输出格式、工具行为和评分口径悄悄变化。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L022",
+    "interview-question://L020",
+    "interview-question://L015"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "为业务选择模型时如何比较效果、延迟、费用与部署限制？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "为业务选择模型时，如何比较候选模型的效果、延迟、费用与部署限制？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "为业务选择模型时,如何比较候选模型的效果、延迟、费用与部署限制?"
+            },
+            {
+              "kind": "mqe",
+              "text": "为业务选择模型时 如何系统评估候选模型的效果、推理延迟、调用费用与部署限制"
+            },
+            {
+              "kind": "mqe",
+              "text": "AI模型选型 多目标对比框架 benchmark/POC 准确率 响应时间 成本 私有化部署约束"
+            },
+            {
+              "kind": "mqe",
+              "text": "企业选择模型 效果 延迟 费用 部署条件 权衡方法 最佳实践"
+            },
+            {
+              "kind": "hyde",
+              "text": "在业务模型选型中,建立统一评估矩阵,从效果、延迟、费用、部署限制四维对候选模型在相同数据集、推理框架、硬件和并发配置下做基准测试。效果比较采用离线评测指标(准确率、F1、AUC、ROUGE、BLEU、Pass@k、人工评分、幻觉率、鲁棒性)与在线 A/B 测试(CTR、转化率、任务完成率、用户满意度)。延迟比较关注 TTFT、TPOT、端到端 p50/p95/p99 延迟、吞吐 QPS/TPS、最大并发和显存占用,并在目标上下文长度与批处理下压测。费用比较计算每百万 token 推理成本、GPU 小时成本、微调/训练成本、存储与运维成本,结合量化、蒸馏、缓存、批处理后的单位请求成本与 TCO。部署限制比较参数量、显存需求、FP16/INT8/INT4 精度、上下文窗口、许可证、私有化/API 可用性、数据驻留、SLA、限流、框架兼容性(vLLM、TGI、TensorRT-LLM、ONNX Runtime)及可扩展性。最终用加权评分矩阵、帕累托前沿和成本-效果曲线做多目标权衡,按业务优先级选择满足硬约束的最优性价比模型。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L022",
+            "interview-question://L020",
+            "interview-question://L015"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.8612558543682098,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2755254194570667966,
+        "title": "大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?",
+        "source": "interview-question://L020",
+        "domain": "llm-engineering",
+        "content": "# 大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?\n\n题目编号:L020\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:vLLM适合GPU高吞吐服务,强调PagedAttention和连续批处理;TGI提供较完整的Hugging Face生产服务生态;llama.cpp适合CPU、边缘和量化本地部署;SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本,并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持,再用相同输入输出长度、并发与精度设置测试,避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列,重复前缀场景需要看缓存命中,本地部署则更关心内存与量化兼容。框架特性和维护状态会变化,不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力,而不是只说某框架最快。\n\n评分要点:各方案定位和基于指标的选型。",
+        "vector_score": 0.8436977863311768,
+        "keyword_score": 0.945593458621123,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4463257598973586641,
+        "title": "大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?",
+        "source": "interview-question://L015",
+        "domain": "llm-engineering",
+        "content": "# 大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?\n\n题目编号:L015\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:量化用低比特表示权重或激活,以降低显存、带宽和计算成本,代价是精度风险。INT8通常损失小,INT4压缩更强;GPTQ利用校准数据做逐层训练后权重量化,通用性强;AWQ保护对输出敏感的重要权重,常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化,以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化,AWQ 利用激活信息调整重要通道的缩放,减少关键权重的误差;不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快,需要核对算子支持,并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。\n\n评分要点:量化对象、比特权衡、AWQ/GPTQ思路及硬件适配。",
+        "vector_score": 0.8225386142730713,
+        "keyword_score": 0.8765535950315869,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 19.054,
+  "timings_seconds": {
+    "decomposition": 4.506043,
+    "retrieval": 14.548197,
+    "mqe": 6.099515,
+    "hyde": 7.78348,
+    "embedding": 0.521552,
+    "vector_search": 0.028712,
+    "keyword_search": 0.112394,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 14.54832,
+    "total": 19.054363,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

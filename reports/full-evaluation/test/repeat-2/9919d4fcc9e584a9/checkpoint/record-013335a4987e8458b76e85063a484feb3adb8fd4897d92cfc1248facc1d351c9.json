@@ -1,0 +1,202 @@
+{
+  "case_id": "V2-064",
+  "question": "检索到了材料，模型仍然编造结论，如何约束证据和拒答？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "R017",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R017"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先提升数据质量和召回准确性，避免把冲突或无关材料交给模型；提示中要求只依据证据回答、逐项引用，并在证据不足时拒答。生成后检查关键陈述是否被片段支持，可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层，检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率，拒答阈值应在标注集上调节，并平衡误答与过度拒答。遇到冲突或信息不足时说明限制，不能把格式正确、带引用或低温度误认为事实一定正确。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R017",
+    "interview-question://R010",
+    "interview-question://L018"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "检索到了材料，模型仍然编造结论，如何约束证据和拒答？",
+    "answer": "1. 当模型检索到材料但仍然编造结论时，如何约束模型使其生成结论严格依据检索到的证据？\n\n\n2. 当模型检索到材料但仍然编造结论时，如何设计模型在证据约束下的拒答机制？\n",
+    "sections": [
+      {
+        "question": "当模型检索到材料但仍然编造结论时，如何约束模型使其生成结论严格依据检索到的证据？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当模型检索到材料但仍然编造结论时,如何约束模型使其生成结论严格依据检索到的证据?"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG 检索增强生成中如何缓解幻觉并提升事实一致性,使大模型只依据检索到的证据生成结论"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何通过 prompt engineering、constrained decoding、citation/attribution 和证据验证,防止 LLM 在检索增强生成中脱离检索材料编造结论?"
+            },
+            {
+              "kind": "hyde",
+              "text": "在检索增强生成(RAG)中约束模型严格依据检索证据生成结论,可采用“证据约束生成+声明级校验+拒答”框架:将输出分解为原子claim,对每个claim用NLI/证据蕴含模型或LLM verifier判断是否被检索文档entail,仅保留supported/entailed结论,未支持则删除、改写或abstain;解码时使用evidence-constrained decoding、citation-forced generation、logit masking/attention masking,强制引用证据span并禁止无证据结论;训练时引入grounding loss、faithfulness reward、DPO/RLHF证据一致性偏好和反事实证据对比,惩罚与检索证据不一致的输出;推理时执行retrieve-verify-revise、claim-level attribution、self-consistency和不确定性校准,证据不足时拒答或降低置信度。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R017",
+            "interview-question://R010",
+            "interview-question://L018"
+          ]
+        }
+      },
+      {
+        "question": "当模型检索到材料但仍然编造结论时，如何设计模型在证据约束下的拒答机制？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当模型检索到材料但仍然编造结论时,如何设计模型在证据约束下的拒答机制?"
+            },
+            {
+              "kind": "mqe",
+              "text": "当 RAG 检索到材料但模型仍编造结论时,如何设计证据约束下的拒答机制"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索增强生成 幻觉 证据不足 拒绝回答 选择性预测 忠实性 校准"
+            },
+            {
+              "kind": "mqe",
+              "text": "evidence-constrained abstention in retrieval-augmented generation: how to refuse answering when retrieved evidence does not support the conclusion"
+            },
+            {
+              "kind": "hyde",
+              "text": "在RAG中,当模型检索到材料但仍编造结论时,可设计证据约束的拒答机制:检索后对候选证据去重、相关性排序和片段级定位;将生成答案拆解为原子声明,对每个声明执行证据检索与蕴含/矛盾/中立判定,使用NLI、cross-encoder、LLM verifier、ensemble voting和自一致性校验,要求声明被高置信证据片段支持且无矛盾证据。以校准后的支持度、证据覆盖率、矛盾率、归因一致性、引用可定位性等特征训练选择性预测或拒答策略;当支持度低于阈值、证据不足、证据冲突、引用无法回溯到源片段或声明超出证据范围时,触发abstention/refusal,输出“证据不足,无法回答”或请求澄清。训练阶段可用DPO/RLHF奖励忠实性与正确拒答,推理阶段用constrained decoding、citation forcing、verifier rerank和风险-覆盖率优化,在拒答率与事实性之间折中,形成证据充分才答、证据不支持则拒答的机制。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R017",
+            "interview-question://L018",
+            "interview-question://R010"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.8807742297649384,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4411062690451180658,
+        "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+        "source": "interview-question://R010",
+        "domain": "rag",
+        "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+        "vector_score": 0.8400145173072815,
+        "keyword_score": 0.5783077586119143,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3477555688369766113,
+        "title": "大模型为什么会出现幻觉?怎么缓解?",
+        "source": "interview-question://L018",
+        "domain": "llm-engineering",
+        "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+        "vector_score": 0.839512974023819,
+        "keyword_score": 0.8659822640911735,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 39.061,
+  "timings_seconds": {
+    "decomposition": 8.809522,
+    "retrieval": 30.251487,
+    "mqe": 12.006492,
+    "hyde": 17.332358,
+    "embedding": 0.64351,
+    "vector_search": 0.051428,
+    "keyword_search": 0.213622,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 30.251628,
+    "total": 39.061149,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 9,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

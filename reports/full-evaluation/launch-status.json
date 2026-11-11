@@ -1,0 +1,81 @@
+{
+  "state": "completed",
+  "external_calls_started": true,
+  "reason": null,
+  "development_queries": 80,
+  "development_variants": 3,
+  "development_repeats": 3,
+  "development_pipelines": 720,
+  "test_queries": 40,
+  "test_variants": 2,
+  "test_repeats": 3,
+  "test_pipelines": 240,
+  "answer_quality_pipelines": 40,
+  "providers": [
+    "DeepSeek",
+    "DashScope"
+  ],
+  "payload": "项目题库参考资料和评测问题，不含真实用户面试记录或密钥内容",
+  "authorization_source": "user_message",
+  "authorization_text": "授权按上述完整规模运行",
+  "authorization_date": "2026-10-12",
+  "blocked_status": null,
+  "completed_case_jobs": 400,
+  "checkpoint_records": 1000,
+  "balance_readonly_available": true,
+  "balance_cny": "2.77",
+  "route_and_sdk_probe_succeeded": true,
+  "current_phase": "completed",
+  "previous_blocked_status": 402,
+  "balance_at_stop_cny": "-0.08",
+  "balance_is_available": true,
+  "saved_successful_without_warnings": 996,
+  "saved_expansion_fallbacks": 0,
+  "authorization_remains_valid": true,
+  "completed_retrieval_pipelines": 960,
+  "phase_progress": {
+    "dev": {
+      "completed_case_jobs": 240,
+      "planned_case_jobs": 240,
+      "saved_pipelines": 720,
+      "planned_pipelines": 720,
+      "failed_pipelines": 0,
+      "warning_pipelines": 0,
+      "completed_answer_judges": 0,
+      "unavailable_answer_judges": 0
+    },
+    "test": {
+      "completed_case_jobs": 120,
+      "planned_case_jobs": 120,
+      "saved_pipelines": 240,
+      "planned_pipelines": 240,
+      "failed_pipelines": 0,
+      "warning_pipelines": 0,
+      "completed_answer_judges": 0,
+      "unavailable_answer_judges": 0
+    },
+    "quality": {
+      "completed_case_jobs": 40,
+      "planned_case_jobs": 40,
+      "saved_pipelines": 40,
+      "planned_pipelines": 40,
+      "failed_pipelines": 0,
+      "warning_pipelines": 4,
+      "completed_answer_judges": 40,
+      "unavailable_answer_judges": 0
+    }
+  },
+  "completed_phases": [
+    "dev",
+    "test",
+    "quality"
+  ],
+  "quality_first_pass_valid_judges": 35,
+  "quality_first_pass_invalid_judges": 5,
+  "quality_recovery_round": 2,
+  "completed_at": "2026-10-12T16:54:42.732659+00:00",
+  "quality_final_valid_judges": 40,
+  "quality_final_invalid_judges": 0,
+  "quality_saved_attempts": 46,
+  "quality_unavailable_attempts": 6
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-026",
+      "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L002"
+      ],
+      "answerable": true,
+      "reference_answer": "Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示，Decoder通过掩码自注意力自回归生成，并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务，仅Decoder是多数生成式LLM的选择，Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V，通过 Q 与 K 的匹配权重聚合 V，再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文，Decoder 的自注意力用因果遮罩限制未来信息；原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列，推理生成仍逐 Token 进行。注意力改善长距离信息连接，却有计算与显存成本，不能理解为所有阶段都完全并行。",
+      "group": "L002",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

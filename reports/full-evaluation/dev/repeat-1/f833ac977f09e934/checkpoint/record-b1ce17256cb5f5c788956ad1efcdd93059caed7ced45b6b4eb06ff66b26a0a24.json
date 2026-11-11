@@ -1,0 +1,166 @@
+{
+  "case_id": "V2-003",
+  "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "A003",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://A003"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Tool 是一个边界清晰、可调用的外部能力，如查询数据库或发送邮件；Workflow 是预先定义好的步骤、分支和依赖，执行路径主要由代码决定；Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合：Workflow 控制关键流程，Agent 处理开放决策，Tool 提供实际执行能力。例如，报销系统中的金额校验是 Tool，固定的提交、审核、付款流程是 Workflow，自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数，也可以是一次模型调用或一个 Agent；Agent 也能调用固定子流程。因此三者不是互斥产品，更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性，哪些决策需要运行时探索。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A001"
+  ],
+  "recall_at_k": 0.0,
+  "precision_at_k": 0.0,
+  "ndcg_at_k": 0.0,
+  "hit": false,
+  "reciprocal_rank": 0.0,
+  "all_sources_found": false,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+    "answer": "1. 固定流程承担什么职责？\n\n\n2. 会自主决定下一步的助手承担什么职责？\n\n\n3. 外部函数承担什么职责？\n",
+    "sections": [
+      {
+        "question": "固定流程承担什么职责？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "固定流程承担什么职责?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 0,
+          "selected_sources": []
+        }
+      },
+      {
+        "question": "会自主决定下一步的助手承担什么职责？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "会自主决定下一步的助手承担什么职责?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://A001"
+          ]
+        }
+      },
+      {
+        "question": "外部函数承担什么职责？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "外部函数承担什么职责?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 0,
+          "selected_sources": []
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2926109573100487886,
+        "title": "什么是 Agent?与大模型有什么本质不同?",
+        "source": "interview-question://A001",
+        "domain": "agent",
+        "content": "# 什么是 Agent?与大模型有什么本质不同?\n\n题目编号:A001\n\n领域:agent\n\n难度:1\n\n标签:Agent 定义、LLM 应用、自主决策\n- 考察方向:候选人能否从目标、状态、行动、反馈闭环等角度定义 Agent。\n\n参考答案:大模型本质上是根据上下文生成输出的概率模型,本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统,它会感知当前状态,规划下一步,调用工具影响外部环境,读取执行结果并继续决策,直到完成目标或触发停止条件。两者的核心差异是:LLM 提供认知能力,Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如,一个资料调研 Agent 会先确定检索范围,调用搜索工具,检查是否获得足够证据,再组织结论;如果资料不足,就调整查询继续检索。控制循环通常由宿主代码驱动,模型输出的是行动建议,外部操作仍由程序执行。判断是否具备 Agent 特征,要看是否能依据观察更新决策,而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。\n\n评分要点:区分“模型”与“系统”;提到目标、状态、工具和反馈循环;说明 Agent 不等于简单聊天封装。",
+        "vector_score": 0.7403362691402435,
+        "keyword_score": 0.48013842817955865,
+        "rerank_score": 0.11948734521865845
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 6.108,
+  "timings_seconds": {
+    "decomposition": 3.58908,
+    "retrieval": 0.737166,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.473543,
+    "vector_search": 0.069625,
+    "keyword_search": 0.189978,
+    "rerank": 1.780844,
+    "generation": 0.0,
+    "pipeline": 2.518549,
+    "total": 6.107629,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 3,
+    "rerank_pairs": 36
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

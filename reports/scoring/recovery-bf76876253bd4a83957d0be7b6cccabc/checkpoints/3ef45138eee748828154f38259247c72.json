@@ -1,0 +1,1131 @@
+{
+  "id": "3ef45138eee748828154f38259247c72",
+  "kind": "scoring_checkpoint",
+  "records": [
+    {
+      "case_id": "S-011",
+      "repeat": 1,
+      "category": "equivalent",
+      "answers": [
+        "倒排召回抓住型号和术语，稠密表示找到不同措辞下的同一含义；两个有序列表按名次合并，同一资料只保留一份。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 85.0,
+          "reasoning": 85.0,
+          "depth": 85.0,
+          "communication": 85.0,
+          "adaptability": 85.0
+        },
+        "overall": 85.0,
+        "missing_points": [
+          "未举例说明错误码、编号等精确约束场景",
+          "未展开说明RRF、分数归一化等融合细节",
+          "未提及重排或业务评测对混合检索效果的影响"
+        ],
+        "incorrect_points": [],
+        "feedback": "回答准确覆盖三个评分点：关键词/倒排检索的精确词项优势、向量/稠密检索的语义同义优势、混合检索按名次融合与去重。没有明显错误；未展开典型例子、RRF/分数归一化、重排和业务评测等细节，但这些属于扩展内容。",
+        "interviewer_reply": "你明确区分了倒排召回对型号/术语的精确匹配，以及稠密表示对不同措辞同一含义的语义匹配，还提到按名次合并并去重。我们接着可以看按名次融合的具体计算方式。",
+        "needs_followup": false,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到两个有序列表按名次合并，能具体说说 RRF 如何根据名次给文档打分，以及去重一般按什么粒度处理吗？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "关键词检索擅长精确词项匹配",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "倒排召回抓住型号和术语"
+              }
+            ],
+            "reason": "候选人用“倒排召回抓住型号和术语”表达关键词/倒排检索对精确词项和术语约束的擅长，等价于关键词检索擅长精确词项匹配。"
+          },
+          {
+            "point_id": "P2",
+            "point": "向量检索擅长语义同义匹配",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "稠密表示找到不同措辞下的同一含义"
+              }
+            ],
+            "reason": "候选人用“稠密表示找到不同措辞下的同一含义”表达向量/稠密检索对同义改写的语义匹配能力，符合向量检索擅长语义同义匹配。"
+          },
+          {
+            "point_id": "P3",
+            "point": "混合检索需要融合排序并去重",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "两个有序列表按名次合并，同一资料只保留一份。"
+              }
+            ],
+            "reason": "候选人提出“两个有序列表按名次合并，同一资料只保留一份”，体现了混合检索的排序融合与去重要求。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 20.440371
+    },
+    {
+      "case_id": "S-012",
+      "repeat": 1,
+      "category": "correction",
+      "answers": [
+        "向量只能匹配原词。",
+        "刚才说反了：倒排擅长精确词项，向量覆盖同义语义，结果用排序融合并去掉重复资料。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 78.0,
+          "reasoning": 78.0,
+          "depth": 78.0,
+          "communication": 78.0,
+          "adaptability": 78.0
+        },
+        "overall": 78.0,
+        "missing_points": [
+          "未说明关键词检索在可解释性、成本、人名/编号/错误码/精确短语上的优势",
+          "未说明向量检索在改写、跨语言上的优势及可能忽略关键字面约束、语义误召回的风险",
+          "未说明混合检索常用 RRF 或归一化处理不同分数范围，不能简单相加",
+          "未说明融合后通常还需重排、控制上下文长度，以及混合检索不保证必然提升、需业务评测"
+        ],
+        "incorrect_points": [
+          "第一次回答称“向量只能匹配原词”，与向量检索的语义匹配特性不符；该错误在补充回答中已自我纠正。"
+        ],
+        "feedback": "核心区别已正确纠正并覆盖三个评分点：关键词/倒排偏精确词项，向量偏语义同义，混合结果需融合排序和去重。不足是只给结论，缺少 RRF/归一化、分数不可直接相加、重排、评测边界等展开。",
+        "interviewer_reply": "你纠正了第一次的说法，明确倒排适合精确词项、向量覆盖同义语义，并提出用排序融合和去重合并结果。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到结果用排序融合并去重；如果关键词检索和向量检索的原始分数范围不同，具体会怎么融合？RRF 和归一化分别适合什么情况？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "关键词检索擅长精确词项匹配",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "倒排擅长精确词项"
+              }
+            ],
+            "reason": "补充回答明确“倒排擅长精确词项”，倒排索引是关键词检索的常见实现，等价认可为关键词检索擅长精确词项匹配。"
+          },
+          {
+            "point_id": "P2",
+            "point": "向量检索擅长语义同义匹配",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "向量覆盖同义语义"
+              }
+            ],
+            "reason": "补充回答明确“向量覆盖同义语义”，等价认可为向量检索擅长语义同义匹配；第一次错误说法已被自我纠正。"
+          },
+          {
+            "point_id": "P3",
+            "point": "混合检索需要融合排序并去重",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "结果用排序融合并去掉重复资料"
+              }
+            ],
+            "reason": "“结果用排序融合并去掉重复资料”对应混合检索需要融合排序并去重，虽未展开 RRF/归一化，但核心要点已表述。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 29.132745
+    },
+    {
+      "case_id": "S-013",
+      "repeat": 1,
+      "category": "correct",
+      "answers": [
+        "清洗资料、切块并嵌入建索引，用户查询后召回相关内容，把证据放进提示让模型生成带来源的答案。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 85.0,
+          "reasoning": 85.0,
+          "depth": 85.0,
+          "communication": 85.0,
+          "adaptability": 85.0
+        },
+        "overall": 85.0,
+        "missing_points": [
+          "RAG 是检索增强生成的定义",
+          "离线阶段与在线阶段的完整划分",
+          "查询解析/改写、过滤、多路召回、融合、重排与上下文组装",
+          "权限控制、拒答、缓存、增量更新、监控和分层评测"
+        ],
+        "incorrect_points": [],
+        "feedback": "回答准确覆盖了资料清洗切块建索引、查询召回、证据入提示并生成带来源答案三个核心评分点，没有明显错误。但作为完整RAG工作流描述偏概括，缺少RAG定义、离线/在线阶段划分以及查询改写、融合重排、权限拒答和评测监控等环节；建议沿在线链路继续展开。",
+        "interviewer_reply": "你抓住了清洗切块建索引、查询召回和把证据放进提示生成带来源答案这条主线。接下来请展开在线阶段：查询进来后如何改写、多路召回并重排，以及如何组装上下文并处理没有可靠依据的情况？",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到把证据放进提示让模型生成带来源答案。请继续展开在线阶段：用户查询进入后，如何做查询改写、多路召回、融合重排和上下文组装，以及没有可靠依据时如何处理？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "清洗资料、切块并嵌入建索引"
+              }
+            ],
+            "reason": "候选人明确说明清洗资料、切块并嵌入建索引，覆盖资料清洗切块并建立向量索引的核心要求。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "用户查询后召回相关内容"
+              }
+            ],
+            "reason": "候选人说明用户查询后召回相关内容，覆盖查询检索相关资料的核心要求。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "把证据放进提示让模型生成带来源的答案"
+              }
+            ],
+            "reason": "候选人说明把证据放进提示让模型生成带来源的答案，覆盖将检索证据加入提示生成带来源回答的核心要求。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 18.185676
+    },
+    {
+      "case_id": "S-014",
+      "repeat": 1,
+      "category": "partial",
+      "answers": [
+        "先把资料存起来，查询时找相关内容，再让模型回答。"
+      ],
+      "expected_statuses": {
+        "P1": "partial",
+        "P2": "mastered",
+        "P3": "partial"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 40.0,
+          "reasoning": 40.0,
+          "depth": 40.0,
+          "communication": 40.0,
+          "adaptability": 40.0
+        },
+        "overall": 40.0,
+        "missing_points": [
+          "资料清洗、切块、Embedding计算与向量索引建立",
+          "查询解析或改写、过滤、多路召回、融合、重排与上下文组装",
+          "将检索证据加入提示并由LLM生成带来源引用的回答",
+          "权限、拒答、缓存、增量更新、监控与分层评测",
+          "检索无可靠依据时应澄清或拒答"
+        ],
+        "incorrect_points": [],
+        "feedback": "候选人只给出了 RAG 的最粗略主干：存资料、查询检索、让模型回答。方向没有明显错误，但离线索引构建、在线检索链路、证据注入提示和带来源生成等关键细节基本缺失，深度明显不足。",
+        "interviewer_reply": "你抓住了“先存资料、查询检索、再让模型回答”的主干，但还需要把资料如何清洗切块并建立向量索引，以及检索证据如何进入提示并带来源输出这两步讲清楚。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到“先把资料存起来”，这些资料在存入前会如何清洗、切块，并转成向量索引？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "partial",
+            "label": "部分掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "先把资料存起来"
+              }
+            ],
+            "reason": "候选人提到先存资料，可视为离线存储的一环，但未涉及清洗、切块、Embedding计算或向量索引建立等关键步骤，因此仅部分覆盖。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "查询时找相关内容"
+              }
+            ],
+            "reason": "候选人明确指出查询时找相关内容，符合查询检索相关资料这一要点。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "partial",
+            "label": "部分掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "找相关内容，再让模型回答"
+              }
+            ],
+            "reason": "候选人说找到相关内容后让模型回答，隐含检索内容进入生成，但未明确将检索证据加入提示，也未说明生成带来源引用的回答。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 12.616138
+    },
+    {
+      "case_id": "S-015",
+      "repeat": 1,
+      "category": "incorrect",
+      "answers": [
+        "RAG就是直接把资料训练进模型参数，不需要查询检索任何资料，回答也不使用外部证据。"
+      ],
+      "expected_statuses": {
+        "P1": "incorrect",
+        "P2": "incorrect",
+        "P3": "incorrect"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 5.0,
+          "reasoning": 5.0,
+          "depth": 5.0,
+          "communication": 5.0,
+          "adaptability": 5.0
+        },
+        "overall": 5.0,
+        "missing_points": [
+          "RAG的定义：检索增强生成，把外部知识作为证据注入模型上下文",
+          "离线阶段：文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引",
+          "在线阶段：查询解析与改写、过滤、多路召回、融合、重排与上下文组装",
+          "生成阶段：LLM基于检索到的证据生成回答，并保留来源、版本或引用",
+          "生产化要求：权限控制、拒答、缓存、增量更新、监控和分层评测"
+        ],
+        "incorrect_points": [
+          "把RAG定义为直接将资料训练进模型参数",
+          "声称RAG不需要查询检索任何资料",
+          "声称RAG回答不使用外部证据",
+          "混淆了RAG与微调或参数化知识注入"
+        ],
+        "feedback": "本题回答与参考要点完全相反：RAG不是把资料训练进模型参数，而是在推理时检索外部知识并注入上下文。候选人未描述资料清洗切块与向量索引、查询检索相关资料、将检索证据加入提示生成带来源回答，且明确否定检索和外部证据，因此三个评分点均为错误。需要先纠正RAG的基本定义与工作方式。",
+        "interviewer_reply": "你把 RAG 理解成把资料训练进模型参数、不需要检索也不使用外部证据，这和 RAG 的检索增强生成正好相反。我们先澄清 RAG 与微调的边界，再决定是否继续完整流程。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "new_topic",
+        "next_query": "你刚才说 RAG 是把资料训练进模型参数、不需要检索外部资料；那么请先说明“微调”与“检索增强生成”在知识注入方式和推理时是否使用外部证据上的区别。",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "RAG就是直接把资料训练进模型参数，不需要查询检索任何资料，回答也不使用外部证据。"
+              }
+            ],
+            "reason": "候选人声称RAG直接把资料训练进模型参数，未描述资料清洗切块与向量索引，并用训练进参数否定外部检索索引这一关键环节。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "RAG就是直接把资料训练进模型参数，不需要查询检索任何资料，回答也不使用外部证据。"
+              }
+            ],
+            "reason": "候选人明确说“不需要查询检索任何资料”，与查询检索相关资料这一评分点相反。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "RAG就是直接把资料训练进模型参数，不需要查询检索任何资料，回答也不使用外部证据。"
+              }
+            ],
+            "reason": "候选人明确说“回答也不使用外部证据”，与将检索证据加入提示并生成带来源回答这一评分点相反。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 21.613339
+    },
+    {
+      "case_id": "S-016",
+      "repeat": 1,
+      "category": "omission",
+      "answers": [
+        "先清洗资料，按语义切块，生成向量并建立索引。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "not_addressed",
+        "P3": "not_addressed"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 35.0,
+          "reasoning": 35.0,
+          "depth": 35.0,
+          "communication": 35.0,
+          "adaptability": 35.0
+        },
+        "overall": 35.0,
+        "missing_points": [
+          "RAG 的定义：检索增强生成，将外部知识作为证据注入模型上下文",
+          "在线阶段：查询解析或改写、权限过滤、多路召回、融合、重排与上下文组装",
+          "将检索证据加入提示，生成带来源或引用的回答，并在无可靠依据时澄清或拒答"
+        ],
+        "incorrect_points": [],
+        "feedback": "你正确描述了资料清洗、按语义切块、生成向量并建立索引，这属于离线入库阶段的一部分；但整体回答只覆盖了完整 RAG 工作流的一小部分，还没有说明 RAG 是什么，以及在线检索、重排、证据注入和带来源生成回答的流程。",
+        "interviewer_reply": "你提到了先清洗资料、按语义切块，再生成向量并建立索引，这属于离线入库阶段；但还没有说明 RAG 的在线检索和把证据交给模型生成回答的流程。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "请接着你刚说的向量索引往下讲：用户提问后，系统怎样查询并检索相关资料，怎样把检索到的证据加入提示并生成带来源的回答？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "先清洗资料，按语义切块，生成向量并建立索引。"
+              }
+            ],
+            "reason": "候选人明确给出了资料清洗、按语义切块、生成向量并建立索引，覆盖该评分点。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "候选人未提及查询、检索或召回相关资料。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "候选人未提及把检索证据加入提示或生成带来源回答。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 13.831105
+    },
+    {
+      "case_id": "S-017",
+      "repeat": 1,
+      "category": "equivalent",
+      "answers": [
+        "离线把文档整理成片段、编码为稠密表示存入库；在线用问句取回匹配片段，把正文与出处作为上下文交给生成器。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 75.0,
+          "reasoning": 75.0,
+          "depth": 75.0,
+          "communication": 75.0,
+          "adaptability": 75.0
+        },
+        "overall": 75.0,
+        "missing_points": [
+          "未明确说明RAG的定义（检索增强生成）以及外部知识作为证据的定位",
+          "未展开离线阶段的文档采集、清洗、元数据增强、切块策略与索引维护",
+          "未说明在线阶段的查询解析或改写、过滤、多路召回、融合与重排",
+          "未说明生成阶段的引用格式、无可靠依据时拒答或澄清",
+          "未提及权限、缓存、增量更新、监控与分层评测等生产要求"
+        ],
+        "incorrect_points": [],
+        "feedback": "回答准确但过于简略：能说出离线切块向量化入库、在线检索并注入带来源上下文生成这条主链路，但完整RAG工作流的清洗与索引、查询处理与召回融合重排、权限拒答与评测监控均未展开。建议按离线、在线两阶段补全。",
+        "interviewer_reply": "你抓住了离线切块向量化入库、在线检索并把正文和出处交给生成器这条主链路。可以进一步说明召回后如何筛选排序，以及没有可靠来源时如何拒答吗？",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到在线用问句取回匹配片段并把正文与出处交给生成器；如果召回多个相关度不一的片段，你会如何重排、截断上下文，并判断是否需要拒答？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "离线把文档整理成片段、编码为稠密表示存入库"
+              }
+            ],
+            "reason": "候选人描述了离线将文档整理成片段并编码为稠密表示入库，等价覆盖资料清洗/切块与向量索引的核心流程。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "在线用问句取回匹配片段"
+              }
+            ],
+            "reason": "候选人明确提到在线用问句取回匹配片段，覆盖查询检索相关资料。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "把正文与出处作为上下文交给生成器"
+              }
+            ],
+            "reason": "候选人明确提到把正文与出处作为上下文交给生成器，覆盖将检索证据加入提示并生成带来源回答。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 24.991808
+    },
+    {
+      "case_id": "S-018",
+      "repeat": 1,
+      "category": "correction",
+      "answers": [
+        "RAG不做检索。",
+        "修正一下：先清洗切块生成向量索引，再检索与问题相关的资料，证据和出处进入提示用于生成有引用的回答。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 78.0,
+          "reasoning": 78.0,
+          "depth": 78.0,
+          "communication": 78.0,
+          "adaptability": 78.0
+        },
+        "overall": 78.0,
+        "missing_points": [
+          "离线阶段文档采集、结构化切块、元数据增强、Embedding计算及关键词/向量索引的展开细节",
+          "在线阶段查询解析与改写、过滤、多路召回、融合、重排与上下文组装",
+          "权限控制、拒答、缓存、增量更新、监控和分层评测",
+          "Embedding、重排、生成三者职责区分，以及检索无可靠依据时应澄清或拒答",
+          "记录查询、候选、引用和耗时以定位失败发生在入库、召回还是生成阶段"
+        ],
+        "incorrect_points": [
+          "最初回答“RAG不做检索”是错误的，因为RAG依赖检索增强生成；候选人随后已修正。"
+        ],
+        "feedback": "候选人先给出错误判断，随后修正并覆盖三个核心评分点：清洗切块建向量索引、检索相关资料、将证据和出处加入提示生成带引用回答。主线正确，表达简洁。主要不足是深度和完整性：未展开完整离线/在线流程、查询改写、过滤、多路召回、融合、重排、上下文组装，以及权限、拒答、缓存、监控与评测等生产环节。",
+        "interviewer_reply": "你修正后把“清洗切块建索引→检索相关资料→证据和出处进提示生成引用回答”的主线说清楚了；不过完整RAG还需要展开在线查询改写、召回融合重排、权限与拒答等环节。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你已经说明先建向量索引再检索，并把证据和出处放入提示生成回答；请展开在线链路：用户查询进来后如何做查询改写、权限/元数据过滤、多路召回、融合、重排和上下文组装？如果检索不到可靠依据，系统应如何处理？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "先清洗切块生成向量索引"
+              }
+            ],
+            "reason": "补充回答明确提到先清洗切块并生成向量索引，符合资料清洗切块并建立向量索引的要点。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "再检索与问题相关的资料"
+              }
+            ],
+            "reason": "补充回答明确提到检索与问题相关的资料，符合查询检索相关资料的要点。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "证据和出处进入提示用于生成有引用的回答"
+              }
+            ],
+            "reason": "补充回答明确提到证据和出处进入提示并生成有引用的回答，符合将检索证据加入提示生成带来源回答的要点。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 12.204543
+    },
+    {
+      "case_id": "S-019",
+      "repeat": 1,
+      "category": "correct",
+      "answers": [
+        "记录当前阶段与任务进度，状态持久化后重启可恢复，使用请求ID去重和幂等操作避免重复执行。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 76.0,
+          "reasoning": 76.0,
+          "depth": 76.0,
+          "communication": 76.0,
+          "adaptability": 76.0
+        },
+        "overall": 76.0,
+        "missing_points": [
+          "防跑偏机制：阶段允许动作、目标一致性检查、未完成事项、最大步数",
+          "Checkpoint 中保存未决工具请求、产物版本与已确认外部操作",
+          "恢复时核查外部操作真实结果，避免未收到响应就重复付款或发送通知",
+          "并发会话按身份和会话 ID 隔离，状态更新使用版本号或事务防止旧回复覆盖新指令"
+        ],
+        "incorrect_points": [],
+        "feedback": "回答覆盖了状态管理、持久化恢复和幂等去重三个核心评分点，表述准确。主要不足是较简略，未展开防跑偏、检查点内容、恢复时外部操作核查以及并发状态隔离等细节；这些属于遗漏而非错误。",
+        "interviewer_reply": "你提到记录当前阶段与任务进度，并在持久化后用请求 ID 去重和幂等避免重复执行，这覆盖了状态保存、恢复和防重复执行的核心做法。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到记录当前阶段与任务进度，那么如何利用这些状态做目标一致性检查，避免用户补充预算上限或临时改变目标后 Agent 跑偏？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "记录当前阶段与任务进度"
+              }
+            ],
+            "reason": "候选人明确说明记录当前阶段与任务进度，直接覆盖保存会话阶段和当前任务状态。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "状态持久化后重启可恢复"
+              }
+            ],
+            "reason": "候选人明确说明状态持久化后重启可恢复，直接覆盖持久化状态以支持中断恢复。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "使用请求ID去重和幂等操作避免重复执行"
+              }
+            ],
+            "reason": "候选人明确说明使用请求ID去重和幂等操作避免重复执行，直接覆盖请求去重或幂等避免重复执行。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 24.875037
+    },
+    {
+      "case_id": "S-020",
+      "repeat": 1,
+      "category": "partial",
+      "answers": [
+        "保存当前处在哪一步，重启后继续执行。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "partial",
+        "P3": "not_addressed"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 38.0,
+          "reasoning": 38.0,
+          "depth": 38.0,
+          "communication": 38.0,
+          "adaptability": 38.0
+        },
+        "overall": 38.0,
+        "missing_points": [
+          "未说明状态持久化的具体机制，如事件日志、Checkpoint 与重放未完成事件",
+          "未说明如何防止跑偏，如阶段允许动作、目标一致性检查、未完成事项摘要、最大步数等",
+          "未说明使用请求去重或幂等键避免恢复后重复执行工具",
+          "未说明恢复时需核查未决工具请求、已确认外部操作及副作用的真实结果",
+          "未说明并发会话按身份和会话 ID 隔离，以及用版本号或事务防止旧回复覆盖新指令"
+        ],
+        "incorrect_points": [],
+        "feedback": "回答抓住了保存当前步骤并在重启后继续执行这一点，覆盖了状态保存与中断恢复的核心。但没有说明如何防止跑偏，也未涉及恢复后幂等/去重、核查未决工具请求与外部操作，以及并发隔离等关键点。",
+        "interviewer_reply": "你提到保存当前步骤、重启后继续执行，这确实是中断恢复的基础；但还需要考虑恢复后是否会重复执行工具，以及如何防止任务跑偏。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到重启后继续执行，如果恢复时不确定某个工具调用是否已经完成，你会如何避免重复执行或重复产生副作用？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "保存当前处在哪一步，重启后继续执行。"
+              }
+            ],
+            "reason": "“保存当前处在哪一步”直接对应保存会话阶段/当前任务进度，能支撑继续执行。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "保存当前处在哪一步，重启后继续执行。"
+              }
+            ],
+            "reason": "“重启后继续执行”表明状态需要跨重启保留以支持中断恢复；虽未展开检查点等细节，但核心含义已覆盖。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "回答未提及请求去重、幂等键或避免重复执行工具，属于遗漏而非错误。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 24.564654
+    },
+    {
+      "case_id": "S-021",
+      "repeat": 1,
+      "category": "incorrect",
+      "answers": [
+        "完全不保存当前任务状态，所有信息只在内存里所以重启也不会丢，重试请求重复执行也不需要控制。"
+      ],
+      "expected_statuses": {
+        "P1": "incorrect",
+        "P2": "incorrect",
+        "P3": "incorrect"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 4.0,
+          "reasoning": 4.0,
+          "depth": 4.0,
+          "communication": 4.0,
+          "adaptability": 4.0
+        },
+        "overall": 4.0,
+        "missing_points": [
+          "未说明将消息历史与业务状态分离",
+          "未说明显式保存阶段、目标、计划、已完成步骤、工具结果、约束和预算",
+          "未说明事件日志与 Checkpoint/重放机制",
+          "未说明阶段允许动作、目标一致性检查、最大步数等防跑偏机制",
+          "未说明外部工具幂等键、去重键或请求去重",
+          "未说明检查点需保存未决工具请求、产物版本和已确认外部操作",
+          "未说明并发会话按身份/会话 ID 隔离及版本号/事务防覆盖"
+        ],
+        "incorrect_points": [
+          "认为完全不保存当前任务状态即可",
+          "认为所有信息只在内存里重启也不会丢",
+          "认为重试请求重复执行不需要控制"
+        ],
+        "feedback": "回答与题目要求相反：既未保存业务状态，也未持久化，还否定重试去重/幂等。内存是易失的，服务重启会丢失状态；重试若不控制会导致重复副作用。需要重新学习状态管理、Checkpoint/事件日志、幂等与恢复流程。",
+        "interviewer_reply": "你明确说状态只放内存且重启不会丢，并认为重试重复执行不需要控制；这两点在服务重启或请求超时重试时会导致任务丢失和重复副作用。",
+        "needs_followup": true,
+        "unmastered_points": [
+          "保存会话阶段和当前任务状态",
+          "持久化状态以支持中断恢复",
+          "使用请求去重或幂等避免重复执行"
+        ],
+        "next_action": "new_topic",
+        "next_query": "先换一个基础问题：如果一个服务进程崩溃重启，内存中的会话状态会保留吗？要跨重启保留状态，通常应把它放到哪里？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "完全不保存当前任务状态"
+              }
+            ],
+            "reason": "候选人明确表示完全不保存当前任务状态，与需要保存会话阶段和当前任务状态相反；没有提出等价机制。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "所有信息只在内存里所以重启也不会丢"
+              }
+            ],
+            "reason": "候选人称所有信息只在内存里所以重启不会丢，误把内存当持久化；无法支持中断恢复。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "重试请求重复执行也不需要控制"
+              }
+            ],
+            "reason": "候选人称重试请求重复执行不需要控制，直接否定请求去重/幂等要求。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 21.968769
+    },
+    {
+      "case_id": "S-022",
+      "repeat": 1,
+      "category": "omission",
+      "answers": [
+        "给每个请求唯一编号，重复请求只处理一次。"
+      ],
+      "expected_statuses": {
+        "P1": "not_addressed",
+        "P2": "not_addressed",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 30.0,
+          "reasoning": 30.0,
+          "depth": 30.0,
+          "communication": 30.0,
+          "adaptability": 30.0
+        },
+        "overall": 30.0,
+        "missing_points": [
+          "会话阶段和当前任务状态的保存",
+          "状态持久化（事件日志/Checkpoint/重放）以支持中断恢复",
+          "防跑偏机制（阶段允许动作、目标一致性检查、未完成事项、最大步数）",
+          "检查点保存未决工具请求、产物版本、已确认外部操作，并在恢复时核查真实结果",
+          "并发会话隔离与版本号/事务防止旧回复覆盖新指令"
+        ],
+        "incorrect_points": [],
+        "feedback": "候选人只覆盖了请求去重/幂等这一小部分，能说明如何避免同一请求被重复执行，但未回答多轮对话状态如何组织与保存、如何持久化以支持中断恢复，也未说明如何防止跑偏。建议补充阶段、目标、计划、已完成步骤、工具结果等状态结构，事件日志与 Checkpoint，恢复时重放和核查外部操作，以及并发隔离机制。",
+        "interviewer_reply": "你提到用请求唯一编号去重，重复请求只处理一次，这能直接避免同一请求被重复执行。那这个唯一编号和已处理记录应该存在哪里，恢复时怎么判断某个请求已经执行过？",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到给每个请求唯一编号并只处理一次，请具体说明：这个去重记录如何持久化，Agent 中断恢复后如何依据它判断请求是否已执行，并避免重复产生副作用？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "候选人没有提到会话阶段、当前任务状态或相关状态结构，无法判断对该要点是否掌握。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "候选人没有提到状态持久化、事件日志、Checkpoint 或中断恢复，无法判断对该要点是否掌握。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "给每个请求唯一编号，重复请求只处理一次。"
+              }
+            ],
+            "reason": "候选人提出给每个请求唯一编号，重复请求只处理一次，属于请求去重/幂等的合理基础实现，直接覆盖该要点。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 14.698706
+    },
+    {
+      "case_id": "S-023",
+      "repeat": 1,
+      "category": "equivalent",
+      "answers": [
+        "将流程节点及其进度写入数据库检查点，进程重建后从检查点续跑，以业务唯一键检查已经执行的步骤。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 75.0,
+          "reasoning": 75.0,
+          "depth": 75.0,
+          "communication": 75.0,
+          "adaptability": 75.0
+        },
+        "overall": 75.0,
+        "missing_points": [
+          "消息历史与业务状态分离",
+          "防跑偏机制，如阶段允许动作、目标一致性检查、最大步数等",
+          "检查点应保存未决工具请求、产物版本与已确认外部操作",
+          "恢复时先核查外部操作真实结果",
+          "并发会话隔离与状态版本/事务控制"
+        ],
+        "incorrect_points": [],
+        "feedback": "回答命中状态检查点、持久化恢复和业务唯一键去重三个核心点，思路正确且可落地；但整体较简略，未展开防跑偏、未决工具请求/外部副作用核查以及并发隔离，导致对原题覆盖不完整。",
+        "interviewer_reply": "你提到把流程节点和进度写入数据库检查点，并用业务唯一键检查已执行步骤来避免重复。那恢复时如果有一个工具调用已发出但没收到响应，你会如何核查并避免重复副作用？",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "承接你的检查点+唯一键方案：如果恢复时发现某次付款或通知的工具请求状态不确定，你会把哪些状态写入检查点，并按什么顺序核查真实结果再决定重放或跳过？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "将流程节点及其进度写入数据库检查点，进程重建后从检查点续跑，以业务唯一键检查已经执行的步骤。"
+              }
+            ],
+            "reason": "回答将流程节点及其进度写入数据库检查点，等价于保存会话阶段或当前任务状态；虽未展开消息历史与业务状态分离，但不影响该点掌握。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "将流程节点及其进度写入数据库检查点，进程重建后从检查点续跑，以业务唯一键检查已经执行的步骤。"
+              }
+            ],
+            "reason": "回答使用数据库检查点持久化流程节点与进度，并在进程重建后从检查点续跑，等价于持久化状态以支持中断恢复。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "将流程节点及其进度写入数据库检查点，进程重建后从检查点续跑，以业务唯一键检查已经执行的步骤。"
+              }
+            ],
+            "reason": "回答以业务唯一键检查已经执行的步骤，属于请求去重或幂等检查，可避免恢复后重复执行。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 14.77151
+    },
+    {
+      "case_id": "S-024",
+      "repeat": 1,
+      "category": "correction",
+      "answers": [
+        "服务重启只能重新开始。",
+        "更正：保存阶段与任务状态到持久存储，重启后读取恢复，并使用幂等键防止相同请求再次执行。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 78.0,
+          "reasoning": 78.0,
+          "depth": 78.0,
+          "communication": 78.0,
+          "adaptability": 78.0
+        },
+        "overall": 78.0,
+        "missing_points": [
+          "未涉及防止跑偏的阶段允许动作、目标一致性检查、未完成事项摘要和最大步数等机制",
+          "未涉及检查点除消息外还应保存未决工具请求、产物版本和已确认外部操作",
+          "未涉及恢复时需先核查外部操作的真实结果，避免未收到响应就重试",
+          "未涉及并发会话按身份和会话 ID 隔离，以及版本号或事务防止旧回复覆盖新指令"
+        ],
+        "incorrect_points": [
+          "回答1中“服务重启只能重新开始”的说法不正确；回答2已更正为持久化状态并恢复"
+        ],
+        "feedback": "回答2更正后覆盖了持久化阶段与任务状态、重启恢复和幂等去重三个评分要点，基础方向正确。当前回答较简短，未展开防跑偏、检查点内容、恢复时外部结果核查和并发隔离等关键机制，深度上仍可继续追问。",
+        "interviewer_reply": "你明确提到保存阶段与任务状态到持久存储，重启后读取恢复，并用幂等键避免相同请求再次执行，覆盖了中断恢复和去重的基础做法。若恢复时遇到已发出但未收到响应的工具调用，你会如何确认真实结果并决定是否重试？",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到用幂等键防止相同请求再次执行；如果恢复时发现某个支付或通知请求已发出但未收到响应，你会如何核查它是否实际成功，并避免重复产生副作用？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "保存阶段与任务状态到持久存储"
+              }
+            ],
+            "reason": "回答2明确保存阶段与任务状态到持久存储，满足保存会话阶段和当前任务状态；回答1的错误已被后续更正覆盖。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "重启后读取恢复"
+              }
+            ],
+            "reason": "回答2说明重启后读取持久状态恢复，满足持久化状态以支持中断恢复；回答1的错误已被后续更正覆盖。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "使用幂等键防止相同请求再次执行"
+              }
+            ],
+            "reason": "回答2明确使用幂等键防止相同请求再次执行，符合请求去重或幂等避免重复执行。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 24.381781
+    }
+  ]
+}

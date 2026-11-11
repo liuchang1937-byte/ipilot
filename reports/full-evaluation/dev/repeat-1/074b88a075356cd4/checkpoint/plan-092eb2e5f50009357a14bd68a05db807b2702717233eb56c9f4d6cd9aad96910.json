@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-061",
+  "subquestions": [
+    {
+      "question": "当召回效果不好时，在查询、切块、混合召回和重排四个环节中，应该优先从哪个环节开始检查，以及这四个环节的检查顺序或排序依据是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.859581200000321
+}

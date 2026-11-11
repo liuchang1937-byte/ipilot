@@ -1,0 +1,779 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "44fba0c0d5b442e8af51f88cd39201b4",
+  "created_at": "2026-10-12T15:29:10.731847+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "2081e4b189060c3501d964f9af1e0c3b6a39f1c3ae9bf5b375b0b40712f51a2c",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-3\\58c7a6d9e5aacc69\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 25.662,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 25.662,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.951606,
+          "p50": 3.951606,
+          "p95": 3.951606,
+          "max": 3.951606,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 21.709991,
+          "p50": 21.709991,
+          "p95": 21.709991,
+          "max": 21.709991,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.161816,
+          "p50": 6.161816,
+          "p95": 6.161816,
+          "max": 6.161816,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 14.55537,
+          "p50": 14.55537,
+          "p95": 14.55537,
+          "max": 14.55537,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.702168,
+          "p50": 0.702168,
+          "p95": 0.702168,
+          "max": 0.702168,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.057886,
+          "p50": 0.057886,
+          "p95": 0.057886,
+          "max": 0.057886,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.22823,
+          "p50": 0.22823,
+          "p95": 0.22823,
+          "max": 0.22823,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 21.710136,
+          "p50": 21.710136,
+          "p95": 21.710136,
+          "max": 21.710136,
+          "samples": 1
+        },
+        "total": {
+          "mean": 25.661742,
+          "p50": 25.661742,
+          "p95": 25.661742,
+          "max": 25.661742,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.411,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.411,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.951606,
+          "p50": 3.951606,
+          "p95": 3.951606,
+          "max": 3.951606,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.459182,
+          "p50": 0.459182,
+          "p95": 0.459182,
+          "max": 0.459182,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.374754,
+          "p50": 0.374754,
+          "p95": 0.374754,
+          "max": 0.374754,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.025674,
+          "p50": 0.025674,
+          "p95": 0.025674,
+          "max": 0.025674,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.057499,
+          "p50": 0.057499,
+          "p95": 0.057499,
+          "max": 0.057499,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.459317,
+          "p50": 0.459317,
+          "p95": 0.459317,
+          "max": 0.459317,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.410923,
+          "p50": 4.410923,
+          "p95": 4.410923,
+          "max": 4.410923,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-014",
+      "question": "如何让模型产出可执行计划，并在执行中调整步骤？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "A014",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A014"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤，成本最低、最常用；ToT让模型同时探索多条候选路径并评估选择，质量更高但模型调用明显增加；GoT把推理表示成可复用、可合并的图结构，适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化，由执行器校验步骤、依赖和完成条件，并在失败后重规划。规划结果应是可执行的任务结构，例如每步的目标、输入、工具、依赖和完成条件，而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划，再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器，必要时只修订未完成部分。一个任务是否完成要由验收条件判断，不能仅因模型写出了看似完整的步骤就视为规划成功。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A014",
+        "interview-question://A002",
+        "interview-question://A005",
+        "interview-question://A004"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "如何让模型产出可执行计划，并在执行中调整步骤？",
+        "answer": "1. 如何让模型产出可执行计划？\n\n\n2. 如何让模型在执行可执行计划的过程中调整步骤？\n",
+        "sections": [
+          {
+            "question": "如何让模型产出可执行计划？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "如何让模型产出可执行计划?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "如何让大语言模型生成可执行计划"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM 智能体 任务规划 可执行步骤 prompt 设计"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How to prompt LLM to generate executable action plans for agents"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "让大语言模型产出可执行计划,需将规划问题形式化为状态、目标、动作空间与约束,并用结构化提示、约束解码和工具调用接口生成机器可解析的计划。常见方法包括 ReAct、Plan-and-Execute、Reflexion、Plan-and-Solve、Tree of Thoughts、MCTS 搜索与自我一致性采样:先做任务分解,再为每个子任务生成动作、前置条件、后置效果、参数、依赖关系和验证标准。输出采用 JSON、PDDL、DSL 或函数签名等格式,结合 JSON Schema 校验、沙箱执行器、验证器和执行反馈进行逐步验证、错误恢复与重规划。训练或微调可使用成功轨迹、失败案例、执行结果奖励和过程监督,优化计划的可执行性、正确性、鲁棒性、安全性和成本。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A014",
+                "interview-question://A002",
+                "interview-question://A005"
+              ]
+            }
+          },
+          {
+            "question": "如何让模型在执行可执行计划的过程中调整步骤？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "如何让模型在执行可执行计划的过程中调整步骤?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "如何让模型在执行可执行计划的过程中动态调整步骤"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型 计划执行 动态重规划 步骤调整 反馈"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM agent adaptive plan execution adjust steps replanning during execution"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "让模型在执行可执行计划过程中动态调整步骤,核心是构建“执行—监控—反馈—重规划”闭环。将计划表示为可修改的任务图、DAG 或分层任务网络 HTN,节点包含前置条件、动作、后置条件、成功判据、超时与回滚/补偿策略。执行器按拓扑顺序、条件分支或状态机逐步运行,每步调用工具/API,并收集环境观察、中间结果、错误码、资源约束和置信度。验证器或 critic 比较预期状态与实际状态,当出现工具失败、观察偏离、约束变化、新目标、低置信度或超时,触发动态重规划:局部修复、替换子任务、插入补偿/回滚、调整参数、重排依赖或生成新候选步骤,并通过约束校验、代价/风险模型和沙箱验证选择。结合 ReAct 式思考—行动—观察循环、Reflexion 反思记忆、Plan-and-Execute、动态调度、人在回路确认,使模型在运行时更新可执行计划并继续执行。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A014",
+                "interview-question://A004",
+                "interview-question://A002"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.8408691585063934,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1979822055872710034,
+            "title": "Agent 的基本架构由哪些核心组件构成?",
+            "source": "interview-question://A002",
+            "domain": "agent",
+            "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+            "vector_score": 0.8148480355739594,
+            "keyword_score": 0.9942890026026222,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 320541557706665564,
+            "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+            "source": "interview-question://A005",
+            "domain": "agent",
+            "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+            "vector_score": 0.7934221029281616,
+            "keyword_score": 0.9761130433060009,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.8289710581302643,
+            "keyword_score": 0.6241798671644858,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 25.662,
+      "timings_seconds": {
+        "decomposition": 3.951606,
+        "retrieval": 21.709991,
+        "mqe": 6.161816,
+        "hyde": 14.55537,
+        "embedding": 0.702168,
+        "vector_search": 0.057886,
+        "keyword_search": 0.22823,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 21.710136,
+        "total": 25.661742,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-014",
+      "question": "如何让模型产出可执行计划，并在执行中调整步骤？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "A014",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A014"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤，成本最低、最常用；ToT让模型同时探索多条候选路径并评估选择，质量更高但模型调用明显增加；GoT把推理表示成可复用、可合并的图结构，适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化，由执行器校验步骤、依赖和完成条件，并在失败后重规划。规划结果应是可执行的任务结构，例如每步的目标、输入、工具、依赖和完成条件，而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划，再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器，必要时只修订未完成部分。一个任务是否完成要由验收条件判断，不能仅因模型写出了看似完整的步骤就视为规划成功。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A014",
+        "interview-question://A006",
+        "interview-question://A002"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "如何让模型产出可执行计划，并在执行中调整步骤？",
+        "answer": "1. 如何让模型产出可执行计划？\n\n\n2. 如何让模型在执行可执行计划的过程中调整步骤？\n",
+        "sections": [
+          {
+            "question": "如何让模型产出可执行计划？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "如何让模型产出可执行计划?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A014",
+                "interview-question://A006",
+                "interview-question://A002"
+              ]
+            }
+          },
+          {
+            "question": "如何让模型在执行可执行计划的过程中调整步骤？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "如何让模型在执行可执行计划的过程中调整步骤?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A014",
+                "interview-question://A006",
+                "interview-question://A002"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.8141511678695679,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 340363636581916227,
+            "title": "ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?",
+            "source": "interview-question://A006",
+            "domain": "agent",
+            "content": "# ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?\n\n题目编号:A006\n\n领域:agent\n\n难度:2\n\n标签:Plan-and-Execute、Reflection、ReAct\n- 考察方向:三类范式的准确性、延迟、成本和恢复能力差异。\n\n参考答案:ReAct 边思考边行动,适合信息逐步显现、需要频繁工具交互的任务,但调用轮次多;Plan-and-Execute 先生成整体计划再逐项执行,适合依赖关系清楚的长任务,但初始计划错误会向后传播;Reflection 在结果或阶段完成后检查缺陷并修正,适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价,复杂项目常把三者组合使用。例如,开放式故障调查适合根据日志逐步选择工具;生成研究报告可以先列出资料搜集、比较和写作步骤,再由执行器完成;报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据,而不是让同一个模型无限重写。计划遇到新信息也需要修订,并非提前规划后就禁止变化;三种机制都应有步数、费用和时间上限。\n\n评分要点:比较三者控制时机和代价;给出基于场景的选择依据。",
+            "vector_score": 0.7874197959899902,
+            "keyword_score": 0.5620838659179705,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1979822055872710034,
+            "title": "Agent 的基本架构由哪些核心组件构成?",
+            "source": "interview-question://A002",
+            "domain": "agent",
+            "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+            "vector_score": 0.7978202700614929,
+            "keyword_score": 0.502332289135838,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.411,
+      "timings_seconds": {
+        "decomposition": 3.951606,
+        "retrieval": 0.459182,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.374754,
+        "vector_search": 0.025674,
+        "keyword_search": 0.057499,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.459317,
+        "total": 4.410923,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-014",
+      "subquestions": [
+        {
+          "question": "如何让模型产出可执行计划？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "如何让模型在执行可执行计划的过程中调整步骤？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.9516060999994806
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 26.128,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

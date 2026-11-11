@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-061",
+  "subquestions": [
+    {
+      "question": "召回效果不好时，应该从查询、切块、混合召回还是重排开始检查？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.869285699998727
+}

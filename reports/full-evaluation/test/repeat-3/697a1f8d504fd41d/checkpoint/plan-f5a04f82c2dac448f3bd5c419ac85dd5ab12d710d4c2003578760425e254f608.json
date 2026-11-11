@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-084",
+  "subquestions": [
+    {
+      "question": "统一模型网关怎样处理路由？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "统一模型网关怎样处理限流？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "统一模型网关怎样处理服务失败回退？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.693178399997123
+}

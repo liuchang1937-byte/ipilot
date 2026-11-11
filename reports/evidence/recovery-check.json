@@ -1,0 +1,10 @@
+{
+  "retrieval_records": 42,
+  "retrieval_failures": 0,
+  "same_query_set": true,
+  "same_corpus": true,
+  "unique_complete_matrix": true,
+  "scoring_cases": 24,
+  "verified_points": 72,
+  "seed_matching_points": 70
+}

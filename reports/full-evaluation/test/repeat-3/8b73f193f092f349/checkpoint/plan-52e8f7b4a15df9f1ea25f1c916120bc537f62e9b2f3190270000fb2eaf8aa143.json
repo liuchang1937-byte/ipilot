@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-088",
+  "subquestions": [
+    {
+      "question": "ReAct执行循环怎么工作？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "先规划后执行与反思相比有什么异同？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.50127049999719
+}

@@ -1,0 +1,767 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "935d318a11be4c20bdc0d993331bf81e",
+  "created_at": "2026-10-12T15:16:45.705222+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "841f9d1d12eae84df39083a986c6ae3b1d740095789c10792e96c1228b6383fa",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-1\\f9d5de0ac4514df6\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 19.777,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 19.777,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.364426,
+          "p50": 2.364426,
+          "p95": 2.364426,
+          "max": 2.364426,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 17.412562,
+          "p50": 17.412562,
+          "p95": 17.412562,
+          "max": 17.412562,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 5.80962,
+          "p50": 5.80962,
+          "p95": 5.80962,
+          "max": 5.80962,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 10.652265,
+          "p50": 10.652265,
+          "p95": 10.652265,
+          "max": 10.652265,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.65187,
+          "p50": 0.65187,
+          "p95": 0.65187,
+          "max": 0.65187,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.057767,
+          "p50": 0.057767,
+          "p95": 0.057767,
+          "max": 0.057767,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.236323,
+          "p50": 0.236323,
+          "p95": 0.236323,
+          "max": 0.236323,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 17.412746,
+          "p50": 17.412746,
+          "p95": 17.412746,
+          "max": 17.412746,
+          "samples": 1
+        },
+        "total": {
+          "mean": 19.777173,
+          "p50": 19.777173,
+          "p95": 19.777173,
+          "max": 19.777173,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 2.923,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 2.923,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.364426,
+          "p50": 2.364426,
+          "p95": 2.364426,
+          "max": 2.364426,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.558382,
+          "p50": 0.558382,
+          "p95": 0.558382,
+          "max": 0.558382,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.477244,
+          "p50": 0.477244,
+          "p95": 0.477244,
+          "max": 0.477244,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.024229,
+          "p50": 0.024229,
+          "p95": 0.024229,
+          "max": 0.024229,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.055836,
+          "p50": 0.055836,
+          "p95": 0.055836,
+          "max": 0.055836,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.558521,
+          "p50": 0.558521,
+          "p95": 0.558521,
+          "max": 0.558521,
+          "samples": 1
+        },
+        "total": {
+          "mean": 2.922947,
+          "p50": 2.922947,
+          "p95": 2.922947,
+          "max": 2.922947,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-016",
+      "question": "不同专长的助手如何交接任务，什么时候动态切换角色？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "A016",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A016"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "多Agent协作主要依靠消息传递和共享状态：前者把上一个Agent的产物交给下一个，后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成，可按预设规则做静态路由，也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案，并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本，避免把全部历史原样转发。同步协作可用结构化调用，长任务可用消息队列和任务表，所有路径都由协调器追踪。动态切换需要明确触发条件，例如专业能力不足、任务阶段变化或执行失败，并限制交接次数。共享状态应通过受控更新接口提交，不能让多个 Agent 随意覆盖同一份任务记录。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A016",
+        "interview-question://A010",
+        "interview-question://A011"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "不同专长的助手如何交接任务，什么时候动态切换角色？",
+        "answer": "1. 不同专长的助手如何交接任务？\n\n\n2. 不同专长的助手什么时候动态切换角色？\n",
+        "sections": [
+          {
+            "question": "不同专长的助手如何交接任务？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "不同专长的助手如何交接任务?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "不同专长的助手之间如何交接任务"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "异构多智能体系统中任务转交与交接机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "multi-agent task handover between specialized assistants"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在多助手协作系统中,不同专长的助手通过标准化任务交接协议完成 handoff。编排器或路由器根据用户意图、实体、对话状态和任务依赖图,查询各助手的能力描述、专长向量、可用工具与权限,进行 capability matching 和 expertise routing。当前助手在无法处理或需跨域时,生成结构化交接包:任务目标、约束、槽位、已完成步骤、中间结果、置信度、错误码、所需工具/API、上下文摘要和引用工件。系统通过共享黑板、消息队列、共享内存或事件总线传递状态,并保持对话状态跟踪与任务 DAG 一致性。接收助手校验上下文、补充澄清、更新计划,并返回确认或拒绝;若失败则触发回退、升级、重路由或 human-in-the-loop。交接过程记录审计日志,确保可追溯、幂等和可恢复。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A016",
+                "interview-question://A010",
+                "interview-question://A011"
+              ]
+            }
+          },
+          {
+            "question": "不同专长的助手什么时候动态切换角色？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "不同专长的助手什么时候动态切换角色?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "不同专长的助手什么时候会动态切换角色?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "多专家助手动态角色切换的触发条件与时机"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "多智能体系统中专家助手角色动态分配和切换场景"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "不同专长的助手在任务意图、领域或约束发生变化时动态切换角色。典型触发条件包括:意图分类器或路由器检测到领域漂移(domain shift)、当前助手能力匹配度低于阈值、置信度/熵值异常、连续澄清或任务失败、用户显式请求专家、出现跨模态/跨领域子任务、需要新工具或外部知识、上下文/知识时效性不足,以及多智能体调度器进行负载均衡或成本优化。切换时机通常位于对话轮边界、子任务边界、工具调用返回后、生成响应前或辩论/评审阶段;由编排器或仲裁者依据技能向量、专家画像、任务分解结果和对话状态重新分配角色,并交接共享记忆、目标、约束与中间结果,实现专家路由、动态角色重分配、协作式推理和 Mixture-of-Experts 式门控。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A016",
+                "interview-question://A010",
+                "interview-question://A011"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2769771559713974979,
+            "title": "如何设计多 Agent 的协作与动态切换机制?",
+            "source": "interview-question://A016",
+            "domain": "agent",
+            "content": "# 如何设计多 Agent 的协作与动态切换机制?\n\n题目编号:A016\n\n领域:agent\n\n难度:3\n\n标签:Agent 路由、任务交接、协议\n- 考察方向:能力描述、上下文传递、结果契约及动态切换。\n\n参考答案:多Agent协作主要依靠消息传递和共享状态:前者把上一个Agent的产物交给下一个,后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。同步协作可用结构化调用,长任务可用消息队列和任务表,所有路径都由协调器追踪。动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。共享状态应通过受控更新接口提交,不能让多个 Agent 随意覆盖同一份任务记录。\n\n评分要点:角色契约、路由依据、上下文交接和故障接管完整。",
+            "vector_score": 0.84538534283638,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2175414725624058958,
+            "title": "什么是 Multi-Agent?",
+            "source": "interview-question://A010",
+            "domain": "agent",
+            "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+            "vector_score": 0.7812032699584961,
+            "keyword_score": 0.703223702911634,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1602129502117344900,
+            "title": "说说 Single-Agent 和 Multi-Agent 的设计方案?",
+            "source": "interview-question://A011",
+            "domain": "agent",
+            "content": "# 说说 Single-Agent 和 Multi-Agent 的设计方案?\n\n题目编号:A011\n\n领域:agent\n\n难度:3\n\n标签:Multi-Agent、角色设计、协调\n- 考察方向:角色边界、输入输出契约、调度者和共享状态。\n\n参考答案:Single-Agent 由一个决策核心访问多种工具,状态集中、调试简单,适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent,可由 Supervisor 统一调度,也可通过消息或共享状态协作,适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够,只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具,结构简单,调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总,但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分,而不是只看问题文字是否复杂。先建立单 Agent 基线,再用相同测试集证明成功率或延迟收益足以抵消协作成本。\n\n评分要点:描述两种架构;给出选择条件而非只列优缺点。",
+            "vector_score": 0.7771990895271301,
+            "keyword_score": 0.47201835322428914,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 19.777,
+      "timings_seconds": {
+        "decomposition": 2.364426,
+        "retrieval": 17.412562,
+        "mqe": 5.80962,
+        "hyde": 10.652265,
+        "embedding": 0.65187,
+        "vector_search": 0.057767,
+        "keyword_search": 0.236323,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 17.412746,
+        "total": 19.777173,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-016",
+      "question": "不同专长的助手如何交接任务，什么时候动态切换角色？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "A016",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A016"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "多Agent协作主要依靠消息传递和共享状态：前者把上一个Agent的产物交给下一个，后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成，可按预设规则做静态路由，也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案，并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本，避免把全部历史原样转发。同步协作可用结构化调用，长任务可用消息队列和任务表，所有路径都由协调器追踪。动态切换需要明确触发条件，例如专业能力不足、任务阶段变化或执行失败，并限制交接次数。共享状态应通过受控更新接口提交，不能让多个 Agent 随意覆盖同一份任务记录。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A016",
+        "interview-question://A010",
+        "interview-question://A011"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "不同专长的助手如何交接任务，什么时候动态切换角色？",
+        "answer": "1. 不同专长的助手如何交接任务？\n\n\n2. 不同专长的助手什么时候动态切换角色？\n",
+        "sections": [
+          {
+            "question": "不同专长的助手如何交接任务？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "不同专长的助手如何交接任务?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A016",
+                "interview-question://A010",
+                "interview-question://A011"
+              ]
+            }
+          },
+          {
+            "question": "不同专长的助手什么时候动态切换角色？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "不同专长的助手什么时候动态切换角色?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A016",
+                "interview-question://A010",
+                "interview-question://A011"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2769771559713974979,
+            "title": "如何设计多 Agent 的协作与动态切换机制?",
+            "source": "interview-question://A016",
+            "domain": "agent",
+            "content": "# 如何设计多 Agent 的协作与动态切换机制?\n\n题目编号:A016\n\n领域:agent\n\n难度:3\n\n标签:Agent 路由、任务交接、协议\n- 考察方向:能力描述、上下文传递、结果契约及动态切换。\n\n参考答案:多Agent协作主要依靠消息传递和共享状态:前者把上一个Agent的产物交给下一个,后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。同步协作可用结构化调用,长任务可用消息队列和任务表,所有路径都由协调器追踪。动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。共享状态应通过受控更新接口提交,不能让多个 Agent 随意覆盖同一份任务记录。\n\n评分要点:角色契约、路由依据、上下文交接和故障接管完整。",
+            "vector_score": 0.7918022572994232,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2175414725624058958,
+            "title": "什么是 Multi-Agent?",
+            "source": "interview-question://A010",
+            "domain": "agent",
+            "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+            "vector_score": 0.7497360706329346,
+            "keyword_score": 0.6134979584333141,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1602129502117344900,
+            "title": "说说 Single-Agent 和 Multi-Agent 的设计方案?",
+            "source": "interview-question://A011",
+            "domain": "agent",
+            "content": "# 说说 Single-Agent 和 Multi-Agent 的设计方案?\n\n题目编号:A011\n\n领域:agent\n\n难度:3\n\n标签:Multi-Agent、角色设计、协调\n- 考察方向:角色边界、输入输出契约、调度者和共享状态。\n\n参考答案:Single-Agent 由一个决策核心访问多种工具,状态集中、调试简单,适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent,可由 Supervisor 统一调度,也可通过消息或共享状态协作,适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够,只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具,结构简单,调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总,但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分,而不是只看问题文字是否复杂。先建立单 Agent 基线,再用相同测试集证明成功率或延迟收益足以抵消协作成本。\n\n评分要点:描述两种架构;给出选择条件而非只列优缺点。",
+            "vector_score": 0.7401937246322632,
+            "keyword_score": 0.42436496918893685,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 2.923,
+      "timings_seconds": {
+        "decomposition": 2.364426,
+        "retrieval": 0.558382,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.477244,
+        "vector_search": 0.024229,
+        "keyword_search": 0.055836,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.558521,
+        "total": 2.922947,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-016",
+      "subquestions": [
+        {
+          "question": "不同专长的助手如何交接任务？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "不同专长的助手什么时候动态切换角色？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.3644261000008555
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 20.343,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

@@ -1,0 +1,517 @@
+{
+  "kind": "partial_development_analysis",
+  "not_final": true,
+  "complete_repeats": [
+    1,
+    2
+  ],
+  "independent_cases": 80,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 160,
+      "completed": 160,
+      "failures": 0,
+      "recall_at_k": 0.9855,
+      "precision_at_k": 0.3473,
+      "ndcg_at_k": 0.884,
+      "hit_rate": 0.9928,
+      "mrr": 0.9553,
+      "all_sources_rate": 0.9783,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 5.321,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 0.9855072463768116,
+      "p95_seconds": 11.614,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.813362,
+          "p50": 3.58908,
+          "p95": 11.175382,
+          "max": 23.700093,
+          "samples": 160
+        },
+        "retrieval": {
+          "mean": 0.507546,
+          "p50": 0.470356,
+          "p95": 1.018751,
+          "max": 1.590905,
+          "samples": 160
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 160
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 160
+        },
+        "embedding": {
+          "mean": 0.340685,
+          "p50": 0.301366,
+          "p95": 0.739084,
+          "max": 1.342151,
+          "samples": 160
+        },
+        "vector_search": {
+          "mean": 0.04439,
+          "p50": 0.043147,
+          "p95": 0.084017,
+          "max": 0.136309,
+          "samples": 160
+        },
+        "keyword_search": {
+          "mean": 0.119774,
+          "p50": 0.119461,
+          "p95": 0.222967,
+          "max": 0.345509,
+          "samples": 160
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 160
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 160
+        },
+        "pipeline": {
+          "mean": 0.507812,
+          "p50": 0.470619,
+          "p95": 1.019065,
+          "max": 1.591222,
+          "samples": 160
+        },
+        "total": {
+          "mean": 5.321174,
+          "p50": 3.900106,
+          "p95": 11.614187,
+          "max": 24.672452,
+          "samples": 160
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 138,
+        "precision_at_k": 138,
+        "ndcg_at_k": 138,
+        "hit": 138,
+        "reciprocal_rank": 138,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 291,
+        "embedding_texts": 291,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 160,
+      "completed": 160,
+      "failures": 0,
+      "recall_at_k": 0.9783,
+      "precision_at_k": 0.3461,
+      "ndcg_at_k": 0.8738,
+      "hit_rate": 0.9783,
+      "mrr": 0.9287,
+      "all_sources_rate": 0.9783,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 6.466,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 0.9782608695652174,
+      "p95_seconds": 14.171,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.813362,
+          "p50": 3.58908,
+          "p95": 11.175382,
+          "max": 23.700093,
+          "samples": 160
+        },
+        "retrieval": {
+          "mean": 0.520749,
+          "p50": 0.475754,
+          "p95": 1.103524,
+          "max": 2.226852,
+          "samples": 160
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 160
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 160
+        },
+        "embedding": {
+          "mean": 0.351547,
+          "p50": 0.304466,
+          "p95": 0.834606,
+          "max": 1.763606,
+          "samples": 160
+        },
+        "vector_search": {
+          "mean": 0.04494,
+          "p50": 0.044786,
+          "p95": 0.085427,
+          "max": 0.141716,
+          "samples": 160
+        },
+        "keyword_search": {
+          "mean": 0.121403,
+          "p50": 0.121553,
+          "p95": 0.231614,
+          "max": 0.351182,
+          "samples": 160
+        },
+        "rerank": {
+          "mean": 1.131191,
+          "p50": 1.117435,
+          "p95": 2.371865,
+          "max": 3.323645,
+          "samples": 160
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 160
+        },
+        "pipeline": {
+          "mean": 1.652387,
+          "p50": 1.625752,
+          "p95": 3.346098,
+          "max": 5.385904,
+          "samples": 160
+        },
+        "total": {
+          "mean": 6.465748,
+          "p50": 5.213067,
+          "p95": 14.171004,
+          "max": 26.447444,
+          "samples": 160
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 138,
+        "precision_at_k": 138,
+        "ndcg_at_k": 138,
+        "hit": 138,
+        "reciprocal_rank": 138,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 160,
+      "calls": {
+        "embedding_calls": 291,
+        "embedding_texts": 291,
+        "chat_calls": 0,
+        "rerank_calls": 291,
+        "rerank_pairs": 3492
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 160,
+      "completed": 160,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3549,
+      "ndcg_at_k": 0.9,
+      "hit_rate": 1,
+      "mrr": 0.9734,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 26.265,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 51.696,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.813362,
+          "p50": 3.58908,
+          "p95": 11.175382,
+          "max": 23.700093,
+          "samples": 160
+        },
+        "retrieval": {
+          "mean": 21.451494,
+          "p50": 19.768453,
+          "p95": 42.519472,
+          "max": 73.841431,
+          "samples": 160
+        },
+        "mqe": {
+          "mean": 6.272123,
+          "p50": 5.440041,
+          "p95": 13.398975,
+          "max": 20.485899,
+          "samples": 160
+        },
+        "hyde": {
+          "mean": 13.810267,
+          "p50": 12.726571,
+          "p95": 27.376865,
+          "max": 49.404627,
+          "samples": 160
+        },
+        "embedding": {
+          "mean": 0.775481,
+          "p50": 0.70422,
+          "p95": 1.70866,
+          "max": 2.940124,
+          "samples": 160
+        },
+        "vector_search": {
+          "mean": 0.109017,
+          "p50": 0.107226,
+          "p95": 0.22896,
+          "max": 0.286898,
+          "samples": 160
+        },
+        "keyword_search": {
+          "mean": 0.475877,
+          "p50": 0.487342,
+          "p95": 0.906656,
+          "max": 1.465608,
+          "samples": 160
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 160
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 160
+        },
+        "pipeline": {
+          "mean": 21.451768,
+          "p50": 19.768771,
+          "p95": 42.519786,
+          "max": 73.841886,
+          "samples": 160
+        },
+        "total": {
+          "mean": 26.265129,
+          "p50": 23.719422,
+          "p95": 51.696435,
+          "max": 84.119594,
+          "samples": 160
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 138,
+        "precision_at_k": 138,
+        "ndcg_at_k": 138,
+        "hit": 138,
+        "reciprocal_rank": 138,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 291,
+        "embedding_texts": 1433,
+        "chat_calls": 582,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "baseline": "hybrid",
+      "candidate": "hybrid_reranked",
+      "metric": "recall_at_k",
+      "delta": -0.007246,
+      "paired_cases": 69,
+      "paired_observations": 138,
+      "independent_groups": 43,
+      "bootstrap_95_ci": [
+        -0.052239,
+        0.026667
+      ],
+      "direction": "higher"
+    },
+    {
+      "baseline": "hybrid",
+      "candidate": "hybrid_reranked",
+      "metric": "reciprocal_rank",
+      "delta": -0.02657,
+      "paired_cases": 69,
+      "paired_observations": 138,
+      "independent_groups": 43,
+      "bootstrap_95_ci": [
+        -0.073333,
+        0.011538
+      ],
+      "direction": "higher"
+    },
+    {
+      "baseline": "hybrid",
+      "candidate": "hybrid_reranked",
+      "metric": "elapsed_seconds",
+      "delta": 1.144619,
+      "paired_cases": 80,
+      "paired_observations": 160,
+      "independent_groups": 54,
+      "bootstrap_95_ci": [
+        1.012718,
+        1.263303
+      ],
+      "direction": "lower"
+    },
+    {
+      "baseline": "hybrid",
+      "candidate": "expanded",
+      "metric": "recall_at_k",
+      "delta": 0.014493,
+      "paired_cases": 69,
+      "paired_observations": 138,
+      "independent_groups": 43,
+      "bootstrap_95_ci": [
+        0.0,
+        0.036364
+      ],
+      "direction": "higher"
+    },
+    {
+      "baseline": "hybrid",
+      "candidate": "expanded",
+      "metric": "reciprocal_rank",
+      "delta": 0.018116,
+      "paired_cases": 69,
+      "paired_observations": 138,
+      "independent_groups": 43,
+      "bootstrap_95_ci": [
+        0.0,
+        0.044974
+      ],
+      "direction": "higher"
+    },
+    {
+      "baseline": "hybrid",
+      "candidate": "expanded",
+      "metric": "elapsed_seconds",
+      "delta": 20.943938,
+      "paired_cases": 80,
+      "paired_observations": 160,
+      "independent_groups": 54,
+      "bootstrap_95_ci": [
+        18.766705,
+        23.124214
+      ],
+      "direction": "lower"
+    }
+  ],
+  "notes": [
+    "仅使用完整轮次，各方案具有相同案例与重复数量；未完成的第三轮不参与。",
+    "未冻结选型，未查看测试结果，不能替代协议要求的三次开发与三次测试。",
+    "纯检索不生成答案，其总流程时间包含拆解、召回与精排，不是问答时延。",
+    "数据为项目作者人工复核的合成查询，按标注来源关联组bootstrap，不能泛化为生产表现。"
+  ]
+}

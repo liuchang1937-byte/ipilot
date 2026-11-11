@@ -1,0 +1,146 @@
+{
+  "case_id": "V2-054",
+  "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "R007",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R007"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量，同一词的表示不随语境变化；BERT 类模型提供上下文相关的 Token 表示，但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练，使查询和文档可以独立编码后比较，适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索，如 SPLADE；多向量模型则保存多个 Token 表示，以更细的交互提高匹配能力，但存储与计算开销较大。双编码器适合第一阶段召回，Cross-Encoder 联合读取查询和文档，更适合小候选集重排。模型架构和检索方式是两件事，BERT 并不必然要求查询与每个文档一起编码，关键在于是否训练成适合独立编码的检索表示。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R007"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+    "answer": "1. 除了神经网络向量，文本表示还使用过哪些算法？\n\n\n2. 除了神经网络向量，文本相似匹配还使用过哪些算法？\n",
+    "sections": [
+      {
+        "question": "除了神经网络向量，文本表示还使用过哪些算法？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "除了神经网络向量,文本表示还使用过哪些算法?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://R007"
+          ]
+        }
+      },
+      {
+        "question": "除了神经网络向量，文本相似匹配还使用过哪些算法？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "除了神经网络向量,文本相似匹配还使用过哪些算法?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://R007"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1225609568031859411,
+        "title": "Embedding 有哪几种算法你了解过吗?",
+        "source": "interview-question://R007",
+        "domain": "rag",
+        "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+        "vector_score": 0.8216826021671295,
+        "keyword_score": 1.0,
+        "rerank_score": 0.48587778210639954
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.0,
+  "timings_seconds": {
+    "decomposition": 3.360898,
+    "retrieval": 0.512101,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.342555,
+    "vector_search": 0.044364,
+    "keyword_search": 0.122497,
+    "rerank": 1.126296,
+    "generation": 0.0,
+    "pipeline": 1.638729,
+    "total": 4.999627,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

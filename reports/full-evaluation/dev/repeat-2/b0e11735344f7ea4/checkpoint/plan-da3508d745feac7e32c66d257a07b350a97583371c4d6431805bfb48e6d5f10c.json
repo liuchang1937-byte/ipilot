@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-068",
+  "subquestions": [
+    {
+      "question": "当两篇检索材料给出矛盾结论时，系统应按什么依据选择结论或展示这两篇检索材料之间的差异？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 7.198037600001044
+}

@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-040",
+  "subquestions": [
+    {
+      "question": "为了让模型稳定输出结构化结果，提示中应明确哪些约束？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.118015699999887
+}

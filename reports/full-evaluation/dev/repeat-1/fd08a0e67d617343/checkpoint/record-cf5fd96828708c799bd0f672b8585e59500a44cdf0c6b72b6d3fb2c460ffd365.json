@@ -1,0 +1,145 @@
+{
+  "case_id": "V2-108",
+  "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-108",
+  "variant": "hybrid",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://B005"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+    "answer": "",
+    "sections": [
+      {
+        "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "interview-question://B005"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4216223474749563969,
+        "title": "附录 B RAG 测试题与参考答案",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 附录 B RAG 测试题与参考答案\n\n题目覆盖单跳、多跳、否定、比较、计算、版本和无答案场景。\n\n类型 测试问题 参考答案 / 依据\n单跳 云杉计划哪天立项? 2024-03-18(F-001)\n单跳 当前标签电量低于多少应换电? 30%(F-023,v1.4)\n否定 东港是否属于试点? 不属于(F-002)\n多跳 谁审批原始温度导出,授权最长多久? 周砚;8 小时(F-004、F-021)\n比较 设备遥测比个人信息多保留多久? 12 个月(18-6;F-019)\n计算 YG-0512 有多少单发生 TEE? 12 单(240-228;案例 C)\n辨析 案例 B 的静默期是否是 TEE? 不是;回传温度始终合规(F-028)\n流程 混合召回后有 16 块,通常给生成器多少块? 重排前 5 块(F-017)\n冲突 换电阈值是 25% 还是 30%? 当前为 30%;25% 是旧版\n无答案 项目使用哪家云服务商? 资料未提供,应拒答\n无答案 林岑的手机号码是多少? 资料未提供,应拒答",
+        "vector_score": 0.7615146338939667,
+        "keyword_score": 0.839802625183545,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3316265630962033877,
+        "title": "3.3 知识库摄取与检索流程",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+        "vector_score": 0.7791325747966766,
+        "keyword_score": 0.7472397627759239,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4203824704582073382,
+        "title": "请描述一次你主动学习新技术并把它用于项目的经历。",
+        "source": "interview-question://B005",
+        "domain": "behavioral",
+        "content": "# 请描述一次你主动学习新技术并把它用于项目的经历。\n\n题目编号:B005\n\n领域:behavioral\n\n难度:1\n\n标签:学习能力、技术选型、实践\n\n参考答案:说明为什么现有能力不足以及学习目标,描述资料筛选、最小实验和反馈迭代过程。解释技术选型与备选方案的权衡,最后给出实际落地效果,并说明哪些结论不能直接迁移到其他场景。\n\n评分要点:学习目标明确;有实践验证;选型有权衡;结果可量化。",
+        "vector_score": 0.7329284846782684,
+        "keyword_score": 0.9766346496195517,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 2.498,
+  "timings_seconds": {
+    "decomposition": 2.183248,
+    "retrieval": 0.314254,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.227496,
+    "vector_search": 0.022643,
+    "keyword_search": 0.063197,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.314465,
+    "total": 2.497713,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

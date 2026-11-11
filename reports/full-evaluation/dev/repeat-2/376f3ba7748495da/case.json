@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-033",
+      "question": "用低秩矩阵适配模型，除了少训练参数还有什么工程收益？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L009"
+      ],
+      "answerable": true,
+      "reference_answer": "LoRA冻结原权重，用两个低秩矩阵近似权重更新，并把更新注入注意力或其他线性层。除减少训练参数和显存外，它便于为多个任务保存小型适配器、快速切换或组合，也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W，训练的增量可以写成 ΔW=BA，秩 r 远小于原维度，再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算，并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支，未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围，但不能保证没有遗忘或副作用；秩、目标层、数据与评测比单纯追求最低参数量更重要。",
+      "group": "R003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

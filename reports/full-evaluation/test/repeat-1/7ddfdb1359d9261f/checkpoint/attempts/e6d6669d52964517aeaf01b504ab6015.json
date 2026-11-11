@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-030",
+  "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+  "category": "terminology",
+  "split": "test",
+  "group": "L006",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L006"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料，控制领域与语言配比，处理测试污染，再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识，工程上依靠分布式并行、混合精度、优化器和检查点，兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令；偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定，SFT 本身也属于后训练，部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名，还要说明每阶段解决什么问题；数据质量差或奖励定义错误时，增加训练步骤并不保证效果提升。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L006",
+    "interview-question://L002",
+    "interview-question://T003"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "从大量原始文本到能遵循指令的模型,通常经历哪些训练阶段?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L006",
+            "interview-question://L002",
+            "interview-question://T003"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3102864813120224030,
+        "title": "大模型是怎么训练出来的?",
+        "source": "interview-question://L006",
+        "domain": "llm-engineering",
+        "content": "# 大模型是怎么训练出来的?\n\n题目编号:L006\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料,控制领域与语言配比,处理测试污染,再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识,工程上依靠分布式并行、混合精度、优化器和检查点,兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令;偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定,SFT 本身也属于后训练,部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名,还要说明每阶段解决什么问题;数据质量差或奖励定义错误时,增加训练步骤并不保证效果提升。\n\n评分要点:数据、预训练、后训练、评测和分布式工程。",
+        "vector_score": 0.8021420538425446,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4572293691332530417,
+        "title": "讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?",
+        "source": "interview-question://L002",
+        "domain": "llm-engineering",
+        "content": "# 讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?\n\n题目编号:L002\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示,Decoder通过掩码自注意力自回归生成,并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务,仅Decoder是多数生成式LLM的选择,Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V,通过 Q 与 K 的匹配权重聚合 V,再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文,Decoder 的自注意力用因果遮罩限制未来信息;原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列,推理生成仍逐 Token 进行。注意力改善长距离信息连接,却有计算与显存成本,不能理解为所有阶段都完全并行。\n\n评分要点:注意力与FFN;三种架构及掩码/交叉注意力。",
+        "vector_score": 0.761066734790802,
+        "keyword_score": 0.649079437884873,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.7474331855773926,
+        "keyword_score": 0.645432776593023,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 1.831,
+  "timings_seconds": {
+    "decomposition": 1.628884,
+    "retrieval": 0.202234,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.158856,
+    "vector_search": 0.012998,
+    "keyword_search": 0.029684,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.202352,
+    "total": 1.831236,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

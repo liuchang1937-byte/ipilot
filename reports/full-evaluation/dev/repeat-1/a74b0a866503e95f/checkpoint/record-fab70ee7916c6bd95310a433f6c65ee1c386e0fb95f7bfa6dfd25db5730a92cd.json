@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-004",
+  "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A004",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://A004"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定，优点是稳定、可测试；Agent 的路径由模型结合环境动态选择，适合目标明确但步骤未知的任务。实际工程常采用混合设计：高风险步骤使用 Workflow 固化，信息收集和方案探索交给 Agent。这些概念也不全在同一层级：ReAct 和 Plan-and-Execute 描述执行与决策的组织方式，Reflection 是可叠加的检查机制，Supervisor 则更多描述多个执行者的调度架构。例如，退款的身份核验与额度判断适合固定流程，定位复杂故障可能需要动态调查。即使采用 Agent，也能用状态机限制合法转移，所以动态决策不等于完全放任模型控制。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A003",
+    "interview-question://A004",
+    "interview-question://A014"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.6309297535714575,
+  "hit": true,
+  "reciprocal_rank": 0.5,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "审批步骤很固定的业务,应该让模型自由规划还是预先定义流程?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A003",
+            "interview-question://A004",
+            "interview-question://A014"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2982864919778602991,
+        "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+        "source": "interview-question://A003",
+        "domain": "agent",
+        "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+        "vector_score": 0.7850034236907959,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1330550128706514072,
+        "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+        "source": "interview-question://A004",
+        "domain": "agent",
+        "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+        "vector_score": 0.790742814540863,
+        "keyword_score": 0.6502444914658525,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 888008174752367641,
+        "title": "如何赋予 LLM 规划能力?",
+        "source": "interview-question://A014",
+        "domain": "agent",
+        "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+        "vector_score": 0.7794466912746429,
+        "keyword_score": 0.8706756230976862,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 2.703,
+  "timings_seconds": {
+    "decomposition": 2.427284,
+    "retrieval": 0.275561,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.152501,
+    "vector_search": 0.027904,
+    "keyword_search": 0.093866,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.275837,
+    "total": 2.703121,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

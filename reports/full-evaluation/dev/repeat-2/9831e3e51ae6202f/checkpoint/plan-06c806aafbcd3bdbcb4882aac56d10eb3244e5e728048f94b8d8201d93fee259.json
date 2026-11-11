@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-097",
+  "subquestions": [
+    {
+      "question": "MCP解决什么连接问题？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在MCP中，Host、Client和Server各自的职责是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.434641699999702
+}

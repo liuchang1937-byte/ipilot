@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-118",
+  "subquestions": [
+    {
+      "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.1405515000005835
+}

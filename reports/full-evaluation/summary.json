@@ -1,0 +1,1073 @@
+{
+  "progress": {
+    "dev": {
+      "completed_case_jobs": 240,
+      "planned_case_jobs": 240,
+      "saved_pipelines": 720,
+      "planned_pipelines": 720,
+      "failed_pipelines": 0,
+      "warning_pipelines": 0,
+      "completed_answer_judges": 0,
+      "unavailable_answer_judges": 0
+    },
+    "test": {
+      "completed_case_jobs": 120,
+      "planned_case_jobs": 120,
+      "saved_pipelines": 240,
+      "planned_pipelines": 240,
+      "failed_pipelines": 0,
+      "warning_pipelines": 0,
+      "completed_answer_judges": 0,
+      "unavailable_answer_judges": 0
+    },
+    "quality": {
+      "completed_case_jobs": 40,
+      "planned_case_jobs": 40,
+      "saved_pipelines": 40,
+      "planned_pipelines": 40,
+      "failed_pipelines": 0,
+      "warning_pipelines": 4,
+      "completed_answer_judges": 40,
+      "unavailable_answer_judges": 0
+    }
+  },
+  "completed_phases": {
+    "dev": {
+      "independent_cases": 80,
+      "independent_groups": 54,
+      "repeats": 3,
+      "evaluation_mode": "retrieval_only",
+      "summaries": [
+        {
+          "variant": "hybrid",
+          "label": "混合检索",
+          "cases": 240,
+          "completed": 240,
+          "failures": 0,
+          "recall_at_k": 0.9879,
+          "precision_at_k": 0.3438,
+          "ndcg_at_k": 0.8722,
+          "hit_rate": 0.9952,
+          "mrr": 0.9477,
+          "all_sources_rate": 0.9807,
+          "correct_refusal_rate": null,
+          "false_refusal_rate": null,
+          "mean_seconds": 5.314,
+          "completion_rate": 1.0,
+          "end_to_end_recall_at_k": 0.9879227053140096,
+          "p95_seconds": 12.164,
+          "latency_seconds": {
+            "decomposition": {
+              "mean": 4.807628,
+              "p50": 3.561365,
+              "p95": 11.41694,
+              "max": 23.700093,
+              "samples": 240
+            },
+            "retrieval": {
+              "mean": 0.50574,
+              "p50": 0.469004,
+              "p95": 1.050092,
+              "max": 1.912419,
+              "samples": 240
+            },
+            "mqe": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 240
+            },
+            "hyde": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 240
+            },
+            "embedding": {
+              "mean": 0.351322,
+              "p50": 0.299702,
+              "p95": 0.792218,
+              "max": 1.472227,
+              "samples": 240
+            },
+            "vector_search": {
+              "mean": 0.041407,
+              "p50": 0.037931,
+              "p95": 0.082959,
+              "max": 0.136309,
+              "samples": 240
+            },
+            "keyword_search": {
+              "mean": 0.110546,
+              "p50": 0.093518,
+              "p95": 0.218066,
+              "max": 0.345509,
+              "samples": 240
+            },
+            "rerank": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 240
+            },
+            "generation": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 240
+            },
+            "pipeline": {
+              "mean": 0.505985,
+              "p50": 0.46927,
+              "p95": 1.050349,
+              "max": 1.912825,
+              "samples": 240
+            },
+            "total": {
+              "mean": 5.313612,
+              "p50": 4.040314,
+              "p95": 12.163931,
+              "max": 24.672452,
+              "samples": 240
+            },
+            "judge": {
+              "mean": null,
+              "p50": null,
+              "p95": null,
+              "max": null,
+              "samples": 0
+            }
+          },
+          "metric_samples": {
+            "recall_at_k": 207,
+            "precision_at_k": 207,
+            "ndcg_at_k": 207,
+            "hit": 207,
+            "reciprocal_rank": 207,
+            "correct_refusal": 0,
+            "false_refusal": 0,
+            "faithfulness": 0,
+            "answer_correctness": 0,
+            "answer_relevancy": 0,
+            "citation_precision": 0,
+            "citation_coverage": 0
+          },
+          "answer_quality": {
+            "faithfulness": null,
+            "answer_correctness": null,
+            "answer_relevancy": null,
+            "citation_precision": null,
+            "citation_coverage": null
+          },
+          "judged_cases": 0,
+          "judge_failures": 0,
+          "judge_calls": 0,
+          "degraded_cases": 0,
+          "reranked_cases": 0,
+          "calls": {
+            "embedding_calls": 452,
+            "embedding_texts": 452,
+            "chat_calls": 0,
+            "rerank_calls": 0,
+            "rerank_pairs": 0
+          }
+        },
+        {
+          "variant": "hybrid_reranked",
+          "label": "混合 + 精排",
+          "cases": 240,
+          "completed": 240,
+          "failures": 0,
+          "recall_at_k": 0.9758,
+          "precision_at_k": 0.3436,
+          "ndcg_at_k": 0.8668,
+          "hit_rate": 0.9758,
+          "mrr": 0.9235,
+          "all_sources_rate": 0.9758,
+          "correct_refusal_rate": null,
+          "false_refusal_rate": null,
+          "mean_seconds": 6.376,
+          "completion_rate": 1.0,
+          "end_to_end_recall_at_k": 0.9758454106280193,
+          "p95_seconds": 13.369,
+          "latency_seconds": {
+            "decomposition": {
+              "mean": 4.807628,
+              "p50": 3.561365,
+              "p95": 11.41694,
+              "max": 23.700093,
+              "samples": 240
+            },
+            "retrieval": {
+              "mean": 0.508155,
+              "p50": 0.46867,
+              "p95": 1.072262,
+              "max": 2.226852,
+              "samples": 240
+            },
+            "mqe": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 240
+            },
+            "hyde": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 240
+            },
+            "embedding": {
+              "mean": 0.351573,
+              "p50": 0.303663,
+              "p95": 0.834606,
+              "max": 1.763606,
+              "samples": 240
+            },
+            "vector_search": {
+              "mean": 0.04215,
+              "p50": 0.038544,
+              "p95": 0.084944,
+              "max": 0.141716,
+              "samples": 240
+            },
+            "keyword_search": {
+              "mean": 0.111765,
+              "p50": 0.091149,
+              "p95": 0.223205,
+              "max": 0.351182,
+              "samples": 240
+            },
+            "rerank": {
+              "mean": 1.060242,
+              "p50": 1.035266,
+              "p95": 2.344855,
+              "max": 3.323645,
+              "samples": 240
+            },
+            "generation": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 240
+            },
+            "pipeline": {
+              "mean": 1.568822,
+              "p50": 1.537873,
+              "p95": 3.321129,
+              "max": 5.385904,
+              "samples": 240
+            },
+            "total": {
+              "mean": 6.376449,
+              "p50": 5.199213,
+              "p95": 13.368866,
+              "max": 26.447444,
+              "samples": 240
+            },
+            "judge": {
+              "mean": null,
+              "p50": null,
+              "p95": null,
+              "max": null,
+              "samples": 0
+            }
+          },
+          "metric_samples": {
+            "recall_at_k": 207,
+            "precision_at_k": 207,
+            "ndcg_at_k": 207,
+            "hit": 207,
+            "reciprocal_rank": 207,
+            "correct_refusal": 0,
+            "false_refusal": 0,
+            "faithfulness": 0,
+            "answer_correctness": 0,
+            "answer_relevancy": 0,
+            "citation_precision": 0,
+            "citation_coverage": 0
+          },
+          "answer_quality": {
+            "faithfulness": null,
+            "answer_correctness": null,
+            "answer_relevancy": null,
+            "citation_precision": null,
+            "citation_coverage": null
+          },
+          "judged_cases": 0,
+          "judge_failures": 0,
+          "judge_calls": 0,
+          "degraded_cases": 0,
+          "reranked_cases": 240,
+          "calls": {
+            "embedding_calls": 452,
+            "embedding_texts": 452,
+            "chat_calls": 0,
+            "rerank_calls": 452,
+            "rerank_pairs": 5424
+          }
+        },
+        {
+          "variant": "expanded",
+          "label": "混合 + MQE/HyDE",
+          "cases": 240,
+          "completed": 240,
+          "failures": 0,
+          "recall_at_k": 0.9976,
+          "precision_at_k": 0.3514,
+          "ndcg_at_k": 0.8907,
+          "hit_rate": 1,
+          "mrr": 0.9718,
+          "all_sources_rate": 0.9952,
+          "correct_refusal_rate": null,
+          "false_refusal_rate": null,
+          "mean_seconds": 26.986,
+          "completion_rate": 1.0,
+          "end_to_end_recall_at_k": 0.9975845410628019,
+          "p95_seconds": 60.282,
+          "latency_seconds": {
+            "decomposition": {
+              "mean": 4.807628,
+              "p50": 3.561365,
+              "p95": 11.41694,
+              "max": 23.700093,
+              "samples": 240
+            },
+            "retrieval": {
+              "mean": 22.1786,
+              "p50": 19.716401,
+              "p95": 52.138942,
+              "max": 80.96613,
+              "samples": 240
+            },
+            "mqe": {
+              "mean": 6.550959,
+              "p50": 5.63392,
+              "p95": 15.323853,
+              "max": 26.316487,
+              "samples": 240
+            },
+            "hyde": {
+              "mean": 14.29535,
+              "p50": 12.553028,
+              "p95": 30.224344,
+              "max": 59.102115,
+              "samples": 240
+            },
+            "embedding": {
+              "mean": 0.780888,
+              "p50": 0.704956,
+              "p95": 1.718369,
+              "max": 2.940124,
+              "samples": 240
+            },
+            "vector_search": {
+              "mean": 0.101476,
+              "p50": 0.084957,
+              "p95": 0.22896,
+              "max": 0.302196,
+              "samples": 240
+            },
+            "keyword_search": {
+              "mean": 0.441263,
+              "p50": 0.36889,
+              "p95": 0.877986,
+              "max": 1.465608,
+              "samples": 240
+            },
+            "rerank": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 240
+            },
+            "generation": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 240
+            },
+            "pipeline": {
+              "mean": 22.178855,
+              "p50": 19.71661,
+              "p95": 52.139168,
+              "max": 80.966475,
+              "samples": 240
+            },
+            "total": {
+              "mean": 26.986483,
+              "p50": 23.676487,
+              "p95": 60.282018,
+              "max": 96.208047,
+              "samples": 240
+            },
+            "judge": {
+              "mean": null,
+              "p50": null,
+              "p95": null,
+              "max": null,
+              "samples": 0
+            }
+          },
+          "metric_samples": {
+            "recall_at_k": 207,
+            "precision_at_k": 207,
+            "ndcg_at_k": 207,
+            "hit": 207,
+            "reciprocal_rank": 207,
+            "correct_refusal": 0,
+            "false_refusal": 0,
+            "faithfulness": 0,
+            "answer_correctness": 0,
+            "answer_relevancy": 0,
+            "citation_precision": 0,
+            "citation_coverage": 0
+          },
+          "answer_quality": {
+            "faithfulness": null,
+            "answer_correctness": null,
+            "answer_relevancy": null,
+            "citation_precision": null,
+            "citation_coverage": null
+          },
+          "judged_cases": 0,
+          "judge_failures": 0,
+          "judge_calls": 0,
+          "degraded_cases": 0,
+          "reranked_cases": 0,
+          "calls": {
+            "embedding_calls": 452,
+            "embedding_texts": 2229,
+            "chat_calls": 904,
+            "rerank_calls": 0,
+            "rerank_pairs": 0
+          }
+        }
+      ],
+      "comparisons": [
+        {
+          "baseline": "hybrid",
+          "candidate": "hybrid_reranked",
+          "metric": "recall_at_k",
+          "delta": -0.012077,
+          "paired_cases": 69,
+          "paired_observations": 207,
+          "independent_groups": 43,
+          "bootstrap_95_ci": [
+            -0.057778,
+            0.018779
+          ],
+          "direction": "higher"
+        },
+        {
+          "baseline": "hybrid",
+          "candidate": "hybrid_reranked",
+          "metric": "reciprocal_rank",
+          "delta": -0.024155,
+          "paired_cases": 69,
+          "paired_observations": 207,
+          "independent_groups": 43,
+          "bootstrap_95_ci": [
+            -0.068376,
+            0.015152
+          ],
+          "direction": "higher"
+        },
+        {
+          "baseline": "hybrid",
+          "candidate": "hybrid_reranked",
+          "metric": "elapsed_seconds",
+          "delta": 1.0629,
+          "paired_cases": 80,
+          "paired_observations": 240,
+          "independent_groups": 54,
+          "bootstrap_95_ci": [
+            0.942065,
+            1.170943
+          ],
+          "direction": "lower"
+        },
+        {
+          "baseline": "hybrid",
+          "candidate": "expanded",
+          "metric": "recall_at_k",
+          "delta": 0.009662,
+          "paired_cases": 69,
+          "paired_observations": 207,
+          "independent_groups": 43,
+          "bootstrap_95_ci": [
+            0.0,
+            0.024242
+          ],
+          "direction": "higher"
+        },
+        {
+          "baseline": "hybrid",
+          "candidate": "expanded",
+          "metric": "reciprocal_rank",
+          "delta": 0.024155,
+          "paired_cases": 69,
+          "paired_observations": 207,
+          "independent_groups": 43,
+          "bootstrap_95_ci": [
+            0.004566,
+            0.052632
+          ],
+          "direction": "higher"
+        },
+        {
+          "baseline": "hybrid",
+          "candidate": "expanded",
+          "metric": "elapsed_seconds",
+          "delta": 21.672875,
+          "paired_cases": 80,
+          "paired_observations": 240,
+          "independent_groups": 54,
+          "bootstrap_95_ci": [
+            19.320275,
+            23.807048
+          ],
+          "direction": "lower"
+        }
+      ]
+    },
+    "test": {
+      "independent_cases": 40,
+      "independent_groups": 26,
+      "repeats": 3,
+      "evaluation_mode": "retrieval_only",
+      "summaries": [
+        {
+          "variant": "hybrid",
+          "label": "混合检索",
+          "cases": 120,
+          "completed": 120,
+          "failures": 0,
+          "recall_at_k": 1.0,
+          "precision_at_k": 0.3619,
+          "ndcg_at_k": 0.9172,
+          "hit_rate": 1,
+          "mrr": 0.9775,
+          "all_sources_rate": 1,
+          "correct_refusal_rate": null,
+          "false_refusal_rate": null,
+          "mean_seconds": 5.143,
+          "completion_rate": 1.0,
+          "end_to_end_recall_at_k": 1.0,
+          "p95_seconds": 9.319,
+          "latency_seconds": {
+            "decomposition": {
+              "mean": 4.707851,
+              "p50": 3.69118,
+              "p95": 8.809522,
+              "max": 32.290958,
+              "samples": 120
+            },
+            "retrieval": {
+              "mean": 0.434628,
+              "p50": 0.394604,
+              "p95": 0.713521,
+              "max": 2.361525,
+              "samples": 120
+            },
+            "mqe": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 120
+            },
+            "hyde": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 120
+            },
+            "embedding": {
+              "mean": 0.353887,
+              "p50": 0.310479,
+              "p95": 0.584175,
+              "max": 2.156068,
+              "samples": 120
+            },
+            "vector_search": {
+              "mean": 0.02436,
+              "p50": 0.024482,
+              "p95": 0.039228,
+              "max": 0.064736,
+              "samples": 120
+            },
+            "keyword_search": {
+              "mean": 0.054447,
+              "p50": 0.054387,
+              "p95": 0.087426,
+              "max": 0.185331,
+              "samples": 120
+            },
+            "rerank": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 120
+            },
+            "generation": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 120
+            },
+            "pipeline": {
+              "mean": 0.434775,
+              "p50": 0.394787,
+              "p95": 0.713676,
+              "max": 2.361749,
+              "samples": 120
+            },
+            "total": {
+              "mean": 5.142626,
+              "p50": 4.207229,
+              "p95": 9.318638,
+              "max": 33.325257,
+              "samples": 120
+            },
+            "judge": {
+              "mean": null,
+              "p50": null,
+              "p95": null,
+              "max": null,
+              "samples": 0
+            }
+          },
+          "metric_samples": {
+            "recall_at_k": 111,
+            "precision_at_k": 111,
+            "ndcg_at_k": 111,
+            "hit": 111,
+            "reciprocal_rank": 111,
+            "correct_refusal": 0,
+            "false_refusal": 0,
+            "faithfulness": 0,
+            "answer_correctness": 0,
+            "answer_relevancy": 0,
+            "citation_precision": 0,
+            "citation_coverage": 0
+          },
+          "answer_quality": {
+            "faithfulness": null,
+            "answer_correctness": null,
+            "answer_relevancy": null,
+            "citation_precision": null,
+            "citation_coverage": null
+          },
+          "judged_cases": 0,
+          "judge_failures": 0,
+          "judge_calls": 0,
+          "degraded_cases": 0,
+          "reranked_cases": 0,
+          "calls": {
+            "embedding_calls": 227,
+            "embedding_texts": 227,
+            "chat_calls": 0,
+            "rerank_calls": 0,
+            "rerank_pairs": 0
+          }
+        },
+        {
+          "variant": "expanded",
+          "label": "混合 + MQE/HyDE",
+          "cases": 120,
+          "completed": 120,
+          "failures": 0,
+          "recall_at_k": 1.0,
+          "precision_at_k": 0.3699,
+          "ndcg_at_k": 0.9526,
+          "hit_rate": 1,
+          "mrr": 1.0,
+          "all_sources_rate": 1,
+          "correct_refusal_rate": null,
+          "false_refusal_rate": null,
+          "mean_seconds": 26.094,
+          "completion_rate": 1.0,
+          "end_to_end_recall_at_k": 1.0,
+          "p95_seconds": 40.114,
+          "latency_seconds": {
+            "decomposition": {
+              "mean": 4.707851,
+              "p50": 3.69118,
+              "p95": 8.809522,
+              "max": 32.290958,
+              "samples": 120
+            },
+            "retrieval": {
+              "mean": 21.385698,
+              "p50": 20.855185,
+              "p95": 35.846398,
+              "max": 89.537987,
+              "samples": 120
+            },
+            "mqe": {
+              "mean": 6.73619,
+              "p50": 6.242657,
+              "p95": 11.800045,
+              "max": 20.017151,
+              "samples": 120
+            },
+            "hyde": {
+              "mean": 13.620216,
+              "p50": 13.334882,
+              "p95": 25.058459,
+              "max": 68.667638,
+              "samples": 120
+            },
+            "embedding": {
+              "mean": 0.751901,
+              "p50": 0.712406,
+              "p95": 1.38573,
+              "max": 2.07819,
+              "samples": 120
+            },
+            "vector_search": {
+              "mean": 0.056115,
+              "p50": 0.053975,
+              "p95": 0.108466,
+              "max": 0.173869,
+              "samples": 120
+            },
+            "keyword_search": {
+              "mean": 0.216613,
+              "p50": 0.219616,
+              "p95": 0.353741,
+              "max": 0.694677,
+              "samples": 120
+            },
+            "rerank": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 120
+            },
+            "generation": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 120
+            },
+            "pipeline": {
+              "mean": 21.385854,
+              "p50": 20.855335,
+              "p95": 35.846602,
+              "max": 89.538442,
+              "samples": 120
+            },
+            "total": {
+              "mean": 26.093705,
+              "p50": 24.878524,
+              "p95": 40.114048,
+              "max": 108.510171,
+              "samples": 120
+            },
+            "judge": {
+              "mean": null,
+              "p50": null,
+              "p95": null,
+              "max": null,
+              "samples": 0
+            }
+          },
+          "metric_samples": {
+            "recall_at_k": 111,
+            "precision_at_k": 111,
+            "ndcg_at_k": 111,
+            "hit": 111,
+            "reciprocal_rank": 111,
+            "correct_refusal": 0,
+            "false_refusal": 0,
+            "faithfulness": 0,
+            "answer_correctness": 0,
+            "answer_relevancy": 0,
+            "citation_precision": 0,
+            "citation_coverage": 0
+          },
+          "answer_quality": {
+            "faithfulness": null,
+            "answer_correctness": null,
+            "answer_relevancy": null,
+            "citation_precision": null,
+            "citation_coverage": null
+          },
+          "judged_cases": 0,
+          "judge_failures": 0,
+          "judge_calls": 0,
+          "degraded_cases": 0,
+          "reranked_cases": 0,
+          "calls": {
+            "embedding_calls": 227,
+            "embedding_texts": 1119,
+            "chat_calls": 454,
+            "rerank_calls": 0,
+            "rerank_pairs": 0
+          }
+        }
+      ],
+      "comparisons": [
+        {
+          "baseline": "hybrid",
+          "candidate": "expanded",
+          "metric": "recall_at_k",
+          "delta": 0.0,
+          "paired_cases": 37,
+          "paired_observations": 111,
+          "independent_groups": 23,
+          "bootstrap_95_ci": [
+            0.0,
+            0.0
+          ],
+          "direction": "higher"
+        },
+        {
+          "baseline": "hybrid",
+          "candidate": "expanded",
+          "metric": "reciprocal_rank",
+          "delta": 0.022523,
+          "paired_cases": 37,
+          "paired_observations": 111,
+          "independent_groups": 23,
+          "bootstrap_95_ci": [
+            0.0,
+            0.061905
+          ],
+          "direction": "higher"
+        },
+        {
+          "baseline": "hybrid",
+          "candidate": "expanded",
+          "metric": "elapsed_seconds",
+          "delta": 20.951067,
+          "paired_cases": 40,
+          "paired_observations": 120,
+          "independent_groups": 26,
+          "bootstrap_95_ci": [
+            18.441284,
+            23.254348
+          ],
+          "direction": "lower"
+        }
+      ]
+    },
+    "quality": {
+      "independent_cases": 40,
+      "independent_groups": 26,
+      "repeats": 1,
+      "evaluation_mode": "end_to_end",
+      "summaries": [
+        {
+          "variant": "expanded",
+          "label": "混合 + MQE/HyDE",
+          "cases": 40,
+          "completed": 40,
+          "failures": 0,
+          "recall_at_k": 1.0,
+          "precision_at_k": 0.3721,
+          "ndcg_at_k": 0.9345,
+          "hit_rate": 1,
+          "mrr": 0.9865,
+          "all_sources_rate": 1,
+          "correct_refusal_rate": 1,
+          "false_refusal_rate": 0,
+          "mean_seconds": 40.335,
+          "completion_rate": 1.0,
+          "end_to_end_recall_at_k": 1.0,
+          "p95_seconds": 72.572,
+          "latency_seconds": {
+            "decomposition": {
+              "mean": 4.572877,
+              "p50": 3.136979,
+              "p95": 12.86153,
+              "max": 17.64345,
+              "samples": 40
+            },
+            "retrieval": {
+              "mean": 20.024189,
+              "p50": 18.967599,
+              "p95": 33.750584,
+              "max": 54.135717,
+              "samples": 40
+            },
+            "mqe": {
+              "mean": 5.930873,
+              "p50": 5.46263,
+              "p95": 9.791184,
+              "max": 16.412309,
+              "samples": 40
+            },
+            "hyde": {
+              "mean": 13.013497,
+              "p50": 11.856433,
+              "p95": 21.175017,
+              "max": 34.840446,
+              "samples": 40
+            },
+            "embedding": {
+              "mean": 0.791686,
+              "p50": 0.687546,
+              "p95": 1.540933,
+              "max": 2.143209,
+              "samples": 40
+            },
+            "vector_search": {
+              "mean": 0.062767,
+              "p50": 0.057726,
+              "p95": 0.141619,
+              "max": 0.211376,
+              "samples": 40
+            },
+            "keyword_search": {
+              "mean": 0.218038,
+              "p50": 0.228061,
+              "p95": 0.34676,
+              "max": 0.583462,
+              "samples": 40
+            },
+            "rerank": {
+              "mean": 0.0,
+              "p50": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "samples": 40
+            },
+            "generation": {
+              "mean": 15.737805,
+              "p50": 14.490114,
+              "p95": 31.45209,
+              "max": 55.094023,
+              "samples": 40
+            },
+            "pipeline": {
+              "mean": 35.762229,
+              "p50": 34.665821,
+              "p95": 59.710052,
+              "max": 109.230132,
+              "samples": 40
+            },
+            "total": {
+              "mean": 40.335105,
+              "p50": 38.811701,
+              "p95": 72.571582,
+              "max": 116.014653,
+              "samples": 40
+            },
+            "judge": {
+              "mean": 55.003456,
+              "p50": 55.513856,
+              "p95": 85.977414,
+              "max": 101.241317,
+              "samples": 40
+            }
+          },
+          "metric_samples": {
+            "recall_at_k": 37,
+            "precision_at_k": 37,
+            "ndcg_at_k": 37,
+            "hit": 37,
+            "reciprocal_rank": 37,
+            "correct_refusal": 3,
+            "false_refusal": 37,
+            "faithfulness": 37,
+            "answer_correctness": 37,
+            "answer_relevancy": 40,
+            "citation_precision": 37,
+            "citation_coverage": 37
+          },
+          "answer_quality": {
+            "faithfulness": 0.996,
+            "answer_correctness": 0.6667,
+            "answer_relevancy": 0.9587,
+            "citation_precision": 0.9965,
+            "citation_coverage": 0.8798
+          },
+          "judged_cases": 40,
+          "judge_failures": 0,
+          "judge_calls": 40,
+          "degraded_cases": 4,
+          "reranked_cases": 0,
+          "calls": {
+            "embedding_calls": 76,
+            "embedding_texts": 374,
+            "chat_calls": 228,
+            "rerank_calls": 0,
+            "rerank_pairs": 0
+          }
+        }
+      ],
+      "comparisons": []
+    }
+  },
+  "all_phases_saved": true,
+  "all_pipelines_completed": true,
+  "all_answer_judges_completed": true,
+  "frozen_selection": {
+    "selected_variant": "expanded",
+    "holdout_variants": [
+      "hybrid",
+      "expanded"
+    ],
+    "development_report": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev.json",
+    "protocol_sha256": "044c3cf5a2593f64882dfe4bdd1338c1b9c89cfa673fbfab2cc94651ef3fe0cf",
+    "rule": "先完整性，再Recall、MRR；相同效果选择较低检索耗时；仅在开发集选择。",
+    "frozen_before_test": true
+  },
+  "quality_recovery": {
+    "retained_valid_records": 35,
+    "initial_judge_completion_rate": 0.875,
+    "saved_attempts": 46,
+    "attempted_judge_calls": 46,
+    "unavailable_attempts": 6,
+    "retried_cases": [
+      {
+        "case_id": "V2-088",
+        "initial_status": "unavailable",
+        "final_status": "completed",
+        "answer_changed": true
+      },
+      {
+        "case_id": "V2-099",
+        "initial_status": "unavailable",
+        "final_status": "completed",
+        "answer_changed": true
+      },
+      {
+        "case_id": "V2-064",
+        "initial_status": "unavailable",
+        "final_status": "completed",
+        "answer_changed": true
+      },
+      {
+        "case_id": "V2-037",
+        "initial_status": "unavailable",
+        "final_status": "completed",
+        "answer_changed": true
+      },
+      {
+        "case_id": "V2-036",
+        "initial_status": "unavailable",
+        "final_status": "completed",
+        "answer_changed": true
+      }
+    ],
+    "note": "重试无效评审项会重新生成该条回答并评审；不是仅对原回答重新打分。有效低分和引用拦截项不因分数低而重试；本阶段仍是一份每题一次最终记录，不是三轮稳定性实验。"
+  }
+}

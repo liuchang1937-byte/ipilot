@@ -1,0 +1,169 @@
+[
+  {
+    "case": "equivalent_correct",
+    "answer": "开发者先注册工具说明和输入类型约束，AI 选择需要的操作并填写入参。程序检查参数合法性和访问权限后调用外部服务，把结果加入对话让 AI 解释。模型只生成调用请求，不会直接执行函数，也不能让它运行任意代码。",
+    "evaluation": {
+      "scores": {
+        "knowledge": 88.0,
+        "reasoning": 88.0,
+        "depth": 88.0,
+        "communication": 88.0,
+        "adaptability": 88.0
+      },
+      "overall": 88.0,
+      "missing_points": [],
+      "incorrect_points": [],
+      "feedback": "核心概念和流程回答准确：能说明工具Schema/输入约束、模型选择操作并生成入参、宿主校验权限与参数后执行、结果回填对话，并明确模型只生成调用请求而不执行函数。本题两个评分点均已掌握；多工具连续调用、失败重试/超时/幂等等宿主侧控制尚未展开，但不影响本题核心评分。",
+      "interviewer_reply": "你描述清楚了工具Schema、模型选择入参、宿主校验执行和结果回填这条链路，也明确模型只生成调用请求、不执行函数。接下来可以继续讨论多工具连续调用或执行失败时宿主端如何处理。",
+      "needs_followup": false,
+      "unmastered_points": [],
+      "next_action": "extend",
+      "next_query": "你提到程序会校验参数和权限后调用外部服务，并把结果回填给模型；如果一次任务需要连续调用多个工具，或某个工具执行失败，你认为宿主程序还需要维护哪些调用状态和错误控制？",
+      "scoring_method": "model",
+      "point_reviews": [
+        {
+          "point_id": "P1",
+          "point": "说明 Schema、模型选择与参数生成、宿主校验执行、结果回填",
+          "status": "mastered",
+          "label": "掌握",
+          "evidence": [
+            {
+              "answer_index": 1,
+              "quote": "开发者先注册工具说明和输入类型约束，AI 选择需要的操作并填写入参。程序检查参数合法性和访问权限后调用外部服务，把结果加入对话让 AI 解释。"
+            }
+          ],
+          "reason": "回答覆盖了Schema/工具说明与输入类型约束、模型选择操作并填写入参、宿主校验参数合法性和权限后执行、结果加入对话回填给模型解释。"
+        },
+        {
+          "point_id": "P2",
+          "point": "不把模型生成调用请求等同于执行。",
+          "status": "mastered",
+          "label": "掌握",
+          "evidence": [
+            {
+              "answer_index": 1,
+              "quote": "模型只生成调用请求，不会直接执行函数，也不能让它运行任意代码。"
+            }
+          ],
+          "reason": "明确模型只生成调用请求，不直接执行函数，也不能运行任意代码，符合不把模型生成调用请求等同于执行。"
+        }
+      ],
+      "point_review_complete": true
+    }
+  },
+  {
+    "case": "partial",
+    "answer": "原理就是工具调用，模型决定要用哪个工具。",
+    "evaluation": {
+      "scores": {
+        "knowledge": 27.0,
+        "reasoning": 27.0,
+        "depth": 27.0,
+        "communication": 27.0,
+        "adaptability": 27.0
+      },
+      "overall": 27.0,
+      "missing_points": [
+        "Schema（工具名称、描述、参数约束）",
+        "模型选择后生成结构化参数",
+        "宿主程序校验、鉴权、真实执行",
+        "工具结果回填给模型生成最终回答",
+        "Function Calling 不等于模型直接执行函数"
+      ],
+      "incorrect_points": [],
+      "feedback": "候选人只答出了模型选择工具这一层，没有说明 Function Calling 的完整链路：Schema、参数生成、宿主校验执行、结果回填，以及模型只生成调用请求而非执行函数。整体过于简略，不能体现完整原理。",
+      "interviewer_reply": "你提到“模型决定要用哪个工具”这点是对的，但还需要把工具 Schema、参数生成、宿主校验执行和结果回填串起来；模型生成的是调用请求，不是执行本身。",
+      "needs_followup": true,
+      "unmastered_points": [],
+      "next_action": "extend",
+      "next_query": "你说模型决定用哪个工具——那工具的名称、描述和参数约束由谁提供？模型输出调用请求后，由谁校验、执行，并把结果回传给模型？",
+      "scoring_method": "model",
+      "point_reviews": [
+        {
+          "point_id": "P1",
+          "point": "说明 Schema、模型选择与参数生成、宿主校验执行、结果回填",
+          "status": "partial",
+          "label": "部分掌握",
+          "evidence": [
+            {
+              "answer_index": 1,
+              "quote": "原理就是工具调用，模型决定要用哪个工具。"
+            }
+          ],
+          "reason": "候选人提到“工具调用，模型决定要用哪个工具”，只覆盖了模型选择工具这一部分；没有说明 Schema、参数生成、宿主校验执行和结果回填。"
+        },
+        {
+          "point_id": "P2",
+          "point": "不把模型生成调用请求等同于执行。",
+          "status": "not_addressed",
+          "label": "未涉及",
+          "evidence": [],
+          "reason": "候选人没有说明模型生成调用请求与真实执行之间的区别，也没有提到由宿主程序校验和执行，因此不能认定已掌握该点。"
+        }
+      ],
+      "point_review_complete": true
+    }
+  },
+  {
+    "case": "incorrect",
+    "answer": "模型会直接执行函数，宿主只负责把用户输入交给模型。",
+    "evaluation": {
+      "scores": {
+        "knowledge": 10.0,
+        "reasoning": 10.0,
+        "depth": 10.0,
+        "communication": 10.0,
+        "adaptability": 10.0
+      },
+      "overall": 10.0,
+      "missing_points": [
+        "工具 Schema 的名称、描述与参数约束",
+        "模型根据用户意图选择工具并生成结构化调用参数",
+        "宿主程序校验、鉴权、真实执行并把结果回填给模型"
+      ],
+      "incorrect_points": [
+        "认为模型会直接执行函数",
+        "认为宿主只负责把用户输入交给模型",
+        "把模型生成调用请求等同于真实执行"
+      ],
+      "feedback": "当前回答把 Function Calling 误解为模型直接执行函数，核心原理错误。正确理解是模型只生成结构化调用请求（工具名和参数），宿主/服务端负责校验、鉴权、执行，并把工具结果回传模型；模型不直接执行函数。",
+      "interviewer_reply": "你刚才说模型会直接执行函数、宿主只负责传输入；这里的责任划分正好相反，模型通常只输出调用请求，真正执行和结果回传由宿主完成。",
+      "needs_followup": false,
+      "unmastered_points": [
+        "Function Calling"
+      ],
+      "next_action": "new_topic",
+      "next_query": "你刚提到宿主只负责把用户输入交给模型；那我们换个角度，在 LLM 工具调用场景里，如果要防止用户输入诱导模型请求危险工具，宿主应做哪些隔离和校验？",
+      "scoring_method": "model",
+      "point_reviews": [
+        {
+          "point_id": "P1",
+          "point": "说明 Schema、模型选择与参数生成、宿主校验执行、结果回填",
+          "status": "incorrect",
+          "label": "存在错误",
+          "evidence": [
+            {
+              "answer_index": 1,
+              "quote": "模型会直接执行函数，宿主只负责把用户输入交给模型。"
+            }
+          ],
+          "reason": "候选人未说明 Schema、模型选择与参数生成、宿主校验执行、结果回填，并且把执行归给模型、称宿主只负责转交输入，和宿主校验执行的职责相反。"
+        },
+        {
+          "point_id": "P2",
+          "point": "不把模型生成调用请求等同于执行。",
+          "status": "incorrect",
+          "label": "存在错误",
+          "evidence": [
+            {
+              "answer_index": 1,
+              "quote": "模型会直接执行函数，宿主只负责把用户输入交给模型。"
+            }
+          ],
+          "reason": "候选人明确表示模型会直接执行函数，把模型生成调用请求和真实执行混为一谈，违反该评分点。"
+        }
+      ],
+      "point_review_complete": true
+    }
+  }
+]

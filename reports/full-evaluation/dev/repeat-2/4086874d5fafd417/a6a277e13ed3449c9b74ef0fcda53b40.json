@@ -1,0 +1,1241 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "a6a277e13ed3449c9b74ef0fcda53b40",
+  "created_at": "2026-10-12T15:07:35.051799+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "3fcb29e416ecd5c4d1c84d2d532b95f3265f05300c48ab068c272ffccac10130",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\4086874d5fafd417\\checkpoint"
+  },
+  "options": {
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 5.407,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 5.407,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.670111,
+          "p50": 2.670111,
+          "p95": 2.670111,
+          "max": 2.670111,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.738047,
+          "p50": 0.738047,
+          "p95": 0.738047,
+          "max": 0.738047,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.432158,
+          "p50": 0.432158,
+          "p95": 0.432158,
+          "max": 0.432158,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.084944,
+          "p50": 0.084944,
+          "p95": 0.084944,
+          "max": 0.084944,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.214938,
+          "p50": 0.214938,
+          "p95": 0.214938,
+          "max": 0.214938,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.997809,
+          "p50": 1.997809,
+          "p95": 1.997809,
+          "max": 1.997809,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 2.736489,
+          "p50": 2.736489,
+          "p95": 2.736489,
+          "max": 2.736489,
+          "samples": 1
+        },
+        "total": {
+          "mean": 5.4066,
+          "p50": 5.4066,
+          "p95": 5.4066,
+          "max": 5.4066,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 3,
+        "rerank_pairs": 36
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 27.949,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 27.949,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.670111,
+          "p50": 2.670111,
+          "p95": 2.670111,
+          "max": 2.670111,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 25.278338,
+          "p50": 25.278338,
+          "p95": 25.278338,
+          "max": 25.278338,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 8.318402,
+          "p50": 8.318402,
+          "p95": 8.318402,
+          "max": 8.318402,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 14.6625,
+          "p50": 14.6625,
+          "p95": 14.6625,
+          "max": 14.6625,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.28392,
+          "p50": 1.28392,
+          "p95": 1.28392,
+          "max": 1.28392,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.185416,
+          "p50": 0.185416,
+          "p95": 0.185416,
+          "max": 0.185416,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.811754,
+          "p50": 0.811754,
+          "p95": 0.811754,
+          "max": 0.811754,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 25.278733,
+          "p50": 25.278733,
+          "p95": 25.278733,
+          "max": 25.278733,
+          "samples": 1
+        },
+        "total": {
+          "mean": 27.948844,
+          "p50": 27.948844,
+          "p95": 27.948844,
+          "max": 27.948844,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.877,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.52,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.52,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.670111,
+          "p50": 2.670111,
+          "p95": 2.670111,
+          "max": 2.670111,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.849076,
+          "p50": 0.849076,
+          "p95": 0.849076,
+          "max": 0.849076,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.596764,
+          "p50": 0.596764,
+          "p95": 0.596764,
+          "max": 0.596764,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.068213,
+          "p50": 0.068213,
+          "p95": 0.068213,
+          "max": 0.068213,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.179504,
+          "p50": 0.179504,
+          "p95": 0.179504,
+          "max": 0.179504,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.849525,
+          "p50": 0.849525,
+          "p95": 0.849525,
+          "max": 0.849525,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.519637,
+          "p50": 3.519637,
+          "p95": 3.519637,
+          "max": 3.519637,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-026",
+      "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "L002",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://L002"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示，Decoder通过掩码自注意力自回归生成，并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务，仅Decoder是多数生成式LLM的选择，Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V，通过 Q 与 K 的匹配权重聚合 V，再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文，Decoder 的自注意力用因果遮罩限制未来信息；原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列，推理生成仍逐 Token 进行。注意力改善长距离信息连接，却有计算与显存成本，不能理解为所有阶段都完全并行。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L002",
+        "interview-question://L005"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+        "answer": "1. Transformer中的编码器做什么？\n\n\n2. Transformer中的解码器做什么？\n\n\n3. Transformer中的注意力层做什么？\n",
+        "sections": [
+          {
+            "question": "Transformer中的编码器做什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Transformer中的编码器做什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 2,
+              "selected_sources": [
+                "interview-question://L002",
+                "interview-question://L005"
+              ]
+            }
+          },
+          {
+            "question": "Transformer中的解码器做什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Transformer中的解码器做什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 2,
+              "selected_sources": [
+                "interview-question://L002",
+                "interview-question://L005"
+              ]
+            }
+          },
+          {
+            "question": "Transformer中的注意力层做什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Transformer中的注意力层做什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://L002"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4572293691332530417,
+            "title": "讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?",
+            "source": "interview-question://L002",
+            "domain": "llm-engineering",
+            "content": "# 讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?\n\n题目编号:L002\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示,Decoder通过掩码自注意力自回归生成,并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务,仅Decoder是多数生成式LLM的选择,Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V,通过 Q 与 K 的匹配权重聚合 V,再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文,Decoder 的自注意力用因果遮罩限制未来信息;原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列,推理生成仍逐 Token 进行。注意力改善长距离信息连接,却有计算与显存成本,不能理解为所有阶段都完全并行。\n\n评分要点:注意力与FFN;三种架构及掩码/交叉注意力。",
+            "vector_score": 0.8111930787563324,
+            "keyword_score": 1.0,
+            "rerank_score": 0.9827698469161987
+          },
+          {
+            "id": 2,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.7798748314380646,
+            "keyword_score": 1.0,
+            "rerank_score": 0.2568800747394562
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 5.407,
+      "timings_seconds": {
+        "decomposition": 2.670111,
+        "retrieval": 0.738047,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.432158,
+        "vector_search": 0.084944,
+        "keyword_search": 0.214938,
+        "rerank": 1.997809,
+        "generation": 0.0,
+        "pipeline": 2.736489,
+        "total": 5.4066,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 3,
+        "rerank_pairs": 36
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-026",
+      "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "L002",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L002"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示，Decoder通过掩码自注意力自回归生成，并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务，仅Decoder是多数生成式LLM的选择，Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V，通过 Q 与 K 的匹配权重聚合 V，再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文，Decoder 的自注意力用因果遮罩限制未来信息；原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列，推理生成仍逐 Token 进行。注意力改善长距离信息连接，却有计算与显存成本，不能理解为所有阶段都完全并行。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L002",
+        "interview-question://L004",
+        "interview-question://R007",
+        "interview-question://L005",
+        "interview-question://L012",
+        "interview-question://L003"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+        "answer": "1. Transformer中的编码器做什么？\n\n\n2. Transformer中的解码器做什么？\n\n\n3. Transformer中的注意力层做什么？\n",
+        "sections": [
+          {
+            "question": "Transformer中的编码器做什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Transformer中的编码器做什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Transformer 中编码器的主要作用是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Transformer encoder 的结构与功能:自注意力、前馈网络如何工作?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "What does the encoder component do in the Transformer model?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "Transformer 中的编码器(Encoder)负责将输入 token 序列通过词嵌入和位置编码映射为向量序列,并经过 N 个相同编码器层生成上下文相关的隐藏表示。每个编码器层包含多头自注意力(Multi-Head Self-Attention)和前馈神经网络(Position-wise Feed-Forward Network),并配合残差连接(Residual Connection)、层归一化(Layer Normalization)和 Dropout。自注意力中的 Query、Key、Value 均来自同一输入,且不使用因果掩码(non-causal/unmasked self-attention),因此每个位置可以双向关注整个输入序列,捕获长距离依赖和全局上下文。编码器并行处理所有位置,输出 contextualized embeddings 或 memory representations,可作为解码器交叉注意力中的 Key 和 Value,或用于分类、序列标注、句子表示等下游任务。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L002",
+                "interview-question://L004",
+                "interview-question://R007"
+              ]
+            }
+          },
+          {
+            "question": "Transformer中的解码器做什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Transformer中的解码器做什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Transformer 中的解码器有什么作用?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Transformer 解码器的结构与功能详解"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "decoder 在 Transformer 中如何通过掩码自注意力和交叉注意力生成输出?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "Transformer中的解码器(Decoder)负责根据编码器输出和已生成 token 的自回归生成目标序列。每层通常包含掩码多头自注意力(Masked Multi-Head Self-Attention),通过 causal mask 防止当前位置关注未来 token;编码器-解码器交叉注意力(Encoder-Decoder Cross-Attention),以解码器隐状态为 Query、编码器输出为 Key/Value;以及前馈网络(FFN),并配有残差连接、LayerNorm 和 Dropout。训练时使用 teacher forcing 和右移输出,推理时逐 token 自回归解码,经线性层和 Softmax 得到词表概率分布,预测下一个 token。在 decoder-only 架构中,解码器仅保留掩码自注意力,用于语言建模;在 encoder-decoder 架构中,它用于机器翻译、摘要等序列到序列任务。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L002",
+                "interview-question://L005",
+                "interview-question://L012"
+              ]
+            }
+          },
+          {
+            "question": "Transformer中的注意力层做什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Transformer中的注意力层做什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Transformer中的注意力层有什么作用?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Transformer 自注意力机制的原理和功能是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "What does the attention layer in a Transformer do?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "Transformer中的注意力层通过自注意力机制计算序列中每个位置与其他所有位置的关联权重,从而生成上下文感知的表示。输入表示分别线性投影为查询Q、键K和值V,注意力分数由Q与K的点积经缩放因子√d_k归一化后得到,再通过softmax转换为注意力权重,并对V进行加权求和。多头注意力将Q、K、V映射到多个子空间并行执行缩放点积注意力,拼接后线性变换,以捕获不同表示子空间中的依赖关系。编码器自注意力允许每个token关注全序列,解码器使用掩码自注意力防止看到未来信息,并通过交叉注意力关注编码器输出。该层支持并行计算、长距离依赖建模,并常与残差连接、层归一化和前馈网络结合构成Transformer块。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L002",
+                "interview-question://L003",
+                "interview-question://L004"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4572293691332530417,
+            "title": "讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?",
+            "source": "interview-question://L002",
+            "domain": "llm-engineering",
+            "content": "# 讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?\n\n题目编号:L002\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示,Decoder通过掩码自注意力自回归生成,并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务,仅Decoder是多数生成式LLM的选择,Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V,通过 Q 与 K 的匹配权重聚合 V,再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文,Decoder 的自注意力用因果遮罩限制未来信息;原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列,推理生成仍逐 Token 进行。注意力改善长距离信息连接,却有计算与显存成本,不能理解为所有阶段都完全并行。\n\n评分要点:注意力与FFN;三种架构及掩码/交叉注意力。",
+            "vector_score": 0.829949676990509,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2551140976894006908,
+            "title": "大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?",
+            "source": "interview-question://L004",
+            "domain": "llm-engineering",
+            "content": "# 大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?\n\n题目编号:L004\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:自注意力本身对顺序不敏感,因此需要位置编码。sin/cos把绝对位置向量加入表示,可一定程度外推;RoPE通过旋转Q/K把相对位置信息编码进注意力内积,是当前常用方案;ALiBi直接给注意力分数加入与距离相关的线性偏置,简单且具备长度外推特性。三者在实现、相对位置表达和长上下文表现上不同。如果没有位置信息,注意力难以区分同一组词的不同顺序。sin/cos 使用固定频率的位置向量,RoPE 对 Q/K 做与位置有关的旋转,使点积体现相对位置关系,ALiBi 则在注意力分数中加入与距离相关的偏置。它们影响长度泛化,但支持更长窗口还与训练长度、缩放方案和任务有关。不能仅因使用 RoPE 就保证超出训练长度后仍准确,应该测不同位置和跨段依赖任务。\n\n评分要点:为何需要位置;三种方案的作用位置与特点。",
+            "vector_score": 0.7404201626777649,
+            "keyword_score": 0.8874591595641633,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.801375687122345,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.7890368700027466,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.7781065106391907,
+            "keyword_score": 0.8607319635496451,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 3401652904786247161,
+            "title": "多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?",
+            "source": "interview-question://L003",
+            "domain": "llm-engineering",
+            "content": "# 多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?\n\n题目编号:L003\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MHA 中每个查询头有独立的 K/V 头,长序列下 KV Cache 与显存带宽开销较大;稠密注意力还需要比较序列中的大量位置,计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V,GQA 则把查询头分组,每组共享 K/V,以减少缓存和访存,在速度、显存与表达能力间折中。FlashAttention 从实现层优化:通过分块与在线 Softmax,避免把完整注意力矩阵反复写入显存,从而降低 IO 与中间存储,仍计算精确注意力。它通常不将理论二次计算复杂度改成线性,也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用;实际收益需要在目标模型、序列长度、并发和硬件上测试,而不是只比较算法名称。\n\n评分要点:区分 MQA/GQA 的 K/V 共享与 FlashAttention 的 IO 优化;不把精确稠密注意力说成线性计算。",
+            "vector_score": 0.759796142578125,
+            "keyword_score": 0.9279884766075401,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 27.949,
+      "timings_seconds": {
+        "decomposition": 2.670111,
+        "retrieval": 25.278338,
+        "mqe": 8.318402,
+        "hyde": 14.6625,
+        "embedding": 1.28392,
+        "vector_search": 0.185416,
+        "keyword_search": 0.811754,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 25.278733,
+        "total": 27.948844,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-026",
+      "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "L002",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://L002"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示，Decoder通过掩码自注意力自回归生成，并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务，仅Decoder是多数生成式LLM的选择，Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V，通过 Q 与 K 的匹配权重聚合 V，再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文，Decoder 的自注意力用因果遮罩限制未来信息；原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列，推理生成仍逐 Token 进行。注意力改善长距离信息连接，却有计算与显存成本，不能理解为所有阶段都完全并行。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L002",
+        "interview-question://R007",
+        "interview-question://L005",
+        "interview-question://L012",
+        "interview-question://L003",
+        "interview-question://L004"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.8769765845238192,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+        "answer": "1. Transformer中的编码器做什么？\n\n\n2. Transformer中的解码器做什么？\n\n\n3. Transformer中的注意力层做什么？\n",
+        "sections": [
+          {
+            "question": "Transformer中的编码器做什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Transformer中的编码器做什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L002",
+                "interview-question://R007",
+                "interview-question://L005"
+              ]
+            }
+          },
+          {
+            "question": "Transformer中的解码器做什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Transformer中的解码器做什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L005",
+                "interview-question://L002",
+                "interview-question://L012"
+              ]
+            }
+          },
+          {
+            "question": "Transformer中的注意力层做什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Transformer中的注意力层做什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L002",
+                "interview-question://L003",
+                "interview-question://L004"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4572293691332530417,
+            "title": "讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?",
+            "source": "interview-question://L002",
+            "domain": "llm-engineering",
+            "content": "# 讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?\n\n题目编号:L002\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示,Decoder通过掩码自注意力自回归生成,并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务,仅Decoder是多数生成式LLM的选择,Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V,通过 Q 与 K 的匹配权重聚合 V,再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文,Decoder 的自注意力用因果遮罩限制未来信息;原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列,推理生成仍逐 Token 进行。注意力改善长距离信息连接,却有计算与显存成本,不能理解为所有阶段都完全并行。\n\n评分要点:注意力与FFN;三种架构及掩码/交叉注意力。",
+            "vector_score": 0.8111930787563324,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.7808322906494141,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.7798748314380646,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.7557827830314636,
+            "keyword_score": 0.8424009804024937,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 3401652904786247161,
+            "title": "多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?",
+            "source": "interview-question://L003",
+            "domain": "llm-engineering",
+            "content": "# 多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?\n\n题目编号:L003\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MHA 中每个查询头有独立的 K/V 头,长序列下 KV Cache 与显存带宽开销较大;稠密注意力还需要比较序列中的大量位置,计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V,GQA 则把查询头分组,每组共享 K/V,以减少缓存和访存,在速度、显存与表达能力间折中。FlashAttention 从实现层优化:通过分块与在线 Softmax,避免把完整注意力矩阵反复写入显存,从而降低 IO 与中间存储,仍计算精确注意力。它通常不将理论二次计算复杂度改成线性,也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用;实际收益需要在目标模型、序列长度、并发和硬件上测试,而不是只比较算法名称。\n\n评分要点:区分 MQA/GQA 的 K/V 共享与 FlashAttention 的 IO 优化;不把精确稠密注意力说成线性计算。",
+            "vector_score": 0.7573655247688293,
+            "keyword_score": 0.8605416065117676,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 2551140976894006908,
+            "title": "大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?",
+            "source": "interview-question://L004",
+            "domain": "llm-engineering",
+            "content": "# 大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?\n\n题目编号:L004\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:自注意力本身对顺序不敏感,因此需要位置编码。sin/cos把绝对位置向量加入表示,可一定程度外推;RoPE通过旋转Q/K把相对位置信息编码进注意力内积,是当前常用方案;ALiBi直接给注意力分数加入与距离相关的线性偏置,简单且具备长度外推特性。三者在实现、相对位置表达和长上下文表现上不同。如果没有位置信息,注意力难以区分同一组词的不同顺序。sin/cos 使用固定频率的位置向量,RoPE 对 Q/K 做与位置有关的旋转,使点积体现相对位置关系,ALiBi 则在注意力分数中加入与距离相关的偏置。它们影响长度泛化,但支持更长窗口还与训练长度、缩放方案和任务有关。不能仅因使用 RoPE 就保证超出训练长度后仍准确,应该测不同位置和跨段依赖任务。\n\n评分要点:为何需要位置;三种方案的作用位置与特点。",
+            "vector_score": 0.7367935180664062,
+            "keyword_score": 0.7429409986327365,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.52,
+      "timings_seconds": {
+        "decomposition": 2.670111,
+        "retrieval": 0.849076,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.596764,
+        "vector_search": 0.068213,
+        "keyword_search": 0.179504,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.849525,
+        "total": 3.519637,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-026",
+      "subquestions": [
+        {
+          "question": "Transformer中的编码器做什么？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "Transformer中的解码器做什么？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "Transformer中的注意力层做什么？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.6701114999996207
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.008,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-088",
+  "subquestions": [
+    {
+      "question": "ReAct执行循环是怎么工作的？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在智能体执行中，先规划后执行与反思两种模式有什么区别？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.60541650000232
+}

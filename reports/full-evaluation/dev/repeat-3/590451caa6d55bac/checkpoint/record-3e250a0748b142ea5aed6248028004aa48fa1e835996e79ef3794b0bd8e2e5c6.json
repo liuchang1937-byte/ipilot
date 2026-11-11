@@ -1,0 +1,186 @@
+{
+  "case_id": "V2-020",
+  "question": "助手反复选同一个工具且没有推进，怎样识别并终止这种循环？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A020",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://A020"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A020",
+    "interview-question://A015",
+    "interview-question://A005",
+    "interview-question://A018"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "助手反复选同一个工具且没有推进，怎样识别并终止这种循环？",
+    "answer": "1. 助手反复选择同一个工具且没有推进时，如何识别这种循环？\n\n\n2. 助手反复选择同一个工具且没有推进时，如何终止这种循环？\n",
+    "sections": [
+      {
+        "question": "助手反复选择同一个工具且没有推进时，如何识别这种循环？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "助手反复选择同一个工具且没有推进时,如何识别这种循环?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A020",
+            "interview-question://A015",
+            "interview-question://A005"
+          ]
+        }
+      },
+      {
+        "question": "助手反复选择同一个工具且没有推进时，如何终止这种循环？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "助手反复选择同一个工具且没有推进时,如何终止这种循环?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A020",
+            "interview-question://A018",
+            "interview-question://A005"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1522480542740227703,
+        "title": "Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?",
+        "source": "interview-question://A020",
+        "domain": "agent",
+        "content": "# Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?\n\n题目编号:A020\n\n领域:agent\n\n难度:3\n\n标签:死循环、路径震荡、治理\n- 考察方向:轨迹指纹、调用预算、状态去重和熔断策略。\n\n参考答案:常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避,或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹,检测短周期重复和无进展步数,并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径,触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹,同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环,例如分页检索和受控重试可能是合理的;重复但没有进展才应触发治理。发现空转后先判断错误类型,再修正参数、换工具或重新规划;多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点,让用户知道系统为何停止。\n\n评分要点:原因、检测信号、预算和恢复策略齐全。",
+        "vector_score": 0.8219168186187744,
+        "keyword_score": 0.9490135056250314,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2654545256875798294,
+        "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+        "source": "interview-question://A015",
+        "domain": "agent",
+        "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+        "vector_score": 0.7983825504779816,
+        "keyword_score": 0.6832957471637499,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 320541557706665564,
+        "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+        "source": "interview-question://A005",
+        "domain": "agent",
+        "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+        "vector_score": 0.7675409913063049,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2584544441468433340,
+        "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+        "source": "interview-question://A018",
+        "domain": "agent",
+        "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+        "vector_score": 0.7844997346401215,
+        "keyword_score": 0.6566831678356881,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.294,
+  "timings_seconds": {
+    "decomposition": 2.907755,
+    "retrieval": 0.385806,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.299616,
+    "vector_search": 0.022715,
+    "keyword_search": 0.062233,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.385958,
+    "total": 3.293714,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

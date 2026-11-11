@@ -1,0 +1,198 @@
+{
+  "case_id": "V2-015",
+  "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+  "category": "terminology",
+  "split": "test",
+  "group": "A015",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://A015"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "反思是让 Agent 根据目标、轨迹和结果识别错误，再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发；实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议，再将结论写入状态并重试。为避免无限自省，应限制次数和Token预算，要求每次反思产生可验证的新动作，没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充。反思可能重复相同偏差或引入新错误，因此需要最大次数、质量变化阈值和停止条件，不是次数越多越准确。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A015",
+    "interview-question://L017",
+    "interview-question://A010",
+    "interview-question://R017",
+    "interview-question://A022"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+    "answer": "1. 让模型检查自己的结果再修改，在什么条件下能够带来收益？\n\n\n2. 如何避免模型在检查自己的结果并修改时反复进行自我修正？\n",
+    "sections": [
+      {
+        "question": "让模型检查自己的结果再修改，在什么条件下能够带来收益？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "让模型检查自己的结果再修改,在什么条件下能够带来收益?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A015",
+            "interview-question://L017",
+            "interview-question://A010"
+          ]
+        }
+      },
+      {
+        "question": "如何避免模型在检查自己的结果并修改时反复进行自我修正？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "如何避免模型在检查自己的结果并修改时反复进行自我修正?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A015",
+            "interview-question://R017",
+            "interview-question://A022"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2654545256875798294,
+        "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+        "source": "interview-question://A015",
+        "domain": "agent",
+        "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+        "vector_score": 0.8241487145423889,
+        "keyword_score": 0.8956039026003417,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1514459175991001607,
+        "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+        "source": "interview-question://L017",
+        "domain": "llm-engineering",
+        "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+        "vector_score": 0.7775230705738068,
+        "keyword_score": 0.8007894399263561,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2175414725624058958,
+        "title": "什么是 Multi-Agent?",
+        "source": "interview-question://A010",
+        "domain": "agent",
+        "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+        "vector_score": 0.7768063545227051,
+        "keyword_score": 0.6363871177891721,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.7757459878921509,
+        "keyword_score": 0.684661653410294,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.7570866942405701,
+        "keyword_score": 0.8080082393370625,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.71,
+  "timings_seconds": {
+    "decomposition": 3.327551,
+    "retrieval": 0.382197,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.299027,
+    "vector_search": 0.024388,
+    "keyword_search": 0.057183,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.382346,
+    "total": 3.709897,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

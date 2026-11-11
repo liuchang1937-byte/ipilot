@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-069",
+      "question": "模型给出函数名与参数之后，谁真正执行函数并回填结果？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T001"
+      ],
+      "answerable": true,
+      "reference_answer": "Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数，宿主程序负责校验、鉴权、真实执行，再把结果返回模型生成最终回答。它不是模型直接执行函数，也不能替代超时、重试、幂等和安全控制。例如，用户要查询订单物流，开发者提供查询工具的名称、描述与参数约束，模型输出工具名和订单号，服务端校验身份并查询，最后把物流结果作为工具消息回传。模型可能直接回答，也可能连续调用多个工具，所以不一定固定两次模型请求。工具结果要关联到对应调用，JSON 格式正确也不代表订单号、权限或业务条件正确；执行前仍需确定性检查，不能直接运行模型生成的任意代码。",
+      "group": "T001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

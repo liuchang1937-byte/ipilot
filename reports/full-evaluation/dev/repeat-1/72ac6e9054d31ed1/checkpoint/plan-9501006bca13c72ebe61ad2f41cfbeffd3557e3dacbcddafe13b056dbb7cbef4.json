@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-021",
+  "subquestions": [
+    {
+      "question": "一次任务耗时突然翻倍时，如何从该任务的执行轨迹定位慢在哪一环？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.8414694000002783
+}

@@ -1,0 +1,190 @@
+{
+  "case_id": "V2-087",
+  "question": "模型变成能执行任务的助手需要什么变化？另外说明它的模块组成。",
+  "category": "compound",
+  "split": "dev",
+  "group": "A001",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://A001",
+    "interview-question://A002"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "大模型本质上是根据上下文生成输出的概率模型，本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统，它会感知当前状态，规划下一步，调用工具影响外部环境，读取执行结果并继续决策，直到完成目标或触发停止条件。两者的核心差异是：LLM 提供认知能力，Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如，一个资料调研 Agent 会先确定检索范围，调用搜索工具，检查是否获得足够证据，再组织结论；如果资料不足，就调整查询继续检索。控制循环通常由宿主代码驱动，模型输出的是行动建议，外部操作仍由程序执行。判断是否具备 Agent 特征，要看是否能依据观察更新决策，而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。",
+    "Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策；工具负责搜索、执行代码或调用API，使Agent能够作用于外部环境；记忆保存对话和任务状态；规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为：用户目标进入规划模块，规划结果与已有状态组成模型上下文，模型选择工具，执行器校验参数并运行，结果写回状态和记忆，模型再判断是否继续。记忆不能只保存聊天文本，还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器，它负责停止条件、异常处理和检查点，避免模型输出了计划却没有执行。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A014",
+    "interview-question://A015",
+    "interview-question://A023",
+    "interview-question://A002"
+  ],
+  "recall_at_k": 0.5,
+  "precision_at_k": 0.16666666666666666,
+  "ndcg_at_k": 0.3065735963827292,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": false,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "模型变成能执行任务的助手需要什么变化？另外说明它的模块组成。",
+    "answer": "1. 模型变成能执行任务的助手需要什么变化？\n\n\n2. 模型变成能执行任务的助手后，该助手的模块组成是什么？\n",
+    "sections": [
+      {
+        "question": "模型变成能执行任务的助手需要什么变化？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "模型变成能执行任务的助手需要什么变化?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A014",
+            "interview-question://A015",
+            "interview-question://A023"
+          ]
+        }
+      },
+      {
+        "question": "模型变成能执行任务的助手后，该助手的模块组成是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "模型变成能执行任务的助手后,该助手的模块组成是什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A002",
+            "interview-question://A023",
+            "interview-question://A014"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 888008174752367641,
+        "title": "如何赋予 LLM 规划能力?",
+        "source": "interview-question://A014",
+        "domain": "agent",
+        "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+        "vector_score": 0.7635995447635651,
+        "keyword_score": 0.6550870483072141,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2654545256875798294,
+        "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+        "source": "interview-question://A015",
+        "domain": "agent",
+        "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+        "vector_score": 0.7651365101337433,
+        "keyword_score": 0.9371511360627804,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.7631489038467407,
+        "keyword_score": 0.8164633046629268,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1979822055872710034,
+        "title": "Agent 的基本架构由哪些核心组件构成?",
+        "source": "interview-question://A002",
+        "domain": "agent",
+        "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+        "vector_score": 0.8123490810394287,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 2.916,
+  "timings_seconds": {
+    "decomposition": 2.455395,
+    "retrieval": 0.460486,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.284643,
+    "vector_search": 0.046172,
+    "keyword_search": 0.127137,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.460775,
+    "total": 2.916171,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

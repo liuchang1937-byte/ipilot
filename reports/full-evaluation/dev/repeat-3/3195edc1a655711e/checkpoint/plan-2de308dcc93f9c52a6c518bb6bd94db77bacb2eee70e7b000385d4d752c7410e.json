@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-018",
+  "subquestions": [
+    {
+      "question": "对话进行到一半时服务重启，如何恢复任务阶段？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "对话进行到一半时服务重启，如何防止任务重复执行？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.127711700002692
+}

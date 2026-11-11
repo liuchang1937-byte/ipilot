@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-069",
+  "question": "模型给出函数名与参数之后，谁真正执行函数并回填结果？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "T001",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T001"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数，宿主程序负责校验、鉴权、真实执行，再把结果返回模型生成最终回答。它不是模型直接执行函数，也不能替代超时、重试、幂等和安全控制。例如，用户要查询订单物流，开发者提供查询工具的名称、描述与参数约束，模型输出工具名和订单号，服务端校验身份并查询，最后把物流结果作为工具消息回传。模型可能直接回答，也可能连续调用多个工具，所以不一定固定两次模型请求。工具结果要关联到对应调用，JSON 格式正确也不代表订单号、权限或业务条件正确；执行前仍需确定性检查，不能直接运行模型生成的任意代码。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T001",
+    "interview-question://T006",
+    "interview-question://T011"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "模型给出函数名与参数之后，谁真正执行函数并回填结果？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "模型给出函数名与参数之后，谁真正执行该函数并回填执行结果？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "模型给出函数名与参数之后,谁真正执行该函数并回填执行结果?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型 Function Calling 中,模型输出函数名和参数后,由谁执行该函数并将结果回填给模型?"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM 工具调用流程:函数调用请求解析、执行器执行函数、结果回传的机制与架构"
+            },
+            {
+              "kind": "mqe",
+              "text": "How does function calling work after an LLM outputs a function name and arguments: who executes the function and returns the result?"
+            },
+            {
+              "kind": "hyde",
+              "text": "模型只输出结构化工具调用请求,即 assistant message 中的 `tool_calls` / `function_call`,包含函数名与 JSON 参数。真正执行函数的是宿主应用、客户端运行时或 Agent 编排器中的工具执行器 / 函数调度器(tool executor、function dispatcher)。它通过函数注册表(function registry)查找可调用对象,进行参数 schema 校验、权限与超时控制,然后调用本地函数、插件、API 或 MCP server。执行结果由执行器序列化为 JSON,封装为 `role=tool` / `role=function` 的消息,并携带 `tool_call_id` 或 `name`,回填到对话历史 / 上下文中,再发送给模型进行下一轮推理。模型本身不执行外部函数,也不直接回填结果;回填由应用层 / 运行时完成。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T001",
+            "interview-question://T006",
+            "interview-question://T011"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2985301377255987593,
+        "title": "什么是 Function Calling?原理是什么?",
+        "source": "interview-question://T001",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+        "vector_score": 0.8734012842178345,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1644641191381467949,
+        "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+        "source": "interview-question://T006",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+        "vector_score": 0.8519862294197083,
+        "keyword_score": 0.9186674095262165,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4412077096281725584,
+        "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+        "source": "interview-question://T011",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+        "vector_score": 0.8351792693138123,
+        "keyword_score": 0.8566476826394342,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 10.636,
+  "timings_seconds": {
+    "decomposition": 2.277824,
+    "retrieval": 8.358547,
+    "mqe": 2.840075,
+    "hyde": 5.04485,
+    "embedding": 0.323546,
+    "vector_search": 0.029163,
+    "keyword_search": 0.118723,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 8.358661,
+    "total": 10.636485,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

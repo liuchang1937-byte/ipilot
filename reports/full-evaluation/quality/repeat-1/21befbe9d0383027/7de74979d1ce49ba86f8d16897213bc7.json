@@ -1,0 +1,885 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "7de74979d1ce49ba86f8d16897213bc7",
+  "created_at": "2026-10-12T15:41:17.275815+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "5f094241c1b8fbd9b894fb4f2ddf97894dd5aaa09bb5d6dece48e3db3797f0eb",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\21befbe9d0383027\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.8066,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 43.817,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 43.817,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 5.39419,
+          "p50": 5.39419,
+          "p95": 5.39419,
+          "max": 5.39419,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 23.696567,
+          "p50": 23.696567,
+          "p95": 23.696567,
+          "max": 23.696567,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.716718,
+          "p50": 6.716718,
+          "p95": 6.716718,
+          "max": 6.716718,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 15.990612,
+          "p50": 15.990612,
+          "p95": 15.990612,
+          "max": 15.990612,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.688939,
+          "p50": 0.688939,
+          "p95": 0.688939,
+          "max": 0.688939,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.059676,
+          "p50": 0.059676,
+          "p95": 0.059676,
+          "max": 0.059676,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.235664,
+          "p50": 0.235664,
+          "p95": 0.235664,
+          "max": 0.235664,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 14.725634,
+          "p50": 14.725634,
+          "p95": 14.725634,
+          "max": 14.725634,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 38.422422,
+          "p50": 38.422422,
+          "p95": 38.422422,
+          "max": 38.422422,
+          "samples": 1
+        },
+        "total": {
+          "mean": 43.816612,
+          "p50": 43.816612,
+          "p95": 43.816612,
+          "max": 43.816612,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 101.241317,
+          "p50": 101.241317,
+          "p95": 101.241317,
+          "max": 101.241317,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 1.0,
+        "answer_relevancy": 1.0,
+        "citation_precision": 1.0,
+        "citation_coverage": 1.0
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-103",
+      "question": "生成时如何选解码策略？温度和截断采样参数如何影响随机性？",
+      "category": "compound",
+      "split": "test",
+      "group": "L012",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L012",
+        "interview-question://L013"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "贪心每步选择最高概率Token，速度快且稳定但容易局部最优；Beam Search保留多条高概率序列，适合翻译等更重整体概率的任务，但成本高且开放生成可能僵硬；采样按概率随机选择，可配合Temperature、Top-K和Top-P增加多样性，适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择，Beam Search 保留有限数量的序列候选，也不保证找到真正的全局最优；它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token，用随机性换取多样性。结构化输出需要格式约束与校验，低随机性不能替代这些机制。即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性。",
+        "Temperature缩放Logits，越低分布越尖锐；Top-K只在概率最高的K个Token中采样；Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度，创作可提高温度并使用Top-P；不存在通用最佳值，应基于任务集评估，而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布，Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合。它们只改变采样行为，不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数，再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同，因此不存在跨模型通用的最佳数值，温度为零也不等于结果一定可复现。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L012",
+        "interview-question://L002",
+        "interview-question://L005",
+        "interview-question://L013",
+        "interview-question://L018"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.8065735963827292,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "生成时如何选解码策略？温度和截断采样参数如何影响随机性？",
+        "answer": "1. 文本生成时如何选择解码策略？\n选择解码策略要围绕任务目标权衡确定性、多样性、整体概率、成本与可复现性[1]。\n\n- 贪心解码：每一步选择最高概率的 Token，速度快且稳定，但只做局部选择，容易陷入局部最优[1]。适合更看重确定性、低随机性的场景，例如结构化任务通常偏确定性[1]。不过，结构化输出仍需要格式约束与校验，低随机性不能替代这些机制[1]。\n- Beam Search：保留多条高概率序列候选，适合翻译等更重视整体概率的任务，但成本更高，并且在开放生成中可能显得僵硬，还可能偏好常见而缺乏多样性的表达[1]。它也只是保留有限数量的序列候选，不保证找到真正的全局最优[1]。\n- 采样：按概率随机选择 Token，用随机性换取多样性，可配合 Temperature、Top-K 和 Top-P 来调整多样性，适合创作和对话[1]。\n\n因此，实际选择时可这样判断：需要快速、稳定、偏确定性的输出，可优先考虑贪心[1]；任务重视整体序列概率且能接受更高成本，可考虑 Beam Search[1]；需要多样性、创意或对话感，可使用采样并调节温度、Top-K、Top-P[1]。同时要注意，即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性[1]。\n\n2. 文本生成时，温度和截断采样参数如何影响随机性？\n温度通过缩放 Logits 来改变下一 Token 的概率分布：通常将 logits 除以 T 后做 Softmax，温度越低分布越尖锐，随机性越低、生成越确定；温度越高分布越平坦，随机性越高、采样更多样 [4]。采样本身是按概率随机选择 Token，可配合 Temperature、Top-K 和 Top-P 来增加多样性，适合创作和对话 [1]。Top-K 会只在概率最高的 K 个 Token 中采样，候选数量固定：K 越小，候选越少，随机性越低；K 越大，候选越多，随机性越高 [4]。Top-P 则选择累计概率达到阈值的最小 Token 集合，根据累计概率动态决定候选集合：阈值越小，候选集合通常越小，随机性越低；阈值越大，保留的候选越多，随机性越高 [4]。这些参数只改变采样行为，不能给模型补充知识或保证事实正确；高随机性可能增加幻觉风险，低温生成可以减少随机性，但温度为零也不等于结果一定可复现 [4][5]。实践中通常避免同时激进调整所有参数，也不存在跨模型通用的最佳值，应基于任务集评估 [4]。",
+        "sections": [
+          {
+            "question": "文本生成时如何选择解码策略？",
+            "kind": "knowledge",
+            "answer": "选择解码策略要围绕任务目标权衡确定性、多样性、整体概率、成本与可复现性[1]。\n\n- 贪心解码：每一步选择最高概率的 Token，速度快且稳定，但只做局部选择，容易陷入局部最优[1]。适合更看重确定性、低随机性的场景，例如结构化任务通常偏确定性[1]。不过，结构化输出仍需要格式约束与校验，低随机性不能替代这些机制[1]。\n- Beam Search：保留多条高概率序列候选，适合翻译等更重视整体概率的任务，但成本更高，并且在开放生成中可能显得僵硬，还可能偏好常见而缺乏多样性的表达[1]。它也只是保留有限数量的序列候选，不保证找到真正的全局最优[1]。\n- 采样：按概率随机选择 Token，用随机性换取多样性，可配合 Temperature、Top-K 和 Top-P 来调整多样性，适合创作和对话[1]。\n\n因此，实际选择时可这样判断：需要快速、稳定、偏确定性的输出，可优先考虑贪心[1]；任务重视整体序列概率且能接受更高成本，可考虑 Beam Search[1]；需要多样性、创意或对话感，可使用采样并调节温度、Top-K、Top-P[1]。同时要注意，即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性[1]。",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "文本生成时如何选择解码策略?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "文本生成中如何选择解码策略"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "自然语言生成 解码方法 选择指南 greedy beam search top-k top-p sampling"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How to choose decoding strategies for text generation"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "文本生成中选择解码策略需在生成质量、多样性、事实一致性与计算开销之间权衡。翻译、摘要、问答等确定性任务通常用贪心搜索或束搜索(beam search),并配合长度惩罚、重复惩罚、no-repeat n-gram;束宽越大质量可能越高但延迟和显存开销越大。开放式创作、对话、故事生成宜采用随机采样,如温度采样、top-k 采样、核采样(top-p/nucleus sampling)、典型采样(typical sampling)或对比搜索(contrastive search),通过调节 temperature、k、p 控制多样性与连贯性:低温偏向确定性,高温增加随机性,top-p 动态截断低概率词,top-k 固定候选词数。减少重复可加入 repetition penalty、presence/frequency penalty 或 no-repeat n-gram;控制长度可加入 length penalty。实际部署常混合使用:先束搜索保证候选质量,再采样提升多样性,或按任务类型、模型规模、延迟约束和多样性需求动态选择解码策略。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L012",
+                "interview-question://L002",
+                "interview-question://L005"
+              ]
+            }
+          },
+          {
+            "question": "文本生成时，温度和截断采样参数如何影响随机性？",
+            "kind": "knowledge",
+            "answer": "温度通过缩放 Logits 来改变下一 Token 的概率分布：通常将 logits 除以 T 后做 Softmax，温度越低分布越尖锐，随机性越低、生成越确定；温度越高分布越平坦，随机性越高、采样更多样 [4]。采样本身是按概率随机选择 Token，可配合 Temperature、Top-K 和 Top-P 来增加多样性，适合创作和对话 [1]。Top-K 会只在概率最高的 K 个 Token 中采样，候选数量固定：K 越小，候选越少，随机性越低；K 越大，候选越多，随机性越高 [4]。Top-P 则选择累计概率达到阈值的最小 Token 集合，根据累计概率动态决定候选集合：阈值越小，候选集合通常越小，随机性越低；阈值越大，保留的候选越多，随机性越高 [4]。这些参数只改变采样行为，不能给模型补充知识或保证事实正确；高随机性可能增加幻觉风险，低温生成可以减少随机性，但温度为零也不等于结果一定可复现 [4][5]。实践中通常避免同时激进调整所有参数，也不存在跨模型通用的最佳值，应基于任务集评估 [4]。",
+            "source_ids": [
+              1,
+              4,
+              5
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "文本生成时,温度和截断采样参数如何影响随机性?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "文本生成中温度参数与截断采样(top-k、top-p)如何影响输出随机性?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型解码时 temperature、top-k、top-p 采样策略对生成文本随机性和多样性的作用机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How do temperature and truncation sampling parameters (top-k, top-p) affect randomness in text generation?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在自回归文本生成中,模型对每个时间步输出 logits,经温度 \\(T\\) 缩放后再 softmax 得到下一个 token 的概率分布:\\(T<1\\) 使分布更尖锐、熵降低,随机性减弱,趋近贪心解码;\\(T>1\\) 使分布更平坦、熵升高,随机性、多样性和不可控性增强;\\(T=0\\) 通常退化为 argmax。截断采样参数在采样前限制候选 token 集合:top-k 保留概率最高的 k 个 token;top-p/nucleus sampling 保留累计概率达到 p 的最小 token 集合。二者剔除长尾低概率 token,随后对截断后分布重新归一化并做多项式采样。top-k 或 top-p 越小,候选集越窄,随机性越低、输出越稳定但易重复;越大则保留更多长尾,随机性越高。组合使用时,高温加宽分布,高 top-p/top-k 扩大候选集,通常增加随机性;低温加小 top-k/top-p 则接近确定性生成。实际流程常为 logits → 温度缩放 → top-k/top-p 过滤 → 重归一化 → 按概率采样。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L012",
+                "interview-question://L013",
+                "interview-question://L018"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.8663662075996399,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 96113536461836751,
+            "title": "大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?",
+            "source": "interview-question://L013",
+            "domain": "llm-engineering",
+            "content": "# 大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?\n\n题目编号:L013\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度,创作可提高温度并使用Top-P;不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。它们只改变采样行为,不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数,再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同,因此不存在跨模型通用的最佳数值,温度为零也不等于结果一定可复现。\n\n评分要点:参数机制准确;场景化而非给出绝对最佳值。",
+            "vector_score": 0.8556939959526062,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.795044869184494,
+            "keyword_score": 0.6685165154794083,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.8663662075996399,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 4572293691332530417,
+            "title": "讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?",
+            "source": "interview-question://L002",
+            "domain": "llm-engineering",
+            "content": "# 讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?\n\n题目编号:L002\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示,Decoder通过掩码自注意力自回归生成,并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务,仅Decoder是多数生成式LLM的选择,Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V,通过 Q 与 K 的匹配权重聚合 V,再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文,Decoder 的自注意力用因果遮罩限制未来信息;原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列,推理生成仍逐 Token 进行。注意力改善长距离信息连接,却有计算与显存成本,不能理解为所有阶段都完全并行。\n\n评分要点:注意力与FFN;三种架构及掩码/交叉注意力。",
+            "vector_score": 0.7809997200965881,
+            "keyword_score": 0.45817890051214516,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.7626377940177917,
+            "keyword_score": 0.4875341521699613,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 96113536461836751,
+            "title": "大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?",
+            "source": "interview-question://L013",
+            "domain": "llm-engineering",
+            "content": "# 大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?\n\n题目编号:L013\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度,创作可提高温度并使用Top-P;不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。它们只改变采样行为,不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数,再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同,因此不存在跨模型通用的最佳数值,温度为零也不等于结果一定可复现。\n\n评分要点:参数机制准确;场景化而非给出绝对最佳值。",
+            "vector_score": 0.8556939959526062,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.795044869184494,
+            "keyword_score": 0.6685165154794083,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 1.0,
+      "elapsed_seconds": 43.817,
+      "timings_seconds": {
+        "decomposition": 5.39419,
+        "retrieval": 23.696567,
+        "mqe": 6.716718,
+        "hyde": 15.990612,
+        "embedding": 0.688939,
+        "vector_search": 0.059676,
+        "keyword_search": 0.235664,
+        "rerank": 0.0,
+        "generation": 14.725634,
+        "pipeline": 38.422422,
+        "total": 43.816612,
+        "judge": 101.241317
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 1.0,
+          "answer_relevancy": 1.0,
+          "citation_precision": 1.0,
+          "citation_coverage": 1.0
+        },
+        "claims": [
+          {
+            "text": "选择解码策略要围绕任务目标权衡确定性、多样性、整体概率、成本与可复现性[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1比较了不同解码策略的成本、多样性、适用场景与可复现性，支持该概括。"
+          },
+          {
+            "text": "贪心解码：每一步选择最高概率的 Token，速度快且稳定，但只做局部选择，容易陷入局部最优[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "贪心每步选择最高概率Token,速度快且稳定但容易局部最优"
+              },
+              {
+                "source_id": 1,
+                "quote": "贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1直接说明贪心选最高概率Token、稳定快速且局部最优、只做局部选择。"
+          },
+          {
+            "text": "适合更看重确定性、低随机性的场景，例如结构化任务通常偏确定性[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "结构化任务通常偏确定性。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1指出结构化任务通常偏确定性，支持该适用场景。"
+          },
+          {
+            "text": "不过，结构化输出仍需要格式约束与校验，低随机性不能替代这些机制[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "结构化输出需要格式约束与校验,低随机性不能替代这些机制。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1原文支持。"
+          },
+          {
+            "text": "Beam Search：保留多条高概率序列候选，适合翻译等更重视整体概率的任务，但成本更高，并且在开放生成中可能显得僵硬，还可能偏好常见而缺乏多样性的表达[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬"
+              },
+              {
+                "source_id": 1,
+                "quote": "它还可能偏好常见而缺乏多样性的表达。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持Beam Search机制、成本、开放生成僵硬和偏好常见表达。"
+          },
+          {
+            "text": "它也只是保留有限数量的序列候选，不保证找到真正的全局最优[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1明确说明Beam Search有限候选且不保证全局最优。"
+          },
+          {
+            "text": "采样：按概率随机选择 Token，用随机性换取多样性，可配合 Temperature、Top-K 和 Top-P 来调整多样性，适合创作和对话[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。"
+              },
+              {
+                "source_id": 1,
+                "quote": "采样则从调整后的分布抽取 Token,用随机性换取多样性。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持采样的随机选择、多样性和适用场景。"
+          },
+          {
+            "text": "因此，实际选择时可这样判断：需要快速、稳定、偏确定性的输出，可优先考虑贪心[1]；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "贪心每步选择最高概率Token,速度快且稳定但容易局部最优"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1说明贪心快速稳定且偏确定性，支持该选择建议。"
+          },
+          {
+            "text": "任务重视整体序列概率且能接受更高成本，可考虑 Beam Search[1]；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持Beam Search适合重整体概率且成本高。"
+          },
+          {
+            "text": "需要多样性、创意或对话感，可使用采样并调节温度、Top-K、Top-P[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持采样配合参数增加多样性并适用于创作对话。"
+          },
+          {
+            "text": "同时要注意，即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1原文支持。"
+          },
+          {
+            "text": "温度通过缩放 Logits 来改变下一 Token 的概率分布：通常将 logits 除以 T 后做 Softmax，温度越低分布越尖锐，随机性越低、生成越确定；温度越高分布越平坦，随机性越高、采样更多样 [4]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 4,
+                "quote": "Temperature缩放Logits,越低分布越尖锐"
+              },
+              {
+                "source_id": 4,
+                "quote": "温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 4,
+                "supported": true
+              }
+            ],
+            "reason": "资料4支持温度缩放logits、除以T后Softmax及低温更尖锐；高温更平坦为对应推断。"
+          },
+          {
+            "text": "采样本身是按概率随机选择 Token，可配合 Temperature、Top-K 和 Top-P 来增加多样性，适合创作和对话 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1原文支持。"
+          },
+          {
+            "text": "Top-K 会只在概率最高的 K 个 Token 中采样，候选数量固定：K 越小，候选越少，随机性越低；K 越大，候选越多，随机性越高 [4]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 4,
+                "quote": "Top-K只在概率最高的K个Token中采样"
+              },
+              {
+                "source_id": 4,
+                "quote": "Top-K 固定候选数量"
+              }
+            ],
+            "citations": [
+              {
+                "id": 4,
+                "supported": true
+              }
+            ],
+            "reason": "资料4支持Top-K机制和固定候选数量；候选数变化对随机性的影响可由候选数量固定直接推断。"
+          },
+          {
+            "text": "Top-P 则选择累计概率达到阈值的最小 Token 集合，根据累计概率动态决定候选集合：阈值越小，候选集合通常越小，随机性越低；阈值越大，保留的候选越多，随机性越高 [4]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 4,
+                "quote": "Top-P选择累计概率达到阈值的最小集合。"
+              },
+              {
+                "source_id": 4,
+                "quote": "Top-P 根据累计概率动态决定候选集合。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 4,
+                "supported": true
+              }
+            ],
+            "reason": "资料4支持Top-P机制和动态候选集合；阈值大小对随机性的影响可由最小累计概率集合推断。"
+          },
+          {
+            "text": "这些参数只改变采样行为，不能给模型补充知识或保证事实正确；高随机性可能增加幻觉风险，低温生成可以减少随机性，但温度为零也不等于结果一定可复现 [4][5]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 4,
+                "quote": "它们只改变采样行为,不能给模型补充知识或保证事实正确。"
+              },
+              {
+                "source_id": 4,
+                "quote": "温度为零也不等于结果一定可复现。"
+              },
+              {
+                "source_id": 5,
+                "quote": "上下文噪声和高随机性都可能导致幻觉。"
+              },
+              {
+                "source_id": 5,
+                "quote": "即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 4,
+                "supported": true
+              },
+              {
+                "id": 5,
+                "supported": true
+              }
+            ],
+            "reason": "资料4支持参数只改变采样、不保证事实和温度零不可复现；资料5支持高随机性致幻觉、低温只减少随机性。"
+          },
+          {
+            "text": "实践中通常避免同时激进调整所有参数，也不存在跨模型通用的最佳值，应基于任务集评估 [4]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 4,
+                "quote": "不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。"
+              },
+              {
+                "source_id": 4,
+                "quote": "不存在跨模型通用的最佳数值"
+              }
+            ],
+            "citations": [
+              {
+                "id": 4,
+                "supported": true
+              }
+            ],
+            "reason": "资料4支持避免激进调参、无通用最佳值和基于任务集评估。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": true,
+            "reason": "答案逐项说明贪心、Beam Search、采样机制、成本、多样性、适用场景，并覆盖结构化确定性、格式约束、有限候选、非全局最优、可复现性等。",
+            "point": "贪心每步选择最高概率Token，速度快且稳定但容易局部最优；Beam Search保留多条高概率序列，适合翻译等更重整体概率的任务，但成本高且开放生成可能僵硬；采样按概率随机选择，可配合Temperature、Top-K和Top-P增加多样性，适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择，Beam Search 保留有限数量的序列候选，也不保证找到真正的全局最优；它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token，用随机性换取多样性。结构化输出需要格式约束与校验，低随机性不能替代这些机制。即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性。"
+          },
+          {
+            "index": 2,
+            "covered": true,
+            "reason": "答案覆盖温度缩放、Top-K、Top-P机制及其对随机性的方向性影响，并指出无跨模型通用最佳值、应基于任务集评估、避免激进调参；创作/对话多样性与低温降低随机性也已涉及。",
+            "point": "Temperature缩放Logits，越低分布越尖锐；Top-K只在概率最高的K个Token中采样；Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度，创作可提高温度并使用Top-P；不存在通用最佳值，应基于任务集评估，而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布，Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合。它们只改变采样行为，不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数，再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同，因此不存在跨模型通用的最佳数值，温度为零也不等于结果一定可复现。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "答案完整回应了解码策略选择以及温度、Top-K、Top-P对随机性的影响，并给出实践判断。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-103",
+      "subquestions": [
+        {
+          "question": "文本生成时如何选择解码策略？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "文本生成时，温度和截断采样参数如何影响随机性？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 5.394189599999663
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 145.063,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

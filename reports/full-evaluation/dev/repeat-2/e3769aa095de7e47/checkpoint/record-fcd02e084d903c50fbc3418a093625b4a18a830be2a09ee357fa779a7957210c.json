@@ -1,0 +1,190 @@
+{
+  "case_id": "V2-094",
+  "question": "资料切块时如何选长度与重叠？答案跨片段时如何保留完整上下文？",
+  "category": "compound",
+  "split": "dev",
+  "group": "R004",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://R004",
+    "interview-question://R005"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "通常保存原文、元数据、父块、检索子块、Embedding和关键词索引。切块优先尊重标题、段落、表格和代码边界，再按Token预算控制长度；过小会丢上下文，过大则召回不精准且占用窗口。可采用重叠、语义切块、父子检索和按文档类型配置策略，最终粒度应通过Recall@K与答案质量实验确定。常见策略包括固定长度、递归分隔、标题结构和语义边界切块。重叠用来保留边界信息，父子结构让小块精准召回后返回更完整的章节；表格可补充表头，代码应尽量保留完整函数与说明。块大小没有统一最优值，要与文档结构、Embedding 输入长度和问题类型一起评估。不要把多个不同主题硬拼成一个块，也要避免仅命中标题却没有正文依据。",
+    "一方面在切块阶段按句子、段落和标题等自然边界切分，并使用适量重叠；另一方面在检索后补回上下文，例如命中句子后返回周围窗口，或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval：在Embedding前为每个Chunk生成与全文相关的背景说明，再与正文共同索引，减轻孤立Chunk缺少上下文的问题。例如，一个段落先说明条件、后说明例外，按固定字符数切开可能只召回例外，导致错误结论。可以保存标题路径、块位置与父文档 ID，在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查，避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度，因此应去重并控制返回预算，用跨段问题检验收益。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R004",
+    "interview-question://R005",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://L023"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.6666666666666666,
+  "ndcg_at_k": 0.8467132018086354,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "资料切块时如何选长度与重叠？答案跨片段时如何保留完整上下文？",
+    "answer": "1. 资料切块时如何选择切块长度与重叠？\n\n\n2. 答案跨片段时如何保留完整上下文？\n",
+    "sections": [
+      {
+        "question": "资料切块时如何选择切块长度与重叠？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料切块时如何选择切块长度与重叠?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R004",
+            "interview-question://R005",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      },
+      {
+        "question": "答案跨片段时如何保留完整上下文？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "答案跨片段时如何保留完整上下文?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L023",
+            "interview-question://R005",
+            "interview-question://R004"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2118700465874223499,
+        "title": "RAG 中的文档是怎么存的?粒度是多大?详细说说文档切割(Chunking)策略?",
+        "source": "interview-question://R004",
+        "domain": "rag",
+        "content": "# RAG 中的文档是怎么存的?粒度是多大?详细说说文档切割(Chunking)策略?\n\n题目编号:R004\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:通常保存原文、元数据、父块、检索子块、Embedding和关键词索引。切块优先尊重标题、段落、表格和代码边界,再按Token预算控制长度;过小会丢上下文,过大则召回不精准且占用窗口。可采用重叠、语义切块、父子检索和按文档类型配置策略,最终粒度应通过Recall@K与答案质量实验确定。常见策略包括固定长度、递归分隔、标题结构和语义边界切块。重叠用来保留边界信息,父子结构让小块精准召回后返回更完整的章节;表格可补充表头,代码应尽量保留完整函数与说明。块大小没有统一最优值,要与文档结构、Embedding 输入长度和问题类型一起评估。不要把多个不同主题硬拼成一个块,也要避免仅命中标题却没有正文依据。\n\n评分要点:存储结构、粒度权衡、结构化切块、父子关系和实验调参。",
+        "vector_score": 0.7742088735103607,
+        "keyword_score": 0.9363034596303315,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3747615631573896845,
+        "title": "怎么规避语义被切割掉的问题?",
+        "source": "interview-question://R005",
+        "domain": "rag",
+        "content": "# 怎么规避语义被切割掉的问题?\n\n题目编号:R005\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:一方面在切块阶段按句子、段落和标题等自然边界切分,并使用适量重叠;另一方面在检索后补回上下文,例如命中句子后返回周围窗口,或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval:在Embedding前为每个Chunk生成与全文相关的背景说明,再与正文共同索引,减轻孤立Chunk缺少上下文的问题。例如,一个段落先说明条件、后说明例外,按固定字符数切开可能只召回例外,导致错误结论。可以保存标题路径、块位置与父文档 ID,在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查,避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度,因此应去重并控制返回预算,用跨段问题检验收益。\n\n评分要点:语义边界、重叠、上下文标题、邻块扩展或父块返回。",
+        "vector_score": 0.8387176394462585,
+        "keyword_score": 0.6870182370628292,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3911908167396159604,
+        "title": "推荐测试方式",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 推荐测试方式\n\n● 切块:分别尝试 200、500、800 中文字符,重叠比例 10% 至 20%。\n● 检索:对比纯向量、BM25 与混合检索;记录 Recall@5、MRR 和 nDCG@10。\n● 重排:先召回 20 个候选块,再由 reranker 选前 5 个;观察同义词与否定句。\n● 问答:要求答案附事实编号或章节名;缺少依据时应明确拒答。\n章节 内容 主要测试点\n1 项目概览与组织 实体、日期、地点、数值\n2 术语与同义词 embedding、缩写、歧义\n3 端到端流程 顺序、条件、跨块关联\n4 数据与权限 表格检索、过滤、否定事实\n5 案例研究 多跳问答、计算、归因\n6 故障与处置 相似症状、精确区分\n7 FAQ 自然语言问答、改写\n附录 事实清单与测试题 基准答案、召回评估",
+        "vector_score": 0.7591370940208435,
+        "keyword_score": 0.6087056521893659,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 3770684538166052564,
+        "title": "为什么长上下文会出现 Lost in the Middle?上下文窗口越大越好吗?",
+        "source": "interview-question://L023",
+        "domain": "llm-engineering",
+        "content": "# 为什么长上下文会出现 Lost in the Middle?上下文窗口越大越好吗?\n\n题目编号:L023\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:模型对上下文不同位置的利用不均,常更关注开头和结尾,中间证据可能因位置偏差、注意力稀释和训练分布不足被忽略。更大窗口只能表示“放得下”,不代表能稳定使用,还会增加预填充延迟和成本。可通过检索筛选、重排、分层摘要和把关键证据靠近问题缓解,并用不同位置的针测试和真实长文问答评测。可以把相同证据分别放在开头、中间和末尾,逐步增加无关文本,比较正确率和引用准确性;还要测试跨段关联,不能只用找一个关键词的针测试代替真实任务。改善手段包括检索筛选、分层摘要、相关证据重排与清晰分区,但不能把重复灌入大量信息当作通用解法。更大窗口有时能减少检索遗漏,也会增加处理与维护成本,选择应依据有效上下文表现而不是输入上限。\n\n评分要点:有效上下文与标称窗口区分;原因、成本、缓解和评测。",
+        "vector_score": 0.8156413435935974,
+        "keyword_score": 0.7104017046161244,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.792,
+  "timings_seconds": {
+    "decomposition": 3.287751,
+    "retrieval": 0.503967,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.328413,
+    "vector_search": 0.050859,
+    "keyword_search": 0.122436,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.504225,
+    "total": 3.791976,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

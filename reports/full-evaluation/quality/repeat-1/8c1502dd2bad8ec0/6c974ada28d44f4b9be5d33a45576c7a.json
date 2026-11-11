@@ -1,0 +1,405 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "6c974ada28d44f4b9be5d33a45576c7a",
+  "created_at": "2026-10-12T16:47:30.366697+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "74ca4cc8838313a36f7c141a123c8196f0419268bceade49081885900bc6f36b",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 1,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\8c1502dd2bad8ec0\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": 1,
+      "false_refusal_rate": null,
+      "mean_seconds": 13.475,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 13.475,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.176523,
+          "p50": 1.176523,
+          "p95": 1.176523,
+          "max": 1.176523,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 10.683545,
+          "p50": 10.683545,
+          "p95": 10.683545,
+          "max": 10.683545,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 3.632129,
+          "p50": 3.632129,
+          "p95": 3.632129,
+          "max": 3.632129,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 6.390402,
+          "p50": 6.390402,
+          "p95": 6.390402,
+          "max": 6.390402,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.511936,
+          "p50": 0.511936,
+          "p95": 0.511936,
+          "max": 0.511936,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.031106,
+          "p50": 0.031106,
+          "p95": 0.031106,
+          "max": 0.031106,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.115416,
+          "p50": 0.115416,
+          "p95": 0.115416,
+          "max": 0.115416,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 1.614492,
+          "p50": 1.614492,
+          "p95": 1.614492,
+          "max": 1.614492,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 12.298198,
+          "p50": 12.298198,
+          "p95": 12.298198,
+          "max": 12.298198,
+          "samples": 1
+        },
+        "total": {
+          "mean": 13.474721,
+          "p50": 13.474721,
+          "p95": 13.474721,
+          "max": 13.474721,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 5.248878,
+          "p50": 5.248878,
+          "p95": 5.248878,
+          "max": 5.248878,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 1,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 1,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": 1.0,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-111",
+      "question": "请按知识库提供Orion-RAG内部采购合同的向量数据库成交价格。",
+      "category": "unanswerable",
+      "split": "test",
+      "group": "V2-111",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R008",
+        "interview-question://R009",
+        "interview-question://R016"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": true,
+      "false_refusal": null,
+      "result": {
+        "question": "请按知识库提供Orion-RAG内部采购合同的向量数据库成交价格。",
+        "answer": "当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+        "sections": [
+          {
+            "question": "请按知识库提供Orion-RAG内部采购合同中向量数据库的成交价格。",
+            "kind": "knowledge",
+            "answer": "当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+            "source_ids": [],
+            "insufficient": true,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "请按知识库提供Orion-RAG内部采购合同中向量数据库的成交价格。"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Orion-RAG 内部采购合同 向量数据库 成交价格"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Orion-RAG 向量数据库 采购合同 合同金额 中标金额"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Orion-RAG internal procurement contract vector database transaction price"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "Orion-RAG 内部采购合同(编号:ORION-RAG-2024-017)中,向量数据库成交价格为人民币 498,000 元(含税),采购内容包含向量数据库企业版授权 1 套、分布式向量索引集群 3 节点及年度原厂技术支持,供应商为北京智维数据科技有限公司,税率 6%,付款条件为 30% 预付款、60% 验收款、10% 质保金。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R008",
+                "interview-question://R009",
+                "interview-question://R016"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1084357564865389044,
+            "title": "什么是向量数据库?有没有做过向量数据库的对比选型?",
+            "source": "interview-question://R008",
+            "domain": "rag",
+            "content": "# 什么是向量数据库?有没有做过向量数据库的对比选型?\n\n题目编号:R008\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:向量数据库存储向量及元数据,并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引,不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展:前者通常还提供元数据、持久化与服务治理,后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试,比较召回率与 P95,不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟,IVF 等方案则有训练、探测和压缩参数需要调整,实际效果要结合数据分布验证。\n\n评分要点:定义、索引、过滤、规模、运维和成本维度完整。",
+            "vector_score": 0.7838011980056763,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2886579831854676340,
+            "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+            "source": "interview-question://R009",
+            "domain": "rag",
+            "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+            "vector_score": 0.7718508541584015,
+            "keyword_score": 0.7962655235748948,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2214053965974079694,
+            "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+            "source": "interview-question://R016",
+            "domain": "rag",
+            "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+            "vector_score": 0.7500359416007996,
+            "keyword_score": 0.6136587509559628,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": 1.0,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 13.475,
+      "timings_seconds": {
+        "decomposition": 1.176523,
+        "retrieval": 10.683545,
+        "mqe": 3.632129,
+        "hyde": 6.390402,
+        "embedding": 0.511936,
+        "vector_search": 0.031106,
+        "keyword_search": 0.115416,
+        "rerank": 0.0,
+        "generation": 1.614492,
+        "pipeline": 12.298198,
+        "total": 13.474721,
+        "judge": 5.248878
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": 1.0,
+          "citation_precision": null,
+          "citation_coverage": null
+        },
+        "claims": [],
+        "reference_points": [],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "问题要求提供知识库中Orion-RAG内部采购合同的向量数据库成交价格，但提供的上下文均为向量数据库选型、项目经验等通用资料，未包含该具体成交价格；答案明确说明知识库中没有足够相关资料并拒绝作答。由于answerable为false，该拒答合理且直接回应了问题无法回答的实际情况。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-111",
+      "subquestions": [
+        {
+          "question": "请按知识库提供Orion-RAG内部采购合同中向量数据库的成交价格。",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 1.176522900001146
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.004,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

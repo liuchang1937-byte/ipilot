@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-030",
+  "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+  "category": "terminology",
+  "split": "test",
+  "group": "L006",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L006"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料，控制领域与语言配比，处理测试污染，再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识，工程上依靠分布式并行、混合精度、优化器和检查点，兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令；偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定，SFT 本身也属于后训练，部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名，还要说明每阶段解决什么问题；数据质量差或奖励定义错误时，增加训练步骤并不保证效果提升。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L006",
+    "interview-question://T003",
+    "interview-question://L010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "从大量原始文本到能遵循指令的模型,通常经历哪些训练阶段?"
+            },
+            {
+              "kind": "mqe",
+              "text": "从大量原始文本到能遵循指令的模型通常经历哪些训练阶段"
+            },
+            {
+              "kind": "mqe",
+              "text": "大语言模型训练流程 预训练 监督微调 指令微调 奖励建模 RLHF 对齐阶段"
+            },
+            {
+              "kind": "mqe",
+              "text": "large language model training stages from raw text to instruction following: pretraining, supervised fine-tuning, RLHF, alignment"
+            },
+            {
+              "kind": "hyde",
+              "text": "从大量原始文本到能遵循指令的模型,通常经历数据清洗、去重、分词与序列打包后的自监督预训练,即以 Transformer 因果语言模型进行 next-token prediction,使用交叉熵损失学习通用语言表示,得到基座模型;随后可进行继续预训练或领域自适应。接着进入监督指令微调(SFT/instruction tuning),使用指令-输入-输出样本或多轮对话数据,通过 teacher forcing 优化模型遵循指令。之后进行偏好对齐:基于人类偏好比较数据训练奖励模型(RM),再用强化学习(RLHF,如 PPO)优化策略,或采用 DPO、IPO、KTO 等直接偏好优化方法。最后进行安全对齐、红队评估、拒绝有害请求与系统提示遵循训练,最终得到指令遵循模型。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L006",
+            "interview-question://T003",
+            "interview-question://L010"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3102864813120224030,
+        "title": "大模型是怎么训练出来的?",
+        "source": "interview-question://L006",
+        "domain": "llm-engineering",
+        "content": "# 大模型是怎么训练出来的?\n\n题目编号:L006\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料,控制领域与语言配比,处理测试污染,再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识,工程上依靠分布式并行、混合精度、优化器和检查点,兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令;偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定,SFT 本身也属于后训练,部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名,还要说明每阶段解决什么问题;数据质量差或奖励定义错误时,增加训练步骤并不保证效果提升。\n\n评分要点:数据、预训练、后训练、评测和分布式工程。",
+        "vector_score": 0.8128182291984558,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.7674325108528137,
+        "keyword_score": 0.645432776593023,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1564593821354906773,
+        "title": "SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?",
+        "source": "interview-question://L010",
+        "domain": "llm-engineering",
+        "content": "# SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?\n\n题目编号:L010\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:SFT后可用拒绝采样从多个候选中选优再训练;RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习;GRPO使用组内相对奖励估计优势,减少价值模型依赖。它们都利用偏好或奖励改善行为,但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化,不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习;DPO 用偏好对直接优化;PPO 和 GRPO 则属于强化优化方式,奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势,避免单独训练价值模型,但仍有采样与奖励成本。方法可以组合,关键是训练信号可靠以及收益能通过独立测试确认。\n\n评分要点:说明 SFT 与后训练的关系;比较拒绝采样、PPO 式 RLHF、DPO 和 GRPO 的训练信号与成本。",
+        "vector_score": 0.7765796780586243,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 12.71,
+  "timings_seconds": {
+    "decomposition": 2.380159,
+    "retrieval": 10.329743,
+    "mqe": 3.364354,
+    "hyde": 6.535284,
+    "embedding": 0.283867,
+    "vector_search": 0.028404,
+    "keyword_search": 0.114108,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 10.329874,
+    "total": 12.710033,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

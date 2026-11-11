@@ -1,0 +1,260 @@
+{
+  "case_id": "V2-056",
+  "question": "向量库的规模和响应速度应该怎样测量，瓶颈通常怎么排查？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R009",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R009"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销；可通过索引调参、分区分片、压缩、批量写入和缓存优化，但必须同步观察召回损失。如果讲本项目，应如实说明子块向量存入本地 Chroma，由 cosine HNSW 索引召回，再与应用层中文 BM25 排序融合并返回完整父块；目前没有部署分布式集群，也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈，再选择批量读取、缓存或引入专门索引；优化前后要在同一数据与负载上对照，否则性能数字缺乏意义。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R008",
+    "interview-question://R009",
+    "interview-question://R006",
+    "interview-question://R016"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.7539531690476383,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "向量库的规模和响应速度应该怎样测量，瓶颈通常怎么排查？",
+    "answer": "1. 向量库的规模应该怎样测量？\n\n\n2. 向量库的响应速度应该怎样测量？\n\n\n3. 向量库的瓶颈通常应该怎样排查？\n",
+    "sections": [
+      {
+        "question": "向量库的规模应该怎样测量？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "向量库的规模应该怎样测量?"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量库规模如何测量"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量数据库规模评估指标 向量数量 维度 索引大小 内存占用"
+            },
+            {
+              "kind": "mqe",
+              "text": "how to measure vector database scale metrics vector count dimensionality index size memory usage"
+            },
+            {
+              "kind": "hyde",
+              "text": "向量库规模应从数据规模、索引规模、存储规模和负载规模四方面测量。数据规模用向量条数 N、向量维度 d、数据类型字节宽度 b 及稀疏/稠密表示,原始向量容量约为 N×d×b。索引规模包括 HNSW 的层数、节点度 M、边数,IVF 的聚类中心 nlist、倒排链长度,PQ/OPQ 的子空间数、码本大小和压缩编码长度。存储规模统计内存驻留、磁盘索引文件、元数据、标量过滤字段、分片 shard、副本 replica 的总占用。负载规模用 collection/namespace 数量、写入 QPS、查询 QPS、并发数、P95/P99 延迟、recall@k、吞吐量和 CPU/GPU/RAM/SSD 资源使用率衡量。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R008",
+            "interview-question://R009",
+            "interview-question://R006"
+          ]
+        }
+      },
+      {
+        "question": "向量库的响应速度应该怎样测量？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "向量库的响应速度应该怎样测量?"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量库响应速度应该怎样测量 延迟 吞吐量 QPS 基准测试方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量数据库检索性能测试方案 响应时间 benchmark 评测指标"
+            },
+            {
+              "kind": "mqe",
+              "text": "how to benchmark vector database response speed latency and throughput"
+            },
+            {
+              "kind": "hyde",
+              "text": "测量向量库响应速度应围绕端到端查询延迟与吞吐:在固定数据集规模、向量维度、索引类型(HNSW/IVF/PQ/DiskANN)、top-k、过滤条件、一致性级别和召回率Recall@k下,用压测客户端以单并发、阶梯并发和持续并发发送查询,记录从请求发出到返回候选结果的总耗时,报告P50/P95/P99、平均值、最大值、QPS、错误率和超时率。需区分冷启动与热缓存、单条与批量查询、服务端处理延迟与客户端网络/RPC序列化开销,并监控CPU/GPU、内存、磁盘IO、索引构建/加载时间。通过固定随机种子和真实查询分布,评估延迟-召回权衡,才能客观测量向量库的响应速度。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R008",
+            "interview-question://R009",
+            "interview-question://R006"
+          ]
+        }
+      },
+      {
+        "question": "向量库的瓶颈通常应该怎样排查？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "向量库的瓶颈通常应该怎样排查?"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量数据库性能瓶颈如何排查与定位"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量检索系统瓶颈排查:延迟、吞吐、内存、CPU/GPU 指标分析"
+            },
+            {
+              "kind": "mqe",
+              "text": "vector database bottleneck troubleshooting performance debugging guide"
+            },
+            {
+              "kind": "hyde",
+              "text": "排查向量库瓶颈通常按请求链路分层:先采集端到端 P95/P99 延迟、QPS、超时率、召回率、缓存命中率和资源指标,区分写入/索引构建与查询检索路径。查询侧检查 top_k、efSearch、nprobe、过滤条件、分片路由、副本负载、并发度、批大小、CPU/GPU 利用率、内存带宽、网络 RTT、慢查询日志,并用火焰图/Profiling 定位 ANN 搜索、元数据过滤、重排序或序列化热点;优化 HNSW/IVF/PQ 参数、量化策略、预过滤/后过滤、向量维度和缓存。写入侧检查 WAL、segment/compaction、merge 策略、磁盘 IOPS、page cache/mmap、批量写入和刷新间隔,避免索引重建与合并争用。最后通过压测、指标下钻和逐层隔离客户端、网关、查询节点、存储节点,确认是数据规模、参数配置、资源争用还是分片热点导致瓶颈。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R009",
+            "interview-question://R008",
+            "interview-question://R016"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1084357564865389044,
+        "title": "什么是向量数据库?有没有做过向量数据库的对比选型?",
+        "source": "interview-question://R008",
+        "domain": "rag",
+        "content": "# 什么是向量数据库?有没有做过向量数据库的对比选型?\n\n题目编号:R008\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:向量数据库存储向量及元数据,并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引,不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展:前者通常还提供元数据、持久化与服务治理,后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试,比较召回率与 P95,不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟,IVF 等方案则有训练、探测和压缩参数需要调整,实际效果要结合数据分布验证。\n\n评分要点:定义、索引、过滤、规模、运维和成本维度完整。",
+        "vector_score": 0.8411508798599243,
+        "keyword_score": 0.6756428446670647,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2886579831854676340,
+        "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+        "source": "interview-question://R009",
+        "domain": "rag",
+        "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+        "vector_score": 0.8829998970031738,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3773025965374103241,
+        "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+        "source": "interview-question://R006",
+        "domain": "rag",
+        "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+        "vector_score": 0.7960295081138611,
+        "keyword_score": 0.8746886121629347,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2214053965974079694,
+        "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+        "source": "interview-question://R016",
+        "domain": "rag",
+        "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+        "vector_score": 0.8062903881072998,
+        "keyword_score": 0.5914249044967752,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 35.797,
+  "timings_seconds": {
+    "decomposition": 3.062876,
+    "retrieval": 32.73389,
+    "mqe": 9.690123,
+    "hyde": 21.61357,
+    "embedding": 0.983015,
+    "vector_search": 0.086173,
+    "keyword_search": 0.353938,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 32.734082,
+    "total": 35.796958,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 15,
+    "chat_calls": 6,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "case_id": "V2-117",
+  "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-117",
+  "variant": "hybrid",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T018",
+    "interview-question://A023",
+    "interview-question://T016"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+    "answer": "",
+    "sections": [
+      {
+        "question": "私有仓库 ZetaHost 的实际工具调用失败率是多少，以及该失败率的统计日期是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "私有仓库 ZetaHost 的实际工具调用失败率是多少,以及该失败率的统计日期是什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T018",
+            "interview-question://A023",
+            "interview-question://T016"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3035522643108457551,
+        "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+        "source": "interview-question://T018",
+        "domain": "llm-tool-calling",
+        "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+        "vector_score": 0.7514686584472656,
+        "keyword_score": 0.7308775804109902,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.7192690372467041,
+        "keyword_score": 0.7502673657553511,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2169899495911519092,
+        "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+        "source": "interview-question://T016",
+        "domain": "llm-tool-calling",
+        "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+        "vector_score": 0.7099283337593079,
+        "keyword_score": 0.9733911601071633,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 2.215,
+  "timings_seconds": {
+    "decomposition": 2.029755,
+    "retrieval": 0.185574,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.134995,
+    "vector_search": 0.012671,
+    "keyword_search": 0.037245,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.185683,
+    "total": 2.215438,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

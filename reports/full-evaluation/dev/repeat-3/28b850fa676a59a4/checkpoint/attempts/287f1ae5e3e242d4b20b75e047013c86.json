@@ -1,0 +1,170 @@
+{
+  "case_id": "V2-001",
+  "question": "聊天模型能回答问题就算智能体吗？执行任务还缺哪些能力？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A001",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://A001"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "大模型本质上是根据上下文生成输出的概率模型，本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统，它会感知当前状态，规划下一步，调用工具影响外部环境，读取执行结果并继续决策，直到完成目标或触发停止条件。两者的核心差异是：LLM 提供认知能力，Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如，一个资料调研 Agent 会先确定检索范围，调用搜索工具，检查是否获得足够证据，再组织结论；如果资料不足，就调整查询继续检索。控制循环通常由宿主代码驱动，模型输出的是行动建议，外部操作仍由程序执行。判断是否具备 Agent 特征，要看是否能依据观察更新决策，而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T003",
+    "interview-question://T011",
+    "interview-question://A001"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.16666666666666666,
+  "ndcg_at_k": 0.25,
+  "hit": true,
+  "reciprocal_rank": 0.3333333333333333,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "聊天模型能回答问题就算智能体吗？执行任务还缺哪些能力？",
+    "answer": "1. 聊天模型能回答问题是否就算智能体？\n\n\n2. 聊天模型执行任务还缺哪些能力？\n",
+    "sections": [
+      {
+        "question": "聊天模型能回答问题是否就算智能体？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "聊天模型能回答问题是否就算智能体?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 0,
+          "selected_sources": []
+        }
+      },
+      {
+        "question": "聊天模型执行任务还缺哪些能力？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "聊天模型执行任务还缺哪些能力?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T003",
+            "interview-question://T011",
+            "interview-question://A001"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.7797543406486511,
+        "keyword_score": 0.614234566405775,
+        "rerank_score": 0.4176609516143799
+      },
+      {
+        "id": 2,
+        "chunk_id": 4412077096281725584,
+        "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+        "source": "interview-question://T011",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+        "vector_score": 0.7751485109329224,
+        "keyword_score": 0.7187378520191413,
+        "rerank_score": 0.18806807696819305
+      },
+      {
+        "id": 3,
+        "chunk_id": 2926109573100487886,
+        "title": "什么是 Agent?与大模型有什么本质不同?",
+        "source": "interview-question://A001",
+        "domain": "agent",
+        "content": "# 什么是 Agent?与大模型有什么本质不同?\n\n题目编号:A001\n\n领域:agent\n\n难度:1\n\n标签:Agent 定义、LLM 应用、自主决策\n- 考察方向:候选人能否从目标、状态、行动、反馈闭环等角度定义 Agent。\n\n参考答案:大模型本质上是根据上下文生成输出的概率模型,本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统,它会感知当前状态,规划下一步,调用工具影响外部环境,读取执行结果并继续决策,直到完成目标或触发停止条件。两者的核心差异是:LLM 提供认知能力,Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如,一个资料调研 Agent 会先确定检索范围,调用搜索工具,检查是否获得足够证据,再组织结论;如果资料不足,就调整查询继续检索。控制循环通常由宿主代码驱动,模型输出的是行动建议,外部操作仍由程序执行。判断是否具备 Agent 特征,要看是否能依据观察更新决策,而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。\n\n评分要点:区分“模型”与“系统”;提到目标、状态、工具和反馈循环;说明 Agent 不等于简单聊天封装。",
+        "vector_score": 0.7595165967941284,
+        "keyword_score": 0.6725573802967955,
+        "rerank_score": 0.13158327341079712
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.919,
+  "timings_seconds": {
+    "decomposition": 3.256927,
+    "retrieval": 0.47566,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.293505,
+    "vector_search": 0.049822,
+    "keyword_search": 0.129586,
+    "rerank": 1.186374,
+    "generation": 0.0,
+    "pipeline": 1.662481,
+    "total": 4.919408,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

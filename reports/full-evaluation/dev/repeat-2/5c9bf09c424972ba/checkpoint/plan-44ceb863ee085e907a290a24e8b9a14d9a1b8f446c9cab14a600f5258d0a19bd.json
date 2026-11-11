@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-008",
+  "subquestions": [
+    {
+      "question": "助手的记忆模块如何设计以记住用户偏好？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "助手的记忆模块如何设计以记住当前任务进度？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "助手的记忆模块如何设计以同时支持记住用户偏好和当前任务进度？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.638759100000243
+}

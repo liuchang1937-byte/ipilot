@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-001",
+  "subquestions": [
+    {
+      "question": "聊天模型能回答问题是否就算智能体？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "聊天模型执行任务还缺哪些能力？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.2569272000000637
+}

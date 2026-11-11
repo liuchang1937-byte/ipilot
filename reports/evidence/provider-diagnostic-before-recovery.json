@@ -1,0 +1,11 @@
+{
+  "case_id": "S-011",
+  "scoring_method": "fallback",
+  "diagnostics": [
+    {
+      "error_type": "BadRequestError",
+      "status_code": 402,
+      "category": "insufficient_balance"
+    }
+  ]
+}

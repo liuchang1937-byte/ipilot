@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-101",
+  "subquestions": [
+    {
+      "question": "注意力计算的显存如何优化？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "位置编码解决什么不同问题？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.550999800001591
+}

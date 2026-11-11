@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-071",
+  "subquestions": [
+    {
+      "question": "训练一个可靠的工具调用模型需要哪些类型的数据？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "训练一个可靠的工具调用模型需要哪些类型的执行反馈？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.9574916000001394
+}

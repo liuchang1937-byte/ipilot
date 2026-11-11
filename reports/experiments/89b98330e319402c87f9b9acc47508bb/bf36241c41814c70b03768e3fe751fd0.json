@@ -1,0 +1,3652 @@
+{
+  "schema_version": 2,
+  "id": "bf36241c41814c70b03768e3fe751fd0",
+  "created_at": "2026-10-12T05:28:17.724045+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "seed_requires_human_review",
+    "sha256": "1c99d7096c53e1b615f792a6b81cf366366e57c22215ae009ab572447767cd8f",
+    "total_cases": 6,
+    "selected_cases": 6
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "options": {
+    "vector": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "vector"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "mqe": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hyde": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "reranked": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "vector",
+      "label": "向量检索",
+      "cases": 6,
+      "completed": 0,
+      "failures": 6,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 0.594,
+      "completion_rate": 0.0,
+      "end_to_end_recall_at_k": 0,
+      "p95_seconds": 3.335,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.56698,
+          "p50": 0.030672,
+          "p95": 3.273857,
+          "max": 3.273857,
+          "samples": 6
+        },
+        "retrieval": {
+          "mean": 0.02733,
+          "p50": 0.02669,
+          "p95": 0.061229,
+          "max": 0.061229,
+          "samples": 6
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "embedding": {
+          "mean": 0.020997,
+          "p50": 0.025561,
+          "p95": 0.030137,
+          "max": 0.030137,
+          "samples": 6
+        },
+        "vector_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "keyword_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "pipeline": {
+          "mean": 0.027351,
+          "p50": 0.02671,
+          "p95": 0.061261,
+          "max": 0.061261,
+          "samples": 6
+        },
+        "total": {
+          "mean": 0.594332,
+          "p50": 0.038295,
+          "p95": 3.335118,
+          "max": 3.335118,
+          "samples": 6
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 6,
+        "embedding_texts": 6,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 6,
+      "completed": 0,
+      "failures": 6,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 0.593,
+      "completion_rate": 0.0,
+      "end_to_end_recall_at_k": 0,
+      "p95_seconds": 3.306,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.56698,
+          "p50": 0.030672,
+          "p95": 3.273857,
+          "max": 3.273857,
+          "samples": 6
+        },
+        "retrieval": {
+          "mean": 0.025739,
+          "p50": 0.029268,
+          "p95": 0.033747,
+          "max": 0.033747,
+          "samples": 6
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "embedding": {
+          "mean": 0.024786,
+          "p50": 0.028303,
+          "p95": 0.032848,
+          "max": 0.032848,
+          "samples": 6
+        },
+        "vector_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "keyword_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "pipeline": {
+          "mean": 0.025759,
+          "p50": 0.02929,
+          "p95": 0.033766,
+          "max": 0.033766,
+          "samples": 6
+        },
+        "total": {
+          "mean": 0.592739,
+          "p50": 0.047393,
+          "p95": 3.306099,
+          "max": 3.306099,
+          "samples": 6
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 6,
+        "embedding_texts": 6,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "mqe",
+      "label": "混合 + MQE",
+      "cases": 6,
+      "completed": 0,
+      "failures": 6,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 0.625,
+      "completion_rate": 0.0,
+      "end_to_end_recall_at_k": 0,
+      "p95_seconds": 3.336,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.56698,
+          "p50": 0.030672,
+          "p95": 3.273857,
+          "max": 3.273857,
+          "samples": 6
+        },
+        "retrieval": {
+          "mean": 0.057756,
+          "p50": 0.062816,
+          "p95": 0.065512,
+          "max": 0.065512,
+          "samples": 6
+        },
+        "mqe": {
+          "mean": 0.026835,
+          "p50": 0.030363,
+          "p95": 0.032307,
+          "max": 0.032307,
+          "samples": 6
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "embedding": {
+          "mean": 0.029798,
+          "p50": 0.031109,
+          "p95": 0.032575,
+          "max": 0.032575,
+          "samples": 6
+        },
+        "vector_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "keyword_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "pipeline": {
+          "mean": 0.057789,
+          "p50": 0.062836,
+          "p95": 0.065529,
+          "max": 0.065529,
+          "samples": 6
+        },
+        "total": {
+          "mean": 0.624769,
+          "p50": 0.09089,
+          "p95": 3.335983,
+          "max": 3.335983,
+          "samples": 6
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 6,
+        "embedding_texts": 6,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hyde",
+      "label": "混合 + HyDE",
+      "cases": 6,
+      "completed": 0,
+      "failures": 6,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 0.629,
+      "completion_rate": 0.0,
+      "end_to_end_recall_at_k": 0,
+      "p95_seconds": 3.336,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.56698,
+          "p50": 0.030672,
+          "p95": 3.273857,
+          "max": 3.273857,
+          "samples": 6
+        },
+        "retrieval": {
+          "mean": 0.062486,
+          "p50": 0.062077,
+          "p95": 0.064819,
+          "max": 0.064819,
+          "samples": 6
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "hyde": {
+          "mean": 0.030546,
+          "p50": 0.030287,
+          "p95": 0.031652,
+          "max": 0.031652,
+          "samples": 6
+        },
+        "embedding": {
+          "mean": 0.030846,
+          "p50": 0.030762,
+          "p95": 0.03207,
+          "max": 0.03207,
+          "samples": 6
+        },
+        "vector_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "keyword_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "pipeline": {
+          "mean": 0.062506,
+          "p50": 0.062096,
+          "p95": 0.064838,
+          "max": 0.064838,
+          "samples": 6
+        },
+        "total": {
+          "mean": 0.629486,
+          "p50": 0.093271,
+          "p95": 3.33615,
+          "max": 3.33615,
+          "samples": 6
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 6,
+        "embedding_texts": 6,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 6,
+      "completed": 0,
+      "failures": 6,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 0.583,
+      "completion_rate": 0.0,
+      "end_to_end_recall_at_k": 0,
+      "p95_seconds": 3.306,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.56698,
+          "p50": 0.030672,
+          "p95": 3.273857,
+          "max": 3.273857,
+          "samples": 6
+        },
+        "retrieval": {
+          "mean": 0.015393,
+          "p50": 0.007787,
+          "p95": 0.031813,
+          "max": 0.031813,
+          "samples": 6
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "embedding": {
+          "mean": 0.014302,
+          "p50": 0.006563,
+          "p95": 0.030754,
+          "max": 0.030754,
+          "samples": 6
+        },
+        "vector_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "keyword_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "pipeline": {
+          "mean": 0.015411,
+          "p50": 0.007804,
+          "p95": 0.031832,
+          "max": 0.031832,
+          "samples": 6
+        },
+        "total": {
+          "mean": 0.582392,
+          "p50": 0.037822,
+          "p95": 3.305689,
+          "max": 3.305689,
+          "samples": 6
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 6,
+        "embedding_texts": 6,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 6,
+      "completed": 0,
+      "failures": 6,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 0.653,
+      "completion_rate": 0.0,
+      "end_to_end_recall_at_k": 0,
+      "p95_seconds": 3.37,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.56698,
+          "p50": 0.030672,
+          "p95": 3.273857,
+          "max": 3.273857,
+          "samples": 6
+        },
+        "retrieval": {
+          "mean": 0.085851,
+          "p50": 0.085246,
+          "p95": 0.095758,
+          "max": 0.095758,
+          "samples": 6
+        },
+        "mqe": {
+          "mean": 0.021462,
+          "p50": 0.020167,
+          "p95": 0.032015,
+          "max": 0.032015,
+          "samples": 6
+        },
+        "hyde": {
+          "mean": 0.031656,
+          "p50": 0.032269,
+          "p95": 0.03263,
+          "max": 0.03263,
+          "samples": 6
+        },
+        "embedding": {
+          "mean": 0.03176,
+          "p50": 0.031372,
+          "p95": 0.033347,
+          "max": 0.033347,
+          "samples": 6
+        },
+        "vector_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "keyword_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "pipeline": {
+          "mean": 0.085871,
+          "p50": 0.085267,
+          "p95": 0.095777,
+          "max": 0.095777,
+          "samples": 6
+        },
+        "total": {
+          "mean": 0.652852,
+          "p50": 0.116077,
+          "p95": 3.369634,
+          "max": 3.369634,
+          "samples": 6
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 6,
+        "embedding_texts": 6,
+        "chat_calls": 12,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "reranked",
+      "label": "混合 + MQE/HyDE + 精排",
+      "cases": 6,
+      "completed": 0,
+      "failures": 6,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 0.638,
+      "completion_rate": 0.0,
+      "end_to_end_recall_at_k": 0,
+      "p95_seconds": 3.319,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.56698,
+          "p50": 0.030672,
+          "p95": 3.273857,
+          "max": 3.273857,
+          "samples": 6
+        },
+        "retrieval": {
+          "mean": 0.070687,
+          "p50": 0.061726,
+          "p95": 0.096578,
+          "max": 0.096578,
+          "samples": 6
+        },
+        "mqe": {
+          "mean": 0.018104,
+          "p50": 0.007821,
+          "p95": 0.02948,
+          "max": 0.02948,
+          "samples": 6
+        },
+        "hyde": {
+          "mean": 0.026582,
+          "p50": 0.022613,
+          "p95": 0.033102,
+          "max": 0.033102,
+          "samples": 6
+        },
+        "embedding": {
+          "mean": 0.024913,
+          "p50": 0.031306,
+          "p95": 0.033147,
+          "max": 0.033147,
+          "samples": 6
+        },
+        "vector_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "keyword_search": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 6
+        },
+        "pipeline": {
+          "mean": 0.070707,
+          "p50": 0.061744,
+          "p95": 0.096598,
+          "max": 0.096598,
+          "samples": 6
+        },
+        "total": {
+          "mean": 0.637687,
+          "p50": 0.098289,
+          "p95": 3.318724,
+          "max": 3.318724,
+          "samples": 6
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 6,
+        "embedding_texts": 6,
+        "chat_calls": 12,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-106",
+      "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A020",
+      "variant": "vector",
+      "expected_sources": [
+        "interview-question://A020",
+        "interview-question://A023"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+        "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.335,
+      "timings_seconds": {
+        "decomposition": 3.273857,
+        "retrieval": 0.061229,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.028576,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.061261,
+        "total": 3.335118,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-106",
+      "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A020",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A020",
+        "interview-question://A023"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+        "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.306,
+      "timings_seconds": {
+        "decomposition": 3.273857,
+        "retrieval": 0.032218,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.03122,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.032242,
+        "total": 3.306099,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-106",
+      "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A020",
+      "variant": "mqe",
+      "expected_sources": [
+        "interview-question://A020",
+        "interview-question://A023"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+        "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.336,
+      "timings_seconds": {
+        "decomposition": 3.273857,
+        "retrieval": 0.062106,
+        "mqe": 0.030414,
+        "hyde": 0.0,
+        "embedding": 0.030478,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.062126,
+        "total": 3.335983,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-106",
+      "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A020",
+      "variant": "hyde",
+      "expected_sources": [
+        "interview-question://A020",
+        "interview-question://A023"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+        "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.336,
+      "timings_seconds": {
+        "decomposition": 3.273857,
+        "retrieval": 0.062273,
+        "mqe": 0.0,
+        "hyde": 0.030287,
+        "embedding": 0.030762,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.062293,
+        "total": 3.33615,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-106",
+      "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A020",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A020",
+        "interview-question://A023"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+        "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.306,
+      "timings_seconds": {
+        "decomposition": 3.273857,
+        "retrieval": 0.031813,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.030754,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.031832,
+        "total": 3.305689,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-106",
+      "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A020",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A020",
+        "interview-question://A023"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+        "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.37,
+      "timings_seconds": {
+        "decomposition": 3.273857,
+        "retrieval": 0.095758,
+        "mqe": 0.032015,
+        "hyde": 0.029382,
+        "embedding": 0.033347,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.095777,
+        "total": 3.369634,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-106",
+      "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A020",
+      "variant": "reranked",
+      "expected_sources": [
+        "interview-question://A020",
+        "interview-question://A023"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+        "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.319,
+      "timings_seconds": {
+        "decomposition": 3.273857,
+        "retrieval": 0.044846,
+        "mqe": 0.006657,
+        "hyde": 0.021535,
+        "embedding": 0.015753,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.044867,
+        "total": 3.318724,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.064,
+      "timings_seconds": {
+        "decomposition": 0.030672,
+        "retrieval": 0.033747,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.032848,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.033766,
+        "total": 0.064438,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "mqe",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.06,
+      "timings_seconds": {
+        "decomposition": 0.030672,
+        "retrieval": 0.028949,
+        "mqe": 0.007015,
+        "hyde": 0.0,
+        "embedding": 0.020734,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.029048,
+        "total": 0.05972,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hyde",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.096,
+      "timings_seconds": {
+        "decomposition": 0.030672,
+        "retrieval": 0.064819,
+        "mqe": 0.0,
+        "hyde": 0.031652,
+        "embedding": 0.03207,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.064838,
+        "total": 0.09551,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.038,
+      "timings_seconds": {
+        "decomposition": 0.030672,
+        "retrieval": 0.007131,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.006176,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.00715,
+        "total": 0.037822,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.117,
+      "timings_seconds": {
+        "decomposition": 0.030672,
+        "retrieval": 0.086328,
+        "mqe": 0.020167,
+        "hyde": 0.032269,
+        "embedding": 0.032758,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.086347,
+        "total": 0.117019,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "reranked",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.098,
+      "timings_seconds": {
+        "decomposition": 0.030672,
+        "retrieval": 0.067597,
+        "mqe": 0.028947,
+        "hyde": 0.03133,
+        "embedding": 0.006273,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.067617,
+        "total": 0.098289,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "vector",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.038,
+      "timings_seconds": {
+        "decomposition": 0.030672,
+        "retrieval": 0.007401,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.006353,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.007419,
+        "total": 0.038091,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "mqe",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.096,
+      "timings_seconds": {
+        "decomposition": 0.03276,
+        "retrieval": 0.062816,
+        "mqe": 0.030186,
+        "hyde": 0.0,
+        "embedding": 0.031572,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.062836,
+        "total": 0.095596,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "hyde",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.095,
+      "timings_seconds": {
+        "decomposition": 0.03276,
+        "retrieval": 0.062217,
+        "mqe": 0.0,
+        "hyde": 0.03002,
+        "embedding": 0.03119,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.062236,
+        "total": 0.094996,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.041,
+      "timings_seconds": {
+        "decomposition": 0.03276,
+        "retrieval": 0.007832,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.00669,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.007849,
+        "total": 0.040609,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.116,
+      "timings_seconds": {
+        "decomposition": 0.03276,
+        "retrieval": 0.083298,
+        "mqe": 0.02012,
+        "hyde": 0.030881,
+        "embedding": 0.031318,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.083317,
+        "total": 0.116077,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "reranked",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.129,
+      "timings_seconds": {
+        "decomposition": 0.03276,
+        "retrieval": 0.096578,
+        "mqe": 0.029007,
+        "hyde": 0.033102,
+        "embedding": 0.033147,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.096598,
+        "total": 0.129358,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "vector",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.059,
+      "timings_seconds": {
+        "decomposition": 0.03276,
+        "retrieval": 0.02669,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.025561,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.02671,
+        "total": 0.05947,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.04,
+      "timings_seconds": {
+        "decomposition": 0.03276,
+        "retrieval": 0.006941,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.005958,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.006959,
+        "total": 0.039719,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-018",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hyde",
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.087,
+      "timings_seconds": {
+        "decomposition": 0.025361,
+        "retrieval": 0.062077,
+        "mqe": 0.0,
+        "hyde": 0.031159,
+        "embedding": 0.029992,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.062096,
+        "total": 0.087457,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-018",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.033,
+      "timings_seconds": {
+        "decomposition": 0.025361,
+        "retrieval": 0.007787,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.006563,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.007804,
+        "total": 0.033165,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-018",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A018",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.097,
+      "timings_seconds": {
+        "decomposition": 0.025361,
+        "retrieval": 0.071424,
+        "mqe": 0.006586,
+        "hyde": 0.032504,
+        "embedding": 0.031372,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.071443,
+        "total": 0.096804,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-018",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A018",
+      "variant": "reranked",
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.087,
+      "timings_seconds": {
+        "decomposition": 0.025361,
+        "retrieval": 0.061726,
+        "mqe": 0.006709,
+        "hyde": 0.022613,
+        "embedding": 0.031374,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.061744,
+        "total": 0.087105,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-018",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A018",
+      "variant": "vector",
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.032,
+      "timings_seconds": {
+        "decomposition": 0.025361,
+        "retrieval": 0.007106,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.005961,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.007123,
+        "total": 0.032484,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-018",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.047,
+      "timings_seconds": {
+        "decomposition": 0.025361,
+        "retrieval": 0.022016,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.021142,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.022031,
+        "total": 0.047393,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-018",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A018",
+      "variant": "mqe",
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.091,
+      "timings_seconds": {
+        "decomposition": 0.025361,
+        "retrieval": 0.065512,
+        "mqe": 0.032307,
+        "hyde": 0.0,
+        "embedding": 0.032319,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.065529,
+        "total": 0.09089,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "hybrid_reranked",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.062,
+      "timings_seconds": {
+        "decomposition": 0.031393,
+        "retrieval": 0.030555,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.029576,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.030575,
+        "total": 0.061968,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.124,
+      "timings_seconds": {
+        "decomposition": 0.031393,
+        "retrieval": 0.093055,
+        "mqe": 0.029394,
+        "hyde": 0.03263,
+        "embedding": 0.030155,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.093076,
+        "total": 0.124468,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "reranked",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.092,
+      "timings_seconds": {
+        "decomposition": 0.031393,
+        "retrieval": 0.060526,
+        "mqe": 0.007821,
+        "hyde": 0.020073,
+        "embedding": 0.031624,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.060544,
+        "total": 0.091937,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "vector",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.063,
+      "timings_seconds": {
+        "decomposition": 0.031393,
+        "retrieval": 0.03112,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.030137,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.031139,
+        "total": 0.062532,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "hybrid",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.062,
+      "timings_seconds": {
+        "decomposition": 0.031393,
+        "retrieval": 0.030246,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.029242,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.030265,
+        "total": 0.061658,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "mqe",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.095,
+      "timings_seconds": {
+        "decomposition": 0.031393,
+        "retrieval": 0.063864,
+        "mqe": 0.030363,
+        "hyde": 0.0,
+        "embedding": 0.032575,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.063882,
+        "total": 0.095275,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "hyde",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.093,
+      "timings_seconds": {
+        "decomposition": 0.031393,
+        "retrieval": 0.061855,
+        "mqe": 0.0,
+        "hyde": 0.028738,
+        "embedding": 0.031821,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.061878,
+        "total": 0.093271,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-095",
+      "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+      "category": "compound",
+      "split": "dev",
+      "group": "R011",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R011",
+        "interview-question://R013"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+        "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.093,
+      "timings_seconds": {
+        "decomposition": 0.00784,
+        "retrieval": 0.085246,
+        "mqe": 0.020491,
+        "hyde": 0.032273,
+        "embedding": 0.031612,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.085267,
+        "total": 0.093107,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-095",
+      "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+      "category": "compound",
+      "split": "dev",
+      "group": "R011",
+      "variant": "reranked",
+      "expected_sources": [
+        "interview-question://R011",
+        "interview-question://R013"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+        "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.101,
+      "timings_seconds": {
+        "decomposition": 0.00784,
+        "retrieval": 0.092851,
+        "mqe": 0.02948,
+        "hyde": 0.030836,
+        "embedding": 0.031306,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.092871,
+        "total": 0.100711,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-095",
+      "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+      "category": "compound",
+      "split": "dev",
+      "group": "R011",
+      "variant": "vector",
+      "expected_sources": [
+        "interview-question://R011",
+        "interview-question://R013"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+        "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.038,
+      "timings_seconds": {
+        "decomposition": 0.00784,
+        "retrieval": 0.030434,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.029392,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.030455,
+        "total": 0.038295,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-095",
+      "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+      "category": "compound",
+      "split": "dev",
+      "group": "R011",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R011",
+        "interview-question://R013"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+        "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.037,
+      "timings_seconds": {
+        "decomposition": 0.00784,
+        "retrieval": 0.029268,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.028303,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.02929,
+        "total": 0.03713,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-095",
+      "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+      "category": "compound",
+      "split": "dev",
+      "group": "R011",
+      "variant": "mqe",
+      "expected_sources": [
+        "interview-question://R011",
+        "interview-question://R013"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+        "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.071,
+      "timings_seconds": {
+        "decomposition": 0.00784,
+        "retrieval": 0.063291,
+        "mqe": 0.030727,
+        "hyde": 0.0,
+        "embedding": 0.031109,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.063311,
+        "total": 0.071151,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-095",
+      "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+      "category": "compound",
+      "split": "dev",
+      "group": "R011",
+      "variant": "hyde",
+      "expected_sources": [
+        "interview-question://R011",
+        "interview-question://R013"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+        "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.07,
+      "timings_seconds": {
+        "decomposition": 0.00784,
+        "retrieval": 0.061673,
+        "mqe": 0.0,
+        "hyde": 0.031418,
+        "embedding": 0.029239,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.061693,
+        "total": 0.069533,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 1,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-095",
+      "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+      "category": "compound",
+      "split": "dev",
+      "group": "R011",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://R011",
+        "interview-question://R013"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+        "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "error": "本案例处理失败，未计入效果均值；失败率单独统计。",
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 0.015,
+      "timings_seconds": {
+        "decomposition": 0.00784,
+        "retrieval": 0.007238,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.006051,
+        "vector_search": 0.0,
+        "keyword_search": 0.0,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.007256,
+        "total": 0.015096,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-106",
+      "subquestions": [
+        {
+          "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [
+        "问题拆解暂不可用，使用原问题检索，避免遗漏提问。"
+      ],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.274
+    },
+    {
+      "case_id": "V2-090",
+      "subquestions": [
+        {
+          "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [
+        "问题拆解暂不可用，使用原问题检索，避免遗漏提问。"
+      ],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 0.031
+    },
+    {
+      "case_id": "V2-013",
+      "subquestions": [
+        {
+          "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [
+        "问题拆解暂不可用，使用原问题检索，避免遗漏提问。"
+      ],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 0.033
+    },
+    {
+      "case_id": "V2-018",
+      "subquestions": [
+        {
+          "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [
+        "问题拆解暂不可用，使用原问题检索，避免遗漏提问。"
+      ],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 0.025
+    },
+    {
+      "case_id": "V2-112",
+      "subquestions": [
+        {
+          "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [
+        "问题拆解暂不可用，使用原问题检索，避免遗漏提问。"
+      ],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 0.031
+    },
+    {
+      "case_id": "V2-095",
+      "subquestions": [
+        {
+          "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [
+        "问题拆解暂不可用，使用原问题检索，避免遗漏提问。"
+      ],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 0.008
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 5.478,
+  "notes": [
+    "内置案例为人工复核前的种子标注，不代表生产基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。"
+  ]
+}

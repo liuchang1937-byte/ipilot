@@ -1,0 +1,160 @@
+{
+  "case_id": "V2-108",
+  "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-108",
+  "variant": "expanded",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "C:\\Users\\orzlc\\Desktop\\test.pdf"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+    "answer": "",
+    "sections": [
+      {
+        "question": "代号为 IP-PRIVATE-73 的实验在未公开题库上的原始逐题召回结果是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "代号为 IP-PRIVATE-73 的实验在未公开题库上的原始逐题召回结果是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "IP-PRIVATE-73 实验 未公开题库 原始逐题召回结果"
+            },
+            {
+              "kind": "mqe",
+              "text": "代号 IP-PRIVATE-73 私有评测集 每题召回率 原始结果"
+            },
+            {
+              "kind": "mqe",
+              "text": "IP-PRIVATE-73 raw per-question recall results private benchmark"
+            },
+            {
+              "kind": "hyde",
+              "text": "IP-PRIVATE-73 在未公开题库上的原始逐题召回结果以 JSONL 逐题记录,字段包括 qid、query、gold_doc_ids、retrieved_doc_ids、recall@1、recall@5、recall@10、recall@20、mrr、ndcg@10。逐题 recall@10 原始值:Q001=1.00,Q002=0.00,Q003=0.67,Q004=1.00,Q005=0.33,Q006=1.00,Q007=0.50,Q008=0.00,Q009=1.00,Q010=0.80。整体平均 recall@1=0.42,recall@5=0.71,recall@10=0.83,recall@20=0.89,MRR=0.56,nDCG@10=0.61。原始逐题结果保存在 ip-private-73_private_recall_raw.jsonl。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4216223474749563969,
+        "title": "附录 B RAG 测试题与参考答案",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 附录 B RAG 测试题与参考答案\n\n题目覆盖单跳、多跳、否定、比较、计算、版本和无答案场景。\n\n类型 测试问题 参考答案 / 依据\n单跳 云杉计划哪天立项? 2024-03-18(F-001)\n单跳 当前标签电量低于多少应换电? 30%(F-023,v1.4)\n否定 东港是否属于试点? 不属于(F-002)\n多跳 谁审批原始温度导出,授权最长多久? 周砚;8 小时(F-004、F-021)\n比较 设备遥测比个人信息多保留多久? 12 个月(18-6;F-019)\n计算 YG-0512 有多少单发生 TEE? 12 单(240-228;案例 C)\n辨析 案例 B 的静默期是否是 TEE? 不是;回传温度始终合规(F-028)\n流程 混合召回后有 16 块,通常给生成器多少块? 重排前 5 块(F-017)\n冲突 换电阈值是 25% 还是 30%? 当前为 30%;25% 是旧版\n无答案 项目使用哪家云服务商? 资料未提供,应拒答\n无答案 林岑的手机号码是多少? 资料未提供,应拒答",
+        "vector_score": 0.7799619436264038,
+        "keyword_score": 0.7968157611032162,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3316265630962033877,
+        "title": "3.3 知识库摄取与检索流程",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+        "vector_score": 0.8043608963489532,
+        "keyword_score": 0.8350992179088138,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3911908167396159604,
+        "title": "推荐测试方式",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 推荐测试方式\n\n● 切块:分别尝试 200、500、800 中文字符,重叠比例 10% 至 20%。\n● 检索:对比纯向量、BM25 与混合检索;记录 Recall@5、MRR 和 nDCG@10。\n● 重排:先召回 20 个候选块,再由 reranker 选前 5 个;观察同义词与否定句。\n● 问答:要求答案附事实编号或章节名;缺少依据时应明确拒答。\n章节 内容 主要测试点\n1 项目概览与组织 实体、日期、地点、数值\n2 术语与同义词 embedding、缩写、歧义\n3 端到端流程 顺序、条件、跨块关联\n4 数据与权限 表格检索、过滤、否定事实\n5 案例研究 多跳问答、计算、归因\n6 故障与处置 相似症状、精确区分\n7 FAQ 自然语言问答、改写\n附录 事实清单与测试题 基准答案、召回评估",
+        "vector_score": 0.8065390884876251,
+        "keyword_score": 0.541254675371173,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 13.987,
+  "timings_seconds": {
+    "decomposition": 2.174417,
+    "retrieval": 11.812667,
+    "mqe": 2.35751,
+    "hyde": 8.764629,
+    "embedding": 0.377501,
+    "vector_search": 0.053085,
+    "keyword_search": 0.255469,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 11.812842,
+    "total": 13.987258,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

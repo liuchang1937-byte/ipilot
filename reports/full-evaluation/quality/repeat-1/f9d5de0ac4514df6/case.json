@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-016",
+      "question": "不同专长的助手如何交接任务，什么时候动态切换角色？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A016"
+      ],
+      "answerable": true,
+      "reference_answer": "多Agent协作主要依靠消息传递和共享状态：前者把上一个Agent的产物交给下一个，后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成，可按预设规则做静态路由，也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案，并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本，避免把全部历史原样转发。同步协作可用结构化调用，长任务可用消息队列和任务表，所有路径都由协调器追踪。动态切换需要明确触发条件，例如专业能力不足、任务阶段变化或执行失败，并限制交接次数。共享状态应通过受控更新接口提交，不能让多个 Agent 随意覆盖同一份任务记录。",
+      "group": "A016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

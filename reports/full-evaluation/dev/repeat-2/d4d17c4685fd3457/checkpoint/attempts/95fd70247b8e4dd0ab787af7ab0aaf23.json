@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-052",
+  "question": "检索到了答案的一半，另一半在相邻片段，怎样保留完整语义？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R004",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://R005"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "一方面在切块阶段按句子、段落和标题等自然边界切分，并使用适量重叠；另一方面在检索后补回上下文，例如命中句子后返回周围窗口，或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval：在Embedding前为每个Chunk生成与全文相关的背景说明，再与正文共同索引，减轻孤立Chunk缺少上下文的问题。例如，一个段落先说明条件、后说明例外，按固定字符数切开可能只召回例外，导致错误结论。可以保存标题路径、块位置与父文档 ID，在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查，避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度，因此应去重并控制返回预算，用跨段问题检验收益。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R005",
+    "interview-question://R011",
+    "interview-question://R010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "检索到了答案的一半，另一半在相邻片段，怎样保留完整语义？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "当检索到的答案只有一半、另一半位于相邻片段时，怎样保留完整语义？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当检索到的答案只有一半、另一半位于相邻片段时,怎样保留完整语义?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R005",
+            "interview-question://R011",
+            "interview-question://R010"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3747615631573896845,
+        "title": "怎么规避语义被切割掉的问题?",
+        "source": "interview-question://R005",
+        "domain": "rag",
+        "content": "# 怎么规避语义被切割掉的问题?\n\n题目编号:R005\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:一方面在切块阶段按句子、段落和标题等自然边界切分,并使用适量重叠;另一方面在检索后补回上下文,例如命中句子后返回周围窗口,或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval:在Embedding前为每个Chunk生成与全文相关的背景说明,再与正文共同索引,减轻孤立Chunk缺少上下文的问题。例如,一个段落先说明条件、后说明例外,按固定字符数切开可能只召回例外,导致错误结论。可以保存标题路径、块位置与父文档 ID,在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查,避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度,因此应去重并控制返回预算,用跨段问题检验收益。\n\n评分要点:语义边界、重叠、上下文标题、邻块扩展或父块返回。",
+        "vector_score": 0.8757177591323853,
+        "keyword_score": 0.7503862966556936,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2637356371800682692,
+        "title": "请你介绍一下向量检索和关键词检索的区别?",
+        "source": "interview-question://R011",
+        "domain": "rag",
+        "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+        "vector_score": 0.8164214491844177,
+        "keyword_score": 0.5687428560322015,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4411062690451180658,
+        "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+        "source": "interview-question://R010",
+        "domain": "rag",
+        "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+        "vector_score": 0.796166718006134,
+        "keyword_score": 0.7969574111847892,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.778,
+  "timings_seconds": {
+    "decomposition": 4.55162,
+    "retrieval": 0.225796,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.141613,
+    "vector_search": 0.022734,
+    "keyword_search": 0.060341,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.226081,
+    "total": 4.777701,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

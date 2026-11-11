@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-009",
+  "question": "正在进行的任务和几周前的历史信息，应该用同一种方式保存吗？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "A009",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://A009"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "短期记忆通常就是上下文窗口中的对话与当前任务中间状态，任务结束后可释放；长期记忆把可复用信息Embedding后存入向量数据库，使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存：太细会增加噪声，太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选，避免永久保存错误结论。例如，当前订单号、已确认退款金额和待执行步骤适合结构化状态；近期问答可保存为消息列表；产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件，不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆，再执行过滤、召回和排序，将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录，并保留必要的版本关系。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A018",
+    "interview-question://A008",
+    "interview-question://A009"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.5,
+  "hit": true,
+  "reciprocal_rank": 0.3333333333333333,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "正在进行的任务和几周前的历史信息，应该用同一种方式保存吗？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "正在进行的任务和几周前的历史信息，是否应该用同一种方式保存？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "正在进行的任务和几周前的历史信息,是否应该用同一种方式保存?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A018",
+            "interview-question://A008",
+            "interview-question://A009"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2584544441468433340,
+        "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+        "source": "interview-question://A018",
+        "domain": "agent",
+        "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+        "vector_score": 0.7563991248607635,
+        "keyword_score": 0.5987031312106031,
+        "rerank_score": 0.1936653107404709
+      },
+      {
+        "id": 2,
+        "chunk_id": 3336624703043853631,
+        "title": "请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?",
+        "source": "interview-question://A008",
+        "domain": "agent",
+        "content": "# 请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?\n\n题目编号:A008\n\n领域:agent\n\n难度:2\n\n标签:记忆、状态、知识库\n- 考察方向:不同记忆类型的职责、生命周期和访问方式。\n\n参考答案:题解可将Agent记忆分为四层:感知记忆保存当前原始输入,短期记忆位于上下文窗口并服务当前任务,长期记忆存入外部数据库并通过语义检索召回,实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”,并根据类型选择主动注入或按需检索,同时处理去重、过期、权限和删除。这是一种便于解释的分类,并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作;长期记忆应保存跨会话有用且经过确认的信息;实体记忆适合记录对象属性与关系,避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度,检索时先按用户与权限过滤。不是所有工具日志都值得长期保存,也不能把模型猜测直接当成事实写入。\n\n评分要点:给出记忆分类;覆盖写入、检索、更新、遗忘和隐私。",
+        "vector_score": 0.7671775221824646,
+        "keyword_score": 0.7272024269839793,
+        "rerank_score": 0.07322762161493301
+      },
+      {
+        "id": 3,
+        "chunk_id": 262192336753681762,
+        "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+        "source": "interview-question://A009",
+        "domain": "agent",
+        "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+        "vector_score": 0.7598057985305786,
+        "keyword_score": 0.584402593440656,
+        "rerank_score": 0.07169303297996521
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 6.364,
+  "timings_seconds": {
+    "decomposition": 5.547915,
+    "retrieval": 0.211969,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.126577,
+    "vector_search": 0.02106,
+    "keyword_search": 0.063155,
+    "rerank": 0.604234,
+    "generation": 0.0,
+    "pipeline": 0.816519,
+    "total": 6.364434,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

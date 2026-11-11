@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-040",
+  "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "L016",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L016"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先明确角色、目标、输入数据、约束、输出Schema和失败行为，再提供少量代表性示例。把可信指令与外部文本分隔，要求信息不足时拒答，并对结构化输出做程序校验。Prompt应版本化，在固定评测集上比较正确率、格式率、成本和稳定性，避免只凭几个示例调词。例如，要求系统从资料回答时，应明确哪些内容是证据、哪些是指令，以及证据不足如何处理；要求 JSON 时，应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入，而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测，记录模型版本和参数。提示能引导行为，但权限、业务规则和外部动作仍由代码强制执行。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L016",
+    "interview-question://A014",
+    "interview-question://T002"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "为了让模型稳定输出结构化结果，提示中应明确哪些约束？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "为了让模型稳定输出结构化结果,提示中应明确哪些约束?"
+            },
+            {
+              "kind": "mqe",
+              "text": "提示词中应明确哪些约束才能让大模型稳定输出结构化结果"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型结构化输出 JSON 提示词约束 格式规范 示例 边界条件"
+            },
+            {
+              "kind": "mqe",
+              "text": "prompt engineering constraints for reliable structured output LLM JSON schema validation"
+            },
+            {
+              "kind": "hyde",
+              "text": "为了让模型稳定输出结构化结果,提示中应明确:输出格式为 JSON/XML/YAML/Markdown 表格,并给出完整 JSON Schema 或字段定义,包括字段名、层级、对象/数组、必填/可选、默认值、枚举、类型(string/integer/number/boolean/array/object/null)、日期时间 ISO 8601、单位、精度、长度与取值范围。规定序列化规则:双引号键名、UTF-8、转义字符、无注释、无尾随逗号、无 Markdown 代码围栏、单对象或数组。设定输出边界:只返回结构体,不输出解释、前言、后记,使用 `<json>...</json>` 或指定 start/end token、stop sequences。提供 few-shot 示例或模板,并声明错误/缺省处理:无法满足时返回固定错误对象,缺失字段用 null/空数组。结合解码与接口约束:temperature=0、top_p=1、seed、max_tokens、JSON mode、function calling、structured outputs、grammar-constrained decoding/CFG/regex。最后明确任务、角色、输入变量占位符、字段映射、排序、去重和校验重试规则。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L016",
+            "interview-question://A014",
+            "interview-question://T002"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3377336774797257112,
+        "title": "如何写好 Prompt?分享下 Prompt 工程实践经验?",
+        "source": "interview-question://L016",
+        "domain": "llm-engineering",
+        "content": "# 如何写好 Prompt?分享下 Prompt 工程实践经验?\n\n题目编号:L016\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:先明确角色、目标、输入数据、约束、输出Schema和失败行为,再提供少量代表性示例。把可信指令与外部文本分隔,要求信息不足时拒答,并对结构化输出做程序校验。Prompt应版本化,在固定评测集上比较正确率、格式率、成本和稳定性,避免只凭几个示例调词。例如,要求系统从资料回答时,应明确哪些内容是证据、哪些是指令,以及证据不足如何处理;要求 JSON 时,应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入,而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测,记录模型版本和参数。提示能引导行为,但权限、业务规则和外部动作仍由代码强制执行。\n\n评分要点:结构、边界、示例、校验、版本与评测。",
+        "vector_score": 0.8556587100028992,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 888008174752367641,
+        "title": "如何赋予 LLM 规划能力?",
+        "source": "interview-question://A014",
+        "domain": "agent",
+        "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+        "vector_score": 0.8110662996768951,
+        "keyword_score": 0.8043505456672294,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1074467055826810929,
+        "title": "LLM 是如何学会调用外部工具的?",
+        "source": "interview-question://T002",
+        "domain": "llm-tool-calling",
+        "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+        "vector_score": 0.7958787679672241,
+        "keyword_score": 0.9888376334512665,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 14.434,
+  "timings_seconds": {
+    "decomposition": 4.118016,
+    "retrieval": 10.315962,
+    "mqe": 1.879953,
+    "hyde": 7.793925,
+    "embedding": 0.328737,
+    "vector_search": 0.058645,
+    "keyword_search": 0.250212,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 10.316192,
+    "total": 14.434207,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

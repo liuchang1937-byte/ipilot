@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-022",
+  "subquestions": [
+    {
+      "question": "多个助手并行写同一结果时，其中一个助手超时，应如何处理交接？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "多个助手并行写同一结果时，其中一个助手超时，应如何处理冲突？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.808493599999565
+}

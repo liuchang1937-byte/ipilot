@@ -1,0 +1,963 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "501dbb44c9684da3a8ed3b6e2222e586",
+  "created_at": "2026-10-12T15:08:08.567763+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "3ff02daccf16015f8500e226f39d9ca8d00dd650a7e69eb75cf7eaaa606e5892",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\c4504d38f36fb875\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 11.659,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 11.659,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.048872,
+          "p50": 3.048872,
+          "p95": 3.048872,
+          "max": 3.048872,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 8.610081,
+          "p50": 8.610081,
+          "p95": 8.610081,
+          "max": 8.610081,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.508507,
+          "p50": 2.508507,
+          "p95": 2.508507,
+          "max": 2.508507,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 5.64671,
+          "p50": 5.64671,
+          "p95": 5.64671,
+          "max": 5.64671,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.307221,
+          "p50": 0.307221,
+          "p95": 0.307221,
+          "max": 0.307221,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.030601,
+          "p50": 0.030601,
+          "p95": 0.030601,
+          "max": 0.030601,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.114639,
+          "p50": 0.114639,
+          "p95": 0.114639,
+          "max": 0.114639,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 8.610199,
+          "p50": 8.610199,
+          "p95": 8.610199,
+          "max": 8.610199,
+          "samples": 1
+        },
+        "total": {
+          "mean": 11.659071,
+          "p50": 11.659071,
+          "p95": 11.659071,
+          "max": 11.659071,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.267,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.267,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.048872,
+          "p50": 3.048872,
+          "p95": 3.048872,
+          "max": 3.048872,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.217683,
+          "p50": 0.217683,
+          "p95": 0.217683,
+          "max": 0.217683,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.17694,
+          "p50": 0.17694,
+          "p95": 0.17694,
+          "max": 0.17694,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.011337,
+          "p50": 0.011337,
+          "p95": 0.011337,
+          "max": 0.011337,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.028786,
+          "p50": 0.028786,
+          "p95": 0.028786,
+          "max": 0.028786,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.217789,
+          "p50": 0.217789,
+          "p95": 0.217789,
+          "max": 0.217789,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.26666,
+          "p50": 3.26666,
+          "p95": 3.26666,
+          "max": 3.26666,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.405,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.405,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.048872,
+          "p50": 3.048872,
+          "p95": 3.048872,
+          "max": 3.048872,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.245373,
+          "p50": 0.245373,
+          "p95": 0.245373,
+          "max": 0.245373,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.199936,
+          "p50": 0.199936,
+          "p95": 0.199936,
+          "max": 0.199936,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.011912,
+          "p50": 0.011912,
+          "p95": 0.011912,
+          "max": 0.011912,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.032907,
+          "p50": 0.032907,
+          "p95": 0.032907,
+          "max": 0.032907,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.110276,
+          "p50": 1.110276,
+          "p95": 1.110276,
+          "max": 1.110276,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.355852,
+          "p50": 1.355852,
+          "p95": 1.355852,
+          "max": 1.355852,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.404724,
+          "p50": 4.404724,
+          "p95": 4.404724,
+          "max": 4.404724,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-059",
+      "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R012",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询，从而提高召回。可以用规则、LLM、多查询扩展或HyDE，但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较，并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词，复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面，HyDE 生成假设文档用于语义检索，但假设内容不能作为回答证据。原始查询应保留在召回路径中，避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后，才值得默认启用复杂改写。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R012",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R014"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当用户问法过于口语化时，如何将其改写为查询，同时确保不改变原始需求？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当用户问法过于口语化时,如何将其改写为查询,同时确保不改变原始需求?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "口语化用户提问 改写为检索查询 保持原始需求 方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "query rewriting colloquial user query intent preservation information retrieval"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "自然语言口语问题 转 搜索查询 语义等价 改写策略"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "当用户问法过于口语化时,可采用查询改写与查询规范化流程:先进行意图识别、槽位抽取、命名实体识别和依存句法分析,保留原始需求中的实体、属性、时间、地点、否定、比较、数量及约束条件;再执行指代消解、省略补全、停用词过滤、语气词与冗余填充词删除,并将口语表达通过同义词映射、术语标准化和拼写归一化转换为规范查询词或布尔查询;随后利用关键词抽取、语义解析或生成式改写得到候选查询,并通过语义相似度、文本蕴含、意图一致性和约束保持校验确认改写前后语义等价,避免意图漂移、过度泛化或信息丢失,必要时结合人工复核与检索效果评估优化查询改写策略。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R012",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://R014"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3510013083994112628,
+            "title": "如何润色用户的 Query(Query Rewrite)?目的是什么?",
+            "source": "interview-question://R012",
+            "domain": "rag",
+            "content": "# 如何润色用户的 Query(Query Rewrite)?目的是什么?\n\n题目编号:R012\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询,从而提高召回。可以用规则、LLM、多查询扩展或HyDE,但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较,并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词,复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面,HyDE 生成假设文档用于语义检索,但假设内容不能作为回答证据。原始查询应保留在召回路径中,避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后,才值得默认启用复杂改写。\n\n评分要点:目的、常见方式、原意保护和可评测性。",
+            "vector_score": 0.8696616291999817,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 309451233266546209,
+            "title": "7 FAQ:面向自然语言问答",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 7 FAQ:面向自然语言问答\n\n同一事实使用不同问法复述,可用于查询改写、语义召回和答案一致性测试。",
+            "vector_score": 0.831372857093811,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3525225094256298830,
+            "title": "RAG 检索优化策略有哪些?",
+            "source": "interview-question://R014",
+            "domain": "rag",
+            "content": "# RAG 检索优化策略有哪些?\n\n题目编号:R014\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:可从四层优化:数据层清洗去重、补元数据;索引层结构化/语义切块和父子索引;查询层改写、拆分与过滤;检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开:没有合适知识先修数据,相关内容被切散先修 Chunking,查询表达与文档不同再做改写,精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后,可以扩大候选池或加重排;正确证据已经进入上下文却回答错误,则检查组织方式与生成约束。每次修改只控制少量变量,用检索和答案两层指标验证,避免叠加很多技术后无法归因。\n\n评分要点:分层说明并包含评测闭环。",
+            "vector_score": 0.7803678214550018,
+            "keyword_score": 0.573199127762985,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 11.659,
+      "timings_seconds": {
+        "decomposition": 3.048872,
+        "retrieval": 8.610081,
+        "mqe": 2.508507,
+        "hyde": 5.64671,
+        "embedding": 0.307221,
+        "vector_search": 0.030601,
+        "keyword_search": 0.114639,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 8.610199,
+        "total": 11.659071,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-059",
+      "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R012",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询，从而提高召回。可以用规则、LLM、多查询扩展或HyDE，但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较，并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词，复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面，HyDE 生成假设文档用于语义检索，但假设内容不能作为回答证据。原始查询应保留在召回路径中，避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后，才值得默认启用复杂改写。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R012",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://B006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当用户问法过于口语化时，如何将其改写为查询，同时确保不改变原始需求？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当用户问法过于口语化时,如何将其改写为查询,同时确保不改变原始需求?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R012",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://B006"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3510013083994112628,
+            "title": "如何润色用户的 Query(Query Rewrite)?目的是什么?",
+            "source": "interview-question://R012",
+            "domain": "rag",
+            "content": "# 如何润色用户的 Query(Query Rewrite)?目的是什么?\n\n题目编号:R012\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询,从而提高召回。可以用规则、LLM、多查询扩展或HyDE,但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较,并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词,复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面,HyDE 生成假设文档用于语义检索,但假设内容不能作为回答证据。原始查询应保留在召回路径中,避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后,才值得默认启用复杂改写。\n\n评分要点:目的、常见方式、原意保护和可评测性。",
+            "vector_score": 0.8696522116661072,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 309451233266546209,
+            "title": "7 FAQ:面向自然语言问答",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 7 FAQ:面向自然语言问答\n\n同一事实使用不同问法复述,可用于查询改写、语义召回和答案一致性测试。",
+            "vector_score": 0.8192897737026215,
+            "keyword_score": 0.7876687983955424,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 762004811409331403,
+            "title": "当需求不明确时,你是如何推进工作的?",
+            "source": "interview-question://B006",
+            "domain": "behavioral",
+            "content": "# 当需求不明确时,你是如何推进工作的?\n\n题目编号:B006\n\n领域:behavioral\n\n难度:2\n\n标签:需求澄清、不确定性、沟通\n\n参考答案:先识别目标用户、成功指标、边界和关键未知项,通过问题清单与相关人确认。对仍不确定的部分写出假设,优先做低成本原型或技术验证,并设置决策点。过程中持续同步范围和风险,避免把自己的猜测当作正式需求。\n\n评分要点:能结构化澄清;显式管理假设;用小步验证降低风险;保持同步。",
+            "vector_score": 0.7647638320922852,
+            "keyword_score": 0.7069474337161273,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.267,
+      "timings_seconds": {
+        "decomposition": 3.048872,
+        "retrieval": 0.217683,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.17694,
+        "vector_search": 0.011337,
+        "keyword_search": 0.028786,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.217789,
+        "total": 3.26666,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-059",
+      "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R012",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://R012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询，从而提高召回。可以用规则、LLM、多查询扩展或HyDE，但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较，并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词，复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面，HyDE 生成假设文档用于语义检索，但假设内容不能作为回答证据。原始查询应保留在召回路径中，避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后，才值得默认启用复杂改写。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R012"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当用户问法过于口语化时，如何将其改写为查询，同时确保不改变原始需求？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当用户问法过于口语化时,如何将其改写为查询,同时确保不改变原始需求?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://R012"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3510013083994112628,
+            "title": "如何润色用户的 Query(Query Rewrite)?目的是什么?",
+            "source": "interview-question://R012",
+            "domain": "rag",
+            "content": "# 如何润色用户的 Query(Query Rewrite)?目的是什么?\n\n题目编号:R012\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询,从而提高召回。可以用规则、LLM、多查询扩展或HyDE,但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较,并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词,复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面,HyDE 生成假设文档用于语义检索,但假设内容不能作为回答证据。原始查询应保留在召回路径中,避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后,才值得默认启用复杂改写。\n\n评分要点:目的、常见方式、原意保护和可评测性。",
+            "vector_score": 0.8696522116661072,
+            "keyword_score": 1.0,
+            "rerank_score": 0.8077054023742676
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.405,
+      "timings_seconds": {
+        "decomposition": 3.048872,
+        "retrieval": 0.245373,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.199936,
+        "vector_search": 0.011912,
+        "keyword_search": 0.032907,
+        "rerank": 1.110276,
+        "generation": 0.0,
+        "pipeline": 1.355852,
+        "total": 4.404724,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-059",
+      "subquestions": [
+        {
+          "question": "当用户问法过于口语化时，如何将其改写为查询，同时确保不改变原始需求？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.0488718999986304
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 13.241,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-045",
+  "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+  "category": "terminology",
+  "split": "test",
+  "group": "L021",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L021"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro，代码类可参考 HumanEval 或 SWE-bench Verified，数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点，可能受到数据污染、评分方式与业务分布差异影响；最终应从真实请求与失败样本构建经过标注的业务测试集，定期回归。公开测试可区分知识、代码、数学与科学推理，GPQA 更偏高难度科学问答，不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本，保留固定留出集并持续补充失败案例。结构化任务测格式与参数，Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准，报告应同时给出质量、安全、费用和延迟，并防止只针对已知测试集调优。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L022",
+    "interview-question://L021",
+    "interview-question://R006"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.6309297535714575,
+  "hit": true,
+  "reciprocal_rank": 0.5,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "评估语言模型时，除了通用考试分数，还需要测试哪些维度？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "评估语言模型时,除了通用考试分数,还需要测试哪些维度?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L022",
+            "interview-question://L021",
+            "interview-question://R006"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.8449493646621704,
+        "keyword_score": 0.8713170065290252,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4468296057515630498,
+        "title": "大模型能力评测指标有哪些?",
+        "source": "interview-question://L021",
+        "domain": "llm-engineering",
+        "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+        "vector_score": 0.8330066502094269,
+        "keyword_score": 0.8046103871509509,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3773025965374103241,
+        "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+        "source": "interview-question://R006",
+        "domain": "rag",
+        "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+        "vector_score": 0.7684170603752136,
+        "keyword_score": 0.9816409387234126,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.116,
+  "timings_seconds": {
+    "decomposition": 2.909832,
+    "retrieval": 0.20559,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.164131,
+    "vector_search": 0.012887,
+    "keyword_search": 0.027963,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.205721,
+    "total": 3.115552,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

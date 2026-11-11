@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-077",
+  "subquestions": [
+    {
+      "question": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.375775299999077
+}

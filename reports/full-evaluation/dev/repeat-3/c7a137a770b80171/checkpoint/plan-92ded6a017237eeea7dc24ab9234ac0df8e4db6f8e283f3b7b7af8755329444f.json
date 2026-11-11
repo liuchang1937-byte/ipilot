@@ -1,0 +1,30 @@
+{
+  "case_id": "V2-017",
+  "subquestions": [
+    {
+      "question": "工具描述在上下文中应如何组织？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "历史对话在上下文中应如何组织？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "检索资料在上下文中应如何组织？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当前目标在上下文中应如何组织？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "工具描述、历史对话、检索资料与当前目标在上下文中应如何共同组织？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.577260099998966
+}

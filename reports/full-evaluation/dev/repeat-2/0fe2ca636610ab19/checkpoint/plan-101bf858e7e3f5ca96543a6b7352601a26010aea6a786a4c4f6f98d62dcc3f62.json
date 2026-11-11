@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-038",
+  "subquestions": [
+    {
+      "question": "KV缓存复用了什么，为什么KV缓存能减少计算？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "重复提示缓存复用了什么，为什么重复提示缓存能减少计算？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.313805199999479
+}

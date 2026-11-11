@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-075",
+  "subquestions": [
+    {
+      "question": "在仅接一个内部函数与接多个外部服务这两种情况下，何时采用 MCP 更合适？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 10.329378700000234
+}

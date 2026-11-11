@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-079",
+  "question": "函数调用格式、任务技能包和工具连接协议如何在一个系统里配合？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "T006",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T011"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Function Calling是模型输出结构化工具意图的机制；MCP是宿主连接、发现和调用外部能力的协议；Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言，MCP提供标准化能力接口，Skill提供如何完成任务的方法，但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例，Skill 给出核对时间范围、查询和总结的步骤；MCP 提供订单服务的工具描述与调用接口；Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求，得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图，但都不是完整 Agent 控制器，仍需要外层管理状态、停止条件、执行结果和错误恢复。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T011",
+    "interview-question://T006",
+    "interview-question://T010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "函数调用格式、任务技能包和工具连接协议如何在一个系统里配合？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "函数调用格式、任务技能包和工具连接协议如何在一个系统里配合？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "函数调用格式、任务技能包和工具连接协议如何在一个系统里配合?"
+            },
+            {
+              "kind": "mqe",
+              "text": "函数调用格式、任务技能包和工具连接协议在同一个系统中如何协同工作?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型 Agent 架构中 function calling schema、skill package 与 tool connection protocol 如何集成编排?"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何设计系统让函数调用格式、任务技能包和工具接入协议相互配合并统一调度?"
+            },
+            {
+              "kind": "hyde",
+              "text": "在一个 LLM Agent 系统中,函数调用格式作为模型与运行时之间的接口契约,通常用 JSON Schema、OpenAPI 或 tool definition 描述工具名、参数、必填项、类型、枚举、返回值及错误结构;任务技能包是面向任务的封装单元,包含系统提示、工作流编排、工具清单、权限策略、状态机、重试规则、后处理逻辑和依赖声明;工具连接协议则是运行时与外部工具、数据源或服务之间的通信标准,如 MCP、JSON-RPC、HTTP、gRPC、WebSocket,负责工具发现、鉴权、参数映射、调用路由、结果序列化和生命周期管理。协作流程为:技能包加载后向工具注册表声明所需工具;注册表通过连接协议发现并绑定工具端点;协议适配器将工具元数据转换为函数调用格式并注入模型上下文;模型根据用户意图和技能包指令生成函数调用;编排器校验参数、执行权限与安全策略,按技能包定义的工作流选择工具,并通过连接协议发起远程调用;结果经协议反序列化、函数调用格式归一化后回填给模型或状态机;技能包继续后续步骤、重试、错误处理和记忆更新。三者形成“技能包定义任务目标与流程—函数调用格式统一模型接口—连接协议标准化工具接入”的分层协作。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T011",
+            "interview-question://T006",
+            "interview-question://T010"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4412077096281725584,
+        "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+        "source": "interview-question://T011",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+        "vector_score": 0.8468997776508331,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1644641191381467949,
+        "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+        "source": "interview-question://T006",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+        "vector_score": 0.8235911726951599,
+        "keyword_score": 0.693736499487686,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3483975197075879969,
+        "title": "MCP 和 Agent Skill 的区别是什么?",
+        "source": "interview-question://T010",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 和 Agent Skill 的区别是什么?\n\n题目编号:T010\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:MCP主要标准化外部能力如何被发现和调用,相当于工具连接层;Skill封装完成任务所需的方法、顺序和经验,相当于操作手册。一个Skill可以调用多个MCP工具,一个MCP工具也能被多个Skill复用。前者关注协议与能力,后者关注任务策略与可复用流程。例如,数据库 MCP 服务暴露查询能力,而数据分析 Skill 指导 Agent 先确认指标口径,再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP,MCP 也可以被没有 Skill 的程序使用,因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性,Skill 的质量更多看步骤是否合理和结果能否验证;使用二者都不能绕过运行时授权。\n\n评分要点:工具连接层与任务知识层的区别和组合。",
+        "vector_score": 0.81263867020607,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 17.614,
+  "timings_seconds": {
+    "decomposition": 5.125942,
+    "retrieval": 12.487554,
+    "mqe": 4.875664,
+    "hyde": 6.907984,
+    "embedding": 0.378595,
+    "vector_search": 0.054661,
+    "keyword_search": 0.265705,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 12.487761,
+    "total": 17.613702,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

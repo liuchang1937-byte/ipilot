@@ -1,0 +1,174 @@
+{
+  "case_id": "V2-022",
+  "question": "多个助手并行写同一结果，其中一个超时，如何处理交接与冲突？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A022",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://A022"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "为子任务设置租约、心跳、截止时间和幂等任务ID，超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入，冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态；对有外部副作用的步骤使用幂等键、补偿操作和人工审批，避免重试造成重复执行。超时不一定代表旧执行者已停止，因此任务接管可用租约与递增代次，阻止失效实例提交结果。恢复时加载检查点，并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权，使用隔离工作区、版本校验和统一集成入口；文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工，同时保留失败原因与完成产物，避免两个执行者同时重做同一操作。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A022",
+    "interview-question://A010",
+    "interview-question://A011"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "多个助手并行写同一结果，其中一个超时，如何处理交接与冲突？",
+    "answer": "1. 多个助手并行写同一结果时，其中一个助手超时后，如何将超时助手未完成的工作交接给其他助手？\n\n\n2. 多个助手并行写同一结果时，其中一个助手超时后，其他助手之间如何解决对同一结果的写入冲突？\n",
+    "sections": [
+      {
+        "question": "多个助手并行写同一结果时，其中一个助手超时后，如何将超时助手未完成的工作交接给其他助手？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "多个助手并行写同一结果时,其中一个助手超时后,如何将超时助手未完成的工作交接给其他助手?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A022",
+            "interview-question://A010",
+            "interview-question://A011"
+          ]
+        }
+      },
+      {
+        "question": "多个助手并行写同一结果时，其中一个助手超时后，其他助手之间如何解决对同一结果的写入冲突？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "多个助手并行写同一结果时,其中一个助手超时后,其他助手之间如何解决对同一结果的写入冲突?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A022",
+            "interview-question://A010",
+            "interview-question://A011"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.8446672558784485,
+        "keyword_score": 1.0,
+        "rerank_score": 0.975936233997345
+      },
+      {
+        "id": 2,
+        "chunk_id": 2175414725624058958,
+        "title": "什么是 Multi-Agent?",
+        "source": "interview-question://A010",
+        "domain": "agent",
+        "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+        "vector_score": 0.7669554948806763,
+        "keyword_score": 0.5353634106725018,
+        "rerank_score": 0.300711065530777
+      },
+      {
+        "id": 3,
+        "chunk_id": 1602129502117344900,
+        "title": "说说 Single-Agent 和 Multi-Agent 的设计方案?",
+        "source": "interview-question://A011",
+        "domain": "agent",
+        "content": "# 说说 Single-Agent 和 Multi-Agent 的设计方案?\n\n题目编号:A011\n\n领域:agent\n\n难度:3\n\n标签:Multi-Agent、角色设计、协调\n- 考察方向:角色边界、输入输出契约、调度者和共享状态。\n\n参考答案:Single-Agent 由一个决策核心访问多种工具,状态集中、调试简单,适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent,可由 Supervisor 统一调度,也可通过消息或共享状态协作,适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够,只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具,结构简单,调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总,但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分,而不是只看问题文字是否复杂。先建立单 Agent 基线,再用相同测试集证明成功率或延迟收益足以抵消协作成本。\n\n评分要点:描述两种架构;给出选择条件而非只列优缺点。",
+        "vector_score": 0.7729088366031647,
+        "keyword_score": 0.47612856196761705,
+        "rerank_score": 0.2938363254070282
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 6.138,
+  "timings_seconds": {
+    "decomposition": 4.40481,
+    "retrieval": 0.476099,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.294874,
+    "vector_search": 0.0481,
+    "keyword_search": 0.130024,
+    "rerank": 1.256369,
+    "generation": 0.0,
+    "pipeline": 1.732926,
+    "total": 6.137736,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

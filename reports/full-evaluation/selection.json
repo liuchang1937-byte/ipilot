@@ -1,0 +1,11 @@
+{
+  "selected_variant": "expanded",
+  "holdout_variants": [
+    "hybrid",
+    "expanded"
+  ],
+  "development_report": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev.json",
+  "protocol_sha256": "044c3cf5a2593f64882dfe4bdd1338c1b9c89cfa673fbfab2cc94651ef3fe0cf",
+  "rule": "先完整性，再Recall、MRR；相同效果选择较低检索耗时；仅在开发集选择。",
+  "frozen_before_test": true
+}

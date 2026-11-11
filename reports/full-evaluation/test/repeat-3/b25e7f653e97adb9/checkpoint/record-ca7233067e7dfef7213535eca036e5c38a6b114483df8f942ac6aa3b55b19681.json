@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-081",
+  "question": "MCP在本地进程与远程服务之间怎样传输消息？",
+  "category": "terminology",
+  "split": "test",
+  "group": "T013",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://T013"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "本地MCP Server常通过stdio由Client作为子进程启动，延迟低且无需开放端口；远程服务推荐使用Streamable HTTP，便于多Client共享和集中管理。早期HTTP+SSE双端点方案已不再是新项目的首选。无论使用哪种传输，消息层都采用JSON-RPC 2.0，传输方式只决定消息如何到达。stdio 使用标准输入输出传递协议消息，普通日志应写到 stderr，避免污染消息流。远程 Streamable HTTP 使用 HTTP 请求传递消息，并可通过 SSE 推送多个事件；并不是所有响应都必须保持一个长连接。2025-11-25 版规范列出这两种标准传输，旧 HTTP+SSE 应按兼容需求处理。客户端还要管理连接生命周期、会话和取消；重连不会自动保证外部操作只执行一次。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T013",
+    "interview-question://T005",
+    "interview-question://T008"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "MCP在本地进程与远程服务之间怎样传输消息？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "MCP 在本地进程与远程服务之间怎样传输消息？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "MCP 在本地进程与远程服务之间怎样传输消息?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T013",
+            "interview-question://T005",
+            "interview-question://T008"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 146725892672075800,
+        "title": "MCP 协议通常采用什么通信方式?",
+        "source": "interview-question://T013",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 协议通常采用什么通信方式?\n\n题目编号:T013\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:本地MCP Server常通过stdio由Client作为子进程启动,延迟低且无需开放端口;远程服务推荐使用Streamable HTTP,便于多Client共享和集中管理。早期HTTP+SSE双端点方案已不再是新项目的首选。无论使用哪种传输,消息层都采用JSON-RPC 2.0,传输方式只决定消息如何到达。stdio 使用标准输入输出传递协议消息,普通日志应写到 stderr,避免污染消息流。远程 Streamable HTTP 使用 HTTP 请求传递消息,并可通过 SSE 推送多个事件;并不是所有响应都必须保持一个长连接。2025-11-25 版规范列出这两种标准传输,旧 HTTP+SSE 应按兼容需求处理。客户端还要管理连接生命周期、会话和取消;重连不会自动保证外部操作只执行一次。\n\n评分要点:区分 JSON-RPC 消息语义与传输;说明 stdio、Streamable HTTP 和旧 HTTP+SSE 的兼容关系。",
+        "vector_score": 0.8664009273052216,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 319809831368975428,
+        "title": "MCP 由哪几部分组成?",
+        "source": "interview-question://T005",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+        "vector_score": 0.8049768805503845,
+        "keyword_score": 0.4165736064405803,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1010957861723506751,
+        "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+        "source": "interview-question://T008",
+        "domain": "llm-tool-calling",
+        "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+        "vector_score": 0.8033613562583923,
+        "keyword_score": 0.35339792148694593,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 2.971,
+  "timings_seconds": {
+    "decomposition": 2.720958,
+    "retrieval": 0.249665,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.161603,
+    "vector_search": 0.019738,
+    "keyword_search": 0.06715,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.249895,
+    "total": 2.970852,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

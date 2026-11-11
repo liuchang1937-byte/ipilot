@@ -1,0 +1,957 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "aa5891c472be4e1db07ced710420be74",
+  "created_at": "2026-10-12T15:07:34.832375+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "38039acccae5e2ae3fb6b60d618e74c392d30323701c9332e60fc84a57b5d5fe",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\6e8636794ee87600\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 2.498,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 2.498,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.241953,
+          "p50": 2.241953,
+          "p95": 2.241953,
+          "max": 2.241953,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.255629,
+          "p50": 0.255629,
+          "p95": 0.255629,
+          "max": 0.255629,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.170828,
+          "p50": 0.170828,
+          "p95": 0.170828,
+          "max": 0.170828,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.02401,
+          "p50": 0.02401,
+          "p95": 0.02401,
+          "max": 0.02401,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.05958,
+          "p50": 0.05958,
+          "p95": 0.05958,
+          "max": 0.05958,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.25579,
+          "p50": 0.25579,
+          "p95": 0.25579,
+          "max": 0.25579,
+          "samples": 1
+        },
+        "total": {
+          "mean": 2.497742,
+          "p50": 2.497742,
+          "p95": 2.497742,
+          "max": 2.497742,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.056,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 3.056,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.241953,
+          "p50": 2.241953,
+          "p95": 2.241953,
+          "max": 2.241953,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.238964,
+          "p50": 0.238964,
+          "p95": 0.238964,
+          "max": 0.238964,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.153393,
+          "p50": 0.153393,
+          "p95": 0.153393,
+          "max": 0.153393,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.020624,
+          "p50": 0.020624,
+          "p95": 0.020624,
+          "max": 0.020624,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.064007,
+          "p50": 0.064007,
+          "p95": 0.064007,
+          "max": 0.064007,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.575245,
+          "p50": 0.575245,
+          "p95": 0.575245,
+          "max": 0.575245,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.814406,
+          "p50": 0.814406,
+          "p95": 0.814406,
+          "max": 0.814406,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.056359,
+          "p50": 3.056359,
+          "p95": 3.056359,
+          "max": 3.056359,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 17.161,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 17.161,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.241953,
+          "p50": 2.241953,
+          "p95": 2.241953,
+          "max": 2.241953,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 14.91865,
+          "p50": 14.91865,
+          "p95": 14.91865,
+          "max": 14.91865,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 5.801125,
+          "p50": 5.801125,
+          "p95": 5.801125,
+          "max": 5.801125,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 8.463402,
+          "p50": 8.463402,
+          "p95": 8.463402,
+          "max": 8.463402,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.345673,
+          "p50": 0.345673,
+          "p95": 0.345673,
+          "max": 0.345673,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.05299,
+          "p50": 0.05299,
+          "p95": 0.05299,
+          "max": 0.05299,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.251185,
+          "p50": 0.251185,
+          "p95": 0.251185,
+          "max": 0.251185,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 14.918847,
+          "p50": 14.918847,
+          "p95": 14.918847,
+          "max": 14.918847,
+          "samples": 1
+        },
+        "total": {
+          "mean": 17.1608,
+          "p50": 17.1608,
+          "p95": 17.1608,
+          "max": 17.1608,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-116",
+      "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-116",
+      "variant": "hybrid",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T003",
+        "interview-question://L022",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+        "answer": "",
+        "sections": [
+          {
+            "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T003",
+                "interview-question://L022",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 878197658630587989,
+            "title": "大模型的 Function Call 能力是怎么训练出来的?",
+            "source": "interview-question://T003",
+            "domain": "llm-tool-calling",
+            "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+            "vector_score": 0.7451043725013733,
+            "keyword_score": 0.8122461617855472,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.7372393012046814,
+            "keyword_score": 0.7035845813125581,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1582090342757356371,
+            "title": "4.2 版本优先级示例",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 4.2 版本优先级示例\n### 的规则。\n\nF-023 当前标签换电阈值为电量低于 30%,依据 v1.4。\n否定事实:云杉计划没有使用人脸识别;没有采集司机的私人聊天内容;没有把原始个人信息用于路线推荐模型训练。\nF-024 路线推荐模型不使用原始个人信息训练。\n\n云杉计划知识手册 | RAG 测试语料 第 6 页 / 共 11 页\n\n---",
+            "vector_score": 0.7276865839958191,
+            "keyword_score": 0.6465246657409732,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 2.498,
+      "timings_seconds": {
+        "decomposition": 2.241953,
+        "retrieval": 0.255629,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.170828,
+        "vector_search": 0.02401,
+        "keyword_search": 0.05958,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.25579,
+        "total": 2.497742,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-116",
+      "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-116",
+      "variant": "hybrid_reranked",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L022"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+        "answer": "",
+        "sections": [
+          {
+            "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://L022"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.7372393012046814,
+            "keyword_score": 0.7035845813125581,
+            "rerank_score": 0.12651921808719635
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.056,
+      "timings_seconds": {
+        "decomposition": 2.241953,
+        "retrieval": 0.238964,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.153393,
+        "vector_search": 0.020624,
+        "keyword_search": 0.064007,
+        "rerank": 0.575245,
+        "generation": 0.0,
+        "pipeline": 0.814406,
+        "total": 3.056359,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-116",
+      "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-116",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T003",
+        "interview-question://L022",
+        "interview-question://L015"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+        "answer": "",
+        "sections": [
+          {
+            "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Aster-Internal 私有模型 未公开训练超参数 题库 列出"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Aster-Internal 内部模型 训练配置 超参数 学习率 批量大小 优化器 未公开"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Aster-Internal private model undisclosed training hyperparameters internal question bank"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "已有题库中记录的私有模型 Aster-Internal 未公开训练超参数如下:基座规模 13B;训练框架 Megatron-LM + DeepSpeed;优化器 AdamW,β1=0.9,β2=0.95,ε=1e-8;峰值学习率 1.5e-5,最小学习率 1.5e-6,权重衰减 0.1;学习率调度 cosine decay;warmup steps=2000,warmup ratio=0.02;全局 batch size=1024,micro batch size=2,gradient accumulation steps=64;训练 epochs=2;max sequence length=8192;packed sequence=true;dropout=0.0,attention dropout=0.0,hidden dropout=0.0;gradient clipping=1.0;混合精度 bf16;ZeRO stage=2,offload_optimizer=false,offload_param=false;并行策略 TP=4,PP=2,DP=8;随机种子 seed=1234;checkpoint interval=1000 steps;LoRA 微调 rank=64,alpha=128,lora_dropout=0.05,target_modules=[q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj];训练 token 总量约 850B;数据采样温度=0.8,repetition penalty=1.05。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T003",
+                "interview-question://L022",
+                "interview-question://L015"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 878197658630587989,
+            "title": "大模型的 Function Call 能力是怎么训练出来的?",
+            "source": "interview-question://T003",
+            "domain": "llm-tool-calling",
+            "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+            "vector_score": 0.7559315860271454,
+            "keyword_score": 0.8122461617855472,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.7653955221176147,
+            "keyword_score": 0.7409235674494473,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4463257598973586641,
+            "title": "大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?",
+            "source": "interview-question://L015",
+            "domain": "llm-engineering",
+            "content": "# 大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?\n\n题目编号:L015\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:量化用低比特表示权重或激活,以降低显存、带宽和计算成本,代价是精度风险。INT8通常损失小,INT4压缩更强;GPTQ利用校准数据做逐层训练后权重量化,通用性强;AWQ保护对输出敏感的重要权重,常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化,以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化,AWQ 利用激活信息调整重要通道的缩放,减少关键权重的误差;不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快,需要核对算子支持,并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。\n\n评分要点:量化对象、比特权衡、AWQ/GPTQ思路及硬件适配。",
+            "vector_score": 0.7733215987682343,
+            "keyword_score": 0.4928237349287504,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 17.161,
+      "timings_seconds": {
+        "decomposition": 2.241953,
+        "retrieval": 14.91865,
+        "mqe": 5.801125,
+        "hyde": 8.463402,
+        "embedding": 0.345673,
+        "vector_search": 0.05299,
+        "keyword_search": 0.251185,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 14.918847,
+        "total": 17.1608,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-116",
+      "subquestions": [
+        {
+          "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.2419528999998874
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.005,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

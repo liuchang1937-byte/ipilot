@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-009",
+  "subquestions": [
+    {
+      "question": "正在进行的任务和几周前的历史信息，是否应该用同一种方式保存？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.547915099999955
+}

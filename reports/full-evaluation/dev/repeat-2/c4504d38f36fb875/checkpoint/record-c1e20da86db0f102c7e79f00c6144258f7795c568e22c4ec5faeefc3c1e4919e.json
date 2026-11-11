@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-059",
+  "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R012",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R012"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询，从而提高召回。可以用规则、LLM、多查询扩展或HyDE，但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较，并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词，复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面，HyDE 生成假设文档用于语义检索，但假设内容不能作为回答证据。原始查询应保留在召回路径中，避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后，才值得默认启用复杂改写。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R012",
+    "interview-question://A024",
+    "interview-question://R010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "当用户问法太口语化时，如何改写查询且不改变原始需求？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当用户问法太口语化时,如何改写查询且不改变原始需求?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R012",
+            "interview-question://A024",
+            "interview-question://R010"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3510013083994112628,
+        "title": "如何润色用户的 Query(Query Rewrite)?目的是什么?",
+        "source": "interview-question://R012",
+        "domain": "rag",
+        "content": "# 如何润色用户的 Query(Query Rewrite)?目的是什么?\n\n题目编号:R012\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询,从而提高召回。可以用规则、LLM、多查询扩展或HyDE,但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较,并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词,复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面,HyDE 生成假设文档用于语义检索,但假设内容不能作为回答证据。原始查询应保留在召回路径中,避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后,才值得默认启用复杂改写。\n\n评分要点:目的、常见方式、原意保护和可评测性。",
+        "vector_score": 0.8647927045822144,
+        "keyword_score": 1.0,
+        "rerank_score": 0.868816614151001
+      },
+      {
+        "id": 2,
+        "chunk_id": 1161528079708033534,
+        "title": "大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?",
+        "source": "interview-question://A024",
+        "domain": "agent",
+        "content": "# 大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?\n\n题目编号:A024\n\n领域:agent\n\n难度:3\n\n标签:数据库安全、权限、审计\n- 考察方向:最小权限、查询白名单、脱敏、只读代理和结果验证。\n\n参考答案:不要把数据库高权限凭据直接交给模型,应通过受控数据访问层暴露允许的表、字段和查询模板,默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截,再在限时限量的隔离账号中执行;结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID,查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态,不由模型从用户文字中自行决定。能提供查订单等固定业务接口时,就不暴露任意 SQL;必须生成 SQL 时要解析语法树,限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入,不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏,写操作使用独立权限、事务和审计,并校验指标口径及时间范围,兼顾查询安全和答案正确性。\n\n评分要点:最小权限、SQL验证、隔离执行、脱敏审计和结果证据。",
+        "vector_score": 0.7541101574897766,
+        "keyword_score": 0.6749606557086375,
+        "rerank_score": 0.06378521770238876
+      },
+      {
+        "id": 3,
+        "chunk_id": 4411062690451180658,
+        "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+        "source": "interview-question://R010",
+        "domain": "rag",
+        "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+        "vector_score": 0.7433381676673889,
+        "keyword_score": 0.6363324419225136,
+        "rerank_score": 0.05915176495909691
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 6.294,
+  "timings_seconds": {
+    "decomposition": 5.494457,
+    "retrieval": 0.236463,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.140991,
+    "vector_search": 0.024064,
+    "keyword_search": 0.068947,
+    "rerank": 0.562336,
+    "generation": 0.0,
+    "pipeline": 0.799114,
+    "total": 6.293571,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

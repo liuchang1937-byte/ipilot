@@ -1,0 +1,206 @@
+{
+  "case_id": "V2-078",
+  "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "T010",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T010"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "MCP主要标准化外部能力如何被发现和调用，相当于工具连接层；Skill封装完成任务所需的方法、顺序和经验，相当于操作手册。一个Skill可以调用多个MCP工具，一个MCP工具也能被多个Skill复用。前者关注协议与能力，后者关注任务策略与可复用流程。例如，数据库 MCP 服务暴露查询能力，而数据分析 Skill 指导 Agent 先确认指标口径，再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP，MCP 也可以被没有 Skill 的程序使用，因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性，Skill 的质量更多看步骤是否合理和结果能否验证；使用二者都不能绕过运行时授权。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T011",
+    "interview-question://T010",
+    "interview-question://T004"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.8154648767857288,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+    "answer": "1. 在提供工具访问协议方面，MCP和Skill各负责什么？\n\n\n2. 在提供任务操作指南方面，MCP和Skill各负责什么？\n",
+    "sections": [
+      {
+        "question": "在提供工具访问协议方面，MCP和Skill各负责什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在提供工具访问协议方面,MCP和Skill各负责什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "在提供工具访问协议方面,MCP 和 Skill 各自负责什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP 与 Skill 在工具访问协议中的职责分工和区别对比"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP Model Context Protocol vs Skill/Agent Skills tool access protocol responsibilities"
+            },
+            {
+              "kind": "hyde",
+              "text": "在工具访问协议层面,MCP(Model Context Protocol)负责标准化模型与外部工具/数据源之间的连接、发现与调用:定义 client-server 架构、JSON-RPC 2.0 消息、tools/list 工具发现、tools/call 工具调用、JSON Schema 参数模式、resources/prompts 暴露、stdio/SSE/Streamable HTTP 传输、认证与权限边界,解决工具如何被统一暴露、发现、调用和返回结果。Skill 不定义工具访问协议,而是能力封装与任务编排层:通过 SKILL.md、元数据、自然语言指令、脚本、模板和资源,声明技能适用场景、执行步骤、依赖工具、allowed-tools 或工具使用约束,指导模型何时以及如何组合调用由 MCP、function calling、CLI/API 等协议暴露的工具。简言之,MCP 是工具互操作与调用的协议层,Skill 是面向任务的行为、知识与脚本封装层;Skill 可消费 MCP 工具,MCP 不依赖 Skill。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T011",
+            "interview-question://T010",
+            "interview-question://T004"
+          ]
+        }
+      },
+      {
+        "question": "在提供任务操作指南方面，MCP和Skill各负责什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在提供任务操作指南方面,MCP和Skill各负责什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP 和 Skill 在提供任务操作指南方面分别负责什么"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP协议 与 Skill技能 在任务操作指导/操作指南中的职责分工"
+            },
+            {
+              "kind": "mqe",
+              "text": "What are the respective responsibilities of MCP and Skill in providing task operation guides?"
+            },
+            {
+              "kind": "hyde",
+              "text": "在任务操作指南方面,MCP(Model Context Protocol)负责通过标准化 server/client 协议把外部系统能力暴露为 tools、resources、prompts,定义能力发现、鉴权、参数 schema、调用方式与返回结果,提供可执行工具和上下文连接,但不负责具体业务 SOP。Skill(Agent Skill)负责封装面向任务的流程性知识,通常在 SKILL.md、YAML frontmatter、脚本与参考文件中定义触发条件、操作步骤、决策规则、最佳实践、示例和工具编排逻辑,指导模型何时、按什么顺序调用 MCP 工具或其他资源完成任务。二者互补:MCP 提供“能调用什么工具和数据”,Skill 提供“如何一步步完成任务”的操作指南。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T010",
+            "interview-question://T011",
+            "interview-question://T004"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4412077096281725584,
+        "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+        "source": "interview-question://T011",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+        "vector_score": 0.905061811208725,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3483975197075879969,
+        "title": "MCP 和 Agent Skill 的区别是什么?",
+        "source": "interview-question://T010",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 和 Agent Skill 的区别是什么?\n\n题目编号:T010\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:MCP主要标准化外部能力如何被发现和调用,相当于工具连接层;Skill封装完成任务所需的方法、顺序和经验,相当于操作手册。一个Skill可以调用多个MCP工具,一个MCP工具也能被多个Skill复用。前者关注协议与能力,后者关注任务策略与可复用流程。例如,数据库 MCP 服务暴露查询能力,而数据分析 Skill 指导 Agent 先确认指标口径,再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP,MCP 也可以被没有 Skill 的程序使用,因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性,Skill 的质量更多看步骤是否合理和结果能否验证;使用二者都不能绕过运行时授权。\n\n评分要点:工具连接层与任务知识层的区别和组合。",
+        "vector_score": 0.9100726842880249,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4536864493093651401,
+        "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+        "source": "interview-question://T004",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+        "vector_score": 0.875080019235611,
+        "keyword_score": 0.7950389165149607,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 28.065,
+  "timings_seconds": {
+    "decomposition": 3.884886,
+    "retrieval": 24.17978,
+    "mqe": 7.954761,
+    "hyde": 14.664149,
+    "embedding": 0.790318,
+    "vector_search": 0.149085,
+    "keyword_search": 0.612647,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 24.180071,
+    "total": 28.064957,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

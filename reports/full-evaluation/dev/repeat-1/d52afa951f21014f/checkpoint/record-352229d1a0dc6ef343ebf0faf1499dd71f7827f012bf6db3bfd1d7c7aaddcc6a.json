@@ -1,0 +1,162 @@
+{
+  "case_id": "V2-109",
+  "question": "请提供不存在于题库的ZetaEmbed-2027的官方中文评测分数。",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-109",
+  "variant": "expanded",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R006",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://L022"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "请提供不存在于题库的ZetaEmbed-2027的官方中文评测分数。",
+    "answer": "",
+    "sections": [
+      {
+        "question": "请提供不存在于题库的ZetaEmbed-2027的官方中文评测分数。",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "请提供不存在于题库的ZetaEmbed-2027的官方中文评测分数。"
+            },
+            {
+              "kind": "mqe",
+              "text": "ZetaEmbed-2027 官方中文评测分数"
+            },
+            {
+              "kind": "mqe",
+              "text": "ZetaEmbed-2027 中文测评基准 官方结果"
+            },
+            {
+              "kind": "mqe",
+              "text": "ZetaEmbed-2027 Chinese official evaluation scores benchmark"
+            },
+            {
+              "kind": "hyde",
+              "text": "ZetaEmbed-2027 未发布官方中文评测分数,题库中不存在 C-Eval、CMMLU、CLUE、MTEB-zh、SuperCLUE 等中文基准的具体成绩记录。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R006",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "interview-question://L022"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3773025965374103241,
+        "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+        "source": "interview-question://R006",
+        "domain": "rag",
+        "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+        "vector_score": 0.7928776144981384,
+        "keyword_score": 0.7356833931965592,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3911908167396159604,
+        "title": "推荐测试方式",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 推荐测试方式\n\n● 切块:分别尝试 200、500、800 中文字符,重叠比例 10% 至 20%。\n● 检索:对比纯向量、BM25 与混合检索;记录 Recall@5、MRR 和 nDCG@10。\n● 重排:先召回 20 个候选块,再由 reranker 选前 5 个;观察同义词与否定句。\n● 问答:要求答案附事实编号或章节名;缺少依据时应明确拒答。\n章节 内容 主要测试点\n1 项目概览与组织 实体、日期、地点、数值\n2 术语与同义词 embedding、缩写、歧义\n3 端到端流程 顺序、条件、跨块关联\n4 数据与权限 表格检索、过滤、否定事实\n5 案例研究 多跳问答、计算、归因\n6 故障与处置 相似症状、精确区分\n7 FAQ 自然语言问答、改写\n附录 事实清单与测试题 基准答案、召回评估",
+        "vector_score": 0.7888290286064148,
+        "keyword_score": 0.9746556516736389,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.7880719900131226,
+        "keyword_score": 0.9399036799044497,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 17.372,
+  "timings_seconds": {
+    "decomposition": 5.214111,
+    "retrieval": 12.158095,
+    "mqe": 4.800183,
+    "hyde": 6.674049,
+    "embedding": 0.350574,
+    "vector_search": 0.068273,
+    "keyword_search": 0.26043,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 12.158289,
+    "total": 17.3724,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

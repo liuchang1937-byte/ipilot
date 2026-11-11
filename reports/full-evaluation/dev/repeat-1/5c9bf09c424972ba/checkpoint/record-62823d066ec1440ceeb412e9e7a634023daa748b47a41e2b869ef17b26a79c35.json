@@ -1,0 +1,200 @@
+{
+  "case_id": "V2-008",
+  "question": "助手要记住用户偏好和当前任务进度，记忆模块如何设计？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A008",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://A008"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "题解可将Agent记忆分为四层：感知记忆保存当前原始输入，短期记忆位于上下文窗口并服务当前任务，长期记忆存入外部数据库并通过语义检索召回，实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”，并根据类型选择主动注入或按需检索，同时处理去重、过期、权限和删除。这是一种便于解释的分类，并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作；长期记忆应保存跨会话有用且经过确认的信息；实体记忆适合记录对象属性与关系，避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度，检索时先按用户与权限过滤。不是所有工具日志都值得长期保存，也不能把模型猜测直接当成事实写入。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A008",
+    "interview-question://A009",
+    "interview-question://A017"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "助手要记住用户偏好和当前任务进度，记忆模块如何设计？",
+    "answer": "1. 助手记忆模块如何设计以记住用户偏好？\n\n\n2. 助手记忆模块如何设计以记住当前任务进度？\n\n\n3. 助手记忆模块如何设计以同时记住用户偏好和当前任务进度？\n",
+    "sections": [
+      {
+        "question": "助手记忆模块如何设计以记住用户偏好？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "助手记忆模块如何设计以记住用户偏好?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A008",
+            "interview-question://A009",
+            "interview-question://A017"
+          ]
+        }
+      },
+      {
+        "question": "助手记忆模块如何设计以记住当前任务进度？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "助手记忆模块如何设计以记住当前任务进度?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A008",
+            "interview-question://A009",
+            "interview-question://A017"
+          ]
+        }
+      },
+      {
+        "question": "助手记忆模块如何设计以同时记住用户偏好和当前任务进度？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "助手记忆模块如何设计以同时记住用户偏好和当前任务进度?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A008",
+            "interview-question://A009",
+            "interview-question://A017"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3336624703043853631,
+        "title": "请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?",
+        "source": "interview-question://A008",
+        "domain": "agent",
+        "content": "# 请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?\n\n题目编号:A008\n\n领域:agent\n\n难度:2\n\n标签:记忆、状态、知识库\n- 考察方向:不同记忆类型的职责、生命周期和访问方式。\n\n参考答案:题解可将Agent记忆分为四层:感知记忆保存当前原始输入,短期记忆位于上下文窗口并服务当前任务,长期记忆存入外部数据库并通过语义检索召回,实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”,并根据类型选择主动注入或按需检索,同时处理去重、过期、权限和删除。这是一种便于解释的分类,并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作;长期记忆应保存跨会话有用且经过确认的信息;实体记忆适合记录对象属性与关系,避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度,检索时先按用户与权限过滤。不是所有工具日志都值得长期保存,也不能把模型猜测直接当成事实写入。\n\n评分要点:给出记忆分类;覆盖写入、检索、更新、遗忘和隐私。",
+        "vector_score": 0.8160292208194733,
+        "keyword_score": 1.0,
+        "rerank_score": 0.9673687815666199
+      },
+      {
+        "id": 2,
+        "chunk_id": 262192336753681762,
+        "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+        "source": "interview-question://A009",
+        "domain": "agent",
+        "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+        "vector_score": 0.7818272709846497,
+        "keyword_score": 0.5898541874243579,
+        "rerank_score": 0.80567866563797
+      },
+      {
+        "id": 3,
+        "chunk_id": 1914948693301866705,
+        "title": "Agent 的上下文工程怎么设计?",
+        "source": "interview-question://A017",
+        "domain": "agent",
+        "content": "# Agent 的上下文工程怎么设计?\n\n题目编号:A017\n\n领域:agent\n\n难度:3\n\n标签:上下文工程、检索、Token 预算\n- 考察方向:系统指令、任务状态、记忆、工具结果和知识证据的优先级。\n\n参考答案:上下文应按任务动态装配,而非永久堆积。一般包含稳定系统规则、当前目标与计划、最近交互、必要工具描述、检索证据和相关长期记忆。通过元数据过滤、语义检索、摘要、去重和Token预算控制数量,并明确不同内容的可信等级。工具原始结果与用户输入要做边界标记,防止提示注入影响系统指令。可以把上下文分成稳定指令、当前目标、结构化状态、近期对话、相关证据和本轮工具结果,并为各部分设定预算。用户的纠错和硬约束应显式更新状态,陈旧工具输出则摘要或移出窗口。长文不是越多越好,需要去重、重排并标识来源;外部文档中的指令只作为数据处理。评测应检查同一任务在不同轮数、噪声和截断条件下是否仍能正确选择工具并保持目标。\n\n评分要点:动态选择、预算控制、来源分层和安全隔离。",
+        "vector_score": 0.754196971654892,
+        "keyword_score": 0.5628727988958783,
+        "rerank_score": 0.5541757941246033
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 10.337,
+  "timings_seconds": {
+    "decomposition": 7.56402,
+    "retrieval": 0.989063,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.722131,
+    "vector_search": 0.071264,
+    "keyword_search": 0.190387,
+    "rerank": 1.783413,
+    "generation": 0.0,
+    "pipeline": 2.773069,
+    "total": 10.337089,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 3,
+    "rerank_pairs": 36
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

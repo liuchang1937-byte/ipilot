@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-114",
+  "subquestions": [
+    {
+      "question": "XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.1741223000026366
+}

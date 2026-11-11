@@ -1,0 +1,989 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "b12a45453c434600af3927bdadcbd3cb",
+  "created_at": "2026-10-12T15:07:35.484314+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "44f792b270375397a147fdd671e28e768e8d64eb45c7804a6f51302d12167b4b",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\0482541977c0a9bc\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 21.916,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 21.916,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 12.467313,
+          "p50": 12.467313,
+          "p95": 12.467313,
+          "max": 12.467313,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 9.448398,
+          "p50": 9.448398,
+          "p95": 9.448398,
+          "max": 9.448398,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.47958,
+          "p50": 2.47958,
+          "p95": 2.47958,
+          "max": 2.47958,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 6.310253,
+          "p50": 6.310253,
+          "p95": 6.310253,
+          "max": 6.310253,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.329347,
+          "p50": 0.329347,
+          "p95": 0.329347,
+          "max": 0.329347,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.052462,
+          "p50": 0.052462,
+          "p95": 0.052462,
+          "max": 0.052462,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.272493,
+          "p50": 0.272493,
+          "p95": 0.272493,
+          "max": 0.272493,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 9.448598,
+          "p50": 9.448598,
+          "p95": 9.448598,
+          "max": 9.448598,
+          "samples": 1
+        },
+        "total": {
+          "mean": 21.915911,
+          "p50": 21.915911,
+          "p95": 21.915911,
+          "max": 21.915911,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 12.676,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 12.676,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 12.467313,
+          "p50": 12.467313,
+          "p95": 12.467313,
+          "max": 12.467313,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.208203,
+          "p50": 0.208203,
+          "p95": 0.208203,
+          "max": 0.208203,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.120547,
+          "p50": 0.120547,
+          "p95": 0.120547,
+          "max": 0.120547,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.026373,
+          "p50": 0.026373,
+          "p95": 0.026373,
+          "max": 0.026373,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.060248,
+          "p50": 0.060248,
+          "p95": 0.060248,
+          "max": 0.060248,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.20839,
+          "p50": 0.20839,
+          "p95": 0.20839,
+          "max": 0.20839,
+          "samples": 1
+        },
+        "total": {
+          "mean": 12.675703,
+          "p50": 12.675703,
+          "p95": 12.675703,
+          "max": 12.675703,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 13.369,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 13.369,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 12.467313,
+          "p50": 12.467313,
+          "p95": 12.467313,
+          "max": 12.467313,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.219869,
+          "p50": 0.219869,
+          "p95": 0.219869,
+          "max": 0.219869,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.12533,
+          "p50": 0.12533,
+          "p95": 0.12533,
+          "max": 0.12533,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.028908,
+          "p50": 0.028908,
+          "p95": 0.028908,
+          "max": 0.028908,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.064759,
+          "p50": 0.064759,
+          "p95": 0.064759,
+          "max": 0.064759,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.68137,
+          "p50": 0.68137,
+          "p95": 0.68137,
+          "max": 0.68137,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.901552,
+          "p50": 0.901552,
+          "p95": 0.901552,
+          "max": 0.901552,
+          "samples": 1
+        },
+        "total": {
+          "mean": 13.368866,
+          "p50": 13.368866,
+          "p95": 13.368866,
+          "max": 13.368866,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-007",
+      "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A007",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A007"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "先把目标转为可验证的交付物，再按信息依赖、工具边界或专业领域拆成子任务，并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划；拆得过细会增加通信成本。以技术调研为例，可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分，最后一部分依赖前面的证据。独立检索可并行，依赖同一业务状态的写入不能随意并行。每步返回结构化产物，使失败可以定位到局部并单独重试。是否改善效果，应比较任务成功率、返工率、总耗时与调用费用，不能把拆分后的局部准确率直接当成整体收益。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A007",
+        "interview-question://A011",
+        "interview-question://L017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当一个请求包含多个依赖步骤时，应该如何将其拆成可验证的小任务？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当一个请求包含多个依赖步骤时,应该如何将其拆成可验证的小任务?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "如何将包含多个依赖步骤的请求拆分成可验证的小任务"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "多步骤依赖任务拆解为可验证子任务的方法与最佳实践"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "decompose multi-step dependent request into verifiable small tasks"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "对于包含多个依赖步骤的请求,采用工作分解结构(WBS)与依赖图(DAG)结合的方法:先明确最终目标、交付物、约束和验收标准,再按功能、数据流、接口或时间边界递归拆分。每个节点应原子化、单一职责、输入输出契约明确,并标注前置条件、后置条件、依赖关系、幂等性与回滚策略。对每个小任务定义可验证的完成定义(DoD)、断言、单元测试、契约测试、集成测试或端到端检查,以及可观测指标(日志、指标、追踪)。按拓扑排序确定执行顺序,识别关键路径与可并行分支,用 mock/stub 隔离未完成依赖,对中间产物进行版本化和校验。若任务仍不可独立验证,则继续拆分,直到每个任务能在短周期内完成、独立测试、失败可定位且通过验收标准。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A007",
+                "interview-question://A011",
+                "interview-question://L017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 291400306949050267,
+            "title": "复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?",
+            "source": "interview-question://A007",
+            "domain": "agent",
+            "content": "# 复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?\n\n题目编号:A007\n\n领域:agent\n\n难度:2\n\n标签:任务分解、依赖图、验收条件\n- 考察方向:子任务边界、依赖关系、完成判据与动态重规划。\n\n参考答案:先把目标转为可验证的交付物,再按信息依赖、工具边界或专业领域拆成子任务,并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划;拆得过细会增加通信成本。以技术调研为例,可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分,最后一部分依赖前面的证据。独立检索可并行,依赖同一业务状态的写入不能随意并行。每步返回结构化产物,使失败可以定位到局部并单独重试。是否改善效果,应比较任务成功率、返工率、总耗时与调用费用,不能把拆分后的局部准确率直接当成整体收益。\n\n评分要点:强调可验证输出和依赖;说明收益与过度拆分的代价。",
+            "vector_score": 0.8532297015190125,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1602129502117344900,
+            "title": "说说 Single-Agent 和 Multi-Agent 的设计方案?",
+            "source": "interview-question://A011",
+            "domain": "agent",
+            "content": "# 说说 Single-Agent 和 Multi-Agent 的设计方案?\n\n题目编号:A011\n\n领域:agent\n\n难度:3\n\n标签:Multi-Agent、角色设计、协调\n- 考察方向:角色边界、输入输出契约、调度者和共享状态。\n\n参考答案:Single-Agent 由一个决策核心访问多种工具,状态集中、调试简单,适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent,可由 Supervisor 统一调度,也可通过消息或共享状态协作,适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够,只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具,结构简单,调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总,但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分,而不是只看问题文字是否复杂。先建立单 Agent 基线,再用相同测试集证明成功率或延迟收益足以抵消协作成本。\n\n评分要点:描述两种架构;给出选择条件而非只列优缺点。",
+            "vector_score": 0.7705655992031097,
+            "keyword_score": 0.6527859926619549,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1514459175991001607,
+            "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+            "source": "interview-question://L017",
+            "domain": "llm-engineering",
+            "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+            "vector_score": 0.7727961540222168,
+            "keyword_score": 0.5558118694759588,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 21.916,
+      "timings_seconds": {
+        "decomposition": 12.467313,
+        "retrieval": 9.448398,
+        "mqe": 2.47958,
+        "hyde": 6.310253,
+        "embedding": 0.329347,
+        "vector_search": 0.052462,
+        "keyword_search": 0.272493,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 9.448598,
+        "total": 21.915911,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-007",
+      "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A007",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A007"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "先把目标转为可验证的交付物，再按信息依赖、工具边界或专业领域拆成子任务，并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划；拆得过细会增加通信成本。以技术调研为例，可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分，最后一部分依赖前面的证据。独立检索可并行，依赖同一业务状态的写入不能随意并行。每步返回结构化产物，使失败可以定位到局部并单独重试。是否改善效果，应比较任务成功率、返工率、总耗时与调用费用，不能把拆分后的局部准确率直接当成整体收益。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A007",
+        "interview-question://A011",
+        "interview-question://L017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当一个请求包含多个依赖步骤时，应该如何将其拆成可验证的小任务？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当一个请求包含多个依赖步骤时,应该如何将其拆成可验证的小任务?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A007",
+                "interview-question://A011",
+                "interview-question://L017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 291400306949050267,
+            "title": "复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?",
+            "source": "interview-question://A007",
+            "domain": "agent",
+            "content": "# 复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?\n\n题目编号:A007\n\n领域:agent\n\n难度:2\n\n标签:任务分解、依赖图、验收条件\n- 考察方向:子任务边界、依赖关系、完成判据与动态重规划。\n\n参考答案:先把目标转为可验证的交付物,再按信息依赖、工具边界或专业领域拆成子任务,并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划;拆得过细会增加通信成本。以技术调研为例,可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分,最后一部分依赖前面的证据。独立检索可并行,依赖同一业务状态的写入不能随意并行。每步返回结构化产物,使失败可以定位到局部并单独重试。是否改善效果,应比较任务成功率、返工率、总耗时与调用费用,不能把拆分后的局部准确率直接当成整体收益。\n\n评分要点:强调可验证输出和依赖;说明收益与过度拆分的代价。",
+            "vector_score": 0.842791736125946,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1602129502117344900,
+            "title": "说说 Single-Agent 和 Multi-Agent 的设计方案?",
+            "source": "interview-question://A011",
+            "domain": "agent",
+            "content": "# 说说 Single-Agent 和 Multi-Agent 的设计方案?\n\n题目编号:A011\n\n领域:agent\n\n难度:3\n\n标签:Multi-Agent、角色设计、协调\n- 考察方向:角色边界、输入输出契约、调度者和共享状态。\n\n参考答案:Single-Agent 由一个决策核心访问多种工具,状态集中、调试简单,适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent,可由 Supervisor 统一调度,也可通过消息或共享状态协作,适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够,只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具,结构简单,调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总,但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分,而不是只看问题文字是否复杂。先建立单 Agent 基线,再用相同测试集证明成功率或延迟收益足以抵消协作成本。\n\n评分要点:描述两种架构;给出选择条件而非只列优缺点。",
+            "vector_score": 0.7607278227806091,
+            "keyword_score": 0.6527859926619549,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1514459175991001607,
+            "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+            "source": "interview-question://L017",
+            "domain": "llm-engineering",
+            "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+            "vector_score": 0.7702522575855255,
+            "keyword_score": 0.5558118694759588,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 12.676,
+      "timings_seconds": {
+        "decomposition": 12.467313,
+        "retrieval": 0.208203,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.120547,
+        "vector_search": 0.026373,
+        "keyword_search": 0.060248,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.20839,
+        "total": 12.675703,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-007",
+      "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A007",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A007"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "先把目标转为可验证的交付物，再按信息依赖、工具边界或专业领域拆成子任务，并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划；拆得过细会增加通信成本。以技术调研为例，可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分，最后一部分依赖前面的证据。独立检索可并行，依赖同一业务状态的写入不能随意并行。每步返回结构化产物，使失败可以定位到局部并单独重试。是否改善效果，应比较任务成功率、返工率、总耗时与调用费用，不能把拆分后的局部准确率直接当成整体收益。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A007",
+        "interview-question://A011",
+        "interview-question://A014"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当一个请求包含多个依赖步骤时，应该如何将其拆成可验证的小任务？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当一个请求包含多个依赖步骤时,应该如何将其拆成可验证的小任务?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A007",
+                "interview-question://A011",
+                "interview-question://A014"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 291400306949050267,
+            "title": "复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?",
+            "source": "interview-question://A007",
+            "domain": "agent",
+            "content": "# 复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?\n\n题目编号:A007\n\n领域:agent\n\n难度:2\n\n标签:任务分解、依赖图、验收条件\n- 考察方向:子任务边界、依赖关系、完成判据与动态重规划。\n\n参考答案:先把目标转为可验证的交付物,再按信息依赖、工具边界或专业领域拆成子任务,并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划;拆得过细会增加通信成本。以技术调研为例,可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分,最后一部分依赖前面的证据。独立检索可并行,依赖同一业务状态的写入不能随意并行。每步返回结构化产物,使失败可以定位到局部并单独重试。是否改善效果,应比较任务成功率、返工率、总耗时与调用费用,不能把拆分后的局部准确率直接当成整体收益。\n\n评分要点:强调可验证输出和依赖;说明收益与过度拆分的代价。",
+            "vector_score": 0.842791736125946,
+            "keyword_score": 1.0,
+            "rerank_score": 0.845291793346405
+          },
+          {
+            "id": 2,
+            "chunk_id": 1602129502117344900,
+            "title": "说说 Single-Agent 和 Multi-Agent 的设计方案?",
+            "source": "interview-question://A011",
+            "domain": "agent",
+            "content": "# 说说 Single-Agent 和 Multi-Agent 的设计方案?\n\n题目编号:A011\n\n领域:agent\n\n难度:3\n\n标签:Multi-Agent、角色设计、协调\n- 考察方向:角色边界、输入输出契约、调度者和共享状态。\n\n参考答案:Single-Agent 由一个决策核心访问多种工具,状态集中、调试简单,适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent,可由 Supervisor 统一调度,也可通过消息或共享状态协作,适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够,只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具,结构简单,调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总,但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分,而不是只看问题文字是否复杂。先建立单 Agent 基线,再用相同测试集证明成功率或延迟收益足以抵消协作成本。\n\n评分要点:描述两种架构;给出选择条件而非只列优缺点。",
+            "vector_score": 0.7607278227806091,
+            "keyword_score": 0.6527859926619549,
+            "rerank_score": 0.7851834893226624
+          },
+          {
+            "id": 3,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.7410890161991119,
+            "keyword_score": 0.7177836385660599,
+            "rerank_score": 0.06608133763074875
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 13.369,
+      "timings_seconds": {
+        "decomposition": 12.467313,
+        "retrieval": 0.219869,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.12533,
+        "vector_search": 0.028908,
+        "keyword_search": 0.064759,
+        "rerank": 0.68137,
+        "generation": 0.0,
+        "pipeline": 0.901552,
+        "total": 13.368866,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-007",
+      "subquestions": [
+        {
+          "question": "当一个请求包含多个依赖步骤时，应该如何将其拆成可验证的小任务？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 12.467313400000421
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.009,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

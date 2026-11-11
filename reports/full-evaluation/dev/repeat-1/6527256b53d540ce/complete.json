@@ -1,0 +1,989 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "29356375841f450abe72db18c3f737d2",
+  "created_at": "2026-10-12T15:07:34.163053+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "3d46fa81aa51570efd1878768b007d1b3d369716da4cd5ed6827c0e5a165695f",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-1\\6527256b53d540ce\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 10.921,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 10.921,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 10.538081,
+          "p50": 10.538081,
+          "p95": 10.538081,
+          "max": 10.538081,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.382694,
+          "p50": 0.382694,
+          "p95": 0.382694,
+          "max": 0.382694,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.295818,
+          "p50": 0.295818,
+          "p95": 0.295818,
+          "max": 0.295818,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.022821,
+          "p50": 0.022821,
+          "p95": 0.022821,
+          "max": 0.022821,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.06273,
+          "p50": 0.06273,
+          "p95": 0.06273,
+          "max": 0.06273,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.382885,
+          "p50": 0.382885,
+          "p95": 0.382885,
+          "max": 0.382885,
+          "samples": 1
+        },
+        "total": {
+          "mean": 10.920966,
+          "p50": 10.920966,
+          "p95": 10.920966,
+          "max": 10.920966,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.6309,
+      "hit_rate": 1,
+      "mrr": 0.5,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 11.46,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 11.46,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 10.538081,
+          "p50": 10.538081,
+          "p95": 10.538081,
+          "max": 10.538081,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.24399,
+          "p50": 0.24399,
+          "p95": 0.24399,
+          "max": 0.24399,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.134734,
+          "p50": 0.134734,
+          "p95": 0.134734,
+          "max": 0.134734,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.032116,
+          "p50": 0.032116,
+          "p95": 0.032116,
+          "max": 0.032116,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.076076,
+          "p50": 0.076076,
+          "p95": 0.076076,
+          "max": 0.076076,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.677472,
+          "p50": 0.677472,
+          "p95": 0.677472,
+          "max": 0.677472,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.921774,
+          "p50": 0.921774,
+          "p95": 0.921774,
+          "max": 0.921774,
+          "samples": 1
+        },
+        "total": {
+          "mean": 11.459855,
+          "p50": 11.459855,
+          "p95": 11.459855,
+          "max": 11.459855,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 20.22,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 20.22,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 10.538081,
+          "p50": 10.538081,
+          "p95": 10.538081,
+          "max": 10.538081,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 9.682189,
+          "p50": 9.682189,
+          "p95": 9.682189,
+          "max": 9.682189,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.836577,
+          "p50": 2.836577,
+          "p95": 2.836577,
+          "max": 2.836577,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 6.153546,
+          "p50": 6.153546,
+          "p95": 6.153546,
+          "max": 6.153546,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.37933,
+          "p50": 0.37933,
+          "p95": 0.37933,
+          "max": 0.37933,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.062926,
+          "p50": 0.062926,
+          "p95": 0.062926,
+          "max": 0.062926,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.245871,
+          "p50": 0.245871,
+          "p95": 0.245871,
+          "max": 0.245871,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 9.682397,
+          "p50": 9.682397,
+          "p95": 9.682397,
+          "max": 9.682397,
+          "samples": 1
+        },
+        "total": {
+          "mean": 20.220477,
+          "p50": 20.220477,
+          "p95": 20.220477,
+          "max": 20.220477,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-070",
+      "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T002",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://T002"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "模型通过预训练获得语言与代码模式，再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入，模型预测工具名和参数Token；宿主解析执行。提示和约束解码可提高格式稳定性，但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法，还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号，缺失时应询问用户，而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复，但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具，却不会凭空授予网络权限；最终动作仍由应用执行和记录。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T002",
+        "interview-question://T001",
+        "interview-question://T003"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "语言模型为何能够生成工具调用请求，以及语言模型生成工具调用请求的能力来自哪里？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "语言模型为何能够生成工具调用请求,以及语言模型生成工具调用请求的能力来自哪里?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T002",
+                "interview-question://T001",
+                "interview-question://T003"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1074467055826810929,
+            "title": "LLM 是如何学会调用外部工具的?",
+            "source": "interview-question://T002",
+            "domain": "llm-tool-calling",
+            "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+            "vector_score": 0.8467959463596344,
+            "keyword_score": 0.6358984240620227,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.8141658306121826,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 878197658630587989,
+            "title": "大模型的 Function Call 能力是怎么训练出来的?",
+            "source": "interview-question://T003",
+            "domain": "llm-tool-calling",
+            "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+            "vector_score": 0.8354846835136414,
+            "keyword_score": 0.6795925337948133,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 10.921,
+      "timings_seconds": {
+        "decomposition": 10.538081,
+        "retrieval": 0.382694,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.295818,
+        "vector_search": 0.022821,
+        "keyword_search": 0.06273,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.382885,
+        "total": 10.920966,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-070",
+      "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T002",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://T002"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "模型通过预训练获得语言与代码模式，再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入，模型预测工具名和参数Token；宿主解析执行。提示和约束解码可提高格式稳定性，但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法，还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号，缺失时应询问用户，而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复，但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具，却不会凭空授予网络权限；最终动作仍由应用执行和记录。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T001",
+        "interview-question://T002",
+        "interview-question://T006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.6309297535714575,
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "语言模型为何能够生成工具调用请求，以及语言模型生成工具调用请求的能力来自哪里？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "语言模型为何能够生成工具调用请求,以及语言模型生成工具调用请求的能力来自哪里?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T001",
+                "interview-question://T002",
+                "interview-question://T006"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.8141658306121826,
+            "keyword_score": 1.0,
+            "rerank_score": 0.9867219924926758
+          },
+          {
+            "id": 2,
+            "chunk_id": 1074467055826810929,
+            "title": "LLM 是如何学会调用外部工具的?",
+            "source": "interview-question://T002",
+            "domain": "llm-tool-calling",
+            "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+            "vector_score": 0.8467959463596344,
+            "keyword_score": 0.6358984240620227,
+            "rerank_score": 0.5662187933921814
+          },
+          {
+            "id": 3,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.7881380021572113,
+            "keyword_score": 0.6115002894212627,
+            "rerank_score": 0.45799675583839417
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 11.46,
+      "timings_seconds": {
+        "decomposition": 10.538081,
+        "retrieval": 0.24399,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.134734,
+        "vector_search": 0.032116,
+        "keyword_search": 0.076076,
+        "rerank": 0.677472,
+        "generation": 0.0,
+        "pipeline": 0.921774,
+        "total": 11.459855,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-070",
+      "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T002",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T002"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "模型通过预训练获得语言与代码模式，再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入，模型预测工具名和参数Token；宿主解析执行。提示和约束解码可提高格式稳定性，但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法，还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号，缺失时应询问用户，而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复，但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具，却不会凭空授予网络权限；最终动作仍由应用执行和记录。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T002",
+        "interview-question://T003",
+        "interview-question://T001"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "语言模型为何能够生成工具调用请求，以及语言模型生成工具调用请求的能力来自哪里？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "语言模型为何能够生成工具调用请求,以及语言模型生成工具调用请求的能力来自哪里?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型为什么能生成工具调用请求:函数调用、结构化输出与决策机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "语言模型工具调用能力的来源:预训练、指令微调、RLHF与工具使用数据"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Where does LLM tool calling ability come from: function calling, agents, Toolformer, API use"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "语言模型能够生成工具调用请求,是因为其自回归生成机制在给定对话上下文、系统提示、工具描述和函数模式(function schema)后,学习到条件概率分布 \\(P(\\text{tool call}, \\text{arguments} \\mid \\text{context}, \\text{tools})\\),并以结构化文本、JSON 对象或特殊控制 token 的形式逐 token 生成函数名、参数和调用意图。该能力来自预训练阶段对代码、API 文档、技术问答、结构化数据和工具使用轨迹的建模,使模型获得函数签名、参数类型、JSON Schema 和 API 语义的先验;随后通过监督微调(SFT)在 function calling、tool-use、ReAct、Agent 轨迹等数据上对齐工具选择、参数填充和调用格式,再通过 RLHF、DPO 或偏好优化提升工具调用决策与参数正确性,并可结合受限解码、语法约束、JSON Schema 校验和特殊 token 控制输出合法性。因此,工具调用请求是模型在上下文学习、指令跟随、代码理解、结构化生成和工具使用对齐共同作用下产生的条件生成结果。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T002",
+                "interview-question://T003",
+                "interview-question://T001"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1074467055826810929,
+            "title": "LLM 是如何学会调用外部工具的?",
+            "source": "interview-question://T002",
+            "domain": "llm-tool-calling",
+            "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+            "vector_score": 0.8858596682548523,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 878197658630587989,
+            "title": "大模型的 Function Call 能力是怎么训练出来的?",
+            "source": "interview-question://T003",
+            "domain": "llm-tool-calling",
+            "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+            "vector_score": 0.8888753056526184,
+            "keyword_score": 0.6892654389613144,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.8643169403076172,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 20.22,
+      "timings_seconds": {
+        "decomposition": 10.538081,
+        "retrieval": 9.682189,
+        "mqe": 2.836577,
+        "hyde": 6.153546,
+        "embedding": 0.37933,
+        "vector_search": 0.062926,
+        "keyword_search": 0.245871,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 9.682397,
+        "total": 20.220477,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-070",
+      "subquestions": [
+        {
+          "question": "语言模型为何能够生成工具调用请求，以及语言模型生成工具调用请求的能力来自哪里？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 10.538080600001194
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.011,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

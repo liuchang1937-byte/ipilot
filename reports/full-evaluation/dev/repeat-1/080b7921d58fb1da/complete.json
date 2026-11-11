@@ -1,0 +1,963 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "e51aa50b8c58416893827d51a9027ad9",
+  "created_at": "2026-10-12T15:07:34.063539+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "9d0a0dc7b1177c47e62e060c2bfc60944b5cd91954973ba93f3474dd2b976aef",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-1\\080b7921d58fb1da\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 5.346,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 5.346,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.75174,
+          "p50": 4.75174,
+          "p95": 4.75174,
+          "max": 4.75174,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.59334,
+          "p50": 0.59334,
+          "p95": 0.59334,
+          "max": 0.59334,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.319354,
+          "p50": 0.319354,
+          "p95": 0.319354,
+          "max": 0.319354,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.136309,
+          "p50": 0.136309,
+          "p95": 0.136309,
+          "max": 0.136309,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.077105,
+          "p50": 0.077105,
+          "p95": 0.077105,
+          "max": 0.077105,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.593999,
+          "p50": 0.593999,
+          "p95": 0.593999,
+          "max": 0.593999,
+          "samples": 1
+        },
+        "total": {
+          "mean": 5.345738,
+          "p50": 5.345738,
+          "p95": 5.345738,
+          "max": 5.345738,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 7.381,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 7.381,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.75174,
+          "p50": 4.75174,
+          "p95": 4.75174,
+          "max": 4.75174,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.256527,
+          "p50": 0.256527,
+          "p95": 0.256527,
+          "max": 0.256527,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.164382,
+          "p50": 0.164382,
+          "p95": 0.164382,
+          "max": 0.164382,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.02386,
+          "p50": 0.02386,
+          "p95": 0.02386,
+          "max": 0.02386,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.066611,
+          "p50": 0.066611,
+          "p95": 0.066611,
+          "max": 0.066611,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 2.371865,
+          "p50": 2.371865,
+          "p95": 2.371865,
+          "max": 2.371865,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 2.628822,
+          "p50": 2.628822,
+          "p95": 2.628822,
+          "max": 2.628822,
+          "samples": 1
+        },
+        "total": {
+          "mean": 7.380562,
+          "p50": 7.380562,
+          "p95": 7.380562,
+          "max": 7.380562,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 23.651,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 23.651,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.75174,
+          "p50": 4.75174,
+          "p95": 4.75174,
+          "max": 4.75174,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 18.898991,
+          "p50": 18.898991,
+          "p95": 18.898991,
+          "max": 18.898991,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 13.818398,
+          "p50": 13.818398,
+          "p95": 13.818398,
+          "max": 13.818398,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 4.215222,
+          "p50": 4.215222,
+          "p95": 4.215222,
+          "max": 4.215222,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.485572,
+          "p50": 0.485572,
+          "p95": 0.485572,
+          "max": 0.485572,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.091292,
+          "p50": 0.091292,
+          "p95": 0.091292,
+          "max": 0.091292,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.283282,
+          "p50": 0.283282,
+          "p95": 0.283282,
+          "max": 0.283282,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 18.899201,
+          "p50": 18.899201,
+          "p95": 18.899201,
+          "max": 18.899201,
+          "samples": 1
+        },
+        "total": {
+          "mean": 23.65094,
+          "p50": 23.65094,
+          "p95": 23.65094,
+          "max": 23.65094,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-077",
+      "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T009",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://T009"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制，通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明，并在任务中使用其中的脚本和材料。它不是单纯保存Prompt，而是“操作手册+工具箱”；触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式：先用名称和描述判断是否相关，命中后读取完整步骤，再按需访问脚本、参考资料和模板，避免把全部资源永久放进上下文。例如，生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法，不会自动赋予工具权限；脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出，避免对所有任务都触发。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T009",
+        "interview-question://A023",
+        "interview-question://A007"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T009",
+                "interview-question://A023",
+                "interview-question://A007"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4502432493545340977,
+            "title": "Skill 是什么?",
+            "source": "interview-question://T009",
+            "domain": "llm-tool-calling",
+            "content": "# Skill 是什么?\n\n题目编号:T009\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制,通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明,并在任务中使用其中的脚本和材料。它不是单纯保存Prompt,而是“操作手册+工具箱”;触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式:先用名称和描述判断是否相关,命中后读取完整步骤,再按需访问脚本、参考资料和模板,避免把全部资源永久放进上下文。例如,生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法,不会自动赋予工具权限;脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出,避免对所有任务都触发。\n\n评分要点:任务知识与流程封装,而非把Skill等同于API。",
+            "vector_score": 0.7645842432975769,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.7422351837158203,
+            "keyword_score": 0.44648443156759915,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 291400306949050267,
+            "title": "复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?",
+            "source": "interview-question://A007",
+            "domain": "agent",
+            "content": "# 复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?\n\n题目编号:A007\n\n领域:agent\n\n难度:2\n\n标签:任务分解、依赖图、验收条件\n- 考察方向:子任务边界、依赖关系、完成判据与动态重规划。\n\n参考答案:先把目标转为可验证的交付物,再按信息依赖、工具边界或专业领域拆成子任务,并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划;拆得过细会增加通信成本。以技术调研为例,可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分,最后一部分依赖前面的证据。独立检索可并行,依赖同一业务状态的写入不能随意并行。每步返回结构化产物,使失败可以定位到局部并单独重试。是否改善效果,应比较任务成功率、返工率、总耗时与调用费用,不能把拆分后的局部准确率直接当成整体收益。\n\n评分要点:强调可验证输出和依赖;说明收益与过度拆分的代价。",
+            "vector_score": 0.7406920492649078,
+            "keyword_score": 0.44048584960957526,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 5.346,
+      "timings_seconds": {
+        "decomposition": 4.75174,
+        "retrieval": 0.59334,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.319354,
+        "vector_search": 0.136309,
+        "keyword_search": 0.077105,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.593999,
+        "total": 5.345738,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-077",
+      "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T009",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://T009"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制，通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明，并在任务中使用其中的脚本和材料。它不是单纯保存Prompt，而是“操作手册+工具箱”；触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式：先用名称和描述判断是否相关，命中后读取完整步骤，再按需访问脚本、参考资料和模板，避免把全部资源永久放进上下文。例如，生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法，不会自动赋予工具权限；脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出，避免对所有任务都触发。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T009"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://T009"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4502432493545340977,
+            "title": "Skill 是什么?",
+            "source": "interview-question://T009",
+            "domain": "llm-tool-calling",
+            "content": "# Skill 是什么?\n\n题目编号:T009\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制,通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明,并在任务中使用其中的脚本和材料。它不是单纯保存Prompt,而是“操作手册+工具箱”;触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式:先用名称和描述判断是否相关,命中后读取完整步骤,再按需访问脚本、参考资料和模板,避免把全部资源永久放进上下文。例如,生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法,不会自动赋予工具权限;脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出,避免对所有任务都触发。\n\n评分要点:任务知识与流程封装,而非把Skill等同于API。",
+            "vector_score": 0.7645842432975769,
+            "keyword_score": 1.0,
+            "rerank_score": 0.8171159625053406
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 7.381,
+      "timings_seconds": {
+        "decomposition": 4.75174,
+        "retrieval": 0.256527,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.164382,
+        "vector_search": 0.02386,
+        "keyword_search": 0.066611,
+        "rerank": 2.371865,
+        "generation": 0.0,
+        "pipeline": 2.628822,
+        "total": 7.380562,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-077",
+      "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T009",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T009"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制，通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明，并在任务中使用其中的脚本和材料。它不是单纯保存Prompt，而是“操作手册+工具箱”；触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式：先用名称和描述判断是否相关，命中后读取完整步骤，再按需访问脚本、参考资料和模板，避免把全部资源永久放进上下文。例如，生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法，不会自动赋予工具权限；脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出，避免对所有任务都触发。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T009",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://A016"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "按需加载 任务说明 配套资源 助手 遵循 操作流程 机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "动态加载 任务指导 支持材料 智能助手 标准作业流程 合规性"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "AI助手 即时获取 操作指南 辅助资源 工作流遵循 影响"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "可按需加载的任务说明与配套资源通过动态上下文装配、检索增强生成(RAG)、懒加载与技能模块化,将当前步骤相关的SOP、操作手册、参数表、模板、工具schema、校验规则和异常处理策略及时注入助手上下文;它减少上下文窗口噪声与指令冲突,明确前置条件、输入输出、分支逻辑、完成标准和权限边界,从而提升助手对操作流程的遵循率、动作一致性、可审计性与合规性。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T009",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://A016"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4502432493545340977,
+            "title": "Skill 是什么?",
+            "source": "interview-question://T009",
+            "domain": "llm-tool-calling",
+            "content": "# Skill 是什么?\n\n题目编号:T009\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制,通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明,并在任务中使用其中的脚本和材料。它不是单纯保存Prompt,而是“操作手册+工具箱”;触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式:先用名称和描述判断是否相关,命中后读取完整步骤,再按需访问脚本、参考资料和模板,避免把全部资源永久放进上下文。例如,生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法,不会自动赋予工具权限;脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出,避免对所有任务都触发。\n\n评分要点:任务知识与流程封装,而非把Skill等同于API。",
+            "vector_score": 0.8041226267814636,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1048492366966231293,
+            "title": "3 端到端业务与 RAG 流程",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 3 端到端业务与 RAG 流程\n\n流程信息跨越多个段落,适合测试 chunk overlap、顺序问答和多跳召回。",
+            "vector_score": 0.7884050011634827,
+            "keyword_score": 0.49739210195605443,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2769771559713974979,
+            "title": "如何设计多 Agent 的协作与动态切换机制?",
+            "source": "interview-question://A016",
+            "domain": "agent",
+            "content": "# 如何设计多 Agent 的协作与动态切换机制?\n\n题目编号:A016\n\n领域:agent\n\n难度:3\n\n标签:Agent 路由、任务交接、协议\n- 考察方向:能力描述、上下文传递、结果契约及动态切换。\n\n参考答案:多Agent协作主要依靠消息传递和共享状态:前者把上一个Agent的产物交给下一个,后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。同步协作可用结构化调用,长任务可用消息队列和任务表,所有路径都由协调器追踪。动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。共享状态应通过受控更新接口提交,不能让多个 Agent 随意覆盖同一份任务记录。\n\n评分要点:角色契约、路由依据、上下文交接和故障接管完整。",
+            "vector_score": 0.7679305970668793,
+            "keyword_score": 0.7312441360657795,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 23.651,
+      "timings_seconds": {
+        "decomposition": 4.75174,
+        "retrieval": 18.898991,
+        "mqe": 13.818398,
+        "hyde": 4.215222,
+        "embedding": 0.485572,
+        "vector_search": 0.091292,
+        "keyword_search": 0.283282,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 18.899201,
+        "total": 23.65094,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-077",
+      "subquestions": [
+        {
+          "question": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 4.751739699999234
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.009,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

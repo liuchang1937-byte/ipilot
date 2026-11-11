@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-106",
+  "subquestions": [
+    {
+      "question": "怎样阻止助手循环调用工具？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "如何识别助手没有执行却宣称完成的情况？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.827909699999509
+}

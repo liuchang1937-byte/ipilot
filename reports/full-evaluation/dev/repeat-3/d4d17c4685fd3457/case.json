@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-052",
+      "question": "检索到了答案的一半，另一半在相邻片段，怎样保留完整语义？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R005"
+      ],
+      "answerable": true,
+      "reference_answer": "一方面在切块阶段按句子、段落和标题等自然边界切分，并使用适量重叠；另一方面在检索后补回上下文，例如命中句子后返回周围窗口，或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval：在Embedding前为每个Chunk生成与全文相关的背景说明，再与正文共同索引，减轻孤立Chunk缺少上下文的问题。例如，一个段落先说明条件、后说明例外，按固定字符数切开可能只召回例外，导致错误结论。可以保存标题路径、块位置与父文档 ID，在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查，避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度，因此应去重并控制返回预算，用跨段问题检验收益。",
+      "group": "R004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

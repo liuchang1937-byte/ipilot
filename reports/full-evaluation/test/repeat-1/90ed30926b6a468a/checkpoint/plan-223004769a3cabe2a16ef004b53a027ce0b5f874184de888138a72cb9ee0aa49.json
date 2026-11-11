@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-057",
+  "subquestions": [
+    {
+      "question": "用户提交问题后，系统如何依次检索资料？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "用户提交问题后，系统如何构造生成提示？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.919754799997463
+}

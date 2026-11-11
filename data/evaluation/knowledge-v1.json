@@ -1,0 +1,336 @@
+{
+  "name": "知识库检索种子集 v1",
+  "label_status": "seed_requires_human_review",
+  "description": "按现有题解编写的独立问法和预期来源。不是由生成器从待测问题生成的答案。标注为目标锚点，不穷举所有等价证据；使用前请人工复核。前六题覆盖精确问法、同义、复合、比较、跨方向和无答案。 新增参考评分点用于独立答案评审；参考要点同样需要人工复核，允许等价解释。",
+  "cases": [
+    {
+      "id": "K01",
+      "category": "exact",
+      "question": "Function Calling 是什么，模型和宿主分别做什么？",
+      "domains": [
+        "llm-tool-calling"
+      ],
+      "expected_sources": [
+        "interview-question://T001"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "模型依据用户意图和工具Schema选择工具并生成结构化参数。",
+        "宿主程序负责参数校验、鉴权和真实执行工具。",
+        "执行结果回填给模型，用于组织最终回答。"
+      ]
+    },
+    {
+      "id": "K02",
+      "category": "paraphrase",
+      "question": "为什么聊天模型输出一个函数名和参数，还不能算真正完成了工具调用？",
+      "domains": [
+        "llm-tool-calling"
+      ],
+      "expected_sources": [
+        "interview-question://T001"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "模型输出函数名和参数只是调用请求，不等于函数已经执行。",
+        "宿主需要校验参数和权限，实际执行工具并记录结果。"
+      ]
+    },
+    {
+      "id": "K03",
+      "category": "compound",
+      "question": "Agent 由哪些核心组件组成？另外 RAG 里的向量检索与关键词检索有什么区别？",
+      "domains": [
+        "agent",
+        "rag"
+      ],
+      "expected_sources": [
+        "interview-question://A002",
+        "interview-question://R011"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "Agent架构包含模型、规划、工具、记忆和运行循环。",
+        "关键词检索基于词项匹配，适合精确术语、编号。",
+        "向量检索基于语义相似度，适合同义改写，可能存在语义误召回。"
+      ]
+    },
+    {
+      "id": "K04",
+      "category": "comparison",
+      "question": "RAG 和微调分别适合解决什么问题，应该怎么选择？",
+      "domains": [
+        "rag"
+      ],
+      "expected_sources": [
+        "interview-question://R003"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "RAG适合动态或私有事实知识，更新快且可引用，但依赖检索并增加延迟。",
+        "微调更适合行为、格式、风格或特定任务能力，训练和更新成本较高。",
+        "根据缺知识还是行为能力不足选择，两者可以组合。"
+      ]
+    },
+    {
+      "id": "K05",
+      "category": "cross_domain",
+      "question": "Agent 如何保存长短期记忆？RAG 知识库怎样持续更新？",
+      "domains": [
+        "agent",
+        "rag"
+      ],
+      "expected_sources": [
+        "interview-question://A009",
+        "interview-question://R019"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "短期记忆保存近期对话与当前状态，长期记忆保存可复用事实或经历，按任务检索使用。",
+        "记忆设计需要明确粒度、生命周期和读写策略。",
+        "知识库更新覆盖新增、修改、删除和元数据变更，使用增量索引和版本切换。",
+        "更新需要处理缓存失效与向量空间兼容，更换Embedding模型通常需重建索引。"
+      ]
+    },
+    {
+      "id": "K06",
+      "category": "unanswerable",
+      "question": "本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值和对应 JVM 参数？请给出具体值。",
+      "domains": [
+        "agent"
+      ],
+      "expected_sources": [],
+      "answerable": false
+    },
+    {
+      "id": "K07",
+      "category": "paraphrase",
+      "question": "搜索文档时把上下文切断了，怎样保持资料的语义完整？",
+      "domains": [
+        "rag"
+      ],
+      "expected_sources": [
+        "interview-question://R005"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "按句子、段落、标题等自然语义边界切分，并使用适量重叠。",
+        "检索后通过父块返回或邻块扩展补回上下文，保留标题路径。",
+        "增加上下文后需去重并控制长度，避免生成背景引入未经核实的信息。"
+      ]
+    },
+    {
+      "id": "K08",
+      "category": "exact",
+      "question": "ReAct 推理模式是什么，怎样实现？",
+      "domains": [
+        "agent"
+      ],
+      "expected_sources": [
+        "interview-question://A005"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "ReAct交替执行推理、动作和观察，根据工具结果继续决策。",
+        "工具由宿主程序执行，再把观察结果回传模型。",
+        "设置终止条件、步数预算和错误处理。"
+      ]
+    },
+    {
+      "id": "K09",
+      "category": "comparison",
+      "question": "ReAct、Plan-and-Execute 和 Reflection 有哪些区别？",
+      "domains": [
+        "agent"
+      ],
+      "expected_sources": [
+        "interview-question://A006"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "ReAct根据每步观察动态决策。",
+        "Plan-and-Execute先规划再逐步执行，必要时重新规划。",
+        "Reflection对已有结果或过程进行反思修正。",
+        "根据任务结构、动态性和额外调用成本选择，三者可结合。"
+      ]
+    },
+    {
+      "id": "K10",
+      "category": "paraphrase",
+      "question": "智能助手总是在重复同一个动作，陷入循环，有什么检测和处理办法？",
+      "domains": [
+        "agent"
+      ],
+      "expected_sources": [
+        "interview-question://A020"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "用状态、动作、参数指纹识别短周期重复，并检查是否有真实进展。",
+        "设置步数、时间、费用预算及明确终止条件。",
+        "按失败类型修正参数、切换工具或重新规划，持续无进展时熔断或转人工。"
+      ]
+    },
+    {
+      "id": "K11",
+      "category": "exact",
+      "question": "如何量化 RAG 效果，检索和回答分别看哪些指标？",
+      "domains": [
+        "rag"
+      ],
+      "expected_sources": [
+        "interview-question://R018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "检索与生成分别评估：检索看Recall、MRR等，生成看正确性、忠实度和引用。",
+        "同时记录耗时、成本和业务表现。",
+        "使用业务标注集、方案对照和失败案例分析。"
+      ]
+    },
+    {
+      "id": "K12",
+      "category": "compound",
+      "question": "怎样改写用户 Query 提升检索？如果资料之间发生冲突，又该信谁？",
+      "domains": [
+        "rag"
+      ],
+      "expected_sources": [
+        "interview-question://R012",
+        "interview-question://R021"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "改写用于消歧、指代补全、术语或同义扩展及复合问题拆解，并保留原查询和约束。",
+        "MQE生成等价查询，HyDE假设文本仅用于检索，不能作为回答证据。",
+        "资料冲突根据来源权威、版本时效和适用范围判断，展示冲突，必要时人工确认。"
+      ]
+    },
+    {
+      "id": "K13",
+      "category": "paraphrase",
+      "question": "为什么要把几个搜索渠道的候选合并，再统一排序？",
+      "domains": [
+        "rag"
+      ],
+      "expected_sources": [
+        "interview-question://R013"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "不同检索渠道和查询视角提供互补候选。",
+        "候选按文档或父块去重，用RRF等方法融合不可直接比较的分数。",
+        "用原查询统一重排，并通过消融评测权衡召回收益、噪声和延迟。"
+      ]
+    },
+    {
+      "id": "K14",
+      "category": "cross_domain",
+      "question": "Agent 没有真正执行工具却声称任务完成，怎样避免？RAG 回答里的幻觉又怎样降低？",
+      "domains": [
+        "agent",
+        "rag"
+      ],
+      "expected_sources": [
+        "interview-question://A023",
+        "interview-question://R017"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "工具任务完成需要真实执行记录、状态机和后验验证，不能依据模型口头声称。",
+        "RAG从检索质量、基于证据生成和引用或事实核验三层降低幻觉。",
+        "没有可靠证据时澄清或拒答，不能承诺完全消除幻觉。"
+      ]
+    },
+    {
+      "id": "K15",
+      "category": "exact",
+      "question": "Agent 的多轮对话如何管理状态，支持中断和恢复？",
+      "domains": [
+        "agent"
+      ],
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "消息历史与业务状态分离，保存阶段、目标、计划、约束及未完成步骤。",
+        "通过检查点和事件日志支持恢复，阶段动作校验与预算控制防止跑偏。",
+        "恢复外部操作前确认真实执行结果，通过幂等键避免重复副作用。"
+      ]
+    },
+    {
+      "id": "K16",
+      "category": "comparison",
+      "question": "Workflow、Agent 和 Tools 分别是什么，有哪些区别？",
+      "domains": [
+        "agent"
+      ],
+      "expected_sources": [
+        "interview-question://A003"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "Workflow强调预定义步骤和控制流，Agent根据目标与观察动态选择下一步。",
+        "Tools提供具体可执行能力，由宿主调用，可供Workflow或Agent使用。",
+        "根据任务确定性和控制需求选型，三者可组合。"
+      ]
+    },
+    {
+      "id": "K17",
+      "category": "unanswerable",
+      "question": "请依据本知识库给出本项目作者上个月实际支付的 Embedding API 账单金额。",
+      "domains": [
+        "rag"
+      ],
+      "expected_sources": [],
+      "answerable": false
+    },
+    {
+      "id": "K18",
+      "category": "unanswerable",
+      "question": "请依据本知识库给出某公司今年 Java 校招内部未公开的录用名单。",
+      "domains": [
+        "llm-tool-calling"
+      ],
+      "expected_sources": [],
+      "answerable": false
+    },
+    {
+      "id": "K19",
+      "category": "paraphrase",
+      "question": "智能体上下文太长时，怎样压缩记忆而保留关键事实？",
+      "domains": [
+        "agent"
+      ],
+      "expected_sources": [
+        "interview-question://A012"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "可用滚动摘要、分层摘要、结构化事实抽取或按相关性保留记忆。",
+        "保留关键事实、用户约束和未完成事项，并能追溯原始来源。",
+        "用长对话或噪声条件下的任务效果评估压缩，避免摘要丢失或篡改事实。"
+      ]
+    },
+    {
+      "id": "K20",
+      "category": "compound",
+      "question": "RAG 文档一般怎么切块？Embedding 模型的选择应该怎样评估？",
+      "domains": [
+        "rag"
+      ],
+      "expected_sources": [
+        "interview-question://R004",
+        "interview-question://R006"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "切块尊重标题、段落、表格和代码边界，并结合预算、重叠及父子结构。",
+        "块过小丢上下文，过大降低定位精度，粒度通过业务问题评测确定。",
+        "Embedding选型考虑语言领域、长度、维度、吞吐和成本。",
+        "在标注集上比较Recall、MRR或nDCG及端到端质量和延迟，更换模型需保证向量兼容。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-047",
+  "subquestions": [
+    {
+      "question": "在大语言模型处理长提示（长上下文）时，为什么明明提示中包含相关资料却会被忽略，尤其为什么位于中间位置的信息容易丢失？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.290790099999867
+}

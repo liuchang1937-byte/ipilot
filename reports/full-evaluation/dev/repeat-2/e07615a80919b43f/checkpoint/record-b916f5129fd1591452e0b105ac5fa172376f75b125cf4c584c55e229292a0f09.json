@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-049",
+  "question": "模型不知道企业最新资料，用检索增强能解决哪些限制？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R002",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R002"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "RAG主要解决模型知识过时、无法访问私有数据、事实依据不可追溯和重新训练成本高的问题。它让知识与模型参数解耦，文档变化后可以重新索引。但RAG不能自动修复错误数据，也不能替代模型本身缺乏的推理能力；召回不到或上下文质量差时，生成仍会失败。例如，新发布的内部制度不在模型训练数据中，但文档入库后就能被检索使用，不必等待模型重新训练。把知识放在外部还便于控制文档权限、版本和来源，提高结果的可核查性。需要强调的是，RAG 只能提供可用信息，不能保证模型一定正确理解；过期文档、冲突证据和错误检索仍可能导致幻觉。实际目标是降低错误并让错误可定位，而不是承诺彻底消除幻觉。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R002",
+    "interview-question://R010",
+    "interview-question://R017"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "模型不知道企业最新资料，用检索增强能解决哪些限制？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "大语言模型不知道企业最新资料时，使用检索增强（RAG）能解决哪些限制？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "大语言模型不知道企业最新资料时,使用检索增强(RAG)能解决哪些限制?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R002",
+            "interview-question://R010",
+            "interview-question://R017"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4294420497335021517,
+        "title": "大模型的 RAG 主要用来解决什么问题?",
+        "source": "interview-question://R002",
+        "domain": "rag",
+        "content": "# 大模型的 RAG 主要用来解决什么问题?\n\n题目编号:R002\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG主要解决模型知识过时、无法访问私有数据、事实依据不可追溯和重新训练成本高的问题。它让知识与模型参数解耦,文档变化后可以重新索引。但RAG不能自动修复错误数据,也不能替代模型本身缺乏的推理能力;召回不到或上下文质量差时,生成仍会失败。例如,新发布的内部制度不在模型训练数据中,但文档入库后就能被检索使用,不必等待模型重新训练。把知识放在外部还便于控制文档权限、版本和来源,提高结果的可核查性。需要强调的是,RAG 只能提供可用信息,不能保证模型一定正确理解;过期文档、冲突证据和错误检索仍可能导致幻觉。实际目标是降低错误并让错误可定位,而不是承诺彻底消除幻觉。\n\n评分要点:知识更新、私域知识、可追溯性、低更新成本及能力边界。",
+        "vector_score": 0.8633848428726196,
+        "keyword_score": 0.9107429055689037,
+        "rerank_score": 0.9566875696182251
+      },
+      {
+        "id": 2,
+        "chunk_id": 4411062690451180658,
+        "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+        "source": "interview-question://R010",
+        "domain": "rag",
+        "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+        "vector_score": 0.7973626554012299,
+        "keyword_score": 0.8207175327086962,
+        "rerank_score": 0.8691040277481079
+      },
+      {
+        "id": 3,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.8050821423530579,
+        "keyword_score": 0.531677254664786,
+        "rerank_score": 0.5070888996124268
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 14.171,
+  "timings_seconds": {
+    "decomposition": 13.40326,
+    "retrieval": 0.261026,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.172997,
+    "vector_search": 0.022166,
+    "keyword_search": 0.064792,
+    "rerank": 0.506407,
+    "generation": 0.0,
+    "pipeline": 0.767744,
+    "total": 14.171004,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

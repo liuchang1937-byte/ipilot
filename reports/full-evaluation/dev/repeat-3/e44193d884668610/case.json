@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-044",
+      "question": "CPU本地部署与GPU高并发服务，怎样选择推理运行框架？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L020"
+      ],
+      "answerable": true,
+      "reference_answer": "vLLM适合GPU高吞吐服务，强调PagedAttention和连续批处理；TGI提供较完整的Hugging Face生产服务生态；llama.cpp适合CPU、边缘和量化本地部署；SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本，并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持，再用相同输入输出长度、并发与精度设置测试，避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列，重复前缀场景需要看缓存命中，本地部署则更关心内存与量化兼容。框架特性和维护状态会变化，不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力，而不是只说某框架最快。",
+      "group": "L015",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

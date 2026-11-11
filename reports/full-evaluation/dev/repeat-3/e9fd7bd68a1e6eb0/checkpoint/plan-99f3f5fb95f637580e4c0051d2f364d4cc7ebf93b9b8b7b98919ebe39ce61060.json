@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-058",
+  "subquestions": [
+    {
+      "question": "在精确型号匹配场景中，关键词搜索与语义搜索各有什么长处？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在同义表达匹配场景中，关键词搜索与语义搜索各有什么长处？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 9.044441000000006
+}

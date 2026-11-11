@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-059",
+  "subquestions": [
+    {
+      "question": "当用户问法太口语化时，怎样改写查询且不改变原始需求？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 11.157342099999369
+}

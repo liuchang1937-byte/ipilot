@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-048",
+      "question": "从资料入库到带证据回答，检索增强系统的完整数据链路是什么？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R001"
+      ],
+      "answerable": true,
+      "reference_answer": "RAG是检索增强生成，把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引；在线阶段解析和改写查询，执行过滤、多路召回、融合、重排与上下文组装，再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如，员工询问报销标准时，系统先在其权限范围内找到当前有效的制度片段，再把来源、版本与内容传给模型，由模型组织答复。Embedding 负责语义召回，重排负责筛掉看似相关的噪声，生成阶段负责解释证据，三者职责不同。检索没有可靠依据时应澄清或拒答，而不是继续编造。每次运行保留查询、候选、引用和耗时，才能定位失败发生在入库、召回还是生成阶段。",
+      "group": "R001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

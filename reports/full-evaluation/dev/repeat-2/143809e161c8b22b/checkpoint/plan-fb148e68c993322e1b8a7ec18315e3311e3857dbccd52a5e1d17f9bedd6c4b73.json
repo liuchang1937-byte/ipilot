@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-086",
+  "subquestions": [
+    {
+      "question": "当模型向工具传入错误参数时，如何校验模型传入工具的参数？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当工具执行超时时，如何重试工具执行？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在模型传错参数或工具执行超时并可能重试的情况下，如何防止重复副作用？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.322913100000733
+}

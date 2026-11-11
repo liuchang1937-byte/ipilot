@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-038",
+      "question": "KV缓存与重复提示缓存分别复用了什么，为什么能减少计算？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L014"
+      ],
+      "answerable": true,
+      "reference_answer": "自回归生成时，KV Cache保存已有Token各层的Key/Value，后续每步只计算新Token，降低重复计算但消耗显存。Prompt Caching复用相同或相同前缀Prompt的预填充结果，可跨请求减少首Token延迟和输入计算。前者主要服务单次生成过程，后者强调重复前缀复用，都要处理缓存键、失效和内存成本。prefill 先处理输入并生成各层 K/V，decode 为每个新 Token 计算新表示，并读取已有缓存，避免重算历史 K/V。缓存随序列长度、层数和 K/V 头数增长，也会限制高并发。跨请求复用通常要求前缀与模型配置兼容，生成式同义改写并不能保证命中；缓存复用也不同于直接返回过去的答案。应比较命中率、TTFT 和显存占用，权限隔离、失效与生命周期由具体服务实现。",
+      "group": "A021",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

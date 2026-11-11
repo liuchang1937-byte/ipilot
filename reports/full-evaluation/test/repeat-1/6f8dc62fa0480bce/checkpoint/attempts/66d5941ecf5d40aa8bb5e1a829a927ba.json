@@ -1,0 +1,272 @@
+{
+  "case_id": "V2-037",
+  "question": "temperature、top_p与top_k对生成分布各有什么影响？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "L012",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L013"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Temperature缩放Logits，越低分布越尖锐；Top-K只在概率最高的K个Token中采样；Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度，创作可提高温度并使用Top-P；不存在通用最佳值，应基于任务集评估，而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布，Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合。它们只改变采样行为，不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数，再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同，因此不存在跨模型通用的最佳数值，温度为零也不等于结果一定可复现。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L013",
+    "interview-question://L012",
+    "interview-question://L018",
+    "interview-question://L010",
+    "interview-question://R017"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.7539531690476383,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "temperature、top_p与top_k对生成分布各有什么影响？",
+    "answer": "1. temperature对生成分布有什么影响？\n\n\n2. top_p对生成分布有什么影响？\n\n\n3. top_k对生成分布有什么影响？\n",
+    "sections": [
+      {
+        "question": "temperature对生成分布有什么影响？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "temperature对生成分布有什么影响?"
+            },
+            {
+              "kind": "mqe",
+              "text": "temperature 对生成分布有什么影响"
+            },
+            {
+              "kind": "mqe",
+              "text": "温度参数如何影响语言模型的输出概率分布"
+            },
+            {
+              "kind": "mqe",
+              "text": "effect of temperature on softmax probability distribution in text generation"
+            },
+            {
+              "kind": "hyde",
+              "text": "温度参数 T 通过温度缩放影响生成分布:在 softmax 前将 logits z_i 除以 T,即 p_i = softmax(z_i/T) = exp(z_i/T) / Σ_j exp(z_j/T)。低温 T<1 使分布锐化,降低熵,高概率 token 更占优,生成更确定性、接近贪心或 argmax,多样性下降;高温 T>1 使分布平滑,提高熵,低概率 token 获得更多概率质量,采样更随机、多样性增加,但可能降低连贯性。T=1 保持原始 next-token 分布;T→0 趋近 one-hot 分布,T→∞ 趋近均匀分布。温度常用于调节 LLM 解码中的概率分布形状,并可与 top-k、top-p、repetition penalty 等采样策略结合,控制探索-利用权衡。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L013",
+            "interview-question://L012",
+            "interview-question://L018"
+          ]
+        }
+      },
+      {
+        "question": "top_p对生成分布有什么影响？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "top_p对生成分布有什么影响?"
+            },
+            {
+              "kind": "mqe",
+              "text": "top_p 对语言模型生成分布的影响"
+            },
+            {
+              "kind": "mqe",
+              "text": "top-p 采样 如何改变 token 概率分布 和文本生成"
+            },
+            {
+              "kind": "mqe",
+              "text": "nucleus sampling top_p effect on generation probability distribution LLM"
+            },
+            {
+              "kind": "hyde",
+              "text": "top_p(nucleus sampling)按概率降序排列词表,取累积概率达到 p 的最小 token 集合 V_p,将集合外 token 概率置零,并在 V_p 内重新归一化:P'(x)=P(x)/Σ_{y∈V_p}P(y)。因此 top_p 直接改变生成分布的支持集与形状:p 越小,截断越强,分布更尖锐、熵更低、长尾被抑制,采样更确定,p→0 近似 greedy/argmax;p 越大,保留 token 越多,分布越接近原始 softmax,熵更高、多样性更大,p=1 不截断。top_p 常与 temperature 联合使用,先温度缩放 logits,再按 top_p 截断并重归一化后采样。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L012",
+            "interview-question://L013",
+            "interview-question://L010"
+          ]
+        }
+      },
+      {
+        "question": "top_k对生成分布有什么影响？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "top_k对生成分布有什么影响?"
+            },
+            {
+              "kind": "mqe",
+              "text": "top_k采样对语言模型生成概率分布有什么影响"
+            },
+            {
+              "kind": "mqe",
+              "text": "top-k sampling 如何影响文本生成中的token概率分布"
+            },
+            {
+              "kind": "mqe",
+              "text": "top_k截断采样如何改变生成分布与输出多样性"
+            },
+            {
+              "kind": "hyde",
+              "text": "在自回归语言模型解码中,top-k 采样对生成分布执行硬截断:对当前步 logits 经 softmax 得到的概率分布按降序排序,仅保留概率最高的 k 个 token,其余 token 概率置零或 logit 设为 -∞,再对保留候选集重新归一化,形成截断条件分布。因此 top_k 直接改变分布的支撑集、归一化常数、熵、困惑度和尾部概率质量。k 越小,候选集越窄,分布越尖锐、熵越低,生成更确定、更保守,但多样性下降,重复和退化风险上升,长尾低概率 token 被完全排除;k 越大,保留更多尾部 token,分布更平坦、熵更高,多样性增加,但可能采样到不连贯或低质量 token。k=1 等价于贪心解码,k 等于词表大小时近似原始分布。top_k 通常与温度缩放、top_p、典型采样、重复惩罚等共同作用,温度先重塑 logits,top_k 再进行固定数量截断,而 top_p 使用动态累积概率阈值。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L012",
+            "interview-question://L013",
+            "interview-question://R017"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 96113536461836751,
+        "title": "大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?",
+        "source": "interview-question://L013",
+        "domain": "llm-engineering",
+        "content": "# 大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?\n\n题目编号:L013\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度,创作可提高温度并使用Top-P;不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。它们只改变采样行为,不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数,再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同,因此不存在跨模型通用的最佳数值,温度为零也不等于结果一定可复现。\n\n评分要点:参数机制准确;场景化而非给出绝对最佳值。",
+        "vector_score": 0.8376406133174896,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2130560796992190475,
+        "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+        "source": "interview-question://L012",
+        "domain": "llm-engineering",
+        "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+        "vector_score": 0.8307788372039795,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3477555688369766113,
+        "title": "大模型为什么会出现幻觉?怎么缓解?",
+        "source": "interview-question://L018",
+        "domain": "llm-engineering",
+        "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+        "vector_score": 0.7923924326896667,
+        "keyword_score": 0.6589272780762082,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1564593821354906773,
+        "title": "SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?",
+        "source": "interview-question://L010",
+        "domain": "llm-engineering",
+        "content": "# SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?\n\n题目编号:L010\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:SFT后可用拒绝采样从多个候选中选优再训练;RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习;GRPO使用组内相对奖励估计优势,减少价值模型依赖。它们都利用偏好或奖励改善行为,但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化,不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习;DPO 用偏好对直接优化;PPO 和 GRPO 则属于强化优化方式,奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势,避免单独训练价值模型,但仍有采样与奖励成本。方法可以组合,关键是训练信号可靠以及收益能通过独立测试确认。\n\n评分要点:说明 SFT 与后训练的关系;比较拒绝采样、PPO 式 RLHF、DPO 和 GRPO 的训练信号与成本。",
+        "vector_score": 0.7641488909721375,
+        "keyword_score": 0.3295585889943045,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.7424041330814362,
+        "keyword_score": 0.6046169579272798,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 29.931,
+  "timings_seconds": {
+    "decomposition": 3.349954,
+    "retrieval": 26.580954,
+    "mqe": 8.111425,
+    "hyde": 17.019967,
+    "embedding": 1.019534,
+    "vector_search": 0.085293,
+    "keyword_search": 0.337664,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 26.581183,
+    "total": 29.931137,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 15,
+    "chat_calls": 6,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-029",
+      "question": "文字送入模型前如何转换为token，分词方式为何影响长度与成本？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L005"
+      ],
+      "answerable": true,
+      "reference_answer": "Tokenizer将字符串转换为有限词表中的Token ID，模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合，并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费；解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符，一个词可能被拆成多个子词，字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中；推理时按既定规则编码，再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用，代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例。",
+      "group": "L005",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

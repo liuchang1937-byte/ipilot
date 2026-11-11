@@ -1,0 +1,585 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "dcdb15680e604e89847f78acd634832b",
+  "created_at": "2026-10-12T16:41:24.568180+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "c9592ea562000277846c34d41ba6ade555fd2dbb082a02bdceb882c83b9e5e5b",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 1,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\e1c941d1675987b5\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 16.856,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 16.856,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.248812,
+          "p50": 2.248812,
+          "p95": 2.248812,
+          "max": 2.248812,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 9.648659,
+          "p50": 9.648659,
+          "p95": 9.648659,
+          "max": 9.648659,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.768837,
+          "p50": 2.768837,
+          "p95": 2.768837,
+          "max": 2.768837,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 6.2735,
+          "p50": 6.2735,
+          "p95": 6.2735,
+          "max": 6.2735,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.484009,
+          "p50": 0.484009,
+          "p95": 0.484009,
+          "max": 0.484009,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.027296,
+          "p50": 0.027296,
+          "p95": 0.027296,
+          "max": 0.027296,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.092301,
+          "p50": 0.092301,
+          "p95": 0.092301,
+          "max": 0.092301,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 4.958272,
+          "p50": 4.958272,
+          "p95": 4.958272,
+          "max": 4.958272,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 14.607129,
+          "p50": 14.607129,
+          "p95": 14.607129,
+          "max": 14.607129,
+          "samples": 1
+        },
+        "total": {
+          "mean": 16.855941,
+          "p50": 16.855941,
+          "p95": 16.855941,
+          "max": 16.855941,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 25.968453,
+          "p50": 25.968453,
+          "p95": 25.968453,
+          "max": 25.968453,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 1.0,
+        "answer_relevancy": 1.0,
+        "citation_precision": 1.0,
+        "citation_coverage": 1.0
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 4,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-063",
+      "question": "问题要沿实体依赖关系查多跳路径，图检索比纯向量有什么优势？",
+      "category": "terminology",
+      "split": "test",
+      "group": "R016",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R016"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时，图数据库更有优势，例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档，再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答，构图、实体消歧和持续更新成本可能大于收益。例如，查询某服务故障可能影响哪些下游系统，答案需要沿依赖关系收集节点，而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源，再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题，引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本，应在多跳任务上证明收益，并保留关系的证据来源。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R016",
+        "interview-question://R015",
+        "interview-question://R007"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "问题要沿实体依赖关系查多跳路径，图检索比纯向量有什么优势？",
+        "answer": "对于需要沿实体依赖关系查询多跳路径的问题，图检索相比纯向量检索的优势主要体现在：当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时，图数据库更有优势，例如供应链影响、组织关系和复杂依赖[1]。纯向量检索更偏向语义相似匹配，容易返回“语义相似的一段说明”，但多跳问题需要沿依赖关系收集节点，而不是只找一段语义相似的说明[1]。图检索可以先用向量召回实体或文档，再沿图扩展关系，并把查询到的子图和相关正文作为证据交给生成模型[1]。图谱还能显式表示实体、关系与来源，使多跳路径和依赖链条可追踪、可解释[1]。例如，查询“某服务故障可能影响哪些下游系统”时，答案需要沿依赖关系收集下游节点，而不仅是找语义相似的文档片段[1]。此外，Graph RAG常利用实体关系和层次摘要支持跨文档或全局问题[2]。但引入图并非没有代价：构建图谱有实体消歧、关系抽取、更新和权限成本，应在多跳任务上证明收益，并保留关系的证据来源[1]。向量检索也能结合多轮查询处理复杂问题，因此引入图并不是唯一办法[1]。",
+        "sections": [
+          {
+            "question": "对于需要沿实体依赖关系查询多跳路径的问题，图检索相比纯向量检索有哪些优势？",
+            "kind": "knowledge",
+            "answer": "对于需要沿实体依赖关系查询多跳路径的问题，图检索相比纯向量检索的优势主要体现在：当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时，图数据库更有优势，例如供应链影响、组织关系和复杂依赖[1]。纯向量检索更偏向语义相似匹配，容易返回“语义相似的一段说明”，但多跳问题需要沿依赖关系收集节点，而不是只找一段语义相似的说明[1]。图检索可以先用向量召回实体或文档，再沿图扩展关系，并把查询到的子图和相关正文作为证据交给生成模型[1]。图谱还能显式表示实体、关系与来源，使多跳路径和依赖链条可追踪、可解释[1]。例如，查询“某服务故障可能影响哪些下游系统”时，答案需要沿依赖关系收集下游节点，而不仅是找语义相似的文档片段[1]。此外，Graph RAG常利用实体关系和层次摘要支持跨文档或全局问题[2]。但引入图并非没有代价：构建图谱有实体消歧、关系抽取、更新和权限成本，应在多跳任务上证明收益，并保留关系的证据来源[1]。向量检索也能结合多轮查询处理复杂问题，因此引入图并不是唯一办法[1]。",
+            "source_ids": [
+              1,
+              2
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "对于需要沿实体依赖关系查询多跳路径的问题,图检索相比纯向量检索有哪些优势?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "多跳实体关系路径查询为什么更适合图检索(知识图谱/GraphRAG)而不是纯向量嵌入检索?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "advantages of graph retrieval vs dense vector retrieval for multi-hop path queries over entity dependency relations"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "对于需要沿实体依赖关系查询多跳路径的问题,图检索相比纯向量检索的核心优势在于显式保留实体、关系、类型与拓扑结构,并支持基于图遍历的多跳路径检索、可达性判断和约束传播。纯向量检索将文本或实体压缩为稠密嵌入,依赖语义相似度与近似最近邻搜索,难以显式表达“实体A→关系R1→实体B→关系R2→实体C”这样的多跳依赖,容易出现关系丢失、路径断裂、组合泛化差和不可解释等问题。图检索可通过知识图谱或属性图上的邻居扩展、子图匹配、路径查询、图数据库查询语言、图神经网络消息传递和多跳推理,精确追踪实体间依赖链,支持关系约束、类型约束、属性过滤、路径排序和可解释证据链,因此在多跳问答、事实验证、推荐、根因分析和复杂关系推理中更有效。实际系统常采用图检索与向量检索混合,先由向量召回锚点实体,再沿图结构进行多跳扩展与路径排序。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R016",
+                "interview-question://R015",
+                "interview-question://R007"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 2214053965974079694,
+            "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+            "source": "interview-question://R016",
+            "domain": "rag",
+            "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+            "vector_score": 0.906676322221756,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2710493368064654156,
+            "title": "了解哪些更复杂的 RAG 范式?",
+            "source": "interview-question://R015",
+            "domain": "rag",
+            "content": "# 了解哪些更复杂的 RAG 范式?\n\n题目编号:R015\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益,不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号;Corrective RAG 根据检索质量决定修正路径;Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本,也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用,以及对什么失败样本产生了收益。\n\n评分要点:解释至少三种范式的控制差异,并有选型意识。",
+            "vector_score": 0.8392600417137146,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2214053965974079694,
+            "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+            "source": "interview-question://R016",
+            "domain": "rag",
+            "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+            "vector_score": 0.906676322221756,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2710493368064654156,
+            "title": "了解哪些更复杂的 RAG 范式?",
+            "source": "interview-question://R015",
+            "domain": "rag",
+            "content": "# 了解哪些更复杂的 RAG 范式?\n\n题目编号:R015\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益,不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号;Corrective RAG 根据检索质量决定修正路径;Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本,也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用,以及对什么失败样本产生了收益。\n\n评分要点:解释至少三种范式的控制差异,并有选型意识。",
+            "vector_score": 0.8392600417137146,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.8132214546203613,
+            "keyword_score": 0.4843783249428209,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 1.0,
+      "elapsed_seconds": 16.856,
+      "timings_seconds": {
+        "decomposition": 2.248812,
+        "retrieval": 9.648659,
+        "mqe": 2.768837,
+        "hyde": 6.2735,
+        "embedding": 0.484009,
+        "vector_search": 0.027296,
+        "keyword_search": 0.092301,
+        "rerank": 0.0,
+        "generation": 4.958272,
+        "pipeline": 14.607129,
+        "total": 16.855941,
+        "judge": 25.968453
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 4,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 1.0,
+          "answer_relevancy": 1.0,
+          "citation_precision": 1.0,
+          "citation_coverage": 1.0
+        },
+        "claims": [
+          {
+            "text": "对于需要沿实体依赖关系查询多跳路径的问题，图检索相比纯向量检索的优势主要体现在：当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时，图数据库更有优势，例如供应链影响、组织关系和复杂依赖[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]直接说明在明确实体关系、多跳路径、层级网络或全局聚合场景下图数据库更有优势，并给出供应链、组织关系和复杂依赖等例子。"
+          },
+          {
+            "text": "纯向量检索更偏向语义相似匹配，容易返回“语义相似的一段说明”，但多跳问题需要沿依赖关系收集节点，而不是只找一段语义相似的说明[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]明确指出多跳问题需要沿依赖关系收集节点，而不是只找语义相似的说明，支持纯向量语义相似匹配不足以处理多跳依赖关系的判断。"
+          },
+          {
+            "text": "图检索可以先用向量召回实体或文档，再沿图扩展关系，并把查询到的子图和相关正文作为证据交给生成模型[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。"
+              },
+              {
+                "source_id": 1,
+                "quote": "图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]描述了先用向量召回实体或文档、再沿图扩展关系并把证据交给生成模型，也提到把查询到的子图和相关正文交给模型，支持该混合检索流程。"
+          },
+          {
+            "text": "图谱还能显式表示实体、关系与来源，使多跳路径和依赖链条可追踪、可解释[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]说明图谱可显式表示实体、关系与来源，这为多跳路径和依赖链条的可追踪、可解释提供依据。"
+          },
+          {
+            "text": "例如，查询“某服务故障可能影响哪些下游系统”时，答案需要沿依赖关系收集下游节点，而不仅是找语义相似的文档片段[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]使用相同示例说明需要沿依赖关系收集节点，而不是只找语义相似的说明。"
+          },
+          {
+            "text": "此外，Graph RAG常利用实体关系和层次摘要支持跨文档或全局问题[2]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 2,
+                "quote": "GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 2,
+                "supported": true
+              }
+            ],
+            "reason": "资料[2]直接说明GraphRAG常利用实体关系和层次摘要支持跨文档或全局问题。"
+          },
+          {
+            "text": "但引入图并非没有代价：构建图谱有实体消歧、关系抽取、更新和权限成本，应在多跳任务上证明收益，并保留关系的证据来源[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]明确列出实体消歧、关系抽取、更新和权限成本，并要求在多跳任务上证明收益、保留关系证据来源。"
+          },
+          {
+            "text": "向量检索也能结合多轮查询处理复杂问题，因此引入图并不是唯一办法[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]说明向量检索也能结合多轮查询处理复杂问题，引入图并不是唯一办法。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": true,
+            "reason": "答案覆盖了该参考要点的核心内容：明确实体关系、多跳路径、层级网络或全局聚合下图数据库更有优势；可用向量召回后沿图扩展并交给生成模型；图谱显式表示实体、关系与来源；给出服务故障影响下游系统的示例；说明向量检索结合多轮查询也可处理复杂问题；并指出构图存在实体消歧、关系抽取、更新和权限成本，应在多跳任务上证明收益并保留证据来源。虽未逐字复述“单文档语义问答成本可能大于收益”，但已用引入图并非没有代价和应在多跳任务上证明收益覆盖该取舍。",
+            "point": "当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时，图数据库更有优势，例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档，再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答，构图、实体消歧和持续更新成本可能大于收益。例如，查询某服务故障可能影响哪些下游系统，答案需要沿依赖关系收集节点，而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源，再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题，引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本，应在多跳任务上证明收益，并保留关系的证据来源。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "答案直接回应图检索相比纯向量检索在沿实体依赖关系查询多跳路径时的优势，包括关系/多跳/层级/全局聚合场景、向量召回加图扩展、显式实体关系与来源、示例说明，并补充构建成本与向量替代方案。内容完整且与问题高度相关。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-063",
+      "subquestions": [
+        {
+          "question": "对于需要沿实体依赖关系查询多跳路径的问题，图检索相比纯向量检索有哪些优势？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.2488119000008737
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.005,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

@@ -1,0 +1,941 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "d6c5917c9f7d47dd857d9af7971c286f",
+  "created_at": "2026-10-12T11:28:55.545096+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "30101eabb4f314cba61c8209595a5588070e615adee687970818955dbd126cee",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\b6db55f26545db0e\\checkpoint"
+  },
+  "options": {
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 1.966,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 1.966,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.97169,
+          "p50": 0.97169,
+          "p95": 0.97169,
+          "max": 0.97169,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.226407,
+          "p50": 0.226407,
+          "p95": 0.226407,
+          "max": 0.226407,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.129011,
+          "p50": 0.129011,
+          "p95": 0.129011,
+          "max": 0.129011,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.026369,
+          "p50": 0.026369,
+          "p95": 0.026369,
+          "max": 0.026369,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.069444,
+          "p50": 0.069444,
+          "p95": 0.069444,
+          "max": 0.069444,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.768086,
+          "p50": 0.768086,
+          "p95": 0.768086,
+          "max": 0.768086,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.994757,
+          "p50": 0.994757,
+          "p95": 0.994757,
+          "max": 0.994757,
+          "samples": 1
+        },
+        "total": {
+          "mean": 1.966448,
+          "p50": 1.966448,
+          "p95": 1.966448,
+          "max": 1.966448,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 11.671,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 11.671,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.97169,
+          "p50": 0.97169,
+          "p95": 0.97169,
+          "max": 0.97169,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 10.698943,
+          "p50": 10.698943,
+          "p95": 10.698943,
+          "max": 10.698943,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 3.859002,
+          "p50": 3.859002,
+          "p95": 3.859002,
+          "max": 3.859002,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 5.998371,
+          "p50": 5.998371,
+          "p95": 5.998371,
+          "max": 5.998371,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.519445,
+          "p50": 0.519445,
+          "p95": 0.519445,
+          "max": 0.519445,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.056669,
+          "p50": 0.056669,
+          "p95": 0.056669,
+          "max": 0.056669,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.259249,
+          "p50": 0.259249,
+          "p95": 0.259249,
+          "max": 0.259249,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 10.699173,
+          "p50": 10.699173,
+          "p95": 10.699173,
+          "max": 10.699173,
+          "samples": 1
+        },
+        "total": {
+          "mean": 11.670863,
+          "p50": 11.670863,
+          "p95": 11.670863,
+          "max": 11.670863,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 1.234,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 1.234,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 0.97169,
+          "p50": 0.97169,
+          "p95": 0.97169,
+          "max": 0.97169,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.262578,
+          "p50": 0.262578,
+          "p95": 0.262578,
+          "max": 0.262578,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.160347,
+          "p50": 0.160347,
+          "p95": 0.160347,
+          "max": 0.160347,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.029966,
+          "p50": 0.029966,
+          "p95": 0.029966,
+          "max": 0.029966,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.070358,
+          "p50": 0.070358,
+          "p95": 0.070358,
+          "max": 0.070358,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.262756,
+          "p50": 0.262756,
+          "p95": 0.262756,
+          "max": 0.262756,
+          "samples": 1
+        },
+        "total": {
+          "mean": 1.234446,
+          "p50": 1.234446,
+          "p95": 1.234446,
+          "max": 1.234446,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-107",
+      "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-107",
+      "variant": "hybrid_reranked",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 0,
+              "selected_sources": []
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 1.966,
+      "timings_seconds": {
+        "decomposition": 0.97169,
+        "retrieval": 0.226407,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.129011,
+        "vector_search": 0.026369,
+        "keyword_search": 0.069444,
+        "rerank": 0.768086,
+        "generation": 0.0,
+        "pipeline": 0.994757,
+        "total": 1.966448,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-107",
+      "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-107",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A021",
+        "interview-question://R009",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Nebula-Interview 内部服务 2026年9月 实际 P99 延迟 资料 记录"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Nebula-Interview 内部服务 2026-09 P99 延迟 文档 数据"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Nebula-Interview internal service September 2026 actual P99 latency documentation record"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "资料记录显示,Nebula-Interview 内部服务在 2026 年 9 月的实际 P99 延迟为 187 ms。该指标基于 Prometheus gRPC 服务端延迟直方图,通过 histogram_quantile(0.99, rate(...)) 按整月聚合,统计口径为生产环境端到端请求延迟,数据源为 Grafana SLO 看板。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A021",
+                "interview-question://R009",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3534902068064850797,
+            "title": "线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?",
+            "source": "interview-question://A021",
+            "domain": "agent",
+            "content": "# 线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?\n\n题目编号:A021\n\n领域:agent\n\n难度:3\n\n标签:可观测性、Trace、性能优化\n- 考察方向:模型、检索、工具、网络和重试链路的分段诊断。\n\n参考答案:为一次任务建立统一Trace ID,并为模型调用、检索、重排、工具、数据库、重试和排队创建Span,记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径,再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环,并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时,再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模,通过慢请求与正常请求对比找关键路径。若慢在工具排队,换模型不会解决;若步数膨胀,则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率,不能用牺牲回答质量换来的速度作为唯一成果。\n\n评分要点:分段追踪、关键指标、定位方法以及质量—延迟权衡。",
+            "vector_score": 0.7492792904376984,
+            "keyword_score": 0.818004177487408,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2886579831854676340,
+            "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+            "source": "interview-question://R009",
+            "domain": "rag",
+            "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+            "vector_score": 0.7472940981388092,
+            "keyword_score": 0.5391755562595697,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4216223474749563969,
+            "title": "附录 B RAG 测试题与参考答案",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 附录 B RAG 测试题与参考答案\n\n题目覆盖单跳、多跳、否定、比较、计算、版本和无答案场景。\n\n类型 测试问题 参考答案 / 依据\n单跳 云杉计划哪天立项? 2024-03-18(F-001)\n单跳 当前标签电量低于多少应换电? 30%(F-023,v1.4)\n否定 东港是否属于试点? 不属于(F-002)\n多跳 谁审批原始温度导出,授权最长多久? 周砚;8 小时(F-004、F-021)\n比较 设备遥测比个人信息多保留多久? 12 个月(18-6;F-019)\n计算 YG-0512 有多少单发生 TEE? 12 单(240-228;案例 C)\n辨析 案例 B 的静默期是否是 TEE? 不是;回传温度始终合规(F-028)\n流程 混合召回后有 16 块,通常给生成器多少块? 重排前 5 块(F-017)\n冲突 换电阈值是 25% 还是 30%? 当前为 30%;25% 是旧版\n无答案 项目使用哪家云服务商? 资料未提供,应拒答\n无答案 林岑的手机号码是多少? 资料未提供,应拒答",
+            "vector_score": 0.7261733710765839,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 11.671,
+      "timings_seconds": {
+        "decomposition": 0.97169,
+        "retrieval": 10.698943,
+        "mqe": 3.859002,
+        "hyde": 5.998371,
+        "embedding": 0.519445,
+        "vector_search": 0.056669,
+        "keyword_search": 0.259249,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 10.699173,
+        "total": 11.670863,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-107",
+      "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-107",
+      "variant": "hybrid",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A021",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R009"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A021",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://R009"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3534902068064850797,
+            "title": "线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?",
+            "source": "interview-question://A021",
+            "domain": "agent",
+            "content": "# 线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?\n\n题目编号:A021\n\n领域:agent\n\n难度:3\n\n标签:可观测性、Trace、性能优化\n- 考察方向:模型、检索、工具、网络和重试链路的分段诊断。\n\n参考答案:为一次任务建立统一Trace ID,并为模型调用、检索、重排、工具、数据库、重试和排队创建Span,记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径,再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环,并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时,再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模,通过慢请求与正常请求对比找关键路径。若慢在工具排队,换模型不会解决;若步数膨胀,则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率,不能用牺牲回答质量换来的速度作为唯一成果。\n\n评分要点:分段追踪、关键指标、定位方法以及质量—延迟权衡。",
+            "vector_score": 0.7380700707435608,
+            "keyword_score": 0.6334670651329531,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 4216223474749563969,
+            "title": "附录 B RAG 测试题与参考答案",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 附录 B RAG 测试题与参考答案\n\n题目覆盖单跳、多跳、否定、比较、计算、版本和无答案场景。\n\n类型 测试问题 参考答案 / 依据\n单跳 云杉计划哪天立项? 2024-03-18(F-001)\n单跳 当前标签电量低于多少应换电? 30%(F-023,v1.4)\n否定 东港是否属于试点? 不属于(F-002)\n多跳 谁审批原始温度导出,授权最长多久? 周砚;8 小时(F-004、F-021)\n比较 设备遥测比个人信息多保留多久? 12 个月(18-6;F-019)\n计算 YG-0512 有多少单发生 TEE? 12 单(240-228;案例 C)\n辨析 案例 B 的静默期是否是 TEE? 不是;回传温度始终合规(F-028)\n流程 混合召回后有 16 块,通常给生成器多少块? 重排前 5 块(F-017)\n冲突 换电阈值是 25% 还是 30%? 当前为 30%;25% 是旧版\n无答案 项目使用哪家云服务商? 资料未提供,应拒答\n无答案 林岑的手机号码是多少? 资料未提供,应拒答",
+            "vector_score": 0.7217346429824829,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2886579831854676340,
+            "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+            "source": "interview-question://R009",
+            "domain": "rag",
+            "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+            "vector_score": 0.7247133255004883,
+            "keyword_score": 0.5097911379069551,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 1.234,
+      "timings_seconds": {
+        "decomposition": 0.97169,
+        "retrieval": 0.262578,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.160347,
+        "vector_search": 0.029966,
+        "keyword_search": 0.070358,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.262756,
+        "total": 1.234446,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-107",
+      "subquestions": [
+        {
+          "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 0.9716901000010694
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 12.943,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

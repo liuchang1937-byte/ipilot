@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-078",
+  "subquestions": [
+    {
+      "question": "在提供工具访问协议方面，MCP和Skill各负责什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在提供任务操作指南方面，MCP和Skill各负责什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.8848860999987664
+}

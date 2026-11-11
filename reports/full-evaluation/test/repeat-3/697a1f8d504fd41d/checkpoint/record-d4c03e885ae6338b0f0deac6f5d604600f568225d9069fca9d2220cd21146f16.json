@@ -1,0 +1,235 @@
+{
+  "case_id": "V2-084",
+  "question": "统一模型网关怎样处理路由、限流和服务失败回退？",
+  "category": "terminology",
+  "split": "test",
+  "group": "T016",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://T016"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测，还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态，否则会形成难维护的中心化逻辑。例如，一个团队同时接入多个模型供应商，网关统一记录费用、设置团队配额，并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现，回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围，不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容，需要明确部分输出与恢复策略。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T016",
+    "interview-question://T017",
+    "interview-question://R013",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://A022"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "统一模型网关怎样处理路由、限流和服务失败回退？",
+    "answer": "1. 统一模型网关怎样处理路由？\n\n\n2. 统一模型网关怎样处理限流？\n\n\n3. 统一模型网关怎样处理服务失败回退？\n",
+    "sections": [
+      {
+        "question": "统一模型网关怎样处理路由？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "统一模型网关怎样处理路由?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T016",
+            "interview-question://T017",
+            "interview-question://R013"
+          ]
+        }
+      },
+      {
+        "question": "统一模型网关怎样处理限流？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "统一模型网关怎样处理限流?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T016",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "interview-question://A022"
+          ]
+        }
+      },
+      {
+        "question": "统一模型网关怎样处理服务失败回退？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "统一模型网关怎样处理服务失败回退?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T016",
+            "interview-question://A022",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2169899495911519092,
+        "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+        "source": "interview-question://T016",
+        "domain": "llm-tool-calling",
+        "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+        "vector_score": 0.8148363828659058,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 108826138093358449,
+        "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+        "source": "interview-question://T017",
+        "domain": "llm-tool-calling",
+        "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+        "vector_score": 0.7518891096115112,
+        "keyword_score": 0.3605678755477413,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 610611646742673801,
+        "title": "什么是多路召回?具体怎么做?",
+        "source": "interview-question://R013",
+        "domain": "rag",
+        "content": "# 什么是多路召回?具体怎么做?\n\n题目编号:R013\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:多路召回让不同检索器或查询视角并行取得候选,例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重,再使用RRF等名次融合方法解决分数不可比问题,扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询,把每路候选保留来源信息,按文档或块 ID 去重,再融合排名。RRF 用候选在各路的排名贡献得分,不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量,再用原查询统一重排。新增检索路线也会增加噪声与延迟,需要单路、两路和扩展方案的消融对比,确认各路真正补充了哪些失败样本。\n\n评分要点:多样召回、融合去重、重排和通道评测。",
+        "vector_score": 0.719098687171936,
+        "keyword_score": 0.48959065124196394,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 3124504290887227796,
+        "title": "6.2 离线作业",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 6.2 离线作业\n### 小时,现场协调员需安排人工导出,以降低网关缓存覆盖风险。\n\nF-032 T-7 标签缓存 48 小时,G-2 网关缓存 12 小时。",
+        "vector_score": 0.7378628253936768,
+        "keyword_score": 0.42371585516253574,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.7646078765392303,
+        "keyword_score": 0.5966541567376861,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 2508096369409604890,
+        "title": "6 常见故障与处置",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 6 常见故障与处置\n\n故障条目有相似症状但不同诊断路径,适合测试精确匹配与 rerank。\n代码 症状 优先检查 处置 升级条件\nE101 标签无上报,网关正常 标签电量与遮挡 移位或换电 10 分钟未恢复\nE102 多枚标签同时无上报 G-2 网关供电 重启网关并查保险 重启两次失败\nE207 温度缓慢持续上升 制冷机设定与冷媒 切换备用制冷 温度达 8°C\nE214 开门后短时尖峰 门磁与装卸时长 关门并观察 3 个样本 形成 TEE\nE330 位置漂移但温度正常 天线与隧道环境 保留温度监控 漂移超过 15\n分钟",
+        "vector_score": 0.7366251051425934,
+        "keyword_score": 0.6427260685932052,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.344,
+  "timings_seconds": {
+    "decomposition": 2.693178,
+    "retrieval": 0.650195,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.530225,
+    "vector_search": 0.036647,
+    "keyword_search": 0.080909,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.650371,
+    "total": 3.34355,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

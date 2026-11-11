@@ -1,0 +1,887 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "b08ea9cbc1e6497aba908292e63053aa",
+  "created_at": "2026-10-12T15:17:41.326183+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "c1fa0093714edddf2fdfd30c0de2b6df79b4edc255343e6c0f76be4a574eeb57",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-1\\176d4630800bb8bf\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.866,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.866,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.235158,
+          "p50": 3.235158,
+          "p95": 3.235158,
+          "max": 3.235158,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.630715,
+          "p50": 0.630715,
+          "p95": 0.630715,
+          "max": 0.630715,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.506033,
+          "p50": 0.506033,
+          "p95": 0.506033,
+          "max": 0.506033,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.035828,
+          "p50": 0.035828,
+          "p95": 0.035828,
+          "max": 0.035828,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.08675,
+          "p50": 0.08675,
+          "p95": 0.08675,
+          "max": 0.08675,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.63088,
+          "p50": 0.63088,
+          "p95": 0.63088,
+          "max": 0.63088,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.866038,
+          "p50": 3.866038,
+          "p95": 3.866038,
+          "max": 3.866038,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.877,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 38.272,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 38.272,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.235158,
+          "p50": 3.235158,
+          "p95": 3.235158,
+          "max": 3.235158,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 35.036279,
+          "p50": 35.036279,
+          "p95": 35.036279,
+          "max": 35.036279,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 8.532519,
+          "p50": 8.532519,
+          "p95": 8.532519,
+          "max": 8.532519,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 25.058459,
+          "p50": 25.058459,
+          "p95": 25.058459,
+          "max": 25.058459,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.993091,
+          "p50": 0.993091,
+          "p95": 0.993091,
+          "max": 0.993091,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.084578,
+          "p50": 0.084578,
+          "p95": 0.084578,
+          "max": 0.084578,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.361062,
+          "p50": 0.361062,
+          "p95": 0.361062,
+          "max": 0.361062,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 35.036469,
+          "p50": 35.036469,
+          "p95": 35.036469,
+          "max": 35.036469,
+          "samples": 1
+        },
+        "total": {
+          "mean": 38.271628,
+          "p50": 38.271628,
+          "p95": 38.271628,
+          "max": 38.271628,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-067",
+      "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "R020",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R020"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "最难的通常不是调用向量库，而是建立持续的数据与评测闭环：异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开，例如表格解析丢失表头，导致条款召回成功却回答口径错误。先建立可追溯评测集，再根据检索日志和引用定位问题，逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强，要说明自己如何发现原因、选择措施以及用什么证据验证改进。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R020",
+        "interview-question://R014",
+        "interview-question://R017",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R011"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+        "answer": "1. 检索增强落地时，数据质量方面哪些难点最容易被忽视？\n\n\n2. 检索增强落地时，权限方面哪些难点最容易被忽视？\n\n\n3. 检索增强落地时，评测方面哪些难点最容易被忽视？\n",
+        "sections": [
+          {
+            "question": "检索增强落地时，数据质量方面哪些难点最容易被忽视？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "检索增强落地时,数据质量方面哪些难点最容易被忽视?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R020",
+                "interview-question://R014",
+                "interview-question://R017"
+              ]
+            }
+          },
+          {
+            "question": "检索增强落地时，权限方面哪些难点最容易被忽视？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "检索增强落地时,权限方面哪些难点最容易被忽视?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R020",
+                "interview-question://R017",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          },
+          {
+            "question": "检索增强落地时，评测方面哪些难点最容易被忽视？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "检索增强落地时,评测方面哪些难点最容易被忽视?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R020",
+                "interview-question://R017",
+                "interview-question://R011"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3951388330187580936,
+            "title": "在实际落地中,你觉得 RAG 最难的地方是哪里?",
+            "source": "interview-question://R020",
+            "domain": "rag",
+            "content": "# 在实际落地中,你觉得 RAG 最难的地方是哪里?\n\n题目编号:R020\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:最难的通常不是调用向量库,而是建立持续的数据与评测闭环:异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开,例如表格解析丢失表头,导致条款召回成功却回答口径错误。先建立可追溯评测集,再根据检索日志和引用定位问题,逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强,要说明自己如何发现原因、选择措施以及用什么证据验证改进。\n\n评分要点:数据治理和评测闭环;最好具备量化与真实案例。",
+            "vector_score": 0.8514861166477203,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3525225094256298830,
+            "title": "RAG 检索优化策略有哪些?",
+            "source": "interview-question://R014",
+            "domain": "rag",
+            "content": "# RAG 检索优化策略有哪些?\n\n题目编号:R014\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:可从四层优化:数据层清洗去重、补元数据;索引层结构化/语义切块和父子索引;查询层改写、拆分与过滤;检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开:没有合适知识先修数据,相关内容被切散先修 Chunking,查询表达与文档不同再做改写,精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后,可以扩大候选池或加重排;正确证据已经进入上下文却回答错误,则检查组织方式与生成约束。每次修改只控制少量变量,用检索和答案两层指标验证,避免叠加很多技术后无法归因。\n\n评分要点:分层说明并包含评测闭环。",
+            "vector_score": 0.766911506652832,
+            "keyword_score": 0.6045095367426401,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.7947947382926941,
+            "keyword_score": 0.4966671036879013,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3911908167396159604,
+            "title": "推荐测试方式",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 推荐测试方式\n\n● 切块:分别尝试 200、500、800 中文字符,重叠比例 10% 至 20%。\n● 检索:对比纯向量、BM25 与混合检索;记录 Recall@5、MRR 和 nDCG@10。\n● 重排:先召回 20 个候选块,再由 reranker 选前 5 个;观察同义词与否定句。\n● 问答:要求答案附事实编号或章节名;缺少依据时应明确拒答。\n章节 内容 主要测试点\n1 项目概览与组织 实体、日期、地点、数值\n2 术语与同义词 embedding、缩写、歧义\n3 端到端流程 顺序、条件、跨块关联\n4 数据与权限 表格检索、过滤、否定事实\n5 案例研究 多跳问答、计算、归因\n6 故障与处置 相似症状、精确区分\n7 FAQ 自然语言问答、改写\n附录 事实清单与测试题 基准答案、召回评估",
+            "vector_score": 0.761070966720581,
+            "keyword_score": 0.49191580188778017,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 2637356371800682692,
+            "title": "请你介绍一下向量检索和关键词检索的区别?",
+            "source": "interview-question://R011",
+            "domain": "rag",
+            "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+            "vector_score": 0.7690643966197968,
+            "keyword_score": 0.7024203938483191,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.866,
+      "timings_seconds": {
+        "decomposition": 3.235158,
+        "retrieval": 0.630715,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.506033,
+        "vector_search": 0.035828,
+        "keyword_search": 0.08675,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.63088,
+        "total": 3.866038,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-067",
+      "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "R020",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R020"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "最难的通常不是调用向量库，而是建立持续的数据与评测闭环：异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开，例如表格解析丢失表头，导致条款召回成功却回答口径错误。先建立可追溯评测集，再根据检索日志和引用定位问题，逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强，要说明自己如何发现原因、选择措施以及用什么证据验证改进。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R020",
+        "interview-question://R017",
+        "interview-question://R014",
+        "interview-question://A024",
+        "interview-question://R018"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.8769765845238192,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+        "answer": "1. 检索增强落地时，数据质量方面哪些难点最容易被忽视？\n\n\n2. 检索增强落地时，权限方面哪些难点最容易被忽视？\n\n\n3. 检索增强落地时，评测方面哪些难点最容易被忽视？\n",
+        "sections": [
+          {
+            "question": "检索增强落地时，数据质量方面哪些难点最容易被忽视？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "检索增强落地时,数据质量方面哪些难点最容易被忽视?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "RAG 检索增强生成 落地 数据质量 容易被忽视的难点 有哪些"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "检索增强 知识库 数据治理 数据清洗 标注 更新 常见坑 实施挑战"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Retrieval-Augmented Generation implementation data quality overlooked challenges and pitfalls"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "检索增强生成(RAG)落地时,数据质量最易被忽视的难点集中在非显性环节:PDF/扫描件OCR与版面解析错误导致表格、多栏、代码块顺序错乱;chunking策略忽视语义边界、跨段指代和父子块关系,造成chunk语义不完整;元数据缺失,如来源、时间戳、版本、语言、租户、ACL权限标签,诱发越权召回与过期知识混入;近重复与模板噪声未做MinHash/SimHash去重,造成embedding空间冗余和召回偏置;增量更新、删除同步、版本漂移与embedding重算链路缺失;多源知识冲突无事实一致性校验和冲突消解;query与文档存在语义鸿沟,长尾意图覆盖不足;评估集缺少hard negatives、标注QA对和数据血缘,难以定位召回失败与数据污染。这些环节直接影响recall@k、答案忠实度和权限合规。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R020",
+                "interview-question://R017",
+                "interview-question://R014"
+              ]
+            }
+          },
+          {
+            "question": "检索增强落地时，权限方面哪些难点最容易被忽视？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "检索增强落地时,权限方面哪些难点最容易被忽视?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "检索增强生成落地时权限管理有哪些容易忽视的难点"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "RAG 应用权限控制落地踩坑与常见访问隔离问题"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "企业知识库检索增强权限设计容易忽略的数据权限风险"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "检索增强生成(RAG)落地时,权限最易被忽视的难点包括:向量库/检索层缺乏原生 ACL 强校验,仅靠应用层 post-filtering,导致 top-k 先召回越权 chunk 再泄漏给 LLM;文档级 ACL 未继承到 chunk、embedding、摘要、引用片段、缓存、日志和会话记忆,形成 permission propagation 断点;多租户 namespace/tenant isolation 与共享向量索引混用,相似度检索产生跨租户侧信道;SSO/OAuth 仅做登录,未做 token downscoping、on-behalf-of、委托权限传递,连接器使用高权限 service account 同步;嵌套组、动态角色、外部共享链接、sensitivity label、ABAC/ReBAC 策略变化未实时同步,ACL cache TTL、增量同步、撤回删除 tombstone 造成 revocation latency;pre-filtering 与 post-filtering 混淆,metadata filtering 字段缺失或不可信,难以支持 row-level security、need-to-know;query rewrite、re-ranker、摘要、agent tool call、多跳检索绕过原始权限上下文;评估只测召回率与答案质量,缺少 permission-aware retrieval、越权红队、审计 lineage 与 least privilege 验证。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R017",
+                "interview-question://R020",
+                "interview-question://A024"
+              ]
+            }
+          },
+          {
+            "question": "检索增强落地时，评测方面哪些难点最容易被忽视？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "检索增强落地时,评测方面哪些难点最容易被忽视?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "检索增强生成(RAG)落地时,评测环节最容易被忽视的难点有哪些?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "RAG应用评估体系在工程落地中的常见盲点与挑战是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "retrieval-augmented generation deployment evaluation overlooked challenges and blind spots"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "检索增强生成(RAG)落地评测中最易被忽视的难点包括:仅用端到端答案准确率,缺少检索与生成的组件级归因;检索侧只看 Recall@k/Hit Rate,忽视 MRR、NDCG、Context Relevance、噪声敏感性与 Top-k 冗余;生成侧忽视 Faithfulness、Groundedness、Citation Accuracy、Answer Relevance、Coverage 与拒答/弃权能力;测试集缺少无答案、多跳、时间敏感、长尾、对抗、领域漂移、多轮会话与查询改写场景;动态语料下忽视索引更新、版本漂移、数据泄漏与污染;LLM-as-judge 存在位置偏差、长度偏差、自我偏好与提示敏感;人工评测标注成本高、一致性低、难复现;在线评测忽视 A/B、影子部署、隐式反馈、延迟、成本、安全、权限与置信度校准。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R020",
+                "interview-question://R017",
+                "interview-question://R018"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3951388330187580936,
+            "title": "在实际落地中,你觉得 RAG 最难的地方是哪里?",
+            "source": "interview-question://R020",
+            "domain": "rag",
+            "content": "# 在实际落地中,你觉得 RAG 最难的地方是哪里?\n\n题目编号:R020\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:最难的通常不是调用向量库,而是建立持续的数据与评测闭环:异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开,例如表格解析丢失表头,导致条款召回成功却回答口径错误。先建立可追溯评测集,再根据检索日志和引用定位问题,逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强,要说明自己如何发现原因、选择措施以及用什么证据验证改进。\n\n评分要点:数据治理和评测闭环;最好具备量化与真实案例。",
+            "vector_score": 0.8950788080692291,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.8398432433605194,
+            "keyword_score": 0.6700458186483941,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3525225094256298830,
+            "title": "RAG 检索优化策略有哪些?",
+            "source": "interview-question://R014",
+            "domain": "rag",
+            "content": "# RAG 检索优化策略有哪些?\n\n题目编号:R014\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:可从四层优化:数据层清洗去重、补元数据;索引层结构化/语义切块和父子索引;查询层改写、拆分与过滤;检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开:没有合适知识先修数据,相关内容被切散先修 Chunking,查询表达与文档不同再做改写,精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后,可以扩大候选池或加重排;正确证据已经进入上下文却回答错误,则检查组织方式与生成约束。每次修改只控制少量变量,用检索和答案两层指标验证,避免叠加很多技术后无法归因。\n\n评分要点:分层说明并包含评测闭环。",
+            "vector_score": 0.8437161445617676,
+            "keyword_score": 0.6768871513789698,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1161528079708033534,
+            "title": "大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?",
+            "source": "interview-question://A024",
+            "domain": "agent",
+            "content": "# 大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?\n\n题目编号:A024\n\n领域:agent\n\n难度:3\n\n标签:数据库安全、权限、审计\n- 考察方向:最小权限、查询白名单、脱敏、只读代理和结果验证。\n\n参考答案:不要把数据库高权限凭据直接交给模型,应通过受控数据访问层暴露允许的表、字段和查询模板,默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截,再在限时限量的隔离账号中执行;结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID,查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态,不由模型从用户文字中自行决定。能提供查订单等固定业务接口时,就不暴露任意 SQL;必须生成 SQL 时要解析语法树,限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入,不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏,写操作使用独立权限、事务和审计,并校验指标口径及时间范围,兼顾查询安全和答案正确性。\n\n评分要点:最小权限、SQL验证、隔离执行、脱敏审计和结果证据。",
+            "vector_score": 0.8307969570159912,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 145210955334252079,
+            "title": "怎么量化你的 RAG 效果?",
+            "source": "interview-question://R018",
+            "domain": "rag",
+            "content": "# 怎么量化你的 RAG 效果?\n\n题目编号:R018\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景,避免只验证常见问题。模型裁判需要人工校准,线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本,并定位是召回失败还是生成失败。\n\n评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。",
+            "vector_score": 0.8737742900848389,
+            "keyword_score": 0.557997476580196,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 38.272,
+      "timings_seconds": {
+        "decomposition": 3.235158,
+        "retrieval": 35.036279,
+        "mqe": 8.532519,
+        "hyde": 25.058459,
+        "embedding": 0.993091,
+        "vector_search": 0.084578,
+        "keyword_search": 0.361062,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 35.036469,
+        "total": 38.271628,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-067",
+      "subquestions": [
+        {
+          "question": "检索增强落地时，数据质量方面哪些难点最容易被忽视？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "检索增强落地时，权限方面哪些难点最容易被忽视？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "检索增强落地时，评测方面哪些难点最容易被忽视？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.2351584999996703
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 38.907,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

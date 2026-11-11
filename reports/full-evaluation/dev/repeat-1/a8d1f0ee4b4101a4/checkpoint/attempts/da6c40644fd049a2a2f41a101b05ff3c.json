@@ -1,0 +1,214 @@
+{
+  "case_id": "V2-101",
+  "question": "注意力计算的显存如何优化？位置编码又解决什么不同问题？",
+  "category": "compound",
+  "split": "dev",
+  "group": "L003",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L003",
+    "interview-question://L004"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "MHA 中每个查询头有独立的 K/V 头，长序列下 KV Cache 与显存带宽开销较大；稠密注意力还需要比较序列中的大量位置，计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V，GQA 则把查询头分组，每组共享 K/V，以减少缓存和访存，在速度、显存与表达能力间折中。FlashAttention 从实现层优化：通过分块与在线 Softmax，避免把完整注意力矩阵反复写入显存，从而降低 IO 与中间存储，仍计算精确注意力。它通常不将理论二次计算复杂度改成线性，也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用；实际收益需要在目标模型、序列长度、并发和硬件上测试，而不是只比较算法名称。",
+    "自注意力本身对顺序不敏感，因此需要位置编码。sin/cos把绝对位置向量加入表示，可一定程度外推；RoPE通过旋转Q/K把相对位置信息编码进注意力内积，是当前常用方案；ALiBi直接给注意力分数加入与距离相关的线性偏置，简单且具备长度外推特性。三者在实现、相对位置表达和长上下文表现上不同。如果没有位置信息，注意力难以区分同一组词的不同顺序。sin/cos 使用固定频率的位置向量，RoPE 对 Q/K 做与位置有关的旋转，使点积体现相对位置关系，ALiBi 则在注意力分数中加入与距离相关的偏置。它们影响长度泛化，但支持更长窗口还与训练长度、缩放方案和任务有关。不能仅因使用 RoPE 就保证超出训练长度后仍准确，应该测不同位置和跨段依赖任务。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L003",
+    "interview-question://L002",
+    "interview-question://L009",
+    "interview-question://L004",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://B002"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.6131471927654584,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "注意力计算的显存如何优化？位置编码又解决什么不同问题？",
+    "answer": "1. 注意力计算的显存如何优化？\n\n\n2. 位置编码解决什么不同的问题？\n",
+    "sections": [
+      {
+        "question": "注意力计算的显存如何优化？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "注意力计算的显存如何优化?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L003",
+            "interview-question://L002",
+            "interview-question://L009"
+          ]
+        }
+      },
+      {
+        "question": "位置编码解决什么不同的问题？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "位置编码解决什么不同的问题?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L004",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "interview-question://B002"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3401652904786247161,
+        "title": "多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?",
+        "source": "interview-question://L003",
+        "domain": "llm-engineering",
+        "content": "# 多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?\n\n题目编号:L003\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MHA 中每个查询头有独立的 K/V 头,长序列下 KV Cache 与显存带宽开销较大;稠密注意力还需要比较序列中的大量位置,计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V,GQA 则把查询头分组,每组共享 K/V,以减少缓存和访存,在速度、显存与表达能力间折中。FlashAttention 从实现层优化:通过分块与在线 Softmax,避免把完整注意力矩阵反复写入显存,从而降低 IO 与中间存储,仍计算精确注意力。它通常不将理论二次计算复杂度改成线性,也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用;实际收益需要在目标模型、序列长度、并发和硬件上测试,而不是只比较算法名称。\n\n评分要点:区分 MQA/GQA 的 K/V 共享与 FlashAttention 的 IO 优化;不把精确稠密注意力说成线性计算。",
+        "vector_score": 0.8121358752250671,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4572293691332530417,
+        "title": "讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?",
+        "source": "interview-question://L002",
+        "domain": "llm-engineering",
+        "content": "# 讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?\n\n题目编号:L002\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示,Decoder通过掩码自注意力自回归生成,并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务,仅Decoder是多数生成式LLM的选择,Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V,通过 Q 与 K 的匹配权重聚合 V,再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文,Decoder 的自注意力用因果遮罩限制未来信息;原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列,推理生成仍逐 Token 进行。注意力改善长距离信息连接,却有计算与显存成本,不能理解为所有阶段都完全并行。\n\n评分要点:注意力与FFN;三种架构及掩码/交叉注意力。",
+        "vector_score": 0.755111813545227,
+        "keyword_score": 0.8212335452666205,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1962235713523519350,
+        "title": "请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?",
+        "source": "interview-question://L009",
+        "domain": "llm-engineering",
+        "content": "# 请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?\n\n题目编号:L009\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:LoRA冻结原权重,用两个低秩矩阵近似权重更新,并把更新注入注意力或其他线性层。除减少训练参数和显存外,它便于为多个任务保存小型适配器、快速切换或组合,也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W,训练的增量可以写成 ΔW=BA,秩 r 远小于原维度,再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算,并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支,未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围,但不能保证没有遗忘或副作用;秩、目标层、数据与评测比单纯追求最低参数量更重要。\n\n评分要点:低秩更新原理、多适配器、可合并及超参数权衡。",
+        "vector_score": 0.7318706214427948,
+        "keyword_score": 0.4640264994035965,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2551140976894006908,
+        "title": "大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?",
+        "source": "interview-question://L004",
+        "domain": "llm-engineering",
+        "content": "# 大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?\n\n题目编号:L004\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:自注意力本身对顺序不敏感,因此需要位置编码。sin/cos把绝对位置向量加入表示,可一定程度外推;RoPE通过旋转Q/K把相对位置信息编码进注意力内积,是当前常用方案;ALiBi直接给注意力分数加入与距离相关的线性偏置,简单且具备长度外推特性。三者在实现、相对位置表达和长上下文表现上不同。如果没有位置信息,注意力难以区分同一组词的不同顺序。sin/cos 使用固定频率的位置向量,RoPE 对 Q/K 做与位置有关的旋转,使点积体现相对位置关系,ALiBi 则在注意力分数中加入与距离相关的偏置。它们影响长度泛化,但支持更长窗口还与训练长度、缩放方案和任务有关。不能仅因使用 RoPE 就保证超出训练长度后仍准确,应该测不同位置和跨段依赖任务。\n\n评分要点:为何需要位置;三种方案的作用位置与特点。",
+        "vector_score": 0.7977093458175659,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 2508096369409604890,
+        "title": "6 常见故障与处置",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 6 常见故障与处置\n\n故障条目有相似症状但不同诊断路径,适合测试精确匹配与 rerank。\n代码 症状 优先检查 处置 升级条件\nE101 标签无上报,网关正常 标签电量与遮挡 移位或换电 10 分钟未恢复\nE102 多枚标签同时无上报 G-2 网关供电 重启网关并查保险 重启两次失败\nE207 温度缓慢持续上升 制冷机设定与冷媒 切换备用制冷 温度达 8°C\nE214 开门后短时尖峰 门磁与装卸时长 关门并观察 3 个样本 形成 TEE\nE330 位置漂移但温度正常 天线与隧道环境 保留温度监控 漂移超过 15\n分钟",
+        "vector_score": 0.7415025234222412,
+        "keyword_score": 0.3797052170628462,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 2780739782959260474,
+        "title": "请讲一次你遇到严重技术困难并最终解决的经历。",
+        "source": "interview-question://B002",
+        "domain": "behavioral",
+        "content": "# 请讲一次你遇到严重技术困难并最终解决的经历。\n\n题目编号:B002\n\n领域:behavioral\n\n难度:2\n\n标签:解决问题、韧性、复盘\n\n参考答案:交代问题影响和时间约束,说明如何收集现象、提出假设、设计排查顺序并定位根因。突出候选人亲自完成的关键动作、必要时如何求助,最后量化结果,并沉淀监控、测试或文档防止复发。\n\n评分要点:排查过程有逻辑;能区分个人贡献;结果可验证;形成长效改进。",
+        "vector_score": 0.722360223531723,
+        "keyword_score": 0.31533788918691086,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.304,
+  "timings_seconds": {
+    "decomposition": 3.801672,
+    "retrieval": 0.501945,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.328647,
+    "vector_search": 0.046885,
+    "keyword_search": 0.123975,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.502201,
+    "total": 4.303874,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

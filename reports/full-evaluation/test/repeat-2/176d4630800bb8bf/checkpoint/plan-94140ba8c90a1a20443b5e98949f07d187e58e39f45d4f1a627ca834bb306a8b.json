@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-067",
+  "subquestions": [
+    {
+      "question": "在检索增强（RAG）落地过程中，数据质量方面最容易被忽视的难点有哪些？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在检索增强（RAG）落地过程中，权限方面最容易被忽视的难点有哪些？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在检索增强（RAG）落地过程中，评测方面最容易被忽视的难点有哪些？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.3810259999991104
+}

@@ -1,0 +1,759 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "0b347b64b2d546029d89a3a05bf3b5aa",
+  "created_at": "2026-10-12T16:49:12.068679+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "50e9298365081ec57f8f6cda07e6e233aa980d24e4cd6211d2d2f1032dfa2583",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 1,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\d662316c41f06023\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 48.177,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 48.177,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.136979,
+          "p50": 3.136979,
+          "p95": 3.136979,
+          "max": 3.136979,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 28.338344,
+          "p50": 28.338344,
+          "p95": 28.338344,
+          "max": 28.338344,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 5.989587,
+          "p50": 5.989587,
+          "p95": 5.989587,
+          "max": 5.989587,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 20.367897,
+          "p50": 20.367897,
+          "p95": 20.367897,
+          "max": 20.367897,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.540933,
+          "p50": 1.540933,
+          "p95": 1.540933,
+          "max": 1.540933,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.08667,
+          "p50": 0.08667,
+          "p95": 0.08667,
+          "max": 0.08667,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.34453,
+          "p50": 0.34453,
+          "p95": 0.34453,
+          "max": 0.34453,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 16.701045,
+          "p50": 16.701045,
+          "p95": 16.701045,
+          "max": 16.701045,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 45.039862,
+          "p50": 45.039862,
+          "p95": 45.039862,
+          "max": 45.039862,
+          "samples": 1
+        },
+        "total": {
+          "mean": 48.176841,
+          "p50": 48.176841,
+          "p95": 48.176841,
+          "max": 48.176841,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 43.51688,
+          "p50": 43.51688,
+          "p95": 43.51688,
+          "max": 43.51688,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 1.0,
+        "answer_relevancy": 1.0,
+        "citation_precision": 1.0,
+        "citation_coverage": 1.0
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 9,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-043",
+      "question": "混合专家模型为何只激活部分参数，路由和负载均衡有哪些代价？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L019",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L019"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "MoE在每层设置多个专家网络，由路由器为每个Token选择少数专家计算，因此总参数可以很大而单Token激活参数较少，提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量，而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家，路由器为每个 Token 选择少量专家，注意力等其他模块可能仍是共享的。专家是可训练的网络参数，并不天然对应一个具有人格的 Agent，也不等于多 Agent 协作。总参数与激活参数不同，但部署仍需要存放或分发大量专家权重，跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE，讨论优势必须限定具体架构与实际硬件条件。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L019",
+        "interview-question://L009",
+        "interview-question://L022",
+        "interview-question://T017",
+        "interview-question://T008"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "混合专家模型为何只激活部分参数，路由和负载均衡有哪些代价？",
+        "answer": "1. 混合专家模型为何只激活部分参数？\n混合专家模型（MoE）之所以只激活部分参数，是因为它采用稀疏激活和路由机制：在每层设置多个专家网络，由路由器为每个Token选择少数专家进行计算，而不是让所有专家都参与。这样，模型的总参数可以很大，但单个Token实际激活/参与计算的参数较少，从而在扩大模型容量的同时提升计算效率。[1]\n\n典型做法是把部分FFN换成多个专家，路由器为每个Token选择少量专家；注意力等其他模块可能仍是共享的。[1] 其目的通常是在可控推理成本下扩大模型容量，并不是完全免费地增加能力。[1]\n\n同时要区分“总参数”和“激活参数”：只激活部分参数不等于部署时只存储或传输部分参数。部署仍需要存放或分发大量专家权重，跨设备通信可能成为瓶颈。[1] 此外，MoE还会带来路由负载不均、专家通信、训练稳定性和部署复杂度等代价。[1] 专家是可训练的网络参数，并不天然对应具有人格的Agent，也不等于多Agent协作；也不是所有Qwen型号都使用MoE。[1]\n\n2. 混合专家模型的路由有哪些代价？\nMoE 的路由代价主要包括：路由负载不均、专家通信、训练稳定性和部署复杂度[1]。具体来说，MoE 在每层设置多个专家网络，由路由器为每个 Token 选择少数专家计算，因此总参数可以很大而单 Token 激活参数较少；但这也意味着路由决策会带来系统性代价[1]。其中，路由负载不均可能导致不同专家承担的计算量差异很大；专家通信则与专家分布、跨设备执行有关，跨设备通信可能成为瓶颈；训练稳定性也是采用路由后需要面对的问题；部署时仍需要存放或分发大量专家权重，并处理大量专家带来的系统复杂度[1]。因此，MoE 不是完全免费地增加能力，而是在可控推理成本下扩大模型容量，同时付出路由相关的工程与训练代价[1]。\n\n3. 混合专家模型的负载均衡有哪些代价？\n根据检索资料，混合专家模型在负载均衡相关的系统代价上被概括为：路由负载不均、专家通信、训练稳定性和部署复杂度；此外，部署仍需存放或分发大量专家权重，跨设备通信可能成为瓶颈。也就是说，负载均衡并非没有代价，它会伴随通信开销、训练稳定性和部署复杂度等问题；但资料未进一步展开具体的量化代价或负载均衡算法细节 [1]。",
+        "sections": [
+          {
+            "question": "混合专家模型为何只激活部分参数？",
+            "kind": "knowledge",
+            "answer": "混合专家模型（MoE）之所以只激活部分参数，是因为它采用稀疏激活和路由机制：在每层设置多个专家网络，由路由器为每个Token选择少数专家进行计算，而不是让所有专家都参与。这样，模型的总参数可以很大，但单个Token实际激活/参与计算的参数较少，从而在扩大模型容量的同时提升计算效率。[1]\n\n典型做法是把部分FFN换成多个专家，路由器为每个Token选择少量专家；注意力等其他模块可能仍是共享的。[1] 其目的通常是在可控推理成本下扩大模型容量，并不是完全免费地增加能力。[1]\n\n同时要区分“总参数”和“激活参数”：只激活部分参数不等于部署时只存储或传输部分参数。部署仍需要存放或分发大量专家权重，跨设备通信可能成为瓶颈。[1] 此外，MoE还会带来路由负载不均、专家通信、训练稳定性和部署复杂度等代价。[1] 专家是可训练的网络参数，并不天然对应具有人格的Agent，也不等于多Agent协作；也不是所有Qwen型号都使用MoE。[1]",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "混合专家模型为何只激活部分参数?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "混合专家模型为什么只激活部分参数 原因 机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MoE 稀疏激活 路由 条件计算 参数效率 为何只使用部分专家"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "mixture of experts why only a subset of parameters are activated sparse routing explanation"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "混合专家模型只激活部分参数,是因为其采用稀疏门控的条件计算机制。MoE 层将传统稠密 FFN 替换为多个并行的 expert FFN,并由 router/gating network 为每个 token 计算专家概率分布。通过 top-k 稀疏选择,通常只激活 top-1 或 top-2 个专家,仅被路由选中的专家参数参与该 token 的前向传播和反向梯度计算,未被选中的专家不产生激活值,也不参与该 token 的计算。这样模型总参数量可随专家数量大幅扩展,但每 token 的激活参数量、FLOPs 和推理计算开销近似与 k 成正比,而非与专家总数成正比。为稳定稀疏激活,常引入 load balancing loss、capacity factor、token dropping、expert parallelism 和 auxiliary loss 等机制。因此,MoE 通过稀疏激活、条件计算和动态路由,在扩大模型容量的同时控制单 token 计算量,实现参数规模与计算效率的解耦。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L019",
+                "interview-question://L009",
+                "interview-question://L022"
+              ]
+            }
+          },
+          {
+            "question": "混合专家模型的路由有哪些代价？",
+            "kind": "knowledge",
+            "answer": "MoE 的路由代价主要包括：路由负载不均、专家通信、训练稳定性和部署复杂度[1]。具体来说，MoE 在每层设置多个专家网络，由路由器为每个 Token 选择少数专家计算，因此总参数可以很大而单 Token 激活参数较少；但这也意味着路由决策会带来系统性代价[1]。其中，路由负载不均可能导致不同专家承担的计算量差异很大；专家通信则与专家分布、跨设备执行有关，跨设备通信可能成为瓶颈；训练稳定性也是采用路由后需要面对的问题；部署时仍需要存放或分发大量专家权重，并处理大量专家带来的系统复杂度[1]。因此，MoE 不是完全免费地增加能力，而是在可控推理成本下扩大模型容量，同时付出路由相关的工程与训练代价[1]。",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "混合专家模型的路由有哪些代价?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "混合专家模型 路由 代价 计算开销 通信开销"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MoE routing overhead computational cost communication load balancing challenges"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Mixture-of-Experts 路由 缺点 负载不均衡 训练不稳定 推理成本"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "混合专家模型(MoE)的路由代价主要包括:路由网络(gating network)的前向/反向计算、softmax 与 top-k 选择、排序及噪声/jitter 开销;专家并行(expert parallelism)下 token 经 all-to-all dispatch 到专家设备、再 all-to-all combine 回收产生的通信延迟、带宽占用和设备同步开销;负载不均衡导致的专家过载/空闲、straggler、吞吐下降,以及为缓解不均衡引入的负载均衡辅助损失、router z-loss、熵正则和梯度干扰;capacity factor 限制引发的 token dropping、padding、无效专家计算和精度损失;动态路由造成的 gather/scatter、permutation/unpermutation、kernel launch、内存带宽和批处理不规则开销;推理阶段路由决策与 all-to-all 增加端到端延迟并阻碍静态图优化与算子融合;此外还有路由崩溃/专家坍缩、梯度噪声、训练不稳定、超参敏感,以及专家副本、优化器状态和通信缓冲的存储与内存开销。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L019",
+                "interview-question://T017",
+                "interview-question://L022"
+              ]
+            }
+          },
+          {
+            "question": "混合专家模型的负载均衡有哪些代价？",
+            "kind": "knowledge",
+            "answer": "根据检索资料，混合专家模型在负载均衡相关的系统代价上被概括为：路由负载不均、专家通信、训练稳定性和部署复杂度；此外，部署仍需存放或分发大量专家权重，跨设备通信可能成为瓶颈。也就是说，负载均衡并非没有代价，它会伴随通信开销、训练稳定性和部署复杂度等问题；但资料未进一步展开具体的量化代价或负载均衡算法细节 [1]。",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "混合专家模型的负载均衡有哪些代价?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "混合专家模型 负载均衡 代价 开销 成本"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MoE 负载均衡 缺点 挑战 性能影响"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Mixture-of-Experts load balancing overhead costs trade-offs"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "混合专家模型(MoE)的负载均衡代价主要包括:辅助负载均衡损失(auxiliary load-balancing loss)或路由器 z-loss 会向主任务梯度注入偏置,可能损害模型质量与专家特化;capacity factor 与 token dropping/padding 在缓解热点专家时造成无效计算、显存浪费和有效 token 丢失;expert parallelism 下的 all-to-all 通信、all-gather/reduce-scatter 同步和跨设备路由引入带宽开销、延迟抖动与 straggler;强制均衡使 router 分配偏离最优,降低专家利用率与收敛速度;动态路由波动带来负载不稳定、设备空转、吞吐下降和尾延迟;bias-based balancing、损失系数、容量因子等超参增加训练调优复杂度,并可能在推理阶段因 batch 分布变化产生额外延迟方差。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L019",
+                "interview-question://L022",
+                "interview-question://T008"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 3942832683636186050,
+            "title": "MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?",
+            "source": "interview-question://L019",
+            "domain": "llm-engineering",
+            "content": "# MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?\n\n题目编号:L019\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MoE在每层设置多个专家网络,由路由器为每个Token选择少数专家计算,因此总参数可以很大而单Token激活参数较少,提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量,而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家,路由器为每个 Token 选择少量专家,注意力等其他模块可能仍是共享的。专家是可训练的网络参数,并不天然对应一个具有人格的 Agent,也不等于多 Agent 协作。总参数与激活参数不同,但部署仍需要存放或分发大量专家权重,跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE,讨论优势必须限定具体架构与实际硬件条件。\n\n评分要点:稀疏激活、路由、容量收益和系统代价。",
+            "vector_score": 0.8452984392642975,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3942832683636186050,
+            "title": "MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?",
+            "source": "interview-question://L019",
+            "domain": "llm-engineering",
+            "content": "# MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?\n\n题目编号:L019\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MoE在每层设置多个专家网络,由路由器为每个Token选择少数专家计算,因此总参数可以很大而单Token激活参数较少,提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量,而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家,路由器为每个 Token 选择少量专家,注意力等其他模块可能仍是共享的。专家是可训练的网络参数,并不天然对应一个具有人格的 Agent,也不等于多 Agent 协作。总参数与激活参数不同,但部署仍需要存放或分发大量专家权重,跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE,讨论优势必须限定具体架构与实际硬件条件。\n\n评分要点:稀疏激活、路由、容量收益和系统代价。",
+            "vector_score": 0.8452984392642975,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1962235713523519350,
+            "title": "请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?",
+            "source": "interview-question://L009",
+            "domain": "llm-engineering",
+            "content": "# 请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?\n\n题目编号:L009\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:LoRA冻结原权重,用两个低秩矩阵近似权重更新,并把更新注入注意力或其他线性层。除减少训练参数和显存外,它便于为多个任务保存小型适配器、快速切换或组合,也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W,训练的增量可以写成 ΔW=BA,秩 r 远小于原维度,再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算,并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支,未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围,但不能保证没有遗忘或副作用;秩、目标层、数据与评测比单纯追求最低参数量更重要。\n\n评分要点:低秩更新原理、多适配器、可合并及超参数权衡。",
+            "vector_score": 0.7577979564666748,
+            "keyword_score": 0.1894111144565763,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.748295783996582,
+            "keyword_score": 0.2724756403260243,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.7626610398292542,
+            "keyword_score": 0.5344252286169787,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 1010957861723506751,
+            "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+            "source": "interview-question://T008",
+            "domain": "llm-tool-calling",
+            "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+            "vector_score": 0.7518925666809082,
+            "keyword_score": 0.6624678375315468,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 1.0,
+      "elapsed_seconds": 48.177,
+      "timings_seconds": {
+        "decomposition": 3.136979,
+        "retrieval": 28.338344,
+        "mqe": 5.989587,
+        "hyde": 20.367897,
+        "embedding": 1.540933,
+        "vector_search": 0.08667,
+        "keyword_search": 0.34453,
+        "rerank": 0.0,
+        "generation": 16.701045,
+        "pipeline": 45.039862,
+        "total": 48.176841,
+        "judge": 43.51688
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 9,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 1.0,
+          "answer_relevancy": 1.0,
+          "citation_precision": 1.0,
+          "citation_coverage": 1.0
+        },
+        "claims": [
+          {
+            "text": "混合专家模型（MoE）之所以只激活部分参数，是因为它采用稀疏激活和路由机制：在每层设置多个专家网络，由路由器为每个Token选择少数专家进行计算，而不是让所有专家都参与。这样，模型的总参数可以很大，但单个Token实际激活/参与计算的参数较少，从而在扩大模型容量的同时提升计算效率。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "MoE在每层设置多个专家网络,由路由器为每个Token选择少数专家计算,因此总参数可以很大而单Token激活参数较少,提升容量与计算效率。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文明确说明MoE通过路由让每个Token只使用少数专家，总参数大而单Token激活参数少，从而提升容量与计算效率。"
+          },
+          {
+            "text": "典型做法是把部分FFN换成多个专家，路由器为每个Token选择少量专家；注意力等其他模块可能仍是共享的。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "典型做法是将部分 FFN 换成多个专家,路由器为每个 Token 选择少量专家,注意力等其他模块可能仍是共享的。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文直接列出该典型做法。"
+          },
+          {
+            "text": "其目的通常是在可控推理成本下扩大模型容量，并不是完全免费地增加能力。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "采用MoE通常是为了在可控推理成本下扩大模型容量,而非完全免费地增加能力。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文直接说明MoE目的与并非免费增加能力。"
+          },
+          {
+            "text": "同时要区分“总参数”和“激活参数”：只激活部分参数不等于部署时只存储或传输部分参数。部署仍需要存放或分发大量专家权重，跨设备通信可能成为瓶颈。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "总参数与激活参数不同,但部署仍需要存放或分发大量专家权重,跨设备通信可能成为瓶颈。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文直接区分总参数与激活参数，并说明部署仍需存放或分发专家权重、跨设备通信可能成为瓶颈。"
+          },
+          {
+            "text": "此外，MoE还会带来路由负载不均、专家通信、训练稳定性和部署复杂度等代价。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "代价是路由负载不均、专家通信、训练稳定性和部署复杂度。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文直接列出这些代价。"
+          },
+          {
+            "text": "专家是可训练的网络参数，并不天然对应具有人格的Agent，也不等于多Agent协作；也不是所有Qwen型号都使用MoE。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "专家是可训练的网络参数,并不天然对应一个具有人格的 Agent,也不等于多 Agent 协作。"
+              },
+              {
+                "source_id": 1,
+                "quote": "不是所有 Qwen 型号都使用 MoE,讨论优势必须限定具体架构与实际硬件条件。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文直接说明专家是可训练参数、非人格Agent、非多Agent协作，并说明并非所有Qwen型号都使用MoE。"
+          },
+          {
+            "text": "MoE 的路由代价主要包括：路由负载不均、专家通信、训练稳定性和部署复杂度[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "代价是路由负载不均、专家通信、训练稳定性和部署复杂度。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文直接列出路由相关代价。"
+          },
+          {
+            "text": "具体来说，MoE 在每层设置多个专家网络，由路由器为每个 Token 选择少数专家计算，因此总参数可以很大而单 Token 激活参数较少；但这也意味着路由决策会带来系统性代价[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "MoE在每层设置多个专家网络,由路由器为每个Token选择少数专家计算,因此总参数可以很大而单Token激活参数较少,提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文同时说明路由选择少数专家与总参数/激活参数关系，并列出代价。"
+          },
+          {
+            "text": "其中，路由负载不均可能导致不同专家承担的计算量差异很大；专家通信则与专家分布、跨设备执行有关，跨设备通信可能成为瓶颈；训练稳定性也是采用路由后需要面对的问题；部署时仍需要存放或分发大量专家权重，并处理大量专家带来的系统复杂度[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "代价是路由负载不均、专家通信、训练稳定性和部署复杂度。"
+              },
+              {
+                "source_id": 1,
+                "quote": "总参数与激活参数不同,但部署仍需要存放或分发大量专家权重,跨设备通信可能成为瓶颈。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文列出路由负载不均、专家通信、训练稳定性与部署复杂度，并说明部署需存放或分发专家权重及跨设备通信瓶颈；答案是对这些代价的等价展开。"
+          },
+          {
+            "text": "因此，MoE 不是完全免费地增加能力，而是在可控推理成本下扩大模型容量，同时付出路由相关的工程与训练代价[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "采用MoE通常是为了在可控推理成本下扩大模型容量,而非完全免费地增加能力。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文说明MoE并非免费增加能力，而是以可控推理成本扩大容量并伴随系统代价。"
+          },
+          {
+            "text": "根据检索资料，混合专家模型在负载均衡相关的系统代价上被概括为：路由负载不均、专家通信、训练稳定性和部署复杂度；此外，部署仍需存放或分发大量专家权重，跨设备通信可能成为瓶颈。也就是说，负载均衡并非没有代价，它会伴随通信开销、训练稳定性和部署复杂度等问题；但资料未进一步展开具体的量化代价或负载均衡算法细节 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "代价是路由负载不均、专家通信、训练稳定性和部署复杂度。"
+              },
+              {
+                "source_id": 1,
+                "quote": "总参数与激活参数不同,但部署仍需要存放或分发大量专家权重,跨设备通信可能成为瓶颈。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文将这些系统代价概括为路由负载不均、专家通信、训练稳定性和部署复杂度，并补充部署权重与跨设备通信瓶颈；上下文确实没有展开量化代价或负载均衡算法细节。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": true,
+            "reason": "答案覆盖了参考要点中的核心内容：稀疏激活与路由机制、总参数与激活参数区别、容量与计算效率收益、路由负载不均/专家通信/训练稳定性/部署复杂度等代价、部署仍需存放或分发专家权重及跨设备通信瓶颈、专家是可训练参数而非人格Agent或等同多Agent协作、并非所有Qwen型号都使用MoE；虽未逐字强调硬件条件，但整体覆盖该参考要点。",
+            "point": "MoE在每层设置多个专家网络，由路由器为每个Token选择少数专家计算，因此总参数可以很大而单Token激活参数较少，提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量，而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家，路由器为每个 Token 选择少量专家，注意力等其他模块可能仍是共享的。专家是可训练的网络参数，并不天然对应一个具有人格的 Agent，也不等于多 Agent 协作。总参数与激活参数不同，但部署仍需要存放或分发大量专家权重，跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE，讨论优势必须限定具体架构与实际硬件条件。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "答案直接回应了原问题：解释了MoE为何只激活部分参数，分别说明路由代价和负载均衡相关系统代价，并补充总参数与激活参数区别、部署通信瓶颈等关键限定，完整覆盖问题及其子问。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-043",
+      "subquestions": [
+        {
+          "question": "混合专家模型为何只激活部分参数？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "混合专家模型的路由有哪些代价？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "混合专家模型的负载均衡有哪些代价？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.1369793999983813
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.0,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

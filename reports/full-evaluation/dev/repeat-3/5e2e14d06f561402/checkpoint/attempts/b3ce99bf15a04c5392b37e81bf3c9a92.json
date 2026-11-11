@@ -1,0 +1,210 @@
+{
+  "case_id": "V2-098",
+  "question": "MCP与函数调用有什么边界？再说明技能包怎样与它们配合。",
+  "category": "compound",
+  "split": "dev",
+  "group": "T006",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T006",
+    "interview-question://T011"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "Function Calling是模型表达“调用哪个工具及参数”的交互能力；MCP是宿主连接外部工具和资源的标准协议，二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema，再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是：Client 从 Server 发现工具，Host 将描述转换成模型工具定义，模型生成调用意图，Host 校验后通过 Client 发请求，Server 执行并返回结果，Host 再向模型反馈。Function Calling 可以调用普通本地函数，MCP 也可被确定性的应用直接调用，所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分，不能把配置成功误认为权限与异常处理已经完善。",
+    "Function Calling是模型输出结构化工具意图的机制；MCP是宿主连接、发现和调用外部能力的协议；Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言，MCP提供标准化能力接口，Skill提供如何完成任务的方法，但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例，Skill 给出核对时间范围、查询和总结的步骤；MCP 提供订单服务的工具描述与调用接口；Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求，得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图，但都不是完整 Agent 控制器，仍需要外层管理状态、停止条件、执行结果和错误恢复。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T006",
+    "interview-question://T007",
+    "interview-question://T011"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.6666666666666666,
+  "ndcg_at_k": 0.9598603945740938,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "MCP与函数调用有什么边界？再说明技能包怎样与它们配合。",
+    "answer": "1. MCP与函数调用之间的边界是什么？\n\n\n2. 技能包怎样与MCP和函数调用配合？\n",
+    "sections": [
+      {
+        "question": "MCP与函数调用之间的边界是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "MCP与函数调用之间的边界是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP 与 函数调用 的边界和区别是什么"
+            },
+            {
+              "kind": "mqe",
+              "text": "Model Context Protocol 与 function calling/tool calling 的关系、区别及适用场景"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP vs function calling: boundary between Model Context Protocol and tool/function calling"
+            },
+            {
+              "kind": "hyde",
+              "text": "MCP(Model Context Protocol)与函数调用(function calling/tool use)的边界在于:函数调用是 LLM 推理层的能力,模型依据 JSON Schema 生成结构化 `tool_call/function_call`,由宿主应用解析、执行并回填结果;MCP 是应用层开放协议,定义 host、client、server 架构,通过 stdio、SSE、Streamable HTTP 等传输完成能力协商、工具/资源/提示词发现(`tools/list`、`resources/read`、`prompts/get`)、调用(`tools/call`)与生命周期管理。MCP 可将 MCP tool 映射为函数调用 schema 供模型选择,但函数调用本身不规定跨进程/跨服务发现、鉴权、路由、上下文注入或复用。边界可概括为:函数调用解决“模型如何表达调用意图”,MCP 解决“AI 应用如何标准化连接、发现、授权、执行和交换外部工具与上下文”;二者在 tool invocation 处衔接,MCP server 暴露工具,MCP client/host 适配为函数调用工具,模型输出参数,宿主经 MCP 协议执行并返回结果。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T006",
+            "interview-question://T007",
+            "interview-question://T011"
+          ]
+        }
+      },
+      {
+        "question": "技能包怎样与MCP和函数调用配合？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "技能包怎样与MCP和函数调用配合?"
+            },
+            {
+              "kind": "mqe",
+              "text": "技能包怎样与MCP和函数调用配合"
+            },
+            {
+              "kind": "mqe",
+              "text": "技能包 与 MCP 函数调用 集成 实现 教程"
+            },
+            {
+              "kind": "mqe",
+              "text": "How do skill packs work with Model Context Protocol and function calling?"
+            },
+            {
+              "kind": "hyde",
+              "text": "技能包通过 manifest/skill definition 声明技能元数据、输入输出 JSON Schema、执行入口、依赖与权限,并可由 skill registry/loader 注册和编排。与 MCP 配合时,技能包可封装为 MCP server,将技能暴露为 MCP tools,将知识/文件暴露为 resources,将提示模板暴露为 prompts;MCP client/agent 通过 JSON-RPC 2.0 发现并调用这些能力。与函数调用配合时,技能包中的技能映射为 function/tool schema,注入 LLM 的 tools 参数;模型生成 tool_call 后,orchestrator/router 解析参数,经 MCP adapter 或本地 runtime 执行,再将 tool result 回填上下文。技能包也可反向调用 MCP 工具:把 MCP tool 包装成内部函数,供技能逻辑组合使用。关键机制包括 schema 对齐、tool_choice 路由、权限与认证、上下文传递、错误处理、流式输出、并发与幂等。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T006",
+            "interview-question://T011",
+            "interview-question://T007"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1644641191381467949,
+        "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+        "source": "interview-question://T006",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+        "vector_score": 0.870380163192749,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.8496061563491821,
+        "keyword_score": 0.9644082670783483,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4412077096281725584,
+        "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+        "source": "interview-question://T011",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+        "vector_score": 0.9118492007255554,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 24.595,
+  "timings_seconds": {
+    "decomposition": 3.551008,
+    "retrieval": 21.043481,
+    "mqe": 6.508533,
+    "hyde": 13.141227,
+    "embedding": 0.746576,
+    "vector_search": 0.111823,
+    "keyword_search": 0.52622,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 21.043818,
+    "total": 24.594826,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

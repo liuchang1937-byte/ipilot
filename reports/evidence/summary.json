@@ -1,0 +1,173 @@
+{
+  "verification": {
+    "tests": 151,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "by_module": {
+    "tests.test_answer_evaluation": 17,
+    "tests.test_benchmark": 17,
+    "tests.test_cli": 4,
+    "tests.test_database": 8,
+    "tests.test_experiments": 7,
+    "tests.test_features": 10,
+    "tests.test_full_evaluation": 3,
+    "tests.test_interview": 23,
+    "tests.test_interview_questions": 12,
+    "tests.test_knowledge": 10,
+    "tests.test_question_editor": 10,
+    "tests.test_rag": 3,
+    "tests.test_reranker": 3,
+    "tests.test_scoring": 6,
+    "tests.test_scoring_benchmark": 3,
+    "tests.test_text": 3,
+    "tests.test_web": 12
+  },
+  "dataset": {
+    "retrieval_cases": 120,
+    "split_counts": {
+      "dev": 80,
+      "test": 40
+    },
+    "retrieval_categories": {
+      "paraphrase": 58,
+      "terminology": 28,
+      "compound": 14,
+      "cross_domain": 6,
+      "unanswerable": 14
+    },
+    "independent_groups": 80,
+    "source_overlap_between_splits": false,
+    "missing_sources": [],
+    "scoring_cases": 24,
+    "scoring_categories": {
+      "correct": 4,
+      "partial": 4,
+      "incorrect": 4,
+      "omission": 4,
+      "equivalent": 4,
+      "correction": 4
+    },
+    "retrieval_label_status": "human_reviewed",
+    "scoring_label_status": "human_reviewed",
+    "reviewed_retrieval_cases": 120,
+    "reviewed_scoring_cases": 24,
+    "human_review_complete": true
+  },
+  "targeted_verification": {
+    "tests": 27,
+    "failures": 0,
+    "errors": 0
+  },
+  "ui_passed": true,
+  "lint_passed": true,
+  "offline_baseline": {
+    "file": "530edae547254b63ab56575dc4ef376b.json",
+    "summary": {
+      "recall_at_3": 0.855072463768116,
+      "mrr": 0.8260869565217391,
+      "mean_search_seconds": 0.03456427374949271
+    },
+    "answerable_cases": 69
+  },
+  "human_review_complete": true,
+  "real_model_evaluation_complete": true,
+  "full_evaluation": {
+    "launch": {
+      "state": "completed",
+      "external_calls_started": true,
+      "reason": null,
+      "development_queries": 80,
+      "development_variants": 3,
+      "development_repeats": 3,
+      "development_pipelines": 720,
+      "test_queries": 40,
+      "test_variants": 2,
+      "test_repeats": 3,
+      "test_pipelines": 240,
+      "answer_quality_pipelines": 40,
+      "providers": [
+        "DeepSeek",
+        "DashScope"
+      ],
+      "payload": "项目题库参考资料和评测问题，不含真实用户面试记录或密钥内容",
+      "authorization_source": "user_message",
+      "authorization_text": "授权按上述完整规模运行",
+      "authorization_date": "2026-10-12",
+      "blocked_status": null,
+      "completed_case_jobs": 400,
+      "checkpoint_records": 1000,
+      "balance_readonly_available": true,
+      "balance_cny": "2.77",
+      "route_and_sdk_probe_succeeded": true,
+      "current_phase": "completed",
+      "previous_blocked_status": 402,
+      "balance_at_stop_cny": "-0.08",
+      "balance_is_available": true,
+      "saved_successful_without_warnings": 996,
+      "saved_expansion_fallbacks": 0,
+      "authorization_remains_valid": true,
+      "completed_retrieval_pipelines": 960,
+      "phase_progress": {
+        "dev": {
+          "completed_case_jobs": 240,
+          "planned_case_jobs": 240,
+          "saved_pipelines": 720,
+          "planned_pipelines": 720,
+          "failed_pipelines": 0,
+          "warning_pipelines": 0,
+          "completed_answer_judges": 0,
+          "unavailable_answer_judges": 0
+        },
+        "test": {
+          "completed_case_jobs": 120,
+          "planned_case_jobs": 120,
+          "saved_pipelines": 240,
+          "planned_pipelines": 240,
+          "failed_pipelines": 0,
+          "warning_pipelines": 0,
+          "completed_answer_judges": 0,
+          "unavailable_answer_judges": 0
+        },
+        "quality": {
+          "completed_case_jobs": 40,
+          "planned_case_jobs": 40,
+          "saved_pipelines": 40,
+          "planned_pipelines": 40,
+          "failed_pipelines": 0,
+          "warning_pipelines": 4,
+          "completed_answer_judges": 40,
+          "unavailable_answer_judges": 0
+        }
+      },
+      "completed_phases": [
+        "dev",
+        "test",
+        "quality"
+      ],
+      "quality_first_pass_valid_judges": 35,
+      "quality_first_pass_invalid_judges": 5,
+      "quality_recovery_round": 2,
+      "completed_at": "2026-10-12T16:54:42.732659+00:00",
+      "quality_final_valid_judges": 40,
+      "quality_final_invalid_judges": 0,
+      "quality_saved_attempts": 46,
+      "quality_unavailable_attempts": 6
+    },
+    "completed_phases": [
+      "dev",
+      "test",
+      "quality"
+    ],
+    "complete": true,
+    "protocol": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\protocol.json"
+  },
+  "provider_diagnostic": {
+    "scoring_method": "model",
+    "diagnostics": [],
+    "recovery_report": "E:\\study\\project\\TechRAG\\reports\\scoring\\4fcb1ed1721b461f9621e5bcdd118022.json",
+    "checked_at": "2026-10-12T07:10:20.501700+00:00"
+  },
+  "real_model_status": "正式开发、独立测试和回答质量报告均已保存，结合有效样本量解释结果。"
+}

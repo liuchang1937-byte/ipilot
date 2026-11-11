@@ -1,0 +1,144 @@
+{
+  "case_id": "V2-001",
+  "question": "聊天模型能回答问题就算智能体吗？执行任务还缺哪些能力？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A001",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://A001"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "大模型本质上是根据上下文生成输出的概率模型，本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统，它会感知当前状态，规划下一步，调用工具影响外部环境，读取执行结果并继续决策，直到完成目标或触发停止条件。两者的核心差异是：LLM 提供认知能力，Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如，一个资料调研 Agent 会先确定检索范围，调用搜索工具，检查是否获得足够证据，再组织结论；如果资料不足，就调整查询继续检索。控制循环通常由宿主代码驱动，模型输出的是行动建议，外部操作仍由程序执行。判断是否具备 Agent 特征，要看是否能依据观察更新决策，而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A001"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.16666666666666666,
+  "ndcg_at_k": 0.5,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "聊天模型能回答问题就算智能体吗？执行任务还缺哪些能力？",
+    "answer": "1. 聊天模型能回答问题是否就算智能体？\n\n\n2. 聊天模型要作为智能体执行任务还缺少哪些能力？\n",
+    "sections": [
+      {
+        "question": "聊天模型能回答问题是否就算智能体？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "聊天模型能回答问题是否就算智能体?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 0,
+          "selected_sources": []
+        }
+      },
+      {
+        "question": "聊天模型要作为智能体执行任务还缺少哪些能力？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "聊天模型要作为智能体执行任务还缺少哪些能力?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://A001"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2926109573100487886,
+        "title": "什么是 Agent?与大模型有什么本质不同?",
+        "source": "interview-question://A001",
+        "domain": "agent",
+        "content": "# 什么是 Agent?与大模型有什么本质不同?\n\n题目编号:A001\n\n领域:agent\n\n难度:1\n\n标签:Agent 定义、LLM 应用、自主决策\n- 考察方向:候选人能否从目标、状态、行动、反馈闭环等角度定义 Agent。\n\n参考答案:大模型本质上是根据上下文生成输出的概率模型,本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统,它会感知当前状态,规划下一步,调用工具影响外部环境,读取执行结果并继续决策,直到完成目标或触发停止条件。两者的核心差异是:LLM 提供认知能力,Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如,一个资料调研 Agent 会先确定检索范围,调用搜索工具,检查是否获得足够证据,再组织结论;如果资料不足,就调整查询继续检索。控制循环通常由宿主代码驱动,模型输出的是行动建议,外部操作仍由程序执行。判断是否具备 Agent 特征,要看是否能依据观察更新决策,而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。\n\n评分要点:区分“模型”与“系统”;提到目标、状态、工具和反馈循环;说明 Agent 不等于简单聊天封装。",
+        "vector_score": 0.7693304717540741,
+        "keyword_score": 0.682977841534194,
+        "rerank_score": 0.059499479830265045
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.095,
+  "timings_seconds": {
+    "decomposition": 3.246628,
+    "retrieval": 0.542879,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.346929,
+    "vector_search": 0.05031,
+    "keyword_search": 0.143289,
+    "rerank": 1.305081,
+    "generation": 0.0,
+    "pipeline": 1.848366,
+    "total": 5.094994,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

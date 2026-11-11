@@ -1,0 +1,1281 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "2dc9ba34265c4117955ccdd19b0ef20d",
+  "created_at": "2026-10-12T11:25:24.600524+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "9ea0b6109efcb2703f2cff9f77ec4bc64f7c0e06c02734625ee9d20b9fdafe5c",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\3ea7b86a051e4ec9\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222,
+      "ndcg_at_k": 0.4206,
+      "hit_rate": 1,
+      "mrr": 0.5,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 42.643,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 42.643,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.93831,
+          "p50": 6.93831,
+          "p95": 6.93831,
+          "max": 6.93831,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 35.704697,
+          "p50": 35.704697,
+          "p95": 35.704697,
+          "max": 35.704697,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 8.847747,
+          "p50": 8.847747,
+          "p95": 8.847747,
+          "max": 8.847747,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 24.700683,
+          "p50": 24.700683,
+          "p95": 24.700683,
+          "max": 24.700683,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.190449,
+          "p50": 1.190449,
+          "p95": 1.190449,
+          "max": 1.190449,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.188977,
+          "p50": 0.188977,
+          "p95": 0.188977,
+          "max": 0.188977,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.763645,
+          "p50": 0.763645,
+          "p95": 0.763645,
+          "max": 0.763645,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 35.705036,
+          "p50": 35.705036,
+          "p95": 35.705036,
+          "max": 35.705036,
+          "samples": 1
+        },
+        "total": {
+          "mean": 42.643347,
+          "p50": 42.643347,
+          "p95": 42.643347,
+          "max": 42.643347,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222,
+      "ndcg_at_k": 0.4206,
+      "hit_rate": 1,
+      "mrr": 0.5,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 7.647,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 7.647,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.93831,
+          "p50": 6.93831,
+          "p95": 6.93831,
+          "max": 6.93831,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.708825,
+          "p50": 0.708825,
+          "p95": 0.708825,
+          "max": 0.708825,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.433348,
+          "p50": 0.433348,
+          "p95": 0.433348,
+          "max": 0.433348,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.073274,
+          "p50": 0.073274,
+          "p95": 0.073274,
+          "max": 0.073274,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.197807,
+          "p50": 0.197807,
+          "p95": 0.197807,
+          "max": 0.197807,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.709153,
+          "p50": 0.709153,
+          "p95": 0.709153,
+          "max": 0.709153,
+          "samples": 1
+        },
+        "total": {
+          "mean": 7.647463,
+          "p50": 7.647463,
+          "p95": 7.647463,
+          "max": 7.647463,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222,
+      "ndcg_at_k": 0.5436,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 9.296,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 9.296,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.93831,
+          "p50": 6.93831,
+          "p95": 6.93831,
+          "max": 6.93831,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.812211,
+          "p50": 0.812211,
+          "p95": 0.812211,
+          "max": 0.812211,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.547967,
+          "p50": 0.547967,
+          "p95": 0.547967,
+          "max": 0.547967,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.072448,
+          "p50": 0.072448,
+          "p95": 0.072448,
+          "max": 0.072448,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.18745,
+          "p50": 0.18745,
+          "p95": 0.18745,
+          "max": 0.18745,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.544794,
+          "p50": 1.544794,
+          "p95": 1.544794,
+          "max": 1.544794,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 2.357636,
+          "p50": 2.357636,
+          "p95": 2.357636,
+          "max": 2.357636,
+          "samples": 1
+        },
+        "total": {
+          "mean": 9.295946,
+          "p50": 9.295946,
+          "p95": 9.295946,
+          "max": 9.295946,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 3,
+        "rerank_pairs": 36
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-074",
+      "question": "模型选择函数与MCP提供工具连接，为什么不是同一层的机制？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T006",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T006"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Function Calling是模型表达“调用哪个工具及参数”的交互能力；MCP是宿主连接外部工具和资源的标准协议，二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema，再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是：Client 从 Server 发现工具，Host 将描述转换成模型工具定义，模型生成调用意图，Host 校验后通过 Client 发请求，Server 执行并返回结果，Host 再向模型反馈。Function Calling 可以调用普通本地函数，MCP 也可被确定性的应用直接调用，所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分，不能把配置成功误认为权限与异常处理已经完善。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T007",
+        "interview-question://T001",
+        "interview-question://T011",
+        "interview-question://T004",
+        "interview-question://T006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222222222222222,
+      "ndcg_at_k": 0.420619835714305,
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "模型选择函数与MCP提供工具连接，为什么不是同一层的机制？",
+        "answer": "1. 模型选择函数是什么？它在系统架构中属于哪一层机制？\n\n\n2. MCP（Model Context Protocol）提供工具连接是什么？它在系统架构中属于哪一层机制？\n\n\n3. 模型选择函数与MCP提供工具连接为什么不是同一层的机制？\n",
+        "sections": [
+          {
+            "question": "模型选择函数是什么？它在系统架构中属于哪一层机制？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型选择函数是什么?它在系统架构中属于哪一层机制?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "模型选择函数是什么 定义 作用"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "模型选择函数在系统架构中属于哪一层机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "model selection function architecture layer mechanism"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "模型选择函数是模型路由与编排层中的决策函数,用于根据请求特征、上下文、任务类型、SLA、成本/延迟预算、模型能力标签、健康状态与负载,从候选模型集合中打分并选择目标模型,输出 model_id 或路由策略。它通常位于应用/API层与模型推理服务层之间的推理网关、LLM Router 或控制平面,属于模型路由层/编排调度层机制,依赖模型注册表、策略引擎、监控反馈与成本模型,而非底层模型推理执行层。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T007",
+                "interview-question://T001",
+                "interview-question://T011"
+              ]
+            }
+          },
+          {
+            "question": "MCP（Model Context Protocol）提供工具连接是什么？它在系统架构中属于哪一层机制？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "MCP(Model Context Protocol)提供工具连接是什么?它在系统架构中属于哪一层机制?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP Model Context Protocol 提供工具连接是什么 它在系统架构中属于哪一层机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP 工具连接 工具集成 架构层级 机制 定义"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Model Context Protocol MCP tool connection definition which layer in system architecture"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "MCP(Model Context Protocol)提供的工具连接是一种标准化的工具接入与调用机制:MCP Host/Client 通过 MCP 协议发现 MCP Server 暴露的 Tools,读取 JSON Schema 工具描述,进行能力协商,并以 JSON-RPC 2.0 消息在 stdio、HTTP+SSE 或 Streamable HTTP 等传输层上执行 list_tools、call_tool、参数校验、结果回传与上下文注入。它把外部 API、数据库、文件系统、SaaS 等封装为可供 LLM/Agent 调用的函数式工具,实现模型客户端与工具实现的解耦,支持 Tool Use、Function Calling、资源访问与提示模板。\n\n在系统架构中,MCP 工具连接通常位于工具接入层、集成层或协议适配层,介于 Agent 编排层、LLM 应用运行时与外部服务之间,属于工具调用与上下文供给的中间件机制,而非模型推理层、基础模型层或单纯应用层。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T004",
+                "interview-question://T006",
+                "interview-question://T007"
+              ]
+            }
+          },
+          {
+            "question": "模型选择函数与MCP提供工具连接为什么不是同一层的机制？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型选择函数与MCP提供工具连接为什么不是同一层的机制?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "为什么模型选择函数和 MCP 工具连接不是同一层的机制?Agent 架构分层解释"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP 工具连接与模型选择函数在 LLM Agent 中的抽象层级区别"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Model Context Protocol tool connection vs model selection function: why they are different abstraction layers"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "模型选择函数属于策略/编排层的控制平面机制,负责根据任务类型、上下文、成本、延迟、能力标签、模型可用性等做 LLM 路由与调度,输出“调用哪个模型及何种推理配置”。MCP 提供工具连接属于协议/集成层的数据平面机制,负责以 MCP client-server 模式完成工具发现、schema 描述、能力协商、授权、JSON-RPC/stdio/SSE 传输、调用转发与生命周期管理。前者决定“用哪个模型”,后者决定“模型可访问哪些外部工具以及如何调用”。模型选择函数可通过 MCP 客户端获取工具清单并注入上下文,但不会建立或维护工具连接;MCP 服务器也不负责模型路由。因此二者是 agent runtime/orchestrator 的 policy 与工具互操作协议,处于不同抽象层,可独立演进、测试和替换。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T007",
+                "interview-question://T006",
+                "interview-question://T011"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.9101580083370209,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.7633119821548462,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.852822870016098,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4536864493093651401,
+            "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+            "source": "interview-question://T004",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+            "vector_score": 0.9266188740730286,
+            "keyword_score": 0.9122646478981012,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.8981254696846008,
+            "keyword_score": 0.9452537630855664,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 42.643,
+      "timings_seconds": {
+        "decomposition": 6.93831,
+        "retrieval": 35.704697,
+        "mqe": 8.847747,
+        "hyde": 24.700683,
+        "embedding": 1.190449,
+        "vector_search": 0.188977,
+        "keyword_search": 0.763645,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 35.705036,
+        "total": 42.643347,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-074",
+      "question": "模型选择函数与MCP提供工具连接，为什么不是同一层的机制？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T006",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://T006"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Function Calling是模型表达“调用哪个工具及参数”的交互能力；MCP是宿主连接外部工具和资源的标准协议，二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema，再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是：Client 从 Server 发现工具，Host 将描述转换成模型工具定义，模型生成调用意图，Host 校验后通过 Client 发请求，Server 执行并返回结果，Host 再向模型反馈。Function Calling 可以调用普通本地函数，MCP 也可被确定性的应用直接调用，所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分，不能把配置成功误认为权限与异常处理已经完善。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T007",
+        "interview-question://T001",
+        "interview-question://T011",
+        "interview-question://T004",
+        "interview-question://T006",
+        "interview-question://T012"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222222222222222,
+      "ndcg_at_k": 0.420619835714305,
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "模型选择函数与MCP提供工具连接，为什么不是同一层的机制？",
+        "answer": "1. 模型选择函数是什么？它在系统架构中属于哪一层机制？\n\n\n2. MCP（Model Context Protocol）提供工具连接是什么？它在系统架构中属于哪一层机制？\n\n\n3. 模型选择函数与MCP提供工具连接为什么不是同一层的机制？\n",
+        "sections": [
+          {
+            "question": "模型选择函数是什么？它在系统架构中属于哪一层机制？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型选择函数是什么?它在系统架构中属于哪一层机制?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T007",
+                "interview-question://T001",
+                "interview-question://T011"
+              ]
+            }
+          },
+          {
+            "question": "MCP（Model Context Protocol）提供工具连接是什么？它在系统架构中属于哪一层机制？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "MCP(Model Context Protocol)提供工具连接是什么?它在系统架构中属于哪一层机制?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T004",
+                "interview-question://T006",
+                "interview-question://T012"
+              ]
+            }
+          },
+          {
+            "question": "模型选择函数与MCP提供工具连接为什么不是同一层的机制？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型选择函数与MCP提供工具连接为什么不是同一层的机制?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T007",
+                "interview-question://T006",
+                "interview-question://T004"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.8511452674865723,
+            "keyword_score": 0.9532107396630091,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.7519362270832062,
+            "keyword_score": 0.8710304791424589,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.7571682333946228,
+            "keyword_score": 0.6355205961870961,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4536864493093651401,
+            "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+            "source": "interview-question://T004",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+            "vector_score": 0.816386342048645,
+            "keyword_score": 0.8063869677338417,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.8516007661819458,
+            "keyword_score": 0.7585679479334528,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 3876464561600690988,
+            "title": "什么是 A2A 协议?它和 MCP 协议的区别是什么?",
+            "source": "interview-question://T012",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 A2A 协议?它和 MCP 协议的区别是什么?\n\n题目编号:T012\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付,交互对象是相对自主的Agent;MCP面向Host与工具/资源服务的连接,调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期,MCP处理工具调用和上下文接入,两者可以在同一多Agent系统中互补。例如,主 Agent 将一段研究任务交给外部研究 Agent,希望接收进度和最终报告,属于 Agent 协作;研究 Agent 自己调用搜索服务,可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段,结果以产物交付,调用方不必了解对方内部提示或工具。能力发现不等于可信授权,跨组织协作还需要身份、超时、取消和产物验证,不能仅凭对方自称完成就接受结果。\n\n评分要点:Agent协作与工具接入的对象、语义和生命周期差异。",
+            "vector_score": 0.8186696171760559,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 7.647,
+      "timings_seconds": {
+        "decomposition": 6.93831,
+        "retrieval": 0.708825,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.433348,
+        "vector_search": 0.073274,
+        "keyword_search": 0.197807,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.709153,
+        "total": 7.647463,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-074",
+      "question": "模型选择函数与MCP提供工具连接，为什么不是同一层的机制？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T006",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://T006"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Function Calling是模型表达“调用哪个工具及参数”的交互能力；MCP是宿主连接外部工具和资源的标准协议，二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema，再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是：Client 从 Server 发现工具，Host 将描述转换成模型工具定义，模型生成调用意图，Host 校验后通过 Client 发请求，Server 执行并返回结果，Host 再向模型反馈。Function Calling 可以调用普通本地函数，MCP 也可被确定性的应用直接调用，所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分，不能把配置成功误认为权限与异常处理已经完善。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T011",
+        "interview-question://T006",
+        "interview-question://T001",
+        "interview-question://T004",
+        "interview-question://T005",
+        "interview-question://T007"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222222222222222,
+      "ndcg_at_k": 0.5436432511904858,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "模型选择函数与MCP提供工具连接，为什么不是同一层的机制？",
+        "answer": "1. 模型选择函数是什么？它在系统架构中属于哪一层机制？\n\n\n2. MCP（Model Context Protocol）提供工具连接是什么？它在系统架构中属于哪一层机制？\n\n\n3. 模型选择函数与MCP提供工具连接为什么不是同一层的机制？\n",
+        "sections": [
+          {
+            "question": "模型选择函数是什么？它在系统架构中属于哪一层机制？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型选择函数是什么?它在系统架构中属于哪一层机制?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T011",
+                "interview-question://T006",
+                "interview-question://T001"
+              ]
+            }
+          },
+          {
+            "question": "MCP（Model Context Protocol）提供工具连接是什么？它在系统架构中属于哪一层机制？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "MCP(Model Context Protocol)提供工具连接是什么?它在系统架构中属于哪一层机制?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T004",
+                "interview-question://T011",
+                "interview-question://T005"
+              ]
+            }
+          },
+          {
+            "question": "模型选择函数与MCP提供工具连接为什么不是同一层的机制？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型选择函数与MCP提供工具连接为什么不是同一层的机制?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T006",
+                "interview-question://T011",
+                "interview-question://T007"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.7999576032161713,
+            "keyword_score": 1.0,
+            "rerank_score": 0.9756660461425781
+          },
+          {
+            "id": 2,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.8516007661819458,
+            "keyword_score": 0.7585679479334528,
+            "rerank_score": 0.9825265407562256
+          },
+          {
+            "id": 3,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.7519362270832062,
+            "keyword_score": 0.8710304791424589,
+            "rerank_score": 0.11014603078365326
+          },
+          {
+            "id": 4,
+            "chunk_id": 4536864493093651401,
+            "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+            "source": "interview-question://T004",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+            "vector_score": 0.8895304203033447,
+            "keyword_score": 0.9122646478981012,
+            "rerank_score": 0.9972260594367981
+          },
+          {
+            "id": 5,
+            "chunk_id": 319809831368975428,
+            "title": "MCP 由哪几部分组成?",
+            "source": "interview-question://T005",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+            "vector_score": 0.8663865923881531,
+            "keyword_score": 0.5158025034661081,
+            "rerank_score": 0.96586012840271
+          },
+          {
+            "id": 6,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.8511452674865723,
+            "keyword_score": 0.9532107396630091,
+            "rerank_score": 0.9688553214073181
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 9.296,
+      "timings_seconds": {
+        "decomposition": 6.93831,
+        "retrieval": 0.812211,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.547967,
+        "vector_search": 0.072448,
+        "keyword_search": 0.18745,
+        "rerank": 1.544794,
+        "generation": 0.0,
+        "pipeline": 2.357636,
+        "total": 9.295946,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 3,
+        "rerank_pairs": 36
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-074",
+      "subquestions": [
+        {
+          "question": "模型选择函数是什么？它在系统架构中属于哪一层机制？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "MCP（Model Context Protocol）提供工具连接是什么？它在系统架构中属于哪一层机制？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "模型选择函数与MCP提供工具连接为什么不是同一层的机制？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 6.938310399998954
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 45.724,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

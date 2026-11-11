@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-070",
+  "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "T002",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://T002"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "模型通过预训练获得语言与代码模式，再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入，模型预测工具名和参数Token；宿主解析执行。提示和约束解码可提高格式稳定性，但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法，还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号，缺失时应询问用户，而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复，但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具，却不会凭空授予网络权限；最终动作仍由应用执行和记录。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T002",
+    "interview-question://T001",
+    "interview-question://T003"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "语言模型为何能够生成工具调用请求，以及语言模型生成工具调用请求的能力来自哪里？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "语言模型为何能够生成工具调用请求,以及语言模型生成工具调用请求的能力来自哪里?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T002",
+            "interview-question://T001",
+            "interview-question://T003"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1074467055826810929,
+        "title": "LLM 是如何学会调用外部工具的?",
+        "source": "interview-question://T002",
+        "domain": "llm-tool-calling",
+        "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+        "vector_score": 0.8467959463596344,
+        "keyword_score": 0.6358984240620227,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2985301377255987593,
+        "title": "什么是 Function Calling?原理是什么?",
+        "source": "interview-question://T001",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+        "vector_score": 0.8141658306121826,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.8354846835136414,
+        "keyword_score": 0.6795925337948133,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 10.921,
+  "timings_seconds": {
+    "decomposition": 10.538081,
+    "retrieval": 0.382694,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.295818,
+    "vector_search": 0.022821,
+    "keyword_search": 0.06273,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.382885,
+    "total": 10.920966,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "case_id": "V2-116",
+  "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-116",
+  "variant": "expanded",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T003",
+    "interview-question://L013",
+    "interview-question://L015"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+    "answer": "",
+    "sections": [
+      {
+        "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。"
+            },
+            {
+              "kind": "mqe",
+              "text": "Aster-Internal 未公开训练超参数 题库"
+            },
+            {
+              "kind": "mqe",
+              "text": "私有模型 Aster-Internal 训练超参数 内部配置"
+            },
+            {
+              "kind": "mqe",
+              "text": "Aster-Internal private model undisclosed training hyperparameters question bank"
+            },
+            {
+              "kind": "hyde",
+              "text": "私有模型 Aster-Internal 的未公开训练超参数:优化器 AdamW,β1=0.9,β2=0.95,ε=1e-8;峰值学习率 3e-4,预热 2000 步,余弦退火至 1e-5;权重衰减 0.1;全局批量大小 2048;序列长度 8192;梯度裁剪 1.0;dropout 0.0;attention dropout 0.0;训练步数 150000;精度 bf16;ZeRO Stage 3;激活检查点开启;随机种子 42。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T003",
+            "interview-question://L013",
+            "interview-question://L015"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.7481145858764648,
+        "keyword_score": 0.8122461617855472,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 96113536461836751,
+        "title": "大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?",
+        "source": "interview-question://L013",
+        "domain": "llm-engineering",
+        "content": "# 大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?\n\n题目编号:L013\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度,创作可提高温度并使用Top-P;不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。它们只改变采样行为,不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数,再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同,因此不存在跨模型通用的最佳数值,温度为零也不等于结果一定可复现。\n\n评分要点:参数机制准确;场景化而非给出绝对最佳值。",
+        "vector_score": 0.7531495690345764,
+        "keyword_score": 0.48166789177377445,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4463257598973586641,
+        "title": "大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?",
+        "source": "interview-question://L015",
+        "domain": "llm-engineering",
+        "content": "# 大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?\n\n题目编号:L015\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:量化用低比特表示权重或激活,以降低显存、带宽和计算成本,代价是精度风险。INT8通常损失小,INT4压缩更强;GPTQ利用校准数据做逐层训练后权重量化,通用性强;AWQ保护对输出敏感的重要权重,常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化,以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化,AWQ 利用激活信息调整重要通道的缩放,减少关键权重的误差;不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快,需要核对算子支持,并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。\n\n评分要点:量化对象、比特权衡、AWQ/GPTQ思路及硬件适配。",
+        "vector_score": 0.7744862735271454,
+        "keyword_score": 0.46222202534074125,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 17.156,
+  "timings_seconds": {
+    "decomposition": 1.930871,
+    "retrieval": 15.224766,
+    "mqe": 6.616552,
+    "hyde": 8.158006,
+    "embedding": 0.305211,
+    "vector_search": 0.026066,
+    "keyword_search": 0.116631,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 15.22487,
+    "total": 17.155741,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

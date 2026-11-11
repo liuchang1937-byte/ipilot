@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-105",
+  "subquestions": [
+    {
+      "question": "知识库资料更新后，如何同步检索索引？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "知识库中两份资料存在冲突时，如何处理来源？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.402463499998703
+}

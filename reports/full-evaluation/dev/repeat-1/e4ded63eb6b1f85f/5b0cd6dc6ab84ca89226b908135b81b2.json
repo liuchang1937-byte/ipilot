@@ -1,0 +1,989 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "5b0cd6dc6ab84ca89226b908135b81b2",
+  "created_at": "2026-10-12T11:03:02.517412+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "ed3351f71b6ba3e777970d5a4babdd1b0f6a075606c143ad731d3deaa69cc44f",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-1\\e4ded63eb6b1f85f\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 24.595,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 24.595,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 9.174778,
+          "p50": 9.174778,
+          "p95": 9.174778,
+          "max": 9.174778,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 15.42018,
+          "p50": 15.42018,
+          "p95": 15.42018,
+          "max": 15.42018,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 3.354791,
+          "p50": 3.354791,
+          "p95": 3.354791,
+          "max": 3.354791,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 11.399646,
+          "p50": 11.399646,
+          "p95": 11.399646,
+          "max": 11.399646,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.337536,
+          "p50": 0.337536,
+          "p95": 0.337536,
+          "max": 0.337536,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.060511,
+          "p50": 0.060511,
+          "p95": 0.060511,
+          "max": 0.060511,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.263016,
+          "p50": 0.263016,
+          "p95": 0.263016,
+          "max": 0.263016,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 15.420425,
+          "p50": 15.420425,
+          "p95": 15.420425,
+          "max": 15.420425,
+          "samples": 1
+        },
+        "total": {
+          "mean": 24.595203,
+          "p50": 24.595203,
+          "p95": 24.595203,
+          "max": 24.595203,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 9.435,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 9.435,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 9.174778,
+          "p50": 9.174778,
+          "p95": 9.174778,
+          "max": 9.174778,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.260433,
+          "p50": 0.260433,
+          "p95": 0.260433,
+          "max": 0.260433,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.174051,
+          "p50": 0.174051,
+          "p95": 0.174051,
+          "max": 0.174051,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.021741,
+          "p50": 0.021741,
+          "p95": 0.021741,
+          "max": 0.021741,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.063645,
+          "p50": 0.063645,
+          "p95": 0.063645,
+          "max": 0.063645,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.260631,
+          "p50": 0.260631,
+          "p95": 0.260631,
+          "max": 0.260631,
+          "samples": 1
+        },
+        "total": {
+          "mean": 9.435409,
+          "p50": 9.435409,
+          "p95": 9.435409,
+          "max": 9.435409,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 9.975,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 9.975,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 9.174778,
+          "p50": 9.174778,
+          "p95": 9.174778,
+          "max": 9.174778,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.253116,
+          "p50": 0.253116,
+          "p95": 0.253116,
+          "max": 0.253116,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.167517,
+          "p50": 0.167517,
+          "p95": 0.167517,
+          "max": 0.167517,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.022082,
+          "p50": 0.022082,
+          "p95": 0.022082,
+          "max": 0.022082,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.062333,
+          "p50": 0.062333,
+          "p95": 0.062333,
+          "max": 0.062333,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.546435,
+          "p50": 0.546435,
+          "p95": 0.546435,
+          "max": 0.546435,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.799885,
+          "p50": 0.799885,
+          "p95": 0.799885,
+          "max": 0.799885,
+          "samples": 1
+        },
+        "total": {
+          "mean": 9.974663,
+          "p50": 9.974663,
+          "p95": 9.974663,
+          "max": 9.974663,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-072",
+      "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "T004",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T004"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "MCP是连接AI宿主与外部能力的标准协议，统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题，使MCP Server可以被多个Host复用。MCP不替模型决定业务策略，也不会自动解决权限、可信度和工具副作用，这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts：工具提供可调用操作，资源提供上下文数据，提示模板提供可复用消息构造。工具既可能只读，也可能产生副作用，不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息，模型并不直接解析网络协议。标准化降低重复集成成本，但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T004",
+        "interview-question://T006",
+        "interview-question://T008"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "MCP（Model Context Protocol）在通过统一接口把外部资源和工具接入助手时规范了哪些事情？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "MCP(Model Context Protocol)在通过统一接口把外部资源和工具接入助手时规范了哪些事情?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP Model Context Protocol 通过统一接口将外部资源和工具接入助手时规范了哪些内容"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Model Context Protocol 统一接口 外部资源 工具 助手 集成 标准化范围"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP specification standardize external resources tools assistants unified interface"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "MCP(Model Context Protocol)通过统一的客户端-服务器架构,把助手(host/client)与外部能力(server)解耦,并规范:基于 JSON-RPC 2.0 的消息格式、初始化握手、协议版本协商、能力发现与会话生命周期;传输层 stdio、HTTP+SSE、Streamable HTTP、会话 ID、通知、分页、进度、取消、日志和错误码。服务器侧原语包括 resources(URI 寻址、resource templates、list/read/subscribe、MIME type、内容块)、prompts(模板、参数、list/get)、tools(JSON Schema 输入/输出、list/call、结构化与多模态结果)、completions;客户端侧原语包括 sampling、roots、elicitation。它还规定主机/客户端如何发现并调用工具、读取和订阅资源、获取提示模板,如何将工具结果、资源内容和提示注入模型上下文,以及服务器如何反向请求模型生成或访问受 roots 限制的文件。安全与授权方面规范 OAuth 2.1、bearer token、scope、资源服务器元数据、动态客户端注册、用户同意、权限边界、工具调用审批和审计相关语义。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T004",
+                "interview-question://T006",
+                "interview-question://T008"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4536864493093651401,
+            "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+            "source": "interview-question://T004",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+            "vector_score": 0.9232311248779297,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.888974666595459,
+            "keyword_score": 0.7993424850787779,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1010957861723506751,
+            "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+            "source": "interview-question://T008",
+            "domain": "llm-tool-calling",
+            "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+            "vector_score": 0.8868044912815094,
+            "keyword_score": 0.7272597050637084,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 24.595,
+      "timings_seconds": {
+        "decomposition": 9.174778,
+        "retrieval": 15.42018,
+        "mqe": 3.354791,
+        "hyde": 11.399646,
+        "embedding": 0.337536,
+        "vector_search": 0.060511,
+        "keyword_search": 0.263016,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 15.420425,
+        "total": 24.595203,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-072",
+      "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "T004",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://T004"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "MCP是连接AI宿主与外部能力的标准协议，统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题，使MCP Server可以被多个Host复用。MCP不替模型决定业务策略，也不会自动解决权限、可信度和工具副作用，这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts：工具提供可调用操作，资源提供上下文数据，提示模板提供可复用消息构造。工具既可能只读，也可能产生副作用，不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息，模型并不直接解析网络协议。标准化降低重复集成成本，但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T004",
+        "interview-question://T006",
+        "interview-question://T007"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "MCP（Model Context Protocol）在通过统一接口把外部资源和工具接入助手时规范了哪些事情？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "MCP(Model Context Protocol)在通过统一接口把外部资源和工具接入助手时规范了哪些事情?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T004",
+                "interview-question://T006",
+                "interview-question://T007"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4536864493093651401,
+            "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+            "source": "interview-question://T004",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+            "vector_score": 0.9181038439273834,
+            "keyword_score": 0.9216356437906794,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.8889079093933105,
+            "keyword_score": 0.7993424850787779,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.8608842194080353,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 9.435,
+      "timings_seconds": {
+        "decomposition": 9.174778,
+        "retrieval": 0.260433,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.174051,
+        "vector_search": 0.021741,
+        "keyword_search": 0.063645,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.260631,
+        "total": 9.435409,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-072",
+      "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "T004",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://T004"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "MCP是连接AI宿主与外部能力的标准协议，统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题，使MCP Server可以被多个Host复用。MCP不替模型决定业务策略，也不会自动解决权限、可信度和工具副作用，这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts：工具提供可调用操作，资源提供上下文数据，提示模板提供可复用消息构造。工具既可能只读，也可能产生副作用，不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息，模型并不直接解析网络协议。标准化降低重复集成成本，但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T004",
+        "interview-question://T006",
+        "interview-question://T008"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "MCP（Model Context Protocol）在通过统一接口把外部资源和工具接入助手时规范了哪些事情？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "MCP(Model Context Protocol)在通过统一接口把外部资源和工具接入助手时规范了哪些事情?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T004",
+                "interview-question://T006",
+                "interview-question://T008"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4536864493093651401,
+            "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+            "source": "interview-question://T004",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+            "vector_score": 0.9181038439273834,
+            "keyword_score": 0.9216356437906794,
+            "rerank_score": 0.9993778467178345
+          },
+          {
+            "id": 2,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.8889079093933105,
+            "keyword_score": 0.7993424850787779,
+            "rerank_score": 0.9201010465621948
+          },
+          {
+            "id": 3,
+            "chunk_id": 1010957861723506751,
+            "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+            "source": "interview-question://T008",
+            "domain": "llm-tool-calling",
+            "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+            "vector_score": 0.876564085483551,
+            "keyword_score": 0.6977409893597899,
+            "rerank_score": 0.8710195422172546
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 9.975,
+      "timings_seconds": {
+        "decomposition": 9.174778,
+        "retrieval": 0.253116,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.167517,
+        "vector_search": 0.022082,
+        "keyword_search": 0.062333,
+        "rerank": 0.546435,
+        "generation": 0.0,
+        "pipeline": 0.799885,
+        "total": 9.974663,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-072",
+      "subquestions": [
+        {
+          "question": "MCP（Model Context Protocol）在通过统一接口把外部资源和工具接入助手时规范了哪些事情？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 9.174778000000515
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 25.666,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

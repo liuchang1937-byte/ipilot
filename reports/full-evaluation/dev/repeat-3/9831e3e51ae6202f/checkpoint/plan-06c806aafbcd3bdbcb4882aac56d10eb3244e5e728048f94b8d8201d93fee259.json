@@ -1,0 +1,26 @@
+{
+  "case_id": "V2-097",
+  "subquestions": [
+    {
+      "question": "MCP（Model Context Protocol）解决什么连接问题？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在MCP架构中，Host的职责是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在MCP架构中，Client的职责是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在MCP架构中，Server的职责是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.3513851999996405
+}

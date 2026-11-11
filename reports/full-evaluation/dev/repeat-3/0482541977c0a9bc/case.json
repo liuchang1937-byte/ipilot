@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-007",
+      "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A007"
+      ],
+      "answerable": true,
+      "reference_answer": "先把目标转为可验证的交付物，再按信息依赖、工具边界或专业领域拆成子任务，并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划；拆得过细会增加通信成本。以技术调研为例，可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分，最后一部分依赖前面的证据。独立检索可并行，依赖同一业务状态的写入不能随意并行。每步返回结构化产物，使失败可以定位到局部并单独重试。是否改善效果，应比较任务成功率、返工率、总耗时与调用费用，不能把拆分后的局部准确率直接当成整体收益。",
+      "group": "A007",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

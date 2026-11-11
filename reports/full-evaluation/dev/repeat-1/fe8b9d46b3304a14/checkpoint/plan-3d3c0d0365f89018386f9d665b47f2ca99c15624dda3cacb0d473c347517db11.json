@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-023",
+  "subquestions": [
+    {
+      "question": "如何避免助手声称文件已经保存，但实际上没有任何工具执行记录的情况？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.0164540999994642
+}

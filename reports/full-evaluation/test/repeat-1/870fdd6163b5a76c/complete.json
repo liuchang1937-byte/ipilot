@@ -1,0 +1,779 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "6cc92060cac849b5a55698aace8298c7",
+  "created_at": "2026-10-12T15:17:13.268933+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "8fef5282dd25c472fca97db6dc3ec1fcb9b15e321f82a54d8a9682f95c888a00",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-1\\870fdd6163b5a76c\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.386,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.386,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.001696,
+          "p50": 4.001696,
+          "p95": 4.001696,
+          "max": 4.001696,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.383698,
+          "p50": 0.383698,
+          "p95": 0.383698,
+          "max": 0.383698,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.300358,
+          "p50": 0.300358,
+          "p95": 0.300358,
+          "max": 0.300358,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.023461,
+          "p50": 0.023461,
+          "p95": 0.023461,
+          "max": 0.023461,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.05849,
+          "p50": 0.05849,
+          "p95": 0.05849,
+          "max": 0.05849,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.383851,
+          "p50": 0.383851,
+          "p95": 0.383851,
+          "max": 0.383851,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.385547,
+          "p50": 4.385547,
+          "p95": 4.385547,
+          "max": 4.385547,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 22.838,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 22.838,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.001696,
+          "p50": 4.001696,
+          "p95": 4.001696,
+          "max": 4.001696,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 18.835923,
+          "p50": 18.835923,
+          "p95": 18.835923,
+          "max": 18.835923,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 5.649489,
+          "p50": 5.649489,
+          "p95": 5.649489,
+          "max": 5.649489,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 12.212013,
+          "p50": 12.212013,
+          "p95": 12.212013,
+          "max": 12.212013,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.665285,
+          "p50": 0.665285,
+          "p95": 0.665285,
+          "max": 0.665285,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.061005,
+          "p50": 0.061005,
+          "p95": 0.061005,
+          "max": 0.061005,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.243615,
+          "p50": 0.243615,
+          "p95": 0.243615,
+          "max": 0.243615,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 18.836071,
+          "p50": 18.836071,
+          "p95": 18.836071,
+          "max": 18.836071,
+          "samples": 1
+        },
+        "total": {
+          "mean": 22.837767,
+          "p50": 22.837767,
+          "p95": 22.837767,
+          "max": 22.837767,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-029",
+      "question": "文字送入模型前如何转换为token，分词方式为何影响长度与成本？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L005",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://L005"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Tokenizer将字符串转换为有限词表中的Token ID，模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合，并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费；解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符，一个词可能被拆成多个子词，字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中；推理时按既定规则编码，再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用，代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L005",
+        "interview-question://L001",
+        "interview-question://L006",
+        "interview-question://L012"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "文字送入模型前如何转换为token，分词方式为何影响长度与成本？",
+        "answer": "1. 文字送入大语言模型前如何转换为token？\n\n\n2. 大语言模型的分词方式为何会影响文本的token长度与模型使用成本？\n",
+        "sections": [
+          {
+            "question": "文字送入大语言模型前如何转换为token？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "文字送入大语言模型前如何转换为token?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L005",
+                "interview-question://L001",
+                "interview-question://L006"
+              ]
+            }
+          },
+          {
+            "question": "大语言模型的分词方式为何会影响文本的token长度与模型使用成本？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "大语言模型的分词方式为何会影响文本的token长度与模型使用成本?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L005",
+                "interview-question://L001",
+                "interview-question://L012"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.8264746069908142,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2711125243325661145,
+            "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+            "source": "interview-question://L001",
+            "domain": "llm-engineering",
+            "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+            "vector_score": 0.7785874009132385,
+            "keyword_score": 0.6779302892050618,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3102864813120224030,
+            "title": "大模型是怎么训练出来的?",
+            "source": "interview-question://L006",
+            "domain": "llm-engineering",
+            "content": "# 大模型是怎么训练出来的?\n\n题目编号:L006\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料,控制领域与语言配比,处理测试污染,再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识,工程上依靠分布式并行、混合精度、优化器和检查点,兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令;偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定,SFT 本身也属于后训练,部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名,还要说明每阶段解决什么问题;数据质量差或奖励定义错误时,增加训练步骤并不保证效果提升。\n\n评分要点:数据、预训练、后训练、评测和分布式工程。",
+            "vector_score": 0.7494217157363892,
+            "keyword_score": 0.6039127054426942,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.759087324142456,
+            "keyword_score": 0.39633651739900433,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.386,
+      "timings_seconds": {
+        "decomposition": 4.001696,
+        "retrieval": 0.383698,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.300358,
+        "vector_search": 0.023461,
+        "keyword_search": 0.05849,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.383851,
+        "total": 4.385547,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-029",
+      "question": "文字送入模型前如何转换为token，分词方式为何影响长度与成本？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L005",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L005"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Tokenizer将字符串转换为有限词表中的Token ID，模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合，并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费；解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符，一个词可能被拆成多个子词，字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中；推理时按既定规则编码，再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用，代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L005",
+        "interview-question://L001",
+        "interview-question://L012"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "文字送入模型前如何转换为token，分词方式为何影响长度与成本？",
+        "answer": "1. 文字送入大语言模型前如何转换为token？\n\n\n2. 大语言模型的分词方式为何会影响文本的token长度与模型使用成本？\n",
+        "sections": [
+          {
+            "question": "文字送入大语言模型前如何转换为token？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "文字送入大语言模型前如何转换为token?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型输入文本如何分词并转换为token?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM 文本预处理 tokenization 流程:从原始文字到 token ID"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型分词器原理 BPE WordPiece SentencePiece 文本转 token"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "文字送入大语言模型前,先由分词器 tokenizer 执行分词 tokenization:原始文本经 Unicode 规范化、清洗、预分词 pre-tokenization 后,按子词 subword 或字节 byte 切分为 token,再通过词表 vocabulary 映射为整数 token ID,形成 input_ids 张量。常见算法有字节对编码 BPE、byte-level BPE、WordPiece、Unigram、SentencePiece;BPE 迭代合并高频字符或字节对,WordPiece 用 ## 表示词内子词,SentencePiece 用 ▁ 表示空格并可直接从原始句子训练。中文、emoji、多语言文本常被拆成 UTF-8 字节或子词单元。分词后还会加入特殊 token,如 [CLS]、[SEP]、<s>、</s>、[PAD]、[UNK]、BOS/EOS,并截断或填充到固定上下文长度。LLM 通过嵌入矩阵 embedding matrix 将 token ID 转为向量输入 Transformer;输出端用同一词表逆映射 detokenization 还原文本。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L005",
+                "interview-question://L001",
+                "interview-question://L012"
+              ]
+            }
+          },
+          {
+            "question": "大语言模型的分词方式为何会影响文本的token长度与模型使用成本？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "大语言模型的分词方式为何会影响文本的token长度与模型使用成本?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型分词算法如何决定 token 长度并影响 API 使用成本"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "BPE、WordPiece、SentencePiece 分词方式对 token 数量、上下文窗口和推理费用的影响"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How does tokenization method affect LLM token length, context usage, and API cost?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "大语言模型的分词方式通过 tokenizer 的切分粒度直接决定同一文本的 token 长度,进而影响模型使用成本。BPE、WordPiece、SentencePiece、Unigram、byte-level BPE 等子词分词算法依据词表大小、合并规则和字节回退策略,将文本切分为词、子词、字符或 UTF-8 字节。若分词器词表较小或对中文、罕见词、专业术语、emoji、多语言文本切分较细,同一段文本会产生更多 token;若词表较大且高频词、短语被合并为单个 token,则 token 数减少。由于 API 计费通常按输入 token 与输出 token 数量计价,token 长度增加会直接提高调用成本;同时更长 token 序列会占用更多 context window,增加推理计算量、KV cache 显存、延迟和吞吐压力。因此,不同 tokenizer 对同一文本的 token count 不同,会显著影响 LLM 的上下文容量、推理效率与使用成本。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L005",
+                "interview-question://L001",
+                "interview-question://L012"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.8600505888462067,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2711125243325661145,
+            "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+            "source": "interview-question://L001",
+            "domain": "llm-engineering",
+            "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+            "vector_score": 0.7809547781944275,
+            "keyword_score": 0.6782654109257245,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.7780791521072388,
+            "keyword_score": 0.4120967885592851,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 22.838,
+      "timings_seconds": {
+        "decomposition": 4.001696,
+        "retrieval": 18.835923,
+        "mqe": 5.649489,
+        "hyde": 12.212013,
+        "embedding": 0.665285,
+        "vector_search": 0.061005,
+        "keyword_search": 0.243615,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 18.836071,
+        "total": 22.837767,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-029",
+      "subquestions": [
+        {
+          "question": "文字送入大语言模型前如何转换为token？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "大语言模型的分词方式为何会影响文本的token长度与模型使用成本？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 4.001696000002994
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 23.228,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

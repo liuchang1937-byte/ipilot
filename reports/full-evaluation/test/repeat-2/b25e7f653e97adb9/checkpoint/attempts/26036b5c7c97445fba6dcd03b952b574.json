@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-081",
+  "question": "MCP在本地进程与远程服务之间怎样传输消息？",
+  "category": "terminology",
+  "split": "test",
+  "group": "T013",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T013"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "本地MCP Server常通过stdio由Client作为子进程启动，延迟低且无需开放端口；远程服务推荐使用Streamable HTTP，便于多Client共享和集中管理。早期HTTP+SSE双端点方案已不再是新项目的首选。无论使用哪种传输，消息层都采用JSON-RPC 2.0，传输方式只决定消息如何到达。stdio 使用标准输入输出传递协议消息，普通日志应写到 stderr，避免污染消息流。远程 Streamable HTTP 使用 HTTP 请求传递消息，并可通过 SSE 推送多个事件；并不是所有响应都必须保持一个长连接。2025-11-25 版规范列出这两种标准传输，旧 HTTP+SSE 应按兼容需求处理。客户端还要管理连接生命周期、会话和取消；重连不会自动保证外部操作只执行一次。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T013",
+    "interview-question://T005",
+    "interview-question://T004"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "MCP在本地进程与远程服务之间怎样传输消息？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "MCP 在本地进程与远程服务之间怎样传输消息？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "MCP 在本地进程与远程服务之间怎样传输消息?"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP 本地进程与远程服务之间如何传输消息"
+            },
+            {
+              "kind": "mqe",
+              "text": "Model Context Protocol 本地进程 远程服务 消息传输 机制 transport"
+            },
+            {
+              "kind": "mqe",
+              "text": "MCP 通信协议 stdio SSE HTTP 本地进程 远程服务 消息传递"
+            },
+            {
+              "kind": "hyde",
+              "text": "MCP 通过传输层承载 JSON-RPC 2.0 消息,在本地进程与远程服务之间采用不同 transport。本地场景使用 stdio transport:客户端将 MCP server 作为子进程启动,通过标准输入/输出 stdin/stdout 交换换行分隔的 JSON-RPC 请求、响应和通知,每条消息为单行 JSON,stderr 仅用于日志。远程场景使用 Streamable HTTP 或 HTTP+SSE transport:客户端向 MCP endpoint 发送 HTTP POST JSON-RPC 请求,服务器可返回 application/json 或 text/event-stream SSE 流;客户端也可通过 GET 建立 SSE 长连接接收 server-to-client 消息。会话通常由 Mcp-Session-Id 请求头标识,支持事件 ID、断线重连和消息重放;消息内容包含 initialize 能力协商、tools/list、tools/call、resources/read、prompts/get、notifications 等 JSON-RPC 方法,并以 id 关联请求与响应。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T013",
+            "interview-question://T005",
+            "interview-question://T004"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 146725892672075800,
+        "title": "MCP 协议通常采用什么通信方式?",
+        "source": "interview-question://T013",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 协议通常采用什么通信方式?\n\n题目编号:T013\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:本地MCP Server常通过stdio由Client作为子进程启动,延迟低且无需开放端口;远程服务推荐使用Streamable HTTP,便于多Client共享和集中管理。早期HTTP+SSE双端点方案已不再是新项目的首选。无论使用哪种传输,消息层都采用JSON-RPC 2.0,传输方式只决定消息如何到达。stdio 使用标准输入输出传递协议消息,普通日志应写到 stderr,避免污染消息流。远程 Streamable HTTP 使用 HTTP 请求传递消息,并可通过 SSE 推送多个事件;并不是所有响应都必须保持一个长连接。2025-11-25 版规范列出这两种标准传输,旧 HTTP+SSE 应按兼容需求处理。客户端还要管理连接生命周期、会话和取消;重连不会自动保证外部操作只执行一次。\n\n评分要点:区分 JSON-RPC 消息语义与传输;说明 stdio、Streamable HTTP 和旧 HTTP+SSE 的兼容关系。",
+        "vector_score": 0.9165787696838379,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 319809831368975428,
+        "title": "MCP 由哪几部分组成?",
+        "source": "interview-question://T005",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+        "vector_score": 0.8599041402339935,
+        "keyword_score": 0.4165736064405803,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4536864493093651401,
+        "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+        "source": "interview-question://T004",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+        "vector_score": 0.8712435662746429,
+        "keyword_score": 0.27919519652291247,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 13.418,
+  "timings_seconds": {
+    "decomposition": 3.281348,
+    "retrieval": 10.136223,
+    "mqe": 2.750869,
+    "hyde": 6.70792,
+    "embedding": 0.528974,
+    "vector_search": 0.031561,
+    "keyword_search": 0.114602,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 10.136336,
+    "total": 13.417684,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

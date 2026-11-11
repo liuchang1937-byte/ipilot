@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-072",
+  "subquestions": [
+    {
+      "question": "MCP（模型上下文协议）规范了哪些事情，以通过统一接口把外部资源接入助手？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "MCP（模型上下文协议）规范了哪些事情，以通过统一接口把外部工具接入助手？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.795208100000309
+}

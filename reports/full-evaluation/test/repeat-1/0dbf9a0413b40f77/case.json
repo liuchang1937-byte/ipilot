@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-024",
+      "question": "给模型接数据库时，如何限制查询权限并防止敏感字段泄漏？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A024"
+      ],
+      "answerable": true,
+      "reference_answer": "不要把数据库高权限凭据直接交给模型，应通过受控数据访问层暴露允许的表、字段和查询模板，默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截，再在限时限量的隔离账号中执行；结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID，查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态，不由模型从用户文字中自行决定。能提供查订单等固定业务接口时，就不暴露任意 SQL；必须生成 SQL 时要解析语法树，限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入，不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏，写操作使用独立权限、事务和审计，并校验指标口径及时间范围，兼顾查询安全和答案正确性。",
+      "group": "T016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-035",
+      "question": "直接用偏好数据优化与基于奖励模型做PPO，有哪些训练差异？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L011"
+      ],
+      "answerable": true,
+      "reference_answer": "PPO式RLHF先训练奖励模型，再在线采样并通过策略梯度优化，同时用KL约束防止偏离参考模型，流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标，直接提高chosen相对rejected的概率，不需显式奖励模型，训练更稳定简单，但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型，训练流程较简单，但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案，还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价，选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。",
+      "group": "L010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

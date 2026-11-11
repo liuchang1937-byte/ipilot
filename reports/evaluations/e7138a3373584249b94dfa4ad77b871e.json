@@ -1,0 +1,215 @@
+{
+  "id": "e7138a3373584249b94dfa4ad77b871e",
+  "created_at": "2026-10-06T08:44:49.003880+00:00",
+  "dataset": {
+    "name": "资料不足引用回归 · K06",
+    "label_status": "seed_requires_human_review",
+    "sha256": "c1f8f8976c1fb2a7fa3bc6c25bee9cc3611f0cabb4174050ad4195ea287a5a67",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": 1,
+      "false_refusal_rate": null,
+      "mean_seconds": 64.054,
+      "p95_seconds": 64.054,
+      "degraded_cases": 1,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "K06",
+      "question": "本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值和对应 JVM 参数？请给出具体值。",
+      "category": "unanswerable",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "retrieved_sources": [
+        "interview-question://A020",
+        "interview-question://A015",
+        "interview-question://A021"
+      ],
+      "recall_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": true,
+      "false_refusal": null,
+      "result": {
+        "question": "本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值和对应 JVM 参数？请给出具体值。",
+        "answer": "1. 本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值？请给出具体值。\n当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。\n\n2. 本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值对应的 JVM 参数？请给出具体值。\n当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+        "sections": [
+          {
+            "question": "本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值？请给出具体值。",
+            "kind": "knowledge",
+            "answer": "当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+            "source_ids": [],
+            "insufficient": true,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值?请给出具体值。"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "本知识库是否给出 Java G1 垃圾收集器 Mixed GC 触发阈值 具体值"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "G1 Mixed GC 触发条件 InitiatingHeapOccupancyPercent IHOP 默认值"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Java G1 garbage collector Mixed GC trigger threshold InitiatingHeapOccupancyPercent default value"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "本知识库给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值:由 `-XX:InitiatingHeapOccupancyPercent` 控制,简称 IHOP,默认值为 45%。当整个 Java 堆占用率达到 45% 时,G1 启动并发标记周期,标记完成后进入 Mixed GC,混合回收年轻代和部分老年代 region。JDK 9 及以后支持自适应 IHOP,初始阈值仍为 45%。相关阈值包括 `-XX:G1HeapWastePercent` 默认 5%,用于判断可回收垃圾是否足以触发 Mixed GC;`-XX:G1MixedGCLiveThresholdPercent` 默认 85%,用于判断老年代 region 是否加入 Mixed GC 回收集合。"
+                }
+              ],
+              "warnings": [
+                "资料不足，本次已移除不能支撑回答的引用。"
+              ],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A020",
+                "interview-question://A015",
+                "interview-question://A021"
+              ]
+            }
+          },
+          {
+            "question": "本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值对应的 JVM 参数？请给出具体值。",
+            "kind": "knowledge",
+            "answer": "当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+            "source_ids": [],
+            "insufficient": true,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值对应的 JVM 参数?请给出具体值。"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "本知识库是否给出 Java G1 垃圾收集器 Mixed GC 触发阈值对应的 JVM 参数及具体值"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "G1 Mixed GC 触发条件 InitiatingHeapOccupancyPercent IHOP 默认值 45"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Java G1 GC Mixed GC trigger threshold JVM option -XX:InitiatingHeapOccupancyPercent default value"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "本知识库给出了 Java G1 垃圾收集器 Mixed GC 触发阈值对应的 JVM 参数:`-XX:InitiatingHeapOccupancyPercent`,简称 IHOP,默认值为 45,即堆占用率达到 45% 时启动并发标记周期,随后进入 Mixed GC 回收阶段。JDK 9 及以上默认启用 `-XX:+UseAdaptiveIHOP`,IHOP 可自适应调整,初始阈值仍为 45;可显式设置如 `-XX:InitiatingHeapOccupancyPercent=45`。若指 Mixed GC 可选回收集合中老年代 region 的存活率阈值,则为 `-XX:G1MixedGCLiveThresholdPercent`,默认值 85。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A020",
+                "interview-question://A015",
+                "interview-question://A021"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "warnings": [
+          "资料不足，本次已移除不能支撑回答的引用。"
+        ],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        }
+      },
+      "error": null,
+      "elapsed_seconds": 64.054,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "K06",
+      "subquestions": [
+        {
+          "question": "本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值？请给出具体值。",
+          "kind": "knowledge"
+        },
+        {
+          "question": "本知识库是否给出了 Java G1 垃圾收集器的 Mixed GC 触发阈值对应的 JVM 参数？请给出具体值。",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 7.136
+    }
+  ],
+  "notes": [
+    "内置案例为人工复核前的种子标注，不代表生产基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。"
+  ]
+}

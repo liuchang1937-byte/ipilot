@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-073",
+  "subquestions": [
+    {
+      "question": "MCP中的Host承担什么职责？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "MCP中的Client承担什么职责？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "MCP中的Server承担什么职责？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.2383590000008553
+}

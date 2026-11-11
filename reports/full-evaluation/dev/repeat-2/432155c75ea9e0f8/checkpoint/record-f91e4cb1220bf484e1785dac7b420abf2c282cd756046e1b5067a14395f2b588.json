@@ -1,0 +1,223 @@
+{
+  "case_id": "V2-066",
+  "question": "资料修改或删除后，怎样让关键词与向量索引持续保持最新？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "R019",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R019"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "为来源建立稳定ID、版本和内容哈希，通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding，并以新版本原子替换旧索引；删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换，以支持回滚。更新流程应覆盖新增、修改与删除：检测变更后做解析和内容校验，只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证，再原子切换可见版本，避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步，缓存要失效，删除要清理残留表示。模型或切块规则变化需要索引版本管理，不能把不同向量空间的数据混用。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R019",
+    "interview-question://R009",
+    "interview-question://R010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "资料修改或删除后，怎样让关键词与向量索引持续保持最新？",
+    "answer": "1. 资料修改后，怎样让关键词索引持续保持最新？\n\n\n2. 资料修改后，怎样让向量索引持续保持最新？\n\n\n3. 资料删除后，怎样让关键词索引持续保持最新？\n\n\n4. 资料删除后，怎样让向量索引持续保持最新？\n",
+    "sections": [
+      {
+        "question": "资料修改后，怎样让关键词索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料修改后,怎样让关键词索引持续保持最新?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://R019"
+          ]
+        }
+      },
+      {
+        "question": "资料修改后，怎样让向量索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料修改后,怎样让向量索引持续保持最新?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R009",
+            "interview-question://R010"
+          ]
+        }
+      },
+      {
+        "question": "资料删除后，怎样让关键词索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料删除后,怎样让关键词索引持续保持最新?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 2,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R010"
+          ]
+        }
+      },
+      {
+        "question": "资料删除后，怎样让向量索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料删除后,怎样让向量索引持续保持最新?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R009",
+            "interview-question://R010"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4501121176323650097,
+        "title": "RAG 知识库如何实现动态与持续更新?",
+        "source": "interview-question://R019",
+        "domain": "rag",
+        "content": "# RAG 知识库如何实现动态与持续更新?\n\n题目编号:R019\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:为来源建立稳定ID、版本和内容哈希,通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding,并以新版本原子替换旧索引;删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换,以支持回滚。更新流程应覆盖新增、修改与删除:检测变更后做解析和内容校验,只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证,再原子切换可见版本,避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步,缓存要失效,删除要清理残留表示。模型或切块规则变化需要索引版本管理,不能把不同向量空间的数据混用。\n\n评分要点:覆盖新增、修改、删除与元数据变更;说明增量索引、版本切换、缓存失效和向量空间兼容性。",
+        "vector_score": 0.8315577805042267,
+        "keyword_score": 1.0,
+        "rerank_score": 0.8172832727432251
+      },
+      {
+        "id": 2,
+        "chunk_id": 2886579831854676340,
+        "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+        "source": "interview-question://R009",
+        "domain": "rag",
+        "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+        "vector_score": 0.7832827568054199,
+        "keyword_score": 0.408468685883481,
+        "rerank_score": 0.10621101409196854
+      },
+      {
+        "id": 3,
+        "chunk_id": 4411062690451180658,
+        "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+        "source": "interview-question://R010",
+        "domain": "rag",
+        "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+        "vector_score": 0.7331752777099609,
+        "keyword_score": 0.5215045085891827,
+        "rerank_score": 0.08206338435411453
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 9.335,
+  "timings_seconds": {
+    "decomposition": 5.675998,
+    "retrieval": 1.148946,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.752127,
+    "vector_search": 0.106795,
+    "keyword_search": 0.283859,
+    "rerank": 2.508761,
+    "generation": 0.0,
+    "pipeline": 3.658617,
+    "total": 9.334615,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 4,
+    "embedding_texts": 4,
+    "chat_calls": 0,
+    "rerank_calls": 4,
+    "rerank_pairs": 48
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

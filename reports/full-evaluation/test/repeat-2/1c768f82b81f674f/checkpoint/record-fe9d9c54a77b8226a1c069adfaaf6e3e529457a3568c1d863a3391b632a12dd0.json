@@ -1,0 +1,230 @@
+{
+  "case_id": "V2-085",
+  "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "T017",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T017"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索得到小候选集，再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如，先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义；相似工具要有明确区分。权限过滤在执行时再次校验，路由正确不代表获得授权，评测还要覆盖容易混淆与无适用工具的请求。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T017",
+    "interview-question://T002",
+    "interview-question://L016",
+    "interview-question://T007",
+    "interview-question://T018"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+    "answer": "1. 在工具目录很大的情况下，把所有工具的Schema放进提示中会有什么问题？\n\n\n2. 在工具目录很大的情况下，如何按需选择工具？\n",
+    "sections": [
+      {
+        "question": "在工具目录很大的情况下，把所有工具的Schema放进提示中会有什么问题？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在工具目录很大的情况下,把所有工具的Schema放进提示中会有什么问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "工具目录很大时,把所有工具的 Schema 都放入提示中会带来哪些问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大规模工具集中将全部工具定义/Schema 注入 LLM 提示词的缺点:上下文窗口、Token 成本、延迟、准确率与工具选择影响"
+            },
+            {
+              "kind": "mqe",
+              "text": "large tool catalog putting all tool schemas in prompt problems token limits latency accuracy tool selection retrieval"
+            },
+            {
+              "kind": "hyde",
+              "text": "当工具目录规模很大时,将全部工具的 JSON Schema/OpenAPI 描述全量注入提示会导致上下文窗口饱和、token 开销线性增长、KV Cache 与推理显存占用上升、首 token 延迟和端到端延迟增加、API 成本升高;长上下文还会引发注意力稀释和 lost-in-the-middle,使 LLM 难以定位相关工具,造成工具选择准确率下降、错误调用、参数幻觉和 schema 混淆;不同工具的命名、字段、枚举重叠会加剧歧义,超出最大上下文时发生截断,丢失关键 schema 或系统指令;同时全量 schema 的同步维护、版本管理和安全暴露面问题恶化,不利于大规模工具目录的可扩展检索、路由与按需加载。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T017",
+            "interview-question://T002",
+            "interview-question://L016"
+          ]
+        }
+      },
+      {
+        "question": "在工具目录很大的情况下，如何按需选择工具？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在工具目录很大的情况下,如何按需选择工具?"
+            },
+            {
+              "kind": "mqe",
+              "text": "在工具目录很大的情况下 如何按需选择工具"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型 Agent 海量工具库 动态检索 与 按需调用 工具选择方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM agent large tool catalog dynamic tool retrieval and selection methods"
+            },
+            {
+              "kind": "hyde",
+              "text": "当工具目录很大时,按需选择工具通常采用工具检索增强生成(Tool RAG)与动态工具加载:为每个工具构建包含名称、描述、参数 Schema、能力标签、领域、示例、权限、成本与延迟的索引,通过嵌入模型写入向量数据库;用户请求经意图识别与查询改写后,用语义向量检索、BM25 混合检索和元数据过滤召回候选工具,再用交叉编码器重排序得到 Top-k;LLM 根据工具描述、参数约束、依赖关系、执行成本与权限选择或组合工具调用,仅将选中工具的 Schema 注入上下文,避免全量工具提示膨胀;可结合分层路由、工具聚类、能力分类器、工具图谱、缓存、置信度阈值、澄清提问与回退策略提升大规模工具目录下的按需选择效率与准确率。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T017",
+            "interview-question://T007",
+            "interview-question://T018"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 108826138093358449,
+        "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+        "source": "interview-question://T017",
+        "domain": "llm-tool-calling",
+        "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+        "vector_score": 0.8849673271179199,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1074467055826810929,
+        "title": "LLM 是如何学会调用外部工具的?",
+        "source": "interview-question://T002",
+        "domain": "llm-tool-calling",
+        "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+        "vector_score": 0.8130738139152527,
+        "keyword_score": 0.9806824470878492,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3377336774797257112,
+        "title": "如何写好 Prompt?分享下 Prompt 工程实践经验?",
+        "source": "interview-question://L016",
+        "domain": "llm-engineering",
+        "content": "# 如何写好 Prompt?分享下 Prompt 工程实践经验?\n\n题目编号:L016\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:先明确角色、目标、输入数据、约束、输出Schema和失败行为,再提供少量代表性示例。把可信指令与外部文本分隔,要求信息不足时拒答,并对结构化输出做程序校验。Prompt应版本化,在固定评测集上比较正确率、格式率、成本和稳定性,避免只凭几个示例调词。例如,要求系统从资料回答时,应明确哪些内容是证据、哪些是指令,以及证据不足如何处理;要求 JSON 时,应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入,而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测,记录模型版本和参数。提示能引导行为,但权限、业务规则和外部动作仍由代码强制执行。\n\n评分要点:结构、边界、示例、校验、版本与评测。",
+        "vector_score": 0.79273521900177,
+        "keyword_score": 0.7070668627532518,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.8008280098438263,
+        "keyword_score": 0.6894173831611452,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 3035522643108457551,
+        "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+        "source": "interview-question://T018",
+        "domain": "llm-tool-calling",
+        "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+        "vector_score": 0.7967196106910706,
+        "keyword_score": 0.6434996928710373,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 22.787,
+  "timings_seconds": {
+    "decomposition": 3.206306,
+    "retrieval": 19.580067,
+    "mqe": 7.185242,
+    "hyde": 11.411476,
+    "embedding": 0.693251,
+    "vector_search": 0.05719,
+    "keyword_search": 0.228151,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 19.580213,
+    "total": 22.78652,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

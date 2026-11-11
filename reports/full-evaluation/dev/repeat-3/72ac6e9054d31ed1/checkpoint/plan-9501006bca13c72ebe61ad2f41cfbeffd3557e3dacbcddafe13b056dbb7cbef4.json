@@ -1,0 +1,30 @@
+{
+  "case_id": "V2-021",
+  "subquestions": [
+    {
+      "question": "一次任务耗时突然翻倍时，如何从执行轨迹定位慢在哪一环？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "一次任务耗时突然翻倍时，执行轨迹中应查看哪些关键信息来判断各环节的耗时变化？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "一次任务耗时突然翻倍时，如何对比正常与异常执行轨迹来定位具体变慢的环节？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "一次任务耗时突然翻倍时，如何从执行轨迹区分是单个环节变慢还是多个环节共同导致耗时翻倍？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "一次任务耗时突然翻倍时，如何根据执行轨迹确定慢环节发生在哪个阶段、步骤、调用或等待过程？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.537249200000588
+}

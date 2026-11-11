@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-072",
+      "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T004"
+      ],
+      "answerable": true,
+      "reference_answer": "MCP是连接AI宿主与外部能力的标准协议，统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题，使MCP Server可以被多个Host复用。MCP不替模型决定业务策略，也不会自动解决权限、可信度和工具副作用，这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts：工具提供可调用操作，资源提供上下文数据，提示模板提供可复用消息构造。工具既可能只读，也可能产生副作用，不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息，模型并不直接解析网络协议。标准化降低重复集成成本，但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。",
+      "group": "T004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

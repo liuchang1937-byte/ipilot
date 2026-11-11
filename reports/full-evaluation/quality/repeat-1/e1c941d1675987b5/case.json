@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-063",
+      "question": "问题要沿实体依赖关系查多跳路径，图检索比纯向量有什么优势？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R016"
+      ],
+      "answerable": true,
+      "reference_answer": "当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时，图数据库更有优势，例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档，再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答，构图、实体消歧和持续更新成本可能大于收益。例如，查询某服务故障可能影响哪些下游系统，答案需要沿依赖关系收集节点，而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源，再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题，引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本，应在多跳任务上证明收益，并保留关系的证据来源。",
+      "group": "R016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

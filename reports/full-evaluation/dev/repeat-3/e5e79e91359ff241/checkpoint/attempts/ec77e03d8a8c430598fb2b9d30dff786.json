@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-002",
+  "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A001",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://A002"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策；工具负责搜索、执行代码或调用API，使Agent能够作用于外部环境；记忆保存对话和任务状态；规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为：用户目标进入规划模块，规划结果与已有状态组成模型上下文，模型选择工具，执行器校验参数并运行，结果写回状态和记忆，模型再判断是否继续。记忆不能只保存聊天文本，还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器，它负责停止条件、异常处理和检查点，避免模型输出了计划却没有执行。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A002",
+    "interview-question://A014",
+    "interview-question://A005"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "从零实现任务助手时，除模型之外，需要规划、工具以及哪些其他模块？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "从零实现任务助手时,除模型之外,需要规划、工具以及哪些其他模块?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A002",
+            "interview-question://A014",
+            "interview-question://A005"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1979822055872710034,
+        "title": "Agent 的基本架构由哪些核心组件构成?",
+        "source": "interview-question://A002",
+        "domain": "agent",
+        "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+        "vector_score": 0.8183245658874512,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 888008174752367641,
+        "title": "如何赋予 LLM 规划能力?",
+        "source": "interview-question://A014",
+        "domain": "agent",
+        "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+        "vector_score": 0.8089552521705627,
+        "keyword_score": 0.5590959857934835,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 320541557706665564,
+        "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+        "source": "interview-question://A005",
+        "domain": "agent",
+        "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+        "vector_score": 0.7653695344924927,
+        "keyword_score": 0.5239842232938435,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 12.248,
+  "timings_seconds": {
+    "decomposition": 11.964503,
+    "retrieval": 0.283133,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.192971,
+    "vector_search": 0.023692,
+    "keyword_search": 0.0651,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.283329,
+    "total": 12.247832,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

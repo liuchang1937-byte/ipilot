@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-083",
+  "subquestions": [
+    {
+      "question": "实时语音助手为何考虑WebRTC？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "实时语音助手在WebRTC与WebSocket之间的传输取舍是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.7647603999976127
+}

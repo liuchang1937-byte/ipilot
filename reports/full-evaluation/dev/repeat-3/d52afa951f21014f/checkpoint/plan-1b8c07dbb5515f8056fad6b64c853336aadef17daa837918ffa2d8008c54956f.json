@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-109",
+  "subquestions": [
+    {
+      "question": "请提供不存在于题库的 ZetaEmbed-2027 模型的官方中文评测分数。",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.8977594999996654
+}

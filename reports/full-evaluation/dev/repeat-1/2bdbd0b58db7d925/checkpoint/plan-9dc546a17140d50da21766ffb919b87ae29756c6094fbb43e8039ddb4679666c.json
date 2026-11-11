@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-090",
+  "subquestions": [
+    {
+      "question": "对话服务重启时，如何恢复阶段？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "对话服务中工具请求失败重试时，如何避免重复执行？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.8331235999994533
+}

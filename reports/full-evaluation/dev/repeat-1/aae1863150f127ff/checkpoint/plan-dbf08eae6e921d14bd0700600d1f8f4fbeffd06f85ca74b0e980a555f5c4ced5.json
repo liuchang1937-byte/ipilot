@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-080",
+  "subquestions": [
+    {
+      "question": "在助手之间交接任务的场景中，A2A与MCP的边界是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在助手访问工具的场景中，A2A与MCP的边界是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 9.127929599999334
+}

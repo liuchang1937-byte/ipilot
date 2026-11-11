@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-095",
+  "subquestions": [
+    {
+      "question": "关键词召回与向量召回各适合解决什么问题？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "关键词召回与向量召回得到的两个结果列表如何融合？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.8452787999995053
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-015",
+      "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A015"
+      ],
+      "answerable": true,
+      "reference_answer": "反思是让 Agent 根据目标、轨迹和结果识别错误，再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发；实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议，再将结论写入状态并重试。为避免无限自省，应限制次数和Token预算，要求每次反思产生可验证的新动作，没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充。反思可能重复相同偏差或引入新错误，因此需要最大次数、质量变化阈值和停止条件，不是次数越多越准确。",
+      "group": "A015",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-047",
+      "question": "资料明明在长提示里却被忽略，为什么中间位置容易丢失信息？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L023"
+      ],
+      "answerable": true,
+      "reference_answer": "模型对上下文不同位置的利用不均，常更关注开头和结尾，中间证据可能因位置偏差、注意力稀释和训练分布不足被忽略。更大窗口只能表示“放得下”，不代表能稳定使用，还会增加预填充延迟和成本。可通过检索筛选、重排、分层摘要和把关键证据靠近问题缓解，并用不同位置的针测试和真实长文问答评测。可以把相同证据分别放在开头、中间和末尾，逐步增加无关文本，比较正确率和引用准确性；还要测试跨段关联，不能只用找一个关键词的针测试代替真实任务。改善手段包括检索筛选、分层摘要、相关证据重排与清晰分区，但不能把重复灌入大量信息当作通用解法。更大窗口有时能减少检索遗漏，也会增加处理与维护成本，选择应依据有效上下文表现而不是输入上限。",
+      "group": "L023",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

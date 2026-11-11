@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-032",
+      "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L008"
+      ],
+      "answerable": true,
+      "reference_answer": "微调通常不是第一选择，应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式，或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA；资源有限时LoRA/QLoRA最常用。SFT负责指令行为，有偏好对齐需求时还可使用DPO等方法，最终按数据、硬件和部署目标选型。全量微调更新大部分权重，容量较大但显存和优化器状态开销高；PEFT 只更新少量新增或选定参数，适合资源受限场景。QLoRA 将基座权重低比特存储，同时训练低秩适配器，不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式，LoRA 是参数更新方式，两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本，动态事实通常继续通过检索提供。",
+      "group": "L008",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

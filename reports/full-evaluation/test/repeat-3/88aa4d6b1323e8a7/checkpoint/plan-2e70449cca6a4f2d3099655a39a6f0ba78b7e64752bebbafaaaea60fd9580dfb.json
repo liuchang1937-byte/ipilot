@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-035",
+  "subquestions": [
+    {
+      "question": "直接用偏好数据优化与基于奖励模型做PPO在训练上有哪些差异？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.647899499999767
+}

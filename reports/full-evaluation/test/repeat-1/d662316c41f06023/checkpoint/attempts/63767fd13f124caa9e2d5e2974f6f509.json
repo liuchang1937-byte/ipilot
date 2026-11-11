@@ -1,0 +1,236 @@
+{
+  "case_id": "V2-043",
+  "question": "混合专家模型为何只激活部分参数，路由和负载均衡有哪些代价？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "L019",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L019"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "MoE在每层设置多个专家网络，由路由器为每个Token选择少数专家计算，因此总参数可以很大而单Token激活参数较少，提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量，而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家，路由器为每个 Token 选择少量专家，注意力等其他模块可能仍是共享的。专家是可训练的网络参数，并不天然对应一个具有人格的 Agent，也不等于多 Agent 协作。总参数与激活参数不同，但部署仍需要存放或分发大量专家权重，跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE，讨论优势必须限定具体架构与实际硬件条件。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L019",
+    "interview-question://L018",
+    "interview-question://L022",
+    "interview-question://A016",
+    "interview-question://T017",
+    "interview-question://A010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "混合专家模型为何只激活部分参数，路由和负载均衡有哪些代价？",
+    "answer": "1. 混合专家模型为何只激活部分参数？\n\n\n2. 混合专家模型中的路由机制有哪些代价？\n\n\n3. 混合专家模型中的负载均衡有哪些代价？\n",
+    "sections": [
+      {
+        "question": "混合专家模型为何只激活部分参数？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "混合专家模型为何只激活部分参数?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L019",
+            "interview-question://L018",
+            "interview-question://L022"
+          ]
+        }
+      },
+      {
+        "question": "混合专家模型中的路由机制有哪些代价？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "混合专家模型中的路由机制有哪些代价?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L019",
+            "interview-question://A016",
+            "interview-question://T017"
+          ]
+        }
+      },
+      {
+        "question": "混合专家模型中的负载均衡有哪些代价？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "混合专家模型中的负载均衡有哪些代价?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L019",
+            "interview-question://L022",
+            "interview-question://A010"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3942832683636186050,
+        "title": "MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?",
+        "source": "interview-question://L019",
+        "domain": "llm-engineering",
+        "content": "# MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?\n\n题目编号:L019\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MoE在每层设置多个专家网络,由路由器为每个Token选择少数专家计算,因此总参数可以很大而单Token激活参数较少,提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量,而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家,路由器为每个 Token 选择少量专家,注意力等其他模块可能仍是共享的。专家是可训练的网络参数,并不天然对应一个具有人格的 Agent,也不等于多 Agent 协作。总参数与激活参数不同,但部署仍需要存放或分发大量专家权重,跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE,讨论优势必须限定具体架构与实际硬件条件。\n\n评分要点:稀疏激活、路由、容量收益和系统代价。",
+        "vector_score": 0.7728127837181091,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3477555688369766113,
+        "title": "大模型为什么会出现幻觉?怎么缓解?",
+        "source": "interview-question://L018",
+        "domain": "llm-engineering",
+        "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+        "vector_score": 0.7374564707279205,
+        "keyword_score": 0.17744543782004032,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.7500036954879761,
+        "keyword_score": 0.29954329387876005,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2769771559713974979,
+        "title": "如何设计多 Agent 的协作与动态切换机制?",
+        "source": "interview-question://A016",
+        "domain": "agent",
+        "content": "# 如何设计多 Agent 的协作与动态切换机制?\n\n题目编号:A016\n\n领域:agent\n\n难度:3\n\n标签:Agent 路由、任务交接、协议\n- 考察方向:能力描述、上下文传递、结果契约及动态切换。\n\n参考答案:多Agent协作主要依靠消息传递和共享状态:前者把上一个Agent的产物交给下一个,后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。同步协作可用结构化调用,长任务可用消息队列和任务表,所有路径都由协调器追踪。动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。共享状态应通过受控更新接口提交,不能让多个 Agent 随意覆盖同一份任务记录。\n\n评分要点:角色契约、路由依据、上下文交接和故障接管完整。",
+        "vector_score": 0.769241988658905,
+        "keyword_score": 0.3596425282422908,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 108826138093358449,
+        "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+        "source": "interview-question://T017",
+        "domain": "llm-tool-calling",
+        "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+        "vector_score": 0.7624331414699554,
+        "keyword_score": 0.3260567328926955,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 2175414725624058958,
+        "title": "什么是 Multi-Agent?",
+        "source": "interview-question://A010",
+        "domain": "agent",
+        "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+        "vector_score": 0.7279853224754333,
+        "keyword_score": 0.27209796194237357,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.449,
+  "timings_seconds": {
+    "decomposition": 4.738201,
+    "retrieval": 0.710535,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.584175,
+    "vector_search": 0.038799,
+    "keyword_search": 0.085505,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.710705,
+    "total": 5.448906,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

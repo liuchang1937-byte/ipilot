@@ -1,0 +1,172 @@
+{
+  "case_id": "V2-018",
+  "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "A018",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://A018"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A018",
+    "interview-question://A022",
+    "interview-question://A023"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+    "answer": "1. 对话进行到一半时服务重启，如何恢复任务阶段？\n\n\n2. 对话进行到一半时服务重启，如何防止任务重复执行？\n",
+    "sections": [
+      {
+        "question": "对话进行到一半时服务重启，如何恢复任务阶段？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对话进行到一半时服务重启,如何恢复任务阶段?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://A018"
+          ]
+        }
+      },
+      {
+        "question": "对话进行到一半时服务重启，如何防止任务重复执行？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对话进行到一半时服务重启,如何防止任务重复执行?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A018",
+            "interview-question://A022",
+            "interview-question://A023"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2584544441468433340,
+        "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+        "source": "interview-question://A018",
+        "domain": "agent",
+        "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+        "vector_score": 0.809306263923645,
+        "keyword_score": 1.0,
+        "rerank_score": 0.2591559588909149
+      },
+      {
+        "id": 2,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.7964293658733368,
+        "keyword_score": 0.712440051442926,
+        "rerank_score": 0.18153268098831177
+      },
+      {
+        "id": 3,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.7449139654636383,
+        "keyword_score": 0.47699405381310767,
+        "rerank_score": 0.16485819220542908
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.178,
+  "timings_seconds": {
+    "decomposition": 4.127712,
+    "retrieval": 0.383694,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.294372,
+    "vector_search": 0.026706,
+    "keyword_search": 0.06085,
+    "rerank": 0.666125,
+    "generation": 0.0,
+    "pipeline": 1.05011,
+    "total": 5.177822,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

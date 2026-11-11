@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-096",
+  "subquestions": [
+    {
+      "question": "模型幻觉有哪些成因？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "有检索资料时，怎样约束模型的回答与拒答？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 13.724627200001123
+}

@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-069",
+  "subquestions": [
+    {
+      "question": "模型给出函数名与参数之后，谁真正执行函数并回填结果？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 14.911896999999954
+}

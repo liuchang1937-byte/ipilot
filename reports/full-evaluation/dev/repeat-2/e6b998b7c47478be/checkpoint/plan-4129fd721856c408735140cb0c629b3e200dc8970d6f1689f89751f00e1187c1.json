@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-071",
+  "subquestions": [
+    {
+      "question": "训练一个可靠工具调用模型需要哪些数据？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "训练一个可靠工具调用模型需要哪些执行反馈？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.0419965000000957
+}

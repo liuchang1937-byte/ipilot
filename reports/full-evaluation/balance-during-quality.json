@@ -1,0 +1,9 @@
+{
+  "is_available": true,
+  "balance_infos": [
+    {
+      "currency": "CNY",
+      "total_balance": "6.13"
+    }
+  ]
+}

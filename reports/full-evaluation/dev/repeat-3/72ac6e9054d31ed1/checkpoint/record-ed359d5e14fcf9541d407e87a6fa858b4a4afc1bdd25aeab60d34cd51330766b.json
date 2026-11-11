@@ -1,0 +1,356 @@
+{
+  "case_id": "V2-021",
+  "question": "一次任务耗时突然翻倍，如何从执行轨迹定位慢在哪一环？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "A021",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A021"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "为一次任务建立统一Trace ID，并为模型调用、检索、重排、工具、数据库、重试和排队创建Span，记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径，再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环，并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时，再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模，通过慢请求与正常请求对比找关键路径。若慢在工具排队，换模型不会解决；若步数膨胀，则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率，不能用牺牲回答质量换来的速度作为唯一成果。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A021",
+    "interview-question://A020",
+    "interview-question://A007",
+    "interview-question://R009",
+    "interview-question://A022"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "一次任务耗时突然翻倍，如何从执行轨迹定位慢在哪一环？",
+    "answer": "1. 一次任务耗时突然翻倍时，如何从执行轨迹定位慢在哪一环？\n\n\n2. 一次任务耗时突然翻倍时，执行轨迹中应查看哪些关键信息来判断各环节的耗时变化？\n\n\n3. 一次任务耗时突然翻倍时，如何对比正常与异常执行轨迹来定位具体变慢的环节？\n\n\n4. 一次任务耗时突然翻倍时，如何从执行轨迹区分是单个环节变慢还是多个环节共同导致耗时翻倍？\n\n\n5. 一次任务耗时突然翻倍时，如何根据执行轨迹确定慢环节发生在哪个阶段、步骤、调用或等待过程？\n",
+    "sections": [
+      {
+        "question": "一次任务耗时突然翻倍时，如何从执行轨迹定位慢在哪一环？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "一次任务耗时突然翻倍时,如何从执行轨迹定位慢在哪一环?"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务耗时突然翻倍 如何从执行轨迹定位慢在哪一环"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务耗时翻倍 执行轨迹分析 定位性能瓶颈 慢环节 链路追踪"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务执行时间翻倍 排查 关键路径 火焰图 trace 耗时分解 定位延迟"
+            },
+            {
+              "kind": "hyde",
+              "text": "当一次任务耗时突然翻倍时,按 traceID 拉取慢请求的执行轨迹,与基线 trace 做差分对比,使用 waterfall、flame graph 和 critical path analysis 定位关键路径。逐层检查 parent span、child span、span.duration、self time/exclusive time、child time 和 span 间 gap:若某 span 的 exclusive time 显著升高,说明慢在该环节自身计算、锁竞争、GC、序列化或本地 I/O;若 child span 或下游 RPC/DB/cache span 的 P99 上升,则慢在下游依赖、慢 SQL、网络延迟或重试;若 span 间 gap 变大,则关注线程池排队、调度延迟、异步回调、消息队列积压、连接池等待或超时重试。结合 span.kind、operation、service、tags、events、retry/timeout 标记和新增 span,可区分排队、执行、等待、重试四类耗时,最终锁定耗时翻倍的具体环节。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A021",
+            "interview-question://A020",
+            "interview-question://A007"
+          ]
+        }
+      },
+      {
+        "question": "一次任务耗时突然翻倍时，执行轨迹中应查看哪些关键信息来判断各环节的耗时变化？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "一次任务耗时突然翻倍时,执行轨迹中应查看哪些关键信息来判断各环节的耗时变化?"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务耗时突然翻倍 执行轨迹 应查看哪些关键信息 判断各环节耗时变化"
+            },
+            {
+              "kind": "mqe",
+              "text": "执行轨迹 耗时分析 任务延迟翻倍 阶段耗时 排查方法 关键指标"
+            },
+            {
+              "kind": "mqe",
+              "text": "task duration doubled execution trace key information identify latency change per stage"
+            },
+            {
+              "kind": "hyde",
+              "text": "当任务耗时突然翻倍时,在 trace 执行轨迹中查看根 span 总 latency 和 waterfall/flame graph,按 span 树分解各 child span 的 duration、start_time、end_time、self_time、critical_path、parent_span_id、span.kind、service.name、operation、peer.service、http.route、rpc.method、db.statement、messaging.destination 等字段,并与基线对比各阶段耗时占比、绝对增量、P50/P95/P99 和 span 数量变化。重点检查串行链路中的最长 span、并行分支中的最慢分支、span 间 gap、queue wait、scheduling delay、thread pool/connection pool wait、lock wait、GC pause、CPU throttling、network RTT、重试、超时和序列化/反序列化开销;结合 span events、annotations、status/error、logs、metrics 及 trace_id/span_id 关联,区分 self-time 上升与下游 child span 传导,定位耗时变化发生在客户端、服务端、中间件、数据库、缓存还是外部 API。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A021",
+            "interview-question://A020",
+            "interview-question://A007"
+          ]
+        }
+      },
+      {
+        "question": "一次任务耗时突然翻倍时，如何对比正常与异常执行轨迹来定位具体变慢的环节？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "一次任务耗时突然翻倍时,如何对比正常与异常执行轨迹来定位具体变慢的环节?"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务耗时突然翻倍 如何对比正常与异常执行轨迹 定位具体变慢环节"
+            },
+            {
+              "kind": "mqe",
+              "text": "调用链追踪 正常异常 trace 对比 性能瓶颈定位 耗时突增"
+            },
+            {
+              "kind": "mqe",
+              "text": "execution trace comparison normal vs abnormal latency doubled find slow stage"
+            },
+            {
+              "kind": "hyde",
+              "text": "采集同一任务正常与异常运行的分布式追踪数据,按 traceId、spanId、parentSpanId、operationName、serviceName 对齐调用树。计算每个 span 的 duration、self time/exclusive time、子 span 总耗时、start/end 时间差与父子间隙 gap。构建基线 trace 与异常 trace 的 waterfall、调用树 diff、差分火焰图 differential flame graph,按 duration 增量 Δt、增幅 ratio、对端到端 critical path 贡献度排序。重点检查排队等待 queue wait、线程池饱和、锁竞争、GC pause、CPU throttling、I/O wait、网络 RTT、序列化/反序列化、数据库慢查询、缓存未命中、重试 retry 与下游依赖 span。结合 span events/logs、continuous profiling、p99 latency 与资源指标,定位变慢的具体环节和瓶颈。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A021",
+            "interview-question://A020",
+            "interview-question://R009"
+          ]
+        }
+      },
+      {
+        "question": "一次任务耗时突然翻倍时，如何从执行轨迹区分是单个环节变慢还是多个环节共同导致耗时翻倍？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "一次任务耗时突然翻倍时,如何从执行轨迹区分是单个环节变慢还是多个环节共同导致耗时翻倍?"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务耗时突然翻倍 如何从执行轨迹区分是单个环节变慢还是多个环节共同导致耗时翻倍"
+            },
+            {
+              "kind": "mqe",
+              "text": "分布式链路追踪 耗时突增 根因分析 单点瓶颈 多阶段延迟叠加 贡献度分析"
+            },
+            {
+              "kind": "mqe",
+              "text": "execution trace latency regression root cause single span vs multiple spans additive contribution critical path analysis"
+            },
+            {
+              "kind": "hyde",
+              "text": "对比基线与异常执行轨迹,按 traceID 和调用路径对齐 span,重建调用链 DAG 与关键路径,计算每个 span 的 inclusive time、exclusive/self time、等待时间及父子依赖。若总耗时增量 ΔT 近似等于关键路径上单个 span 的 exclusive time 增量,即 Δ_i/ΔT≈1,且其他串行或并行分支耗时分布无明显变化,则判定为单个环节变慢。若关键路径上多个 span 均出现正向 Δ,ΣΔ_i≈ΔT,最大单点贡献率显著小于 1,或并行分支同时变长导致关键路径迁移、合并,则判定为多个环节共同导致耗时翻倍。可用 waterfall、flame graph、Gantt、critical path analysis、latency breakdown、span duration delta、self-time/inclusive-time 分解、贡献度排序、队列等待与下游依赖分解进行验证。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A021",
+            "interview-question://A020",
+            "interview-question://A022"
+          ]
+        }
+      },
+      {
+        "question": "一次任务耗时突然翻倍时，如何根据执行轨迹确定慢环节发生在哪个阶段、步骤、调用或等待过程？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "一次任务耗时突然翻倍时,如何根据执行轨迹确定慢环节发生在哪个阶段、步骤、调用或等待过程?"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务耗时突然翻倍 执行轨迹 定位慢环节 阶段 步骤 调用 等待 分析方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "调用链追踪 trace 延迟突增 性能瓶颈 定位慢 span 关键路径 等待时间 阻塞"
+            },
+            {
+              "kind": "mqe",
+              "text": "execution trace analysis task duration doubled identify slow stage step call wait bottleneck"
+            },
+            {
+              "kind": "hyde",
+              "text": "在分布式追踪系统中,任务耗时突然翻倍时,可基于 traceId/spanId/parentSpanId、startTime、endTime、duration、span.kind、status 构建端到端 span 树、瀑布图和火焰图,按 stage→step→call→wait 分解关键路径。先对比基线轨迹,计算各 span 的 inclusive time 与 exclusive/self time,检查子 span 总耗时和父 span 时间差;若某阶段 span 位于关键路径且 duration 增量最大,则定位为慢阶段。下钻步骤级 span,比较同一步骤的耗时分布、p95/p99、开始结束偏移,找出突增步骤。对 RPC、HTTP、DB、消息调用,区分 client span 与 server span,分析 DNS、连接池等待、TCP/TLS、请求排队、序列化、网络传输、下游处理、响应回传、重试、超时、退避;若 client duration 高而 server duration 正常,慢在网络或客户端等待;若 server span 高,慢在下游服务、DB 查询或锁等待。若父 span 存在时间空隙且无对应子 span,或 exclusive time 高,则归因于未插桩等待、线程池/事件循环排队、异步回调、队列消费、GC、CPU 调度、I/O wait、锁竞争、批处理等。结合 span event/log、异常、重试次数、队列深度和资源指标,按时间线偏移确定慢发生在哪个阶段、步骤、调用或等待过程。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A021",
+            "interview-question://A020",
+            "interview-question://A022"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3534902068064850797,
+        "title": "线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?",
+        "source": "interview-question://A021",
+        "domain": "agent",
+        "content": "# 线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?\n\n题目编号:A021\n\n领域:agent\n\n难度:3\n\n标签:可观测性、Trace、性能优化\n- 考察方向:模型、检索、工具、网络和重试链路的分段诊断。\n\n参考答案:为一次任务建立统一Trace ID,并为模型调用、检索、重排、工具、数据库、重试和排队创建Span,记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径,再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环,并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时,再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模,通过慢请求与正常请求对比找关键路径。若慢在工具排队,换模型不会解决;若步数膨胀,则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率,不能用牺牲回答质量换来的速度作为唯一成果。\n\n评分要点:分段追踪、关键指标、定位方法以及质量—延迟权衡。",
+        "vector_score": 0.8514880836009979,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1522480542740227703,
+        "title": "Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?",
+        "source": "interview-question://A020",
+        "domain": "agent",
+        "content": "# Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?\n\n题目编号:A020\n\n领域:agent\n\n难度:3\n\n标签:死循环、路径震荡、治理\n- 考察方向:轨迹指纹、调用预算、状态去重和熔断策略。\n\n参考答案:常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避,或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹,检测短周期重复和无进展步数,并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径,触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹,同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环,例如分页检索和受控重试可能是合理的;重复但没有进展才应触发治理。发现空转后先判断错误类型,再修正参数、换工具或重新规划;多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点,让用户知道系统为何停止。\n\n评分要点:原因、检测信号、预算和恢复策略齐全。",
+        "vector_score": 0.7758246064186096,
+        "keyword_score": 0.8649424875062642,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 291400306949050267,
+        "title": "复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?",
+        "source": "interview-question://A007",
+        "domain": "agent",
+        "content": "# 复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?\n\n题目编号:A007\n\n领域:agent\n\n难度:2\n\n标签:任务分解、依赖图、验收条件\n- 考察方向:子任务边界、依赖关系、完成判据与动态重规划。\n\n参考答案:先把目标转为可验证的交付物,再按信息依赖、工具边界或专业领域拆成子任务,并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划;拆得过细会增加通信成本。以技术调研为例,可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分,最后一部分依赖前面的证据。独立检索可并行,依赖同一业务状态的写入不能随意并行。每步返回结构化产物,使失败可以定位到局部并单独重试。是否改善效果,应比较任务成功率、返工率、总耗时与调用费用,不能把拆分后的局部准确率直接当成整体收益。\n\n评分要点:强调可验证输出和依赖;说明收益与过度拆分的代价。",
+        "vector_score": 0.7711559534072876,
+        "keyword_score": 0.8265964637642977,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2886579831854676340,
+        "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+        "source": "interview-question://R009",
+        "domain": "rag",
+        "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+        "vector_score": 0.7708041369915009,
+        "keyword_score": 0.9642293669078869,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.7459692060947418,
+        "keyword_score": 0.8255682088023698,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 66.459,
+  "timings_seconds": {
+    "decomposition": 5.537249,
+    "retrieval": 60.921368,
+    "mqe": 19.242961,
+    "hyde": 38.030916,
+    "embedding": 1.98419,
+    "vector_search": 0.295741,
+    "keyword_search": 1.342983,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 60.921834,
+    "total": 66.459083,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 5,
+    "embedding_texts": 25,
+    "chat_calls": 10,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

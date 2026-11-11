@@ -1,0 +1,184 @@
+{
+  "case_id": "V2-026",
+  "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "L002",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://L002"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示，Decoder通过掩码自注意力自回归生成，并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务，仅Decoder是多数生成式LLM的选择，Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V，通过 Q 与 K 的匹配权重聚合 V，再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文，Decoder 的自注意力用因果遮罩限制未来信息；原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列，推理生成仍逐 Token 进行。注意力改善长距离信息连接，却有计算与显存成本，不能理解为所有阶段都完全并行。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L002",
+    "interview-question://L005"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+    "answer": "1. Transformer中的编码器做什么？\n\n\n2. Transformer中的解码器做什么？\n\n\n3. Transformer中的注意力层做什么？\n",
+    "sections": [
+      {
+        "question": "Transformer中的编码器做什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "Transformer中的编码器做什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 2,
+          "selected_sources": [
+            "interview-question://L002",
+            "interview-question://L005"
+          ]
+        }
+      },
+      {
+        "question": "Transformer中的解码器做什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "Transformer中的解码器做什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 2,
+          "selected_sources": [
+            "interview-question://L002",
+            "interview-question://L005"
+          ]
+        }
+      },
+      {
+        "question": "Transformer中的注意力层做什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "Transformer中的注意力层做什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://L002"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4572293691332530417,
+        "title": "讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?",
+        "source": "interview-question://L002",
+        "domain": "llm-engineering",
+        "content": "# 讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?\n\n题目编号:L002\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示,Decoder通过掩码自注意力自回归生成,并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务,仅Decoder是多数生成式LLM的选择,Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V,通过 Q 与 K 的匹配权重聚合 V,再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文,Decoder 的自注意力用因果遮罩限制未来信息;原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列,推理生成仍逐 Token 进行。注意力改善长距离信息连接,却有计算与显存成本,不能理解为所有阶段都完全并行。\n\n评分要点:注意力与FFN;三种架构及掩码/交叉注意力。",
+        "vector_score": 0.8111930787563324,
+        "keyword_score": 1.0,
+        "rerank_score": 0.9827698469161987
+      },
+      {
+        "id": 2,
+        "chunk_id": 3992986612229194933,
+        "title": "什么是大模型项目的分词器?原理是什么?",
+        "source": "interview-question://L005",
+        "domain": "llm-engineering",
+        "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+        "vector_score": 0.7798748314380646,
+        "keyword_score": 1.0,
+        "rerank_score": 0.2568800747394562
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.953,
+  "timings_seconds": {
+    "decomposition": 2.484688,
+    "retrieval": 0.735739,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.435985,
+    "vector_search": 0.081643,
+    "keyword_search": 0.213184,
+    "rerank": 1.732366,
+    "generation": 0.0,
+    "pipeline": 2.468737,
+    "total": 4.953425,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 3,
+    "rerank_pairs": 36
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

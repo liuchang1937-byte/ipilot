@@ -1,0 +1,160 @@
+{
+  "case_id": "V2-114",
+  "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-114",
+  "variant": "expanded",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "C:\\Users\\orzlc\\Desktop\\test.pdf"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+    "answer": "",
+    "sections": [
+      {
+        "question": "XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "XQ-UNPUBLISHED 项目 2026年8月 生产故障 精确时间线"
+            },
+            {
+              "kind": "mqe",
+              "text": "XQ-UNPUBLISHED 2026年8月 生产事故 时间轴 故障复盘"
+            },
+            {
+              "kind": "mqe",
+              "text": "XQ-UNPUBLISHED August 2026 production incident exact timeline"
+            },
+            {
+              "kind": "hyde",
+              "text": "XQ-UNPUBLISHED项目2026年8月生产故障精确时间线(UTC):2026-08-12T02:14:03Z 开始金丝雀发布 release/xq-2026.08.12 v2.7.3,prod-canary 流量 5%;02:27:41Z Prometheus 触发 http_5xx_rate > 2%、p99 > 1.5s 告警;02:34:12Z canary 5xx 错误率升至 11.8%,Kafka consumer lag 持续增长;02:41:07Z 误判为局部容量问题并执行全量发布;02:46:55Z 全量后 5xx 达 23.6%,p99 4.2s,订单写入失败;02:49:30Z 宣布 Sev1 生产故障并启动 incident command;02:53:18Z 定位到新版本数据库连接池 maxPoolSize=5 与 DB proxy 连接泄漏;02:57:44Z 启动 rollback 至 v2.7.2;03:04:29Z 回滚完成,5xx 降至 1.2%;03:12:10Z p99 恢复至 320ms,Kafka lag 归零;03:25:00Z 关闭 Sev1,进入观察期;04:10:00Z 完成 RCA,修复连接池配置并增加金丝雀阶段连接泄漏校验。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2046788106581958347,
+        "title": "附录 A 可检索事实清单",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 附录 A 可检索事实清单\n\n以下事实是精确问答的基准答案。可按编号评估召回、排序与引用准确率。\n事实编号 主题 标准答案\nF-001 立项日 2024-03-18\nF-002 试点片区 北湾、河西、松岭\nF-006 最终温度失控率 2.1%\nF-007 预算/准备金 480 万元 / 36 万元\nF-008 采样间隔 2 分钟\nF-009 TEE 样本条件 连续 4 个超界样本\nF-010 北湾中转仓代码 BW-H1\nF-011 预冷条件 2-6°C,至少 12 分钟\nF-012 告警确认时限 5 分钟\nF-014 严重事件条件 >20 分钟或 >10°C\nF-015 默认切块 500 字,重叠 75 字\nF-017 候选数量 去重后最多 16,取前 5\nF-018 二次召回阈值 0.42\nF-019 遥测/个人数据保留 18 个月 / 6 个月\nF-021 L2 导出授权 最长 8 小时\nF-023 当前换电阈值 低于 30%\nF-025 案例 A 根因 车门闭合不完整\nF-027 案例 B 根因 金属夹层信号屏蔽\nF-029 YG-0512 CCI 95.0%\nF-032 标签/网关缓存 48 小时 / 12 小时\nF-033 时钟自动校正阈值 90 秒",
+        "vector_score": 0.7582750022411346,
+        "keyword_score": 0.7054185678622347,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4084720815424544864,
+        "title": "1.1 项目背景",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 1.1 项目背景\n### 月 31 日。试点城市为青岚市,覆盖北湾、河西和松岭三个片区。\n\nF-001 云杉计划的正式立项日期是 2024 年 3 月 18 日。\nF-002 试点只覆盖青岚市的北湾、河西、松岭三个片区,不包含东港片区。\nF-003 项目目标约束是“不增加配送车辆总数”,而不是“不增加仓库数量”。",
+        "vector_score": 0.7317367792129517,
+        "keyword_score": 0.789411272830647,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2508096369409604890,
+        "title": "6 常见故障与处置",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 6 常见故障与处置\n\n故障条目有相似症状但不同诊断路径,适合测试精确匹配与 rerank。\n代码 症状 优先检查 处置 升级条件\nE101 标签无上报,网关正常 标签电量与遮挡 移位或换电 10 分钟未恢复\nE102 多枚标签同时无上报 G-2 网关供电 重启网关并查保险 重启两次失败\nE207 温度缓慢持续上升 制冷机设定与冷媒 切换备用制冷 温度达 8°C\nE214 开门后短时尖峰 门磁与装卸时长 关门并观察 3 个样本 形成 TEE\nE330 位置漂移但温度正常 天线与隧道环境 保留温度监控 漂移超过 15\n分钟",
+        "vector_score": 0.735434502363205,
+        "keyword_score": 0.9682032169574262,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 13.981,
+  "timings_seconds": {
+    "decomposition": 2.174122,
+    "retrieval": 11.80651,
+    "mqe": 2.634685,
+    "hyde": 8.572286,
+    "embedding": 0.447299,
+    "vector_search": 0.032464,
+    "keyword_search": 0.117346,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 11.806614,
+    "total": 13.980737,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

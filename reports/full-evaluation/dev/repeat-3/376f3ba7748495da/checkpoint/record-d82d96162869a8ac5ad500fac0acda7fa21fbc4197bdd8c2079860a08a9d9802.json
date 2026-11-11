@@ -1,0 +1,276 @@
+{
+  "case_id": "V2-033",
+  "question": "用低秩矩阵适配模型，除了少训练参数还有什么工程收益？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "R003",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L009"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "LoRA冻结原权重，用两个低秩矩阵近似权重更新，并把更新注入注意力或其他线性层。除减少训练参数和显存外，它便于为多个任务保存小型适配器、快速切换或组合，也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W，训练的增量可以写成 ΔW=BA，秩 r 远小于原维度，再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算，并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支，未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围，但不能保证没有遗忘或副作用；秩、目标层、数据与评测比单纯追求最低参数量更重要。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L009",
+    "interview-question://L008",
+    "interview-question://L003",
+    "interview-question://L015",
+    "interview-question://L022"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "用低秩矩阵适配模型，除了少训练参数还有什么工程收益？",
+    "answer": "1. 使用低秩矩阵适配模型时，除了减少训练参数量，在训练显存占用和优化器状态方面还有哪些工程收益？\n\n\n2. 使用低秩矩阵适配模型时，除了减少训练参数量，在训练计算、吞吐和分布式通信方面还有哪些工程收益？\n\n\n3. 使用低秩矩阵适配模型时，除了减少训练参数量，在模型存储、传输和版本管理方面还有哪些工程收益？\n\n\n4. 使用低秩矩阵适配模型时，除了减少训练参数量，在推理部署、服务延迟和在线更新方面还有哪些工程收益？\n\n\n5. 使用低秩矩阵适配模型时，除了减少训练参数量，在多任务、多场景适配与切换方面还有哪些工程收益？\n",
+    "sections": [
+      {
+        "question": "使用低秩矩阵适配模型时，除了减少训练参数量，在训练显存占用和优化器状态方面还有哪些工程收益？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "使用低秩矩阵适配模型时,除了减少训练参数量,在训练显存占用和优化器状态方面还有哪些工程收益?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L009",
+            "interview-question://L008",
+            "interview-question://L003"
+          ]
+        }
+      },
+      {
+        "question": "使用低秩矩阵适配模型时，除了减少训练参数量，在训练计算、吞吐和分布式通信方面还有哪些工程收益？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "使用低秩矩阵适配模型时,除了减少训练参数量,在训练计算、吞吐和分布式通信方面还有哪些工程收益?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L009",
+            "interview-question://L008",
+            "interview-question://L015"
+          ]
+        }
+      },
+      {
+        "question": "使用低秩矩阵适配模型时，除了减少训练参数量，在模型存储、传输和版本管理方面还有哪些工程收益？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "使用低秩矩阵适配模型时,除了减少训练参数量,在模型存储、传输和版本管理方面还有哪些工程收益?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L009",
+            "interview-question://L008",
+            "interview-question://L015"
+          ]
+        }
+      },
+      {
+        "question": "使用低秩矩阵适配模型时，除了减少训练参数量，在推理部署、服务延迟和在线更新方面还有哪些工程收益？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "使用低秩矩阵适配模型时,除了减少训练参数量,在推理部署、服务延迟和在线更新方面还有哪些工程收益?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L009",
+            "interview-question://L008",
+            "interview-question://L015"
+          ]
+        }
+      },
+      {
+        "question": "使用低秩矩阵适配模型时，除了减少训练参数量，在多任务、多场景适配与切换方面还有哪些工程收益？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "使用低秩矩阵适配模型时,除了减少训练参数量,在多任务、多场景适配与切换方面还有哪些工程收益?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L009",
+            "interview-question://L008",
+            "interview-question://L022"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1962235713523519350,
+        "title": "请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?",
+        "source": "interview-question://L009",
+        "domain": "llm-engineering",
+        "content": "# 请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?\n\n题目编号:L009\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:LoRA冻结原权重,用两个低秩矩阵近似权重更新,并把更新注入注意力或其他线性层。除减少训练参数和显存外,它便于为多个任务保存小型适配器、快速切换或组合,也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W,训练的增量可以写成 ΔW=BA,秩 r 远小于原维度,再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算,并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支,未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围,但不能保证没有遗忘或副作用;秩、目标层、数据与评测比单纯追求最低参数量更重要。\n\n评分要点:低秩更新原理、多适配器、可合并及超参数权衡。",
+        "vector_score": 0.8488019108772278,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 986183218169772871,
+        "title": "大模型微调的方案有哪些?",
+        "source": "interview-question://L008",
+        "domain": "llm-engineering",
+        "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+        "vector_score": 0.7667208909988403,
+        "keyword_score": 0.5287778370917439,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3401652904786247161,
+        "title": "多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?",
+        "source": "interview-question://L003",
+        "domain": "llm-engineering",
+        "content": "# 多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?\n\n题目编号:L003\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MHA 中每个查询头有独立的 K/V 头,长序列下 KV Cache 与显存带宽开销较大;稠密注意力还需要比较序列中的大量位置,计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V,GQA 则把查询头分组,每组共享 K/V,以减少缓存和访存,在速度、显存与表达能力间折中。FlashAttention 从实现层优化:通过分块与在线 Softmax,避免把完整注意力矩阵反复写入显存,从而降低 IO 与中间存储,仍计算精确注意力。它通常不将理论二次计算复杂度改成线性,也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用;实际收益需要在目标模型、序列长度、并发和硬件上测试,而不是只比较算法名称。\n\n评分要点:区分 MQA/GQA 的 K/V 共享与 FlashAttention 的 IO 优化;不把精确稠密注意力说成线性计算。",
+        "vector_score": 0.7477268278598785,
+        "keyword_score": 0.43196337620261754,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 4463257598973586641,
+        "title": "大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?",
+        "source": "interview-question://L015",
+        "domain": "llm-engineering",
+        "content": "# 大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?\n\n题目编号:L015\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:量化用低比特表示权重或激活,以降低显存、带宽和计算成本,代价是精度风险。INT8通常损失小,INT4压缩更强;GPTQ利用校准数据做逐层训练后权重量化,通用性强;AWQ保护对输出敏感的重要权重,常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化,以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化,AWQ 利用激活信息调整重要通道的缩放,减少关键权重的误差;不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快,需要核对算子支持,并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。\n\n评分要点:量化对象、比特权衡、AWQ/GPTQ思路及硬件适配。",
+        "vector_score": 0.752730667591095,
+        "keyword_score": 0.3200698652026021,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.7510642111301422,
+        "keyword_score": 0.25377983133507537,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 16.646,
+  "timings_seconds": {
+    "decomposition": 15.63362,
+    "retrieval": 1.012182,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.792218,
+    "vector_search": 0.063956,
+    "keyword_search": 0.152902,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 1.012394,
+    "total": 16.646014,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 5,
+    "embedding_texts": 5,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

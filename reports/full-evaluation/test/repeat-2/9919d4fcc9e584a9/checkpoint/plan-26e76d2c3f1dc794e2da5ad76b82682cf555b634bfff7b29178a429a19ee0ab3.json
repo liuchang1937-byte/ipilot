@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-064",
+  "subquestions": [
+    {
+      "question": "当模型检索到材料但仍然编造结论时，如何约束模型使其生成结论严格依据检索到的证据？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当模型检索到材料但仍然编造结论时，如何设计模型在证据约束下的拒答机制？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.809521700000914
+}

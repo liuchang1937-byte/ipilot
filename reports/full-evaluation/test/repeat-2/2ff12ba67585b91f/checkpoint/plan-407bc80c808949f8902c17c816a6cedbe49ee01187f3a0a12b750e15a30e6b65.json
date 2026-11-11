@@ -1,0 +1,26 @@
+{
+  "case_id": "V2-006",
+  "subquestions": [
+    {
+      "question": "边想边做在延迟和可控性上有什么特点和取舍？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "先规划后执行在延迟和可控性上有什么特点和取舍？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "完成后反思在延迟和可控性上有什么特点和取舍？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "边想边做、先规划后执行和完成后反思在延迟和可控性上的相对取舍和比较是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 32.29095790000065
+}

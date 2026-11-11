@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-076",
+  "subquestions": [
+    {
+      "question": "推理模型没有原生工具格式时，是否就无法接入 MCP？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "推理模型接入 MCP 时，适配层应该放在哪里？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.844957899998917
+}

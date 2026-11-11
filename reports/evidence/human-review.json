@@ -1,0 +1,44 @@
+{
+  "reviewer": "项目作者（用户确认）",
+  "reviewed_at": "2026-10-12",
+  "confirmation_source": "user_message",
+  "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+  "reviewed_retrieval_cases": 120,
+  "reviewed_scoring_cases": 24,
+  "annotation_changes": false,
+  "datasets": [
+    {
+      "file": "data/evaluation/knowledge-v2.json",
+      "backup": "reports\\evidence\\before-human-review\\knowledge-v2.json",
+      "case_count": 120,
+      "before_sha256": "23e6767b51bbb208887c87b63c6665b9145fffb3ce635ceaa86d051efc649d2f",
+      "after_sha256": "fd66d686411ddba8b90ba304a7de084ecd6551eee7cedd85db2b7eba6a2c78c9",
+      "case_semantic_sha256": "830781e1883bcb0fbd6c32f390703cd38de3e54a5fa7ca36973fca060fe1b86d",
+      "annotations_unchanged": true
+    },
+    {
+      "file": "data/evaluation/scoring-v1.json",
+      "backup": "reports\\evidence\\before-human-review\\scoring-v1.json",
+      "case_count": 24,
+      "before_sha256": "001d54445c83ff964a8f99ee9c17f304342e808926a06aee196459ec6c6f77a2",
+      "after_sha256": "b5c554ef5a66c9d48a77f816aad7b55f744f3f8452aa97b3263d1a88256eb418",
+      "case_semantic_sha256": "bae52e282290ff6d1812efe3099c7bfb704122dfce33d35d6783fd5f63f61090",
+      "annotations_unchanged": true
+    }
+  ],
+  "verified_historical_reports": [
+    {
+      "file": "reports/experiments/3f3a907c8e8b4720ac1fbb0b41c13c7d.json",
+      "sha256": "3b2bd6f8096942a16a53c3b692c5485b69c85908cee7d21df538d96fb6303bbe",
+      "reviewed_dataset": "data/evaluation/knowledge-v2.json",
+      "annotations_unchanged": true
+    },
+    {
+      "file": "reports/scoring/4fcb1ed1721b461f9621e5bcdd118022.json",
+      "sha256": "dc5fafc1a30c61aae4383e0d32a8e31dd356d8c041fb8933c7c7458f9a2443dd",
+      "reviewed_dataset": "data/evaluation/scoring-v1.json",
+      "annotations_unchanged": true
+    }
+  ],
+  "note": "记录依据项目作者的人工复核确认；不是助手代替人工判断。历史报告保留原始种子状态，本记录将其关联到内容未变的人工复核版本。"
+}

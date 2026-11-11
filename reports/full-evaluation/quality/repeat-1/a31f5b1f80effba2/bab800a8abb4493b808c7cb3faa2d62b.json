@@ -1,0 +1,691 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "bab800a8abb4493b808c7cb3faa2d62b",
+  "created_at": "2026-10-12T16:11:24.339532+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "25ed2be23ce85a346e5a64beb8b7960b8238c711433e2948fcb94823972a78c7",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\a31f5b1f80effba2\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 38.062,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 38.062,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.387645,
+          "p50": 2.387645,
+          "p95": 2.387645,
+          "max": 2.387645,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 24.263594,
+          "p50": 24.263594,
+          "p95": 24.263594,
+          "max": 24.263594,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 7.703824,
+          "p50": 7.703824,
+          "p95": 7.703824,
+          "max": 7.703824,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 15.545117,
+          "p50": 15.545117,
+          "p95": 15.545117,
+          "max": 15.545117,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.709544,
+          "p50": 0.709544,
+          "p95": 0.709544,
+          "max": 0.709544,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.062619,
+          "p50": 0.062619,
+          "p95": 0.062619,
+          "max": 0.062619,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.236863,
+          "p50": 0.236863,
+          "p95": 0.236863,
+          "max": 0.236863,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 11.410935,
+          "p50": 11.410935,
+          "p95": 11.410935,
+          "max": 11.410935,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 35.67477,
+          "p50": 35.67477,
+          "p95": 35.67477,
+          "max": 35.67477,
+          "samples": 1
+        },
+        "total": {
+          "mean": 38.062415,
+          "p50": 38.062415,
+          "p95": 38.062415,
+          "max": 38.062415,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 70.279096,
+          "p50": 70.279096,
+          "p95": 70.279096,
+          "max": 70.279096,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 0.9231,
+        "answer_correctness": 1.0,
+        "answer_relevancy": 1.0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.7692
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-083",
+      "question": "实时语音助手为何考虑WebRTC，它与WebSocket的传输取舍是什么？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "T014",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T015"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "WebRTC针对实时音视频设计，包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输；WebSocket只是可靠的双向字节通道，这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道，用WebSocket传控制事件也可以，选择取决于延迟、媒体质量和部署复杂度。例如，用户语音输入与模型语音输出同时进行，还要支持打断和网络抖动，媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP，丢包可能造成队头阻塞；WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP，也不是永远不重传，实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维，不应承诺固定毫秒数。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T015",
+        "interview-question://T014",
+        "interview-question://T013"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "实时语音助手为何考虑WebRTC，它与WebSocket的传输取舍是什么？",
+        "answer": "1. 实时语音助手为何考虑使用WebRTC？\n实时语音助手考虑使用 WebRTC，主要因为它是针对实时音视频设计的协议，内置媒体编解码、抖动缓冲、拥塞控制、NAT 穿透和低延迟传输等能力；而 WebSocket 只是可靠的双向字节通道，这些媒体能力需要自行实现。[1] 在实时语音 Agent 中，通常用 WebRTC 承载音频和数据通道，也可以用 WebSocket 传控制事件，具体选择取决于延迟、媒体质量和部署复杂度。[1] 当用户语音输入与模型语音输出同时进行、需要支持打断和应对网络抖动时，媒体通道更需要实时性，而不是等待每个旧包重新到达。[1] WebSocket 常基于 TCP，丢包可能造成队头阻塞；WebRTC 有适合实时媒体的传输与带宽适应机制。[1] 不过，WebRTC 并非绝对只走 UDP，也不是永远不重传，实际会受网络与中继影响；选择时应比较通话质量、端到端延迟、穿透和运维，不应承诺固定毫秒数。[1]\n\n2. 在实时语音助手中，WebRTC与WebSocket的传输取舍是什么？\n在实时语音助手里，WebRTC 与 WebSocket 的取舍核心在于：WebRTC 是为实时音视频设计的，内置媒体编解码、抖动缓冲、拥塞控制、NAT 穿透和低延迟传输；WebSocket 只是可靠的双向字节通道，媒体相关能力需要自行实现[1]。因此，如果实时语音助手要承载用户语音输入、模型语音输出，并支持同时双向传输、打断和网络抖动，通常更适合用 WebRTC 承载音频和数据通道，而用 WebSocket 传控制事件也可以；最终选择取决于延迟、媒体质量和部署复杂度[1]。\n\n具体来说，实时媒体通道更看重“及时到达”，而不是等待每个旧包重新到达；WebSocket 常基于 TCP，丢包可能造成队头阻塞，影响实时语音体验；WebRTC 则包含更适合实时媒体的传输与带宽适应机制[1]。但这不意味着 WebRTC 绝对只走 UDP，也不是永远不重传，实际表现会受网络与中继影响[1]。\n\n所以取舍可以概括为：需要低延迟、抗抖动、支持双向音频和打断时，优先考虑 WebRTC；如果只是传控制事件、文本或信令，WebSocket 可能更简单；两者也可以组合使用，即 WebRTC 承载媒体与数据通道，WebSocket 承载控制事件。选择时应比较通话质量、端到端延迟、穿透和运维成本，不应承诺固定毫秒数[1]。",
+        "sections": [
+          {
+            "question": "实时语音助手为何考虑使用WebRTC？",
+            "kind": "knowledge",
+            "answer": "实时语音助手考虑使用 WebRTC，主要因为它是针对实时音视频设计的协议，内置媒体编解码、抖动缓冲、拥塞控制、NAT 穿透和低延迟传输等能力；而 WebSocket 只是可靠的双向字节通道，这些媒体能力需要自行实现。[1] 在实时语音 Agent 中，通常用 WebRTC 承载音频和数据通道，也可以用 WebSocket 传控制事件，具体选择取决于延迟、媒体质量和部署复杂度。[1] 当用户语音输入与模型语音输出同时进行、需要支持打断和应对网络抖动时，媒体通道更需要实时性，而不是等待每个旧包重新到达。[1] WebSocket 常基于 TCP，丢包可能造成队头阻塞；WebRTC 有适合实时媒体的传输与带宽适应机制。[1] 不过，WebRTC 并非绝对只走 UDP，也不是永远不重传，实际会受网络与中继影响；选择时应比较通话质量、端到端延迟、穿透和运维，不应承诺固定毫秒数。[1]",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "实时语音助手为何考虑使用WebRTC?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "实时语音助手为何考虑使用 WebRTC"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "WebRTC 在实时语音助手场景中的低延迟、音频传输与实时通信优势"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Why use WebRTC for real-time voice assistants? benefits over WebSocket and alternatives"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "实时语音助手考虑使用 WebRTC,是因为它原生面向低延迟、全双工实时音视频通信,而非普通 HTTP/WebSocket 流式传输。WebRTC 基于 UDP 的 SRTP 传输音频,配合 Opus 编码、自适应抖动缓冲、丢包隐藏、拥塞控制(GCC/transport-cc)和前向纠错,可在网络抖动与丢包下维持亚秒级甚至 200ms 以内的端到端语音交互。其音频处理链路通常集成 AEC 回声消除、ANS 噪声抑制、AGC 自动增益控制、VAD 语音活动检测,支持实时打断和连续对话。通过 ICE/STUN/TURN 实现 NAT 穿透,DTLS 保障媒体安全,RTCPeerConnection、getUserMedia、DataChannel 等 API 简化浏览器与移动端采集、传输和控制信令集成。相比 WebSocket 传输 PCM/Opus,WebRTC 更适合实时语音助手所需的双向媒体流、动态码率调整、SFU/MCU 扩展架构以及与 ASR、TTS、LLM 低延迟编排的结合。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T015",
+                "interview-question://T014",
+                "interview-question://T013"
+              ]
+            }
+          },
+          {
+            "question": "在实时语音助手中，WebRTC与WebSocket的传输取舍是什么？",
+            "kind": "knowledge",
+            "answer": "在实时语音助手里，WebRTC 与 WebSocket 的取舍核心在于：WebRTC 是为实时音视频设计的，内置媒体编解码、抖动缓冲、拥塞控制、NAT 穿透和低延迟传输；WebSocket 只是可靠的双向字节通道，媒体相关能力需要自行实现[1]。因此，如果实时语音助手要承载用户语音输入、模型语音输出，并支持同时双向传输、打断和网络抖动，通常更适合用 WebRTC 承载音频和数据通道，而用 WebSocket 传控制事件也可以；最终选择取决于延迟、媒体质量和部署复杂度[1]。\n\n具体来说，实时媒体通道更看重“及时到达”，而不是等待每个旧包重新到达；WebSocket 常基于 TCP，丢包可能造成队头阻塞，影响实时语音体验；WebRTC 则包含更适合实时媒体的传输与带宽适应机制[1]。但这不意味着 WebRTC 绝对只走 UDP，也不是永远不重传，实际表现会受网络与中继影响[1]。\n\n所以取舍可以概括为：需要低延迟、抗抖动、支持双向音频和打断时，优先考虑 WebRTC；如果只是传控制事件、文本或信令，WebSocket 可能更简单；两者也可以组合使用，即 WebRTC 承载媒体与数据通道，WebSocket 承载控制事件。选择时应比较通话质量、端到端延迟、穿透和运维成本，不应承诺固定毫秒数[1]。",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在实时语音助手中,WebRTC与WebSocket的传输取舍是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "实时语音助手 WebRTC 与 WebSocket 传输方案 优劣 对比 取舍"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "WebRTC WebSocket 实时音频传输 延迟 丢包 NAT穿透 带宽 可靠性 选型"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "real-time voice assistant WebRTC vs WebSocket transport trade-offs latency reliability NAT traversal"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在实时语音助手中,WebRTC 与 WebSocket 的取舍核心是实时媒体面与可靠消息面。WebRTC 基于 UDP/SRTP/RTP/RTCP,配合 ICE/STUN/TURN、Opus、自适应抖动缓冲、丢包隐藏、NACK/PLI、拥塞控制及 AEC/AGC/NS,提供全双工、低延迟、抗抖动/丢包的语音传输,适合连续对话、打断和弱网实时交互,但需信令、SFU/MCU、TURN 中继,复杂度和服务器成本高。WebSocket 基于 TCP/TLS,可靠有序、易穿透防火墙、与 HTTP 基础设施兼容,适合信令、控制、JSON 消息或非严格实时音频;但 TCP 重传和队头阻塞会导致延迟尖峰,弱网下实时语音体验差。因此常见架构是 WebSocket 做信令/控制,WebRTC 做音频媒体面;仅在推送式、低交互、网络受限或降级场景用 WebSocket 传音频。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T015",
+                "interview-question://T014",
+                "interview-question://T013"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 574765045243999808,
+            "title": "为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?",
+            "source": "interview-question://T015",
+            "domain": "llm-tool-calling",
+            "content": "# 为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?\n\n题目编号:T015\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:WebRTC针对实时音视频设计,包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输;WebSocket只是可靠的双向字节通道,这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道,用WebSocket传控制事件也可以,选择取决于延迟、媒体质量和部署复杂度。例如,用户语音输入与模型语音输出同时进行,还要支持打断和网络抖动,媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP,丢包可能造成队头阻塞;WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP,也不是永远不重传,实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维,不应承诺固定毫秒数。\n\n评分要点:媒体专用能力、传输特性及组合使用。",
+            "vector_score": 0.8935028314590454,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 574765045243999808,
+            "title": "为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?",
+            "source": "interview-question://T015",
+            "domain": "llm-tool-calling",
+            "content": "# 为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?\n\n题目编号:T015\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:WebRTC针对实时音视频设计,包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输;WebSocket只是可靠的双向字节通道,这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道,用WebSocket传控制事件也可以,选择取决于延迟、媒体质量和部署复杂度。例如,用户语音输入与模型语音输出同时进行,还要支持打断和网络抖动,媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP,丢包可能造成队头阻塞;WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP,也不是永远不重传,实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维,不应承诺固定毫秒数。\n\n评分要点:媒体专用能力、传输特性及组合使用。",
+            "vector_score": 0.8935028314590454,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1450303408020870642,
+            "title": "说说 WebSocket 和 SSE 通信的区别及局限性?",
+            "source": "interview-question://T014",
+            "domain": "llm-tool-calling",
+            "content": "# 说说 WebSocket 和 SSE 通信的区别及局限性?\n\n题目编号:T014\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:SSE基于HTTP长连接,主要由服务端向客户端单向推送文本事件,浏览器支持自动重连,适合LLM Token流;WebSocket升级为全双工连接,可双向低延迟传输文本或二进制,适合实时协作。SSE不适合高频双向和二进制媒体,WebSocket则需要自己处理心跳、重连、代理兼容和水平扩展。例如,文本生成可以用一次 HTTP 请求发送问题,再用 SSE 接收增量内容;用户取消可以另发请求,不必为所有对话引入 WebSocket。WebSocket 更适合双方持续发送事件,但可靠重连和消息去重仍由应用实现。SSE 的浏览器连接限制与 HTTP 版本有关,不能把 HTTP/1.1 的常见限制当作所有部署都相同。无论哪种方式,代理缓冲、心跳和慢消费者都会影响实际延迟。\n\n评分要点:方向、协议、数据类型、重连与典型场景。",
+            "vector_score": 0.8229471445083618,
+            "keyword_score": 0.39679283327032744,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 146725892672075800,
+            "title": "MCP 协议通常采用什么通信方式?",
+            "source": "interview-question://T013",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 协议通常采用什么通信方式?\n\n题目编号:T013\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:本地MCP Server常通过stdio由Client作为子进程启动,延迟低且无需开放端口;远程服务推荐使用Streamable HTTP,便于多Client共享和集中管理。早期HTTP+SSE双端点方案已不再是新项目的首选。无论使用哪种传输,消息层都采用JSON-RPC 2.0,传输方式只决定消息如何到达。stdio 使用标准输入输出传递协议消息,普通日志应写到 stderr,避免污染消息流。远程 Streamable HTTP 使用 HTTP 请求传递消息,并可通过 SSE 推送多个事件;并不是所有响应都必须保持一个长连接。2025-11-25 版规范列出这两种标准传输,旧 HTTP+SSE 应按兼容需求处理。客户端还要管理连接生命周期、会话和取消;重连不会自动保证外部操作只执行一次。\n\n评分要点:区分 JSON-RPC 消息语义与传输;说明 stdio、Streamable HTTP 和旧 HTTP+SSE 的兼容关系。",
+            "vector_score": 0.7806070744991302,
+            "keyword_score": 0.34819213629011264,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 0.9230769230769231,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 0.7692307692307693,
+      "elapsed_seconds": 38.062,
+      "timings_seconds": {
+        "decomposition": 2.387645,
+        "retrieval": 24.263594,
+        "mqe": 7.703824,
+        "hyde": 15.545117,
+        "embedding": 0.709544,
+        "vector_search": 0.062619,
+        "keyword_search": 0.236863,
+        "rerank": 0.0,
+        "generation": 11.410935,
+        "pipeline": 35.67477,
+        "total": 38.062415,
+        "judge": 70.279096
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 0.9230769230769231,
+          "answer_correctness": 1.0,
+          "answer_relevancy": 1.0,
+          "citation_precision": 1.0,
+          "citation_coverage": 0.7692307692307693
+        },
+        "claims": [
+          {
+            "text": "实时语音助手考虑使用 WebRTC，主要因为它是针对实时音视频设计的协议，内置媒体编解码、抖动缓冲、拥塞控制、NAT 穿透和低延迟传输等能力；而 WebSocket 只是可靠的双向字节通道，这些媒体能力需要自行实现。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "WebRTC针对实时音视频设计,包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输;WebSocket只是可靠的双向字节通道,这些媒体能力需自行实现。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1直接说明 WebRTC 的媒体专用能力和 WebSocket 只是可靠字节通道，支持该陈述。"
+          },
+          {
+            "text": "在实时语音 Agent 中，通常用 WebRTC 承载音频和数据通道，也可以用 WebSocket 传控制事件，具体选择取决于延迟、媒体质量和部署复杂度。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "实时语音Agent通常用WebRTC承载音频和数据通道,用WebSocket传控制事件也可以,选择取决于延迟、媒体质量和部署复杂度。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1明确给出实时语音 Agent 中 WebRTC 与 WebSocket 的典型分工和选择因素。"
+          },
+          {
+            "text": "当用户语音输入与模型语音输出同时进行、需要支持打断和应对网络抖动时，媒体通道更需要实时性，而不是等待每个旧包重新到达。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "例如,用户语音输入与模型语音输出同时进行,还要支持打断和网络抖动,媒体通道更需要实时性而非等待每个旧包重新到达。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1直接描述了同时输入输出、打断、网络抖动时需要媒体通道实时性。"
+          },
+          {
+            "text": "WebSocket 常基于 TCP，丢包可能造成队头阻塞；WebRTC 有适合实时媒体的传输与带宽适应机制。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "WebSocket 常基于 TCP,丢包可能造成队头阻塞;WebRTC 有适合实时媒体的传输与带宽适应机制。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1直接说明 WebSocket 的 TCP 队头阻塞风险及 WebRTC 的实时媒体传输机制。"
+          },
+          {
+            "text": "不过，WebRTC 并非绝对只走 UDP，也不是永远不重传，实际会受网络与中继影响；选择时应比较通话质量、端到端延迟、穿透和运维，不应承诺固定毫秒数。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "不过 WebRTC 并不是绝对只走 UDP,也不是永远不重传,实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维,不应承诺固定毫秒数。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1包含同样的 WebRTC 传输限制和选择时不应承诺固定毫秒数的提醒。"
+          },
+          {
+            "text": "在实时语音助手里，WebRTC 与 WebSocket 的取舍核心在于：WebRTC 是为实时音视频设计的，内置媒体编解码、抖动缓冲、拥塞控制、NAT 穿透和低延迟传输；WebSocket 只是可靠的双向字节通道，媒体相关能力需要自行实现[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "WebRTC针对实时音视频设计,包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输;WebSocket只是可靠的双向字节通道,这些媒体能力需自行实现。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持该取舍核心的表述。"
+          },
+          {
+            "text": "因此，如果实时语音助手要承载用户语音输入、模型语音输出，并支持同时双向传输、打断和网络抖动，通常更适合用 WebRTC 承载音频和数据通道，而用 WebSocket 传控制事件也可以；最终选择取决于延迟、媒体质量和部署复杂度[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "实时语音Agent通常用WebRTC承载音频和数据通道,用WebSocket传控制事件也可以,选择取决于延迟、媒体质量和部署复杂度。例如,用户语音输入与模型语音输出同时进行,还要支持打断和网络抖动,媒体通道更需要实时性而非等待每个旧包重新到达。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持 WebRTC 承载音频/数据、WebSocket 传控制事件以及选择因素。"
+          },
+          {
+            "text": "具体来说，实时媒体通道更看重“及时到达”，而不是等待每个旧包重新到达；WebSocket 常基于 TCP，丢包可能造成队头阻塞，影响实时语音体验；WebRTC 则包含更适合实时媒体的传输与带宽适应机制[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP,丢包可能造成队头阻塞;WebRTC 有适合实时媒体的传输与带宽适应机制。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持及时到达、WebSocket 队头阻塞和 WebRTC 实时媒体适配机制的说法。"
+          },
+          {
+            "text": "但这不意味着 WebRTC 绝对只走 UDP，也不是永远不重传，实际表现会受网络与中继影响[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "不过 WebRTC 并不是绝对只走 UDP,也不是永远不重传,实际会受网络与中继影响。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1直接包含该 WebRTC 传输限制说明。"
+          },
+          {
+            "text": "所以取舍可以概括为：需要低延迟、抗抖动、支持双向音频和打断时，优先考虑 WebRTC；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "例如,用户语音输入与模型语音输出同时进行,还要支持打断和网络抖动,媒体通道更需要实时性而非等待每个旧包重新到达。"
+              }
+            ],
+            "citations": [],
+            "reason": "资料1支持在低延迟、抗抖动、双向音频和打断场景下优先考虑 WebRTC。"
+          },
+          {
+            "text": "如果只是传控制事件、文本或信令，WebSocket 可能更简单；",
+            "supported": false,
+            "correct": true,
+            "evidence": [],
+            "citations": [],
+            "reason": "该判断是合理延伸，但资料中只说 WebSocket 可传控制事件且是可靠字节通道，并未明确说仅传控制事件、文本或信令时比 WebRTC 更简单。"
+          },
+          {
+            "text": "两者也可以组合使用，即 WebRTC 承载媒体与数据通道，WebSocket 承载控制事件。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "实时语音Agent通常用WebRTC承载音频和数据通道,用WebSocket传控制事件也可以,选择取决于延迟、媒体质量和部署复杂度。"
+              }
+            ],
+            "citations": [],
+            "reason": "资料1支持 WebRTC 承载音频/数据通道、WebSocket 传控制事件的组合使用方式。"
+          },
+          {
+            "text": "选择时应比较通话质量、端到端延迟、穿透和运维成本，不应承诺固定毫秒数[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "选择时比较通话质量、端到端延迟、穿透和运维,不应承诺固定毫秒数。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1直接支持选择时应比较通话质量、延迟、穿透和运维，不应承诺固定毫秒数。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": true,
+            "reason": "答案完整覆盖参考要点：说明了 WebRTC 的媒体专用能力、WebSocket 的字节通道定位、实时语音 Agent 的组合使用、延迟/媒体质量/部署复杂度取舍、同时输入输出与打断/抖动场景、WebSocket 基于 TCP 的队头阻塞、WebRTC 的实时传输机制，以及 WebRTC 并非绝对只走 UDP/永不重传且不应承诺固定毫秒数。",
+            "point": "WebRTC针对实时音视频设计，包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输；WebSocket只是可靠的双向字节通道，这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道，用WebSocket传控制事件也可以，选择取决于延迟、媒体质量和部署复杂度。例如，用户语音输入与模型语音输出同时进行，还要支持打断和网络抖动，媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP，丢包可能造成队头阻塞；WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP，也不是永远不重传，实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维，不应承诺固定毫秒数。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "答案直接回应“为何考虑 WebRTC”和“与 WebSocket 的传输取舍”两个子问题，并系统覆盖媒体能力、传输特性、组合方案、适用场景和限制，相关且完整。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-083",
+      "subquestions": [
+        {
+          "question": "实时语音助手为何考虑使用WebRTC？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "在实时语音助手中，WebRTC与WebSocket的传输取舍是什么？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.3876445999994758
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 108.347,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

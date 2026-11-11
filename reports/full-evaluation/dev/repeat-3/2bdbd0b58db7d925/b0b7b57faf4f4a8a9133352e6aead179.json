@@ -1,0 +1,1181 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "b0b7b57faf4f4a8a9133352e6aead179",
+  "created_at": "2026-10-12T15:13:21.727339+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "19a3be48b6540f34ea65c16003901d673eac3bd7c0b27299dba5325bb07193ab",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\2bdbd0b58db7d925\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.6131,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 23.059,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 23.059,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.687623,
+          "p50": 2.687623,
+          "p95": 2.687623,
+          "max": 2.687623,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 20.370752,
+          "p50": 20.370752,
+          "p95": 20.370752,
+          "max": 20.370752,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.887559,
+          "p50": 6.887559,
+          "p95": 6.887559,
+          "max": 6.887559,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 12.489325,
+          "p50": 12.489325,
+          "p95": 12.489325,
+          "max": 12.489325,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.702105,
+          "p50": 0.702105,
+          "p95": 0.702105,
+          "max": 0.702105,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.052827,
+          "p50": 0.052827,
+          "p95": 0.052827,
+          "max": 0.052827,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.233992,
+          "p50": 0.233992,
+          "p95": 0.233992,
+          "max": 0.233992,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 20.370917,
+          "p50": 20.370917,
+          "p95": 20.370917,
+          "max": 20.370917,
+          "samples": 1
+        },
+        "total": {
+          "mean": 23.058539,
+          "p50": 23.058539,
+          "p95": 23.058539,
+          "max": 23.058539,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.6131,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.053,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.053,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.687623,
+          "p50": 2.687623,
+          "p95": 2.687623,
+          "max": 2.687623,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.365189,
+          "p50": 0.365189,
+          "p95": 0.365189,
+          "max": 0.365189,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.281538,
+          "p50": 0.281538,
+          "p95": 0.281538,
+          "max": 0.281538,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.025779,
+          "p50": 0.025779,
+          "p95": 0.025779,
+          "max": 0.025779,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.056729,
+          "p50": 0.056729,
+          "p95": 0.056729,
+          "max": 0.056729,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.36533,
+          "p50": 0.36533,
+          "p95": 0.36533,
+          "max": 0.36533,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.052953,
+          "p50": 3.052953,
+          "p95": 3.052953,
+          "max": 3.052953,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.6131,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.762,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.762,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.687623,
+          "p50": 2.687623,
+          "p95": 2.687623,
+          "max": 2.687623,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.424184,
+          "p50": 0.424184,
+          "p95": 0.424184,
+          "max": 0.424184,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.336922,
+          "p50": 0.336922,
+          "p95": 0.336922,
+          "max": 0.336922,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.029303,
+          "p50": 0.029303,
+          "p95": 0.029303,
+          "max": 0.029303,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.056252,
+          "p50": 0.056252,
+          "p95": 0.056252,
+          "max": 0.056252,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.649684,
+          "p50": 0.649684,
+          "p95": 0.649684,
+          "max": 0.649684,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.074157,
+          "p50": 1.074157,
+          "p95": 1.074157,
+          "max": 1.074157,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.76178,
+          "p50": 3.76178,
+          "p95": 3.76178,
+          "max": 3.76178,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A018",
+        "interview-question://A002",
+        "interview-question://A009",
+        "interview-question://T018",
+        "interview-question://A020",
+        "interview-question://A022"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.6131471927654584,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+        "answer": "1. 对话服务重启后如何恢复阶段？\n\n\n2. 工具请求失败重试时如何避免重复执行？\n",
+        "sections": [
+          {
+            "question": "对话服务重启后如何恢复阶段？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "对话服务重启后如何恢复阶段?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "对话服务重启后如何恢复会话阶段和上下文"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "会话/聊天服务重启后恢复对话状态与阶段的方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "chatbot dialog service restart resume conversation stage state recovery"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "对话服务重启后,可基于 conversation_id/session_id 从 Redis、数据库或对象存储加载最近一次 checkpoint,恢复 dialogue_state、fsm_state、stage/phase、slot_values、context、last_committed_turn 与状态版本 version;若采用事件溯源,则从 Kafka offset、WAL 或 event log 重放 checkpoint 之后的用户/系统事件,按幂等规则更新状态机,恢复至 current_node 或 last_committed_turn。无状态服务可由客户端携带 state token 或 session snapshot 回传。恢复时需加分布式锁,校验 TTL、版本冲突与事务一致性,并通过 readiness probe 后继续执行 dialogue policy/action,再将新状态写回持久化存储或增量快照。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A018",
+                "interview-question://A002",
+                "interview-question://A009"
+              ]
+            }
+          },
+          {
+            "question": "工具请求失败重试时如何避免重复执行？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "工具请求失败重试时如何避免重复执行?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "工具调用失败重试时如何避免重复执行 幂等性 去重"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "API 请求重试机制 防止重复提交 幂等键 请求ID"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "分布式系统 重试导致重复执行 如何保证仅执行一次 解决方案"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在工具请求失败重试时,避免重复执行的核心是幂等性与请求去重。调用方首次调用前生成全局唯一 idempotency key 或 request_id,重试时复用同一 key。服务端通过 idempotency table、Redis 原子 SETNX、数据库唯一索引或分布式锁,持久化 key、参数哈希、执行状态 pending/success/failed、结果及 TTL。若 key 已成功,直接返回缓存结果;若执行中,返回 202 或让客户端轮询状态,拒绝并发重复执行。工具操作应设计为幂等:PUT、upsert、条件更新、CAS、set 替代 increment,并将副作用与去重记录放入同一事务或 transactional outbox。结合 exactly-once 语义、at-least-once 传输、幂等消费者、状态机、版本号、sequence、fencing token、补偿事务、指数退避和最大重试次数,超时后先查询执行状态再重试,从而保证重复请求不产生重复副作用。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://A020",
+                "interview-question://A022"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2584544441468433340,
+            "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+            "source": "interview-question://A018",
+            "domain": "agent",
+            "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+            "vector_score": 0.8683999478816986,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1979822055872710034,
+            "title": "Agent 的基本架构由哪些核心组件构成?",
+            "source": "interview-question://A002",
+            "domain": "agent",
+            "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+            "vector_score": 0.7472944855690002,
+            "keyword_score": 0.40924049450395067,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 262192336753681762,
+            "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+            "source": "interview-question://A009",
+            "domain": "agent",
+            "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+            "vector_score": 0.7462815046310425,
+            "keyword_score": 0.5532510725616011,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.8657482266426086,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 1522480542740227703,
+            "title": "Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?",
+            "source": "interview-question://A020",
+            "domain": "agent",
+            "content": "# Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?\n\n题目编号:A020\n\n领域:agent\n\n难度:3\n\n标签:死循环、路径震荡、治理\n- 考察方向:轨迹指纹、调用预算、状态去重和熔断策略。\n\n参考答案:常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避,或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹,检测短周期重复和无进展步数,并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径,触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹,同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环,例如分页检索和受控重试可能是合理的;重复但没有进展才应触发治理。发现空转后先判断错误类型,再修正参数、换工具或重新规划;多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点,让用户知道系统为何停止。\n\n评分要点:原因、检测信号、预算和恢复策略齐全。",
+            "vector_score": 0.7922160923480988,
+            "keyword_score": 0.7390625575032813,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 266251793803114372,
+            "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+            "source": "interview-question://A022",
+            "domain": "agent",
+            "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+            "vector_score": 0.8059383928775787,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 23.059,
+      "timings_seconds": {
+        "decomposition": 2.687623,
+        "retrieval": 20.370752,
+        "mqe": 6.887559,
+        "hyde": 12.489325,
+        "embedding": 0.702105,
+        "vector_search": 0.052827,
+        "keyword_search": 0.233992,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 20.370917,
+        "total": 23.058539,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A018",
+        "interview-question://A020",
+        "interview-question://R001",
+        "interview-question://T018",
+        "interview-question://A023",
+        "interview-question://T017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.6131471927654584,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+        "answer": "1. 对话服务重启后如何恢复阶段？\n\n\n2. 工具请求失败重试时如何避免重复执行？\n",
+        "sections": [
+          {
+            "question": "对话服务重启后如何恢复阶段？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "对话服务重启后如何恢复阶段?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A018",
+                "interview-question://A020",
+                "interview-question://R001"
+              ]
+            }
+          },
+          {
+            "question": "工具请求失败重试时如何避免重复执行？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "工具请求失败重试时如何避免重复执行?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://A023",
+                "interview-question://T017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2584544441468433340,
+            "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+            "source": "interview-question://A018",
+            "domain": "agent",
+            "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+            "vector_score": 0.8350304663181305,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1522480542740227703,
+            "title": "Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?",
+            "source": "interview-question://A020",
+            "domain": "agent",
+            "content": "# Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?\n\n题目编号:A020\n\n领域:agent\n\n难度:3\n\n标签:死循环、路径震荡、治理\n- 考察方向:轨迹指纹、调用预算、状态去重和熔断策略。\n\n参考答案:常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避,或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹,检测短周期重复和无进展步数,并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径,触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹,同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环,例如分页检索和受控重试可能是合理的;重复但没有进展才应触发治理。发现空转后先判断错误类型,再修正参数、换工具或重新规划;多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点,让用户知道系统为何停止。\n\n评分要点:原因、检测信号、预算和恢复策略齐全。",
+            "vector_score": 0.7494371831417084,
+            "keyword_score": 0.3168237753098186,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1192065734383377651,
+            "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+            "source": "interview-question://R001",
+            "domain": "rag",
+            "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+            "vector_score": 0.7322490215301514,
+            "keyword_score": 0.39686956760257946,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.8327243626117706,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.7701383829116821,
+            "keyword_score": 0.9733870726490005,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.7796689867973328,
+            "keyword_score": 0.7246548007179839,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.053,
+      "timings_seconds": {
+        "decomposition": 2.687623,
+        "retrieval": 0.365189,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.281538,
+        "vector_search": 0.025779,
+        "keyword_search": 0.056729,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.36533,
+        "total": 3.052953,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A018",
+        "interview-question://T018",
+        "interview-question://A023",
+        "interview-question://A020"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.6131471927654584,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+        "answer": "1. 对话服务重启后如何恢复阶段？\n\n\n2. 工具请求失败重试时如何避免重复执行？\n",
+        "sections": [
+          {
+            "question": "对话服务重启后如何恢复阶段？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "对话服务重启后如何恢复阶段?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://A018"
+              ]
+            }
+          },
+          {
+            "question": "工具请求失败重试时如何避免重复执行？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "工具请求失败重试时如何避免重复执行?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://A023",
+                "interview-question://A020"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2584544441468433340,
+            "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+            "source": "interview-question://A018",
+            "domain": "agent",
+            "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+            "vector_score": 0.8350304663181305,
+            "keyword_score": 1.0,
+            "rerank_score": 0.6276840567588806
+          },
+          {
+            "id": 2,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.8327243626117706,
+            "keyword_score": 1.0,
+            "rerank_score": 0.9569908976554871
+          },
+          {
+            "id": 3,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.7701383829116821,
+            "keyword_score": 0.9733870726490005,
+            "rerank_score": 0.9129626154899597
+          },
+          {
+            "id": 4,
+            "chunk_id": 1522480542740227703,
+            "title": "Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?",
+            "source": "interview-question://A020",
+            "domain": "agent",
+            "content": "# Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?\n\n题目编号:A020\n\n领域:agent\n\n难度:3\n\n标签:死循环、路径震荡、治理\n- 考察方向:轨迹指纹、调用预算、状态去重和熔断策略。\n\n参考答案:常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避,或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹,检测短周期重复和无进展步数,并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径,触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹,同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环,例如分页检索和受控重试可能是合理的;重复但没有进展才应触发治理。发现空转后先判断错误类型,再修正参数、换工具或重新规划;多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点,让用户知道系统为何停止。\n\n评分要点:原因、检测信号、预算和恢复策略齐全。",
+            "vector_score": 0.7848529517650604,
+            "keyword_score": 0.5745159683794919,
+            "rerank_score": 0.8042689561843872
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.762,
+      "timings_seconds": {
+        "decomposition": 2.687623,
+        "retrieval": 0.424184,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.336922,
+        "vector_search": 0.029303,
+        "keyword_search": 0.056252,
+        "rerank": 0.649684,
+        "generation": 0.0,
+        "pipeline": 1.074157,
+        "total": 3.76178,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-090",
+      "subquestions": [
+        {
+          "question": "对话服务重启后如何恢复阶段？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "工具请求失败重试时如何避免重复执行？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.687622500001453
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 24.507,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

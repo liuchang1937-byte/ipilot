@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-054",
+      "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R007"
+      ],
+      "answerable": true,
+      "reference_answer": "Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量，同一词的表示不随语境变化；BERT 类模型提供上下文相关的 Token 表示，但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练，使查询和文档可以独立编码后比较，适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索，如 SPLADE；多向量模型则保存多个 Token 表示，以更细的交互提高匹配能力，但存储与计算开销较大。双编码器适合第一阶段召回，Cross-Encoder 联合读取查询和文档，更适合小候选集重排。模型架构和检索方式是两件事，BERT 并不必然要求查询与每个文档一起编码，关键在于是否训练成适合独立编码的检索表示。",
+      "group": "R007",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

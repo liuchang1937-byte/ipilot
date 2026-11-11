@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-005",
+  "subquestions": [
+    {
+      "question": "助手如何落地“先推理再调用工具、读取工具结果后继续推理”的循环？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 9.132905300000857
+}

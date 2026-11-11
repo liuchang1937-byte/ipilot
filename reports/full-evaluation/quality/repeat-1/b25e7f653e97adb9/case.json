@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-081",
+      "question": "MCP在本地进程与远程服务之间怎样传输消息？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T013"
+      ],
+      "answerable": true,
+      "reference_answer": "本地MCP Server常通过stdio由Client作为子进程启动，延迟低且无需开放端口；远程服务推荐使用Streamable HTTP，便于多Client共享和集中管理。早期HTTP+SSE双端点方案已不再是新项目的首选。无论使用哪种传输，消息层都采用JSON-RPC 2.0，传输方式只决定消息如何到达。stdio 使用标准输入输出传递协议消息，普通日志应写到 stderr，避免污染消息流。远程 Streamable HTTP 使用 HTTP 请求传递消息，并可通过 SSE 推送多个事件；并不是所有响应都必须保持一个长连接。2025-11-25 版规范列出这两种标准传输，旧 HTTP+SSE 应按兼容需求处理。客户端还要管理连接生命周期、会话和取消；重连不会自动保证外部操作只执行一次。",
+      "group": "T013",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

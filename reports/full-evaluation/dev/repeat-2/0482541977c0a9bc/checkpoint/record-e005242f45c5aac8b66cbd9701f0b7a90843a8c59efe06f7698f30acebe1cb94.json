@@ -1,0 +1,284 @@
+{
+  "case_id": "V2-007",
+  "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A007",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://A007"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先把目标转为可验证的交付物，再按信息依赖、工具边界或专业领域拆成子任务，并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划；拆得过细会增加通信成本。以技术调研为例，可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分，最后一部分依赖前面的证据。独立检索可并行，依赖同一业务状态的写入不能随意并行。每步返回结构化产物，使失败可以定位到局部并单独重试。是否改善效果，应比较任务成功率、返工率、总耗时与调用费用，不能把拆分后的局部准确率直接当成整体收益。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A007",
+    "interview-question://A011",
+    "interview-question://A018",
+    "interview-question://T009",
+    "interview-question://A014",
+    "interview-question://A022"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.26666666666666666,
+  "ndcg_at_k": 0.8,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+    "answer": "1. 对于包含多个依赖步骤的请求，拆成可验证小任务的总体方法和步骤是什么？\n\n\n2. 对于包含多个依赖步骤的请求，如何确定每个小任务的范围和边界？\n\n\n3. 对于包含多个依赖步骤的请求，如何为每个小任务定义可验证的完成标准？\n\n\n4. 对于包含多个依赖步骤的请求，如何表示和处理步骤之间的依赖关系？\n\n\n5. 对于包含多个依赖步骤的请求，如何判断拆分后的小任务是否满足可验证要求？\n",
+    "sections": [
+      {
+        "question": "对于包含多个依赖步骤的请求，拆成可验证小任务的总体方法和步骤是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,拆成可验证小任务的总体方法和步骤是什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 2,
+          "selected_sources": [
+            "interview-question://A007",
+            "interview-question://A011"
+          ]
+        }
+      },
+      {
+        "question": "对于包含多个依赖步骤的请求，如何确定每个小任务的范围和边界？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,如何确定每个小任务的范围和边界?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A007",
+            "interview-question://A018",
+            "interview-question://T009"
+          ]
+        }
+      },
+      {
+        "question": "对于包含多个依赖步骤的请求，如何为每个小任务定义可验证的完成标准？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,如何为每个小任务定义可验证的完成标准?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 2,
+          "selected_sources": [
+            "interview-question://A007",
+            "interview-question://A014"
+          ]
+        }
+      },
+      {
+        "question": "对于包含多个依赖步骤的请求，如何表示和处理步骤之间的依赖关系？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,如何表示和处理步骤之间的依赖关系?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://A022"
+          ]
+        }
+      },
+      {
+        "question": "对于包含多个依赖步骤的请求，如何判断拆分后的小任务是否满足可验证要求？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,如何判断拆分后的小任务是否满足可验证要求?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A007",
+            "interview-question://A011",
+            "interview-question://A014"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 291400306949050267,
+        "title": "复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?",
+        "source": "interview-question://A007",
+        "domain": "agent",
+        "content": "# 复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?\n\n题目编号:A007\n\n领域:agent\n\n难度:2\n\n标签:任务分解、依赖图、验收条件\n- 考察方向:子任务边界、依赖关系、完成判据与动态重规划。\n\n参考答案:先把目标转为可验证的交付物,再按信息依赖、工具边界或专业领域拆成子任务,并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划;拆得过细会增加通信成本。以技术调研为例,可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分,最后一部分依赖前面的证据。独立检索可并行,依赖同一业务状态的写入不能随意并行。每步返回结构化产物,使失败可以定位到局部并单独重试。是否改善效果,应比较任务成功率、返工率、总耗时与调用费用,不能把拆分后的局部准确率直接当成整体收益。\n\n评分要点:强调可验证输出和依赖;说明收益与过度拆分的代价。",
+        "vector_score": 0.8226416110992432,
+        "keyword_score": 1.0,
+        "rerank_score": 0.8202652931213379
+      },
+      {
+        "id": 2,
+        "chunk_id": 1602129502117344900,
+        "title": "说说 Single-Agent 和 Multi-Agent 的设计方案?",
+        "source": "interview-question://A011",
+        "domain": "agent",
+        "content": "# 说说 Single-Agent 和 Multi-Agent 的设计方案?\n\n题目编号:A011\n\n领域:agent\n\n难度:3\n\n标签:Multi-Agent、角色设计、协调\n- 考察方向:角色边界、输入输出契约、调度者和共享状态。\n\n参考答案:Single-Agent 由一个决策核心访问多种工具,状态集中、调试简单,适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent,可由 Supervisor 统一调度,也可通过消息或共享状态协作,适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够,只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具,结构简单,调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总,但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分,而不是只看问题文字是否复杂。先建立单 Agent 基线,再用相同测试集证明成功率或延迟收益足以抵消协作成本。\n\n评分要点:描述两种架构;给出选择条件而非只列优缺点。",
+        "vector_score": 0.748193770647049,
+        "keyword_score": 0.6110732831516916,
+        "rerank_score": 0.6484630107879639
+      },
+      {
+        "id": 3,
+        "chunk_id": 2584544441468433340,
+        "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+        "source": "interview-question://A018",
+        "domain": "agent",
+        "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+        "vector_score": 0.7536768913269043,
+        "keyword_score": 0.5535775693674666,
+        "rerank_score": 0.06650718301534653
+      },
+      {
+        "id": 4,
+        "chunk_id": 4502432493545340977,
+        "title": "Skill 是什么?",
+        "source": "interview-question://T009",
+        "domain": "llm-tool-calling",
+        "content": "# Skill 是什么?\n\n题目编号:T009\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制,通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明,并在任务中使用其中的脚本和材料。它不是单纯保存Prompt,而是“操作手册+工具箱”;触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式:先用名称和描述判断是否相关,命中后读取完整步骤,再按需访问脚本、参考资料和模板,避免把全部资源永久放进上下文。例如,生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法,不会自动赋予工具权限;脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出,避免对所有任务都触发。\n\n评分要点:任务知识与流程封装,而非把Skill等同于API。",
+        "vector_score": 0.7480765581130981,
+        "keyword_score": 0.6747630404678204,
+        "rerank_score": 0.05836894363164902
+      },
+      {
+        "id": 5,
+        "chunk_id": 888008174752367641,
+        "title": "如何赋予 LLM 规划能力?",
+        "source": "interview-question://A014",
+        "domain": "agent",
+        "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+        "vector_score": 0.7376449108123779,
+        "keyword_score": 0.8255424093515736,
+        "rerank_score": 0.086087666451931
+      },
+      {
+        "id": 6,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.7647047638893127,
+        "keyword_score": 0.5833607881219632,
+        "rerank_score": 0.12951311469078064
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 13.275,
+  "timings_seconds": {
+    "decomposition": 8.46625,
+    "retrieval": 1.484319,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.990532,
+    "vector_search": 0.135541,
+    "keyword_search": 0.351182,
+    "rerank": 3.323645,
+    "generation": 0.0,
+    "pipeline": 4.808872,
+    "total": 13.275122,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 5,
+    "embedding_texts": 5,
+    "chat_calls": 0,
+    "rerank_calls": 5,
+    "rerank_pairs": 60
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

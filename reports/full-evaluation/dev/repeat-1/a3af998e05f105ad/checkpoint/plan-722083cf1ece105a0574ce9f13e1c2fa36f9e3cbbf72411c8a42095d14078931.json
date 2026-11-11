@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-011",
+  "subquestions": [
+    {
+      "question": "在什么情况下一个助手已经足够，在什么情况下值得将助手拆成多个角色？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.871693799999775
+}

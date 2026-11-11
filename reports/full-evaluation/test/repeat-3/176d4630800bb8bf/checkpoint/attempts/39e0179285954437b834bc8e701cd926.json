@@ -1,0 +1,260 @@
+{
+  "case_id": "V2-067",
+  "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "R020",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R020"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "最难的通常不是调用向量库，而是建立持续的数据与评测闭环：异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开，例如表格解析丢失表头，导致条款召回成功却回答口径错误。先建立可追溯评测集，再根据检索日志和引用定位问题，逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强，要说明自己如何发现原因、选择措施以及用什么证据验证改进。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R020",
+    "interview-question://R017",
+    "interview-question://R018",
+    "interview-question://A024"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.8769765845238192,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+    "answer": "1. 检索增强落地时，数据质量方面哪些难点最容易被忽视？\n\n\n2. 检索增强落地时，权限方面哪些难点最容易被忽视？\n\n\n3. 检索增强落地时，评测方面哪些难点最容易被忽视？\n",
+    "sections": [
+      {
+        "question": "检索增强落地时，数据质量方面哪些难点最容易被忽视？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "检索增强落地时,数据质量方面哪些难点最容易被忽视?"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索增强生成 RAG 落地 数据质量 容易被忽视的难点 有哪些"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG 实际部署 数据质量管理 常见盲点 与 挑战"
+            },
+            {
+              "kind": "mqe",
+              "text": "retrieval-augmented generation production data quality overlooked challenges pitfalls"
+            },
+            {
+              "kind": "hyde",
+              "text": "检索增强生成(RAG)落地时,数据质量方面最易被忽视的难点包括:PDF/OCR/表格/多模态解析失真,页眉页脚、导航栏、模板文本等噪声未清洗;分块(chunking)与语义边界不匹配,chunk 过大引入噪声、过小造成上下文断裂,overlap 与父子块策略随意;元数据缺失或不一致,来源、时间、版本、权限、业务标签、数据血统未标准化,导致元数据过滤和混合检索失效;语义重复、近似重复、矛盾内容未去重与冲突消解,引发多文档冲突和幻觉;时效性、版本管理、增量更新管道薄弱,旧版本文档仍被召回;权限与合规数据未做行级/字段级隔离,PII、敏感信息泄漏;领域术语、缩写、同义词、实体歧义未规范化,query-document 语义对齐差;评估集与标注数据覆盖不足,缺少难负样本、长尾意图和真实查询分布,无法暴露召回偏差;embedding 模型漂移、索引更新无质量门禁(quality gates)和数据契约(data contract),冷启动、多语言、多跳与长尾知识数据稀疏。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R020",
+            "interview-question://R017",
+            "interview-question://R018"
+          ]
+        }
+      },
+      {
+        "question": "检索增强落地时，权限方面哪些难点最容易被忽视？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "检索增强落地时,权限方面哪些难点最容易被忽视?"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索增强生成 RAG 落地 权限管理 易忽视难点"
+            },
+            {
+              "kind": "mqe",
+              "text": "企业知识库 检索增强 访问控制 ACL 权限过滤 实施挑战"
+            },
+            {
+              "kind": "mqe",
+              "text": "retrieval augmented generation permission-aware retrieval access control overlooked challenges"
+            },
+            {
+              "kind": "hyde",
+              "text": "检索增强生成(RAG)落地时,权限方面最易被忽视的难点包括:文档级 ACL/RBAC/ABAC 未下推到 chunk、行、字段与附件;向量数据库仅做 post-filtering 导致越权片段进入 top-k、重排序或 LLM 上下文,通过摘要、引用、缓存间接泄露;pre-filtering 与 ANN/HNSW 索引冲突,权限过滤降低召回且未建权限感知索引;多租户 tenant_id 仅逻辑过滤,缺少分区、命名空间与强制下推;外部连接器(SharePoint、Confluence、Google Drive、Slack)权限映射、OAuth/SSO 委托访问、service account 过度授权与同步延迟造成权限漂移;撤权、删除、密级变更未触发向量、embedding、查询缓存、会话记忆、日志与评测集失效,存在最终一致性窗口;父块/子块、重叠 chunk、多跳检索、知识图谱、多模态附件绕过单文档权限;prompt injection、成员推断与重识别可组合低敏片段推断高敏信息;审计、数据血缘、引用溯源与权限决策日志缺失,无法证明未越权。这些构成 RAG 权限治理的核心盲点。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R017",
+            "interview-question://R020",
+            "interview-question://A024"
+          ]
+        }
+      },
+      {
+        "question": "检索增强落地时，评测方面哪些难点最容易被忽视？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "检索增强落地时,评测方面哪些难点最容易被忽视?"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG 落地 评测 最容易被忽视 的 难点 有哪些"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索增强生成 上线 评估 盲点 常见 挑战 易忽略"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索增强 生产环境 评测 难点 召回 忠实度 延迟 成本 多轮对话 被低估"
+            },
+            {
+              "kind": "hyde",
+              "text": "RAG落地评测最易被忽视的难点包括:只评端到端答案,忽略检索组件解耦评测,未系统测量Recall@k、Hit Rate、MRR、nDCG、Context Precision/Recall及reranker增益;忽视无答案、拒答、abstention和不可回答问题,导致幻觉与过度回答无法暴露;忽视faithfulness、groundedness、attribution、citation precision/recall等忠实性与引用质量;忽视多轮、多跳、查询重写、指代消解场景覆盖;忽视索引时效、数据漂移、分布外query及embedding、reranker、chunking变更后的回归评测;忽视LLM-as-judge的位置偏差、自我偏好、长度偏差与评分校准;忽视离线benchmark污染、训练数据泄漏和测试集饱和;忽视线上A/B、用户反馈、延迟、成本、吞吐与检索失败降级策略;忽视对抗检索噪声、distractor鲁棒性、长上下文lost-in-the-middle和不确定性校准。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R020",
+            "interview-question://R018",
+            "interview-question://R017"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3951388330187580936,
+        "title": "在实际落地中,你觉得 RAG 最难的地方是哪里?",
+        "source": "interview-question://R020",
+        "domain": "rag",
+        "content": "# 在实际落地中,你觉得 RAG 最难的地方是哪里?\n\n题目编号:R020\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:最难的通常不是调用向量库,而是建立持续的数据与评测闭环:异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开,例如表格解析丢失表头,导致条款召回成功却回答口径错误。先建立可追溯评测集,再根据检索日志和引用定位问题,逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强,要说明自己如何发现原因、选择措施以及用什么证据验证改进。\n\n评分要点:数据治理和评测闭环;最好具备量化与真实案例。",
+        "vector_score": 0.9327301681041718,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.8390000462532043,
+        "keyword_score": 0.4966671036879013,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 145210955334252079,
+        "title": "怎么量化你的 RAG 效果?",
+        "source": "interview-question://R018",
+        "domain": "rag",
+        "content": "# 怎么量化你的 RAG 效果?\n\n题目编号:R018\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景,避免只验证常见问题。模型裁判需要人工校准,线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本,并定位是召回失败还是生成失败。\n\n评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。",
+        "vector_score": 0.8809242844581604,
+        "keyword_score": 0.9296665950275382,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1161528079708033534,
+        "title": "大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?",
+        "source": "interview-question://A024",
+        "domain": "agent",
+        "content": "# 大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?\n\n题目编号:A024\n\n领域:agent\n\n难度:3\n\n标签:数据库安全、权限、审计\n- 考察方向:最小权限、查询白名单、脱敏、只读代理和结果验证。\n\n参考答案:不要把数据库高权限凭据直接交给模型,应通过受控数据访问层暴露允许的表、字段和查询模板,默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截,再在限时限量的隔离账号中执行;结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID,查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态,不由模型从用户文字中自行决定。能提供查订单等固定业务接口时,就不暴露任意 SQL;必须生成 SQL 时要解析语法树,限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入,不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏,写操作使用独立权限、事务和审计,并校验指标口径及时间范围,兼顾查询安全和答案正确性。\n\n评分要点:最小权限、SQL验证、隔离执行、脱敏审计和结果证据。",
+        "vector_score": 0.8256688714027405,
+        "keyword_score": 0.730450900362353,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 43.813,
+  "timings_seconds": {
+    "decomposition": 3.576357,
+    "retrieval": 40.236497,
+    "mqe": 10.937573,
+    "hyde": 27.263574,
+    "embedding": 1.510461,
+    "vector_search": 0.16684,
+    "keyword_search": 0.351479,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 40.236667,
+    "total": 43.813024,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 15,
+    "chat_calls": 6,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

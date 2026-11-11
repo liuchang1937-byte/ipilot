@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-023",
+  "subquestions": [
+    {
+      "question": "如何避免助手在没有工具执行记录的情况下声称文件已经保存？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "如何确保助手执行文件保存操作时产生可验证的工具执行记录？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "如何检测助手声称文件已经保存但没有任何工具执行记录的情况？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 11.833841599998777
+}

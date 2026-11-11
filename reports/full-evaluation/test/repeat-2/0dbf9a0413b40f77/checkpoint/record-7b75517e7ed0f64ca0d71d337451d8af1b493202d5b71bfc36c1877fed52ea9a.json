@@ -1,0 +1,218 @@
+{
+  "case_id": "V2-024",
+  "question": "给模型接数据库时，如何限制查询权限并防止敏感字段泄漏？",
+  "category": "terminology",
+  "split": "test",
+  "group": "T016",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A024"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "不要把数据库高权限凭据直接交给模型，应通过受控数据访问层暴露允许的表、字段和查询模板，默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截，再在限时限量的隔离账号中执行；结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID，查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态，不由模型从用户文字中自行决定。能提供查订单等固定业务接口时，就不暴露任意 SQL；必须生成 SQL 时要解析语法树，限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入，不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏，写操作使用独立权限、事务和审计，并校验指标口径及时间范围，兼顾查询安全和答案正确性。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A024",
+    "interview-question://R009",
+    "interview-question://R012",
+    "interview-question://T003"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "给模型接数据库时，如何限制查询权限并防止敏感字段泄漏？",
+    "answer": "1. 给模型接数据库时，如何限制查询权限？\n\n\n2. 给模型接数据库时，如何防止敏感字段泄漏？\n",
+    "sections": [
+      {
+        "question": "给模型接数据库时，如何限制查询权限？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "给模型接数据库时,如何限制查询权限?"
+            },
+            {
+              "kind": "mqe",
+              "text": "给大模型接入数据库时,如何通过只读账号和最小权限限制查询权限"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM 连接数据库 查询权限控制 RBAC 行级安全 列级安全 配置方案"
+            },
+            {
+              "kind": "mqe",
+              "text": "模型访问数据库 如何设置查询白名单 禁止写操作 防止越权访问数据"
+            },
+            {
+              "kind": "hyde",
+              "text": "给模型接数据库时,限制查询权限应遵循最小权限与纵深防御。为 LLM/Agent 创建独立只读数据库账号,仅授予特定 schema、视图或表的 SELECT 权限,禁止 INSERT、UPDATE、DELETE、DDL、DCL、GRANT 及存储过程执行权。通过 RBAC 控制角色,结合列级权限、行级安全策略 RLS、租户隔离和视图暴露,避免直连基表。应用层加入 SQL 解析与 AST 校验、查询白名单、参数化查询、禁止多语句/注释/UNION/子查询等高风险语法,并强制自动追加 LIMIT。设置查询超时、最大返回行数、扫描量/成本阈值、并发限流与 QPS 限制。使用只读副本、沙箱库、连接池、密钥管理和凭证轮换,敏感字段脱敏/掩码,开启审计日志与异常查询告警。通过 text-to-SQL 网关统一拦截和重写查询,确保模型只能访问授权数据范围。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A024",
+            "interview-question://R009",
+            "interview-question://R012"
+          ]
+        }
+      },
+      {
+        "question": "给模型接数据库时，如何防止敏感字段泄漏？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "给模型接数据库时,如何防止敏感字段泄漏?"
+            },
+            {
+              "kind": "mqe",
+              "text": "给大模型接入数据库时 如何防止敏感字段泄漏"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM 连接数据库 敏感数据脱敏 权限控制 防泄漏方案"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG text-to-SQL 场景下 模型查询数据库 防止敏感字段外泄 最佳实践"
+            },
+            {
+              "kind": "hyde",
+              "text": "给模型接数据库时,防止敏感字段泄漏采用最小权限只读账号、列级访问控制、行级安全RLS、动态数据脱敏、静态脱敏、令牌化、格式保留加密FPE、字段级加密与KMS、假名化和差分隐私;通过语义层/API中间件而非模型直连SQL,实施SQL白名单、查询模板、参数化查询、AST解析、查询重写、结果集过滤、schema/metadata隐藏、PII识别、DLP、输出脱敏、RBAC/ABAC、审计日志与异常检测,防范提示注入越权查询;模型上下文只注入必要非敏感字段,禁止SELECT *,对敏感列返回掩码、哈希或占位符,并限制聚合与推断攻击。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A024",
+            "interview-question://R009",
+            "interview-question://T003"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1161528079708033534,
+        "title": "大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?",
+        "source": "interview-question://A024",
+        "domain": "agent",
+        "content": "# 大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?\n\n题目编号:A024\n\n领域:agent\n\n难度:3\n\n标签:数据库安全、权限、审计\n- 考察方向:最小权限、查询白名单、脱敏、只读代理和结果验证。\n\n参考答案:不要把数据库高权限凭据直接交给模型,应通过受控数据访问层暴露允许的表、字段和查询模板,默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截,再在限时限量的隔离账号中执行;结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID,查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态,不由模型从用户文字中自行决定。能提供查订单等固定业务接口时,就不暴露任意 SQL;必须生成 SQL 时要解析语法树,限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入,不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏,写操作使用独立权限、事务和审计,并校验指标口径及时间范围,兼顾查询安全和答案正确性。\n\n评分要点:最小权限、SQL验证、隔离执行、脱敏审计和结果证据。",
+        "vector_score": 0.8976173400878906,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2886579831854676340,
+        "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+        "source": "interview-question://R009",
+        "domain": "rag",
+        "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+        "vector_score": 0.7852845788002014,
+        "keyword_score": 0.2855295959695195,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3510013083994112628,
+        "title": "如何润色用户的 Query(Query Rewrite)?目的是什么?",
+        "source": "interview-question://R012",
+        "domain": "rag",
+        "content": "# 如何润色用户的 Query(Query Rewrite)?目的是什么?\n\n题目编号:R012\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询,从而提高召回。可以用规则、LLM、多查询扩展或HyDE,但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较,并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词,复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面,HyDE 生成假设文档用于语义检索,但假设内容不能作为回答证据。原始查询应保留在召回路径中,避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后,才值得默认启用复杂改写。\n\n评分要点:目的、常见方式、原意保护和可评测性。",
+        "vector_score": 0.7500793039798737,
+        "keyword_score": 0.37279236389588116,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.7427554726600647,
+        "keyword_score": 0.38765400091260915,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 26.716,
+  "timings_seconds": {
+    "decomposition": 4.618814,
+    "retrieval": 22.096791,
+    "mqe": 7.485381,
+    "hyde": 13.589408,
+    "embedding": 0.735445,
+    "vector_search": 0.053045,
+    "keyword_search": 0.229333,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 22.096932,
+    "total": 26.715745,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

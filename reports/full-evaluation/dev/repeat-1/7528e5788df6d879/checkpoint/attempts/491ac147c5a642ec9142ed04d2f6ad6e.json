@@ -1,0 +1,146 @@
+{
+  "case_id": "V2-032",
+  "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "L008",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://L008"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "微调通常不是第一选择，应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式，或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA；资源有限时LoRA/QLoRA最常用。SFT负责指令行为，有偏好对齐需求时还可使用DPO等方法，最终按数据、硬件和部署目标选型。全量微调更新大部分权重，容量较大但显存和优化器状态开销高；PEFT 只更新少量新增或选定参数，适合资源受限场景。QLoRA 将基座权重低比特存储，同时训练低秩适配器，不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式，LoRA 是参数更新方式，两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本，动态事实通常继续通过检索提供。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L008"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+    "answer": "1. 在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？\n\n\n2. 在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？\n",
+    "sections": [
+      {
+        "question": "在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在有限显存条件下,全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://L008"
+          ]
+        }
+      },
+      {
+        "question": "在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在有限显存条件下,如何根据模型规模、任务类型、数据量和训练目标等因素,在全参数微调、LoRA 等微调方式之间进行选择?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://L008"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 986183218169772871,
+        "title": "大模型微调的方案有哪些?",
+        "source": "interview-question://L008",
+        "domain": "llm-engineering",
+        "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+        "vector_score": 0.8717958927154541,
+        "keyword_score": 1.0,
+        "rerank_score": 0.8142377734184265
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 8.291,
+  "timings_seconds": {
+    "decomposition": 6.491317,
+    "retrieval": 0.607539,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.287749,
+    "vector_search": 0.046803,
+    "keyword_search": 0.270217,
+    "rerank": 1.192079,
+    "generation": 0.0,
+    "pipeline": 1.800049,
+    "total": 8.291365,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

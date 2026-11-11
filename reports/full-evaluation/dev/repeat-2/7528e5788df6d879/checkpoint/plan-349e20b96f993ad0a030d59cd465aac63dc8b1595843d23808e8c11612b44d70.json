@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-032",
+  "subquestions": [
+    {
+      "question": "在只有有限显存的情况下，如何在全参数微调、LoRA等微调方式之间选择？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.804092200000014
+}

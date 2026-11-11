@@ -1,0 +1,206 @@
+{
+  "case_id": "V2-019",
+  "question": "任务助手上线前，如何设计案例与指标检验它是否真的完成任务？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "A019",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A019"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "指标应同时覆盖结果、过程与成本：任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布，并包含正常、歧义、工具失败、权限不足和对抗样本；为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法，覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮。工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件，并统计成本、接管率与长尾延迟。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A019",
+    "interview-question://A023",
+    "interview-question://L021"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "任务助手上线前，如何设计案例与指标检验它是否真的完成任务？",
+    "answer": "1. 任务助手上线前，如何设计案例来检验它是否真的完成任务？\n\n\n2. 任务助手上线前，如何设计指标来检验它是否真的完成任务？\n",
+    "sections": [
+      {
+        "question": "任务助手上线前，如何设计案例来检验它是否真的完成任务？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "任务助手上线前,如何设计案例来检验它是否真的完成任务?"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务助手上线前 如何设计测试用例 评估是否真正完成任务"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务型对话系统/智能体 上线前 端到端评测集 构建 任务完成率"
+            },
+            {
+              "kind": "mqe",
+              "text": "how to design test cases to evaluate whether a task assistant truly completes tasks before launch"
+            },
+            {
+              "kind": "hyde",
+              "text": "任务助手上线前,可采用端到端验收测试设计场景化用例:按用户意图、任务类型、工具链、数据源和权限边界分层,覆盖正常流、异常流、边界条件、多轮追问、模糊指令、工具调用失败、API超时、权限拒绝、幻觉诱导和提示注入。在沙盒环境中以模拟用户或真实日志回放驱动助手,校验任务成功率、步骤准确率、槽位填充完整率、工具调用正确率、状态一致性、最终产物可交付性和人工接管率。结合规则断言、结果快照、LLM-as-judge 与人工评审,对关键任务执行离线回测、回归测试、A/B 对照和灰度影子模式验证,确保助手真正闭环完成任务,而非仅生成合理回复。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A019",
+            "interview-question://A023",
+            "interview-question://L021"
+          ]
+        }
+      },
+      {
+        "question": "任务助手上线前，如何设计指标来检验它是否真的完成任务？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "任务助手上线前,如何设计指标来检验它是否真的完成任务?"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务助手上线前 如何设计评估指标 验证任务完成效果"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务型对话助手 任务完成率 评估指标体系 上线前测试"
+            },
+            {
+              "kind": "mqe",
+              "text": "pre-launch evaluation metrics for task assistant task completion success criteria"
+            },
+            {
+              "kind": "hyde",
+              "text": "上线前,任务助手的任务完成能力可通过离线评测集、沙箱仿真和灰度验证来检验。先按任务类型、工具/API、约束条件建立任务分类体系与成功标准,构造带 ground truth 的测试用例、模拟用户和可观测最终状态的环境。核心指标包括端到端任务成功率、目标完成率、约束满足率、最终状态正确性、工具调用准确率、参数/槽位填充准确率、API 调用成功率、计划有效性、步骤成功率和轨迹正确性。辅助指标包括任务完成时间、交互轮数、token/成本、延迟、澄清次数、人工接管率、幻觉率、指令遵循率、安全合规率、用户满意度及 LLM-as-judge rubric 评分。评测方法采用离线批量评测、pass@k、回归测试、消融测试、对抗与边界测试、shadow/canary 灰度、A/B 测试和在线人工审核,并以分层加权综合分和失败分类体系判定是否真正完成任务。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A019",
+            "interview-question://A023",
+            "interview-question://L021"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4611361965580952492,
+        "title": "如何评估一个 Agent 的效果?评测集和指标怎么设计?",
+        "source": "interview-question://A019",
+        "domain": "agent",
+        "content": "# 如何评估一个 Agent 的效果?评测集和指标怎么设计?\n\n题目编号:A019\n\n领域:agent\n\n难度:2\n\n标签:评测、成功率、成本、轨迹\n- 考察方向:任务成功率、步骤正确率、延迟、费用和人工评价。\n\n参考答案:指标应同时覆盖结果、过程与成本:任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布,并包含正常、歧义、工具失败、权限不足和对抗样本;为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法,覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款,不能只看最终文字是否漂亮。工具选择和参数可用程序校验,开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹,主要约束关键检查点、禁用动作和完成条件,并统计成本、接管率与长尾延迟。\n\n评分要点:不能只评最终文本;指标与数据集覆盖真实失败模式。",
+        "vector_score": 0.8691839575767517,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.8221055865287781,
+        "keyword_score": 0.6220676983605923,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4468296057515630498,
+        "title": "大模型能力评测指标有哪些?",
+        "source": "interview-question://L021",
+        "domain": "llm-engineering",
+        "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+        "vector_score": 0.8301278948783875,
+        "keyword_score": 0.5632026064253327,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 29.722,
+  "timings_seconds": {
+    "decomposition": 6.822945,
+    "retrieval": 22.898825,
+    "mqe": 7.348651,
+    "hyde": 14.430886,
+    "embedding": 0.840253,
+    "vector_search": 0.055273,
+    "keyword_search": 0.219153,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 22.898977,
+    "total": 29.721922,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

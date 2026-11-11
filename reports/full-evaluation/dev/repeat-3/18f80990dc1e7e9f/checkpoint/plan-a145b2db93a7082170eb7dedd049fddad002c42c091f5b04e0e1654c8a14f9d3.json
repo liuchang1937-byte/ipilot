@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-092",
+  "subquestions": [
+    {
+      "question": "怎样通过轨迹定位助手的慢调用？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "KV缓存和提示缓存分别复用了什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.570170199996937
+}

@@ -1,0 +1,1281 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "da2407f7f8084a789d1265d693e5cb70",
+  "created_at": "2026-10-12T15:07:34.628996+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "91967cf8feab4b7ab04306f660c2aa085dd1cd79b03e9f4f0443504cca5671e1",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-1\\143809e161c8b22b\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.877,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 36.559,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 36.559,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 5.983782,
+          "p50": 5.983782,
+          "p95": 5.983782,
+          "max": 5.983782,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 30.575341,
+          "p50": 30.575341,
+          "p95": 30.575341,
+          "max": 30.575341,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 9.259772,
+          "p50": 9.259772,
+          "p95": 9.259772,
+          "max": 9.259772,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 19.234933,
+          "p50": 19.234933,
+          "p95": 19.234933,
+          "max": 19.234933,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.097198,
+          "p50": 1.097198,
+          "p95": 1.097198,
+          "max": 1.097198,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.179135,
+          "p50": 0.179135,
+          "p95": 0.179135,
+          "max": 0.179135,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.791497,
+          "p50": 0.791497,
+          "p95": 0.791497,
+          "max": 0.791497,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 30.575693,
+          "p50": 30.575693,
+          "p95": 30.575693,
+          "max": 30.575693,
+          "samples": 1
+        },
+        "total": {
+          "mean": 36.559475,
+          "p50": 36.559475,
+          "p95": 36.559475,
+          "max": 36.559475,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 6.761,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 6.761,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 5.983782,
+          "p50": 5.983782,
+          "p95": 5.983782,
+          "max": 5.983782,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.777254,
+          "p50": 0.777254,
+          "p95": 0.777254,
+          "max": 0.777254,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.510267,
+          "p50": 0.510267,
+          "p95": 0.510267,
+          "max": 0.510267,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.063892,
+          "p50": 0.063892,
+          "p95": 0.063892,
+          "max": 0.063892,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.19909,
+          "p50": 0.19909,
+          "p95": 0.19909,
+          "max": 0.19909,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.777562,
+          "p50": 0.777562,
+          "p95": 0.777562,
+          "max": 0.777562,
+          "samples": 1
+        },
+        "total": {
+          "mean": 6.761344,
+          "p50": 6.761344,
+          "p95": 6.761344,
+          "max": 6.761344,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.877,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 8.607,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 8.607,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 5.983782,
+          "p50": 5.983782,
+          "p95": 5.983782,
+          "max": 5.983782,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.734302,
+          "p50": 0.734302,
+          "p95": 0.734302,
+          "max": 0.734302,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.424351,
+          "p50": 0.424351,
+          "p95": 0.424351,
+          "max": 0.424351,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.085427,
+          "p50": 0.085427,
+          "p95": 0.085427,
+          "max": 0.085427,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.219511,
+          "p50": 0.219511,
+          "p95": 0.219511,
+          "max": 0.219511,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.888706,
+          "p50": 1.888706,
+          "p95": 1.888706,
+          "max": 1.888706,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 2.62362,
+          "p50": 2.62362,
+          "p95": 2.62362,
+          "max": 2.62362,
+          "samples": 1
+        },
+        "total": {
+          "mean": 8.607401,
+          "p50": 8.607401,
+          "p95": 8.607401,
+          "max": 8.607401,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 3,
+        "rerank_pairs": 36
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-086",
+      "question": "模型传错参数、工具执行超时，如何校验、重试并防止重复副作用？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A018",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T018",
+        "interview-question://T001",
+        "interview-question://T017",
+        "interview-question://A023",
+        "interview-question://A020"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.8769765845238192,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "模型传错参数、工具执行超时，如何校验、重试并防止重复副作用？",
+        "answer": "1. 模型调用工具时传错参数，如何校验工具调用参数？\n\n\n2. 模型调用工具执行超时时，如何重试工具调用？\n\n\n3. 模型调用工具重试时，如何防止重复副作用？\n",
+        "sections": [
+          {
+            "question": "模型调用工具时传错参数，如何校验工具调用参数？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型调用工具时传错参数,如何校验工具调用参数?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "模型调用工具时传错参数 如何校验工具调用参数"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM function calling 工具调用参数校验 JSON Schema"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "AI Agent 工具调用参数错误 检测与重试 最佳实践"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "当模型通过 function calling / tool use 发起工具调用时,先拦截 `tool_calls`,解析 `arguments` JSON,再用 JSON Schema、OpenAPI schema、Pydantic 或 Zod 做运行时参数校验。校验必填字段 `required`、类型 `type`、枚举 `enum`、格式 `format`、数值范围 `minimum/maximum`、正则 `pattern`、数组 `items`、对象 `properties` 和 `additionalProperties=false`。若 JSON 解析失败或字段缺失、类型不匹配、枚举越界,则不执行工具,返回结构化错误给模型,包含字段路径、错误码、期望值和实际值,要求重新生成符合 schema 的 tool call,并设置最大重试次数。可结合 strict function calling、structured outputs、constrained decoding、grammar 限制、参数规范化、类型转换、默认值和权限校验,在工具执行前完成参数验证与修正。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://T001",
+                "interview-question://T017"
+              ]
+            }
+          },
+          {
+            "question": "模型调用工具执行超时时，如何重试工具调用？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型调用工具执行超时时,如何重试工具调用?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型调用工具执行超时后,如何重试工具调用?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM function calling 工具调用超时 重试机制与实现方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Agent 工具执行超时 重试策略 幂等 超时处理"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "当模型发起的工具调用(tool call/function call)执行超时,应重试工具执行层,而不是重新生成整个模型响应。解析 assistant 消息中的 tool_calls,保留 tool_call_id、function.name、arguments,针对同一 tool_call_id 重新执行工具。对可重试错误(连接超时、read timeout、429、502/503/504、网络抖动)采用指数退避加随机抖动(exponential backoff with jitter)、最大重试次数(max_retries)、单次尝试超时(per-attempt timeout)和整体截止时间(deadline/timeout budget)。重试前使用幂等键(idempotency key)或去重缓存避免重复副作用;非幂等工具需服务端支持幂等令牌,或先查询异步任务状态。超过重试预算或熔断器(circuit breaker)打开时,返回结构化 tool result(status=error、error_code=TIMEOUT、tool_call_id、retryable)给模型,由模型选择降级、备用工具或向用户澄清。长时任务使用异步任务 ID、轮询或回调,避免阻塞式重试。记录 retry_count、latency、trace_id、span,便于可观测性和故障排查。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://T001",
+                "interview-question://A023"
+              ]
+            }
+          },
+          {
+            "question": "模型调用工具重试时，如何防止重复副作用？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型调用工具重试时,如何防止重复副作用?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "模型调用工具重试时如何防止重复副作用 幂等 设计"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM agent tool calling retry prevent duplicate side effects idempotency"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型 function calling 重试 去重 idempotency key exactly-once 副作用"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "模型调用工具重试时,为防止重复副作用,应为每次工具调用生成唯一 `tool_call_id` 或 `idempotency_key`,并在服务端通过幂等键、去重表或唯一约束保证同一请求只执行一次;重复请求直接返回首次执行结果。工具接口应设计为幂等操作,或采用条件写、版本号、CAS、乐观锁、事务、唯一索引、outbox、saga 与补偿事务。模型侧需记录已发起的工具调用、执行状态与结果,重试前先查询执行状态或结果,而不是盲目重放。对非幂等副作用,应禁止自动重试或要求人工确认;对可重试错误使用指数退避、有限重试和超时控制,并通过 at-least-once 投递加幂等消费实现 exactly-once 语义。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T001",
+                "interview-question://T018",
+                "interview-question://A020"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.8657999336719513,
+            "keyword_score": 0.7860400317867193,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.833766520023346,
+            "keyword_score": 0.9696719424428117,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.8209237158298492,
+            "keyword_score": 0.9613186628185325,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.8214989602565765,
+            "keyword_score": 0.840760436302283,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 1522480542740227703,
+            "title": "Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?",
+            "source": "interview-question://A020",
+            "domain": "agent",
+            "content": "# Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?\n\n题目编号:A020\n\n领域:agent\n\n难度:3\n\n标签:死循环、路径震荡、治理\n- 考察方向:轨迹指纹、调用预算、状态去重和熔断策略。\n\n参考答案:常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避,或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹,检测短周期重复和无进展步数,并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径,触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹,同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环,例如分页检索和受控重试可能是合理的;重复但没有进展才应触发治理。发现空转后先判断错误类型,再修正参数、换工具或重新规划;多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点,让用户知道系统为何停止。\n\n评分要点:原因、检测信号、预算和恢复策略齐全。",
+            "vector_score": 0.8027385473251343,
+            "keyword_score": 0.7432897250780289,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 36.559,
+      "timings_seconds": {
+        "decomposition": 5.983782,
+        "retrieval": 30.575341,
+        "mqe": 9.259772,
+        "hyde": 19.234933,
+        "embedding": 1.097198,
+        "vector_search": 0.179135,
+        "keyword_search": 0.791497,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 30.575693,
+        "total": 36.559475,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-086",
+      "question": "模型传错参数、工具执行超时，如何校验、重试并防止重复副作用？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T018",
+        "interview-question://T001",
+        "interview-question://T017",
+        "interview-question://A023",
+        "interview-question://A020",
+        "interview-question://T003"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "模型传错参数、工具执行超时，如何校验、重试并防止重复副作用？",
+        "answer": "1. 模型调用工具时传错参数，如何校验工具调用参数？\n\n\n2. 模型调用工具执行超时时，如何重试工具调用？\n\n\n3. 模型调用工具重试时，如何防止重复副作用？\n",
+        "sections": [
+          {
+            "question": "模型调用工具时传错参数，如何校验工具调用参数？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型调用工具时传错参数,如何校验工具调用参数?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://T001",
+                "interview-question://T017"
+              ]
+            }
+          },
+          {
+            "question": "模型调用工具执行超时时，如何重试工具调用？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型调用工具执行超时时,如何重试工具调用?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://T001",
+                "interview-question://A023"
+              ]
+            }
+          },
+          {
+            "question": "模型调用工具重试时，如何防止重复副作用？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型调用工具重试时,如何防止重复副作用?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://A020",
+                "interview-question://T003"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.8203259706497192,
+            "keyword_score": 0.7056096524743845,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.8171466886997223,
+            "keyword_score": 0.8363123376446595,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.8121689558029175,
+            "keyword_score": 0.9613186628185325,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.7937247157096863,
+            "keyword_score": 0.840760436302283,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 1522480542740227703,
+            "title": "Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?",
+            "source": "interview-question://A020",
+            "domain": "agent",
+            "content": "# Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?\n\n题目编号:A020\n\n领域:agent\n\n难度:3\n\n标签:死循环、路径震荡、治理\n- 考察方向:轨迹指纹、调用预算、状态去重和熔断策略。\n\n参考答案:常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避,或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹,检测短周期重复和无进展步数,并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径,触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹,同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环,例如分页检索和受控重试可能是合理的;重复但没有进展才应触发治理。发现空转后先判断错误类型,再修正参数、换工具或重新规划;多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点,让用户知道系统为何停止。\n\n评分要点:原因、检测信号、预算和恢复策略齐全。",
+            "vector_score": 0.8027833104133606,
+            "keyword_score": 0.7395757909058779,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 878197658630587989,
+            "title": "大模型的 Function Call 能力是怎么训练出来的?",
+            "source": "interview-question://T003",
+            "domain": "llm-tool-calling",
+            "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+            "vector_score": 0.797221302986145,
+            "keyword_score": 0.7482683071144342,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 6.761,
+      "timings_seconds": {
+        "decomposition": 5.983782,
+        "retrieval": 0.777254,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.510267,
+        "vector_search": 0.063892,
+        "keyword_search": 0.19909,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.777562,
+        "total": 6.761344,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-086",
+      "question": "模型传错参数、工具执行超时，如何校验、重试并防止重复副作用？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A018",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T018",
+        "interview-question://T017",
+        "interview-question://T003",
+        "interview-question://A021",
+        "interview-question://A023",
+        "interview-question://A020"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.8769765845238192,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "模型传错参数、工具执行超时，如何校验、重试并防止重复副作用？",
+        "answer": "1. 模型调用工具时传错参数，如何校验工具调用参数？\n\n\n2. 模型调用工具执行超时时，如何重试工具调用？\n\n\n3. 模型调用工具重试时，如何防止重复副作用？\n",
+        "sections": [
+          {
+            "question": "模型调用工具时传错参数，如何校验工具调用参数？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型调用工具时传错参数,如何校验工具调用参数?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://T017",
+                "interview-question://T003"
+              ]
+            }
+          },
+          {
+            "question": "模型调用工具执行超时时，如何重试工具调用？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型调用工具执行超时时,如何重试工具调用?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://A021",
+                "interview-question://A023"
+              ]
+            }
+          },
+          {
+            "question": "模型调用工具重试时，如何防止重复副作用？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型调用工具重试时,如何防止重复副作用?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A020",
+                "interview-question://T018",
+                "interview-question://A021"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.8203259706497192,
+            "keyword_score": 0.7056096524743845,
+            "rerank_score": 0.8328916430473328
+          },
+          {
+            "id": 2,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.8121689558029175,
+            "keyword_score": 0.9613186628185325,
+            "rerank_score": 0.9540705680847168
+          },
+          {
+            "id": 3,
+            "chunk_id": 878197658630587989,
+            "title": "大模型的 Function Call 能力是怎么训练出来的?",
+            "source": "interview-question://T003",
+            "domain": "llm-tool-calling",
+            "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+            "vector_score": 0.8257266283035278,
+            "keyword_score": 0.675159646439638,
+            "rerank_score": 0.946308434009552
+          },
+          {
+            "id": 4,
+            "chunk_id": 3534902068064850797,
+            "title": "线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?",
+            "source": "interview-question://A021",
+            "domain": "agent",
+            "content": "# 线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?\n\n题目编号:A021\n\n领域:agent\n\n难度:3\n\n标签:可观测性、Trace、性能优化\n- 考察方向:模型、检索、工具、网络和重试链路的分段诊断。\n\n参考答案:为一次任务建立统一Trace ID,并为模型调用、检索、重排、工具、数据库、重试和排队创建Span,记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径,再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环,并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时,再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模,通过慢请求与正常请求对比找关键路径。若慢在工具排队,换模型不会解决;若步数膨胀,则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率,不能用牺牲回答质量换来的速度作为唯一成果。\n\n评分要点:分段追踪、关键指标、定位方法以及质量—延迟权衡。",
+            "vector_score": 0.7687173783779144,
+            "keyword_score": 0.7700650099542389,
+            "rerank_score": 0.7768944501876831
+          },
+          {
+            "id": 5,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.7937247157096863,
+            "keyword_score": 0.840760436302283,
+            "rerank_score": 0.9818840026855469
+          },
+          {
+            "id": 6,
+            "chunk_id": 1522480542740227703,
+            "title": "Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?",
+            "source": "interview-question://A020",
+            "domain": "agent",
+            "content": "# Agent 为什么会出现路径震荡、重复调用和死循环?怎么检测和治理?\n\n题目编号:A020\n\n领域:agent\n\n难度:3\n\n标签:死循环、路径震荡、治理\n- 考察方向:轨迹指纹、调用预算、状态去重和熔断策略。\n\n参考答案:常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避,或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹,检测短周期重复和无进展步数,并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径,触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹,同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环,例如分页检索和受控重试可能是合理的;重复但没有进展才应触发治理。发现空转后先判断错误类型,再修正参数、换工具或重新规划;多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点,让用户知道系统为何停止。\n\n评分要点:原因、检测信号、预算和恢复策略齐全。",
+            "vector_score": 0.8027833104133606,
+            "keyword_score": 0.7395757909058779,
+            "rerank_score": 0.9313476085662842
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 8.607,
+      "timings_seconds": {
+        "decomposition": 5.983782,
+        "retrieval": 0.734302,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.424351,
+        "vector_search": 0.085427,
+        "keyword_search": 0.219511,
+        "rerank": 1.888706,
+        "generation": 0.0,
+        "pipeline": 2.62362,
+        "total": 8.607401,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 3,
+        "rerank_pairs": 36
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-086",
+      "subquestions": [
+        {
+          "question": "模型调用工具时传错参数，如何校验工具调用参数？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "模型调用工具执行超时时，如何重试工具调用？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "模型调用工具重试时，如何防止重复副作用？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 5.983781599999929
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.008,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

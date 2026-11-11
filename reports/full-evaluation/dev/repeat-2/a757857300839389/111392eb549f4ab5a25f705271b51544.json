@@ -1,0 +1,985 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "111392eb549f4ab5a25f705271b51544",
+  "created_at": "2026-10-12T15:07:34.801268+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "308c5549b5a34887d7b8f82eba086aca144ab41b64e8033c4c246a764a53fba5",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\a757857300839389\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 7.278,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 7.278,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.873198,
+          "p50": 6.873198,
+          "p95": 6.873198,
+          "max": 6.873198,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.4044,
+          "p50": 0.4044,
+          "p95": 0.4044,
+          "max": 0.4044,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.297794,
+          "p50": 0.297794,
+          "p95": 0.297794,
+          "max": 0.297794,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.020506,
+          "p50": 0.020506,
+          "p95": 0.020506,
+          "max": 0.020506,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.084864,
+          "p50": 0.084864,
+          "p95": 0.084864,
+          "max": 0.084864,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.404623,
+          "p50": 0.404623,
+          "p95": 0.404623,
+          "max": 0.404623,
+          "samples": 1
+        },
+        "total": {
+          "mean": 7.277821,
+          "p50": 7.277821,
+          "p95": 7.277821,
+          "max": 7.277821,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 7.907,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 7.907,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.873198,
+          "p50": 6.873198,
+          "p95": 6.873198,
+          "max": 6.873198,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.461331,
+          "p50": 0.461331,
+          "p95": 0.461331,
+          "max": 0.461331,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.369772,
+          "p50": 0.369772,
+          "p95": 0.369772,
+          "max": 0.369772,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.024531,
+          "p50": 0.024531,
+          "p95": 0.024531,
+          "max": 0.024531,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.065776,
+          "p50": 0.065776,
+          "p95": 0.065776,
+          "max": 0.065776,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.5724,
+          "p50": 0.5724,
+          "p95": 0.5724,
+          "max": 0.5724,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.034019,
+          "p50": 1.034019,
+          "p95": 1.034019,
+          "max": 1.034019,
+          "samples": 1
+        },
+        "total": {
+          "mean": 7.907217,
+          "p50": 7.907217,
+          "p95": 7.907217,
+          "max": 7.907217,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 18.915,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 18.915,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.873198,
+          "p50": 6.873198,
+          "p95": 6.873198,
+          "max": 6.873198,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 12.042003,
+          "p50": 12.042003,
+          "p95": 12.042003,
+          "max": 12.042003,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.536664,
+          "p50": 2.536664,
+          "p95": 2.536664,
+          "max": 2.536664,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 8.94325,
+          "p50": 8.94325,
+          "p95": 8.94325,
+          "max": 8.94325,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.316399,
+          "p50": 0.316399,
+          "p95": 0.316399,
+          "max": 0.316399,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.047061,
+          "p50": 0.047061,
+          "p95": 0.047061,
+          "max": 0.047061,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.194027,
+          "p50": 0.194027,
+          "p95": 0.194027,
+          "max": 0.194027,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 12.042208,
+          "p50": 12.042208,
+          "p95": 12.042208,
+          "max": 12.042208,
+          "samples": 1
+        },
+        "total": {
+          "mean": 18.915406,
+          "p50": 18.915406,
+          "p95": 18.915406,
+          "max": 18.915406,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 4,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-012",
+      "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A008",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索，以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用，关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存，近期原话保持较高保真度，历史细节按需取回。摘要要保留证据指针，不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致，以及恢复任务时是否丢失重要操作回执。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A012",
+        "interview-question://A018",
+        "interview-question://A017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当历史对话超出上下文容量时，除了截掉旧消息，还有哪些压缩历史对话的方法？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当历史对话超出上下文容量时,除了截掉旧消息,还有哪些压缩历史对话的方法?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A012",
+                "interview-question://A018",
+                "interview-question://A017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3617720858369486831,
+            "title": "Agent 记忆压缩通常有哪些方法?",
+            "source": "interview-question://A012",
+            "domain": "agent",
+            "content": "# Agent 记忆压缩通常有哪些方法?\n\n题目编号:A012\n\n领域:agent\n\n难度:3\n\n标签:上下文压缩、摘要、记忆\n- 考察方向:滑动窗口、结构化摘要、关键事件保留与可追溯性。\n\n参考答案:常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索,以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用,关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存,近期原话保持较高保真度,历史细节按需取回。摘要要保留证据指针,不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致,以及恢复任务时是否丢失重要操作回执。\n\n评分要点:至少三种方法;强调关键事实、可追溯和评测。",
+            "vector_score": 0.8291293382644653,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2584544441468433340,
+            "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+            "source": "interview-question://A018",
+            "domain": "agent",
+            "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+            "vector_score": 0.7998912036418915,
+            "keyword_score": 0.4821431021653761,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1914948693301866705,
+            "title": "Agent 的上下文工程怎么设计?",
+            "source": "interview-question://A017",
+            "domain": "agent",
+            "content": "# Agent 的上下文工程怎么设计?\n\n题目编号:A017\n\n领域:agent\n\n难度:3\n\n标签:上下文工程、检索、Token 预算\n- 考察方向:系统指令、任务状态、记忆、工具结果和知识证据的优先级。\n\n参考答案:上下文应按任务动态装配,而非永久堆积。一般包含稳定系统规则、当前目标与计划、最近交互、必要工具描述、检索证据和相关长期记忆。通过元数据过滤、语义检索、摘要、去重和Token预算控制数量,并明确不同内容的可信等级。工具原始结果与用户输入要做边界标记,防止提示注入影响系统指令。可以把上下文分成稳定指令、当前目标、结构化状态、近期对话、相关证据和本轮工具结果,并为各部分设定预算。用户的纠错和硬约束应显式更新状态,陈旧工具输出则摘要或移出窗口。长文不是越多越好,需要去重、重排并标识来源;外部文档中的指令只作为数据处理。评测应检查同一任务在不同轮数、噪声和截断条件下是否仍能正确选择工具并保持目标。\n\n评分要点:动态选择、预算控制、来源分层和安全隔离。",
+            "vector_score": 0.7849651873111725,
+            "keyword_score": 0.5434727135493711,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 7.278,
+      "timings_seconds": {
+        "decomposition": 6.873198,
+        "retrieval": 0.4044,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.297794,
+        "vector_search": 0.020506,
+        "keyword_search": 0.084864,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.404623,
+        "total": 7.277821,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-012",
+      "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A008",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索，以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用，关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存，近期原话保持较高保真度，历史细节按需取回。摘要要保留证据指针，不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致，以及恢复任务时是否丢失重要操作回执。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A012",
+        "interview-question://A009",
+        "interview-question://A018"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当历史对话超出上下文容量时，除了截掉旧消息，还有哪些压缩历史对话的方法？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当历史对话超出上下文容量时,除了截掉旧消息,还有哪些压缩历史对话的方法?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A012",
+                "interview-question://A009",
+                "interview-question://A018"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3617720858369486831,
+            "title": "Agent 记忆压缩通常有哪些方法?",
+            "source": "interview-question://A012",
+            "domain": "agent",
+            "content": "# Agent 记忆压缩通常有哪些方法?\n\n题目编号:A012\n\n领域:agent\n\n难度:3\n\n标签:上下文压缩、摘要、记忆\n- 考察方向:滑动窗口、结构化摘要、关键事件保留与可追溯性。\n\n参考答案:常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索,以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用,关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存,近期原话保持较高保真度,历史细节按需取回。摘要要保留证据指针,不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致,以及恢复任务时是否丢失重要操作回执。\n\n评分要点:至少三种方法;强调关键事实、可追溯和评测。",
+            "vector_score": 0.8291293382644653,
+            "keyword_score": 1.0,
+            "rerank_score": 0.8366532325744629
+          },
+          {
+            "id": 2,
+            "chunk_id": 262192336753681762,
+            "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+            "source": "interview-question://A009",
+            "domain": "agent",
+            "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+            "vector_score": 0.7564455270767212,
+            "keyword_score": 0.6197065129667133,
+            "rerank_score": 0.10206707566976547
+          },
+          {
+            "id": 3,
+            "chunk_id": 2584544441468433340,
+            "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+            "source": "interview-question://A018",
+            "domain": "agent",
+            "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+            "vector_score": 0.7998912036418915,
+            "keyword_score": 0.4821431021653761,
+            "rerank_score": 0.06877851486206055
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 7.907,
+      "timings_seconds": {
+        "decomposition": 6.873198,
+        "retrieval": 0.461331,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.369772,
+        "vector_search": 0.024531,
+        "keyword_search": 0.065776,
+        "rerank": 0.5724,
+        "generation": 0.0,
+        "pipeline": 1.034019,
+        "total": 7.907217,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-012",
+      "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A008",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索，以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用，关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存，近期原话保持较高保真度，历史细节按需取回。摘要要保留证据指针，不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致，以及恢复任务时是否丢失重要操作回执。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A012",
+        "interview-question://R005",
+        "interview-question://A009"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当历史对话超出上下文容量时，除了截掉旧消息，还有哪些压缩历史对话的方法？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当历史对话超出上下文容量时,除了截掉旧消息,还有哪些压缩历史对话的方法?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "长对话 上下文窗口 超出 历史压缩 方法 摘要 记忆检索 分层压缩 替代截断"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "dialogue history compression methods beyond truncation context window LLM summarization memory retrieval"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "当历史对话超出上下文容量时,除截断旧消息外,可采用递归摘要、滚动摘要、层次摘要、多级摘要、抽象式/抽取式对话摘要,将长历史压缩为短期摘要与长期记忆摘要;通过关键句抽取、TextRank、TF-IDF、注意力显著性、重要性评分、时间衰减选择关键 utterance;利用实体/槽位抽取、对话状态跟踪、事件时间线、知识图谱三元组进行结构化压缩;采用语义压缩、上下文蒸馏、gist tokens、软提示、信息瓶颈、LLMLingua、选择性上下文、token merging、KV cache 压缩等 prompt 压缩技术;将历史分块嵌入向量数据库,构建 RAG、检索增强记忆、相似度召回与查询重写;结合记忆分层、分页、LRU/LFU 淘汰、记忆巩固、反思、聚类、主题分段摘要,形成摘要+检索+结构化记忆的混合上下文管理。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A012",
+                "interview-question://R005",
+                "interview-question://A009"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3617720858369486831,
+            "title": "Agent 记忆压缩通常有哪些方法?",
+            "source": "interview-question://A012",
+            "domain": "agent",
+            "content": "# Agent 记忆压缩通常有哪些方法?\n\n题目编号:A012\n\n领域:agent\n\n难度:3\n\n标签:上下文压缩、摘要、记忆\n- 考察方向:滑动窗口、结构化摘要、关键事件保留与可追溯性。\n\n参考答案:常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索,以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用,关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存,近期原话保持较高保真度,历史细节按需取回。摘要要保留证据指针,不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致,以及恢复任务时是否丢失重要操作回执。\n\n评分要点:至少三种方法;强调关键事实、可追溯和评测。",
+            "vector_score": 0.8533161282539368,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3747615631573896845,
+            "title": "怎么规避语义被切割掉的问题?",
+            "source": "interview-question://R005",
+            "domain": "rag",
+            "content": "# 怎么规避语义被切割掉的问题?\n\n题目编号:R005\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:一方面在切块阶段按句子、段落和标题等自然边界切分,并使用适量重叠;另一方面在检索后补回上下文,例如命中句子后返回周围窗口,或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval:在Embedding前为每个Chunk生成与全文相关的背景说明,再与正文共同索引,减轻孤立Chunk缺少上下文的问题。例如,一个段落先说明条件、后说明例外,按固定字符数切开可能只召回例外,导致错误结论。可以保存标题路径、块位置与父文档 ID,在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查,避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度,因此应去重并控制返回预算,用跨段问题检验收益。\n\n评分要点:语义边界、重叠、上下文标题、邻块扩展或父块返回。",
+            "vector_score": 0.7954457402229309,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 262192336753681762,
+            "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+            "source": "interview-question://A009",
+            "domain": "agent",
+            "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+            "vector_score": 0.8034899234771729,
+            "keyword_score": 0.7168884968093336,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 18.915,
+      "timings_seconds": {
+        "decomposition": 6.873198,
+        "retrieval": 12.042003,
+        "mqe": 2.536664,
+        "hyde": 8.94325,
+        "embedding": 0.316399,
+        "vector_search": 0.047061,
+        "keyword_search": 0.194027,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 12.042208,
+        "total": 18.915406,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 4,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-012",
+      "subquestions": [
+        {
+          "question": "当历史对话超出上下文容量时，除了截掉旧消息，还有哪些压缩历史对话的方法？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 6.873197699998855
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.008,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

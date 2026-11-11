@@ -1,0 +1,186 @@
+{
+  "case_id": "V2-071",
+  "question": "训练一个可靠工具调用模型，需要哪些数据与执行反馈？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "T003",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://T003"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策，再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果，避免模型只会理想路径；评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例，以及参数缺失、过期结果、权限拒绝等情况，防止模型只记住名称。奖励不能只检查调用格式，执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开，分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率，避免数据泄漏掩盖问题。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T003",
+    "interview-question://T002",
+    "interview-question://L022",
+    "interview-question://A005"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "训练一个可靠工具调用模型，需要哪些数据与执行反馈？",
+    "answer": "1. 训练一个可靠工具调用模型需要哪些数据？\n\n\n2. 训练一个可靠工具调用模型需要哪些执行反馈？\n",
+    "sections": [
+      {
+        "question": "训练一个可靠工具调用模型需要哪些数据？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "训练一个可靠工具调用模型需要哪些数据?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T003",
+            "interview-question://T002",
+            "interview-question://L022"
+          ]
+        }
+      },
+      {
+        "question": "训练一个可靠工具调用模型需要哪些执行反馈？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "训练一个可靠工具调用模型需要哪些执行反馈?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T003",
+            "interview-question://T002",
+            "interview-question://A005"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.8731059432029724,
+        "keyword_score": 0.9455621410391386,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1074467055826810929,
+        "title": "LLM 是如何学会调用外部工具的?",
+        "source": "interview-question://T002",
+        "domain": "llm-tool-calling",
+        "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+        "vector_score": 0.856460690498352,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.7807862758636475,
+        "keyword_score": 0.86077470600254,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 320541557706665564,
+        "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+        "source": "interview-question://A005",
+        "domain": "agent",
+        "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+        "vector_score": 0.8070106208324432,
+        "keyword_score": 0.9104536668821391,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.663,
+  "timings_seconds": {
+    "decomposition": 3.041997,
+    "retrieval": 0.62107,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.424393,
+    "vector_search": 0.04983,
+    "keyword_search": 0.144291,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.621361,
+    "total": 3.663357,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

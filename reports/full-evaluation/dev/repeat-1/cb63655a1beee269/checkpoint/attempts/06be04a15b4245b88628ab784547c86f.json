@@ -1,0 +1,144 @@
+{
+  "case_id": "V2-118",
+  "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-118",
+  "variant": "hybrid",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "C:\\Users\\orzlc\\Desktop\\test.pdf"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3316265630962033877,
+        "title": "3.3 知识库摄取与检索流程",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+        "vector_score": 0.8122817277908325,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1582090342757356371,
+        "title": "4.2 版本优先级示例",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 4.2 版本优先级示例\n### 的规则。\n\nF-023 当前标签换电阈值为电量低于 30%,依据 v1.4。\n否定事实:云杉计划没有使用人脸识别;没有采集司机的私人聊天内容;没有把原始个人信息用于路线推荐模型训练。\nF-024 路线推荐模型不使用原始个人信息训练。\n\n云杉计划知识手册 | RAG 测试语料 第 6 页 / 共 11 页\n\n---",
+        "vector_score": 0.7838457226753235,
+        "keyword_score": 0.5420621312371311,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3917366364101235628,
+        "title": "3.3 知识库摄取与检索流程",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 3.3 知识库摄取与检索流程\n### document_id、version、section_path、page、effective_date 和 access_level 六项元数据。\n\nF-015 默认 chunk 大小为 500 个中文字符,重叠 75 字。\nF-016 每个知识块必须携带六项元数据,其中包括 section_path 与 access_level。",
+        "vector_score": 0.7668711245059967,
+        "keyword_score": 0.5516945653275052,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 1.288,
+  "timings_seconds": {
+    "decomposition": 1.044781,
+    "retrieval": 0.242959,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.157389,
+    "vector_search": 0.025505,
+    "keyword_search": 0.058809,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.243154,
+    "total": 1.287935,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

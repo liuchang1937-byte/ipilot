@@ -1,0 +1,104 @@
+{
+  "case_id": "V2-108",
+  "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-108",
+  "variant": "hybrid_reranked",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+    "answer": "",
+    "sections": [
+      {
+        "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 0,
+          "selected_sources": []
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.081,
+  "timings_seconds": {
+    "decomposition": 2.183248,
+    "retrieval": 0.251587,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.162651,
+    "vector_search": 0.023354,
+    "keyword_search": 0.064444,
+    "rerank": 0.646224,
+    "generation": 0.0,
+    "pipeline": 0.89813,
+    "total": 3.081377,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

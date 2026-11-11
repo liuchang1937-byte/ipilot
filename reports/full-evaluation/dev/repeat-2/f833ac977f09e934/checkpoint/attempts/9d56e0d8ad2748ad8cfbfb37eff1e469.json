@@ -1,0 +1,248 @@
+{
+  "case_id": "V2-003",
+  "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "A003",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://A003"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Tool 是一个边界清晰、可调用的外部能力，如查询数据库或发送邮件；Workflow 是预先定义好的步骤、分支和依赖，执行路径主要由代码决定；Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合：Workflow 控制关键流程，Agent 处理开放决策，Tool 提供实际执行能力。例如，报销系统中的金额校验是 Tool，固定的提交、审核、付款流程是 Workflow，自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数，也可以是一次模型调用或一个 Agent；Agent 也能调用固定子流程。因此三者不是互斥产品，更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性，哪些决策需要运行时探索。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A004",
+    "interview-question://A003",
+    "interview-question://R001",
+    "interview-question://A010",
+    "interview-question://A001",
+    "interview-question://T001",
+    "interview-question://T007"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.2222222222222222,
+  "ndcg_at_k": 0.37697658452381916,
+  "hit": true,
+  "reciprocal_rank": 0.5,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+    "answer": "1. 固定流程承担什么职责？\n\n\n2. 会自主决定下一步的助手承担什么职责？\n\n\n3. 外部函数承担什么职责？\n",
+    "sections": [
+      {
+        "question": "固定流程承担什么职责？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "固定流程承担什么职责?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A004",
+            "interview-question://A003",
+            "interview-question://R001"
+          ]
+        }
+      },
+      {
+        "question": "会自主决定下一步的助手承担什么职责？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "会自主决定下一步的助手承担什么职责?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A010",
+            "interview-question://A001",
+            "interview-question://A003"
+          ]
+        }
+      },
+      {
+        "question": "外部函数承担什么职责？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "外部函数承担什么职责?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T001",
+            "interview-question://A010",
+            "interview-question://T007"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1330550128706514072,
+        "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+        "source": "interview-question://A004",
+        "domain": "agent",
+        "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+        "vector_score": 0.7400846481323242,
+        "keyword_score": 0.8043687099118056,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2982864919778602991,
+        "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+        "source": "interview-question://A003",
+        "domain": "agent",
+        "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+        "vector_score": 0.7187796235084534,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1192065734383377651,
+        "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+        "source": "interview-question://R001",
+        "domain": "rag",
+        "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+        "vector_score": 0.71876460313797,
+        "keyword_score": 0.8782364979746962,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2175414725624058958,
+        "title": "什么是 Multi-Agent?",
+        "source": "interview-question://A010",
+        "domain": "agent",
+        "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+        "vector_score": 0.7273322939872742,
+        "keyword_score": 0.9735569538109003,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 2926109573100487886,
+        "title": "什么是 Agent?与大模型有什么本质不同?",
+        "source": "interview-question://A001",
+        "domain": "agent",
+        "content": "# 什么是 Agent?与大模型有什么本质不同?\n\n题目编号:A001\n\n领域:agent\n\n难度:1\n\n标签:Agent 定义、LLM 应用、自主决策\n- 考察方向:候选人能否从目标、状态、行动、反馈闭环等角度定义 Agent。\n\n参考答案:大模型本质上是根据上下文生成输出的概率模型,本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统,它会感知当前状态,规划下一步,调用工具影响外部环境,读取执行结果并继续决策,直到完成目标或触发停止条件。两者的核心差异是:LLM 提供认知能力,Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如,一个资料调研 Agent 会先确定检索范围,调用搜索工具,检查是否获得足够证据,再组织结论;如果资料不足,就调整查询继续检索。控制循环通常由宿主代码驱动,模型输出的是行动建议,外部操作仍由程序执行。判断是否具备 Agent 特征,要看是否能依据观察更新决策,而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。\n\n评分要点:区分“模型”与“系统”;提到目标、状态、工具和反馈循环;说明 Agent 不等于简单聊天封装。",
+        "vector_score": 0.7403362691402435,
+        "keyword_score": 0.48013842817955865,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 2985301377255987593,
+        "title": "什么是 Function Calling?原理是什么?",
+        "source": "interview-question://T001",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+        "vector_score": 0.7290398478507996,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 7,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.7284981310367584,
+        "keyword_score": 0.9368077118350158,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.139,
+  "timings_seconds": {
+    "decomposition": 4.467892,
+    "retrieval": 0.67067,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.413655,
+    "vector_search": 0.070246,
+    "keyword_search": 0.18263,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.671009,
+    "total": 5.1389,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

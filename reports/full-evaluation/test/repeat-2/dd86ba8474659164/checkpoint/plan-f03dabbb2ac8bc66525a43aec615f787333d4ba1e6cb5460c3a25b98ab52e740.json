@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-082",
+  "subquestions": [
+    {
+      "question": "SSE（Server-Sent Events）和 WebSocket 在服务器持续推送文本与双向交互方面有什么差异？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.464325500000996
+}

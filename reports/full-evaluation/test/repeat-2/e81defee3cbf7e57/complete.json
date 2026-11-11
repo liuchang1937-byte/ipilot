@@ -1,0 +1,803 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "875fbd54c989491886e3e6776990fb03",
+  "created_at": "2026-10-12T15:24:37.917703+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "d236031788fc5c122e70c51036740115f7f8c6fc914dc91cec96787d735a2c59",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-2\\e81defee3cbf7e57\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.05,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.05,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.593931,
+          "p50": 3.593931,
+          "p95": 3.593931,
+          "max": 3.593931,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.455876,
+          "p50": 0.455876,
+          "p95": 0.455876,
+          "max": 0.455876,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.372911,
+          "p50": 0.372911,
+          "p95": 0.372911,
+          "max": 0.372911,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.023888,
+          "p50": 0.023888,
+          "p95": 0.023888,
+          "max": 0.023888,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.056779,
+          "p50": 0.056779,
+          "p95": 0.056779,
+          "max": 0.056779,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.456054,
+          "p50": 0.456054,
+          "p95": 0.456054,
+          "max": 0.456054,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.049986,
+          "p50": 4.049986,
+          "p95": 4.049986,
+          "max": 4.049986,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 28.302,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 28.302,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.593931,
+          "p50": 3.593931,
+          "p95": 3.593931,
+          "max": 3.593931,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 24.707725,
+          "p50": 24.707725,
+          "p95": 24.707725,
+          "max": 24.707725,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 7.424403,
+          "p50": 7.424403,
+          "p95": 7.424403,
+          "max": 7.424403,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 16.299948,
+          "p50": 16.299948,
+          "p95": 16.299948,
+          "max": 16.299948,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.690682,
+          "p50": 0.690682,
+          "p95": 0.690682,
+          "max": 0.690682,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.058478,
+          "p50": 0.058478,
+          "p95": 0.058478,
+          "max": 0.058478,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.229978,
+          "p50": 0.229978,
+          "p95": 0.229978,
+          "max": 0.229978,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 24.707887,
+          "p50": 24.707887,
+          "p95": 24.707887,
+          "max": 24.707887,
+          "samples": 1
+        },
+        "total": {
+          "mean": 28.301818,
+          "p50": 28.301818,
+          "p95": 28.301818,
+          "max": 28.301818,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-015",
+      "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+      "category": "terminology",
+      "split": "test",
+      "group": "A015",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A015"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "反思是让 Agent 根据目标、轨迹和结果识别错误，再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发；实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议，再将结论写入状态并重试。为避免无限自省，应限制次数和Token预算，要求每次反思产生可验证的新动作，没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充。反思可能重复相同偏差或引入新错误，因此需要最大次数、质量变化阈值和停止条件，不是次数越多越准确。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A015",
+        "interview-question://R015",
+        "interview-question://A010",
+        "interview-question://R017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+        "answer": "1. 让语言模型检查自己的结果再修改（自我修正）在什么情况下有收益？\n\n\n2. 如何避免语言模型在检查自己的结果并修改时反复自我修正？\n",
+        "sections": [
+          {
+            "question": "让语言模型检查自己的结果再修改（自我修正）在什么情况下有收益？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "让语言模型检查自己的结果再修改(自我修正)在什么情况下有收益?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A015",
+                "interview-question://R015",
+                "interview-question://A010"
+              ]
+            }
+          },
+          {
+            "question": "如何避免语言模型在检查自己的结果并修改时反复自我修正？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "如何避免语言模型在检查自己的结果并修改时反复自我修正?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A015",
+                "interview-question://R017",
+                "interview-question://R015"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2654545256875798294,
+            "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+            "source": "interview-question://A015",
+            "domain": "agent",
+            "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+            "vector_score": 0.8143466413021088,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2710493368064654156,
+            "title": "了解哪些更复杂的 RAG 范式?",
+            "source": "interview-question://R015",
+            "domain": "rag",
+            "content": "# 了解哪些更复杂的 RAG 范式?\n\n题目编号:R015\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益,不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号;Corrective RAG 根据检索质量决定修正路径;Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本,也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用,以及对什么失败样本产生了收益。\n\n评分要点:解释至少三种范式的控制差异,并有选型意识。",
+            "vector_score": 0.751723051071167,
+            "keyword_score": 0.8484030959226493,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2175414725624058958,
+            "title": "什么是 Multi-Agent?",
+            "source": "interview-question://A010",
+            "domain": "agent",
+            "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+            "vector_score": 0.7594307661056519,
+            "keyword_score": 0.7011790824180014,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.7777090966701508,
+            "keyword_score": 0.7644692608221253,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.05,
+      "timings_seconds": {
+        "decomposition": 3.593931,
+        "retrieval": 0.455876,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.372911,
+        "vector_search": 0.023888,
+        "keyword_search": 0.056779,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.456054,
+        "total": 4.049986,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-015",
+      "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+      "category": "terminology",
+      "split": "test",
+      "group": "A015",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A015"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "反思是让 Agent 根据目标、轨迹和结果识别错误，再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发；实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议，再将结论写入状态并重试。为避免无限自省，应限制次数和Token预算，要求每次反思产生可验证的新动作，没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充。反思可能重复相同偏差或引入新错误，因此需要最大次数、质量变化阈值和停止条件，不是次数越多越准确。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A015",
+        "interview-question://R012",
+        "interview-question://L017",
+        "interview-question://R017",
+        "interview-question://L018"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+        "answer": "1. 让语言模型检查自己的结果再修改（自我修正）在什么情况下有收益？\n\n\n2. 如何避免语言模型在检查自己的结果并修改时反复自我修正？\n",
+        "sections": [
+          {
+            "question": "让语言模型检查自己的结果再修改（自我修正）在什么情况下有收益？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "让语言模型检查自己的结果再修改(自我修正)在什么情况下有收益?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "语言模型 自我修正 在什么情况下 有收益 条件 与 局限"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型 自我检查 并 修改 结果 的 有效场景 自我反思 迭代修正 收益"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM self-correction when is it beneficial conditions empirical evidence"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "自我修正(self-refine、critique-revise、self-verification)在有可验证反馈时收益最大:外部验证器、执行器、单元测试、检索证据、形式化检查、奖励模型或过程奖励模型能可靠检测初稿错误,且错误属于可局部修复的计算、语法、事实或推理步骤。任务具有客观正确性、初稿错误率适中、模型具备足够错误检测与修正能力、多轮采样/推理预算充足,并采用 self-consistency、step-by-step verification、tool use、execution feedback 或 RAG 时,自我修正通常提升准确率。反之,开放主观生成、无外部信号、模型校准差、错误检测弱、易过度修正或 correct-to-incorrect 时,收益有限甚至为负。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A015",
+                "interview-question://R012",
+                "interview-question://L017"
+              ]
+            }
+          },
+          {
+            "question": "如何避免语言模型在检查自己的结果并修改时反复自我修正？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "如何避免语言模型在检查自己的结果并修改时反复自我修正?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "如何避免大语言模型在自我检查与修改结果时陷入反复自我修正的循环"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "防止 LLM 自我纠正过度:停止条件、迭代上限与自洽性校验方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How to prevent LLM from repeatedly self-correcting during self-check and revision loops"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "为避免语言模型在检查自身结果并修改时反复自我修正,可采用有界自修正框架:设置最大修订轮数 revision budget、无改进计数器 patience 和早停 early stopping;每轮由独立 verifier、process reward model、单元测试、执行反馈或形式验证器评分,仅当验证分数单调提升并超过 confidence threshold 时接受编辑,否则 rollback 到上一 checkpoint。用语义等价、事实一致性、edit distance、KL 惩罚和 trust region 约束修改幅度,冻结已正确片段,禁止无关改写。采用 actor-critic、PPO、DPO、temperature decay、熵正则抑制振荡;用 best-of-N、self-consistency、多模型投票或 debate 一次生成候选并选优,替代无限迭代。当收敛判据、plateau、答案稳定或 finalize token 满足时立即停止并输出最终答案。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A015",
+                "interview-question://R017",
+                "interview-question://L018"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2654545256875798294,
+            "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+            "source": "interview-question://A015",
+            "domain": "agent",
+            "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+            "vector_score": 0.8229547739028931,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3510013083994112628,
+            "title": "如何润色用户的 Query(Query Rewrite)?目的是什么?",
+            "source": "interview-question://R012",
+            "domain": "rag",
+            "content": "# 如何润色用户的 Query(Query Rewrite)?目的是什么?\n\n题目编号:R012\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询,从而提高召回。可以用规则、LLM、多查询扩展或HyDE,但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较,并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词,复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面,HyDE 生成假设文档用于语义检索,但假设内容不能作为回答证据。原始查询应保留在召回路径中,避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后,才值得默认启用复杂改写。\n\n评分要点:目的、常见方式、原意保护和可评测性。",
+            "vector_score": 0.7898069322109222,
+            "keyword_score": 0.6232276561864751,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1514459175991001607,
+            "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+            "source": "interview-question://L017",
+            "domain": "llm-engineering",
+            "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+            "vector_score": 0.7761824727058411,
+            "keyword_score": 0.6722610351964412,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.8052248358726501,
+            "keyword_score": 0.7952838547040437,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.779253214597702,
+            "keyword_score": 0.7705843445220848,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 28.302,
+      "timings_seconds": {
+        "decomposition": 3.593931,
+        "retrieval": 24.707725,
+        "mqe": 7.424403,
+        "hyde": 16.299948,
+        "embedding": 0.690682,
+        "vector_search": 0.058478,
+        "keyword_search": 0.229978,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 24.707887,
+        "total": 28.301818,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-015",
+      "subquestions": [
+        {
+          "question": "让语言模型检查自己的结果再修改（自我修正）在什么情况下有收益？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "如何避免语言模型在检查自己的结果并修改时反复自我修正？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.5939312000009522
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 28.765,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

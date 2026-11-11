@@ -1,0 +1,1093 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "6ec2b1f6d2d14a1792a78314a0f05d8a",
+  "created_at": "2026-10-12T11:28:04.473711+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "6bed64996feeb80236ae7facd489239900ee02cf6c6e2e869a39ed247f4e84b1",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\73527372cfd0744c\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 28.809,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 28.809,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.561365,
+          "p50": 3.561365,
+          "p95": 3.561365,
+          "max": 3.561365,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 25.24711,
+          "p50": 25.24711,
+          "p95": 25.24711,
+          "max": 25.24711,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 7.475163,
+          "p50": 7.475163,
+          "p95": 7.475163,
+          "max": 7.475163,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 16.320122,
+          "p50": 16.320122,
+          "p95": 16.320122,
+          "max": 16.320122,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.883329,
+          "p50": 0.883329,
+          "p95": 0.883329,
+          "max": 0.883329,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.115398,
+          "p50": 0.115398,
+          "p95": 0.115398,
+          "max": 0.115398,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.444163,
+          "p50": 0.444163,
+          "p95": 0.444163,
+          "max": 0.444163,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 25.247377,
+          "p50": 25.247377,
+          "p95": 25.247377,
+          "max": 25.247377,
+          "samples": 1
+        },
+        "total": {
+          "mean": 28.808742,
+          "p50": 28.808742,
+          "p95": 28.808742,
+          "max": 28.808742,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 9,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.21,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.21,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.561365,
+          "p50": 3.561365,
+          "p95": 3.561365,
+          "max": 3.561365,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.648868,
+          "p50": 0.648868,
+          "p95": 0.648868,
+          "max": 0.648868,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.466788,
+          "p50": 0.466788,
+          "p95": 0.466788,
+          "max": 0.466788,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.047186,
+          "p50": 0.047186,
+          "p95": 0.047186,
+          "max": 0.047186,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.131993,
+          "p50": 0.131993,
+          "p95": 0.131993,
+          "max": 0.131993,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.64911,
+          "p50": 0.64911,
+          "p95": 0.64911,
+          "max": 0.64911,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.210475,
+          "p50": 4.210475,
+          "p95": 4.210475,
+          "max": 4.210475,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 5.161,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 5.161,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.561365,
+          "p50": 3.561365,
+          "p95": 3.561365,
+          "max": 3.561365,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.46867,
+          "p50": 0.46867,
+          "p95": 0.46867,
+          "max": 0.46867,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.288377,
+          "p50": 0.288377,
+          "p95": 0.288377,
+          "max": 0.288377,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.045531,
+          "p50": 0.045531,
+          "p95": 0.045531,
+          "max": 0.045531,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.132,
+          "p50": 0.132,
+          "p95": 0.132,
+          "max": 0.132,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.13036,
+          "p50": 1.13036,
+          "p95": 1.13036,
+          "max": 1.13036,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.599471,
+          "p50": 1.599471,
+          "p95": 1.599471,
+          "max": 1.599471,
+          "samples": 1
+        },
+        "total": {
+          "mean": 5.160836,
+          "p50": 5.160836,
+          "p95": 5.160836,
+          "max": 5.160836,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-055",
+      "question": "为向量索引选择存储引擎，需要比较哪些功能和工程约束？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R008",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R008"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "向量数据库存储向量及元数据，并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引，不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展：前者通常还提供元数据、持久化与服务治理，后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试，比较召回率与 P95，不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟，IVF 等方案则有训练、探测和压缩参数需要调整，实际效果要结合数据分布验证。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R008",
+        "interview-question://R009",
+        "interview-question://R007",
+        "interview-question://R006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "为向量索引选择存储引擎，需要比较哪些功能和工程约束？",
+        "answer": "1. 为向量索引选择存储引擎时，需要比较哪些功能？\n\n\n2. 为向量索引选择存储引擎时，需要比较哪些工程约束？\n",
+        "sections": [
+          {
+            "question": "为向量索引选择存储引擎时，需要比较哪些功能？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为向量索引选择存储引擎时,需要比较哪些功能?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "向量索引存储引擎选型需要对比哪些关键能力和特性?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "vector index storage engine comparison: what features should be evaluated?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "为向量索引选择存储引擎时,需对比:向量维度与数据类型支持,距离度量(余弦、欧氏、内积、汉明),ANN 索引算法(HNSW、IVF、PQ、DiskANN、LSH),索引构建、重建、增量索引与在线更新;插入、更新、删除、upsert 的吞吐与延迟;内存、磁盘、混合存储、冷热分层、mmap、页缓存与持久化;量化压缩(SQ、PQ、OPQ)及召回率、内存、延迟权衡;标量/元数据过滤、预过滤/后过滤、混合查询;事务、ACID、WAL、快照、一致性、复制、分片、水平扩展、多租户与资源隔离;备份恢复、故障转移、数据迁移、版本升级;QPS、P99 延迟、吞吐、召回率、索引大小、构建时间和 TCO;以及 SQL/NoSQL API、SDK、可观测性、安全/RBAC/加密和生态集成。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R008",
+                "interview-question://R009",
+                "interview-question://R007"
+              ]
+            }
+          },
+          {
+            "question": "为向量索引选择存储引擎时，需要比较哪些工程约束？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为向量索引选择存储引擎时,需要比较哪些工程约束?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "向量索引存储引擎选型需要比较哪些工程约束?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "vector index storage engine selection: engineering constraints and trade-offs"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "向量数据库索引底层存储引擎选择时需权衡的性能、成本、扩展性与一致性约束"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "为向量索引选择存储引擎时,需比较的工程约束包括:内存占用与成本(原始向量、HNSW/IVF/PQ 图结构、邻接表、倒排列表的驻留比例),查询延迟 P50/P95/P99 与 QPS/吞吐,召回率 recall@k 与量化精度损失,索引构建时间与批量导入吞吐,增量插入、更新、删除及 tombstone/compaction 开销,持久化与崩溃恢复(WAL、checkpoint、snapshot、RTO/RPO),存储放大、写放大、读放大,随机读/顺序写模式与 DRAM/SSD/NVMe/对象存储层级,mmap 与 page cache 命中率,LSM-tree、B+ tree、列式或向量原生引擎的适用性,分片、复制、一致性、事务与元数据过滤,过滤条件选择性与 pre-filtering/post-filtering,水平扩展、再平衡、多租户隔离,以及运维复杂度、生态兼容性和总拥有成本 TCO。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R008",
+                "interview-question://R009",
+                "interview-question://R006"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1084357564865389044,
+            "title": "什么是向量数据库?有没有做过向量数据库的对比选型?",
+            "source": "interview-question://R008",
+            "domain": "rag",
+            "content": "# 什么是向量数据库?有没有做过向量数据库的对比选型?\n\n题目编号:R008\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:向量数据库存储向量及元数据,并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引,不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展:前者通常还提供元数据、持久化与服务治理,后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试,比较召回率与 P95,不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟,IVF 等方案则有训练、探测和压缩参数需要调整,实际效果要结合数据分布验证。\n\n评分要点:定义、索引、过滤、规模、运维和成本维度完整。",
+            "vector_score": 0.8750673532485962,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2886579831854676340,
+            "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+            "source": "interview-question://R009",
+            "domain": "rag",
+            "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+            "vector_score": 0.8352681994438171,
+            "keyword_score": 0.5810226418521971,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.7765368223190308,
+            "keyword_score": 0.6244370980759343,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3773025965374103241,
+            "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+            "source": "interview-question://R006",
+            "domain": "rag",
+            "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+            "vector_score": 0.7937971651554108,
+            "keyword_score": 0.8317668182715942,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 28.809,
+      "timings_seconds": {
+        "decomposition": 3.561365,
+        "retrieval": 25.24711,
+        "mqe": 7.475163,
+        "hyde": 16.320122,
+        "embedding": 0.883329,
+        "vector_search": 0.115398,
+        "keyword_search": 0.444163,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 25.247377,
+        "total": 28.808742,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 9,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-055",
+      "question": "为向量索引选择存储引擎，需要比较哪些功能和工程约束？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R008",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R008"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "向量数据库存储向量及元数据，并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引，不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展：前者通常还提供元数据、持久化与服务治理，后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试，比较召回率与 P95，不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟，IVF 等方案则有训练、探测和压缩参数需要调整，实际效果要结合数据分布验证。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R008",
+        "interview-question://R006",
+        "interview-question://R009",
+        "interview-question://A009"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "为向量索引选择存储引擎，需要比较哪些功能和工程约束？",
+        "answer": "1. 为向量索引选择存储引擎时，需要比较哪些功能？\n\n\n2. 为向量索引选择存储引擎时，需要比较哪些工程约束？\n",
+        "sections": [
+          {
+            "question": "为向量索引选择存储引擎时，需要比较哪些功能？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为向量索引选择存储引擎时,需要比较哪些功能?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R008",
+                "interview-question://R006",
+                "interview-question://R009"
+              ]
+            }
+          },
+          {
+            "question": "为向量索引选择存储引擎时，需要比较哪些工程约束？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为向量索引选择存储引擎时,需要比较哪些工程约束?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R008",
+                "interview-question://R006",
+                "interview-question://A009"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1084357564865389044,
+            "title": "什么是向量数据库?有没有做过向量数据库的对比选型?",
+            "source": "interview-question://R008",
+            "domain": "rag",
+            "content": "# 什么是向量数据库?有没有做过向量数据库的对比选型?\n\n题目编号:R008\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:向量数据库存储向量及元数据,并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引,不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展:前者通常还提供元数据、持久化与服务治理,后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试,比较召回率与 P95,不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟,IVF 等方案则有训练、探测和压缩参数需要调整,实际效果要结合数据分布验证。\n\n评分要点:定义、索引、过滤、规模、运维和成本维度完整。",
+            "vector_score": 0.8304163813591003,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3773025965374103241,
+            "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+            "source": "interview-question://R006",
+            "domain": "rag",
+            "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+            "vector_score": 0.7683790922164917,
+            "keyword_score": 0.8317668182715942,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2886579831854676340,
+            "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+            "source": "interview-question://R009",
+            "domain": "rag",
+            "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+            "vector_score": 0.8134059906005859,
+            "keyword_score": 0.6028909965810032,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 262192336753681762,
+            "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+            "source": "interview-question://A009",
+            "domain": "agent",
+            "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+            "vector_score": 0.760584682226181,
+            "keyword_score": 0.8966293486574487,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.21,
+      "timings_seconds": {
+        "decomposition": 3.561365,
+        "retrieval": 0.648868,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.466788,
+        "vector_search": 0.047186,
+        "keyword_search": 0.131993,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.64911,
+        "total": 4.210475,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-055",
+      "question": "为向量索引选择存储引擎，需要比较哪些功能和工程约束？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R008",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://R008"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "向量数据库存储向量及元数据，并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引，不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展：前者通常还提供元数据、持久化与服务治理，后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试，比较召回率与 P95，不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟，IVF 等方案则有训练、探测和压缩参数需要调整，实际效果要结合数据分布验证。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R008",
+        "interview-question://R006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "为向量索引选择存储引擎，需要比较哪些功能和工程约束？",
+        "answer": "1. 为向量索引选择存储引擎时，需要比较哪些功能？\n\n\n2. 为向量索引选择存储引擎时，需要比较哪些工程约束？\n",
+        "sections": [
+          {
+            "question": "为向量索引选择存储引擎时，需要比较哪些功能？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为向量索引选择存储引擎时,需要比较哪些功能?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 2,
+              "selected_sources": [
+                "interview-question://R008",
+                "interview-question://R006"
+              ]
+            }
+          },
+          {
+            "question": "为向量索引选择存储引擎时，需要比较哪些工程约束？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为向量索引选择存储引擎时,需要比较哪些工程约束?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 2,
+              "selected_sources": [
+                "interview-question://R008",
+                "interview-question://R006"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1084357564865389044,
+            "title": "什么是向量数据库?有没有做过向量数据库的对比选型?",
+            "source": "interview-question://R008",
+            "domain": "rag",
+            "content": "# 什么是向量数据库?有没有做过向量数据库的对比选型?\n\n题目编号:R008\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:向量数据库存储向量及元数据,并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引,不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展:前者通常还提供元数据、持久化与服务治理,后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试,比较召回率与 P95,不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟,IVF 等方案则有训练、探测和压缩参数需要调整,实际效果要结合数据分布验证。\n\n评分要点:定义、索引、过滤、规模、运维和成本维度完整。",
+            "vector_score": 0.8304163813591003,
+            "keyword_score": 1.0,
+            "rerank_score": 0.48614686727523804
+          },
+          {
+            "id": 2,
+            "chunk_id": 3773025965374103241,
+            "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+            "source": "interview-question://R006",
+            "domain": "rag",
+            "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+            "vector_score": 0.7683790922164917,
+            "keyword_score": 0.8317668182715942,
+            "rerank_score": 0.057728979736566544
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 5.161,
+      "timings_seconds": {
+        "decomposition": 3.561365,
+        "retrieval": 0.46867,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.288377,
+        "vector_search": 0.045531,
+        "keyword_search": 0.132,
+        "rerank": 1.13036,
+        "generation": 0.0,
+        "pipeline": 1.599471,
+        "total": 5.160836,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-055",
+      "subquestions": [
+        {
+          "question": "为向量索引选择存储引擎时，需要比较哪些功能？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "为向量索引选择存储引擎时，需要比较哪些工程约束？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.5613649999995687
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 31.068,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

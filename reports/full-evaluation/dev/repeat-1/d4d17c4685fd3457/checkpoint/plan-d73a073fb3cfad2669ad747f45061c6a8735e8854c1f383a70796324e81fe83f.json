@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-052",
+  "subquestions": [
+    {
+      "question": "当检索到的答案只有一半、另一半位于相邻片段时，怎样保留完整语义？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.7796600999990915
+}

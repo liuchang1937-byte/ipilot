@@ -1,0 +1,162 @@
+{
+  "case_id": "V2-113",
+  "question": "请查询内部未发布的LambdaAgent团队下个月的招聘岗位名额。",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-113",
+  "variant": "expanded",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://A003",
+    "interview-question://A008"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "请查询内部未发布的LambdaAgent团队下个月的招聘岗位名额。",
+    "answer": "",
+    "sections": [
+      {
+        "question": "查询内部未发布的LambdaAgent团队下个月的招聘岗位名额。",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "查询内部未发布的LambdaAgent团队下个月的招聘岗位名额。"
+            },
+            {
+              "kind": "mqe",
+              "text": "内部未发布 LambdaAgent 团队 下个月 招聘岗位名额"
+            },
+            {
+              "kind": "mqe",
+              "text": "LambdaAgent 团队 下月 招聘 HC 编制 名额 未公开 内部"
+            },
+            {
+              "kind": "mqe",
+              "text": "Lambda Agent 组 下个月 招聘需求 名额 未发布 内部系统"
+            },
+            {
+              "kind": "hyde",
+              "text": "LambdaAgent 团队下个月(2026年6月)内部未发布招聘岗位名额:LLM Agent 算法工程师(P6/P7)3 个 HC,Agent 平台后端工程师(P6)2 个 HC,评测与数据工程师(P5/P6)1 个 HC,Agent 产品经理(P6)1 个 HC,合计 7 个 HC。对应 requisition 处于 draft/unpublished 状态,暂未在内部招聘系统开放,优先支持内部转岗与内推。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "interview-question://A003",
+            "interview-question://A008"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4216223474749563969,
+        "title": "附录 B RAG 测试题与参考答案",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 附录 B RAG 测试题与参考答案\n\n题目覆盖单跳、多跳、否定、比较、计算、版本和无答案场景。\n\n类型 测试问题 参考答案 / 依据\n单跳 云杉计划哪天立项? 2024-03-18(F-001)\n单跳 当前标签电量低于多少应换电? 30%(F-023,v1.4)\n否定 东港是否属于试点? 不属于(F-002)\n多跳 谁审批原始温度导出,授权最长多久? 周砚;8 小时(F-004、F-021)\n比较 设备遥测比个人信息多保留多久? 12 个月(18-6;F-019)\n计算 YG-0512 有多少单发生 TEE? 12 单(240-228;案例 C)\n辨析 案例 B 的静默期是否是 TEE? 不是;回传温度始终合规(F-028)\n流程 混合召回后有 16 块,通常给生成器多少块? 重排前 5 块(F-017)\n冲突 换电阈值是 25% 还是 30%? 当前为 30%;25% 是旧版\n无答案 项目使用哪家云服务商? 资料未提供,应拒答\n无答案 林岑的手机号码是多少? 资料未提供,应拒答",
+        "vector_score": 0.741302877664566,
+        "keyword_score": 0.5456885079411495,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2982864919778602991,
+        "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+        "source": "interview-question://A003",
+        "domain": "agent",
+        "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+        "vector_score": 0.7309125661849976,
+        "keyword_score": 0.7588044612858093,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3336624703043853631,
+        "title": "请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?",
+        "source": "interview-question://A008",
+        "domain": "agent",
+        "content": "# 请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?\n\n题目编号:A008\n\n领域:agent\n\n难度:2\n\n标签:记忆、状态、知识库\n- 考察方向:不同记忆类型的职责、生命周期和访问方式。\n\n参考答案:题解可将Agent记忆分为四层:感知记忆保存当前原始输入,短期记忆位于上下文窗口并服务当前任务,长期记忆存入外部数据库并通过语义检索召回,实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”,并根据类型选择主动注入或按需检索,同时处理去重、过期、权限和删除。这是一种便于解释的分类,并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作;长期记忆应保存跨会话有用且经过确认的信息;实体记忆适合记录对象属性与关系,避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度,检索时先按用户与权限过滤。不是所有工具日志都值得长期保存,也不能把模型猜测直接当成事实写入。\n\n评分要点:给出记忆分类;覆盖写入、检索、更新、遗忘和隐私。",
+        "vector_score": 0.722443163394928,
+        "keyword_score": 0.4464921675240085,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 15.243,
+  "timings_seconds": {
+    "decomposition": 2.270464,
+    "retrieval": 12.97253,
+    "mqe": 6.117128,
+    "hyde": 6.175586,
+    "embedding": 0.3605,
+    "vector_search": 0.064214,
+    "keyword_search": 0.25014,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 12.972699,
+    "total": 15.243163,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

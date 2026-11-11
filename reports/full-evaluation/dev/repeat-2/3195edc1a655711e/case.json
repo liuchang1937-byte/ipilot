@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-018",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+      "group": "A018",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

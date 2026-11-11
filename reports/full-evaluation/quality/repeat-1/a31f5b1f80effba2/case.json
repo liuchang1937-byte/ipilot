@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-083",
+      "question": "实时语音助手为何考虑WebRTC，它与WebSocket的传输取舍是什么？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T015"
+      ],
+      "answerable": true,
+      "reference_answer": "WebRTC针对实时音视频设计，包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输；WebSocket只是可靠的双向字节通道，这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道，用WebSocket传控制事件也可以，选择取决于延迟、媒体质量和部署复杂度。例如，用户语音输入与模型语音输出同时进行，还要支持打断和网络抖动，媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP，丢包可能造成队头阻塞；WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP，也不是永远不重传，实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维，不应承诺固定毫秒数。",
+      "group": "T014",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

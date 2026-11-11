@@ -1,0 +1,124 @@
+[1/24] S-001 scoring
+[2/24] S-002 scoring
+[3/24] S-003 scoring
+[4/24] S-004 scoring
+[5/24] S-005 scoring
+[6/24] S-006 scoring
+[7/24] S-007 scoring
+[8/24] S-008 scoring
+[9/24] S-009 scoring
+[10/24] S-010 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[11/24] S-011 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12/24] S-012 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[13/24] S-013 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[14/24] S-014 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[15/24] S-015 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[16/24] S-016 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[17/24] S-017 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[18/24] S-018 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[19/24] S-019 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[20/24] S-020 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[21/24] S-021 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[22/24] S-022 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[23/24] S-023 scoring
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[24/24] S-024 scoring
+{"case_observations": 24, "independent_cases": 24, "point_observations": 72, "verified_points": 30, "agreement_all_points": 0.4027777777777778, "agreement_verified_points": 0.9666666666666667, "unverified_rate": 0.5833333333333333, "fallback_cases": 14, "macro_f1": 0.5894808743169399, "per_class": {"mastered": {"precision": 1.0, "recall": 0.35555555555555557, "f1": 0.5245901639344263, "support": 45}, "partial": {"precision": 0.6666666666666666, "recall": 0.4, "f1": 0.5, "support": 5}, "incorrect": {"precision": 1.0, "recall": 0.5, "f1": 0.6666666666666666, "support": 12}, "not_addressed": {"precision": 1.0, "recall": 0.5, "f1": 0.6666666666666666, "support": 10}}, "confusion_matrix": {"mastered": {"mastered": 16, "partial": 1, "incorrect": 0, "not_addressed": 0, "unverified": 28}, "partial": {"mastered": 0, "partial": 2, "incorrect": 0, "not_addressed": 0, "unverified": 3}, "incorrect": {"mastered": 0, "partial": 0, "incorrect": 6, "not_addressed": 0, "unverified": 6}, "not_addressed": {"mastered": 0, "partial": 0, "incorrect": 0, "not_addressed": 5, "unverified": 5}}, "repeat_modal_agreement": null, "repeat_cases": 0, "mean_seconds": 7.759464583333333}
+Saved: E:\study\project\TechRAG\reports\scoring\c00a40431f994623af5b105b2c9007bf.json

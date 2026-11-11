@@ -1,0 +1,30 @@
+{
+  "case_id": "V2-017",
+  "subquestions": [
+    {
+      "question": "工具描述、历史对话、检索资料与当前目标如何共同组织进上下文？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "工具描述如何组织进上下文？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "历史对话如何组织进上下文？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "检索资料如何组织进上下文？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当前目标如何组织进上下文？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 7.835079999998925
+}

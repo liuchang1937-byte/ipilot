@@ -1,0 +1,30 @@
+{
+  "case_id": "V2-007",
+  "subquestions": [
+    {
+      "question": "对于包含多个依赖步骤的请求，拆成可验证小任务的总体方法和步骤是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "对于包含多个依赖步骤的请求，如何确定每个小任务的范围和边界？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "对于包含多个依赖步骤的请求，如何为每个小任务定义可验证的完成标准？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "对于包含多个依赖步骤的请求，如何表示和处理步骤之间的依赖关系？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "对于包含多个依赖步骤的请求，如何判断拆分后的小任务是否满足可验证要求？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.466249699999025
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-021",
+      "question": "一次任务耗时突然翻倍，如何从执行轨迹定位慢在哪一环？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A021"
+      ],
+      "answerable": true,
+      "reference_answer": "为一次任务建立统一Trace ID，并为模型调用、检索、重排、工具、数据库、重试和排队创建Span，记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径，再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环，并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时，再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模，通过慢请求与正常请求对比找关键路径。若慢在工具排队，换模型不会解决；若步数膨胀，则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率，不能用牺牲回答质量换来的速度作为唯一成果。",
+      "group": "A021",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

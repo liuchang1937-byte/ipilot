@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-028",
+  "subquestions": [
+    {
+      "question": "模型为何需要知道词的位置？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "旋转位置编码和线性偏置有什么差别？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.197570700000142
+}

@@ -1,0 +1,26 @@
+{
+  "case_id": "V2-053",
+  "subquestions": [
+    {
+      "question": "选择文本向量模型时，验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "验证文本向量模型适合中文技术题检索时，应使用哪些评估指标？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "验证文本向量模型适合中文技术题检索时，如何构建或选择中文技术题检索评测集？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "验证文本向量模型适合中文技术题检索时，有哪些公开的中文技术题检索评测基准或数据集？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 9.775058699999136
+}

@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-112",
+  "subquestions": [
+    {
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 1.5978442999985418
+}

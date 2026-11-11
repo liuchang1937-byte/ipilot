@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-005",
+  "subquestions": [
+    {
+      "question": "助手先推理再调用工具、读取工具结果后继续推理的循环，在工程上如何落地实现？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 7.748698499999591
+}

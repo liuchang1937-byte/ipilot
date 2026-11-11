@@ -1,0 +1,938 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "17e90863b80647bf991913b079b8dd11",
+  "created_at": "2026-10-12T15:12:35.201654+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "ccc9210257bea86768a5539ab00e1066d213deb4e2e492b5993d52ab830b2d58",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\776a7462159ebf8a\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 1.795,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 1.795,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.597844,
+          "p50": 1.597844,
+          "p95": 1.597844,
+          "max": 1.597844,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.196705,
+          "p50": 0.196705,
+          "p95": 0.196705,
+          "max": 0.196705,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.154088,
+          "p50": 0.154088,
+          "p95": 0.154088,
+          "max": 0.154088,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.012006,
+          "p50": 0.012006,
+          "p95": 0.012006,
+          "max": 0.012006,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.029746,
+          "p50": 0.029746,
+          "p95": 0.029746,
+          "max": 0.029746,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.196809,
+          "p50": 0.196809,
+          "p95": 0.196809,
+          "max": 0.196809,
+          "samples": 1
+        },
+        "total": {
+          "mean": 1.794653,
+          "p50": 1.794653,
+          "p95": 1.794653,
+          "max": 1.794653,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 2.079,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 2.079,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.597844,
+          "p50": 1.597844,
+          "p95": 1.597844,
+          "max": 1.597844,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.174215,
+          "p50": 0.174215,
+          "p95": 0.174215,
+          "max": 0.174215,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.134914,
+          "p50": 0.134914,
+          "p95": 0.134914,
+          "max": 0.134914,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.011377,
+          "p50": 0.011377,
+          "p95": 0.011377,
+          "max": 0.011377,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.027254,
+          "p50": 0.027254,
+          "p95": 0.027254,
+          "max": 0.027254,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.306297,
+          "p50": 0.306297,
+          "p95": 0.306297,
+          "max": 0.306297,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.48067,
+          "p50": 0.48067,
+          "p95": 0.48067,
+          "max": 0.48067,
+          "samples": 1
+        },
+        "total": {
+          "mean": 2.078514,
+          "p50": 2.078514,
+          "p95": 2.078514,
+          "max": 2.078514,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 10.962,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 10.962,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.597844,
+          "p50": 1.597844,
+          "p95": 1.597844,
+          "max": 1.597844,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 9.363577,
+          "p50": 9.363577,
+          "p95": 9.363577,
+          "max": 9.363577,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 3.059171,
+          "p50": 3.059171,
+          "p95": 3.059171,
+          "max": 3.059171,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 5.801473,
+          "p50": 5.801473,
+          "p95": 5.801473,
+          "max": 5.801473,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.35637,
+          "p50": 0.35637,
+          "p95": 0.35637,
+          "max": 0.35637,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.027635,
+          "p50": 0.027635,
+          "p95": 0.027635,
+          "max": 0.027635,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.116553,
+          "p50": 0.116553,
+          "p95": 0.116553,
+          "max": 0.116553,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 9.363678,
+          "p50": 9.363678,
+          "p95": 9.363678,
+          "max": 9.363678,
+          "samples": 1
+        },
+        "total": {
+          "mean": 10.961522,
+          "p50": 10.961522,
+          "p95": 10.961522,
+          "max": 10.961522,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "hybrid",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 607069691282008855,
+            "title": "文档结束",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 文档结束\n\n校验摘要:本文包含 33 个编号事实、8 组 FAQ、11 道基准测试题、3\n\n个案例,以及多个表格、否定陈述和版本冲突。所有组织、人物和业务数据均为虚构。\n\n云杉计划知识手册 | RAG 测试语料 第 11 页 / 共 11 页",
+            "vector_score": 0.7566005885601044,
+            "keyword_score": 0.625806365780455,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1899617201102809291,
+            "title": "云杉计划知识手册",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 云杉计划知识手册\n## 一份专为 RAG 系统设计的中文综合测试资料\n\n文档代号 SPRUCE-RAG-2026\n版本 1.0(测试版)\n发布日期 2026 年 9 月 15 日\n\n虚构声明 本文中的组织、人物、项目、数据均为虚构,仅用于检索测试。\n\n用途:测试 chunk\n\n切分、embedding、向量检索、关键词检索、混合检索、rerank、引用定位、跨段问答、冲突消解与拒答能力。\n\n云杉计划知识手册 | RAG 测试语料 第 1 页 / 共 11 页\n\n---",
+            "vector_score": 0.7371962666511536,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1582090342757356371,
+            "title": "4.2 版本优先级示例",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 4.2 版本优先级示例\n### 的规则。\n\nF-023 当前标签换电阈值为电量低于 30%,依据 v1.4。\n否定事实:云杉计划没有使用人脸识别;没有采集司机的私人聊天内容;没有把原始个人信息用于路线推荐模型训练。\nF-024 路线推荐模型不使用原始个人信息训练。\n\n云杉计划知识手册 | RAG 测试语料 第 6 页 / 共 11 页\n\n---",
+            "vector_score": 0.7442165017127991,
+            "keyword_score": 0.4844004248631238,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 1.795,
+      "timings_seconds": {
+        "decomposition": 1.597844,
+        "retrieval": 0.196705,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.154088,
+        "vector_search": 0.012006,
+        "keyword_search": 0.029746,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.196809,
+        "total": 1.794653,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "hybrid_reranked",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 0,
+              "selected_sources": []
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 2.079,
+      "timings_seconds": {
+        "decomposition": 1.597844,
+        "retrieval": 0.174215,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.134914,
+        "vector_search": 0.011377,
+        "keyword_search": 0.027254,
+        "rerank": 0.306297,
+        "generation": 0.0,
+        "pipeline": 0.48067,
+        "total": 2.078514,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-112",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://T003"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "InterviewSecret-19 训练样本数量 哪份资料 记载"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "InterviewSecret-19 数据集 训练样本数 来源 文档"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "InterviewSecret-19 training sample count dataset documentation source"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "《InterviewSecret-19 数据集卡片》(InterviewSecret-19 Dataset Card)的 Dataset Summary 部分记载了该虚构数据集的训练样本数量:训练集包含 12,000 条训练样本,验证集 2,000 条,测试集 2,000 条;其中训练样本数明确标注为 12,000。该资料同时给出数据划分、字段说明、标注规范与使用许可。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://T003",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 607069691282008855,
+            "title": "文档结束",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 文档结束\n\n校验摘要:本文包含 33 个编号事实、8 组 FAQ、11 道基准测试题、3\n\n个案例,以及多个表格、否定陈述和版本冲突。所有组织、人物和业务数据均为虚构。\n\n云杉计划知识手册 | RAG 测试语料 第 11 页 / 共 11 页",
+            "vector_score": 0.7758101224899292,
+            "keyword_score": 0.625806365780455,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 878197658630587989,
+            "title": "大模型的 Function Call 能力是怎么训练出来的?",
+            "source": "interview-question://T003",
+            "domain": "llm-tool-calling",
+            "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+            "vector_score": 0.7434977889060974,
+            "keyword_score": 0.9555984438811332,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1899617201102809291,
+            "title": "云杉计划知识手册",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 云杉计划知识手册\n## 一份专为 RAG 系统设计的中文综合测试资料\n\n文档代号 SPRUCE-RAG-2026\n版本 1.0(测试版)\n发布日期 2026 年 9 月 15 日\n\n虚构声明 本文中的组织、人物、项目、数据均为虚构,仅用于检索测试。\n\n用途:测试 chunk\n\n切分、embedding、向量检索、关键词检索、混合检索、rerank、引用定位、跨段问答、冲突消解与拒答能力。\n\n云杉计划知识手册 | RAG 测试语料 第 1 页 / 共 11 页\n\n---",
+            "vector_score": 0.7407737076282501,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 10.962,
+      "timings_seconds": {
+        "decomposition": 1.597844,
+        "retrieval": 9.363577,
+        "mqe": 3.059171,
+        "hyde": 5.801473,
+        "embedding": 0.35637,
+        "vector_search": 0.027635,
+        "keyword_search": 0.116553,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 9.363678,
+        "total": 10.961522,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-112",
+      "subquestions": [
+        {
+          "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 1.5978442999985418
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 11.647,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

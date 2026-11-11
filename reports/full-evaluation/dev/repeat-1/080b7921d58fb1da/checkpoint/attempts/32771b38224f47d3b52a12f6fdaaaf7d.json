@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-077",
+  "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "T009",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://T009"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制，通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明，并在任务中使用其中的脚本和材料。它不是单纯保存Prompt，而是“操作手册+工具箱”；触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式：先用名称和描述判断是否相关，命中后读取完整步骤，再按需访问脚本、参考资料和模板，避免把全部资源永久放进上下文。例如，生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法，不会自动赋予工具权限；脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出，避免对所有任务都触发。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T009",
+    "interview-question://A023",
+    "interview-question://A007"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "可按需加载的任务说明与配套资源如何帮助助手遵循操作流程?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T009",
+            "interview-question://A023",
+            "interview-question://A007"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4502432493545340977,
+        "title": "Skill 是什么?",
+        "source": "interview-question://T009",
+        "domain": "llm-tool-calling",
+        "content": "# Skill 是什么?\n\n题目编号:T009\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制,通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明,并在任务中使用其中的脚本和材料。它不是单纯保存Prompt,而是“操作手册+工具箱”;触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式:先用名称和描述判断是否相关,命中后读取完整步骤,再按需访问脚本、参考资料和模板,避免把全部资源永久放进上下文。例如,生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法,不会自动赋予工具权限;脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出,避免对所有任务都触发。\n\n评分要点:任务知识与流程封装,而非把Skill等同于API。",
+        "vector_score": 0.7645842432975769,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.7422351837158203,
+        "keyword_score": 0.44648443156759915,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 291400306949050267,
+        "title": "复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?",
+        "source": "interview-question://A007",
+        "domain": "agent",
+        "content": "# 复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?\n\n题目编号:A007\n\n领域:agent\n\n难度:2\n\n标签:任务分解、依赖图、验收条件\n- 考察方向:子任务边界、依赖关系、完成判据与动态重规划。\n\n参考答案:先把目标转为可验证的交付物,再按信息依赖、工具边界或专业领域拆成子任务,并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划;拆得过细会增加通信成本。以技术调研为例,可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分,最后一部分依赖前面的证据。独立检索可并行,依赖同一业务状态的写入不能随意并行。每步返回结构化产物,使失败可以定位到局部并单独重试。是否改善效果,应比较任务成功率、返工率、总耗时与调用费用,不能把拆分后的局部准确率直接当成整体收益。\n\n评分要点:强调可验证输出和依赖;说明收益与过度拆分的代价。",
+        "vector_score": 0.7406920492649078,
+        "keyword_score": 0.44048584960957526,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.346,
+  "timings_seconds": {
+    "decomposition": 4.75174,
+    "retrieval": 0.59334,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.319354,
+    "vector_search": 0.136309,
+    "keyword_search": 0.077105,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.593999,
+    "total": 5.345738,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

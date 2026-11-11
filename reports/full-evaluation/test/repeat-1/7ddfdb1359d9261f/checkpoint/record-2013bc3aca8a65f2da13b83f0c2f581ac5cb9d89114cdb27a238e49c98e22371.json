@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-030",
+  "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+  "category": "terminology",
+  "split": "test",
+  "group": "L006",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L006"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料，控制领域与语言配比，处理测试污染，再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识，工程上依靠分布式并行、混合精度、优化器和检查点，兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令；偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定，SFT 本身也属于后训练，部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名，还要说明每阶段解决什么问题；数据质量差或奖励定义错误时，增加训练步骤并不保证效果提升。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L006",
+    "interview-question://T003",
+    "interview-question://L001"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "从大量原始文本到能遵循指令的模型,通常经历哪些训练阶段?"
+            },
+            {
+              "kind": "mqe",
+              "text": "从大量原始文本到能遵循指令的模型通常经历哪些训练阶段"
+            },
+            {
+              "kind": "mqe",
+              "text": "大语言模型 从原始文本 到 指令遵循 训练流程 预训练 指令微调 对齐 RLHF"
+            },
+            {
+              "kind": "mqe",
+              "text": "What training stages are typically involved from large-scale raw text to an instruction-following language model?"
+            },
+            {
+              "kind": "hyde",
+              "text": "从海量原始文本到指令遵循模型通常经历:数据采集、清洗、去重、质量与隐私过滤,训练 BPE/SentencePiece 分词器;自监督预训练,在 Transformer decoder-only 架构上做因果语言建模/下一词预测,得到基座模型;可选继续预训练或领域自适应;监督微调 SFT/指令微调,使用指令-输入-输出对、多任务指令数据训练模型遵循指令;偏好建模与对齐,收集人类偏好比较数据训练奖励模型 RM,再用 RLHF/PPO 优化,或采用 DPO、IPO、KTO、ORPO 等直接偏好优化;安全与价值对齐,通过红队测试、安全微调、拒绝有害请求、减少偏见与幻觉;评估与迭代,在 MMLU、BBH、GSM8K、HumanEval、MT-Bench、AlpacaEval 等基准及人类评估上测试,调优数据与超参后部署。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L006",
+            "interview-question://T003",
+            "interview-question://L001"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3102864813120224030,
+        "title": "大模型是怎么训练出来的?",
+        "source": "interview-question://L006",
+        "domain": "llm-engineering",
+        "content": "# 大模型是怎么训练出来的?\n\n题目编号:L006\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料,控制领域与语言配比,处理测试污染,再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识,工程上依靠分布式并行、混合精度、优化器和检查点,兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令;偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定,SFT 本身也属于后训练,部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名,还要说明每阶段解决什么问题;数据质量差或奖励定义错误时,增加训练步骤并不保证效果提升。\n\n评分要点:数据、预训练、后训练、评测和分布式工程。",
+        "vector_score": 0.8087320327758789,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.7649746239185333,
+        "keyword_score": 0.645432776593023,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2711125243325661145,
+        "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+        "source": "interview-question://L001",
+        "domain": "llm-engineering",
+        "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+        "vector_score": 0.7756095230579376,
+        "keyword_score": 0.826239280490451,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 11.628,
+  "timings_seconds": {
+    "decomposition": 1.628884,
+    "retrieval": 9.999218,
+    "mqe": 3.197989,
+    "hyde": 6.289617,
+    "embedding": 0.367771,
+    "vector_search": 0.028712,
+    "keyword_search": 0.112693,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 9.999344,
+    "total": 11.628228,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

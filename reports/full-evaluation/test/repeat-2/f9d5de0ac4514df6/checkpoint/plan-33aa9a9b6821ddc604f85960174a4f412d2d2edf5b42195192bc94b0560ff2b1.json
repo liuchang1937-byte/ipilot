@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-016",
+  "subquestions": [
+    {
+      "question": "不同专长的助手之间如何交接任务？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "不同专长的助手什么时候动态切换角色？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.2137731999973767
+}

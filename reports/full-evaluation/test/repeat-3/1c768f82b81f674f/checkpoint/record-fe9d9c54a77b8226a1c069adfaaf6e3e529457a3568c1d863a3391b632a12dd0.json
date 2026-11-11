@@ -1,0 +1,230 @@
+{
+  "case_id": "V2-085",
+  "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "T017",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T017"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索得到小候选集，再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如，先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义；相似工具要有明确区分。权限过滤在执行时再次校验，路由正确不代表获得授权，评测还要覆盖容易混淆与无适用工具的请求。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T017",
+    "interview-question://T003",
+    "interview-question://T002",
+    "interview-question://T007",
+    "interview-question://A003"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+    "answer": "1. 在工具目录很大的情况下，把所有工具的 Schema 放进提示会有什么问题？\n\n\n2. 在工具目录很大的情况下，如何按需选择工具？\n",
+    "sections": [
+      {
+        "question": "在工具目录很大的情况下，把所有工具的 Schema 放进提示会有什么问题？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在工具目录很大的情况下,把所有工具的 Schema 放进提示会有什么问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "工具目录很大时,把所有工具的 Schema 放进提示词会有什么问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大工具集场景下,全量工具定义注入 prompt 的缺点:上下文长度、成本、延迟、模型选择准确性影响"
+            },
+            {
+              "kind": "mqe",
+              "text": "How does including all tool schemas in the prompt affect performance with a large tool catalog?"
+            },
+            {
+              "kind": "hyde",
+              "text": "在工具目录很大时,把所有工具的 JSON Schema/OpenAPI/function definition 全量拼入 prompt 会造成 schema bloat 和 prompt token 膨胀,迅速占用 context window,挤压用户输入、对话历史和推理空间,并增加推理延迟与 API 成本。大量相似或无关的工具定义会稀释注意力,引发 lost-in-the-middle、工具选择混淆、错误调用、参数幻觉和无效工具名生成,降低 function calling/tool use 准确率与鲁棒性。长提示还难缓存、难动态更新,工具增删需重写上下文,易触发截断、超长错误和上下文污染。因此大工具目录通常不采用全量 schema 注入,而使用工具检索、语义路由、分层索引或按需加载。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T017",
+            "interview-question://T003",
+            "interview-question://T002"
+          ]
+        }
+      },
+      {
+        "question": "在工具目录很大的情况下，如何按需选择工具？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在工具目录很大的情况下,如何按需选择工具?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大工具集场景下,Agent 如何按需检索和选择工具?"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM function calling 工具数量很多时,如何做工具路由与动态选择?"
+            },
+            {
+              "kind": "mqe",
+              "text": "large-scale tool catalog on-demand tool selection retrieval for LLM agents"
+            },
+            {
+              "kind": "hyde",
+              "text": "在大规模工具目录下,按需选择工具采用“检索-过滤-重排-调用”的 Tool RAG / Tool Retrieval 架构:将每个工具的 name、description、OpenAPI/JSON Schema、参数、标签、示例、权限域编码为稠密向量并写入向量数据库,对用户查询进行意图识别、查询改写和槽位抽取后做 ANN 召回 Top-K;通过元数据过滤、权限/租户/环境/成本/延迟约束缩小候选;再用 cross-encoder 或 LLM reranker 对候选工具与任务语义、参数可满足性、历史成功率打分,选择最小充分工具集;对超大目录可先做层次化路由或工具聚类,按领域/任务簇逐层下钻,并动态加载工具 schema、函数调用约束、并行/串行规划、执行反馈重排与缓存,从而降低上下文长度、减少幻觉并实现按需选择工具。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T017",
+            "interview-question://T007",
+            "interview-question://A003"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 108826138093358449,
+        "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+        "source": "interview-question://T017",
+        "domain": "llm-tool-calling",
+        "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+        "vector_score": 0.8877061605453491,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.8116644024848938,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1074467055826810929,
+        "title": "LLM 是如何学会调用外部工具的?",
+        "source": "interview-question://T002",
+        "domain": "llm-tool-calling",
+        "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+        "vector_score": 0.8187244236469269,
+        "keyword_score": 0.8983838983162518,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.8495460450649261,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 2982864919778602991,
+        "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+        "source": "interview-question://A003",
+        "domain": "agent",
+        "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+        "vector_score": 0.8271974623203278,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 24.518,
+  "timings_seconds": {
+    "decomposition": 3.47048,
+    "retrieval": 21.047358,
+    "mqe": 7.23169,
+    "hyde": 12.870533,
+    "embedding": 0.665924,
+    "vector_search": 0.052647,
+    "keyword_search": 0.222457,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 21.047492,
+    "total": 24.517972,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

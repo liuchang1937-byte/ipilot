@@ -1,0 +1,1075 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "0300a2f6bea747ba9fc8e6bc117a07b0",
+  "created_at": "2026-10-12T11:12:29.298849+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "df05cb9c94f5c5be404047918f17fcfae3d163c4fe34422a6e78d1928bd23de6",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\cf7830b09a1b3228\\checkpoint"
+  },
+  "options": {
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 5.0,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 5.0,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.360898,
+          "p50": 3.360898,
+          "p95": 3.360898,
+          "max": 3.360898,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.512101,
+          "p50": 0.512101,
+          "p95": 0.512101,
+          "max": 0.512101,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.342555,
+          "p50": 0.342555,
+          "p95": 0.342555,
+          "max": 0.342555,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.044364,
+          "p50": 0.044364,
+          "p95": 0.044364,
+          "max": 0.044364,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.122497,
+          "p50": 0.122497,
+          "p95": 0.122497,
+          "max": 0.122497,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.126296,
+          "p50": 1.126296,
+          "p95": 1.126296,
+          "max": 1.126296,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.638729,
+          "p50": 1.638729,
+          "p95": 1.638729,
+          "max": 1.638729,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.999627,
+          "p50": 4.999627,
+          "p95": 4.999627,
+          "max": 4.999627,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 33.367,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 33.367,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.360898,
+          "p50": 3.360898,
+          "p95": 3.360898,
+          "max": 3.360898,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 30.005809,
+          "p50": 30.005809,
+          "p95": 30.005809,
+          "max": 30.005809,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 10.024938,
+          "p50": 10.024938,
+          "p95": 10.024938,
+          "max": 10.024938,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 18.267894,
+          "p50": 18.267894,
+          "p95": 18.267894,
+          "max": 18.267894,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.237114,
+          "p50": 1.237114,
+          "p95": 1.237114,
+          "max": 1.237114,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.097261,
+          "p50": 0.097261,
+          "p95": 0.097261,
+          "max": 0.097261,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.371588,
+          "p50": 0.371588,
+          "p95": 0.371588,
+          "max": 0.371588,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 30.006018,
+          "p50": 30.006018,
+          "p95": 30.006018,
+          "max": 30.006018,
+          "samples": 1
+        },
+        "total": {
+          "mean": 33.366916,
+          "p50": 33.366916,
+          "p95": 33.366916,
+          "max": 33.366916,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 8,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.868,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.868,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.360898,
+          "p50": 3.360898,
+          "p95": 3.360898,
+          "max": 3.360898,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.506877,
+          "p50": 0.506877,
+          "p95": 0.506877,
+          "max": 0.506877,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.334647,
+          "p50": 0.334647,
+          "p95": 0.334647,
+          "max": 0.334647,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.043147,
+          "p50": 0.043147,
+          "p95": 0.043147,
+          "max": 0.043147,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.126676,
+          "p50": 0.126676,
+          "p95": 0.126676,
+          "max": 0.126676,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.507134,
+          "p50": 0.507134,
+          "p95": 0.507134,
+          "max": 0.507134,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.868032,
+          "p50": 3.868032,
+          "p95": 3.868032,
+          "max": 3.868032,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-054",
+      "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "R007",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://R007"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量，同一词的表示不随语境变化；BERT 类模型提供上下文相关的 Token 表示，但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练，使查询和文档可以独立编码后比较，适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索，如 SPLADE；多向量模型则保存多个 Token 表示，以更细的交互提高匹配能力，但存储与计算开销较大。双编码器适合第一阶段召回，Cross-Encoder 联合读取查询和文档，更适合小候选集重排。模型架构和检索方式是两件事，BERT 并不必然要求查询与每个文档一起编码，关键在于是否训练成适合独立编码的检索表示。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R007"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+        "answer": "1. 除了神经网络向量，文本表示还使用过哪些算法？\n\n\n2. 除了神经网络向量，文本相似匹配还使用过哪些算法？\n",
+        "sections": [
+          {
+            "question": "除了神经网络向量，文本表示还使用过哪些算法？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "除了神经网络向量,文本表示还使用过哪些算法?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://R007"
+              ]
+            }
+          },
+          {
+            "question": "除了神经网络向量，文本相似匹配还使用过哪些算法？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "除了神经网络向量,文本相似匹配还使用过哪些算法?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://R007"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.8216826021671295,
+            "keyword_score": 1.0,
+            "rerank_score": 0.48587778210639954
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 5.0,
+      "timings_seconds": {
+        "decomposition": 3.360898,
+        "retrieval": 0.512101,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.342555,
+        "vector_search": 0.044364,
+        "keyword_search": 0.122497,
+        "rerank": 1.126296,
+        "generation": 0.0,
+        "pipeline": 1.638729,
+        "total": 4.999627,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-054",
+      "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "R007",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R007"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量，同一词的表示不随语境变化；BERT 类模型提供上下文相关的 Token 表示，但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练，使查询和文档可以独立编码后比较，适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索，如 SPLADE；多向量模型则保存多个 Token 表示，以更细的交互提高匹配能力，但存储与计算开销较大。双编码器适合第一阶段召回，Cross-Encoder 联合读取查询和文档，更适合小候选集重排。模型架构和检索方式是两件事，BERT 并不必然要求查询与每个文档一起编码，关键在于是否训练成适合独立编码的检索表示。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R007",
+        "interview-question://R016",
+        "interview-question://R011",
+        "interview-question://R006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+        "answer": "1. 除了神经网络向量，文本表示还使用过哪些算法？\n\n\n2. 除了神经网络向量，文本相似匹配还使用过哪些算法？\n",
+        "sections": [
+          {
+            "question": "除了神经网络向量，文本表示还使用过哪些算法？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "除了神经网络向量,文本表示还使用过哪些算法?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "文本表示 传统方法 非神经网络 算法 综述 词袋 TF-IDF LSA LDA"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "text representation methods beyond neural embeddings traditional approaches survey"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "除神经网络向量外,文本表示还使用过:one-hot、词袋模型 BoW、N-gram、TF-IDF、BM25、二进制/词频向量;共现矩阵、PPMI、HAL、COALS、随机索引、特征哈希;LSA/LSI、SVD、NMF、PLSA、LDA 等矩阵分解与概率主题模型;显式语义分析 ESA;基于图的 TextRank、谱嵌入;字符串核、子序列核、树核、词袋核;以及本体/规则/符号特征表示。这些非神经网络方法通过统计计数、权重计算、矩阵分解、概率生成、核映射或哈希投影获得文本表示。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R007",
+                "interview-question://R016",
+                "interview-question://R011"
+              ]
+            }
+          },
+          {
+            "question": "除了神经网络向量，文本相似匹配还使用过哪些算法？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "除了神经网络向量,文本相似匹配还使用过哪些算法?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "文本相似度计算 非神经网络 传统算法 综述"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "text similarity matching algorithms excluding neural embeddings traditional methods"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "除了神经网络向量,文本相似匹配还使用字符串编辑距离(Levenshtein、Damerau-Levenshtein、Hamming、Jaro-Winkler、LCS、Smith-Waterman)、集合相似度(Jaccard、Dice、Overlap、Tversky)、n-gram/q-gram重叠(BLEU、ROUGE、字符n-gram、词n-gram)、向量空间模型(TF-IDF、BM25、余弦相似度、欧氏距离、曼哈顿距离、马氏距离)、概率检索与语言模型(查询似然、KL散度、Divergence from Randomness)、主题与隐语义模型(LSA/LSI、pLSA、LDA、NMF、随机索引、CCA)、哈希与近似检索(SimHash、MinHash、局部敏感哈希LSH)、图与链接分析(SimRank、PageRank、TextRank)、知识本体方法(WordNet路径相似度、Resnik、Lin、Jiang-Conrath、Lesk)、压缩距离(归一化压缩距离NCD)及语音编码匹配(Soundex、Metaphone)。这些方法常配合倒排索引、后缀树/后缀数组、TF-IDF向量化、概率模型或图传播来计算文本相似度。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R007",
+                "interview-question://R011",
+                "interview-question://R006"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.82167649269104,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2214053965974079694,
+            "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+            "source": "interview-question://R016",
+            "domain": "rag",
+            "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+            "vector_score": 0.7615246772766113,
+            "keyword_score": 0.52230731830668,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2637356371800682692,
+            "title": "请你介绍一下向量检索和关键词检索的区别?",
+            "source": "interview-question://R011",
+            "domain": "rag",
+            "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+            "vector_score": 0.8132257163524628,
+            "keyword_score": 0.7780271591875425,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3773025965374103241,
+            "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+            "source": "interview-question://R006",
+            "domain": "rag",
+            "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+            "vector_score": 0.7727086842060089,
+            "keyword_score": 0.5701221898796153,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 33.367,
+      "timings_seconds": {
+        "decomposition": 3.360898,
+        "retrieval": 30.005809,
+        "mqe": 10.024938,
+        "hyde": 18.267894,
+        "embedding": 1.237114,
+        "vector_search": 0.097261,
+        "keyword_search": 0.371588,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 30.006018,
+        "total": 33.366916,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 8,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-054",
+      "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "R007",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R007"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量，同一词的表示不随语境变化；BERT 类模型提供上下文相关的 Token 表示，但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练，使查询和文档可以独立编码后比较，适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索，如 SPLADE；多向量模型则保存多个 Token 表示，以更细的交互提高匹配能力，但存储与计算开销较大。双编码器适合第一阶段召回，Cross-Encoder 联合读取查询和文档，更适合小候选集重排。模型架构和检索方式是两件事，BERT 并不必然要求查询与每个文档一起编码，关键在于是否训练成适合独立编码的检索表示。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R007",
+        "interview-question://R016",
+        "interview-question://R008",
+        "interview-question://R011"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+        "answer": "1. 除了神经网络向量，文本表示还使用过哪些算法？\n\n\n2. 除了神经网络向量，文本相似匹配还使用过哪些算法？\n",
+        "sections": [
+          {
+            "question": "除了神经网络向量，文本表示还使用过哪些算法？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "除了神经网络向量,文本表示还使用过哪些算法?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R007",
+                "interview-question://R016",
+                "interview-question://R008"
+              ]
+            }
+          },
+          {
+            "question": "除了神经网络向量，文本相似匹配还使用过哪些算法？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "除了神经网络向量,文本相似匹配还使用过哪些算法?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R007",
+                "interview-question://R011",
+                "interview-question://R008"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.8216826021671295,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2214053965974079694,
+            "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+            "source": "interview-question://R016",
+            "domain": "rag",
+            "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+            "vector_score": 0.7246604263782501,
+            "keyword_score": 0.52230731830668,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1084357564865389044,
+            "title": "什么是向量数据库?有没有做过向量数据库的对比选型?",
+            "source": "interview-question://R008",
+            "domain": "rag",
+            "content": "# 什么是向量数据库?有没有做过向量数据库的对比选型?\n\n题目编号:R008\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:向量数据库存储向量及元数据,并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引,不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展:前者通常还提供元数据、持久化与服务治理,后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试,比较召回率与 P95,不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟,IVF 等方案则有训练、探测和压缩参数需要调整,实际效果要结合数据分布验证。\n\n评分要点:定义、索引、过滤、规模、运维和成本维度完整。",
+            "vector_score": 0.7622481882572174,
+            "keyword_score": 0.5993462652579403,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2637356371800682692,
+            "title": "请你介绍一下向量检索和关键词检索的区别?",
+            "source": "interview-question://R011",
+            "domain": "rag",
+            "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+            "vector_score": 0.7822825908660889,
+            "keyword_score": 0.7780271591875425,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.868,
+      "timings_seconds": {
+        "decomposition": 3.360898,
+        "retrieval": 0.506877,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.334647,
+        "vector_search": 0.043147,
+        "keyword_search": 0.126676,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.507134,
+        "total": 3.868032,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-054",
+      "subquestions": [
+        {
+          "question": "除了神经网络向量，文本表示还使用过哪些算法？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "除了神经网络向量，文本相似匹配还使用过哪些算法？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.360897799999293
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 35.525,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

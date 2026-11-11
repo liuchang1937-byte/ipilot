@@ -1,0 +1,535 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "a94af69814ca422dba5f02f9cd44bf4b",
+  "created_at": "2026-10-12T16:29:41.957012+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "0e591e3315a6384b4368f749b22d283fd82ba0360e38341aa8aff652ceb48679",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\6f8dc62fa0480bce\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 53.037,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 53.037,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.532379,
+          "p50": 2.532379,
+          "p95": 2.532379,
+          "max": 2.532379,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 26.05049,
+          "p50": 26.05049,
+          "p95": 26.05049,
+          "max": 26.05049,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 7.414874,
+          "p50": 7.414874,
+          "p95": 7.414874,
+          "max": 7.414874,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 16.941151,
+          "p50": 16.941151,
+          "p95": 16.941151,
+          "max": 16.941151,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.28594,
+          "p50": 1.28594,
+          "p95": 1.28594,
+          "max": 1.28594,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.083744,
+          "p50": 0.083744,
+          "p95": 0.083744,
+          "max": 0.083744,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.31742,
+          "p50": 0.31742,
+          "p95": 0.31742,
+          "max": 0.31742,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 24.453475,
+          "p50": 24.453475,
+          "p95": 24.453475,
+          "max": 24.453475,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 50.504359,
+          "p50": 50.504359,
+          "p95": 50.504359,
+          "max": 50.504359,
+          "samples": 1
+        },
+        "total": {
+          "mean": 53.036738,
+          "p50": 53.036738,
+          "p95": 53.036738,
+          "max": 53.036738,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 57.949223,
+          "p50": 57.949223,
+          "p95": 57.949223,
+          "max": 57.949223,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 1,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 14,
+        "chat_calls": 9,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-037",
+      "question": "temperature、top_p与top_k对生成分布各有什么影响？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L012",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Temperature缩放Logits，越低分布越尖锐；Top-K只在概率最高的K个Token中采样；Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度，创作可提高温度并使用Top-P；不存在通用最佳值，应基于任务集评估，而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布，Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合。它们只改变采样行为，不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数，再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同，因此不存在跨模型通用的最佳数值，温度为零也不等于结果一定可复现。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L013",
+        "interview-question://L012",
+        "interview-question://L018",
+        "interview-question://L005"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "temperature、top_p与top_k对生成分布各有什么影响？",
+        "answer": "1. temperature 对生成分布有什么影响？\nTemperature 通过把 logits 除以 T 后再做 Softmax，从而改变生成时的概率分布 [1]。T 越低，分布越尖锐，高概率 token 的优势被放大，采样更集中、更确定，适合事实问答和代码等需要稳定的场景；T 越高，分布越平坦，低概率 token 被采样的机会增加，输出更多样但随机性更高 [1][2]。它只改变采样行为，不能给模型补充知识或保证事实正确；温度为零也不等于结果一定可复现 [1]。实际不存在通用最佳温度，应基于任务评估，并通常避免同时激进调整温度、Top-K、Top-P 等参数 [1]。\n\n2. top_p 对生成分布有什么影响？\nTop-P（核采样）对生成分布的主要影响是改变采样时的候选 token 集合，而不是改变模型知识或保证事实正确[1]。它按概率从高到低累加 token 概率，选择累计概率达到阈值 p 的最小集合作为候选；集合外的低概率 token 被排除，因此候选集合大小由累计概率动态决定，而 Top-K 是固定候选数量[1]。因此，p 越小，候选集合越窄，主要保留高概率头部 token，输出更集中、更确定、多样性更低；p 越大，候选集合越大，更多低概率 token 可参与采样，输出随机性和多样性更高[1][2]。采样时会从调整后的分布中抽取 token，并可配合 Temperature、Top-K、Top-P 来影响多样性[2]。需要注意，Top-P 只改变采样行为，不能给模型补充知识或保证事实正确；不同 API 的参数范围和组合行为也可能不同[1]。\n\n3. top_k 对生成分布有什么影响？\nTop-K 会改变生成时的采样分布：它把候选 Token 限制为概率最高的 K 个，并只在这 K 个 Token 中采样；与 Top-P 按累计概率动态决定候选集合不同，Top-K 是固定候选数量[1]。因此，分布中可被采样到的 Token 集合会被截断为前 K 个，不在前 K 的 Token 不进入该次采样。它只改变采样行为，不能给模型补充知识或保证事实正确[1]；实践中常与 Temperature、Top-P 等配合，在采样中用于增加多样性[2]。",
+        "sections": [
+          {
+            "question": "temperature 对生成分布有什么影响？",
+            "kind": "knowledge",
+            "answer": "Temperature 通过把 logits 除以 T 后再做 Softmax，从而改变生成时的概率分布 [1]。T 越低，分布越尖锐，高概率 token 的优势被放大，采样更集中、更确定，适合事实问答和代码等需要稳定的场景；T 越高，分布越平坦，低概率 token 被采样的机会增加，输出更多样但随机性更高 [1][2]。它只改变采样行为，不能给模型补充知识或保证事实正确；温度为零也不等于结果一定可复现 [1]。实际不存在通用最佳温度，应基于任务评估，并通常避免同时激进调整温度、Top-K、Top-P 等参数 [1]。",
+            "source_ids": [
+              1,
+              2
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "temperature 对生成分布有什么影响?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型 temperature 参数如何影响下一个 token 的概率分布?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "effect of temperature on language model generation probability distribution softmax"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "温度是 Softmax 中的缩放参数:\\(p_i=\\frac{\\exp(z_i/T)}{\\sum_j \\exp(z_j/T)}\\),其中 \\(z_i\\) 为 logits,\\(T\\) 为 temperature。降低温度 \\(T<1\\) 会放大 logits 差异,使生成分布更尖锐、熵更低、概率质量集中在高概率 token 上,采样更确定性、更接近贪婪解码,多样性降低并可能重复。升高温度 \\(T>1\\) 会压缩 logits 差异,使生成分布更平坦、熵更高、长尾 token 概率增大,采样更随机、多样性更高,但可能损害连贯性和事实性。\\(T=1\\) 保持原始 Softmax 分布;\\(T\\to 0\\) 趋近 argmax 分布;\\(T\\to\\infty\\) 趋近均匀分布。temperature 与 top-k、top-p、beam search 等解码策略共同影响生成分布和采样行为。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L013",
+                "interview-question://L012",
+                "interview-question://L018"
+              ]
+            }
+          },
+          {
+            "question": "top_p 对生成分布有什么影响？",
+            "kind": "knowledge",
+            "answer": "Top-P（核采样）对生成分布的主要影响是改变采样时的候选 token 集合，而不是改变模型知识或保证事实正确[1]。它按概率从高到低累加 token 概率，选择累计概率达到阈值 p 的最小集合作为候选；集合外的低概率 token 被排除，因此候选集合大小由累计概率动态决定，而 Top-K 是固定候选数量[1]。因此，p 越小，候选集合越窄，主要保留高概率头部 token，输出更集中、更确定、多样性更低；p 越大，候选集合越大，更多低概率 token 可参与采样，输出随机性和多样性更高[1][2]。采样时会从调整后的分布中抽取 token，并可配合 Temperature、Top-K、Top-P 来影响多样性[2]。需要注意，Top-P 只改变采样行为，不能给模型补充知识或保证事实正确；不同 API 的参数范围和组合行为也可能不同[1]。",
+            "source_ids": [
+              1,
+              2
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "top_p 对生成分布有什么影响?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "top_p 对语言模型生成分布的影响是什么"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "nucleus sampling top-p 如何改变 token 概率分布与生成多样性"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "top_p 与 temperature 对生成分布和采样结果的区别"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "top_p(nucleus sampling)通过累积概率阈值截断 Softmax 后的词表分布。设原始条件分布为 \\(P(x_t|x_{<t})\\),按概率降序排列 token,保留最小集合 \\(S\\) 使得 \\(\\sum_{i \\in S} P_i \\ge p\\),其余 token 概率置零,并在 \\(S\\) 上重新归一化:\\(P'(i)=P(i)/\\sum_{j\\in S}P(j)\\)。因此 top_p 改变生成分布的支持集与概率质量分配:p 越小,nucleus 越小,分布越尖锐、熵越低,生成更确定、保守、多样性降低,接近贪心采样;p 越大,nucleus 越大,保留更多长尾低概率 token,分布更接近原始 Softmax,多样性、随机性及低概率 token 采样风险上升。p=1 通常不截断,等价于原始分布;p→0 退化为近似最大概率 token 选择。top_p 通常在温度缩放之后作用于分布,并随每步概率分布动态变化:模型高置信时候选集收缩,低置信时候选集扩大。它主要调节截断候选集大小、重新归一化后的相对概率、采样熵和生成多样性。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L013",
+                "interview-question://L012",
+                "interview-question://L018"
+              ]
+            }
+          },
+          {
+            "question": "top_k 对生成分布有什么影响？",
+            "kind": "knowledge",
+            "answer": "Top-K 会改变生成时的采样分布：它把候选 Token 限制为概率最高的 K 个，并只在这 K 个 Token 中采样；与 Top-P 按累计概率动态决定候选集合不同，Top-K 是固定候选数量[1]。因此，分布中可被采样到的 Token 集合会被截断为前 K 个，不在前 K 的 Token 不进入该次采样。它只改变采样行为，不能给模型补充知识或保证事实正确[1]；实践中常与 Temperature、Top-P 等配合，在采样中用于增加多样性[2]。",
+            "source_ids": [
+              1,
+              2
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "top_k 对生成分布有什么影响?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "top_k 采样对语言模型生成概率分布的影响"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "top-k 参数如何改变文本生成中的 token 分布"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "top_k 采样对生成分布的数学原理与实际效果"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "top_k 采样通过硬截断改变生成分布的支撑集与形状:在每个解码步,根据 logits 或经温度缩放后的 logits 选出概率最高的 k 个 token,将其余 token 概率置零,并对保留的 logits 重新 softmax 归一化,即 \\(p'_i=\\frac{\\exp(z_i/T)}{\\sum_{j\\in \\text{TopK}}\\exp(z_j/T)}\\),当 \\(i\\in \\text{TopK}\\),否则 \\(p'_i=0\\)。k 越小,候选集越窄,分布越尖锐、熵越低,概率质量集中在高置信 token,输出更确定但多样性下降,\\(k=1\\) 等价贪心解码;k 越大,保留的长尾 token 越多,分布越接近原始 softmax,熵和随机性升高,可能增强多样性但也引入低概率不连贯 token;\\(k\\) 等于词表大小时退化为无截断采样。top_k 是硬截断,与温度、top_p/nucleus sampling 共同影响有效生成分布:温度改变 logits 尺度后 top_k 的候选集和归一化概率会变化,top_p 则按累积概率自适应选择候选集。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L013",
+                "interview-question://L012",
+                "interview-question://L005"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 96113536461836751,
+            "title": "大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?",
+            "source": "interview-question://L013",
+            "domain": "llm-engineering",
+            "content": "# 大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?\n\n题目编号:L013\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度,创作可提高温度并使用Top-P;不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。它们只改变采样行为,不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数,再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同,因此不存在跨模型通用的最佳数值,温度为零也不等于结果一定可复现。\n\n评分要点:参数机制准确;场景化而非给出绝对最佳值。",
+            "vector_score": 0.8474552631378174,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.8340552449226379,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 96113536461836751,
+            "title": "大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?",
+            "source": "interview-question://L013",
+            "domain": "llm-engineering",
+            "content": "# 大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?\n\n题目编号:L013\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度,创作可提高温度并使用Top-P;不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。它们只改变采样行为,不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数,再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同,因此不存在跨模型通用的最佳数值,温度为零也不等于结果一定可复现。\n\n评分要点:参数机制准确;场景化而非给出绝对最佳值。",
+            "vector_score": 0.8474552631378174,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.8340552449226379,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.7584876716136932,
+            "keyword_score": 0.4004844096664336,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.7567171454429626,
+            "keyword_score": 0.6852811684021479,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 53.037,
+      "timings_seconds": {
+        "decomposition": 2.532379,
+        "retrieval": 26.05049,
+        "mqe": 7.414874,
+        "hyde": 16.941151,
+        "embedding": 1.28594,
+        "vector_search": 0.083744,
+        "keyword_search": 0.31742,
+        "rerank": 0.0,
+        "generation": 24.453475,
+        "pipeline": 50.504359,
+        "total": 53.036738,
+        "judge": 57.949223
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 14,
+        "chat_calls": 9,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "unavailable",
+        "reason": "答案评审失败或格式/原文校验未通过；未计入质量均值。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        },
+        "claims": [],
+        "reference_points": []
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-037",
+      "subquestions": [
+        {
+          "question": "temperature 对生成分布有什么影响？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "top_p 对生成分布有什么影响？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "top_k 对生成分布有什么影响？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.532378800002334
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 111.018,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

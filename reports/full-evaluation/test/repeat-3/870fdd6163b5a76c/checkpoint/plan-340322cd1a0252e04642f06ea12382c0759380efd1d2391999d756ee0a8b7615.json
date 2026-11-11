@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-029",
+  "subquestions": [
+    {
+      "question": "文字送入模型前如何转换为token？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "分词方式为何会影响文字转换为token后的长度与模型成本？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.569927200001985
+}

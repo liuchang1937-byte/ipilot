@@ -1,0 +1,122 @@
+{
+  "case_id": "V2-013",
+  "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A013",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://A013"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A013"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "为什么有些团队不采用现成智能体框架，而选择自己实现智能体执行循环？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "为什么有些团队不采用现成智能体框架,而选择自己实现智能体执行循环?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://A013"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2622544271174588789,
+        "title": "在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?",
+        "source": "interview-question://A013",
+        "domain": "agent",
+        "content": "# 在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?\n\n题目编号:A013\n\n领域:agent\n\n难度:2\n\n标签:框架选型、可控性、可观测性\n- 考察方向:定制需求、依赖复杂度、调试能力和迁移成本。\n\n参考答案:当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时,自行实现循环往往更透明,也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排,但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件,而是保留核心控制权,同时复用模型客户端、追踪和存储等成熟基础设施。例如,业务只需要少量工具,但要求每一步精确记录状态、限制权限并支持断点恢复时,直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统,可以复用成熟基础设施,只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本;当流程复杂或框架能力已经满足需求时,使用框架往往更合适。\n\n评分要点:结合业务约束比较可控性、可观测性与维护成本;说明复用基础设施;不把手写或框架视为绝对更优。",
+        "vector_score": 0.8535482287406921,
+        "keyword_score": 1.0,
+        "rerank_score": 0.4464065730571747
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.421,
+  "timings_seconds": {
+    "decomposition": 3.527535,
+    "retrieval": 0.236005,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.12635,
+    "vector_search": 0.027226,
+    "keyword_search": 0.081155,
+    "rerank": 0.657614,
+    "generation": 0.0,
+    "pipeline": 0.893915,
+    "total": 4.42145,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

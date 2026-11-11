@@ -1,0 +1,262 @@
+{
+  "case_id": "V2-066",
+  "question": "资料修改或删除后，怎样让关键词与向量索引持续保持最新？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "R019",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://R019"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "为来源建立稳定ID、版本和内容哈希，通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding，并以新版本原子替换旧索引；删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换，以支持回滚。更新流程应覆盖新增、修改与删除：检测变更后做解析和内容校验，只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证，再原子切换可见版本，避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步，缓存要失效，删除要清理残留表示。模型或切块规则变化需要索引版本管理，不能把不同向量空间的数据混用。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R019",
+    "interview-question://R011",
+    "interview-question://R014",
+    "interview-question://R008",
+    "interview-question://A009",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "资料修改或删除后，怎样让关键词与向量索引持续保持最新？",
+    "answer": "1. 资料修改后，怎样让关键词索引持续保持最新？\n\n\n2. 资料修改后，怎样让向量索引持续保持最新？\n\n\n3. 资料删除后，怎样让关键词索引持续保持最新？\n\n\n4. 资料删除后，怎样让向量索引持续保持最新？\n",
+    "sections": [
+      {
+        "question": "资料修改后，怎样让关键词索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料修改后,怎样让关键词索引持续保持最新?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R011",
+            "interview-question://R014"
+          ]
+        }
+      },
+      {
+        "question": "资料修改后，怎样让向量索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料修改后,怎样让向量索引持续保持最新?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R008",
+            "interview-question://A009"
+          ]
+        }
+      },
+      {
+        "question": "资料删除后，怎样让关键词索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料删除后,怎样让关键词索引持续保持最新?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R014",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      },
+      {
+        "question": "资料删除后，怎样让向量索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料删除后,怎样让向量索引持续保持最新?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R008",
+            "interview-question://A009"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4501121176323650097,
+        "title": "RAG 知识库如何实现动态与持续更新?",
+        "source": "interview-question://R019",
+        "domain": "rag",
+        "content": "# RAG 知识库如何实现动态与持续更新?\n\n题目编号:R019\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:为来源建立稳定ID、版本和内容哈希,通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding,并以新版本原子替换旧索引;删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换,以支持回滚。更新流程应覆盖新增、修改与删除:检测变更后做解析和内容校验,只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证,再原子切换可见版本,避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步,缓存要失效,删除要清理残留表示。模型或切块规则变化需要索引版本管理,不能把不同向量空间的数据混用。\n\n评分要点:覆盖新增、修改、删除与元数据变更;说明增量索引、版本切换、缓存失效和向量空间兼容性。",
+        "vector_score": 0.8315577805042267,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2637356371800682692,
+        "title": "请你介绍一下向量检索和关键词检索的区别?",
+        "source": "interview-question://R011",
+        "domain": "rag",
+        "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+        "vector_score": 0.7156868577003479,
+        "keyword_score": 0.5971591573891825,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3525225094256298830,
+        "title": "RAG 检索优化策略有哪些?",
+        "source": "interview-question://R014",
+        "domain": "rag",
+        "content": "# RAG 检索优化策略有哪些?\n\n题目编号:R014\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:可从四层优化:数据层清洗去重、补元数据;索引层结构化/语义切块和父子索引;查询层改写、拆分与过滤;检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开:没有合适知识先修数据,相关内容被切散先修 Chunking,查询表达与文档不同再做改写,精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后,可以扩大候选池或加重排;正确证据已经进入上下文却回答错误,则检查组织方式与生成约束。每次修改只控制少量变量,用检索和答案两层指标验证,避免叠加很多技术后无法归因。\n\n评分要点:分层说明并包含评测闭环。",
+        "vector_score": 0.7327777743339539,
+        "keyword_score": 0.38917206284925054,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1084357564865389044,
+        "title": "什么是向量数据库?有没有做过向量数据库的对比选型?",
+        "source": "interview-question://R008",
+        "domain": "rag",
+        "content": "# 什么是向量数据库?有没有做过向量数据库的对比选型?\n\n题目编号:R008\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:向量数据库存储向量及元数据,并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引,不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展:前者通常还提供元数据、持久化与服务治理,后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试,比较召回率与 P95,不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟,IVF 等方案则有训练、探测和压缩参数需要调整,实际效果要结合数据分布验证。\n\n评分要点:定义、索引、过滤、规模、运维和成本维度完整。",
+        "vector_score": 0.7692932188510895,
+        "keyword_score": 0.45125265989524715,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 262192336753681762,
+        "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+        "source": "interview-question://A009",
+        "domain": "agent",
+        "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+        "vector_score": 0.7656627893447876,
+        "keyword_score": 0.47937394340414424,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 1458862979105628462,
+        "title": "4 数据、权限与保留政策",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 4 数据、权限与保留政策\n\n本章用于测试结构化过滤、访问控制、时间版本与否定事实。\n数据类别 示例 访问级别 默认保留期 删除方式\n公开资料 项目简介、公开指标 L0 长期 版本归档\n运营数据 订单状态、片区汇总 L1 24 个月 到期批量删除\n设备遥测 温度、网关信号 L2 18 个月 到期自动清除\n个人信息 司机姓名、电话 L3 6 个月 去标识化后清除映射\n安全事件 审计日志、调查材料 L3-S 36 个月 安全负责人批准\nF-019 设备遥测默认保留 18 个月;个人信息默认保留 6 个月。\nF-020 安全事件材料保留 36 个月,级别为 L3-S。",
+        "vector_score": 0.7214737832546234,
+        "keyword_score": 0.50186616731144,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 6.744,
+  "timings_seconds": {
+    "decomposition": 5.675998,
+    "retrieval": 1.067439,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.707323,
+    "vector_search": 0.095162,
+    "keyword_search": 0.259613,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 1.067968,
+    "total": 6.743966,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 4,
+    "embedding_texts": 4,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

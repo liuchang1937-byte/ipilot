@@ -1,0 +1,230 @@
+{
+  "case_id": "V2-085",
+  "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "T017",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T017"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索得到小候选集，再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如，先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义；相似工具要有明确区分。权限过滤在执行时再次校验，路由正确不代表获得授权，评测还要覆盖容易混淆与无适用工具的请求。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T017",
+    "interview-question://T002",
+    "interview-question://L016",
+    "interview-question://T007",
+    "interview-question://A017"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+    "answer": "1. 当工具目录很大时，把所有工具Schema放进提示会有什么问题？\n\n\n2. 当工具目录很大时，如何按需选择工具？\n",
+    "sections": [
+      {
+        "question": "当工具目录很大时，把所有工具Schema放进提示会有什么问题？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当工具目录很大时,把所有工具Schema放进提示会有什么问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大型工具目录下把所有工具 Schema 放进提示会带来哪些问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "工具数量很多时,将全部工具定义注入 LLM 提示的缺点:上下文长度、成本、延迟与选择准确率"
+            },
+            {
+              "kind": "mqe",
+              "text": "large tool catalog putting all tool schemas in prompt problems context window token cost latency tool selection accuracy"
+            },
+            {
+              "kind": "hyde",
+              "text": "当工具目录很大时,把所有工具 Schema 放进提示会造成 prompt bloat,迅速消耗 context window 和 token budget,导致上下文溢出、截断或关键指令丢失;推理成本、首 token 延迟和总延迟随工具数量线性或超线性上升;大量相似或冗余的工具描述会引发 attention dilution 和语义干扰,降低 function calling 的工具选择准确率,增加误调用、参数幻觉和 schema 不匹配;同时扩大提示注入、工具元数据泄露、版本漂移和更新维护风险。因此通常需要工具检索、分层路由、按需加载 Schema、工具分组或语义索引来只注入最相关的少量工具。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T017",
+            "interview-question://T002",
+            "interview-question://L016"
+          ]
+        }
+      },
+      {
+        "question": "当工具目录很大时，如何按需选择工具？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当工具目录很大时,如何按需选择工具?"
+            },
+            {
+              "kind": "mqe",
+              "text": "当工具目录很大时,如何根据用户请求按需选择工具"
+            },
+            {
+              "kind": "mqe",
+              "text": "大规模工具库中动态检索与选择工具的方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM agent large tool catalog dynamic tool selection and retrieval"
+            },
+            {
+              "kind": "hyde",
+              "text": "当工具目录很大时,按需选择工具通常采用 Tool RAG 与语义路由:对每个工具的 API schema、描述、示例、类别和权限元数据构建索引,用嵌入模型生成稠密向量并存入向量数据库;查询时通过混合检索(BM25+稠密向量)召回 Top-k 候选,再用交叉编码器重排。随后由 LLM 路由器/规划器结合意图识别、任务分解、槽位填充、成本、延迟、SLA、权限和上下文窗口约束,从候选中选择最小必要工具集,支持分层工具分类、元数据过滤、动态工具加载、缓存与反馈学习,最终以函数调用或 JSON schema 输出选中工具及参数。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T017",
+            "interview-question://T007",
+            "interview-question://A017"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 108826138093358449,
+        "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+        "source": "interview-question://T017",
+        "domain": "llm-tool-calling",
+        "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+        "vector_score": 0.9025460481643677,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1074467055826810929,
+        "title": "LLM 是如何学会调用外部工具的?",
+        "source": "interview-question://T002",
+        "domain": "llm-tool-calling",
+        "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+        "vector_score": 0.824325680732727,
+        "keyword_score": 0.8760262383222706,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3377336774797257112,
+        "title": "如何写好 Prompt?分享下 Prompt 工程实践经验?",
+        "source": "interview-question://L016",
+        "domain": "llm-engineering",
+        "content": "# 如何写好 Prompt?分享下 Prompt 工程实践经验?\n\n题目编号:L016\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:先明确角色、目标、输入数据、约束、输出Schema和失败行为,再提供少量代表性示例。把可信指令与外部文本分隔,要求信息不足时拒答,并对结构化输出做程序校验。Prompt应版本化,在固定评测集上比较正确率、格式率、成本和稳定性,避免只凭几个示例调词。例如,要求系统从资料回答时,应明确哪些内容是证据、哪些是指令,以及证据不足如何处理;要求 JSON 时,应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入,而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测,记录模型版本和参数。提示能引导行为,但权限、业务规则和外部动作仍由代码强制执行。\n\n评分要点:结构、边界、示例、校验、版本与评测。",
+        "vector_score": 0.793732613325119,
+        "keyword_score": 0.7289287962553552,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.7954437136650085,
+        "keyword_score": 0.9270845517123176,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 1914948693301866705,
+        "title": "Agent 的上下文工程怎么设计?",
+        "source": "interview-question://A017",
+        "domain": "agent",
+        "content": "# Agent 的上下文工程怎么设计?\n\n题目编号:A017\n\n领域:agent\n\n难度:3\n\n标签:上下文工程、检索、Token 预算\n- 考察方向:系统指令、任务状态、记忆、工具结果和知识证据的优先级。\n\n参考答案:上下文应按任务动态装配,而非永久堆积。一般包含稳定系统规则、当前目标与计划、最近交互、必要工具描述、检索证据和相关长期记忆。通过元数据过滤、语义检索、摘要、去重和Token预算控制数量,并明确不同内容的可信等级。工具原始结果与用户输入要做边界标记,防止提示注入影响系统指令。可以把上下文分成稳定指令、当前目标、结构化状态、近期对话、相关证据和本轮工具结果,并为各部分设定预算。用户的纠错和硬约束应显式更新状态,陈旧工具输出则摘要或移出窗口。长文不是越多越好,需要去重、重排并标识来源;外部文档中的指令只作为数据处理。评测应检查同一任务在不同轮数、噪声和截断条件下是否仍能正确选择工具并保持目标。\n\n评分要点:动态选择、预算控制、来源分层和安全隔离。",
+        "vector_score": 0.7750692069530487,
+        "keyword_score": 0.7771599086473326,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 20.973,
+  "timings_seconds": {
+    "decomposition": 3.47428,
+    "retrieval": 17.498934,
+    "mqe": 6.334257,
+    "hyde": 10.249068,
+    "embedding": 0.630019,
+    "vector_search": 0.06168,
+    "keyword_search": 0.219466,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 17.49911,
+    "total": 20.97339,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

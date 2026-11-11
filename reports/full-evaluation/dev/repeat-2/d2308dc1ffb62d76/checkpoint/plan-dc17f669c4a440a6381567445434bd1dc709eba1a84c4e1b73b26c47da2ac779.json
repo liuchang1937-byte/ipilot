@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-079",
+  "subquestions": [
+    {
+      "question": "函数调用格式、任务技能包和工具连接协议如何在一个系统里配合？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.125941500000408
+}

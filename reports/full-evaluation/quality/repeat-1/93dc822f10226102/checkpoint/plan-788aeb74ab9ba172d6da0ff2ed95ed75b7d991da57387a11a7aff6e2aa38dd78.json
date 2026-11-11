@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-065",
+  "subquestions": [
+    {
+      "question": "如何衡量检索命中？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "如何衡量排序质量？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "如何衡量最终回答质量？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.046447500000795
+}

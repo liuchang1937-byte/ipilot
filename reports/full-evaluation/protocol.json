@@ -1,0 +1,47 @@
+{
+  "dataset_sha256": "fd66d686411ddba8b90ba304a7de084ecd6551eee7cedd85db2b7eba6a2c78c9",
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "code_sha256": "e182d7e2056fa8593d711a5ef3523418278ae34c8acd853c4ca1417b68bd5d22",
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "reranker_assets": {
+    "model.onnx": "6c2513767fb63d008a4377bef7a7a3555433d9436342bb53e35a3a72ffc52d4b",
+    "tokenizer.json": "62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626"
+  },
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4"
+  },
+  "dev_variants": [
+    "hybrid",
+    "hybrid_reranked",
+    "expanded"
+  ],
+  "retrieval_repeats": 3,
+  "seed": 42,
+  "retrieval_workers": 3,
+  "quality_workers": 1,
+  "selection_rule": "先完整性，再Recall、MRR；相同效果选择较低检索耗时；仅在开发集选择。"
+}

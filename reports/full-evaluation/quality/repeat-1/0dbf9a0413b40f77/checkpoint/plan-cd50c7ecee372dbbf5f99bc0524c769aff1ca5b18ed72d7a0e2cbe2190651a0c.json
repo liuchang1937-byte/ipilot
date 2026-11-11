@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-024",
+  "subquestions": [
+    {
+      "question": "给模型接数据库时，如何限制查询权限？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "给模型接数据库时，如何防止敏感字段泄漏？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.85996520000117
+}

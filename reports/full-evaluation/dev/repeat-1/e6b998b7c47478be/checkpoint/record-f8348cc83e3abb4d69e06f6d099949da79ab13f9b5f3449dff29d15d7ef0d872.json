@@ -1,0 +1,210 @@
+{
+  "case_id": "V2-071",
+  "question": "训练一个可靠工具调用模型，需要哪些数据与执行反馈？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "T003",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T003"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策，再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果，避免模型只会理想路径；评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例，以及参数缺失、过期结果、权限拒绝等情况，防止模型只记住名称。奖励不能只检查调用格式，执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开，分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率，避免数据泄漏掩盖问题。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T002",
+    "interview-question://T003",
+    "interview-question://T001",
+    "interview-question://A005"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.8154648767857288,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "训练一个可靠工具调用模型，需要哪些数据与执行反馈？",
+    "answer": "1. 训练一个可靠的工具调用模型需要哪些类型的数据？\n\n\n2. 训练一个可靠的工具调用模型需要哪些类型的执行反馈？\n",
+    "sections": [
+      {
+        "question": "训练一个可靠的工具调用模型需要哪些类型的数据？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "训练一个可靠的工具调用模型需要哪些类型的数据?"
+            },
+            {
+              "kind": "mqe",
+              "text": "构建工具调用/函数调用大模型的训练数据集应包含哪些数据类型和样本?"
+            },
+            {
+              "kind": "mqe",
+              "text": "What types of data are needed to train a reliable tool-calling or function-calling LLM?"
+            },
+            {
+              "kind": "hyde",
+              "text": "训练可靠的工具调用模型需要覆盖工具定义、调用决策、参数生成、结果利用与安全边界的多类型数据,包括:工具/API schema、函数签名、自然语言描述、参数类型、枚举值、默认值与必填约束;用户查询到意图识别、工具选择、路由决策、槽位填充和参数绑定的样本;单工具、多工具、并行工具、嵌套调用、多步规划和 ReAct 轨迹数据,含中间推理、调用图、JSON/XML 函数调用格式、tool call 与 tool result 消息;工具执行返回、观察结果、错误码、超时、失败、重试、错误恢复和结果归因数据;拒绝调用、澄清歧义、安全拒答、不调用工具、幻觉抑制、参数校验失败等负样本与对抗样本;多轮对话历史、状态跟踪、上下文消歧数据;以及基于执行反馈、人类偏好、单元测试、成功/失败结果的奖励或偏好数据和合成增强数据。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T002",
+            "interview-question://T003",
+            "interview-question://T001"
+          ]
+        }
+      },
+      {
+        "question": "训练一个可靠的工具调用模型需要哪些类型的执行反馈？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "训练一个可靠的工具调用模型需要哪些类型的执行反馈?"
+            },
+            {
+              "kind": "mqe",
+              "text": "工具调用模型训练中的执行反馈类型与分类有哪些?"
+            },
+            {
+              "kind": "mqe",
+              "text": "What types of execution feedback are needed to train a reliable tool-calling model?"
+            },
+            {
+              "kind": "hyde",
+              "text": "训练可靠的工具调用模型通常依赖多粒度执行反馈:工具执行结果或观察(API 返回、结构化 JSON、文本输出、状态码)、错误反馈(参数校验错误、JSON Schema 违规、HTTP 4xx/5xx、异常栈、超时、权限错误、限流)、验证器反馈(单元测试、断言、代码执行结果、形式化验证、规则检查、通过/失败信号)、环境状态反馈(副作用、前后置条件、数据库/文件系统状态变化)、轨迹级与步骤级反馈(动作合法性、中间步骤执行轨迹、重试与自纠正信号)、奖励与偏好反馈(结果奖励、过程奖励、人类偏好、AI 反馈、DPO/PPO/GRPO 奖励信号)、效率与成本反馈(延迟、token 消耗、API 成本、调用次数、配额限制)。这些反馈以 observation、error message、exception、stack trace、test outcome、verifier score、reward scalar、execution trace 等形式用于监督微调、拒绝采样、强化学习、过程奖励建模和工具调用自纠错训练。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T003",
+            "interview-question://T002",
+            "interview-question://A005"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1074467055826810929,
+        "title": "LLM 是如何学会调用外部工具的?",
+        "source": "interview-question://T002",
+        "domain": "llm-tool-calling",
+        "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+        "vector_score": 0.8517491221427917,
+        "keyword_score": 0.9791158662071295,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 878197658630587989,
+        "title": "大模型的 Function Call 能力是怎么训练出来的?",
+        "source": "interview-question://T003",
+        "domain": "llm-tool-calling",
+        "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+        "vector_score": 0.869971752166748,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2985301377255987593,
+        "title": "什么是 Function Calling?原理是什么?",
+        "source": "interview-question://T001",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+        "vector_score": 0.8219250738620758,
+        "keyword_score": 0.5453790862481248,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 320541557706665564,
+        "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+        "source": "interview-question://A005",
+        "domain": "agent",
+        "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+        "vector_score": 0.8009656965732574,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 24.878,
+  "timings_seconds": {
+    "decomposition": 2.957492,
+    "retrieval": 21.919693,
+    "mqe": 7.124055,
+    "hyde": 13.173963,
+    "embedding": 1.065353,
+    "vector_search": 0.105408,
+    "keyword_search": 0.441558,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 21.920063,
+    "total": 24.877555,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 8,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

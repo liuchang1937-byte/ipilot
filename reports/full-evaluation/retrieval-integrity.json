@@ -1,0 +1,19 @@
+{
+  "frozen_code_matches": true,
+  "phases": {
+    "dev": {
+      "pipelines": 720,
+      "unique_matrix": true,
+      "three_repeats": true,
+      "no_failures_or_degradation": true,
+      "means_match": true
+    },
+    "test": {
+      "pipelines": 240,
+      "unique_matrix": true,
+      "three_repeats": true,
+      "no_failures_or_degradation": true,
+      "means_match": true
+    }
+  }
+}

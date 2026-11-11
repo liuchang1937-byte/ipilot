@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-072",
+  "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "T004",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://T004"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "MCP是连接AI宿主与外部能力的标准协议，统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题，使MCP Server可以被多个Host复用。MCP不替模型决定业务策略，也不会自动解决权限、可信度和工具副作用，这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts：工具提供可调用操作，资源提供上下文数据，提示模板提供可复用消息构造。工具既可能只读，也可能产生副作用，不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息，模型并不直接解析网络协议。标准化降低重复集成成本，但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T004",
+    "interview-question://T006",
+    "interview-question://T007"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "MCP（Model Context Protocol）在通过统一接口把外部资源和工具接入助手时规范了哪些事情？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "MCP(Model Context Protocol)在通过统一接口把外部资源和工具接入助手时规范了哪些事情?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T004",
+            "interview-question://T006",
+            "interview-question://T007"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4536864493093651401,
+        "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+        "source": "interview-question://T004",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+        "vector_score": 0.9181038439273834,
+        "keyword_score": 0.9216356437906794,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1644641191381467949,
+        "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+        "source": "interview-question://T006",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+        "vector_score": 0.8889079093933105,
+        "keyword_score": 0.7993424850787779,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.8608842194080353,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 9.435,
+  "timings_seconds": {
+    "decomposition": 9.174778,
+    "retrieval": 0.260433,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.174051,
+    "vector_search": 0.021741,
+    "keyword_search": 0.063645,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.260631,
+    "total": 9.435409,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

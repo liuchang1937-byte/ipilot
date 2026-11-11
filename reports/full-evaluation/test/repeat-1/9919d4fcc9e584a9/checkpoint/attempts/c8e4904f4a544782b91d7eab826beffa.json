@@ -1,0 +1,206 @@
+{
+  "case_id": "V2-064",
+  "question": "检索到了材料，模型仍然编造结论，如何约束证据和拒答？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "R017",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R017"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先提升数据质量和召回准确性，避免把冲突或无关材料交给模型；提示中要求只依据证据回答、逐项引用，并在证据不足时拒答。生成后检查关键陈述是否被片段支持，可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层，检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率，拒答阈值应在标注集上调节，并平衡误答与过度拒答。遇到冲突或信息不足时说明限制，不能把格式正确、带引用或低温度误认为事实一定正确。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R017",
+    "interview-question://R001",
+    "interview-question://R010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "检索到了材料，模型仍然编造结论，如何约束证据和拒答？",
+    "answer": "1. 在检索增强生成中，当已经检索到材料但模型仍然编造结论时，如何约束模型的结论必须依据检索到的证据？\n\n\n2. 在检索增强生成中，当已经检索到材料但模型仍然编造结论时，如何使模型在检索证据不足或不支持结论时拒答？\n",
+    "sections": [
+      {
+        "question": "在检索增强生成中，当已经检索到材料但模型仍然编造结论时，如何约束模型的结论必须依据检索到的证据？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在检索增强生成中,当已经检索到材料但模型仍然编造结论时,如何约束模型的结论必须依据检索到的证据?"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索增强生成 RAG 检索到材料后模型仍编造结论 如何约束模型回答必须基于检索到的证据"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG 幻觉抑制 强制模型依据检索上下文作答 证据引用 归因 可信生成 方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "retrieval-augmented generation hallucination when retrieved context is available constrain model conclusions to retrieved evidence grounding attribution faithfulness"
+            },
+            {
+              "kind": "hyde",
+              "text": "在检索增强生成中,若已检索到材料但模型仍编造结论,可用证据约束生成与归因验证强制结论依据检索证据:提示模型先抽取支持性证据片段(evidence span)并生成引用,再输出仅由该片段蕴含的答案;采用NLI/蕴含模型、忠实度判别器或事实一致性检查逐断言验证,无检索证据支持则拒绝回答或输出“证据不足”;训练时引入忠实度奖励、RAG幻觉惩罚或DPO,解码时使用证据感知约束/受限解码,后处理执行归因验证与证据过滤,并允许abstention。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R017",
+            "interview-question://R001",
+            "interview-question://R010"
+          ]
+        }
+      },
+      {
+        "question": "在检索增强生成中，当已经检索到材料但模型仍然编造结论时，如何使模型在检索证据不足或不支持结论时拒答？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在检索增强生成中,当已经检索到材料但模型仍然编造结论时,如何使模型在检索证据不足或不支持结论时拒答?"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索增强生成 已检索到材料 模型仍编造结论 如何使模型在证据不足或不支持结论时拒答"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG hallucination abstention refusal when retrieved evidence is insufficient or does not support the answer"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索增强生成 证据不支持 拒答 忠实性 groundedness 蕴含判断 不确定性校准 prompt 微调"
+            },
+            {
+              "kind": "hyde",
+              "text": "在检索增强生成(RAG)中,为使模型在已有检索材料但证据不足或不支持结论时拒答,可采用“证据充分性判定+拒答对齐”框架:通过 prompt 指令约束模型仅依据检索上下文作答,要求 claim-level 归因与引用;使用 NLI/entailment 模型计算生成结论对检索段落的支持度、覆盖率和冲突度,若最大蕴含分数低于校准阈值、无答案证据或证据矛盾,则触发 abstention/refusal,输出“基于给定检索上下文无法确定”或 [NO_ANSWER]。训练阶段加入 unanswerable、insufficient-evidence、no-answer 样本,进行 refusal SFT、DPO/RLHF 偏好优化,奖励正确拒答并惩罚无依据结论;推理阶段结合 evidence sufficiency classifier、confidence calibration、semantic entropy、self-consistency、retrieve-verify-refine 与 attribution verification,仅在检索证据充分且支持结论时作答。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R017",
+            "interview-question://R010",
+            "interview-question://R001"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.8730993866920471,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1192065734383377651,
+        "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+        "source": "interview-question://R001",
+        "domain": "rag",
+        "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+        "vector_score": 0.8375649452209473,
+        "keyword_score": 0.7234150525513595,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4411062690451180658,
+        "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+        "source": "interview-question://R010",
+        "domain": "rag",
+        "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+        "vector_score": 0.839672178030014,
+        "keyword_score": 0.5533028584104694,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 28.556,
+  "timings_seconds": {
+    "decomposition": 5.044115,
+    "retrieval": 23.511365,
+    "mqe": 7.67139,
+    "hyde": 14.624488,
+    "embedding": 0.938076,
+    "vector_search": 0.053975,
+    "keyword_search": 0.219457,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 23.511499,
+    "total": 28.555614,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

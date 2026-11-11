@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-039",
+  "subquestions": [
+    {
+      "question": "在模型部署场景下，选择四位量化还是八位量化时，应依据哪些因素进行权衡？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在模型部署场景下，AWQ与GPTQ两种量化方法应如何权衡？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.126394400000208
+}

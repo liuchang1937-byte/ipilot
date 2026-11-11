@@ -1,0 +1,1071 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "83ab6dc38efc42699698c8683e5565f9",
+  "created_at": "2026-10-12T15:07:35.385449+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "a21ebc864758db09b36c084f0911b1dbcc45ab0de74cfa38f9836d148cdd5e96",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\1407f99dca9d0fb3\\checkpoint"
+  },
+  "options": {
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 7.402,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 7.402,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 5.732428,
+          "p50": 5.732428,
+          "p95": 5.732428,
+          "max": 5.732428,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.551365,
+          "p50": 0.551365,
+          "p95": 0.551365,
+          "max": 0.551365,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.356797,
+          "p50": 0.356797,
+          "p95": 0.356797,
+          "max": 0.356797,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.047193,
+          "p50": 0.047193,
+          "p95": 0.047193,
+          "max": 0.047193,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.14508,
+          "p50": 0.14508,
+          "p95": 0.14508,
+          "max": 0.14508,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.117435,
+          "p50": 1.117435,
+          "p95": 1.117435,
+          "max": 1.117435,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.669213,
+          "p50": 1.669213,
+          "p95": 1.669213,
+          "max": 1.669213,
+          "samples": 1
+        },
+        "total": {
+          "mean": 7.401641,
+          "p50": 7.401641,
+          "p95": 7.401641,
+          "max": 7.401641,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 35.792,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 35.792,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 5.732428,
+          "p50": 5.732428,
+          "p95": 5.732428,
+          "max": 5.732428,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 30.059613,
+          "p50": 30.059613,
+          "p95": 30.059613,
+          "max": 30.059613,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.58007,
+          "p50": 6.58007,
+          "p95": 6.58007,
+          "max": 6.58007,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 22.17782,
+          "p50": 22.17782,
+          "p95": 22.17782,
+          "max": 22.17782,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.630045,
+          "p50": 0.630045,
+          "p95": 0.630045,
+          "max": 0.630045,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.12305,
+          "p50": 0.12305,
+          "p95": 0.12305,
+          "max": 0.12305,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.539302,
+          "p50": 0.539302,
+          "p95": 0.539302,
+          "max": 0.539302,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 30.059854,
+          "p50": 30.059854,
+          "p95": 30.059854,
+          "max": 30.059854,
+          "samples": 1
+        },
+        "total": {
+          "mean": 35.792282,
+          "p50": 35.792282,
+          "p95": 35.792282,
+          "max": 35.792282,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 6.357,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 6.357,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 5.732428,
+          "p50": 5.732428,
+          "p95": 5.732428,
+          "max": 5.732428,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.623995,
+          "p50": 0.623995,
+          "p95": 0.623995,
+          "max": 0.623995,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.433828,
+          "p50": 0.433828,
+          "p95": 0.433828,
+          "max": 0.433828,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.049703,
+          "p50": 0.049703,
+          "p95": 0.049703,
+          "max": 0.049703,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.137297,
+          "p50": 0.137297,
+          "p95": 0.137297,
+          "max": 0.137297,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.624221,
+          "p50": 0.624221,
+          "p95": 0.624221,
+          "max": 0.624221,
+          "samples": 1
+        },
+        "total": {
+          "mean": 6.35665,
+          "p50": 6.35665,
+          "p95": 6.35665,
+          "max": 6.35665,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-117",
+      "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-117",
+      "variant": "hybrid_reranked",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+        "answer": "1. 私有仓库 ZetaHost 的实际工具调用失败率是多少？\n\n\n2. 私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么？\n",
+        "sections": [
+          {
+            "question": "私有仓库 ZetaHost 的实际工具调用失败率是多少？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "私有仓库 ZetaHost 的实际工具调用失败率是多少?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 0,
+              "selected_sources": []
+            }
+          },
+          {
+            "question": "私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 0,
+              "selected_sources": []
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 7.402,
+      "timings_seconds": {
+        "decomposition": 5.732428,
+        "retrieval": 0.551365,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.356797,
+        "vector_search": 0.047193,
+        "keyword_search": 0.14508,
+        "rerank": 1.117435,
+        "generation": 0.0,
+        "pipeline": 1.669213,
+        "total": 7.401641,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-117",
+      "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-117",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T018",
+        "interview-question://T017",
+        "interview-question://T008",
+        "interview-question://A023"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+        "answer": "1. 私有仓库 ZetaHost 的实际工具调用失败率是多少？\n\n\n2. 私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么？\n",
+        "sections": [
+          {
+            "question": "私有仓库 ZetaHost 的实际工具调用失败率是多少？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "私有仓库 ZetaHost 的实际工具调用失败率是多少?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "ZetaHost 私有仓库 实际工具调用失败率"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "ZetaHost 工具调用 错误率 统计数据"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "ZetaHost private repository actual tool invocation failure rate"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "ZetaHost 私有仓库的实际工具调用失败率(tool_call_failure_rate)为 2.7%。统计口径为最近 30 天生产环境,工具调用总次数 18,642 次,失败 503 次;主要失败类型包括 API 超时 198 次、HTTP 5xx 121 次、鉴权/权限拒绝 96 次、参数 schema 校验失败 58 次、工具未找到 30 次。剔除客户端取消与自动重试后,有效工具调用失败率约 1.9%,对应工具调用成功率约 98.1%。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://T017",
+                "interview-question://T008"
+              ]
+            }
+          },
+          {
+            "question": "私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "ZetaHost 私有仓库 实际工具调用失败率 统计日期"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "ZetaHost 工具调用失败率 数据统计截止日期"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "ZetaHost private repository actual tool call failure rate statistics date"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "私有仓库 ZetaHost 的实际工具调用失败率统计日期为 2024-12-31,统计周期为 2024-12-01 至 2024-12-31,指标包括工具调用失败次数、总调用次数及失败率。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://T017",
+                "interview-question://A023"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.7578044235706329,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.7387720942497253,
+            "keyword_score": 0.8007831203058349,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1010957861723506751,
+            "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+            "source": "interview-question://T008",
+            "domain": "llm-tool-calling",
+            "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+            "vector_score": 0.7424183487892151,
+            "keyword_score": 0.591604032313496,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.7226598560810089,
+            "keyword_score": 0.83514528474348,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 35.792,
+      "timings_seconds": {
+        "decomposition": 5.732428,
+        "retrieval": 30.059613,
+        "mqe": 6.58007,
+        "hyde": 22.17782,
+        "embedding": 0.630045,
+        "vector_search": 0.12305,
+        "keyword_search": 0.539302,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 30.059854,
+        "total": 35.792282,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-117",
+      "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-117",
+      "variant": "hybrid",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T018",
+        "interview-question://T016",
+        "interview-question://T006",
+        "interview-question://A023",
+        "interview-question://T017"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+        "answer": "1. 私有仓库 ZetaHost 的实际工具调用失败率是多少？\n\n\n2. 私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么？\n",
+        "sections": [
+          {
+            "question": "私有仓库 ZetaHost 的实际工具调用失败率是多少？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "私有仓库 ZetaHost 的实际工具调用失败率是多少?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://T016",
+                "interview-question://T006"
+              ]
+            }
+          },
+          {
+            "question": "私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T018",
+                "interview-question://A023",
+                "interview-question://T017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.7457737326622009,
+            "keyword_score": 0.6817718325281882,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2169899495911519092,
+            "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+            "source": "interview-question://T016",
+            "domain": "llm-tool-calling",
+            "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+            "vector_score": 0.7256082892417908,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.7241661548614502,
+            "keyword_score": 0.6941003472118922,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.7119801044464111,
+            "keyword_score": 0.750267365755351,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.722646564245224,
+            "keyword_score": 0.5706006304853519,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 6.357,
+      "timings_seconds": {
+        "decomposition": 5.732428,
+        "retrieval": 0.623995,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.433828,
+        "vector_search": 0.049703,
+        "keyword_search": 0.137297,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.624221,
+        "total": 6.35665,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-117",
+      "subquestions": [
+        {
+          "question": "私有仓库 ZetaHost 的实际工具调用失败率是多少？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 5.73242829999981
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.013,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

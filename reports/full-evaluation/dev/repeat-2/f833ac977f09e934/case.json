@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-003",
+      "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A003"
+      ],
+      "answerable": true,
+      "reference_answer": "Tool 是一个边界清晰、可调用的外部能力，如查询数据库或发送邮件；Workflow 是预先定义好的步骤、分支和依赖，执行路径主要由代码决定；Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合：Workflow 控制关键流程，Agent 处理开放决策，Tool 提供实际执行能力。例如，报销系统中的金额校验是 Tool，固定的提交、审核、付款流程是 Workflow，自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数，也可以是一次模型调用或一个 Agent；Agent 也能调用固定子流程。因此三者不是互斥产品，更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性，哪些决策需要运行时探索。",
+      "group": "A003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

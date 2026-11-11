@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-099",
+  "subquestions": [
+    {
+      "question": "SSE 与 WebSocket 分别适合什么通信场景？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在实时语音通信场景中，相比 SSE 与 WebSocket，为什么还会考虑使用 WebRTC？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.770889999999781
+}

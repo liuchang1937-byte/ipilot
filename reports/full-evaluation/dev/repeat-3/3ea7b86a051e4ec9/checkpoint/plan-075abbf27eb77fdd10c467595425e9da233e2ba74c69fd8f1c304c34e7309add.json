@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-074",
+  "subquestions": [
+    {
+      "question": "模型选择函数是什么？它在系统架构中属于哪一层机制？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "MCP（Model Context Protocol）提供工具连接是什么？它在系统架构中属于哪一层机制？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "模型选择函数与MCP提供工具连接为什么不是同一层的机制？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.938310399998954
+}

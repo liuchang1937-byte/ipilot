@@ -1,0 +1,272 @@
+{
+  "case_id": "V2-084",
+  "question": "统一模型网关怎样处理路由、限流和服务失败回退？",
+  "category": "terminology",
+  "split": "test",
+  "group": "T016",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T016"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测，还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态，否则会形成难维护的中心化逻辑。例如，一个团队同时接入多个模型供应商，网关统一记录费用、设置团队配额，并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现，回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围，不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容，需要明确部分输出与恢复策略。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T016",
+    "interview-question://T017",
+    "interview-question://T005",
+    "interview-question://T018",
+    "interview-question://A022"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "统一模型网关怎样处理路由、限流和服务失败回退？",
+    "answer": "1. 统一模型网关怎样处理路由？\n\n\n2. 统一模型网关怎样处理限流？\n\n\n3. 统一模型网关怎样处理服务失败回退？\n",
+    "sections": [
+      {
+        "question": "统一模型网关怎样处理路由？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "统一模型网关怎样处理路由?"
+            },
+            {
+              "kind": "mqe",
+              "text": "统一模型网关的路由处理机制是怎样的?"
+            },
+            {
+              "kind": "mqe",
+              "text": "模型网关如何实现请求路由与模型选择?"
+            },
+            {
+              "kind": "mqe",
+              "text": "How does a unified model gateway handle routing?"
+            },
+            {
+              "kind": "hyde",
+              "text": "统一模型网关的路由处理通常先对请求做认证鉴权、租户识别、配额限流与请求解析,提取模型标识、任务类型、模态、上下文长度、工具调用、流式输出、SLA、成本与延迟偏好等元数据;随后由路由策略引擎基于规则路由、语义路由、能力标签匹配、权重路由、优先级队列、成本/延迟/质量评分、可用性、区域合规、灰度发布、A/B 实验和租户白名单生成候选模型池与路由决策。若请求显式指定模型,则直连对应 provider adapter/endpoint;若未指定,则按意图分类、能力标签、上下文窗口、函数调用、多模态支持等匹配最佳模型。执行阶段结合健康检查、负载均衡、RPM/TPM 限制、并发配额、熔断、重试、fallback、降级和缓存选择具体实例,并将统一协议转换为目标供应商 API;同时记录路由链路、token、延迟、成本与反馈,用于动态更新路由表、权重和策略。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T016",
+            "interview-question://T017",
+            "interview-question://T005"
+          ]
+        }
+      },
+      {
+        "question": "统一模型网关怎样处理限流？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "统一模型网关怎样处理限流?"
+            },
+            {
+              "kind": "mqe",
+              "text": "统一模型网关 限流 方案 原理"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型网关 速率限制 令牌桶 漏桶 并发控制"
+            },
+            {
+              "kind": "mqe",
+              "text": "unified model gateway rate limiting implementation"
+            },
+            {
+              "kind": "hyde",
+              "text": "统一模型网关通常在接入层、租户/API Key、模型/路由和上游供应商四个维度实施限流。请求进入后解析身份、模型、路由与Token预算,从策略中心加载规则,通过Redis+Lua实现的分布式令牌桶、漏桶或滑动窗口计数器进行原子扣减,支持RPM、TPM、QPS、并发数及日/月配额。超限时返回HTTP 429 Too Many Requests,并携带Retry-After、X-RateLimit-Limit、X-RateLimit-Remaining、X-RateLimit-Reset等头,或进入优先级队列、背压和负载丢弃。LLM场景按输入/输出Token预扣与结算,流式响应实时计量;本地内存限流与全局配额协同降低延迟,结合熔断、降级、重试和多供应商路由处理上游限流。策略支持动态下发、白名单、优先级、突发流量和配额重置。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T016",
+            "interview-question://T017",
+            "interview-question://T018"
+          ]
+        }
+      },
+      {
+        "question": "统一模型网关怎样处理服务失败回退？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "统一模型网关怎样处理服务失败回退?"
+            },
+            {
+              "kind": "mqe",
+              "text": "统一模型网关 服务失败 回退 机制"
+            },
+            {
+              "kind": "mqe",
+              "text": "模型网关 故障转移 降级 熔断 重试 策略"
+            },
+            {
+              "kind": "mqe",
+              "text": "unified model gateway service failure fallback failover strategy"
+            },
+            {
+              "kind": "hyde",
+              "text": "统一模型网关处理服务失败回退时,通常在路由层配置主备模型与 fallback chain:先执行健康探测、超时控制、限流和熔断,当主模型出现 5xx、超时、429、连接失败或内容安全拦截时,按策略触发指数退避重试、请求对冲、跨供应商故障转移,并降级到备用模型、小模型、缓存结果或静态默认应答;同时使用幂等键、重试预算、隔离舱、负载均衡和动态权重避免雪崩,最终返回结构化错误码与可观测指标。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T016",
+            "interview-question://T018",
+            "interview-question://A022"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2169899495911519092,
+        "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+        "source": "interview-question://T016",
+        "domain": "llm-tool-calling",
+        "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+        "vector_score": 0.8241098523139954,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 108826138093358449,
+        "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+        "source": "interview-question://T017",
+        "domain": "llm-tool-calling",
+        "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+        "vector_score": 0.7722199559211731,
+        "keyword_score": 0.3920993462472448,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 319809831368975428,
+        "title": "MCP 由哪几部分组成?",
+        "source": "interview-question://T005",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+        "vector_score": 0.7594709098339081,
+        "keyword_score": 0.5053042522254747,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 3035522643108457551,
+        "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+        "source": "interview-question://T018",
+        "domain": "llm-tool-calling",
+        "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+        "vector_score": 0.7882795035839081,
+        "keyword_score": 0.5046801686883312,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.766543060541153,
+        "keyword_score": 0.5966541567376861,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 29.143,
+  "timings_seconds": {
+    "decomposition": 2.616692,
+    "retrieval": 26.525756,
+    "mqe": 7.745125,
+    "hyde": 17.165985,
+    "embedding": 1.191923,
+    "vector_search": 0.083326,
+    "keyword_search": 0.333052,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 26.525927,
+    "total": 29.142619,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 15,
+    "chat_calls": 6,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

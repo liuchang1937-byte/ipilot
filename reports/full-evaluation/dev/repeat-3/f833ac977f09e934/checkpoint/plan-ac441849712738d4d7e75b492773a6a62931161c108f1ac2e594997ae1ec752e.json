@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-003",
+  "subquestions": [
+    {
+      "question": "固定流程承担什么职责？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "会自主决定下一步的助手承担什么职责？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "外部函数承担什么职责？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.710603400000764
+}

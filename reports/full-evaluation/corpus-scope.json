@@ -1,0 +1,9 @@
+{
+  "non_question_test_document": "云杉计划知识手册（RAG综合测试资料）",
+  "indexed_chunks": 34,
+  "declared_synthetic": true,
+  "declaration": "本文中的组织、人物、项目、数据均为虚构，仅用于检索测试。",
+  "corpus_unchanged": true,
+  "current_phase": "retrieval_only",
+  "note": "保留冻结索引中的合成干扰资料；当前检索阶段不向生成模型发送检索正文，真实面试记录不在检索资料集合中。"
+}

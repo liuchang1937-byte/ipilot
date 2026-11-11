@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-072",
+  "subquestions": [
+    {
+      "question": "MCP 规范了哪些事情，以便用统一接口把外部资源接入助手？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "MCP 规范了哪些事情，以便用统一接口把外部工具接入助手？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "MCP 规范中，统一接口涉及哪些核心组件、消息类型和交互流程？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 15.364622099999906
+}

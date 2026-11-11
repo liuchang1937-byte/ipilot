@@ -1,0 +1,199 @@
+{
+  "case_id": "V2-050",
+  "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R003",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R003"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "RAG适合注入经常变化或私有的事实知识，更新快、可引用，但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力，推理时无需额外检索，但训练和更新成本高，事实难以精确修改。两者可组合：微调行为稳定性，RAG提供动态知识。例如，客服经常需要遵循固定语气与输出格式，可以先用提示和示例，必要时微调；产品价格与售后政策每天变化，则更适合外部知识库。微调也能学习事实，但事实的覆盖、版本和引用较难管理；RAG 也能改善任务表现，但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务，再比较标注数据、训练维护成本、检索延迟和最终业务指标。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R003",
+    "interview-question://L008",
+    "interview-question://R001"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+    "answer": "1. 在知识经常更新的场景下，检索增强与参数微调各自的优缺点和适用条件是什么？\n\n\n2. 在需要出处或引用来源的场景下，检索增强与参数微调各自如何满足出处要求及有何优缺点？\n\n\n3. 当同时要求知识经常更新和需要出处时，检索增强与参数微调应依据哪些标准进行选择？\n",
+    "sections": [
+      {
+        "question": "在知识经常更新的场景下，检索增强与参数微调各自的优缺点和适用条件是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在知识经常更新的场景下,检索增强与参数微调各自的优缺点和适用条件是什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 2,
+          "selected_sources": [
+            "interview-question://R003",
+            "interview-question://L008"
+          ]
+        }
+      },
+      {
+        "question": "在需要出处或引用来源的场景下，检索增强与参数微调各自如何满足出处要求及有何优缺点？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在需要出处或引用来源的场景下,检索增强与参数微调各自如何满足出处要求及有何优缺点?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R003",
+            "interview-question://L008",
+            "interview-question://R001"
+          ]
+        }
+      },
+      {
+        "question": "当同时要求知识经常更新和需要出处时，检索增强与参数微调应依据哪些标准进行选择？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当同时要求知识经常更新和需要出处时,检索增强与参数微调应依据哪些标准进行选择?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R003",
+            "interview-question://L008",
+            "interview-question://R001"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1412059223324461316,
+        "title": "相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?",
+        "source": "interview-question://R003",
+        "domain": "rag",
+        "content": "# 相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?\n\n题目编号:R003\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:RAG适合注入经常变化或私有的事实知识,更新快、可引用,但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力,推理时无需额外检索,但训练和更新成本高,事实难以精确修改。两者可组合:微调行为稳定性,RAG提供动态知识。例如,客服经常需要遵循固定语气与输出格式,可以先用提示和示例,必要时微调;产品价格与售后政策每天变化,则更适合外部知识库。微调也能学习事实,但事实的覆盖、版本和引用较难管理;RAG 也能改善任务表现,但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务,再比较标注数据、训练维护成本、检索延迟和最终业务指标。\n\n评分要点:从知识与行为区分;比较更新、成本、延迟和可解释性。",
+        "vector_score": 0.7900401651859283,
+        "keyword_score": 1.0,
+        "rerank_score": 0.7418603897094727
+      },
+      {
+        "id": 2,
+        "chunk_id": 986183218169772871,
+        "title": "大模型微调的方案有哪些?",
+        "source": "interview-question://L008",
+        "domain": "llm-engineering",
+        "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+        "vector_score": 0.772349625825882,
+        "keyword_score": 0.7923325009471655,
+        "rerank_score": 0.2796894907951355
+      },
+      {
+        "id": 3,
+        "chunk_id": 1192065734383377651,
+        "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+        "source": "interview-question://R001",
+        "domain": "rag",
+        "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+        "vector_score": 0.7618090212345123,
+        "keyword_score": 0.6710547226116456,
+        "rerank_score": 0.1412355899810791
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 8.601,
+  "timings_seconds": {
+    "decomposition": 5.911055,
+    "retrieval": 0.908231,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.613118,
+    "vector_search": 0.073625,
+    "keyword_search": 0.216915,
+    "rerank": 1.780816,
+    "generation": 0.0,
+    "pipeline": 2.689674,
+    "total": 8.600729,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 3,
+    "rerank_pairs": 36
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

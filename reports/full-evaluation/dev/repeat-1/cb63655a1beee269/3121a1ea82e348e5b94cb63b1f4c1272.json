@@ -1,0 +1,953 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "3121a1ea82e348e5b94cb63b1f4c1272",
+  "created_at": "2026-10-12T11:00:38.524743+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "abd6ed146e7ba1241013b848c9fc7c7cddbaef1700c8d910f466442b38c4d176",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-1\\cb63655a1beee269\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 10.872,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 10.872,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.044781,
+          "p50": 1.044781,
+          "p95": 1.044781,
+          "max": 1.044781,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 9.826878,
+          "p50": 9.826878,
+          "p95": 9.826878,
+          "max": 9.826878,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.515093,
+          "p50": 2.515093,
+          "p95": 2.515093,
+          "max": 2.515093,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 6.578966,
+          "p50": 6.578966,
+          "p95": 6.578966,
+          "max": 6.578966,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.40336,
+          "p50": 0.40336,
+          "p95": 0.40336,
+          "max": 0.40336,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.073097,
+          "p50": 0.073097,
+          "p95": 0.073097,
+          "max": 0.073097,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.251945,
+          "p50": 0.251945,
+          "p95": 0.251945,
+          "max": 0.251945,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 9.82707,
+          "p50": 9.82707,
+          "p95": 9.82707,
+          "max": 9.82707,
+          "samples": 1
+        },
+        "total": {
+          "mean": 10.871851,
+          "p50": 10.871851,
+          "p95": 10.871851,
+          "max": 10.871851,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 1.288,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 1.288,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.044781,
+          "p50": 1.044781,
+          "p95": 1.044781,
+          "max": 1.044781,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.242959,
+          "p50": 0.242959,
+          "p95": 0.242959,
+          "max": 0.242959,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.157389,
+          "p50": 0.157389,
+          "p95": 0.157389,
+          "max": 0.157389,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.025505,
+          "p50": 0.025505,
+          "p95": 0.025505,
+          "max": 0.025505,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.058809,
+          "p50": 0.058809,
+          "p95": 0.058809,
+          "max": 0.058809,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.243154,
+          "p50": 0.243154,
+          "p95": 0.243154,
+          "max": 0.243154,
+          "samples": 1
+        },
+        "total": {
+          "mean": 1.287935,
+          "p50": 1.287935,
+          "p95": 1.287935,
+          "max": 1.287935,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 2.033,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 2.033,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.044781,
+          "p50": 1.044781,
+          "p95": 1.044781,
+          "max": 1.044781,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.296983,
+          "p50": 0.296983,
+          "p95": 0.296983,
+          "max": 0.296983,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.175018,
+          "p50": 0.175018,
+          "p95": 0.175018,
+          "max": 0.175018,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.029648,
+          "p50": 0.029648,
+          "p95": 0.029648,
+          "max": 0.029648,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.091149,
+          "p50": 0.091149,
+          "p95": 0.091149,
+          "max": 0.091149,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.691183,
+          "p50": 0.691183,
+          "p95": 0.691183,
+          "max": 0.691183,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.988432,
+          "p50": 0.988432,
+          "p95": 0.988432,
+          "max": 0.988432,
+          "samples": 1
+        },
+        "total": {
+          "mean": 2.033213,
+          "p50": 2.033213,
+          "p95": 2.033213,
+          "max": 2.033213,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-118",
+      "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-118",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "V9-NOT-RECORDED 隐藏版本 重排序阈值 最终配置值 知识库"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "What is the final rerank threshold setting for hidden version V9-NOT-RECORDED in the knowledge base?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "知识库中隐藏版本 V9-NOT-RECORDED 的重排阈值最终未记录,rerank_threshold / rerank_score_threshold 配置字段为空,未设置具体数值,因此该版本不存在已生效的最终重排阈值。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3316265630962033877,
+            "title": "3.3 知识库摄取与检索流程",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+            "vector_score": 0.8224892318248749,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1582090342757356371,
+            "title": "4.2 版本优先级示例",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 4.2 版本优先级示例\n### 的规则。\n\nF-023 当前标签换电阈值为电量低于 30%,依据 v1.4。\n否定事实:云杉计划没有使用人脸识别;没有采集司机的私人聊天内容;没有把原始个人信息用于路线推荐模型训练。\nF-024 路线推荐模型不使用原始个人信息训练。\n\n云杉计划知识手册 | RAG 测试语料 第 6 页 / 共 11 页\n\n---",
+            "vector_score": 0.8019058108329773,
+            "keyword_score": 0.5462663457693002,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3917366364101235628,
+            "title": "3.3 知识库摄取与检索流程",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 3.3 知识库摄取与检索流程\n### document_id、version、section_path、page、effective_date 和 access_level 六项元数据。\n\nF-015 默认 chunk 大小为 500 个中文字符,重叠 75 字。\nF-016 每个知识块必须携带六项元数据,其中包括 section_path 与 access_level。",
+            "vector_score": 0.7679826617240906,
+            "keyword_score": 0.5983419055423308,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 10.872,
+      "timings_seconds": {
+        "decomposition": 1.044781,
+        "retrieval": 9.826878,
+        "mqe": 2.515093,
+        "hyde": 6.578966,
+        "embedding": 0.40336,
+        "vector_search": 0.073097,
+        "keyword_search": 0.251945,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 9.82707,
+        "total": 10.871851,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-118",
+      "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-118",
+      "variant": "hybrid",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3316265630962033877,
+            "title": "3.3 知识库摄取与检索流程",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+            "vector_score": 0.8122817277908325,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1582090342757356371,
+            "title": "4.2 版本优先级示例",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 4.2 版本优先级示例\n### 的规则。\n\nF-023 当前标签换电阈值为电量低于 30%,依据 v1.4。\n否定事实:云杉计划没有使用人脸识别;没有采集司机的私人聊天内容;没有把原始个人信息用于路线推荐模型训练。\nF-024 路线推荐模型不使用原始个人信息训练。\n\n云杉计划知识手册 | RAG 测试语料 第 6 页 / 共 11 页\n\n---",
+            "vector_score": 0.7838457226753235,
+            "keyword_score": 0.5420621312371311,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3917366364101235628,
+            "title": "3.3 知识库摄取与检索流程",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 3.3 知识库摄取与检索流程\n### document_id、version、section_path、page、effective_date 和 access_level 六项元数据。\n\nF-015 默认 chunk 大小为 500 个中文字符,重叠 75 字。\nF-016 每个知识块必须携带六项元数据,其中包括 section_path 与 access_level。",
+            "vector_score": 0.7668711245059967,
+            "keyword_score": 0.5516945653275052,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 1.288,
+      "timings_seconds": {
+        "decomposition": 1.044781,
+        "retrieval": 0.242959,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.157389,
+        "vector_search": 0.025505,
+        "keyword_search": 0.058809,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.243154,
+        "total": 1.287935,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-118",
+      "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+      "category": "unanswerable",
+      "split": "dev",
+      "group": "V2-118",
+      "variant": "hybrid_reranked",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3316265630962033877,
+            "title": "3.3 知识库摄取与检索流程",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+            "vector_score": 0.8122817277908325,
+            "keyword_score": 1.0,
+            "rerank_score": 0.268879771232605
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 2.033,
+      "timings_seconds": {
+        "decomposition": 1.044781,
+        "retrieval": 0.296983,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.175018,
+        "vector_search": 0.029648,
+        "keyword_search": 0.091149,
+        "rerank": 0.691183,
+        "generation": 0.0,
+        "pipeline": 0.988432,
+        "total": 2.033213,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-118",
+      "subquestions": [
+        {
+          "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 1.044780800000808
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 12.114,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-023",
+  "question": "助手说文件已经保存，但没有任何工具执行记录，如何避免这种情况？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A020",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A023"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A023",
+    "interview-question://A018",
+    "interview-question://A008"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "助手说文件已经保存，但没有任何工具执行记录，如何避免这种情况？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "如何避免助手声称文件已经保存，但没有任何工具执行记录的情况？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "如何避免助手声称文件已经保存,但没有任何工具执行记录的情况?"
+            },
+            {
+              "kind": "mqe",
+              "text": "助手回复文件已保存 实际无工具调用 如何设计防幻觉校验"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM 智能体 文件保存操作 工具调用审计日志 执行确认 避免幻觉"
+            },
+            {
+              "kind": "mqe",
+              "text": "How to prevent AI assistant from claiming a file was saved without any tool execution record hallucination function calling verification"
+            },
+            {
+              "kind": "hyde",
+              "text": "为避免助手虚构“文件已保存”,编排层应强制所有写操作通过 `write_file`/`save_file` 等工具执行,并维护包含 `tool_call_id`、参数、时间戳、返回码和 `execution trace` 的工具调用账本。助手仅在收到工具成功响应且 postcondition 校验通过(如 `stat`/`read_file` 确认文件存在、大小或哈希匹配)后,才可生成“已保存”类断言。最终响应网关应拦截无对应成功工具调用记录的保存声明,将其标记为 `unsupported claim`,并改为报告保存失败或未执行。通过 function calling schema、状态机、审计日志、幂等写入和运行时注入工具结果,禁止模型直接输出成功状态或伪造工具执行记录。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A023",
+            "interview-question://A018",
+            "interview-question://A008"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.8200109899044037,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2584544441468433340,
+        "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+        "source": "interview-question://A018",
+        "domain": "agent",
+        "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+        "vector_score": 0.8105758428573608,
+        "keyword_score": 0.9579624296696513,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3336624703043853631,
+        "title": "请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?",
+        "source": "interview-question://A008",
+        "domain": "agent",
+        "content": "# 请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?\n\n题目编号:A008\n\n领域:agent\n\n难度:2\n\n标签:记忆、状态、知识库\n- 考察方向:不同记忆类型的职责、生命周期和访问方式。\n\n参考答案:题解可将Agent记忆分为四层:感知记忆保存当前原始输入,短期记忆位于上下文窗口并服务当前任务,长期记忆存入外部数据库并通过语义检索召回,实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”,并根据类型选择主动注入或按需检索,同时处理去重、过期、权限和删除。这是一种便于解释的分类,并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作;长期记忆应保存跨会话有用且经过确认的信息;实体记忆适合记录对象属性与关系,避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度,检索时先按用户与权限过滤。不是所有工具日志都值得长期保存,也不能把模型猜测直接当成事实写入。\n\n评分要点:给出记忆分类;覆盖写入、检索、更新、遗忘和隐私。",
+        "vector_score": 0.7625885307788849,
+        "keyword_score": 0.8451769410572932,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 16.057,
+  "timings_seconds": {
+    "decomposition": 5.737726,
+    "retrieval": 10.319299,
+    "mqe": 3.566064,
+    "hyde": 6.077805,
+    "embedding": 0.369057,
+    "vector_search": 0.056704,
+    "keyword_search": 0.244844,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 10.319547,
+    "total": 16.057274,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

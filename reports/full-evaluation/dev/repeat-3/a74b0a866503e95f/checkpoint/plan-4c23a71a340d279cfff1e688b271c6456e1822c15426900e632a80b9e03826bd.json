@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-004",
+  "subquestions": [
+    {
+      "question": "对于审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 1.958436899996741
+}

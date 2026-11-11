@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-078",
+      "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T010"
+      ],
+      "answerable": true,
+      "reference_answer": "MCP主要标准化外部能力如何被发现和调用，相当于工具连接层；Skill封装完成任务所需的方法、顺序和经验，相当于操作手册。一个Skill可以调用多个MCP工具，一个MCP工具也能被多个Skill复用。前者关注协议与能力，后者关注任务策略与可复用流程。例如，数据库 MCP 服务暴露查询能力，而数据分析 Skill 指导 Agent 先确认指标口径，再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP，MCP 也可以被没有 Skill 的程序使用，因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性，Skill 的质量更多看步骤是否合理和结果能否验证；使用二者都不能绕过运行时授权。",
+      "group": "T010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

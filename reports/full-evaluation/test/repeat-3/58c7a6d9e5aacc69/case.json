@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-014",
+      "question": "如何让模型产出可执行计划，并在执行中调整步骤？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A014"
+      ],
+      "answerable": true,
+      "reference_answer": "可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤，成本最低、最常用；ToT让模型同时探索多条候选路径并评估选择，质量更高但模型调用明显增加；GoT把推理表示成可复用、可合并的图结构，适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化，由执行器校验步骤、依赖和完成条件，并在失败后重规划。规划结果应是可执行的任务结构，例如每步的目标、输入、工具、依赖和完成条件，而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划，再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器，必要时只修订未完成部分。一个任务是否完成要由验收条件判断，不能仅因模型写出了看似完整的步骤就视为规划成功。",
+      "group": "A014",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

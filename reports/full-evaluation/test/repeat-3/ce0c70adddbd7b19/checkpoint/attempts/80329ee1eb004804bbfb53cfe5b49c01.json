@@ -1,0 +1,240 @@
+{
+  "case_id": "V2-091",
+  "question": "如何评估助手任务完成情况？另外怎样拆开衡量检索与回答质量？",
+  "category": "cross_domain",
+  "split": "test",
+  "group": "A019",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://A019",
+    "interview-question://R018"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "指标应同时覆盖结果、过程与成本：任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布，并包含正常、歧义、工具失败、权限不足和对抗样本；为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法，覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮。工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件，并统计成本、接管率与长尾延迟。",
+    "先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG；生成层评估正确性、相关性、完整性、忠实度和引用准确率；系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG，分别关注覆盖、是否命中及排名质量；生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景，避免只验证常见问题。模型裁判需要人工校准，线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本，并定位是召回失败还是生成失败。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A019",
+    "interview-question://A023",
+    "interview-question://A014",
+    "interview-question://R018",
+    "interview-question://R011",
+    "interview-question://L021"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.5555555555555556,
+  "ndcg_at_k": 0.8442893273045486,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "如何评估助手任务完成情况？另外怎样拆开衡量检索与回答质量？",
+    "answer": "1. 如何评估助手任务完成情况？\n\n\n2. 在评估助手任务时，如何单独衡量检索质量？\n\n\n3. 在评估助手任务时，如何单独衡量回答质量？\n",
+    "sections": [
+      {
+        "question": "如何评估助手任务完成情况？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "如何评估助手任务完成情况?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A019",
+            "interview-question://A023",
+            "interview-question://A014"
+          ]
+        }
+      },
+      {
+        "question": "在评估助手任务时，如何单独衡量检索质量？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在评估助手任务时,如何单独衡量检索质量?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R018",
+            "interview-question://A019",
+            "interview-question://R011"
+          ]
+        }
+      },
+      {
+        "question": "在评估助手任务时，如何单独衡量回答质量？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在评估助手任务时,如何单独衡量回答质量?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A019",
+            "interview-question://L021",
+            "interview-question://R018"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4611361965580952492,
+        "title": "如何评估一个 Agent 的效果?评测集和指标怎么设计?",
+        "source": "interview-question://A019",
+        "domain": "agent",
+        "content": "# 如何评估一个 Agent 的效果?评测集和指标怎么设计?\n\n题目编号:A019\n\n领域:agent\n\n难度:2\n\n标签:评测、成功率、成本、轨迹\n- 考察方向:任务成功率、步骤正确率、延迟、费用和人工评价。\n\n参考答案:指标应同时覆盖结果、过程与成本:任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布,并包含正常、歧义、工具失败、权限不足和对抗样本;为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法,覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款,不能只看最终文字是否漂亮。工具选择和参数可用程序校验,开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹,主要约束关键检查点、禁用动作和完成条件,并统计成本、接管率与长尾延迟。\n\n评分要点:不能只评最终文本;指标与数据集覆盖真实失败模式。",
+        "vector_score": 0.8335723280906677,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.8167589008808136,
+        "keyword_score": 0.7365250860652172,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 888008174752367641,
+        "title": "如何赋予 LLM 规划能力?",
+        "source": "interview-question://A014",
+        "domain": "agent",
+        "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+        "vector_score": 0.7522789835929871,
+        "keyword_score": 0.6078291541182416,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 145210955334252079,
+        "title": "怎么量化你的 RAG 效果?",
+        "source": "interview-question://R018",
+        "domain": "rag",
+        "content": "# 怎么量化你的 RAG 效果?\n\n题目编号:R018\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景,避免只验证常见问题。模型裁判需要人工校准,线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本,并定位是召回失败还是生成失败。\n\n评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。",
+        "vector_score": 0.8184629678726196,
+        "keyword_score": 0.5508476779058322,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 2637356371800682692,
+        "title": "请你介绍一下向量检索和关键词检索的区别?",
+        "source": "interview-question://R011",
+        "domain": "rag",
+        "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+        "vector_score": 0.7832808196544647,
+        "keyword_score": 0.7814040493675384,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 4468296057515630498,
+        "title": "大模型能力评测指标有哪些?",
+        "source": "interview-question://L021",
+        "domain": "llm-engineering",
+        "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+        "vector_score": 0.79893359541893,
+        "keyword_score": 0.6177902955068598,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 14.902,
+  "timings_seconds": {
+    "decomposition": 14.106085,
+    "retrieval": 0.795104,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.542681,
+    "vector_search": 0.063416,
+    "keyword_search": 0.185331,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.795458,
+    "total": 14.901544,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

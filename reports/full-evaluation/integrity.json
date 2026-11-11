@@ -1,0 +1,29 @@
+{
+  "frozen_code_matches": true,
+  "phases": {
+    "dev": {
+      "pipelines": 720,
+      "unique_matrix": true,
+      "three_repeats": true,
+      "no_failures_or_degradation": true,
+      "means_match": true
+    },
+    "test": {
+      "pipelines": 240,
+      "unique_matrix": true,
+      "three_repeats": true,
+      "no_failures_or_degradation": true,
+      "means_match": true
+    }
+  },
+  "quality": {
+    "unique_cases": 40,
+    "valid_judges": 40,
+    "metric_means_match": true,
+    "retained_first_pass_records": 35,
+    "saved_attempts": 46,
+    "initial_invalid_judges": 5,
+    "unavailable_attempts": 6
+  },
+  "frozen_code_still_matches": true
+}

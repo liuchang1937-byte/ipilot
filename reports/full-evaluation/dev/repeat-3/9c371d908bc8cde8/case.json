@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-010",
+      "question": "让多个专门的助手共同完成一个任务，核心组织方式是什么？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A010"
+      ],
+      "answerable": true,
+      "reference_answer": "Multi-Agent是多个具有不同分工的Agent协作完成任务，例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制，并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂，因此只有专业分工或并行收益明显时才值得使用。例如，一个执行者负责查资料，一个负责验证结论，一个负责整理报告，协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型，区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查，但增加了交接、重复调用与一致性成本；如果只是同一个模型连续改写几遍文本，却没有角色边界和协作状态，就不能说明系统设计得更好。",
+      "group": "A010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

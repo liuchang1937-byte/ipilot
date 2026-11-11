@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-067",
+      "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R020"
+      ],
+      "answerable": true,
+      "reference_answer": "最难的通常不是调用向量库，而是建立持续的数据与评测闭环：异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开，例如表格解析丢失表头，导致条款召回成功却回答口径错误。先建立可追溯评测集，再根据检索日志和引用定位问题，逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强，要说明自己如何发现原因、选择措施以及用什么证据验证改进。",
+      "group": "R020",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

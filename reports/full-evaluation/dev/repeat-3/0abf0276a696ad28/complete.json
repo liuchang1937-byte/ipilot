@@ -1,0 +1,1111 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "29e3b9b8c3fa411683a1b4c7a4ce61dd",
+  "created_at": "2026-10-12T15:10:04.262876+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "1556402a01ea36e9d4244688d9ce530a07dc72f7e50c9fc158fcf19987a274a8",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\0abf0276a696ad28\\checkpoint"
+  },
+  "options": {
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.6309,
+      "hit_rate": 1,
+      "mrr": 0.5,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.505,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.505,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.555965,
+          "p50": 3.555965,
+          "p95": 3.555965,
+          "max": 3.555965,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.366821,
+          "p50": 0.366821,
+          "p95": 0.366821,
+          "max": 0.366821,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.279962,
+          "p50": 0.279962,
+          "p95": 0.279962,
+          "max": 0.279962,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.024499,
+          "p50": 0.024499,
+          "p95": 0.024499,
+          "max": 0.024499,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.060495,
+          "p50": 0.060495,
+          "p95": 0.060495,
+          "max": 0.060495,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.581898,
+          "p50": 0.581898,
+          "p95": 0.581898,
+          "max": 0.581898,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.94903,
+          "p50": 0.94903,
+          "p95": 0.94903,
+          "max": 0.94903,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.504995,
+          "p50": 4.504995,
+          "p95": 4.504995,
+          "max": 4.504995,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.8155,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 26.354,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 26.354,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.555965,
+          "p50": 3.555965,
+          "p95": 3.555965,
+          "max": 3.555965,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 22.797721,
+          "p50": 22.797721,
+          "p95": 22.797721,
+          "max": 22.797721,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 5.662976,
+          "p50": 5.662976,
+          "p95": 5.662976,
+          "max": 5.662976,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 16.013983,
+          "p50": 16.013983,
+          "p95": 16.013983,
+          "max": 16.013983,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.828571,
+          "p50": 0.828571,
+          "p95": 0.828571,
+          "max": 0.828571,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.056131,
+          "p50": 0.056131,
+          "p95": 0.056131,
+          "max": 0.056131,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.231842,
+          "p50": 0.231842,
+          "p95": 0.231842,
+          "max": 0.231842,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 22.797887,
+          "p50": 22.797887,
+          "p95": 22.797887,
+          "max": 22.797887,
+          "samples": 1
+        },
+        "total": {
+          "mean": 26.353852,
+          "p50": 26.353852,
+          "p95": 26.353852,
+          "max": 26.353852,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.8155,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.934,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.934,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.555965,
+          "p50": 3.555965,
+          "p95": 3.555965,
+          "max": 3.555965,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.378368,
+          "p50": 0.378368,
+          "p95": 0.378368,
+          "max": 0.378368,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.295384,
+          "p50": 0.295384,
+          "p95": 0.295384,
+          "max": 0.295384,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.024383,
+          "p50": 0.024383,
+          "p95": 0.024383,
+          "max": 0.024383,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.057474,
+          "p50": 0.057474,
+          "p95": 0.057474,
+          "max": 0.057474,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.378511,
+          "p50": 0.378511,
+          "p95": 0.378511,
+          "max": 0.378511,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.934476,
+          "p50": 3.934476,
+          "p95": 3.934476,
+          "max": 3.934476,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-078",
+      "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "T010",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://T010"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "MCP主要标准化外部能力如何被发现和调用，相当于工具连接层；Skill封装完成任务所需的方法、顺序和经验，相当于操作手册。一个Skill可以调用多个MCP工具，一个MCP工具也能被多个Skill复用。前者关注协议与能力，后者关注任务策略与可复用流程。例如，数据库 MCP 服务暴露查询能力，而数据分析 Skill 指导 Agent 先确认指标口径，再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP，MCP 也可以被没有 Skill 的程序使用，因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性，Skill 的质量更多看步骤是否合理和结果能否验证；使用二者都不能绕过运行时授权。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T011",
+        "interview-question://T010",
+        "interview-question://T004",
+        "interview-question://T012"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.6309297535714575,
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+        "answer": "1. 在提供工具访问协议方面，MCP和Skill各自负责什么？\n\n\n2. 在提供任务操作指南方面，MCP和Skill各自负责什么？\n",
+        "sections": [
+          {
+            "question": "在提供工具访问协议方面，MCP和Skill各自负责什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在提供工具访问协议方面,MCP和Skill各自负责什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T011",
+                "interview-question://T010",
+                "interview-question://T004"
+              ]
+            }
+          },
+          {
+            "question": "在提供任务操作指南方面，MCP和Skill各自负责什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在提供任务操作指南方面,MCP和Skill各自负责什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T011",
+                "interview-question://T010",
+                "interview-question://T012"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.8755778074264526,
+            "keyword_score": 1.0,
+            "rerank_score": 0.9970762729644775
+          },
+          {
+            "id": 2,
+            "chunk_id": 3483975197075879969,
+            "title": "MCP 和 Agent Skill 的区别是什么?",
+            "source": "interview-question://T010",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Agent Skill 的区别是什么?\n\n题目编号:T010\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:MCP主要标准化外部能力如何被发现和调用,相当于工具连接层;Skill封装完成任务所需的方法、顺序和经验,相当于操作手册。一个Skill可以调用多个MCP工具,一个MCP工具也能被多个Skill复用。前者关注协议与能力,后者关注任务策略与可复用流程。例如,数据库 MCP 服务暴露查询能力,而数据分析 Skill 指导 Agent 先确认指标口径,再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP,MCP 也可以被没有 Skill 的程序使用,因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性,Skill 的质量更多看步骤是否合理和结果能否验证;使用二者都不能绕过运行时授权。\n\n评分要点:工具连接层与任务知识层的区别和组合。",
+            "vector_score": 0.8877625465393066,
+            "keyword_score": 0.9246397061883179,
+            "rerank_score": 0.9861769080162048
+          },
+          {
+            "id": 3,
+            "chunk_id": 4536864493093651401,
+            "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+            "source": "interview-question://T004",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+            "vector_score": 0.8525288105010986,
+            "keyword_score": 0.9498870262687181,
+            "rerank_score": 0.7793528437614441
+          },
+          {
+            "id": 4,
+            "chunk_id": 3876464561600690988,
+            "title": "什么是 A2A 协议?它和 MCP 协议的区别是什么?",
+            "source": "interview-question://T012",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 A2A 协议?它和 MCP 协议的区别是什么?\n\n题目编号:T012\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付,交互对象是相对自主的Agent;MCP面向Host与工具/资源服务的连接,调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期,MCP处理工具调用和上下文接入,两者可以在同一多Agent系统中互补。例如,主 Agent 将一段研究任务交给外部研究 Agent,希望接收进度和最终报告,属于 Agent 协作;研究 Agent 自己调用搜索服务,可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段,结果以产物交付,调用方不必了解对方内部提示或工具。能力发现不等于可信授权,跨组织协作还需要身份、超时、取消和产物验证,不能仅凭对方自称完成就接受结果。\n\n评分要点:Agent协作与工具接入的对象、语义和生命周期差异。",
+            "vector_score": 0.7991513013839722,
+            "keyword_score": 0.7135722691839722,
+            "rerank_score": 0.4716273844242096
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.505,
+      "timings_seconds": {
+        "decomposition": 3.555965,
+        "retrieval": 0.366821,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.279962,
+        "vector_search": 0.024499,
+        "keyword_search": 0.060495,
+        "rerank": 0.581898,
+        "generation": 0.0,
+        "pipeline": 0.94903,
+        "total": 4.504995,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-078",
+      "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "T010",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T010"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "MCP主要标准化外部能力如何被发现和调用，相当于工具连接层；Skill封装完成任务所需的方法、顺序和经验，相当于操作手册。一个Skill可以调用多个MCP工具，一个MCP工具也能被多个Skill复用。前者关注协议与能力，后者关注任务策略与可复用流程。例如，数据库 MCP 服务暴露查询能力，而数据分析 Skill 指导 Agent 先确认指标口径，再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP，MCP 也可以被没有 Skill 的程序使用，因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性，Skill 的质量更多看步骤是否合理和结果能否验证；使用二者都不能绕过运行时授权。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T011",
+        "interview-question://T010",
+        "interview-question://T004"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.8154648767857288,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+        "answer": "1. 在提供工具访问协议方面，MCP和Skill各自负责什么？\n\n\n2. 在提供任务操作指南方面，MCP和Skill各自负责什么？\n",
+        "sections": [
+          {
+            "question": "在提供工具访问协议方面，MCP和Skill各自负责什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在提供工具访问协议方面,MCP和Skill各自负责什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP 与 Skill 在工具访问协议方面各自负责什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Model Context Protocol 和 Skill 在工具访问、工具调用协议中的职责分工与区别"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP vs Skills responsibilities in tool access protocols and tool calling"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在提供工具访问协议方面,MCP(Model Context Protocol)负责定义并实现标准化的工具访问协议层:通过 JSON-RPC 消息、stdio/HTTP+SSE 等传输,完成客户端-服务器初始化、能力协商、工具发现(tools/list)、工具调用(tools/call)、资源(resources)与提示(prompts)暴露、结构化结果返回、认证授权和权限边界。Skill 不负责底层工具访问协议,而是面向任务的能力封装与编排层:通过 SKILL.md、元数据、指令、脚本和资源,声明任务流程、何时调用工具、允许使用的工具集(如 allowed-tools)、参数构造与结果处理,并可借助 MCP 服务器或宿主内置工具完成实际工具访问。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T011",
+                "interview-question://T010",
+                "interview-question://T004"
+              ]
+            }
+          },
+          {
+            "question": "在提供任务操作指南方面，MCP和Skill各自负责什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在提供任务操作指南方面,MCP和Skill各自负责什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP 和 Skill 在提供任务操作指南方面各自负责什么"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP 与 Agent Skills 在任务操作说明和指南中的职责分工与区别"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "MCP vs Agent Skills responsibilities for task operation guides and instructions"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在提供任务操作指南方面,MCP(Model Context Protocol)负责标准化能力接入与运行时上下文供给:通过 MCP Server 暴露 tools、resources、prompts,使用 JSON Schema 声明参数,支持能力发现、调用路由、认证和上下文注入,使 Agent 能连接并执行外部操作;其 prompts 可提供可复用提示模板或操作片段,但不承载完整任务流程。Skill(如 Agent Skills/SKILL.md)负责任务级操作指南:封装领域 SOP、步骤化指令、决策条件、最佳实践、输入输出约束、异常处理与验收标准,并按需渐进式加载,指导 Agent 何时、为何以及如何组合 MCP 工具完成特定任务。简言之,MCP 管“能调用什么、如何连接与执行”,Skill 管“具体任务按什么步骤、规则和判断来操作”。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T010",
+                "interview-question://T011",
+                "interview-question://T004"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.8967728614807129,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3483975197075879969,
+            "title": "MCP 和 Agent Skill 的区别是什么?",
+            "source": "interview-question://T010",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Agent Skill 的区别是什么?\n\n题目编号:T010\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:MCP主要标准化外部能力如何被发现和调用,相当于工具连接层;Skill封装完成任务所需的方法、顺序和经验,相当于操作手册。一个Skill可以调用多个MCP工具,一个MCP工具也能被多个Skill复用。前者关注协议与能力,后者关注任务策略与可复用流程。例如,数据库 MCP 服务暴露查询能力,而数据分析 Skill 指导 Agent 先确认指标口径,再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP,MCP 也可以被没有 Skill 的程序使用,因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性,Skill 的质量更多看步骤是否合理和结果能否验证;使用二者都不能绕过运行时授权。\n\n评分要点:工具连接层与任务知识层的区别和组合。",
+            "vector_score": 0.9370815455913544,
+            "keyword_score": 0.9658055196706442,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4536864493093651401,
+            "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+            "source": "interview-question://T004",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+            "vector_score": 0.8718176782131195,
+            "keyword_score": 0.840160980219405,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 26.354,
+      "timings_seconds": {
+        "decomposition": 3.555965,
+        "retrieval": 22.797721,
+        "mqe": 5.662976,
+        "hyde": 16.013983,
+        "embedding": 0.828571,
+        "vector_search": 0.056131,
+        "keyword_search": 0.231842,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 22.797887,
+        "total": 26.353852,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-078",
+      "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "T010",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://T010"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "MCP主要标准化外部能力如何被发现和调用，相当于工具连接层；Skill封装完成任务所需的方法、顺序和经验，相当于操作手册。一个Skill可以调用多个MCP工具，一个MCP工具也能被多个Skill复用。前者关注协议与能力，后者关注任务策略与可复用流程。例如，数据库 MCP 服务暴露查询能力，而数据分析 Skill 指导 Agent 先确认指标口径，再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP，MCP 也可以被没有 Skill 的程序使用，因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性，Skill 的质量更多看步骤是否合理和结果能否验证；使用二者都不能绕过运行时授权。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T011",
+        "interview-question://T010",
+        "interview-question://T005",
+        "interview-question://T004"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.8154648767857288,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+        "answer": "1. 在提供工具访问协议方面，MCP和Skill各自负责什么？\n\n\n2. 在提供任务操作指南方面，MCP和Skill各自负责什么？\n",
+        "sections": [
+          {
+            "question": "在提供工具访问协议方面，MCP和Skill各自负责什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在提供工具访问协议方面,MCP和Skill各自负责什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T011",
+                "interview-question://T010",
+                "interview-question://T005"
+              ]
+            }
+          },
+          {
+            "question": "在提供任务操作指南方面，MCP和Skill各自负责什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在提供任务操作指南方面,MCP和Skill各自负责什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T010",
+                "interview-question://T011",
+                "interview-question://T004"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.8755778074264526,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3483975197075879969,
+            "title": "MCP 和 Agent Skill 的区别是什么?",
+            "source": "interview-question://T010",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Agent Skill 的区别是什么?\n\n题目编号:T010\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:MCP主要标准化外部能力如何被发现和调用,相当于工具连接层;Skill封装完成任务所需的方法、顺序和经验,相当于操作手册。一个Skill可以调用多个MCP工具,一个MCP工具也能被多个Skill复用。前者关注协议与能力,后者关注任务策略与可复用流程。例如,数据库 MCP 服务暴露查询能力,而数据分析 Skill 指导 Agent 先确认指标口径,再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP,MCP 也可以被没有 Skill 的程序使用,因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性,Skill 的质量更多看步骤是否合理和结果能否验证;使用二者都不能绕过运行时授权。\n\n评分要点:工具连接层与任务知识层的区别和组合。",
+            "vector_score": 0.8877625465393066,
+            "keyword_score": 0.9246397061883179,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 319809831368975428,
+            "title": "MCP 由哪几部分组成?",
+            "source": "interview-question://T005",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+            "vector_score": 0.8567954301834106,
+            "keyword_score": 0.7908722822100362,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4536864493093651401,
+            "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+            "source": "interview-question://T004",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+            "vector_score": 0.8140054643154144,
+            "keyword_score": 0.8401609802194049,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.934,
+      "timings_seconds": {
+        "decomposition": 3.555965,
+        "retrieval": 0.378368,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.295384,
+        "vector_search": 0.024383,
+        "keyword_search": 0.057474,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.378511,
+        "total": 3.934476,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-078",
+      "subquestions": [
+        {
+          "question": "在提供工具访问协议方面，MCP和Skill各自负责什么？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "在提供任务操作指南方面，MCP和Skill各自负责什么？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.555964799998037
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 27.69,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-040",
+      "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L016"
+      ],
+      "answerable": true,
+      "reference_answer": "先明确角色、目标、输入数据、约束、输出Schema和失败行为，再提供少量代表性示例。把可信指令与外部文本分隔，要求信息不足时拒答，并对结构化输出做程序校验。Prompt应版本化，在固定评测集上比较正确率、格式率、成本和稳定性，避免只凭几个示例调词。例如，要求系统从资料回答时，应明确哪些内容是证据、哪些是指令，以及证据不足如何处理；要求 JSON 时，应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入，而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测，记录模型版本和参数。提示能引导行为，但权限、业务规则和外部动作仍由代码强制执行。",
+      "group": "L016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

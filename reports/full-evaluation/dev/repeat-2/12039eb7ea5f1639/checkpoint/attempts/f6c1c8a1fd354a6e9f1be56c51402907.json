@@ -1,0 +1,160 @@
+{
+  "case_id": "V2-115",
+  "question": "资料中有用户ID PRIVATE-8842最近一次模拟面试的个人得分吗？",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-115",
+  "variant": "expanded",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "C:\\Users\\orzlc\\Desktop\\test.pdf"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "资料中有用户ID PRIVATE-8842最近一次模拟面试的个人得分吗？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "资料中是否有用户ID PRIVATE-8842最近一次模拟面试的个人得分？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料中是否有用户ID PRIVATE-8842最近一次模拟面试的个人得分?"
+            },
+            {
+              "kind": "mqe",
+              "text": "用户ID PRIVATE-8842 最近一次模拟面试 个人得分"
+            },
+            {
+              "kind": "mqe",
+              "text": "PRIVATE-8842 最新模拟面试 个人分数 成绩"
+            },
+            {
+              "kind": "mqe",
+              "text": "资料 查询 PRIVATE-8842 模拟面试 最近 得分"
+            },
+            {
+              "kind": "hyde",
+              "text": "用户ID PRIVATE-8842 的最近一次模拟面试记录包含个人得分,personal_score = 88,interview_type = mock_interview,status = completed,表 candidate_mock_interview_scores 中 user_id = PRIVATE-8842 的最新 attempt_time 对应得分为 88 分。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4216223474749563969,
+        "title": "附录 B RAG 测试题与参考答案",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 附录 B RAG 测试题与参考答案\n\n题目覆盖单跳、多跳、否定、比较、计算、版本和无答案场景。\n\n类型 测试问题 参考答案 / 依据\n单跳 云杉计划哪天立项? 2024-03-18(F-001)\n单跳 当前标签电量低于多少应换电? 30%(F-023,v1.4)\n否定 东港是否属于试点? 不属于(F-002)\n多跳 谁审批原始温度导出,授权最长多久? 周砚;8 小时(F-004、F-021)\n比较 设备遥测比个人信息多保留多久? 12 个月(18-6;F-019)\n计算 YG-0512 有多少单发生 TEE? 12 单(240-228;案例 C)\n辨析 案例 B 的静默期是否是 TEE? 不是;回传温度始终合规(F-028)\n流程 混合召回后有 16 块,通常给生成器多少块? 重排前 5 块(F-017)\n冲突 换电阈值是 25% 还是 30%? 当前为 30%;25% 是旧版\n无答案 项目使用哪家云服务商? 资料未提供,应拒答\n无答案 林岑的手机号码是多少? 资料未提供,应拒答",
+        "vector_score": 0.7585299909114838,
+        "keyword_score": 0.9282435798232712,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3316265630962033877,
+        "title": "3.3 知识库摄取与检索流程",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+        "vector_score": 0.7416462600231171,
+        "keyword_score": 0.9687502123068199,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3640943116446164722,
+        "title": "7 FAQ:面向自然语言问答",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 7 FAQ:面向自然语言问答\n### 答:不收集。项目没有使用人脸识别,也没有采集司机私人聊天内容。\n\n云杉计划知识手册 | RAG 测试语料 第 9 页 / 共 11 页\n\n---",
+        "vector_score": 0.7541260421276093,
+        "keyword_score": 0.7084283596649857,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 15.004,
+  "timings_seconds": {
+    "decomposition": 2.389303,
+    "retrieval": 12.614338,
+    "mqe": 3.072807,
+    "hyde": 8.918799,
+    "embedding": 0.297165,
+    "vector_search": 0.057259,
+    "keyword_search": 0.263854,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 12.614511,
+    "total": 15.003814,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

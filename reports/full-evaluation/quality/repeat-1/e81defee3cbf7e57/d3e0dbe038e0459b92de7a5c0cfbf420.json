@@ -1,0 +1,818 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "d3e0dbe038e0459b92de7a5c0cfbf420",
+  "created_at": "2026-10-12T16:16:28.520297+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "d236031788fc5c122e70c51036740115f7f8c6fc914dc91cec96787d735a2c59",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\e81defee3cbf7e57\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 41.915,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 41.915,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 5.257777,
+          "p50": 5.257777,
+          "p95": 5.257777,
+          "max": 5.257777,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 22.166938,
+          "p50": 22.166938,
+          "p95": 22.166938,
+          "max": 22.166938,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 5.935698,
+          "p50": 5.935698,
+          "p95": 5.935698,
+          "max": 5.935698,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 15.017702,
+          "p50": 15.017702,
+          "p95": 15.017702,
+          "max": 15.017702,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.912575,
+          "p50": 0.912575,
+          "p95": 0.912575,
+          "max": 0.912575,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.059419,
+          "p50": 0.059419,
+          "p95": 0.059419,
+          "max": 0.059419,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.236137,
+          "p50": 0.236137,
+          "p95": 0.236137,
+          "max": 0.236137,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 14.490114,
+          "p50": 14.490114,
+          "p95": 14.490114,
+          "max": 14.490114,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 36.657331,
+          "p50": 36.657331,
+          "p95": 36.657331,
+          "max": 36.657331,
+          "samples": 1
+        },
+        "total": {
+          "mean": 41.915108,
+          "p50": 41.915108,
+          "p95": 41.915108,
+          "max": 41.915108,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 55.513856,
+          "p50": 55.513856,
+          "p95": 55.513856,
+          "max": 55.513856,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 0.0,
+        "answer_relevancy": 0.9,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.8824
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-015",
+      "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+      "category": "terminology",
+      "split": "test",
+      "group": "A015",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A015"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "反思是让 Agent 根据目标、轨迹和结果识别错误，再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发；实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议，再将结论写入状态并重试。为避免无限自省，应限制次数和Token预算，要求每次反思产生可验证的新动作，没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充。反思可能重复相同偏差或引入新错误，因此需要最大次数、质量变化阈值和停止条件，不是次数越多越准确。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A015",
+        "interview-question://L017",
+        "interview-question://L018",
+        "interview-question://R017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+        "answer": "1. 让模型检查自己的结果再修改，在什么情况下能够带来收益？\n让模型检查自己的结果再修改，本质上是反思机制：根据目标、轨迹和结果识别错误，再提出修正方案；要带来收益，通常需要满足几个条件。第一，反思要有明确触发条件，例如工具失败、验证未通过、置信度低或阶段结束时触发，而不是无条件反复自省 [1]。第二，任务结果应可验证或可核验：先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，并把这些问题作为修改目标 [1]；代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充 [1]。第三，每次反思应产生可验证的新动作或新证据，只有带来可验证改进才保留新版本；如果只是重复相同偏差或引入新错误，收益不可靠 [1]。第四，必须设置最大次数、Token 预算、质量变化阈值和停止条件，没有新证据时停止或转人工，因此不是次数越多越准确 [1]。此外，在高风险任务中不能只依赖模型自我反思，还需要 RAG 或工具获取证据、引用核验和人工审核等外部验证手段 [3]。\n\n2. 让模型检查自己的结果再修改时，怎样避免反复自我修正？\n要避免模型反复自我修正，关键是把“反思”设计成有预算、有证据要求、有停止条件的闭环，而不是无限自省。首先，不要每轮都触发反思，而是在工具失败、验证未通过、置信度低或阶段结束时才触发[1]。其次，应限制反思次数和Token预算[1]；要求每次反思都产生可验证的新动作，没有新证据时就停止或转人工[1]；同时设置最大次数、质量变化阈值和停止条件[1]。只有带来可验证改进的新版本才保留[1]。一个可执行方案是：先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后把这些具体问题作为修改目标[1]。判断是否改进时，代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充[1]。反思可能重复相同偏差或引入新错误，因此并非次数越多越准确[1]。另外，高风险任务不能只依赖模型自我反思[3]。",
+        "sections": [
+          {
+            "question": "让模型检查自己的结果再修改，在什么情况下能够带来收益？",
+            "kind": "knowledge",
+            "answer": "让模型检查自己的结果再修改，本质上是反思机制：根据目标、轨迹和结果识别错误，再提出修正方案；要带来收益，通常需要满足几个条件。第一，反思要有明确触发条件，例如工具失败、验证未通过、置信度低或阶段结束时触发，而不是无条件反复自省 [1]。第二，任务结果应可验证或可核验：先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，并把这些问题作为修改目标 [1]；代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充 [1]。第三，每次反思应产生可验证的新动作或新证据，只有带来可验证改进才保留新版本；如果只是重复相同偏差或引入新错误，收益不可靠 [1]。第四，必须设置最大次数、Token 预算、质量变化阈值和停止条件，没有新证据时停止或转人工，因此不是次数越多越准确 [1]。此外，在高风险任务中不能只依赖模型自我反思，还需要 RAG 或工具获取证据、引用核验和人工审核等外部验证手段 [3]。",
+            "source_ids": [
+              1,
+              3
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "让模型检查自己的结果再修改,在什么情况下能够带来收益?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型自我检查并修改结果 在哪些条件下能带来收益"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM self-critique self-refine 自我修正 有效性 适用场景 收益"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "模型自我验证与迭代改进 何时有效 研究综述 影响因素"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "让模型检查自己的结果再修改(self-check、self-refine、self-correction、critique-revise)能带来收益的典型条件是:初始输出存在可检测且可修正的错误,且验证(verification)比生成(generation)更容易,即存在 verifier-generation gap;任务具有客观或可自动验证的正确性信号,如数学、代码、形式化证明、结构化抽取、工具调用,可用单元测试、执行器、符号求解器、检索证据或过程奖励模型(process reward model)提供反馈。模型自身具备足够能力与校准度,错误检测精度/召回率高,修改操作能纠正错误而不破坏正确内容;在多步推理、迭代精炼(iterative refinement)、self-consistency、自我验证(self-verification)、增加推理预算时收益更明显。反之,若错误源于知识缺失、事实幻觉、系统性偏差、主观开放任务,或模型过度自信、critique 本身不可靠、无外部反馈,则自检再改常无效甚至降低准确率。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A015",
+                "interview-question://L017",
+                "interview-question://L018"
+              ]
+            }
+          },
+          {
+            "question": "让模型检查自己的结果再修改时，怎样避免反复自我修正？",
+            "kind": "knowledge",
+            "answer": "要避免模型反复自我修正，关键是把“反思”设计成有预算、有证据要求、有停止条件的闭环，而不是无限自省。首先，不要每轮都触发反思，而是在工具失败、验证未通过、置信度低或阶段结束时才触发[1]。其次，应限制反思次数和Token预算[1]；要求每次反思都产生可验证的新动作，没有新证据时就停止或转人工[1]；同时设置最大次数、质量变化阈值和停止条件[1]。只有带来可验证改进的新版本才保留[1]。一个可执行方案是：先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后把这些具体问题作为修改目标[1]。判断是否改进时，代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充[1]。反思可能重复相同偏差或引入新错误，因此并非次数越多越准确[1]。另外，高风险任务不能只依赖模型自我反思[3]。",
+            "source_ids": [
+              1,
+              3
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "让模型检查自己的结果再修改时,怎样避免反复自我修正?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型 自我检查 自我修正 反复循环 如何避免 无限迭代"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM self-refine self-correction stopping criteria prevent over-correction"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "让模型检查自己的输出再修改 如何设置停止条件 收敛判断 最大迭代次数"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "为避免模型在自检-修订循环中反复自我修正,可采用:设定最大迭代次数、修订预算和收敛判据;每轮比较新旧输出的编辑距离、语义相似度、KL散度或验证器得分,若变化低于阈值、得分不再提升或检测到振荡/固定点则提前停止;使用外部验证器、奖励模型或规则校验提供独立反馈,而非仅依赖自评;对自评置信度进行校准,仅在低置信、验证失败或不确定性高时触发修订;保留历史版本并用选优策略选择最佳输出,而非无条件接受最后一次修改;加入回滚、早停、冷却和一致性约束,防止过度修正、错误累积与自我精炼退化。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A015",
+                "interview-question://R017",
+                "interview-question://L018"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 2654545256875798294,
+            "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+            "source": "interview-question://A015",
+            "domain": "agent",
+            "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+            "vector_score": 0.8314889371395111,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.7868120968341827,
+            "keyword_score": 0.5291594798378894,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2654545256875798294,
+            "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+            "source": "interview-question://A015",
+            "domain": "agent",
+            "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+            "vector_score": 0.8314889371395111,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1514459175991001607,
+            "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+            "source": "interview-question://L017",
+            "domain": "llm-engineering",
+            "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+            "vector_score": 0.7815988957881927,
+            "keyword_score": 0.9202004499305138,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.7868120968341827,
+            "keyword_score": 0.5291594798378894,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.7815357446670532,
+            "keyword_score": 0.685151455622859,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 0.0,
+      "answer_relevancy": 0.9,
+      "citation_precision": 1.0,
+      "citation_coverage": 0.8823529411764706,
+      "elapsed_seconds": 41.915,
+      "timings_seconds": {
+        "decomposition": 5.257777,
+        "retrieval": 22.166938,
+        "mqe": 5.935698,
+        "hyde": 15.017702,
+        "embedding": 0.912575,
+        "vector_search": 0.059419,
+        "keyword_search": 0.236137,
+        "rerank": 0.0,
+        "generation": 14.490114,
+        "pipeline": 36.657331,
+        "total": 41.915108,
+        "judge": 55.513856
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 0.0,
+          "answer_relevancy": 0.9,
+          "citation_precision": 1.0,
+          "citation_coverage": 0.8823529411764706
+        },
+        "claims": [
+          {
+            "text": "让模型检查自己的结果再修改，本质上是反思机制：根据目标、轨迹和结果识别错误，再提出修正方案；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。"
+              }
+            ],
+            "citations": [],
+            "reason": "该陈述与资料1对反思机制的定义一致，且与问题相关。"
+          },
+          {
+            "text": "第一，反思要有明确触发条件，例如工具失败、验证未通过、置信度低或阶段结束时触发，而不是无条件反复自省 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "它可在工具失败、验证未通过、置信度低或阶段结束时触发"
+              },
+              {
+                "source_id": 1,
+                "quote": "为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1明确列出触发条件，并强调避免无限制自省。"
+          },
+          {
+            "text": "第二，任务结果应可验证或可核验：先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，并把这些问题作为修改目标 [1]；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1给出相同可执行检查方案。"
+          },
+          {
+            "text": "代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1原文支持该优先级。"
+          },
+          {
+            "text": "第三，每次反思应产生可验证的新动作或新证据，只有带来可验证改进才保留新版本；如果只是重复相同偏差或引入新错误，收益不可靠 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "要求每次反思产生可验证的新动作"
+              },
+              {
+                "source_id": 1,
+                "quote": "只有带来可验证改进才保留新版本。"
+              },
+              {
+                "source_id": 1,
+                "quote": "反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持保留可验证改进版本，并指出重复偏差或新错误的风险。"
+          },
+          {
+            "text": "第四，必须设置最大次数、Token 预算、质量变化阈值和停止条件，没有新证据时停止或转人工，因此不是次数越多越准确 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。"
+              },
+              {
+                "source_id": 1,
+                "quote": "反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1明确要求最大次数、预算、阈值、停止条件和转人工。"
+          },
+          {
+            "text": "此外，在高风险任务中不能只依赖模型自我反思，还需要 RAG 或工具获取证据、引用核验和人工审核等外部验证手段 [3]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 3,
+                "quote": "高风险任务不能只依赖模型自我反思。"
+              },
+              {
+                "source_id": 3,
+                "quote": "缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 3,
+                "supported": true
+              }
+            ],
+            "reason": "资料3支持高风险任务需要外部证据、引用核验和人工审核。"
+          },
+          {
+            "text": "要避免模型反复自我修正，关键是把“反思”设计成有预算、有证据要求、有停止条件的闭环，而不是无限自省。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。"
+              }
+            ],
+            "citations": [],
+            "reason": "资料1的预算、证据和停止条件可支持该总结。"
+          },
+          {
+            "text": "首先，不要每轮都触发反思，而是在工具失败、验证未通过、置信度低或阶段结束时才触发[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "它可在工具失败、验证未通过、置信度低或阶段结束时触发"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持按条件触发而非每轮触发。"
+          },
+          {
+            "text": "其次，应限制反思次数和Token预算[1]；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1明确要求限制次数和Token预算。"
+          },
+          {
+            "text": "要求每次反思都产生可验证的新动作，没有新证据时就停止或转人工[1]；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "要求每次反思产生可验证的新动作,没有新证据时停止或转人工。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1原文支持。"
+          },
+          {
+            "text": "同时设置最大次数、质量变化阈值和停止条件[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1明确列出这些停止条件。"
+          },
+          {
+            "text": "只有带来可验证改进的新版本才保留[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "只有带来可验证改进才保留新版本。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1原文支持。"
+          },
+          {
+            "text": "一个可执行方案是：先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后把这些具体问题作为修改目标[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1给出同一方案。"
+          },
+          {
+            "text": "判断是否改进时，代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1原文支持。"
+          },
+          {
+            "text": "反思可能重复相同偏差或引入新错误，因此并非次数越多越准确[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1原文支持。"
+          },
+          {
+            "text": "另外，高风险任务不能只依赖模型自我反思[3]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 3,
+                "quote": "高风险任务不能只依赖模型自我反思。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 3,
+                "supported": true
+              }
+            ],
+            "reason": "资料3原文支持。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": false,
+            "reason": "答案覆盖了反思定义、触发条件、预算/停止条件、可验证改进、代码/事实检查等，但未提及参考要点中的实现细节：独立评审提示或检查事实、遗漏、约束违反和下一步建议，并将结论写入状态后重试，因此未完整覆盖。",
+            "point": "反思是让 Agent 根据目标、轨迹和结果识别错误，再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发；实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议，再将结论写入状态并重试。为避免无限自省，应限制次数和Token预算，要求每次反思产生可验证的新动作，没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充。反思可能重复相同偏差或引入新错误，因此需要最大次数、质量变化阈值和停止条件，不是次数越多越准确。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 0.9,
+          "reason": "答案直接回应两个子问：何时有收益和如何避免反复自我修正，并给出触发、验证、预算、停止与外部验证等做法；主要不足是未展开参考要点中的独立评审/状态写入等实现细节。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-015",
+      "subquestions": [
+        {
+          "question": "让模型检查自己的结果再修改，在什么情况下能够带来收益？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "让模型检查自己的结果再修改时，怎样避免反复自我修正？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 5.2577767000002495
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 97.436,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}
