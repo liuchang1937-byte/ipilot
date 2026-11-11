@@ -59,6 +59,32 @@ uv sync --extra dev
 网页服务默认只监听本机地址，复用现有 `.env` 中的模型配置。请使用单进程运行；
 写入操作在服务内串行处理，并校验对话版本以避免重复提交导致重复推进。
 
+#### 用 Nginx 发布网页
+
+`src/techrag/public` 可直接作为 Nginx 的网页目录。首页和 `static/` 下的资源会随 Git 更新。
+在已有的 Nginx `server` 块中按实际克隆路径设置 `root`，并把 `/api/` 转发给监听 `127.0.0.1:8000` 的 TechRAG 服务。
+
+```nginx
+root /home/ubuntu/ipilot/src/techrag/public;
+index index.html;
+
+location / {
+    try_files $uri $uri/ =404;
+}
+
+location /api/ {
+    proxy_pass http://127.0.0.1:8000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_read_timeout 300s;
+}
+```
+
+Nginx 的运行用户需要能穿过 `root` 的上级目录，并读取 `public` 下的文件。
+运行 `sudo nginx -t && sudo systemctl reload nginx` 应用配置。以后在服务器执行 `git pull --ff-only` 更新仓库，
+涉及 Python 代码时再重启 TechRAG 服务。
+
 ### 在线维护题库
 
 打开侧栏“题库管理”，选择现有题库，或点击“创建新题库”填写题库名称。

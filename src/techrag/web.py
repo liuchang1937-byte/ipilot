@@ -23,7 +23,7 @@ from .knowledge import KnowledgeOptions
 from .question_editor import DISPLAY_NAMES, EditorError, QuestionEditor
 from .rag import TechRAG
 
-_STATIC = Path(__file__).with_name("static")
+_PUBLIC = Path(__file__).with_name("public")
 _NAMES = DISPLAY_NAMES
 
 
@@ -148,7 +148,7 @@ def create_app(
                 rag.close()
 
     app = FastAPI(title="InterviewPilot", version="0.1.0", lifespan=lifespan)
-    app.mount("/static", StaticFiles(directory=_STATIC), name="static")
+    app.mount("/static", StaticFiles(directory=_PUBLIC / "static"), name="static")
 
     def get_engine() -> InterviewEngine:
         return app.state.engine
@@ -197,7 +197,7 @@ def create_app(
 
     @app.get("/", include_in_schema=False)
     def index():
-        return FileResponse(_STATIC / "index.html")
+        return FileResponse(_PUBLIC / "index.html")
 
     @app.get("/api/evaluations")
     def evaluations():

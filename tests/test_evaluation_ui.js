@@ -3,7 +3,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const vm = require("node:vm");
 
-const script = fs.readFileSync("src/techrag/static/app.js", "utf8");
+const script = fs.readFileSync("src/techrag/public/static/app.js", "utf8");
 const result = {innerHTML: ""};
 const download = {addEventListener() {}};
 const context = vm.createContext({
