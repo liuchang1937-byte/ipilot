@@ -1,0 +1,2454 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-001",
+      "question": "聊天模型能回答问题就算智能体吗？执行任务还缺哪些能力？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A001"
+      ],
+      "answerable": true,
+      "reference_answer": "大模型本质上是根据上下文生成输出的概率模型，本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统，它会感知当前状态，规划下一步，调用工具影响外部环境，读取执行结果并继续决策，直到完成目标或触发停止条件。两者的核心差异是：LLM 提供认知能力，Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如，一个资料调研 Agent 会先确定检索范围，调用搜索工具，检查是否获得足够证据，再组织结论；如果资料不足，就调整查询继续检索。控制循环通常由宿主代码驱动，模型输出的是行动建议，外部操作仍由程序执行。判断是否具备 Agent 特征，要看是否能依据观察更新决策，而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。",
+      "group": "A001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-002",
+      "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A002"
+      ],
+      "answerable": true,
+      "reference_answer": "Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策；工具负责搜索、执行代码或调用API，使Agent能够作用于外部环境；记忆保存对话和任务状态；规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为：用户目标进入规划模块，规划结果与已有状态组成模型上下文，模型选择工具，执行器校验参数并运行，结果写回状态和记忆，模型再判断是否继续。记忆不能只保存聊天文本，还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器，它负责停止条件、异常处理和检查点，避免模型输出了计划却没有执行。",
+      "group": "A001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-003",
+      "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A003"
+      ],
+      "answerable": true,
+      "reference_answer": "Tool 是一个边界清晰、可调用的外部能力，如查询数据库或发送邮件；Workflow 是预先定义好的步骤、分支和依赖，执行路径主要由代码决定；Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合：Workflow 控制关键流程，Agent 处理开放决策，Tool 提供实际执行能力。例如，报销系统中的金额校验是 Tool，固定的提交、审核、付款流程是 Workflow，自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数，也可以是一次模型调用或一个 Agent；Agent 也能调用固定子流程。因此三者不是互斥产品，更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性，哪些决策需要运行时探索。",
+      "group": "A003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-004",
+      "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A004"
+      ],
+      "answerable": true,
+      "reference_answer": "常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定，优点是稳定、可测试；Agent 的路径由模型结合环境动态选择，适合目标明确但步骤未知的任务。实际工程常采用混合设计：高风险步骤使用 Workflow 固化，信息收集和方案探索交给 Agent。这些概念也不全在同一层级：ReAct 和 Plan-and-Execute 描述执行与决策的组织方式，Reflection 是可叠加的检查机制，Supervisor 则更多描述多个执行者的调度架构。例如，退款的身份核验与额度判断适合固定流程，定位复杂故障可能需要动态调查。即使采用 Agent，也能用状态机限制合法转移，所以动态决策不等于完全放任模型控制。",
+      "group": "A004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-005",
+      "question": "助手先推理再调用工具、读完结果继续推理，这个循环怎么落地？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A005"
+      ],
+      "answerable": true,
+      "reference_answer": "常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程；CoT让模型先组织多步推理再给结论；ReAct进一步把推理与行动交替进行，形成Thought—Action—Observation循环：模型决定工具及参数，宿主执行后把观察结果送回模型，直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环：构建消息，调用模型，判断返回的是最终答案还是工具请求；若是工具请求，就检查工具名、参数和权限，执行后追加工具结果，再进入下一轮。工具报错应作为明确观察反馈，不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息，不是强制打印完整思维过程；日志可以保存动作、观察和简短决策依据，而不依赖模型内部推理文本。",
+      "group": "A005",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-006",
+      "question": "边想边做、先规划后执行和完成后反思，在延迟和可控性上有什么取舍？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A006"
+      ],
+      "answerable": true,
+      "reference_answer": "ReAct 边思考边行动，适合信息逐步显现、需要频繁工具交互的任务，但调用轮次多；Plan-and-Execute 先生成整体计划再逐项执行，适合依赖关系清楚的长任务，但初始计划错误会向后传播；Reflection 在结果或阶段完成后检查缺陷并修正，适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价，复杂项目常把三者组合使用。例如，开放式故障调查适合根据日志逐步选择工具；生成研究报告可以先列出资料搜集、比较和写作步骤，再由执行器完成；报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据，而不是让同一个模型无限重写。计划遇到新信息也需要修订，并非提前规划后就禁止变化；三种机制都应有步数、费用和时间上限。",
+      "group": "A005",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-007",
+      "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A007"
+      ],
+      "answerable": true,
+      "reference_answer": "先把目标转为可验证的交付物，再按信息依赖、工具边界或专业领域拆成子任务，并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划；拆得过细会增加通信成本。以技术调研为例，可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分，最后一部分依赖前面的证据。独立检索可并行，依赖同一业务状态的写入不能随意并行。每步返回结构化产物，使失败可以定位到局部并单独重试。是否改善效果，应比较任务成功率、返工率、总耗时与调用费用，不能把拆分后的局部准确率直接当成整体收益。",
+      "group": "A007",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-008",
+      "question": "助手要记住用户偏好和当前任务进度，记忆模块如何设计？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A008"
+      ],
+      "answerable": true,
+      "reference_answer": "题解可将Agent记忆分为四层：感知记忆保存当前原始输入，短期记忆位于上下文窗口并服务当前任务，长期记忆存入外部数据库并通过语义检索召回，实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”，并根据类型选择主动注入或按需检索，同时处理去重、过期、权限和删除。这是一种便于解释的分类，并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作；长期记忆应保存跨会话有用且经过确认的信息；实体记忆适合记录对象属性与关系，避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度，检索时先按用户与权限过滤。不是所有工具日志都值得长期保存，也不能把模型猜测直接当成事实写入。",
+      "group": "A008",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-009",
+      "question": "正在进行的任务和几周前的历史信息，应该用同一种方式保存吗？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A009"
+      ],
+      "answerable": true,
+      "reference_answer": "短期记忆通常就是上下文窗口中的对话与当前任务中间状态，任务结束后可释放；长期记忆把可复用信息Embedding后存入向量数据库，使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存：太细会增加噪声，太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选，避免永久保存错误结论。例如，当前订单号、已确认退款金额和待执行步骤适合结构化状态；近期问答可保存为消息列表；产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件，不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆，再执行过滤、召回和排序，将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录，并保留必要的版本关系。",
+      "group": "A009",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-010",
+      "question": "让多个专门的助手共同完成一个任务，核心组织方式是什么？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A010"
+      ],
+      "answerable": true,
+      "reference_answer": "Multi-Agent是多个具有不同分工的Agent协作完成任务，例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制，并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂，因此只有专业分工或并行收益明显时才值得使用。例如，一个执行者负责查资料，一个负责验证结论，一个负责整理报告，协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型，区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查，但增加了交接、重复调用与一致性成本；如果只是同一个模型连续改写几遍文本，却没有角色边界和协作状态，就不能说明系统设计得更好。",
+      "group": "A010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-011",
+      "question": "什么情况下一个助手已经足够，什么情况下值得拆成多个角色？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A011"
+      ],
+      "answerable": true,
+      "reference_answer": "Single-Agent 由一个决策核心访问多种工具，状态集中、调试简单，适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent，可由 Supervisor 统一调度，也可通过消息或共享状态协作，适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够，只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具，结构简单，调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总，但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分，而不是只看问题文字是否复杂。先建立单 Agent 基线，再用相同测试集证明成功率或延迟收益足以抵消协作成本。",
+      "group": "A011",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-012",
+      "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A012"
+      ],
+      "answerable": true,
+      "reference_answer": "常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索，以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用，关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存，近期原话保持较高保真度，历史细节按需取回。摘要要保留证据指针，不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致，以及恢复任务时是否丢失重要操作回执。",
+      "group": "A008",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "group": "A013",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-014",
+      "question": "如何让模型产出可执行计划，并在执行中调整步骤？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A014"
+      ],
+      "answerable": true,
+      "reference_answer": "可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤，成本最低、最常用；ToT让模型同时探索多条候选路径并评估选择，质量更高但模型调用明显增加；GoT把推理表示成可复用、可合并的图结构，适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化，由执行器校验步骤、依赖和完成条件，并在失败后重规划。规划结果应是可执行的任务结构，例如每步的目标、输入、工具、依赖和完成条件，而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划，再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器，必要时只修订未完成部分。一个任务是否完成要由验收条件判断，不能仅因模型写出了看似完整的步骤就视为规划成功。",
+      "group": "A014",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-015",
+      "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A015"
+      ],
+      "answerable": true,
+      "reference_answer": "反思是让 Agent 根据目标、轨迹和结果识别错误，再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发；实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议，再将结论写入状态并重试。为避免无限自省，应限制次数和Token预算，要求每次反思产生可验证的新动作，没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充。反思可能重复相同偏差或引入新错误，因此需要最大次数、质量变化阈值和停止条件，不是次数越多越准确。",
+      "group": "A015",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-016",
+      "question": "不同专长的助手如何交接任务，什么时候动态切换角色？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A016"
+      ],
+      "answerable": true,
+      "reference_answer": "多Agent协作主要依靠消息传递和共享状态：前者把上一个Agent的产物交给下一个，后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成，可按预设规则做静态路由，也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案，并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本，避免把全部历史原样转发。同步协作可用结构化调用，长任务可用消息队列和任务表，所有路径都由协调器追踪。动态切换需要明确触发条件，例如专业能力不足、任务阶段变化或执行失败，并限制交接次数。共享状态应通过受控更新接口提交，不能让多个 Agent 随意覆盖同一份任务记录。",
+      "group": "A016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-017",
+      "question": "工具描述、历史对话、检索资料与当前目标如何组织进上下文？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A017"
+      ],
+      "answerable": true,
+      "reference_answer": "上下文应按任务动态装配，而非永久堆积。一般包含稳定系统规则、当前目标与计划、最近交互、必要工具描述、检索证据和相关长期记忆。通过元数据过滤、语义检索、摘要、去重和Token预算控制数量，并明确不同内容的可信等级。工具原始结果与用户输入要做边界标记，防止提示注入影响系统指令。可以把上下文分成稳定指令、当前目标、结构化状态、近期对话、相关证据和本轮工具结果，并为各部分设定预算。用户的纠错和硬约束应显式更新状态，陈旧工具输出则摘要或移出窗口。长文不是越多越好，需要去重、重排并标识来源；外部文档中的指令只作为数据处理。评测应检查同一任务在不同轮数、噪声和截断条件下是否仍能正确选择工具并保持目标。",
+      "group": "A017",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-018",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "answerable": true,
+      "reference_answer": "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+      "group": "A018",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-019",
+      "question": "任务助手上线前，如何设计案例与指标检验它是否真的完成任务？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A019"
+      ],
+      "answerable": true,
+      "reference_answer": "指标应同时覆盖结果、过程与成本：任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布，并包含正常、歧义、工具失败、权限不足和对抗样本；为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法，覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮。工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件，并统计成本、接管率与长尾延迟。",
+      "group": "A019",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-020",
+      "question": "助手反复选同一个工具且没有推进，怎样识别并终止这种循环？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A020"
+      ],
+      "answerable": true,
+      "reference_answer": "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+      "group": "A020",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-021",
+      "question": "一次任务耗时突然翻倍，如何从执行轨迹定位慢在哪一环？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A021"
+      ],
+      "answerable": true,
+      "reference_answer": "为一次任务建立统一Trace ID，并为模型调用、检索、重排、工具、数据库、重试和排队创建Span，记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径，再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环，并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时，再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模，通过慢请求与正常请求对比找关键路径。若慢在工具排队，换模型不会解决；若步数膨胀，则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率，不能用牺牲回答质量换来的速度作为唯一成果。",
+      "group": "A021",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-022",
+      "question": "多个助手并行写同一结果，其中一个超时，如何处理交接与冲突？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A022"
+      ],
+      "answerable": true,
+      "reference_answer": "为子任务设置租约、心跳、截止时间和幂等任务ID，超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入，冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态；对有外部副作用的步骤使用幂等键、补偿操作和人工审批，避免重试造成重复执行。超时不一定代表旧执行者已停止，因此任务接管可用租约与递增代次，阻止失效实例提交结果。恢复时加载检查点，并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权，使用隔离工作区、版本校验和统一集成入口；文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工，同时保留失败原因与完成产物，避免两个执行者同时重做同一操作。",
+      "group": "A022",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-023",
+      "question": "助手说文件已经保存，但没有任何工具执行记录，如何避免这种情况？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A023"
+      ],
+      "answerable": true,
+      "reference_answer": "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。",
+      "group": "A020",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-024",
+      "question": "给模型接数据库时，如何限制查询权限并防止敏感字段泄漏？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A024"
+      ],
+      "answerable": true,
+      "reference_answer": "不要把数据库高权限凭据直接交给模型，应通过受控数据访问层暴露允许的表、字段和查询模板，默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截，再在限时限量的隔离账号中执行；结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID，查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态，不由模型从用户文字中自行决定。能提供查订单等固定业务接口时，就不暴露任意 SQL；必须生成 SQL 时要解析语法树，限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入，不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏，写操作使用独立权限、事务和审计，并校验指标口径及时间范围，兼顾查询安全和答案正确性。",
+      "group": "T016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-025",
+      "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L001"
+      ],
+      "answerable": true,
+      "reference_answer": "大语言模型是在海量语料上通过自监督目标训练的通用生成模型，通常以Transformer为核心，通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务，但参数、推理成本、幻觉和不可解释性也更突出。例如，传统情感分类器通常输出正负标签，而生成式 LLM 可以根据指令解释原因、改写内容或总结文章，利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型，大模型也不是只能做聊天，因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标，通过上下文适应任务；它的输出是统计预测，不等于实时查阅事实库，也不保证理解与推理永远正确。",
+      "group": "L001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-026",
+      "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L002"
+      ],
+      "answerable": true,
+      "reference_answer": "Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示，Decoder通过掩码自注意力自回归生成，并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务，仅Decoder是多数生成式LLM的选择，Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V，通过 Q 与 K 的匹配权重聚合 V，再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文，Decoder 的自注意力用因果遮罩限制未来信息；原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列，推理生成仍逐 Token 进行。注意力改善长距离信息连接，却有计算与显存成本，不能理解为所有阶段都完全并行。",
+      "group": "L002",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-027",
+      "question": "推理时注意力占用太多显存，MQA、GQA与Flash Attention各优化什么？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L003"
+      ],
+      "answerable": true,
+      "reference_answer": "MHA 中每个查询头有独立的 K/V 头，长序列下 KV Cache 与显存带宽开销较大；稠密注意力还需要比较序列中的大量位置，计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V，GQA 则把查询头分组，每组共享 K/V，以减少缓存和访存，在速度、显存与表达能力间折中。FlashAttention 从实现层优化：通过分块与在线 Softmax，避免把完整注意力矩阵反复写入显存，从而降低 IO 与中间存储，仍计算精确注意力。它通常不将理论二次计算复杂度改成线性，也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用；实际收益需要在目标模型、序列长度、并发和硬件上测试，而不是只比较算法名称。",
+      "group": "L003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-028",
+      "question": "模型为何需要知道词的位置？旋转位置编码和线性偏置有什么差别？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L004"
+      ],
+      "answerable": true,
+      "reference_answer": "自注意力本身对顺序不敏感，因此需要位置编码。sin/cos把绝对位置向量加入表示，可一定程度外推；RoPE通过旋转Q/K把相对位置信息编码进注意力内积，是当前常用方案；ALiBi直接给注意力分数加入与距离相关的线性偏置，简单且具备长度外推特性。三者在实现、相对位置表达和长上下文表现上不同。如果没有位置信息，注意力难以区分同一组词的不同顺序。sin/cos 使用固定频率的位置向量，RoPE 对 Q/K 做与位置有关的旋转，使点积体现相对位置关系，ALiBi 则在注意力分数中加入与距离相关的偏置。它们影响长度泛化，但支持更长窗口还与训练长度、缩放方案和任务有关。不能仅因使用 RoPE 就保证超出训练长度后仍准确，应该测不同位置和跨段依赖任务。",
+      "group": "L003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-029",
+      "question": "文字送入模型前如何转换为token，分词方式为何影响长度与成本？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L005"
+      ],
+      "answerable": true,
+      "reference_answer": "Tokenizer将字符串转换为有限词表中的Token ID，模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合，并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费；解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符，一个词可能被拆成多个子词，字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中；推理时按既定规则编码，再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用，代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例。",
+      "group": "L005",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-030",
+      "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L006"
+      ],
+      "answerable": true,
+      "reference_answer": "可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料，控制领域与语言配比，处理测试污染，再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识，工程上依靠分布式并行、混合精度、优化器和检查点，兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令；偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定，SFT 本身也属于后训练，部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名，还要说明每阶段解决什么问题；数据质量差或奖励定义错误时，增加训练步骤并不保证效果提升。",
+      "group": "L006",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-031",
+      "question": "扩大数据、参数和计算量时能力如何变化，所谓涌现如何解释？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L007"
+      ],
+      "answerable": true,
+      "reference_answer": "Scaling Law描述模型参数、训练数据、计算量与损失之间近似幂律关系，可用于分配训练预算，但前提是数据质量和训练方式相近。所谓涌现是某些能力在规模提高后指标看似突然出现，部分来自能力真实提升，部分也可能由离散评测阈值造成。规模并不保证特定业务效果，仍需任务评测。它用于给定训练设置下估算参数、数据与计算的收益，帮助安排计算预算，而不是保证无限扩大会永远按相同比例进步。计算最优和部署总成本最优也可能不同，因为小模型多训练一些可能更省长期推理费用。所谓涌现是某些能力随规模表现出明显变化，但阈值也可能受离散评分方式影响；应同时观察连续指标与业务表现，不能把某条参数数据比例当成所有模型的通用常数。",
+      "group": "L007",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-032",
+      "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L008"
+      ],
+      "answerable": true,
+      "reference_answer": "微调通常不是第一选择，应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式，或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA；资源有限时LoRA/QLoRA最常用。SFT负责指令行为，有偏好对齐需求时还可使用DPO等方法，最终按数据、硬件和部署目标选型。全量微调更新大部分权重，容量较大但显存和优化器状态开销高；PEFT 只更新少量新增或选定参数，适合资源受限场景。QLoRA 将基座权重低比特存储，同时训练低秩适配器，不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式，LoRA 是参数更新方式，两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本，动态事实通常继续通过检索提供。",
+      "group": "L008",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-033",
+      "question": "用低秩矩阵适配模型，除了少训练参数还有什么工程收益？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L009"
+      ],
+      "answerable": true,
+      "reference_answer": "LoRA冻结原权重，用两个低秩矩阵近似权重更新，并把更新注入注意力或其他线性层。除减少训练参数和显存外，它便于为多个任务保存小型适配器、快速切换或组合，也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W，训练的增量可以写成 ΔW=BA，秩 r 远小于原维度，再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算，并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支，未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围，但不能保证没有遗忘或副作用；秩、目标层、数据与评测比单纯追求最低参数量更重要。",
+      "group": "R003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-034",
+      "question": "指令微调完成之后，偏好优化和拒绝采样各解决哪些问题？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L010"
+      ],
+      "answerable": true,
+      "reference_answer": "SFT后可用拒绝采样从多个候选中选优再训练；RLHF通常训练奖励模型并用PPO优化策略；DPO直接利用偏好对，省去显式奖励模型和在线强化学习；GRPO使用组内相对奖励估计优势，减少价值模型依赖。它们都利用偏好或奖励改善行为，但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化，不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习；DPO 用偏好对直接优化；PPO 和 GRPO 则属于强化优化方式，奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势，避免单独训练价值模型，但仍有采样与奖励成本。方法可以组合，关键是训练信号可靠以及收益能通过独立测试确认。",
+      "group": "L010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-035",
+      "question": "直接用偏好数据优化与基于奖励模型做PPO，有哪些训练差异？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L011"
+      ],
+      "answerable": true,
+      "reference_answer": "PPO式RLHF先训练奖励模型，再在线采样并通过策略梯度优化，同时用KL约束防止偏离参考模型，流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标，直接提高chosen相对rejected的概率，不需显式奖励模型，训练更稳定简单，但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型，训练流程较简单，但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案，还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价，选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。",
+      "group": "L010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-036",
+      "question": "生成答案时，确定性选词、束搜索和随机采样如何取舍？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L012"
+      ],
+      "answerable": true,
+      "reference_answer": "贪心每步选择最高概率Token，速度快且稳定但容易局部最优；Beam Search保留多条高概率序列，适合翻译等更重整体概率的任务，但成本高且开放生成可能僵硬；采样按概率随机选择，可配合Temperature、Top-K和Top-P增加多样性，适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择，Beam Search 保留有限数量的序列候选，也不保证找到真正的全局最优；它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token，用随机性换取多样性。结构化输出需要格式约束与校验，低随机性不能替代这些机制。即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性。",
+      "group": "L012",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-037",
+      "question": "temperature、top_p与top_k对生成分布各有什么影响？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L013"
+      ],
+      "answerable": true,
+      "reference_answer": "Temperature缩放Logits，越低分布越尖锐；Top-K只在概率最高的K个Token中采样；Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度，创作可提高温度并使用Top-P；不存在通用最佳值，应基于任务集评估，而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布，Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合。它们只改变采样行为，不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数，再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同，因此不存在跨模型通用的最佳数值，温度为零也不等于结果一定可复现。",
+      "group": "L012",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-038",
+      "question": "KV缓存与重复提示缓存分别复用了什么，为什么能减少计算？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L014"
+      ],
+      "answerable": true,
+      "reference_answer": "自回归生成时，KV Cache保存已有Token各层的Key/Value，后续每步只计算新Token，降低重复计算但消耗显存。Prompt Caching复用相同或相同前缀Prompt的预填充结果，可跨请求减少首Token延迟和输入计算。前者主要服务单次生成过程，后者强调重复前缀复用，都要处理缓存键、失效和内存成本。prefill 先处理输入并生成各层 K/V，decode 为每个新 Token 计算新表示，并读取已有缓存，避免重算历史 K/V。缓存随序列长度、层数和 K/V 头数增长，也会限制高并发。跨请求复用通常要求前缀与模型配置兼容，生成式同义改写并不能保证命中；缓存复用也不同于直接返回过去的答案。应比较命中率、TTFT 和显存占用，权限隔离、失效与生命周期由具体服务实现。",
+      "group": "A021",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-039",
+      "question": "部署时怎样选择四位或八位量化，AWQ和GPTQ如何权衡？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L015"
+      ],
+      "answerable": true,
+      "reference_answer": "量化用低比特表示权重或激活，以降低显存、带宽和计算成本，代价是精度风险。INT8通常损失小，INT4压缩更强；GPTQ利用校准数据做逐层训练后权重量化，通用性强；AWQ保护对输出敏感的重要权重，常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化，以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化，AWQ 利用激活信息调整重要通道的缩放，减少关键权重的误差；不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快，需要核对算子支持，并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。",
+      "group": "L015",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-040",
+      "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L016"
+      ],
+      "answerable": true,
+      "reference_answer": "先明确角色、目标、输入数据、约束、输出Schema和失败行为，再提供少量代表性示例。把可信指令与外部文本分隔，要求信息不足时拒答，并对结构化输出做程序校验。Prompt应版本化，在固定评测集上比较正确率、格式率、成本和稳定性，避免只凭几个示例调词。例如，要求系统从资料回答时，应明确哪些内容是证据、哪些是指令，以及证据不足如何处理；要求 JSON 时，应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入，而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测，记录模型版本和参数。提示能引导行为，但权限、业务规则和外部动作仍由代码强制执行。",
+      "group": "L016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-041",
+      "question": "要求模型展示中间推理过程有什么价值，为什么也会增加风险与成本？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L017"
+      ],
+      "answerable": true,
+      "reference_answer": "CoT通过中间推理步骤分解复杂问题，使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积，也不保证推理真实可靠；完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理，只向用户返回结论和可验证证据。例如，多步计算可以先列出变量和关系，再用计算器核对结果，比直接猜结论更容易验证。但中间步骤也可能是合理化解释，流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性，而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用，效果应通过正确率、延迟及 Token 成本的对照实验衡量。",
+      "group": "L017",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-042",
+      "question": "模型为什么会编造事实，检索与验证分别能缓解哪些问题？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L018"
+      ],
+      "answerable": true,
+      "reference_answer": "模型目标是生成高概率文本而非验证事实，训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如，要求引用一篇不存在的论文时，模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零，概率最高的输出也可能不符合事实，所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果，分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性，统计误答与拒答，不能只观察答复是否自信、完整。",
+      "group": "R017",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-043",
+      "question": "混合专家模型为何只激活部分参数，路由和负载均衡有哪些代价？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L019"
+      ],
+      "answerable": true,
+      "reference_answer": "MoE在每层设置多个专家网络，由路由器为每个Token选择少数专家计算，因此总参数可以很大而单Token激活参数较少，提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量，而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家，路由器为每个 Token 选择少量专家，注意力等其他模块可能仍是共享的。专家是可训练的网络参数，并不天然对应一个具有人格的 Agent，也不等于多 Agent 协作。总参数与激活参数不同，但部署仍需要存放或分发大量专家权重，跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE，讨论优势必须限定具体架构与实际硬件条件。",
+      "group": "L019",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-044",
+      "question": "CPU本地部署与GPU高并发服务，怎样选择推理运行框架？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L020"
+      ],
+      "answerable": true,
+      "reference_answer": "vLLM适合GPU高吞吐服务，强调PagedAttention和连续批处理；TGI提供较完整的Hugging Face生产服务生态；llama.cpp适合CPU、边缘和量化本地部署；SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本，并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持，再用相同输入输出长度、并发与精度设置测试，避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列，重复前缀场景需要看缓存命中，本地部署则更关心内存与量化兼容。框架特性和维护状态会变化，不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力，而不是只说某框架最快。",
+      "group": "L015",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-045",
+      "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L021"
+      ],
+      "answerable": true,
+      "reference_answer": "大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro，代码类可参考 HumanEval 或 SWE-bench Verified，数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点，可能受到数据污染、评分方式与业务分布差异影响；最终应从真实请求与失败样本构建经过标注的业务测试集，定期回归。公开测试可区分知识、代码、数学与科学推理，GPQA 更偏高难度科学问答，不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本，保留固定留出集并持续补充失败案例。结构化任务测格式与参数，Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准，报告应同时给出质量、安全、费用和延迟，并防止只针对已知测试集调优。",
+      "group": "L021",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-046",
+      "question": "为业务选择模型时如何比较效果、延迟、费用与部署限制？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L022"
+      ],
+      "answerable": true,
+      "reference_answer": "回答应先说明候选模型和业务约束，再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据，并说明是否采用模型路由，例如简单任务用低成本模型、复杂任务升级更强模型，而不是只说某模型“效果最好”。例如，如果系统主要做中文题库评分，应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用，而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致，记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选，不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则，避免更换模型后输出格式、工具行为和评分口径悄悄变化。",
+      "group": "L022",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-047",
+      "question": "资料明明在长提示里却被忽略，为什么中间位置容易丢失信息？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L023"
+      ],
+      "answerable": true,
+      "reference_answer": "模型对上下文不同位置的利用不均，常更关注开头和结尾，中间证据可能因位置偏差、注意力稀释和训练分布不足被忽略。更大窗口只能表示“放得下”，不代表能稳定使用，还会增加预填充延迟和成本。可通过检索筛选、重排、分层摘要和把关键证据靠近问题缓解，并用不同位置的针测试和真实长文问答评测。可以把相同证据分别放在开头、中间和末尾，逐步增加无关文本，比较正确率和引用准确性；还要测试跨段关联，不能只用找一个关键词的针测试代替真实任务。改善手段包括检索筛选、分层摘要、相关证据重排与清晰分区，但不能把重复灌入大量信息当作通用解法。更大窗口有时能减少检索遗漏，也会增加处理与维护成本，选择应依据有效上下文表现而不是输入上限。",
+      "group": "L023",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-048",
+      "question": "从资料入库到带证据回答，检索增强系统的完整数据链路是什么？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R001"
+      ],
+      "answerable": true,
+      "reference_answer": "RAG是检索增强生成，把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引；在线阶段解析和改写查询，执行过滤、多路召回、融合、重排与上下文组装，再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如，员工询问报销标准时，系统先在其权限范围内找到当前有效的制度片段，再把来源、版本与内容传给模型，由模型组织答复。Embedding 负责语义召回，重排负责筛掉看似相关的噪声，生成阶段负责解释证据，三者职责不同。检索没有可靠依据时应澄清或拒答，而不是继续编造。每次运行保留查询、候选、引用和耗时，才能定位失败发生在入库、召回还是生成阶段。",
+      "group": "R001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-049",
+      "question": "模型不知道企业最新资料，用检索增强能解决哪些限制？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R002"
+      ],
+      "answerable": true,
+      "reference_answer": "RAG主要解决模型知识过时、无法访问私有数据、事实依据不可追溯和重新训练成本高的问题。它让知识与模型参数解耦，文档变化后可以重新索引。但RAG不能自动修复错误数据，也不能替代模型本身缺乏的推理能力；召回不到或上下文质量差时，生成仍会失败。例如，新发布的内部制度不在模型训练数据中，但文档入库后就能被检索使用，不必等待模型重新训练。把知识放在外部还便于控制文档权限、版本和来源，提高结果的可核查性。需要强调的是，RAG 只能提供可用信息，不能保证模型一定正确理解；过期文档、冲突证据和错误检索仍可能导致幻觉。实际目标是降低错误并让错误可定位，而不是承诺彻底消除幻觉。",
+      "group": "R002",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-050",
+      "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R003"
+      ],
+      "answerable": true,
+      "reference_answer": "RAG适合注入经常变化或私有的事实知识，更新快、可引用，但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力，推理时无需额外检索，但训练和更新成本高，事实难以精确修改。两者可组合：微调行为稳定性，RAG提供动态知识。例如，客服经常需要遵循固定语气与输出格式，可以先用提示和示例，必要时微调；产品价格与售后政策每天变化，则更适合外部知识库。微调也能学习事实，但事实的覆盖、版本和引用较难管理；RAG 也能改善任务表现，但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务，再比较标注数据、训练维护成本、检索延迟和最终业务指标。",
+      "group": "R003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-051",
+      "question": "长文档怎么拆成可检索片段，片段长度与重叠如何权衡？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R004"
+      ],
+      "answerable": true,
+      "reference_answer": "通常保存原文、元数据、父块、检索子块、Embedding和关键词索引。切块优先尊重标题、段落、表格和代码边界，再按Token预算控制长度；过小会丢上下文，过大则召回不精准且占用窗口。可采用重叠、语义切块、父子检索和按文档类型配置策略，最终粒度应通过Recall@K与答案质量实验确定。常见策略包括固定长度、递归分隔、标题结构和语义边界切块。重叠用来保留边界信息，父子结构让小块精准召回后返回更完整的章节；表格可补充表头，代码应尽量保留完整函数与说明。块大小没有统一最优值，要与文档结构、Embedding 输入长度和问题类型一起评估。不要把多个不同主题硬拼成一个块，也要避免仅命中标题却没有正文依据。",
+      "group": "R004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-052",
+      "question": "检索到了答案的一半，另一半在相邻片段，怎样保留完整语义？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R005"
+      ],
+      "answerable": true,
+      "reference_answer": "一方面在切块阶段按句子、段落和标题等自然边界切分，并使用适量重叠；另一方面在检索后补回上下文，例如命中句子后返回周围窗口，或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval：在Embedding前为每个Chunk生成与全文相关的背景说明，再与正文共同索引，减轻孤立Chunk缺少上下文的问题。例如，一个段落先说明条件、后说明例外，按固定字符数切开可能只召回例外，导致错误结论。可以保存标题路径、块位置与父文档 ID，在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查，避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度，因此应去重并控制返回预算，用跨段问题检验收益。",
+      "group": "R004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-053",
+      "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R006"
+      ],
+      "answerable": true,
+      "reference_answer": "Embedding把文本映射为稠密向量，使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单，应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG，并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例，避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量，不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确，不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引，并比较召回率、尾部延迟、费用和内存，而不是只看单次相似度。",
+      "group": "R006",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-054",
+      "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R007"
+      ],
+      "answerable": true,
+      "reference_answer": "Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量，同一词的表示不随语境变化；BERT 类模型提供上下文相关的 Token 表示，但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练，使查询和文档可以独立编码后比较，适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索，如 SPLADE；多向量模型则保存多个 Token 表示，以更细的交互提高匹配能力，但存储与计算开销较大。双编码器适合第一阶段召回，Cross-Encoder 联合读取查询和文档，更适合小候选集重排。模型架构和检索方式是两件事，BERT 并不必然要求查询与每个文档一起编码，关键在于是否训练成适合独立编码的检索表示。",
+      "group": "R007",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-055",
+      "question": "为向量索引选择存储引擎，需要比较哪些功能和工程约束？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R008"
+      ],
+      "answerable": true,
+      "reference_answer": "向量数据库存储向量及元数据，并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引，不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展：前者通常还提供元数据、持久化与服务治理，后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试，比较召回率与 P95，不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟，IVF 等方案则有训练、探测和压缩参数需要调整，实际效果要结合数据分布验证。",
+      "group": "R008",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-056",
+      "question": "向量库的规模和响应速度应该怎样测量，瓶颈通常怎么排查？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R009"
+      ],
+      "answerable": true,
+      "reference_answer": "应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销；可通过索引调参、分区分片、压缩、批量写入和缓存优化，但必须同步观察召回损失。如果讲本项目，应如实说明子块向量存入本地 Chroma，由 cosine HNSW 索引召回，再与应用层中文 BM25 排序融合并返回完整父块；目前没有部署分布式集群，也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈，再选择批量读取、缓存或引入专门索引；优化前后要在同一数据与负载上对照，否则性能数字缺乏意义。",
+      "group": "R009",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-057",
+      "question": "用户提交问题后，系统如何依次检索资料并构造生成提示？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R010"
+      ],
+      "answerable": true,
+      "reference_answer": "系统先结合会话解析查询，必要时做指代消解、改写、拆分和元数据过滤；随后生成查询向量并与关键词检索并行召回，融合去重后重排候选，组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用，之后可做引用核验与置信度判断，整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题，例如将“它支持什么索引”中的指代补全，但保留用户的限制和原始意图。检索返回后，应按权限、来源和版本去重，给片段附上稳定编号，并避免截断关键条件。流式输出改善等待体验，却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段；没有找到资料时，系统应明确说明缺少什么依据。",
+      "group": "R010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-058",
+      "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R011"
+      ],
+      "answerable": true,
+      "reference_answer": "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+      "group": "R011",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-059",
+      "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R012"
+      ],
+      "answerable": true,
+      "reference_answer": "Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询，从而提高召回。可以用规则、LLM、多查询扩展或HyDE，但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较，并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词，复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面，HyDE 生成假设文档用于语义检索，但假设内容不能作为回答证据。原始查询应保留在召回路径中，避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后，才值得默认启用复杂改写。",
+      "group": "R012",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-060",
+      "question": "同时走关键词与向量召回后，如何融合排名并去重？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R013"
+      ],
+      "answerable": true,
+      "reference_answer": "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。",
+      "group": "R011",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-061",
+      "question": "召回效果不好时，应该从查询、切块、混合召回还是重排开始检查？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R014"
+      ],
+      "answerable": true,
+      "reference_answer": "可从四层优化：数据层清洗去重、补元数据；索引层结构化/语义切块和父子索引；查询层改写、拆分与过滤；检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开：没有合适知识先修数据，相关内容被切散先修 Chunking，查询表达与文档不同再做改写，精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后，可以扩大候选池或加重排；正确证据已经进入上下文却回答错误，则检查组织方式与生成约束。每次修改只控制少量变量，用检索和答案两层指标验证，避免叠加很多技术后无法归因。",
+      "group": "R014",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-062",
+      "question": "Self-RAG、Corrective RAG和Agentic RAG控制流程有何差别？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R015"
+      ],
+      "answerable": true,
+      "reference_answer": "常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益，不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号；Corrective RAG 根据检索质量决定修正路径；Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本，也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用，以及对什么失败样本产生了收益。",
+      "group": "R015",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-063",
+      "question": "问题要沿实体依赖关系查多跳路径，图检索比纯向量有什么优势？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R016"
+      ],
+      "answerable": true,
+      "reference_answer": "当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时，图数据库更有优势，例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档，再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答，构图、实体消歧和持续更新成本可能大于收益。例如，查询某服务故障可能影响哪些下游系统，答案需要沿依赖关系收集节点，而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源，再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题，引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本，应在多跳任务上证明收益，并保留关系的证据来源。",
+      "group": "R016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-064",
+      "question": "检索到了材料，模型仍然编造结论，如何约束证据和拒答？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R017"
+      ],
+      "answerable": true,
+      "reference_answer": "先提升数据质量和召回准确性，避免把冲突或无关材料交给模型；提示中要求只依据证据回答、逐项引用，并在证据不足时拒答。生成后检查关键陈述是否被片段支持，可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层，检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率，拒答阈值应在标注集上调节，并平衡误答与过度拒答。遇到冲突或信息不足时说明限制，不能把格式正确、带引用或低温度误认为事实一定正确。",
+      "group": "R017",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-065",
+      "question": "如何分别衡量检索命中、排序和最终回答质量？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R018"
+      ],
+      "answerable": true,
+      "reference_answer": "先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG；生成层评估正确性、相关性、完整性、忠实度和引用准确率；系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG，分别关注覆盖、是否命中及排名质量；生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景，避免只验证常见问题。模型裁判需要人工校准，线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本，并定位是召回失败还是生成失败。",
+      "group": "A019",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-066",
+      "question": "资料修改或删除后，怎样让关键词与向量索引持续保持最新？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R019"
+      ],
+      "answerable": true,
+      "reference_answer": "为来源建立稳定ID、版本和内容哈希，通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding，并以新版本原子替换旧索引；删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换，以支持回滚。更新流程应覆盖新增、修改与删除：检测变更后做解析和内容校验，只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证，再原子切换可见版本，避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步，缓存要失效，删除要清理残留表示。模型或切块规则变化需要索引版本管理，不能把不同向量空间的数据混用。",
+      "group": "R019",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-067",
+      "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R020"
+      ],
+      "answerable": true,
+      "reference_answer": "最难的通常不是调用向量库，而是建立持续的数据与评测闭环：异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开，例如表格解析丢失表头，导致条款召回成功却回答口径错误。先建立可追溯评测集，再根据检索日志和引用定位问题，逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强，要说明自己如何发现原因、选择措施以及用什么证据验证改进。",
+      "group": "R020",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-068",
+      "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R021"
+      ],
+      "answerable": true,
+      "reference_answer": "不能只按相似度决定，应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料，同时保留冲突证据；生成时说明差异及适用条件，无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如，同一产品在不同地区或生效日期下可能有不同政策，不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态，检索时先限制适用范围，再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用，必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试，向量相似度只代表相关性，不代表真实性。",
+      "group": "R019",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-069",
+      "question": "模型给出函数名与参数之后，谁真正执行函数并回填结果？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T001"
+      ],
+      "answerable": true,
+      "reference_answer": "Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数，宿主程序负责校验、鉴权、真实执行，再把结果返回模型生成最终回答。它不是模型直接执行函数，也不能替代超时、重试、幂等和安全控制。例如，用户要查询订单物流，开发者提供查询工具的名称、描述与参数约束，模型输出工具名和订单号，服务端校验身份并查询，最后把物流结果作为工具消息回传。模型可能直接回答，也可能连续调用多个工具，所以不一定固定两次模型请求。工具结果要关联到对应调用，JSON 格式正确也不代表订单号、权限或业务条件正确；执行前仍需确定性检查，不能直接运行模型生成的任意代码。",
+      "group": "T001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-070",
+      "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T002"
+      ],
+      "answerable": true,
+      "reference_answer": "模型通过预训练获得语言与代码模式，再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入，模型预测工具名和参数Token；宿主解析执行。提示和约束解码可提高格式稳定性，但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法，还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号，缺失时应询问用户，而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复，但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具，却不会凭空授予网络权限；最终动作仍由应用执行和记录。",
+      "group": "T002",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-071",
+      "question": "训练一个可靠工具调用模型，需要哪些数据与执行反馈？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T003"
+      ],
+      "answerable": true,
+      "reference_answer": "数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策，再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果，避免模型只会理想路径；评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例，以及参数缺失、过期结果、权限拒绝等情况，防止模型只记住名称。奖励不能只检查调用格式，执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开，分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率，避免数据泄漏掩盖问题。",
+      "group": "T003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-072",
+      "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T004"
+      ],
+      "answerable": true,
+      "reference_answer": "MCP是连接AI宿主与外部能力的标准协议，统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题，使MCP Server可以被多个Host复用。MCP不替模型决定业务策略，也不会自动解决权限、可信度和工具副作用，这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts：工具提供可调用操作，资源提供上下文数据，提示模板提供可复用消息构造。工具既可能只读，也可能产生副作用，不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息，模型并不直接解析网络协议。标准化降低重复集成成本，但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。",
+      "group": "T004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-073",
+      "question": "MCP里的Host、Client、Server分别承担什么职责？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T005"
+      ],
+      "answerable": true,
+      "reference_answer": "典型结构包括Host、Client和Server。Host承载用户体验与模型，Client在Host内维护到某个Server的协议会话，Server暴露Tools、Resources和Prompts等能力；底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如，一个桌面 AI 应用是 Host，内部为文件服务与数据库服务各建立 Client 连接，两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力，之后发现工具、发送请求并关联响应，结束时释放连接。Host 决定哪些能力对模型可见，Server 仍应独立检查访问权限。三种角色描述的是职责，不要求部署成三个独立进程，也不是模型、浏览器和数据库的固定对应关系。",
+      "group": "T004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-074",
+      "question": "模型选择函数与MCP提供工具连接，为什么不是同一层的机制？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T006"
+      ],
+      "answerable": true,
+      "reference_answer": "Function Calling是模型表达“调用哪个工具及参数”的交互能力；MCP是宿主连接外部工具和资源的标准协议，二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema，再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是：Client 从 Server 发现工具，Host 将描述转换成模型工具定义，模型生成调用意图，Host 校验后通过 Client 发请求，Server 执行并返回结果，Host 再向模型反馈。Function Calling 可以调用普通本地函数，MCP 也可被确定性的应用直接调用，所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分，不能把配置成功误认为权限与异常处理已经完善。",
+      "group": "T006",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-075",
+      "question": "仅接一个内部函数与接多个外部服务，何时采用MCP更合适？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T007"
+      ],
+      "answerable": true,
+      "reference_answer": "如果工具少、只在单个应用内部使用，直接Function Calling加本地函数注册最简单；当工具需要跨应用复用、独立部署、动态发现或由第三方维护时，MCP可减少适配成本。两者并非互斥：MCP提供标准工具接入，模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如，应用内部只有一个查天气函数，直接注册通常足够；多个产品都需要共享同一订单服务，可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP，还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界，而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。",
+      "group": "T007",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-076",
+      "question": "推理模型没有原生工具格式就无法接MCP吗，适配层应该放在哪里？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T008"
+      ],
+      "answerable": true,
+      "reference_answer": "这道题需要先澄清前提：MCP 是 Host/Client 与 Server 之间的应用协议，不是直接写进模型权重的能力。所谓不支持，可能是宿主没有 MCP Client、模型接口暂未开放工具调用，或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突，能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认：模型 API 是否支持工具定义与工具结果消息，适配层是否正确维护调用 ID 和多轮上下文，Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成，但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口，也可以用结构化输出加受控解析适配，只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试，而不是笼统归因于思维链无法中断。",
+      "group": "T008",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-077",
+      "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T009"
+      ],
+      "answerable": true,
+      "reference_answer": "Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制，通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明，并在任务中使用其中的脚本和材料。它不是单纯保存Prompt，而是“操作手册+工具箱”；触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式：先用名称和描述判断是否相关，命中后读取完整步骤，再按需访问脚本、参考资料和模板，避免把全部资源永久放进上下文。例如，生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法，不会自动赋予工具权限；脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出，避免对所有任务都触发。",
+      "group": "T009",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-078",
+      "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T010"
+      ],
+      "answerable": true,
+      "reference_answer": "MCP主要标准化外部能力如何被发现和调用，相当于工具连接层；Skill封装完成任务所需的方法、顺序和经验，相当于操作手册。一个Skill可以调用多个MCP工具，一个MCP工具也能被多个Skill复用。前者关注协议与能力，后者关注任务策略与可复用流程。例如，数据库 MCP 服务暴露查询能力，而数据分析 Skill 指导 Agent 先确认指标口径，再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP，MCP 也可以被没有 Skill 的程序使用，因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性，Skill 的质量更多看步骤是否合理和结果能否验证；使用二者都不能绕过运行时授权。",
+      "group": "T010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-079",
+      "question": "函数调用格式、任务技能包和工具连接协议如何在一个系统里配合？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T011"
+      ],
+      "answerable": true,
+      "reference_answer": "Function Calling是模型输出结构化工具意图的机制；MCP是宿主连接、发现和调用外部能力的协议；Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言，MCP提供标准化能力接口，Skill提供如何完成任务的方法，但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例，Skill 给出核对时间范围、查询和总结的步骤；MCP 提供订单服务的工具描述与调用接口；Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求，得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图，但都不是完整 Agent 控制器，仍需要外层管理状态、停止条件、执行结果和错误恢复。",
+      "group": "T006",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-080",
+      "question": "助手之间交接任务与助手访问工具，A2A和MCP的边界是什么？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T012"
+      ],
+      "answerable": true,
+      "reference_answer": "A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付，交互对象是相对自主的Agent；MCP面向Host与工具/资源服务的连接，调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期，MCP处理工具调用和上下文接入，两者可以在同一多Agent系统中互补。例如，主 Agent 将一段研究任务交给外部研究 Agent，希望接收进度和最终报告，属于 Agent 协作；研究 Agent 自己调用搜索服务，可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段，结果以产物交付，调用方不必了解对方内部提示或工具。能力发现不等于可信授权，跨组织协作还需要身份、超时、取消和产物验证，不能仅凭对方自称完成就接受结果。",
+      "group": "T012",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-081",
+      "question": "MCP在本地进程与远程服务之间怎样传输消息？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T013"
+      ],
+      "answerable": true,
+      "reference_answer": "本地MCP Server常通过stdio由Client作为子进程启动，延迟低且无需开放端口；远程服务推荐使用Streamable HTTP，便于多Client共享和集中管理。早期HTTP+SSE双端点方案已不再是新项目的首选。无论使用哪种传输，消息层都采用JSON-RPC 2.0，传输方式只决定消息如何到达。stdio 使用标准输入输出传递协议消息，普通日志应写到 stderr，避免污染消息流。远程 Streamable HTTP 使用 HTTP 请求传递消息，并可通过 SSE 推送多个事件；并不是所有响应都必须保持一个长连接。2025-11-25 版规范列出这两种标准传输，旧 HTTP+SSE 应按兼容需求处理。客户端还要管理连接生命周期、会话和取消；重连不会自动保证外部操作只执行一次。",
+      "group": "T013",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-082",
+      "question": "服务器持续推送文本与双向交互，SSE和WebSocket有什么差异？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T014"
+      ],
+      "answerable": true,
+      "reference_answer": "SSE基于HTTP长连接，主要由服务端向客户端单向推送文本事件，浏览器支持自动重连，适合LLM Token流；WebSocket升级为全双工连接，可双向低延迟传输文本或二进制，适合实时协作。SSE不适合高频双向和二进制媒体，WebSocket则需要自己处理心跳、重连、代理兼容和水平扩展。例如，文本生成可以用一次 HTTP 请求发送问题，再用 SSE 接收增量内容；用户取消可以另发请求，不必为所有对话引入 WebSocket。WebSocket 更适合双方持续发送事件，但可靠重连和消息去重仍由应用实现。SSE 的浏览器连接限制与 HTTP 版本有关，不能把 HTTP/1.1 的常见限制当作所有部署都相同。无论哪种方式，代理缓冲、心跳和慢消费者都会影响实际延迟。",
+      "group": "T014",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-083",
+      "question": "实时语音助手为何考虑WebRTC，它与WebSocket的传输取舍是什么？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T015"
+      ],
+      "answerable": true,
+      "reference_answer": "WebRTC针对实时音视频设计，包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输；WebSocket只是可靠的双向字节通道，这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道，用WebSocket传控制事件也可以，选择取决于延迟、媒体质量和部署复杂度。例如，用户语音输入与模型语音输出同时进行，还要支持打断和网络抖动，媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP，丢包可能造成队头阻塞；WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP，也不是永远不重传，实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维，不应承诺固定毫秒数。",
+      "group": "T014",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-084",
+      "question": "统一模型网关怎样处理路由、限流和服务失败回退？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T016"
+      ],
+      "answerable": true,
+      "reference_answer": "LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测，还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态，否则会形成难维护的中心化逻辑。例如，一个团队同时接入多个模型供应商，网关统一记录费用、设置团队配额，并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现，回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围，不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容，需要明确部分输出与恢复策略。",
+      "group": "T016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-085",
+      "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T017"
+      ],
+      "answerable": true,
+      "reference_answer": "先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索得到小候选集，再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如，先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义；相似工具要有明确区分。权限过滤在执行时再次校验，路由正确不代表获得授权，评测还要覆盖容易混淆与无适用工具的请求。",
+      "group": "T017",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-086",
+      "question": "模型传错参数、工具执行超时，如何校验、重试并防止重复副作用？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T018"
+      ],
+      "answerable": true,
+      "reference_answer": "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。",
+      "group": "A018",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-087",
+      "question": "模型变成能执行任务的助手需要什么变化？另外说明它的模块组成。",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://A001",
+        "interview-question://A002"
+      ],
+      "reference_points": [
+        "大模型本质上是根据上下文生成输出的概率模型，本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统，它会感知当前状态，规划下一步，调用工具影响外部环境，读取执行结果并继续决策，直到完成目标或触发停止条件。两者的核心差异是：LLM 提供认知能力，Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如，一个资料调研 Agent 会先确定检索范围，调用搜索工具，检查是否获得足够证据，再组织结论；如果资料不足，就调整查询继续检索。控制循环通常由宿主代码驱动，模型输出的是行动建议，外部操作仍由程序执行。判断是否具备 Agent 特征，要看是否能依据观察更新决策，而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。",
+        "Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策；工具负责搜索、执行代码或调用API，使Agent能够作用于外部环境；记忆保存对话和任务状态；规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为：用户目标进入规划模块，规划结果与已有状态组成模型上下文，模型选择工具，执行器校验参数并运行，结果写回状态和记忆，模型再判断是否继续。记忆不能只保存聊天文本，还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器，它负责停止条件、异常处理和检查点，避免模型输出了计划却没有执行。"
+      ],
+      "group": "A001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-088",
+      "question": "ReAct执行循环怎么工作？再比较先规划后执行与反思。",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://A005",
+        "interview-question://A006"
+      ],
+      "reference_points": [
+        "常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程；CoT让模型先组织多步推理再给结论；ReAct进一步把推理与行动交替进行，形成Thought—Action—Observation循环：模型决定工具及参数，宿主执行后把观察结果送回模型，直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环：构建消息，调用模型，判断返回的是最终答案还是工具请求；若是工具请求，就检查工具名、参数和权限，执行后追加工具结果，再进入下一轮。工具报错应作为明确观察反馈，不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息，不是强制打印完整思维过程；日志可以保存动作、观察和简短决策依据，而不依赖模型内部推理文本。",
+        "ReAct 边思考边行动，适合信息逐步显现、需要频繁工具交互的任务，但调用轮次多；Plan-and-Execute 先生成整体计划再逐项执行，适合依赖关系清楚的长任务，但初始计划错误会向后传播；Reflection 在结果或阶段完成后检查缺陷并修正，适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价，复杂项目常把三者组合使用。例如，开放式故障调查适合根据日志逐步选择工具；生成研究报告可以先列出资料搜集、比较和写作步骤，再由执行器完成；报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据，而不是让同一个模型无限重写。计划遇到新信息也需要修订，并非提前规划后就禁止变化；三种机制都应有步数、费用和时间上限。"
+      ],
+      "group": "A005",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-089",
+      "question": "助手要保留记忆时怎样设计存储？历史太长时又怎样压缩？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://A008",
+        "interview-question://A012"
+      ],
+      "reference_points": [
+        "题解可将Agent记忆分为四层：感知记忆保存当前原始输入，短期记忆位于上下文窗口并服务当前任务，长期记忆存入外部数据库并通过语义检索召回，实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”，并根据类型选择主动注入或按需检索，同时处理去重、过期、权限和删除。这是一种便于解释的分类，并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作；长期记忆应保存跨会话有用且经过确认的信息；实体记忆适合记录对象属性与关系，避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度，检索时先按用户与权限过滤。不是所有工具日志都值得长期保存，也不能把模型猜测直接当成事实写入。",
+        "常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索，以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用，关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存，近期原话保持较高保真度，历史细节按需取回。摘要要保留证据指针，不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致，以及恢复任务时是否丢失重要操作回执。"
+      ],
+      "group": "A008",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-090",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "category": "cross_domain",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "reference_points": [
+        "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+        "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+      ],
+      "group": "A018",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-091",
+      "question": "如何评估助手任务完成情况？另外怎样拆开衡量检索与回答质量？",
+      "category": "cross_domain",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://A019",
+        "interview-question://R018"
+      ],
+      "reference_points": [
+        "指标应同时覆盖结果、过程与成本：任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布，并包含正常、歧义、工具失败、权限不足和对抗样本；为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法，覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮。工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件，并统计成本、接管率与长尾延迟。",
+        "先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG；生成层评估正确性、相关性、完整性、忠实度和引用准确率；系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG，分别关注覆盖、是否命中及排名质量；生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景，避免只验证常见问题。模型裁判需要人工校准，线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本，并定位是召回失败还是生成失败。"
+      ],
+      "group": "A019",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-092",
+      "question": "怎样通过轨迹定位助手的慢调用？另外KV缓存和提示缓存分别复用什么？",
+      "category": "cross_domain",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://A021",
+        "interview-question://L014"
+      ],
+      "reference_points": [
+        "为一次任务建立统一Trace ID，并为模型调用、检索、重排、工具、数据库、重试和排队创建Span，记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径，再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环，并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时，再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模，通过慢请求与正常请求对比找关键路径。若慢在工具排队，换模型不会解决；若步数膨胀，则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率，不能用牺牲回答质量换来的速度作为唯一成果。",
+        "自回归生成时，KV Cache保存已有Token各层的Key/Value，后续每步只计算新Token，降低重复计算但消耗显存。Prompt Caching复用相同或相同前缀Prompt的预填充结果，可跨请求减少首Token延迟和输入计算。前者主要服务单次生成过程，后者强调重复前缀复用，都要处理缓存键、失效和内存成本。prefill 先处理输入并生成各层 K/V，decode 为每个新 Token 计算新表示，并读取已有缓存，避免重算历史 K/V。缓存随序列长度、层数和 K/V 头数增长，也会限制高并发。跨请求复用通常要求前缀与模型配置兼容，生成式同义改写并不能保证命中；缓存复用也不同于直接返回过去的答案。应比较命中率、TTFT 和显存占用，权限隔离、失效与生命周期由具体服务实现。"
+      ],
+      "group": "A021",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-093",
+      "question": "频繁更新的知识应该检索还是微调？另外LoRA有哪些工程收益？",
+      "category": "cross_domain",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://R003",
+        "interview-question://L009"
+      ],
+      "reference_points": [
+        "RAG适合注入经常变化或私有的事实知识，更新快、可引用，但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力，推理时无需额外检索，但训练和更新成本高，事实难以精确修改。两者可组合：微调行为稳定性，RAG提供动态知识。例如，客服经常需要遵循固定语气与输出格式，可以先用提示和示例，必要时微调；产品价格与售后政策每天变化，则更适合外部知识库。微调也能学习事实，但事实的覆盖、版本和引用较难管理；RAG 也能改善任务表现，但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务，再比较标注数据、训练维护成本、检索延迟和最终业务指标。",
+        "LoRA冻结原权重，用两个低秩矩阵近似权重更新，并把更新注入注意力或其他线性层。除减少训练参数和显存外，它便于为多个任务保存小型适配器、快速切换或组合，也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W，训练的增量可以写成 ΔW=BA，秩 r 远小于原维度，再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算，并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支，未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围，但不能保证没有遗忘或副作用；秩、目标层、数据与评测比单纯追求最低参数量更重要。"
+      ],
+      "group": "R003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-094",
+      "question": "资料切块时如何选长度与重叠？答案跨片段时如何保留完整上下文？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://R004",
+        "interview-question://R005"
+      ],
+      "reference_points": [
+        "通常保存原文、元数据、父块、检索子块、Embedding和关键词索引。切块优先尊重标题、段落、表格和代码边界，再按Token预算控制长度；过小会丢上下文，过大则召回不精准且占用窗口。可采用重叠、语义切块、父子检索和按文档类型配置策略，最终粒度应通过Recall@K与答案质量实验确定。常见策略包括固定长度、递归分隔、标题结构和语义边界切块。重叠用来保留边界信息，父子结构让小块精准召回后返回更完整的章节；表格可补充表头，代码应尽量保留完整函数与说明。块大小没有统一最优值，要与文档结构、Embedding 输入长度和问题类型一起评估。不要把多个不同主题硬拼成一个块，也要避免仅命中标题却没有正文依据。",
+        "一方面在切块阶段按句子、段落和标题等自然边界切分，并使用适量重叠；另一方面在检索后补回上下文，例如命中句子后返回周围窗口，或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval：在Embedding前为每个Chunk生成与全文相关的背景说明，再与正文共同索引，减轻孤立Chunk缺少上下文的问题。例如，一个段落先说明条件、后说明例外，按固定字符数切开可能只召回例外，导致错误结论。可以保存标题路径、块位置与父文档 ID，在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查，避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度，因此应去重并控制返回预算，用跨段问题检验收益。"
+      ],
+      "group": "R004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-095",
+      "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://R011",
+        "interview-question://R013"
+      ],
+      "reference_points": [
+        "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+        "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。"
+      ],
+      "group": "R011",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-096",
+      "question": "模型幻觉有哪些成因？有检索资料时怎样约束回答与拒答？",
+      "category": "cross_domain",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://R017",
+        "interview-question://L018"
+      ],
+      "reference_points": [
+        "先提升数据质量和召回准确性，避免把冲突或无关材料交给模型；提示中要求只依据证据回答、逐项引用，并在证据不足时拒答。生成后检查关键陈述是否被片段支持，可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层，检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率，拒答阈值应在标注集上调节，并平衡误答与过度拒答。遇到冲突或信息不足时说明限制，不能把格式正确、带引用或低温度误认为事实一定正确。",
+        "模型目标是生成高概率文本而非验证事实，训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如，要求引用一篇不存在的论文时，模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零，概率最高的输出也可能不符合事实，所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果，分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性，统计误答与拒答，不能只观察答复是否自信、完整。"
+      ],
+      "group": "R017",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-097",
+      "question": "MCP解决什么连接问题？Host、Client和Server职责是什么？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://T004",
+        "interview-question://T005"
+      ],
+      "reference_points": [
+        "MCP是连接AI宿主与外部能力的标准协议，统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题，使MCP Server可以被多个Host复用。MCP不替模型决定业务策略，也不会自动解决权限、可信度和工具副作用，这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts：工具提供可调用操作，资源提供上下文数据，提示模板提供可复用消息构造。工具既可能只读，也可能产生副作用，不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息，模型并不直接解析网络协议。标准化降低重复集成成本，但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。",
+        "典型结构包括Host、Client和Server。Host承载用户体验与模型，Client在Host内维护到某个Server的协议会话，Server暴露Tools、Resources和Prompts等能力；底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如，一个桌面 AI 应用是 Host，内部为文件服务与数据库服务各建立 Client 连接，两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力，之后发现工具、发送请求并关联响应，结束时释放连接。Host 决定哪些能力对模型可见，Server 仍应独立检查访问权限。三种角色描述的是职责，不要求部署成三个独立进程，也不是模型、浏览器和数据库的固定对应关系。"
+      ],
+      "group": "T004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-098",
+      "question": "MCP与函数调用有什么边界？再说明技能包怎样与它们配合。",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://T006",
+        "interview-question://T011"
+      ],
+      "reference_points": [
+        "Function Calling是模型表达“调用哪个工具及参数”的交互能力；MCP是宿主连接外部工具和资源的标准协议，二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema，再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是：Client 从 Server 发现工具，Host 将描述转换成模型工具定义，模型生成调用意图，Host 校验后通过 Client 发请求，Server 执行并返回结果，Host 再向模型反馈。Function Calling 可以调用普通本地函数，MCP 也可被确定性的应用直接调用，所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分，不能把配置成功误认为权限与异常处理已经完善。",
+        "Function Calling是模型输出结构化工具意图的机制；MCP是宿主连接、发现和调用外部能力的协议；Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言，MCP提供标准化能力接口，Skill提供如何完成任务的方法，但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例，Skill 给出核对时间范围、查询和总结的步骤；MCP 提供订单服务的工具描述与调用接口；Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求，得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图，但都不是完整 Agent 控制器，仍需要外层管理状态、停止条件、执行结果和错误恢复。"
+      ],
+      "group": "T006",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-099",
+      "question": "SSE与WebSocket适合什么通信？实时语音为什么还会考虑WebRTC？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://T014",
+        "interview-question://T015"
+      ],
+      "reference_points": [
+        "SSE基于HTTP长连接，主要由服务端向客户端单向推送文本事件，浏览器支持自动重连，适合LLM Token流；WebSocket升级为全双工连接，可双向低延迟传输文本或二进制，适合实时协作。SSE不适合高频双向和二进制媒体，WebSocket则需要自己处理心跳、重连、代理兼容和水平扩展。例如，文本生成可以用一次 HTTP 请求发送问题，再用 SSE 接收增量内容；用户取消可以另发请求，不必为所有对话引入 WebSocket。WebSocket 更适合双方持续发送事件，但可靠重连和消息去重仍由应用实现。SSE 的浏览器连接限制与 HTTP 版本有关，不能把 HTTP/1.1 的常见限制当作所有部署都相同。无论哪种方式，代理缓冲、心跳和慢消费者都会影响实际延迟。",
+        "WebRTC针对实时音视频设计，包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输；WebSocket只是可靠的双向字节通道，这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道，用WebSocket传控制事件也可以，选择取决于延迟、媒体质量和部署复杂度。例如，用户语音输入与模型语音输出同时进行，还要支持打断和网络抖动，媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP，丢包可能造成队头阻塞；WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP，也不是永远不重传，实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维，不应承诺固定毫秒数。"
+      ],
+      "group": "T014",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-100",
+      "question": "模型网关提供哪些治理能力？助手连接数据库又如何限制权限？",
+      "category": "cross_domain",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://T016",
+        "interview-question://A024"
+      ],
+      "reference_points": [
+        "LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测，还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态，否则会形成难维护的中心化逻辑。例如，一个团队同时接入多个模型供应商，网关统一记录费用、设置团队配额，并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现，回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围，不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容，需要明确部分输出与恢复策略。",
+        "不要把数据库高权限凭据直接交给模型，应通过受控数据访问层暴露允许的表、字段和查询模板，默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截，再在限时限量的隔离账号中执行；结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID，查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态，不由模型从用户文字中自行决定。能提供查订单等固定业务接口时，就不暴露任意 SQL；必须生成 SQL 时要解析语法树，限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入，不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏，写操作使用独立权限、事务和审计，并校验指标口径及时间范围，兼顾查询安全和答案正确性。"
+      ],
+      "group": "T016",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-101",
+      "question": "注意力计算的显存如何优化？位置编码又解决什么不同问题？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://L003",
+        "interview-question://L004"
+      ],
+      "reference_points": [
+        "MHA 中每个查询头有独立的 K/V 头，长序列下 KV Cache 与显存带宽开销较大；稠密注意力还需要比较序列中的大量位置，计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V，GQA 则把查询头分组，每组共享 K/V，以减少缓存和访存，在速度、显存与表达能力间折中。FlashAttention 从实现层优化：通过分块与在线 Softmax，避免把完整注意力矩阵反复写入显存，从而降低 IO 与中间存储，仍计算精确注意力。它通常不将理论二次计算复杂度改成线性，也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用；实际收益需要在目标模型、序列长度、并发和硬件上测试，而不是只比较算法名称。",
+        "自注意力本身对顺序不敏感，因此需要位置编码。sin/cos把绝对位置向量加入表示，可一定程度外推；RoPE通过旋转Q/K把相对位置信息编码进注意力内积，是当前常用方案；ALiBi直接给注意力分数加入与距离相关的线性偏置，简单且具备长度外推特性。三者在实现、相对位置表达和长上下文表现上不同。如果没有位置信息，注意力难以区分同一组词的不同顺序。sin/cos 使用固定频率的位置向量，RoPE 对 Q/K 做与位置有关的旋转，使点积体现相对位置关系，ALiBi 则在注意力分数中加入与距离相关的偏置。它们影响长度泛化，但支持更长窗口还与训练长度、缩放方案和任务有关。不能仅因使用 RoPE 就保证超出训练长度后仍准确，应该测不同位置和跨段依赖任务。"
+      ],
+      "group": "L003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-102",
+      "question": "指令微调后的偏好优化有哪些路线？DPO与PPO主要差别是什么？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://L010",
+        "interview-question://L011"
+      ],
+      "reference_points": [
+        "SFT后可用拒绝采样从多个候选中选优再训练；RLHF通常训练奖励模型并用PPO优化策略；DPO直接利用偏好对，省去显式奖励模型和在线强化学习；GRPO使用组内相对奖励估计优势，减少价值模型依赖。它们都利用偏好或奖励改善行为，但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化，不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习；DPO 用偏好对直接优化；PPO 和 GRPO 则属于强化优化方式，奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势，避免单独训练价值模型，但仍有采样与奖励成本。方法可以组合，关键是训练信号可靠以及收益能通过独立测试确认。",
+        "PPO式RLHF先训练奖励模型，再在线采样并通过策略梯度优化，同时用KL约束防止偏离参考模型，流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标，直接提高chosen相对rejected的概率，不需显式奖励模型，训练更稳定简单，但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型，训练流程较简单，但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案，还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价，选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。"
+      ],
+      "group": "L010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-103",
+      "question": "生成时如何选解码策略？温度和截断采样参数如何影响随机性？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://L012",
+        "interview-question://L013"
+      ],
+      "reference_points": [
+        "贪心每步选择最高概率Token，速度快且稳定但容易局部最优；Beam Search保留多条高概率序列，适合翻译等更重整体概率的任务，但成本高且开放生成可能僵硬；采样按概率随机选择，可配合Temperature、Top-K和Top-P增加多样性，适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择，Beam Search 保留有限数量的序列候选，也不保证找到真正的全局最优；它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token，用随机性换取多样性。结构化输出需要格式约束与校验，低随机性不能替代这些机制。即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性。",
+        "Temperature缩放Logits，越低分布越尖锐；Top-K只在概率最高的K个Token中采样；Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度，创作可提高温度并使用Top-P；不存在通用最佳值，应基于任务集评估，而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布，Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合。它们只改变采样行为，不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数，再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同，因此不存在跨模型通用的最佳数值，温度为零也不等于结果一定可复现。"
+      ],
+      "group": "L012",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-104",
+      "question": "部署模型时如何选择量化方案？CPU和GPU服务框架如何取舍？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://L015",
+        "interview-question://L020"
+      ],
+      "reference_points": [
+        "量化用低比特表示权重或激活，以降低显存、带宽和计算成本，代价是精度风险。INT8通常损失小，INT4压缩更强；GPTQ利用校准数据做逐层训练后权重量化，通用性强；AWQ保护对输出敏感的重要权重，常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化，以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化，AWQ 利用激活信息调整重要通道的缩放，减少关键权重的误差；不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快，需要核对算子支持，并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。",
+        "vLLM适合GPU高吞吐服务，强调PagedAttention和连续批处理；TGI提供较完整的Hugging Face生产服务生态；llama.cpp适合CPU、边缘和量化本地部署；SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本，并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持，再用相同输入输出长度、并发与精度设置测试，避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列，重复前缀场景需要看缓存命中，本地部署则更关心内存与量化兼容。框架特性和维护状态会变化，不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力，而不是只说某框架最快。"
+      ],
+      "group": "L015",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-105",
+      "question": "更新资料后如何同步检索索引？两份资料冲突时如何处理来源？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://R019",
+        "interview-question://R021"
+      ],
+      "reference_points": [
+        "为来源建立稳定ID、版本和内容哈希，通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding，并以新版本原子替换旧索引；删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换，以支持回滚。更新流程应覆盖新增、修改与删除：检测变更后做解析和内容校验，只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证，再原子切换可见版本，避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步，缓存要失效，删除要清理残留表示。模型或切块规则变化需要索引版本管理，不能把不同向量空间的数据混用。",
+        "不能只按相似度决定，应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料，同时保留冲突证据；生成时说明差异及适用条件，无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如，同一产品在不同地区或生效日期下可能有不同政策，不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态，检索时先限制适用范围，再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用，必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试，向量相似度只代表相关性，不代表真实性。"
+      ],
+      "group": "R019",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-106",
+      "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://A020",
+        "interview-question://A023"
+      ],
+      "reference_points": [
+        "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+        "任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed，要求每个完成声明关联工具调用ID和结果证据；关键操作完成后再次读取外部状态确认，失败时明确报告而不是补写成功叙述。例如，模型生成了发送通知的计划，不能据此声称通知已发送；接口只返回已受理，也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知，完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率，而不是只给流畅的最终回复打高分。"
+      ],
+      "group": "A020",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-107",
+      "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-107",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-108",
+      "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-108",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-109",
+      "question": "请提供不存在于题库的ZetaEmbed-2027的官方中文评测分数。",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-109",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-110",
+      "question": "这套平台维护者上周在私有服务器上部署了多少个GPU节点？",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-110",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-111",
+      "question": "请按知识库提供Orion-RAG内部采购合同的向量数据库成交价格。",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-111",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-112",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-112",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-113",
+      "question": "请查询内部未发布的LambdaAgent团队下个月的招聘岗位名额。",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-113",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-114",
+      "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-114",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-115",
+      "question": "资料中有用户ID PRIVATE-8842最近一次模拟面试的个人得分吗？",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-115",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-116",
+      "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-116",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-117",
+      "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-117",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-118",
+      "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-118",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    },
+    {
+      "id": "V2-119",
+      "question": "内部评审未公开的AtlasMemo记忆压缩实验到底节约了多少token？",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-119",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    },
+    {
+      "id": "V2-120",
+      "question": "请给出未入库文档SecretCost-042中的本月API费用账单。",
+      "category": "unanswerable",
+      "domains": [],
+      "expected_sources": [],
+      "answerable": false,
+      "group": "V2-120",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

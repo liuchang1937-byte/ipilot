@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-014",
+  "subquestions": [
+    {
+      "question": "如何让模型产出可执行计划？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "模型在执行计划过程中如何调整步骤？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.554439600000478
+}

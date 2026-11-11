@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-054",
+  "subquestions": [
+    {
+      "question": "除了神经网络向量，文本表示还使用过哪些算法？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "除了神经网络向量，文本相似匹配还使用过哪些算法？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.476565400000254
+}

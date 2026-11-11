@@ -1,0 +1,147 @@
+{
+  "case_id": "V2-061",
+  "question": "召回效果不好时，应该从查询、切块、混合召回还是重排开始检查？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R014",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://R014"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "可从四层优化：数据层清洗去重、补元数据；索引层结构化/语义切块和父子索引；查询层改写、拆分与过滤；检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开：没有合适知识先修数据，相关内容被切散先修 Chunking，查询表达与文档不同再做改写，精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后，可以扩大候选池或加重排；正确证据已经进入上下文却回答错误，则检查组织方式与生成约束。每次修改只控制少量变量，用检索和答案两层指标验证，避免叠加很多技术后无法归因。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R014",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "召回效果不好时，应该从查询、切块、混合召回还是重排开始检查？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "当召回效果不好时，在查询、切块、混合召回和重排四个环节中，应该优先从哪个环节开始检查，以及这四个环节的检查顺序或排序依据是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当召回效果不好时,在查询、切块、混合召回和重排四个环节中,应该优先从哪个环节开始检查,以及这四个环节的检查顺序或排序依据是什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R014",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3525225094256298830,
+        "title": "RAG 检索优化策略有哪些?",
+        "source": "interview-question://R014",
+        "domain": "rag",
+        "content": "# RAG 检索优化策略有哪些?\n\n题目编号:R014\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:可从四层优化:数据层清洗去重、补元数据;索引层结构化/语义切块和父子索引;查询层改写、拆分与过滤;检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开:没有合适知识先修数据,相关内容被切散先修 Chunking,查询表达与文档不同再做改写,精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后,可以扩大候选池或加重排;正确证据已经进入上下文却回答错误,则检查组织方式与生成约束。每次修改只控制少量变量,用检索和答案两层指标验证,避免叠加很多技术后无法归因。\n\n评分要点:分层说明并包含评测闭环。",
+        "vector_score": 0.8295172154903412,
+        "keyword_score": 0.9643613225178774,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3316265630962033877,
+        "title": "3.3 知识库摄取与检索流程",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+        "vector_score": 0.8517276048660278,
+        "keyword_score": 0.8128014525473499,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3911908167396159604,
+        "title": "推荐测试方式",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 推荐测试方式\n\n● 切块:分别尝试 200、500、800 中文字符,重叠比例 10% 至 20%。\n● 检索:对比纯向量、BM25 与混合检索;记录 Recall@5、MRR 和 nDCG@10。\n● 重排:先召回 20 个候选块,再由 reranker 选前 5 个;观察同义词与否定句。\n● 问答:要求答案附事实编号或章节名;缺少依据时应明确拒答。\n章节 内容 主要测试点\n1 项目概览与组织 实体、日期、地点、数值\n2 术语与同义词 embedding、缩写、歧义\n3 端到端流程 顺序、条件、跨块关联\n4 数据与权限 表格检索、过滤、否定事实\n5 案例研究 多跳问答、计算、归因\n6 故障与处置 相似症状、精确区分\n7 FAQ 自然语言问答、改写\n附录 事实清单与测试题 基准答案、召回评估",
+        "vector_score": 0.8186771273612976,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 6.102,
+  "timings_seconds": {
+    "decomposition": 5.859581,
+    "retrieval": 0.242243,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.136078,
+    "vector_search": 0.031802,
+    "keyword_search": 0.073265,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.242436,
+    "total": 6.102017,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

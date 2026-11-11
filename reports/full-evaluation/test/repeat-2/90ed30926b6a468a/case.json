@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-057",
+      "question": "用户提交问题后，系统如何依次检索资料并构造生成提示？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R010"
+      ],
+      "answerable": true,
+      "reference_answer": "系统先结合会话解析查询，必要时做指代消解、改写、拆分和元数据过滤；随后生成查询向量并与关键词检索并行召回，融合去重后重排候选，组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用，之后可做引用核验与置信度判断，整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题，例如将“它支持什么索引”中的指代补全，但保留用户的限制和原始意图。检索返回后，应按权限、来源和版本去重，给片段附上稳定编号，并避免截断关键条件。流式输出改善等待体验，却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段；没有找到资料时，系统应明确说明缺少什么依据。",
+      "group": "R010",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

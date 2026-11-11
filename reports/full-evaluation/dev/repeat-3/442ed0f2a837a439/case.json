@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-027",
+      "question": "推理时注意力占用太多显存，MQA、GQA与Flash Attention各优化什么？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L003"
+      ],
+      "answerable": true,
+      "reference_answer": "MHA 中每个查询头有独立的 K/V 头，长序列下 KV Cache 与显存带宽开销较大；稠密注意力还需要比较序列中的大量位置，计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V，GQA 则把查询头分组，每组共享 K/V，以减少缓存和访存，在速度、显存与表达能力间折中。FlashAttention 从实现层优化：通过分块与在线 Softmax，避免把完整注意力矩阵反复写入显存，从而降低 IO 与中间存储，仍计算精确注意力。它通常不将理论二次计算复杂度改成线性，也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用；实际收益需要在目标模型、序列长度、并发和硬件上测试，而不是只比较算法名称。",
+      "group": "L003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

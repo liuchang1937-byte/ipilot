@@ -1,0 +1,210 @@
+{
+  "case_id": "V2-099",
+  "question": "SSE与WebSocket适合什么通信？实时语音为什么还会考虑WebRTC？",
+  "category": "compound",
+  "split": "test",
+  "group": "T014",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T014",
+    "interview-question://T015"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "SSE基于HTTP长连接，主要由服务端向客户端单向推送文本事件，浏览器支持自动重连，适合LLM Token流；WebSocket升级为全双工连接，可双向低延迟传输文本或二进制，适合实时协作。SSE不适合高频双向和二进制媒体，WebSocket则需要自己处理心跳、重连、代理兼容和水平扩展。例如，文本生成可以用一次 HTTP 请求发送问题，再用 SSE 接收增量内容；用户取消可以另发请求，不必为所有对话引入 WebSocket。WebSocket 更适合双方持续发送事件，但可靠重连和消息去重仍由应用实现。SSE 的浏览器连接限制与 HTTP 版本有关，不能把 HTTP/1.1 的常见限制当作所有部署都相同。无论哪种方式，代理缓冲、心跳和慢消费者都会影响实际延迟。",
+    "WebRTC针对实时音视频设计，包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输；WebSocket只是可靠的双向字节通道，这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道，用WebSocket传控制事件也可以，选择取决于延迟、媒体质量和部署复杂度。例如，用户语音输入与模型语音输出同时进行，还要支持打断和网络抖动，媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP，丢包可能造成队头阻塞；WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP，也不是永远不重传，实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维，不应承诺固定毫秒数。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T014",
+    "interview-question://T015",
+    "interview-question://T013"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.6666666666666666,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "SSE与WebSocket适合什么通信？实时语音为什么还会考虑WebRTC？",
+    "answer": "1. SSE与WebSocket分别适合什么类型的通信？\n\n\n2. 在实时语音通信中，为什么还会考虑使用WebRTC？\n",
+    "sections": [
+      {
+        "question": "SSE与WebSocket分别适合什么类型的通信？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "SSE与WebSocket分别适合什么类型的通信?"
+            },
+            {
+              "kind": "mqe",
+              "text": "SSE 与 WebSocket 分别适合什么类型的通信?"
+            },
+            {
+              "kind": "mqe",
+              "text": "Server-Sent Events 和 WebSocket 的通信模式、适用场景及选型对比"
+            },
+            {
+              "kind": "mqe",
+              "text": "实时通信技术选型:SSE 单向服务器推送 vs WebSocket 全双工通信的使用场景"
+            },
+            {
+              "kind": "hyde",
+              "text": "SSE(Server-Sent Events)基于 HTTP,使用 `text/event-stream` 和 `EventSource`,适合服务器到客户端的单向、持续推送通信,例如实时通知、股票行情、日志流、进度更新、新闻 feed、AI 流式输出;客户端不能通过同一连接向服务器发消息,传输以 UTF-8 文本为主,支持自动重连和 `Last-Event-ID`,实现简单,但受 HTTP/1.1 浏览器同域并发连接数限制,可借助 HTTP/2 多路复用缓解。WebSocket 通过 HTTP Upgrade 握手建立 `ws/wss` 全双工持久连接,适合客户端与服务器双向、低延迟、高频交互的通信,例如聊天室、协作编辑、在线游戏、实时交易、音视频信令、IoT 设备控制;支持文本和二进制帧,通信开销小,但需要自行处理心跳、重连、鉴权、背压和连接管理。选择原则:只需服务器单向推送且场景简单用 SSE;需要双向实时交互、二进制传输或高频低延迟用 WebSocket。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T014",
+            "interview-question://T015",
+            "interview-question://T013"
+          ]
+        }
+      },
+      {
+        "question": "在实时语音通信中，为什么还会考虑使用WebRTC？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在实时语音通信中,为什么还会考虑使用WebRTC?"
+            },
+            {
+              "kind": "mqe",
+              "text": "实时语音通信中为什么选择 WebRTC 而不是 WebSocket 或 HTTP 流"
+            },
+            {
+              "kind": "mqe",
+              "text": "WebRTC 在实时音频/语音通话中的低延迟、回声消除和 NAT 穿透优势"
+            },
+            {
+              "kind": "mqe",
+              "text": "实时语音通信使用 WebRTC 的原因、应用场景及与 VoIP/SIP 方案对比"
+            },
+            {
+              "kind": "hyde",
+              "text": "在实时语音通信中选择 WebRTC,是因为它提供浏览器原生、端到端低延迟的实时媒体栈:基于 UDP 的 SRTP/RTP 传输避免 TCP 队头阻塞,结合 Opus 编码、自适应抖动缓冲、丢包隐藏、FEC、NACK、RTX 和拥塞控制(GCC、transport-cc)提升弱网语音质量;内置 AEC、AGC、NS 音频前处理;通过 ICE、STUN、TURN 完成 NAT 穿透,支持 P2P 或经 SFU/MCU 转发;使用 DTLS-SRTP 加密和身份验证;借助 getUserMedia、RTCPeerConnection、Web Audio API 实现跨平台、免插件互通。因此,在语音通话、会议、游戏语音、客服和直播连麦等场景仍会考虑 WebRTC。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T015",
+            "interview-question://T014",
+            "interview-question://T013"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1450303408020870642,
+        "title": "说说 WebSocket 和 SSE 通信的区别及局限性?",
+        "source": "interview-question://T014",
+        "domain": "llm-tool-calling",
+        "content": "# 说说 WebSocket 和 SSE 通信的区别及局限性?\n\n题目编号:T014\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:SSE基于HTTP长连接,主要由服务端向客户端单向推送文本事件,浏览器支持自动重连,适合LLM Token流;WebSocket升级为全双工连接,可双向低延迟传输文本或二进制,适合实时协作。SSE不适合高频双向和二进制媒体,WebSocket则需要自己处理心跳、重连、代理兼容和水平扩展。例如,文本生成可以用一次 HTTP 请求发送问题,再用 SSE 接收增量内容;用户取消可以另发请求,不必为所有对话引入 WebSocket。WebSocket 更适合双方持续发送事件,但可靠重连和消息去重仍由应用实现。SSE 的浏览器连接限制与 HTTP 版本有关,不能把 HTTP/1.1 的常见限制当作所有部署都相同。无论哪种方式,代理缓冲、心跳和慢消费者都会影响实际延迟。\n\n评分要点:方向、协议、数据类型、重连与典型场景。",
+        "vector_score": 0.8107952773571014,
+        "keyword_score": 0.5529399272039708,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 574765045243999808,
+        "title": "为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?",
+        "source": "interview-question://T015",
+        "domain": "llm-tool-calling",
+        "content": "# 为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?\n\n题目编号:T015\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:WebRTC针对实时音视频设计,包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输;WebSocket只是可靠的双向字节通道,这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道,用WebSocket传控制事件也可以,选择取决于延迟、媒体质量和部署复杂度。例如,用户语音输入与模型语音输出同时进行,还要支持打断和网络抖动,媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP,丢包可能造成队头阻塞;WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP,也不是永远不重传,实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维,不应承诺固定毫秒数。\n\n评分要点:媒体专用能力、传输特性及组合使用。",
+        "vector_score": 0.9013367295265198,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 146725892672075800,
+        "title": "MCP 协议通常采用什么通信方式?",
+        "source": "interview-question://T013",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 协议通常采用什么通信方式?\n\n题目编号:T013\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:本地MCP Server常通过stdio由Client作为子进程启动,延迟低且无需开放端口;远程服务推荐使用Streamable HTTP,便于多Client共享和集中管理。早期HTTP+SSE双端点方案已不再是新项目的首选。无论使用哪种传输,消息层都采用JSON-RPC 2.0,传输方式只决定消息如何到达。stdio 使用标准输入输出传递协议消息,普通日志应写到 stderr,避免污染消息流。远程 Streamable HTTP 使用 HTTP 请求传递消息,并可通过 SSE 推送多个事件;并不是所有响应都必须保持一个长连接。2025-11-25 版规范列出这两种标准传输,旧 HTTP+SSE 应按兼容需求处理。客户端还要管理连接生命周期、会话和取消;重连不会自动保证外部操作只执行一次。\n\n评分要点:区分 JSON-RPC 消息语义与传输;说明 stdio、Streamable HTTP 和旧 HTTP+SSE 的兼容关系。",
+        "vector_score": 0.7799593806266785,
+        "keyword_score": 0.3904485685291143,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 23.612,
+  "timings_seconds": {
+    "decomposition": 3.071232,
+    "retrieval": 20.540337,
+    "mqe": 8.155887,
+    "hyde": 11.416722,
+    "embedding": 0.666376,
+    "vector_search": 0.064016,
+    "keyword_search": 0.232204,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 20.540492,
+    "total": 23.611724,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

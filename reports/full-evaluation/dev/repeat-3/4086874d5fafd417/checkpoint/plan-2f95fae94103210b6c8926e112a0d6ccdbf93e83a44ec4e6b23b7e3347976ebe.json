@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-026",
+  "subquestions": [
+    {
+      "question": "Transformer中的编码器做什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "Transformer中的解码器做什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "Transformer中的注意力层做什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.617373899998711
+}

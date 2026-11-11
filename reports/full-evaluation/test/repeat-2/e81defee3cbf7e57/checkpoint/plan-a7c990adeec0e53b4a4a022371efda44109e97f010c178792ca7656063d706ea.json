@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-015",
+  "subquestions": [
+    {
+      "question": "让语言模型检查自己的结果再修改（自我修正）在什么情况下有收益？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "如何避免语言模型在检查自己的结果并修改时反复自我修正？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.5939312000009522
+}

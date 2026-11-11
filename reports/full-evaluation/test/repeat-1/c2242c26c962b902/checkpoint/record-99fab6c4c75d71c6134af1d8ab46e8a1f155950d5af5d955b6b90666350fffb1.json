@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-046",
+  "question": "为业务选择模型时如何比较效果、延迟、费用与部署限制？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "L022",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L022"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "回答应先说明候选模型和业务约束，再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据，并说明是否采用模型路由，例如简单任务用低成本模型、复杂任务升级更强模型，而不是只说某模型“效果最好”。例如，如果系统主要做中文题库评分，应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用，而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致，记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选，不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则，避免更换模型后输出格式、工具行为和评分口径悄悄变化。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L022",
+    "interview-question://L020",
+    "interview-question://L021"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "为业务选择模型时如何比较效果、延迟、费用与部署限制？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "为业务选择模型时，如何比较模型效果、延迟、费用与部署限制？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "为业务选择模型时,如何比较模型效果、延迟、费用与部署限制?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L022",
+            "interview-question://L020",
+            "interview-question://L021"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.828641414642334,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2755254194570667966,
+        "title": "大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?",
+        "source": "interview-question://L020",
+        "domain": "llm-engineering",
+        "content": "# 大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?\n\n题目编号:L020\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:vLLM适合GPU高吞吐服务,强调PagedAttention和连续批处理;TGI提供较完整的Hugging Face生产服务生态;llama.cpp适合CPU、边缘和量化本地部署;SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本,并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持,再用相同输入输出长度、并发与精度设置测试,避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列,重复前缀场景需要看缓存命中,本地部署则更关心内存与量化兼容。框架特性和维护状态会变化,不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力,而不是只说某框架最快。\n\n评分要点:各方案定位和基于指标的选型。",
+        "vector_score": 0.7762690186500549,
+        "keyword_score": 0.8290122899433695,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4468296057515630498,
+        "title": "大模型能力评测指标有哪些?",
+        "source": "interview-question://L021",
+        "domain": "llm-engineering",
+        "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+        "vector_score": 0.7645257115364075,
+        "keyword_score": 0.7356459366122627,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.985,
+  "timings_seconds": {
+    "decomposition": 5.765993,
+    "retrieval": 0.219278,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.174967,
+    "vector_search": 0.014803,
+    "keyword_search": 0.028828,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.219386,
+    "total": 5.985379,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

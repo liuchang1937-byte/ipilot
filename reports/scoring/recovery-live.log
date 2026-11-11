@@ -1,0 +1,16 @@
+[1/14] S-011 scoring-recovery
+[2/14] S-012 scoring-recovery
+[3/14] S-013 scoring-recovery
+[4/14] S-014 scoring-recovery
+[5/14] S-015 scoring-recovery
+[6/14] S-016 scoring-recovery
+[7/14] S-017 scoring-recovery
+[8/14] S-018 scoring-recovery
+[9/14] S-019 scoring-recovery
+[10/14] S-020 scoring-recovery
+[11/14] S-021 scoring-recovery
+[12/14] S-022 scoring-recovery
+[13/14] S-023 scoring-recovery
+[14/14] S-024 scoring-recovery
+{"case_observations": 24, "independent_cases": 24, "point_observations": 72, "verified_points": 72, "agreement_all_points": 0.9722222222222222, "agreement_verified_points": 0.9722222222222222, "unverified_rate": 0.0, "fallback_cases": 0, "macro_f1": 0.9444444444444444, "per_class": {"mastered": {"precision": 0.9777777777777777, "recall": 0.9777777777777777, "f1": 0.9777777777777777, "support": 45}, "partial": {"precision": 0.8, "recall": 0.8, "f1": 0.8, "support": 5}, "incorrect": {"precision": 1.0, "recall": 1.0, "f1": 1.0, "support": 12}, "not_addressed": {"precision": 1.0, "recall": 1.0, "f1": 1.0, "support": 10}}, "confusion_matrix": {"mastered": {"mastered": 44, "partial": 1, "incorrect": 0, "not_addressed": 0, "unverified": 0}, "partial": {"mastered": 1, "partial": 4, "incorrect": 0, "not_addressed": 0, "unverified": 0}, "incorrect": {"mastered": 0, "partial": 0, "incorrect": 12, "not_addressed": 0, "unverified": 0}, "not_addressed": {"mastered": 0, "partial": 0, "incorrect": 0, "not_addressed": 10, "unverified": 0}}, "repeat_modal_agreement": null, "repeat_cases": 0, "mean_seconds": 19.10693975}
+Saved: E:\study\project\TechRAG\reports\scoring\4fcb1ed1721b461f9621e5bcdd118022.json

@@ -1,0 +1,186 @@
+{
+  "case_id": "V2-022",
+  "question": "多个助手并行写同一结果，其中一个超时，如何处理交接与冲突？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A022",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://A022"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "为子任务设置租约、心跳、截止时间和幂等任务ID，超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入，冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态；对有外部副作用的步骤使用幂等键、补偿操作和人工审批，避免重试造成重复执行。超时不一定代表旧执行者已停止，因此任务接管可用租约与递增代次，阻止失效实例提交结果。恢复时加载检查点，并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权，使用隔离工作区、版本校验和统一集成入口；文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工，同时保留失败原因与完成产物，避免两个执行者同时重做同一操作。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A022",
+    "interview-question://A016",
+    "interview-question://A023",
+    "interview-question://R021"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "多个助手并行写同一结果，其中一个超时，如何处理交接与冲突？",
+    "answer": "1. 多个助手并行写同一结果时，其中一个助手超时，应如何处理交接？\n\n\n2. 多个助手并行写同一结果时，其中一个助手超时，应如何处理冲突？\n",
+    "sections": [
+      {
+        "question": "多个助手并行写同一结果时，其中一个助手超时，应如何处理交接？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "多个助手并行写同一结果时,其中一个助手超时,应如何处理交接?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A022",
+            "interview-question://A016",
+            "interview-question://A023"
+          ]
+        }
+      },
+      {
+        "question": "多个助手并行写同一结果时，其中一个助手超时，应如何处理冲突？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "多个助手并行写同一结果时,其中一个助手超时,应如何处理冲突?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A022",
+            "interview-question://A016",
+            "interview-question://R021"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.8541708886623383,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2769771559713974979,
+        "title": "如何设计多 Agent 的协作与动态切换机制?",
+        "source": "interview-question://A016",
+        "domain": "agent",
+        "content": "# 如何设计多 Agent 的协作与动态切换机制?\n\n题目编号:A016\n\n领域:agent\n\n难度:3\n\n标签:Agent 路由、任务交接、协议\n- 考察方向:能力描述、上下文传递、结果契约及动态切换。\n\n参考答案:多Agent协作主要依靠消息传递和共享状态:前者把上一个Agent的产物交给下一个,后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。同步协作可用结构化调用,长任务可用消息队列和任务表,所有路径都由协调器追踪。动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。共享状态应通过受控更新接口提交,不能让多个 Agent 随意覆盖同一份任务记录。\n\n评分要点:角色契约、路由依据、上下文交接和故障接管完整。",
+        "vector_score": 0.7762139737606049,
+        "keyword_score": 0.6007760451071439,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.7645505666732788,
+        "keyword_score": 0.6503311514683141,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1238589695376041488,
+        "title": "不同来源的文档发生知识冲突时,RAG 应该信谁?",
+        "source": "interview-question://R021",
+        "domain": "rag",
+        "content": "# 不同来源的文档发生知识冲突时,RAG 应该信谁?\n\n题目编号:R021\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:不能只按相似度决定,应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料,同时保留冲突证据;生成时说明差异及适用条件,无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如,同一产品在不同地区或生效日期下可能有不同政策,不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态,检索时先限制适用范围,再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用,必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试,向量相似度只代表相关性,不代表真实性。\n\n评分要点:来源优先级、时效、适用范围、冲突展示和人工治理。",
+        "vector_score": 0.7730789184570312,
+        "keyword_score": 0.6312956072555925,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.279,
+  "timings_seconds": {
+    "decomposition": 3.808494,
+    "retrieval": 0.470729,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.26398,
+    "vector_search": 0.055061,
+    "keyword_search": 0.148625,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.471005,
+    "total": 4.279499,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

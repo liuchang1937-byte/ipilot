@@ -1,0 +1,815 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "c6c630c3efbe4af88171b29c7836bb9c",
+  "created_at": "2026-10-12T15:21:06.813979+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "88e4ca89ba8b683f77a3aad9076c068927bdc938118807bf3bd7163379d46863",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-1\\1c768f82b81f674f\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.879,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.879,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.47428,
+          "p50": 3.47428,
+          "p95": 3.47428,
+          "max": 3.47428,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.404927,
+          "p50": 0.404927,
+          "p95": 0.404927,
+          "max": 0.404927,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.320565,
+          "p50": 0.320565,
+          "p95": 0.320565,
+          "max": 0.320565,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.027088,
+          "p50": 0.027088,
+          "p95": 0.027088,
+          "max": 0.027088,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.055026,
+          "p50": 0.055026,
+          "p95": 0.055026,
+          "max": 0.055026,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.405082,
+          "p50": 0.405082,
+          "p95": 0.405082,
+          "max": 0.405082,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.879362,
+          "p50": 3.879362,
+          "p95": 3.879362,
+          "max": 3.879362,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 20.973,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 20.973,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.47428,
+          "p50": 3.47428,
+          "p95": 3.47428,
+          "max": 3.47428,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 17.498934,
+          "p50": 17.498934,
+          "p95": 17.498934,
+          "max": 17.498934,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.334257,
+          "p50": 6.334257,
+          "p95": 6.334257,
+          "max": 6.334257,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 10.249068,
+          "p50": 10.249068,
+          "p95": 10.249068,
+          "max": 10.249068,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.630019,
+          "p50": 0.630019,
+          "p95": 0.630019,
+          "max": 0.630019,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.06168,
+          "p50": 0.06168,
+          "p95": 0.06168,
+          "max": 0.06168,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.219466,
+          "p50": 0.219466,
+          "p95": 0.219466,
+          "max": 0.219466,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 17.49911,
+          "p50": 17.49911,
+          "p95": 17.49911,
+          "max": 17.49911,
+          "samples": 1
+        },
+        "total": {
+          "mean": 20.97339,
+          "p50": 20.97339,
+          "p95": 20.97339,
+          "max": 20.97339,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-085",
+      "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "T017",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://T017"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索得到小候选集，再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如，先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义；相似工具要有明确区分。权限过滤在执行时再次校验，路由正确不代表获得授权，评测还要覆盖容易混淆与无适用工具的请求。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T017",
+        "interview-question://T002",
+        "interview-question://T018",
+        "interview-question://T007",
+        "interview-question://T003"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+        "answer": "1. 当工具目录很大时，把所有工具Schema放进提示会有什么问题？\n\n\n2. 当工具目录很大时，如何按需选择工具？\n",
+        "sections": [
+          {
+            "question": "当工具目录很大时，把所有工具Schema放进提示会有什么问题？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当工具目录很大时,把所有工具Schema放进提示会有什么问题?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T017",
+                "interview-question://T002",
+                "interview-question://T018"
+              ]
+            }
+          },
+          {
+            "question": "当工具目录很大时，如何按需选择工具？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当工具目录很大时,如何按需选择工具?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T017",
+                "interview-question://T007",
+                "interview-question://T003"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.8447174429893494,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1074467055826810929,
+            "title": "LLM 是如何学会调用外部工具的?",
+            "source": "interview-question://T002",
+            "domain": "llm-tool-calling",
+            "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+            "vector_score": 0.7615376710891724,
+            "keyword_score": 0.7670837979974093,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.7848913371562958,
+            "keyword_score": 0.6222219230177348,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.7849939167499542,
+            "keyword_score": 0.580785680073886,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 878197658630587989,
+            "title": "大模型的 Function Call 能力是怎么训练出来的?",
+            "source": "interview-question://T003",
+            "domain": "llm-tool-calling",
+            "content": "# 大模型的 Function Call 能力是怎么训练出来的?\n\n题目编号:T003\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策,再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果,避免模型只会理想路径;评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例,以及参数缺失、过期结果、权限拒绝等情况,防止模型只记住名称。奖励不能只检查调用格式,执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开,分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率,避免数据泄漏掩盖问题。\n\n评分要点:数据构造、训练阶段和分层评测。",
+            "vector_score": 0.7420468926429749,
+            "keyword_score": 0.4947935081358934,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.879,
+      "timings_seconds": {
+        "decomposition": 3.47428,
+        "retrieval": 0.404927,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.320565,
+        "vector_search": 0.027088,
+        "keyword_search": 0.055026,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.405082,
+        "total": 3.879362,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-085",
+      "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "T017",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T017"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索得到小候选集，再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如，先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义；相似工具要有明确区分。权限过滤在执行时再次校验，路由正确不代表获得授权，评测还要覆盖容易混淆与无适用工具的请求。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T017",
+        "interview-question://T002",
+        "interview-question://L016",
+        "interview-question://T007",
+        "interview-question://A017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+        "answer": "1. 当工具目录很大时，把所有工具Schema放进提示会有什么问题？\n\n\n2. 当工具目录很大时，如何按需选择工具？\n",
+        "sections": [
+          {
+            "question": "当工具目录很大时，把所有工具Schema放进提示会有什么问题？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当工具目录很大时,把所有工具Schema放进提示会有什么问题?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大型工具目录下把所有工具 Schema 放进提示会带来哪些问题?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "工具数量很多时,将全部工具定义注入 LLM 提示的缺点:上下文长度、成本、延迟与选择准确率"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "large tool catalog putting all tool schemas in prompt problems context window token cost latency tool selection accuracy"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "当工具目录很大时,把所有工具 Schema 放进提示会造成 prompt bloat,迅速消耗 context window 和 token budget,导致上下文溢出、截断或关键指令丢失;推理成本、首 token 延迟和总延迟随工具数量线性或超线性上升;大量相似或冗余的工具描述会引发 attention dilution 和语义干扰,降低 function calling 的工具选择准确率,增加误调用、参数幻觉和 schema 不匹配;同时扩大提示注入、工具元数据泄露、版本漂移和更新维护风险。因此通常需要工具检索、分层路由、按需加载 Schema、工具分组或语义索引来只注入最相关的少量工具。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T017",
+                "interview-question://T002",
+                "interview-question://L016"
+              ]
+            }
+          },
+          {
+            "question": "当工具目录很大时，如何按需选择工具？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当工具目录很大时,如何按需选择工具?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "当工具目录很大时,如何根据用户请求按需选择工具"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大规模工具库中动态检索与选择工具的方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM agent large tool catalog dynamic tool selection and retrieval"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "当工具目录很大时,按需选择工具通常采用 Tool RAG 与语义路由:对每个工具的 API schema、描述、示例、类别和权限元数据构建索引,用嵌入模型生成稠密向量并存入向量数据库;查询时通过混合检索(BM25+稠密向量)召回 Top-k 候选,再用交叉编码器重排。随后由 LLM 路由器/规划器结合意图识别、任务分解、槽位填充、成本、延迟、SLA、权限和上下文窗口约束,从候选中选择最小必要工具集,支持分层工具分类、元数据过滤、动态工具加载、缓存与反馈学习,最终以函数调用或 JSON schema 输出选中工具及参数。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T017",
+                "interview-question://T007",
+                "interview-question://A017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.9025460481643677,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1074467055826810929,
+            "title": "LLM 是如何学会调用外部工具的?",
+            "source": "interview-question://T002",
+            "domain": "llm-tool-calling",
+            "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+            "vector_score": 0.824325680732727,
+            "keyword_score": 0.8760262383222706,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3377336774797257112,
+            "title": "如何写好 Prompt?分享下 Prompt 工程实践经验?",
+            "source": "interview-question://L016",
+            "domain": "llm-engineering",
+            "content": "# 如何写好 Prompt?分享下 Prompt 工程实践经验?\n\n题目编号:L016\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:先明确角色、目标、输入数据、约束、输出Schema和失败行为,再提供少量代表性示例。把可信指令与外部文本分隔,要求信息不足时拒答,并对结构化输出做程序校验。Prompt应版本化,在固定评测集上比较正确率、格式率、成本和稳定性,避免只凭几个示例调词。例如,要求系统从资料回答时,应明确哪些内容是证据、哪些是指令,以及证据不足如何处理;要求 JSON 时,应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入,而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测,记录模型版本和参数。提示能引导行为,但权限、业务规则和外部动作仍由代码强制执行。\n\n评分要点:结构、边界、示例、校验、版本与评测。",
+            "vector_score": 0.793732613325119,
+            "keyword_score": 0.7289287962553552,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.7954437136650085,
+            "keyword_score": 0.9270845517123176,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 1914948693301866705,
+            "title": "Agent 的上下文工程怎么设计?",
+            "source": "interview-question://A017",
+            "domain": "agent",
+            "content": "# Agent 的上下文工程怎么设计?\n\n题目编号:A017\n\n领域:agent\n\n难度:3\n\n标签:上下文工程、检索、Token 预算\n- 考察方向:系统指令、任务状态、记忆、工具结果和知识证据的优先级。\n\n参考答案:上下文应按任务动态装配,而非永久堆积。一般包含稳定系统规则、当前目标与计划、最近交互、必要工具描述、检索证据和相关长期记忆。通过元数据过滤、语义检索、摘要、去重和Token预算控制数量,并明确不同内容的可信等级。工具原始结果与用户输入要做边界标记,防止提示注入影响系统指令。可以把上下文分成稳定指令、当前目标、结构化状态、近期对话、相关证据和本轮工具结果,并为各部分设定预算。用户的纠错和硬约束应显式更新状态,陈旧工具输出则摘要或移出窗口。长文不是越多越好,需要去重、重排并标识来源;外部文档中的指令只作为数据处理。评测应检查同一任务在不同轮数、噪声和截断条件下是否仍能正确选择工具并保持目标。\n\n评分要点:动态选择、预算控制、来源分层和安全隔离。",
+            "vector_score": 0.7750692069530487,
+            "keyword_score": 0.7771599086473326,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 20.973,
+      "timings_seconds": {
+        "decomposition": 3.47428,
+        "retrieval": 17.498934,
+        "mqe": 6.334257,
+        "hyde": 10.249068,
+        "embedding": 0.630019,
+        "vector_search": 0.06168,
+        "keyword_search": 0.219466,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 17.49911,
+        "total": 20.97339,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-085",
+      "subquestions": [
+        {
+          "question": "当工具目录很大时，把所有工具Schema放进提示会有什么问题？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "当工具目录很大时，如何按需选择工具？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.4742799999985436
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 21.386,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

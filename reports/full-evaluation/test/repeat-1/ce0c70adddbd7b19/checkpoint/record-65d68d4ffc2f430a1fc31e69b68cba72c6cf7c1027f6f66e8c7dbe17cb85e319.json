@@ -1,0 +1,234 @@
+{
+  "case_id": "V2-091",
+  "question": "如何评估助手任务完成情况？另外怎样拆开衡量检索与回答质量？",
+  "category": "cross_domain",
+  "split": "test",
+  "group": "A019",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A019",
+    "interview-question://R018"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "指标应同时覆盖结果、过程与成本：任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布，并包含正常、歧义、工具失败、权限不足和对抗样本；为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法，覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮。工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件，并统计成本、接管率与长尾延迟。",
+    "先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG；生成层评估正确性、相关性、完整性、忠实度和引用准确率；系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG，分别关注覆盖、是否命中及排名质量；生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景，避免只验证常见问题。模型裁判需要人工校准，线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本，并定位是召回失败还是生成失败。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A019",
+    "interview-question://A023",
+    "interview-question://R018",
+    "interview-question://R017",
+    "interview-question://R014"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.5,
+  "ndcg_at_k": 0.766433990956823,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "如何评估助手任务完成情况？另外怎样拆开衡量检索与回答质量？",
+    "answer": "1. 如何评估助手任务完成情况？\n\n\n2. 如何拆开衡量助手的检索质量与回答质量？\n",
+    "sections": [
+      {
+        "question": "如何评估助手任务完成情况？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "如何评估助手任务完成情况?"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何评估AI助手任务完成情况?"
+            },
+            {
+              "kind": "mqe",
+              "text": "智能助手任务完成度评估指标与方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "对话助手任务完成效果评测基准和框架"
+            },
+            {
+              "kind": "hyde",
+              "text": "评估助手任务完成情况通常采用自动评估、人工评估与模型评估相结合的多维度框架。核心指标包括任务成功率、目标完成度、指令遵循率、约束满足率、答案正确性、完整性、相关性、事实一致性与幻觉率;对于工具调用型助手,还需评估工具选择准确率、参数填充正确率、API调用成功率、规划与推理步骤正确性、检索增强生成中的引用忠实度。自动指标可用 exact match、F1、BLEU、ROUGE、METEOR、BERTScore、pass@k、任务完成率、胜率、Elo、A/B 测试;模型评估采用 LLM-as-a-judge、rubric 评分、pairwise comparison、Likert 量表。人工评估由标注者按评分细则判断任务是否完成、是否满足用户意图、多轮上下文保持、交互轮数、完成时延、token 成本、用户满意度 CSAT/NPS。综合离线基准如 AgentBench、WebArena、GAIA、SWE-bench、ToolBench、API-Bank 与在线用户反馈,可形成端到端助手任务完成情况评估。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A019",
+            "interview-question://A023",
+            "interview-question://R018"
+          ]
+        }
+      },
+      {
+        "question": "如何拆开衡量助手的检索质量与回答质量？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "如何拆开衡量助手的检索质量与回答质量?"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何分别评估助手的检索质量与回答质量"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG 系统 检索质量 回答质量 分离评估 指标 方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "how to separately evaluate retrieval quality and answer quality in LLM assistant RAG"
+            },
+            {
+              "kind": "hyde",
+              "text": "将助手评估拆解为检索质量与回答质量,可采用组件式评测与端到端解耦。检索质量使用查询-文档相关性标注独立计算 Recall@k、Precision@k、MRR、nDCG@k、Hit Rate、Context Precision/Recall,衡量是否召回支撑答案的证据。回答质量在固定检索上下文或金标上下文下评估,采用 Exact Match、F1、ROUGE、BERTScore、LLM-as-a-Judge、人工评分,并分解为 Answer Correctness、Faithfulness/Groundedness、Answer Relevance、Completeness、Attribution/Citation Precision/Recall。解耦方法包括金标上下文与检索上下文对比、Oracle Retrieval 消融、固定生成器更换检索器、固定检索器更换生成器、反事实上下文替换、错误归因分析,从而区分检索缺失与生成幻觉或推理错误。RAG 三角指标可表述为 Context Relevance、Groundedness、Answer Relevance。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R018",
+            "interview-question://R017",
+            "interview-question://R014"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4611361965580952492,
+        "title": "如何评估一个 Agent 的效果?评测集和指标怎么设计?",
+        "source": "interview-question://A019",
+        "domain": "agent",
+        "content": "# 如何评估一个 Agent 的效果?评测集和指标怎么设计?\n\n题目编号:A019\n\n领域:agent\n\n难度:2\n\n标签:评测、成功率、成本、轨迹\n- 考察方向:任务成功率、步骤正确率、延迟、费用和人工评价。\n\n参考答案:指标应同时覆盖结果、过程与成本:任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布,并包含正常、歧义、工具失败、权限不足和对抗样本;为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法,覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款,不能只看最终文字是否漂亮。工具选择和参数可用程序校验,开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹,主要约束关键检查点、禁用动作和完成条件,并统计成本、接管率与长尾延迟。\n\n评分要点:不能只评最终文本;指标与数据集覆盖真实失败模式。",
+        "vector_score": 0.8776235580444336,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.8218491971492767,
+        "keyword_score": 0.7365250860652172,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 145210955334252079,
+        "title": "怎么量化你的 RAG 效果?",
+        "source": "interview-question://R018",
+        "domain": "rag",
+        "content": "# 怎么量化你的 RAG 效果?\n\n题目编号:R018\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景,避免只验证常见问题。模型裁判需要人工校准,线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本,并定位是召回失败还是生成失败。\n\n评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。",
+        "vector_score": 0.8832636177539825,
+        "keyword_score": 0.9306757393193757,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.8352949023246765,
+        "keyword_score": 0.7440229576927629,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 3525225094256298830,
+        "title": "RAG 检索优化策略有哪些?",
+        "source": "interview-question://R014",
+        "domain": "rag",
+        "content": "# RAG 检索优化策略有哪些?\n\n题目编号:R014\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:可从四层优化:数据层清洗去重、补元数据;索引层结构化/语义切块和父子索引;查询层改写、拆分与过滤;检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开:没有合适知识先修数据,相关内容被切散先修 Chunking,查询表达与文档不同再做改写,精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后,可以扩大候选池或加重排;正确证据已经进入上下文却回答错误,则检查组织方式与生成约束。每次修改只控制少量变量,用检索和答案两层指标验证,避免叠加很多技术后无法归因。\n\n评分要点:分层说明并包含评测闭环。",
+        "vector_score": 0.8169913589954376,
+        "keyword_score": 0.7260994213732115,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 25.306,
+  "timings_seconds": {
+    "decomposition": 5.41626,
+    "retrieval": 19.889933,
+    "mqe": 4.681542,
+    "hyde": 14.062523,
+    "embedding": 0.761253,
+    "vector_search": 0.059555,
+    "keyword_search": 0.320434,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 19.890095,
+    "total": 25.306355,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

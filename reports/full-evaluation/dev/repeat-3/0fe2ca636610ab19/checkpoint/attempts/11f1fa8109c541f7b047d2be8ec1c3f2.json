@@ -1,0 +1,172 @@
+{
+  "case_id": "V2-038",
+  "question": "KV缓存与重复提示缓存分别复用了什么，为什么能减少计算？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A021",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://L014"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "自回归生成时，KV Cache保存已有Token各层的Key/Value，后续每步只计算新Token，降低重复计算但消耗显存。Prompt Caching复用相同或相同前缀Prompt的预填充结果，可跨请求减少首Token延迟和输入计算。前者主要服务单次生成过程，后者强调重复前缀复用，都要处理缓存键、失效和内存成本。prefill 先处理输入并生成各层 K/V，decode 为每个新 Token 计算新表示，并读取已有缓存，避免重算历史 K/V。缓存随序列长度、层数和 K/V 头数增长，也会限制高并发。跨请求复用通常要求前缀与模型配置兼容，生成式同义改写并不能保证命中；缓存复用也不同于直接返回过去的答案。应比较命中率、TTFT 和显存占用，权限隔离、失效与生命周期由具体服务实现。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L014",
+    "interview-question://L003",
+    "interview-question://L015"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "KV缓存与重复提示缓存分别复用了什么，为什么能减少计算？",
+    "answer": "1. KV缓存复用了什么，为什么能减少计算？\n\n\n2. 重复提示缓存复用了什么，为什么能减少计算？\n",
+    "sections": [
+      {
+        "question": "KV缓存复用了什么，为什么能减少计算？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "KV缓存复用了什么,为什么能减少计算?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L014",
+            "interview-question://L003",
+            "interview-question://L015"
+          ]
+        }
+      },
+      {
+        "question": "重复提示缓存复用了什么，为什么能减少计算？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "重复提示缓存复用了什么,为什么能减少计算?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://L014"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 282397171415824420,
+        "title": "KV Cache 是什么?Prompt Caching 的原理是什么?",
+        "source": "interview-question://L014",
+        "domain": "llm-engineering",
+        "content": "# KV Cache 是什么?Prompt Caching 的原理是什么?\n\n题目编号:L014\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:自回归生成时,KV Cache保存已有Token各层的Key/Value,后续每步只计算新Token,降低重复计算但消耗显存。Prompt Caching复用相同或相同前缀Prompt的预填充结果,可跨请求减少首Token延迟和输入计算。前者主要服务单次生成过程,后者强调重复前缀复用,都要处理缓存键、失效和内存成本。prefill 先处理输入并生成各层 K/V,decode 为每个新 Token 计算新表示,并读取已有缓存,避免重算历史 K/V。缓存随序列长度、层数和 K/V 头数增长,也会限制高并发。跨请求复用通常要求前缀与模型配置兼容,生成式同义改写并不能保证命中;缓存复用也不同于直接返回过去的答案。应比较命中率、TTFT 和显存占用,权限隔离、失效与生命周期由具体服务实现。\n\n评分要点:prefill/decode、单请求与跨请求、速度—显存权衡。",
+        "vector_score": 0.8288387060165405,
+        "keyword_score": 1.0,
+        "rerank_score": 0.9943860769271851
+      },
+      {
+        "id": 2,
+        "chunk_id": 3401652904786247161,
+        "title": "多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?",
+        "source": "interview-question://L003",
+        "domain": "llm-engineering",
+        "content": "# 多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?\n\n题目编号:L003\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MHA 中每个查询头有独立的 K/V 头,长序列下 KV Cache 与显存带宽开销较大;稠密注意力还需要比较序列中的大量位置,计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V,GQA 则把查询头分组,每组共享 K/V,以减少缓存和访存,在速度、显存与表达能力间折中。FlashAttention 从实现层优化:通过分块与在线 Softmax,避免把完整注意力矩阵反复写入显存,从而降低 IO 与中间存储,仍计算精确注意力。它通常不将理论二次计算复杂度改成线性,也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用;实际收益需要在目标模型、序列长度、并发和硬件上测试,而不是只比较算法名称。\n\n评分要点:区分 MQA/GQA 的 K/V 共享与 FlashAttention 的 IO 优化;不把精确稠密注意力说成线性计算。",
+        "vector_score": 0.7668686509132385,
+        "keyword_score": 0.6385796652589576,
+        "rerank_score": 0.2260676622390747
+      },
+      {
+        "id": 3,
+        "chunk_id": 4463257598973586641,
+        "title": "大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?",
+        "source": "interview-question://L015",
+        "domain": "llm-engineering",
+        "content": "# 大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?\n\n题目编号:L015\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:量化用低比特表示权重或激活,以降低显存、带宽和计算成本,代价是精度风险。INT8通常损失小,INT4压缩更强;GPTQ利用校准数据做逐层训练后权重量化,通用性强;AWQ保护对输出敏感的重要权重,常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化,以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化,AWQ 利用激活信息调整重要通道的缩放,减少关键权重的误差;不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快,需要核对算子支持,并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。\n\n评分要点:量化对象、比特权衡、AWQ/GPTQ思路及硬件适配。",
+        "vector_score": 0.7126288414001465,
+        "keyword_score": 0.37422871585240924,
+        "rerank_score": 0.13355320692062378
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.314,
+  "timings_seconds": {
+    "decomposition": 4.276372,
+    "retrieval": 0.395389,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.309961,
+    "vector_search": 0.025122,
+    "keyword_search": 0.058441,
+    "rerank": 0.642086,
+    "generation": 0.0,
+    "pipeline": 1.03777,
+    "total": 5.314142,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

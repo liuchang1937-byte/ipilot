@@ -1,0 +1,106 @@
+{
+  "case_id": "V2-052",
+  "question": "检索到了答案的一半，另一半在相邻片段，怎样保留完整语义？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R004",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R005"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "一方面在切块阶段按句子、段落和标题等自然边界切分，并使用适量重叠；另一方面在检索后补回上下文，例如命中句子后返回周围窗口，或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval：在Embedding前为每个Chunk生成与全文相关的背景说明，再与正文共同索引，减轻孤立Chunk缺少上下文的问题。例如，一个段落先说明条件、后说明例外，按固定字符数切开可能只召回例外，导致错误结论。可以保存标题路径、块位置与父文档 ID，在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查，避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度，因此应去重并控制返回预算，用跨段问题检验收益。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [],
+  "recall_at_k": 0.0,
+  "precision_at_k": 0.0,
+  "ndcg_at_k": 0.0,
+  "hit": false,
+  "reciprocal_rank": 0.0,
+  "all_sources_found": false,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "检索到了答案的一半，另一半在相邻片段，怎样保留完整语义？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "当检索到的答案只有一半，且另一半位于相邻片段时，如何保留完整语义？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当检索到的答案只有一半,且另一半位于相邻片段时,如何保留完整语义?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 0,
+          "selected_sources": []
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.183,
+  "timings_seconds": {
+    "decomposition": 3.220685,
+    "retrieval": 0.458261,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.363656,
+    "vector_search": 0.025554,
+    "keyword_search": 0.067915,
+    "rerank": 0.503688,
+    "generation": 0.0,
+    "pipeline": 0.962195,
+    "total": 4.18288,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

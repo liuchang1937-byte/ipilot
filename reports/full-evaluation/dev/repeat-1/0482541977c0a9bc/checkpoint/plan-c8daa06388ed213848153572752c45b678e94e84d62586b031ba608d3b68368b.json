@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-007",
+  "subquestions": [
+    {
+      "question": "当一个请求包含多个依赖步骤时，应如何根据这些依赖步骤将请求拆分为小任务？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "将包含多个依赖步骤的请求拆分为小任务时，如何确保每个小任务可验证？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "如何验证按依赖步骤拆分出的各个小任务是否满足原请求？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 14.617600999999922
+}

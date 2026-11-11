@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-091",
+  "subquestions": [
+    {
+      "question": "如何评估助手任务完成情况？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "如何拆开衡量助手的检索质量与回答质量？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.416259800000262
+}

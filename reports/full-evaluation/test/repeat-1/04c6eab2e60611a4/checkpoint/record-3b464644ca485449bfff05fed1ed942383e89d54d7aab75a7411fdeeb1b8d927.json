@@ -1,0 +1,160 @@
+{
+  "case_id": "V2-025",
+  "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "L001",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L001"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "大语言模型是在海量语料上通过自监督目标训练的通用生成模型，通常以Transformer为核心，通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务，但参数、推理成本、幻觉和不可解释性也更突出。例如，传统情感分类器通常输出正负标签，而生成式 LLM 可以根据指令解释原因、改写内容或总结文章，利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型，大模型也不是只能做聊天，因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标，通过上下文适应任务；它的输出是统计预测，不等于实时查阅事实库，也不保证理解与推理永远正确。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L001",
+    "interview-question://L012",
+    "interview-question://L005"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "生成式语言模型与传统文本分类或序列标注模型有何不同?"
+            },
+            {
+              "kind": "mqe",
+              "text": "生成式语言模型与判别式模型在文本分类和序列标注任务上的区别"
+            },
+            {
+              "kind": "mqe",
+              "text": "传统文本分类、序列标注模型(如SVM、CRF、BiLSTM)与生成式语言模型(如GPT)的对比"
+            },
+            {
+              "kind": "hyde",
+              "text": "生成式语言模型(如GPT、LLaMA等自回归解码器)以自监督下一词元预测为目标,建模 \\(p(x_t \\mid x_{<t})\\) 或 \\(p(x)\\),通过提示、指令微调、上下文学习完成多任务,输出开放词表、变长文本,推理时逐token自回归解码,可使用温度、top-k、top-p等采样策略。传统文本分类或序列标注模型通常是判别式模型,建模 \\(p(y \\mid x)\\),在BERT、RoBERTa等预训练编码器或BiLSTM之上接任务特定分类头、CRF、指针网络,用交叉熵或CRF负对数似然在标注数据上监督训练,输出固定标签集,如情感类别、BIO标签、NER、POS,评价常用准确率、F1。核心差异在于:生成式模型采用统一生成框架、参数共享、零样本/少样本泛化强,但存在幻觉、推理成本高、结构化输出控制难;传统模型任务专用、标签空间封闭、结构化预测精度高,但需为每个任务重新训练,不能自由生成。生成式模型也可通过提示将分类或序列标注转化为生成任务,如verbalizer映射或约束解码,但通常需指令微调或示例演示才能匹配专用模型。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L001",
+            "interview-question://L012",
+            "interview-question://L005"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2711125243325661145,
+        "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+        "source": "interview-question://L001",
+        "domain": "llm-engineering",
+        "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+        "vector_score": 0.8830075860023499,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2130560796992190475,
+        "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+        "source": "interview-question://L012",
+        "domain": "llm-engineering",
+        "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+        "vector_score": 0.8019012808799744,
+        "keyword_score": 0.4046072352950365,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3992986612229194933,
+        "title": "什么是大模型项目的分词器?原理是什么?",
+        "source": "interview-question://L005",
+        "domain": "llm-engineering",
+        "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+        "vector_score": 0.769017904996872,
+        "keyword_score": 0.4787393609838962,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 20.936,
+  "timings_seconds": {
+    "decomposition": 2.707835,
+    "retrieval": 18.228348,
+    "mqe": 10.125992,
+    "hyde": 7.398351,
+    "embedding": 0.5808,
+    "vector_search": 0.025897,
+    "keyword_search": 0.094849,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 18.228481,
+    "total": 20.936316,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 4,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

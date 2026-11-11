@@ -1,0 +1,135 @@
+{
+  "case_id": "V2-068",
+  "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R019",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R021"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "不能只按相似度决定，应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料，同时保留冲突证据；生成时说明差异及适用条件，无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如，同一产品在不同地区或生效日期下可能有不同政策，不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态，检索时先限制适用范围，再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用，必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试，向量相似度只代表相关性，不代表真实性。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R021",
+    "interview-question://R010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "当两篇检索材料给出矛盾结论时，系统应按什么依据选择结论或展示这两篇检索材料之间的差异？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当两篇检索材料给出矛盾结论时,系统应按什么依据选择结论或展示这两篇检索材料之间的差异?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 2,
+          "selected_sources": [
+            "interview-question://R021",
+            "interview-question://R010"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1238589695376041488,
+        "title": "不同来源的文档发生知识冲突时,RAG 应该信谁?",
+        "source": "interview-question://R021",
+        "domain": "rag",
+        "content": "# 不同来源的文档发生知识冲突时,RAG 应该信谁?\n\n题目编号:R021\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:不能只按相似度决定,应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料,同时保留冲突证据;生成时说明差异及适用条件,无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如,同一产品在不同地区或生效日期下可能有不同政策,不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态,检索时先限制适用范围,再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用,必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试,向量相似度只代表相关性,不代表真实性。\n\n评分要点:来源优先级、时效、适用范围、冲突展示和人工治理。",
+        "vector_score": 0.8270272016525269,
+        "keyword_score": 0.8524361395756387,
+        "rerank_score": 0.3804245591163635
+      },
+      {
+        "id": 2,
+        "chunk_id": 4411062690451180658,
+        "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+        "source": "interview-question://R010",
+        "domain": "rag",
+        "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+        "vector_score": 0.8144602477550507,
+        "keyword_score": 1.0,
+        "rerank_score": 0.051867976784706116
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 7.942,
+  "timings_seconds": {
+    "decomposition": 7.198038,
+    "retrieval": 0.228527,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.139366,
+    "vector_search": 0.023214,
+    "keyword_search": 0.064867,
+    "rerank": 0.515625,
+    "generation": 0.0,
+    "pipeline": 0.744434,
+    "total": 7.942472,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-040",
+  "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "L016",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://L016"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先明确角色、目标、输入数据、约束、输出Schema和失败行为，再提供少量代表性示例。把可信指令与外部文本分隔，要求信息不足时拒答，并对结构化输出做程序校验。Prompt应版本化，在固定评测集上比较正确率、格式率、成本和稳定性，避免只凭几个示例调词。例如，要求系统从资料回答时，应明确哪些内容是证据、哪些是指令，以及证据不足如何处理；要求 JSON 时，应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入，而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测，记录模型版本和参数。提示能引导行为，但权限、业务规则和外部动作仍由代码强制执行。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L016",
+    "interview-question://L022",
+    "interview-question://L012"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "为了让模型稳定输出结构化结果，提示中应明确哪些约束？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "为了让模型稳定输出结构化结果,提示中应明确哪些约束?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L016",
+            "interview-question://L022",
+            "interview-question://L012"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3377336774797257112,
+        "title": "如何写好 Prompt?分享下 Prompt 工程实践经验?",
+        "source": "interview-question://L016",
+        "domain": "llm-engineering",
+        "content": "# 如何写好 Prompt?分享下 Prompt 工程实践经验?\n\n题目编号:L016\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:先明确角色、目标、输入数据、约束、输出Schema和失败行为,再提供少量代表性示例。把可信指令与外部文本分隔,要求信息不足时拒答,并对结构化输出做程序校验。Prompt应版本化,在固定评测集上比较正确率、格式率、成本和稳定性,避免只凭几个示例调词。例如,要求系统从资料回答时,应明确哪些内容是证据、哪些是指令,以及证据不足如何处理;要求 JSON 时,应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入,而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测,记录模型版本和参数。提示能引导行为,但权限、业务规则和外部动作仍由代码强制执行。\n\n评分要点:结构、边界、示例、校验、版本与评测。",
+        "vector_score": 0.8556584417819977,
+        "keyword_score": 1.0,
+        "rerank_score": 0.9932019114494324
+      },
+      {
+        "id": 2,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.7869084179401398,
+        "keyword_score": 0.6939190177648529,
+        "rerank_score": 0.9676930904388428
+      },
+      {
+        "id": 3,
+        "chunk_id": 2130560796992190475,
+        "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+        "source": "interview-question://L012",
+        "domain": "llm-engineering",
+        "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+        "vector_score": 0.7694364190101624,
+        "keyword_score": 0.51716856047989,
+        "rerank_score": 0.8445477485656738
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.206,
+  "timings_seconds": {
+    "decomposition": 4.118016,
+    "retrieval": 0.421115,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.313125,
+    "vector_search": 0.030924,
+    "keyword_search": 0.075922,
+    "rerank": 0.666514,
+    "generation": 0.0,
+    "pipeline": 1.087982,
+    "total": 5.205998,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

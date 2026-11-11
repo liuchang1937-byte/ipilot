@@ -1,0 +1,12 @@
+[
+  {
+    "explicit_key": false,
+    "status": 200,
+    "model": "deepseek-flash"
+  },
+  {
+    "explicit_key": true,
+    "status": 200,
+    "model": "deepseek-flash"
+  }
+]

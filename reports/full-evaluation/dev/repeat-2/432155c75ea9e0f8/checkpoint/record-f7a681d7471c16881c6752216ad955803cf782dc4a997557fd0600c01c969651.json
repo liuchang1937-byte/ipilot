@@ -1,0 +1,326 @@
+{
+  "case_id": "V2-066",
+  "question": "资料修改或删除后，怎样让关键词与向量索引持续保持最新？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "R019",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R019"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "为来源建立稳定ID、版本和内容哈希，通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding，并以新版本原子替换旧索引；删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换，以支持回滚。更新流程应覆盖新增、修改与删除：检测变更后做解析和内容校验，只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证，再原子切换可见版本，避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步，缓存要失效，删除要清理残留表示。模型或切块规则变化需要索引版本管理，不能把不同向量空间的数据混用。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R019",
+    "interview-question://R014",
+    "interview-question://R011",
+    "interview-question://R009",
+    "interview-question://R008",
+    "interview-question://R004"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "资料修改或删除后，怎样让关键词与向量索引持续保持最新？",
+    "answer": "1. 资料修改后，怎样让关键词索引持续保持最新？\n\n\n2. 资料修改后，怎样让向量索引持续保持最新？\n\n\n3. 资料删除后，怎样让关键词索引持续保持最新？\n\n\n4. 资料删除后，怎样让向量索引持续保持最新？\n",
+    "sections": [
+      {
+        "question": "资料修改后，怎样让关键词索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料修改后,怎样让关键词索引持续保持最新?"
+            },
+            {
+              "kind": "mqe",
+              "text": "资料修改后,如何让关键词索引持续保持最新?"
+            },
+            {
+              "kind": "mqe",
+              "text": "数据更新后,关键词索引如何自动同步并实时更新?"
+            },
+            {
+              "kind": "mqe",
+              "text": "内容变更后,搜索引擎索引的增量更新与实时维护方案"
+            },
+            {
+              "kind": "hyde",
+              "text": "资料修改后,为让关键词索引持续保持最新,通常采用CDC变更数据捕获监听数据库binlog/redo log,将INSERT、UPDATE、DELETE事件经Kafka等消息队列投递到索引更新服务;消费者按文档ID执行幂等upsert和delete,更新倒排索引、正排索引及translog。Elasticsearch/Lucene通过refresh实现NRT近实时搜索,flush/commit持久化,后台merge合并segment;用版本号、乐观并发控制、按主键分区有序消费防止旧事件覆盖新值。删除可先写tombstone/软删除,查询时过滤,段合并时物理清除。对批量或结构变更,采用增量索引加定时全量重建/reindex,配合别名切换;失败重试、死信队列、索引延迟与一致性监控确保索引持续最新。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R014",
+            "interview-question://R011"
+          ]
+        }
+      },
+      {
+        "question": "资料修改后，怎样让向量索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料修改后,怎样让向量索引持续保持最新?"
+            },
+            {
+              "kind": "mqe",
+              "text": "资料修改后如何让向量索引持续保持最新"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量数据库 文档更新 增量索引 实时同步 方案"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG 知识库 更新后 向量索引 自动刷新 增量更新 重索引 策略"
+            },
+            {
+              "kind": "hyde",
+              "text": "资料修改后,通过 CDC/事件驱动流水线捕获新增、更新、删除操作,将 document_id、chunk_id、version、operation、timestamp 写入 Kafka 等消息队列;索引器消费变更事件,对受影响文本块重新分块、调用 embedding 模型生成新向量,并以稳定主键执行幂等 upsert 写入向量数据库;删除采用 tombstone/软删除标记,再由后台 compaction 异步物理清除。向量库需支持增量 upsert/delete、事务性元数据更新、版本号或时间戳过滤、checkpoint/offset 断点续传,保证近实时一致性与最终一致性。对 HNSW、IVF 等 ANN 索引,结合 delta index、增量段、定期 merge/rebuild 和全量 reindex 策略,避免陈旧向量残留导致召回下降;同时监控索引延迟、消费 lag 和召回漂移,必要时回源重建索引。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R009",
+            "interview-question://R008"
+          ]
+        }
+      },
+      {
+        "question": "资料删除后，怎样让关键词索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料删除后,怎样让关键词索引持续保持最新?"
+            },
+            {
+              "kind": "mqe",
+              "text": "资料删除后 关键词索引持续保持最新 方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "文档删除后 倒排索引 如何实时同步更新"
+            },
+            {
+              "kind": "mqe",
+              "text": "数据删除后 搜索引擎索引更新 删除文档 增量索引 一致性"
+            },
+            {
+              "kind": "hyde",
+              "text": "资料删除后,要使关键词索引(倒排索引)持续保持最新,通常采用变更数据捕获(CDC)监听源库 binlog/WAL/消息队列中的 delete 事件,将删除操作转换为 tombstone/软删除标记写入索引管道,并通过幂等文档 ID 和版本号避免重复或旧事件回写。索引侧先 refresh 使删除标记近实时可见,查询时过滤 tombstone,后台 merge/段合并再物理清除已删除文档并回收空间。增量索引与全量索引结合:增量管道消费 Kafka 等变更流执行 update/delete,批量删除用 delete-by-query;定期全量重建到新索引,经一致性校验后用 alias 原子切换,再淘汰旧索引。配合补偿任务、缓存失效、查询端过滤和最终一致性监控,确保关键词索引与源数据同步。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R014",
+            "interview-question://R004"
+          ]
+        }
+      },
+      {
+        "question": "资料删除后，怎样让向量索引持续保持最新？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料删除后,怎样让向量索引持续保持最新?"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量数据库 删除数据后 如何保持向量索引最新"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量索引 增量更新 删除 数据一致性 实时同步 方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "How to keep vector index up-to-date after deleting documents in a vector database"
+            },
+            {
+              "kind": "hyde",
+              "text": "资料删除后要让向量索引持续保持最新,通常采用“软删除 + 增量索引 + 后台压实/重建”的组合机制:删除请求先写入 WAL/变更日志,并按文档 ID/主键写入 tombstone 或 deletion bitmap,使 ANN 检索通过 visibility bitmap 过滤已删向量;新增和更新进入 delta index 或实时 segment,查询时合并主索引与增量索引并应用删除过滤。后台 compaction/merge 按 merge policy 合并 segment,物理清除墓碑与已删向量,回收向量、倒排列表和 PQ 码,并重建或优化 HNSW、IVF、DiskANN 等索引结构;当删除比例、碎片率或召回率超过阈值时触发 reindex/rebuild。近实时场景使用 refresh/commit、CDC 捕获删除、版本号与快照隔离,分布式环境通过分片级删除、副本同步、定期 optimize 和 GC 保证向量索引与源数据最终一致。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R008",
+            "interview-question://R009"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4501121176323650097,
+        "title": "RAG 知识库如何实现动态与持续更新?",
+        "source": "interview-question://R019",
+        "domain": "rag",
+        "content": "# RAG 知识库如何实现动态与持续更新?\n\n题目编号:R019\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:为来源建立稳定ID、版本和内容哈希,通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding,并以新版本原子替换旧索引;删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换,以支持回滚。更新流程应覆盖新增、修改与删除:检测变更后做解析和内容校验,只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证,再原子切换可见版本,避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步,缓存要失效,删除要清理残留表示。模型或切块规则变化需要索引版本管理,不能把不同向量空间的数据混用。\n\n评分要点:覆盖新增、修改、删除与元数据变更;说明增量索引、版本切换、缓存失效和向量空间兼容性。",
+        "vector_score": 0.8315577805042267,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3525225094256298830,
+        "title": "RAG 检索优化策略有哪些?",
+        "source": "interview-question://R014",
+        "domain": "rag",
+        "content": "# RAG 检索优化策略有哪些?\n\n题目编号:R014\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:可从四层优化:数据层清洗去重、补元数据;索引层结构化/语义切块和父子索引;查询层改写、拆分与过滤;检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开:没有合适知识先修数据,相关内容被切散先修 Chunking,查询表达与文档不同再做改写,精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后,可以扩大候选池或加重排;正确证据已经进入上下文却回答错误,则检查组织方式与生成约束。每次修改只控制少量变量,用检索和答案两层指标验证,避免叠加很多技术后无法归因。\n\n评分要点:分层说明并包含评测闭环。",
+        "vector_score": 0.7438684701919556,
+        "keyword_score": 0.38917206284925054,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2637356371800682692,
+        "title": "请你介绍一下向量检索和关键词检索的区别?",
+        "source": "interview-question://R011",
+        "domain": "rag",
+        "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+        "vector_score": 0.7164917886257172,
+        "keyword_score": 0.5971591573891825,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2886579831854676340,
+        "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+        "source": "interview-question://R009",
+        "domain": "rag",
+        "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+        "vector_score": 0.8155523538589478,
+        "keyword_score": 0.6906844727807044,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 1084357564865389044,
+        "title": "什么是向量数据库?有没有做过向量数据库的对比选型?",
+        "source": "interview-question://R008",
+        "domain": "rag",
+        "content": "# 什么是向量数据库?有没有做过向量数据库的对比选型?\n\n题目编号:R008\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:向量数据库存储向量及元数据,并通过ANN索引进行相似度搜索。选型需比较数据规模和更新频率、HNSW/IVF等索引、过滤与混合检索、分布式扩展、一致性、备份、延迟、生态和总成本。小规模项目可以直接使用数据库扩展或本地索引,不应脱离业务规模盲目上独立集群。需要区分向量数据库、向量索引库和普通数据库中的向量扩展:前者通常还提供元数据、持久化与服务治理,后两者可能需要自行补齐这些能力。选型应使用真实过滤条件、写入负载和并发测试,比较召回率与 P95,不能只看无过滤的性能演示。HNSW 往往用更多内存换召回和延迟,IVF 等方案则有训练、探测和压缩参数需要调整,实际效果要结合数据分布验证。\n\n评分要点:定义、索引、过滤、规模、运维和成本维度完整。",
+        "vector_score": 0.8110183477401733,
+        "keyword_score": 0.8058794418025357,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 2118700465874223499,
+        "title": "RAG 中的文档是怎么存的?粒度是多大?详细说说文档切割(Chunking)策略?",
+        "source": "interview-question://R004",
+        "domain": "rag",
+        "content": "# RAG 中的文档是怎么存的?粒度是多大?详细说说文档切割(Chunking)策略?\n\n题目编号:R004\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:通常保存原文、元数据、父块、检索子块、Embedding和关键词索引。切块优先尊重标题、段落、表格和代码边界,再按Token预算控制长度;过小会丢上下文,过大则召回不精准且占用窗口。可采用重叠、语义切块、父子检索和按文档类型配置策略,最终粒度应通过Recall@K与答案质量实验确定。常见策略包括固定长度、递归分隔、标题结构和语义边界切块。重叠用来保留边界信息,父子结构让小块精准召回后返回更完整的章节;表格可补充表头,代码应尽量保留完整函数与说明。块大小没有统一最优值,要与文档结构、Embedding 输入长度和问题类型一起评估。不要把多个不同主题硬拼成一个块,也要避免仅命中标题却没有正文依据。\n\n评分要点:存储结构、粒度权衡、结构化切块、父子关系和实验调参。",
+        "vector_score": 0.7463182210922241,
+        "keyword_score": 0.43232891303971877,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 49.379,
+  "timings_seconds": {
+    "decomposition": 5.675998,
+    "retrieval": 43.70308,
+    "mqe": 10.942144,
+    "hyde": 29.603109,
+    "embedding": 1.79817,
+    "vector_search": 0.257427,
+    "keyword_search": 1.083957,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 43.703439,
+    "total": 49.379437,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 4,
+    "embedding_texts": 20,
+    "chat_calls": 8,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

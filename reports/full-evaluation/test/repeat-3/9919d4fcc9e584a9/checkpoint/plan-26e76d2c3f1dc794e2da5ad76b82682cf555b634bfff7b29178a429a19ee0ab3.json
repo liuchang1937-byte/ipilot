@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-064",
+  "subquestions": [
+    {
+      "question": "当检索到材料时，如何约束大语言模型使其结论严格依据检索到的材料，避免编造结论？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当检索到的材料不足以支持结论时，如何让大语言模型拒答？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.625896400000784
+}

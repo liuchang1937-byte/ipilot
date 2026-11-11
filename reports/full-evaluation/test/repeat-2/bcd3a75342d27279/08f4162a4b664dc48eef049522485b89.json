@@ -1,0 +1,875 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "08f4162a4b664dc48eef049522485b89",
+  "created_at": "2026-10-12T15:25:59.382739+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "5b9fcda5dad6379ef06138bac5b5b3463ff962112f7defd267e5627bf6570edf",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-2\\bcd3a75342d27279\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.877,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 40.114,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 40.114,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.267446,
+          "p50": 4.267446,
+          "p95": 4.267446,
+          "max": 4.267446,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 35.846398,
+          "p50": 35.846398,
+          "p95": 35.846398,
+          "max": 35.846398,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 14.206565,
+          "p50": 14.206565,
+          "p95": 14.206565,
+          "max": 14.206565,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 19.828657,
+          "p50": 19.828657,
+          "p95": 19.828657,
+          "max": 19.828657,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.375912,
+          "p50": 1.375912,
+          "p95": 1.375912,
+          "max": 1.375912,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.088078,
+          "p50": 0.088078,
+          "p95": 0.088078,
+          "max": 0.088078,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.339637,
+          "p50": 0.339637,
+          "p95": 0.339637,
+          "max": 0.339637,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 35.846602,
+          "p50": 35.846602,
+          "p95": 35.846602,
+          "max": 35.846602,
+          "samples": 1
+        },
+        "total": {
+          "mean": 40.114048,
+          "p50": 40.114048,
+          "p95": 40.114048,
+          "max": 40.114048,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.959,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.959,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.267446,
+          "p50": 4.267446,
+          "p95": 4.267446,
+          "max": 4.267446,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.691419,
+          "p50": 0.691419,
+          "p95": 0.691419,
+          "max": 0.691419,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.575166,
+          "p50": 0.575166,
+          "p95": 0.575166,
+          "max": 0.575166,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.03367,
+          "p50": 0.03367,
+          "p95": 0.03367,
+          "max": 0.03367,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.080801,
+          "p50": 0.080801,
+          "p95": 0.080801,
+          "max": 0.080801,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.691564,
+          "p50": 0.691564,
+          "p95": 0.691564,
+          "max": 0.691564,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.95901,
+          "p50": 4.95901,
+          "p95": 4.95901,
+          "max": 4.95901,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-042",
+      "question": "模型为什么会编造事实，检索与验证分别能缓解哪些问题？",
+      "category": "terminology",
+      "split": "test",
+      "group": "R017",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "模型目标是生成高概率文本而非验证事实，训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如，要求引用一篇不存在的论文时，模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零，概率最高的输出也可能不符合事实，所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果，分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性，统计误答与拒答，不能只观察答复是否自信、完整。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L018",
+        "interview-question://L001",
+        "interview-question://R017",
+        "interview-question://R002"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.8769765845238192,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "模型为什么会编造事实，检索与验证分别能缓解哪些问题？",
+        "answer": "1. 模型为什么会编造事实？\n\n\n2. 检索能缓解模型编造事实的哪些问题？\n\n\n3. 验证能缓解模型编造事实的哪些问题？\n",
+        "sections": [
+          {
+            "question": "模型为什么会编造事实？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型为什么会编造事实?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型为什么会编造事实"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "语言模型幻觉的成因与机制 研究"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "why do large language models hallucinate facts causes"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "模型编造事实通常称为幻觉(hallucination),其根源在于大语言模型以自回归下一个词预测为训练目标,优化的是语言概率而非事实真值。预训练语料存在噪声、冲突、过时和长尾稀疏,参数化知识是有损压缩;当上下文不足、检索缺失或问题属于分布外时,模型倾向依据高频共现、句法模式和语义连贯性进行概率补全,生成看似合理但无依据的实体、数字、引文或事件。解码策略如温度采样、top-k、top-p 会增加随机性;RLHF 与指令微调可能偏好流畅自信回答而非拒答;知识截止、多跳推理错误、指代消解失败和缺乏不确定性校准也会加剧幻觉。没有外部检索、事实验证与引用溯源时,模型难以区分已知与未知,从而编造事实。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L018",
+                "interview-question://L001",
+                "interview-question://R017"
+              ]
+            }
+          },
+          {
+            "question": "检索能缓解模型编造事实的哪些问题？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "检索能缓解模型编造事实的哪些问题?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "检索增强生成 RAG 能缓解大模型幻觉的哪些问题"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "检索能解决大语言模型编造事实、事实错误、知识过时中的哪些问题"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "retrieval-augmented generation mitigates which LLM hallucination and factual fabrication problems"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "检索增强生成(RAG)通过外部检索器获取证据段落、文档或知识库片段,将其作为上下文注入生成模型,可缓解大语言模型的事实编造问题,包括:事实性幻觉(factual hallucination)、内在/外在幻觉、知识截止(knowledge cutoff)与时效性错误、长尾实体与低频事实缺失、领域知识不足、参数化记忆过时或冲突、无依据断言(unsupported claim)、答非所问、实体/关系/数值错误、虚构引文与参考文献、伪造来源、过度自信的错误答案、归因缺失。检索提供非参数化记忆、证据接地(grounding)、可验证溯源(provenance/attribution)和开放书问答(open-book QA)能力,提升事实准确性(factuality)、忠实度(faithfulness)、可验证性与校准,减少闭卷生成中因知识缺失或记忆混淆导致的 confabulation 和幻觉。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R002",
+                "interview-question://L018",
+                "interview-question://R017"
+              ]
+            }
+          },
+          {
+            "question": "验证能缓解模型编造事实的哪些问题？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证能缓解模型编造事实的哪些问题?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "验证能缓解大语言模型编造事实的哪些问题?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "事实核查与验证机制可以减少模型幻觉中的哪些问题?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "针对大模型事实编造,验证方法能解决哪些类型的错误或风险?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "验证通过检索增强核验、外部知识库比对、事实核查、自然语言推理蕴含判断、知识图谱校验、引用核验、自洽性投票与工具执行反馈,可缓解大语言模型的事实性幻觉,包括闭卷事实错误、虚构实体/属性/关系、错误引用与伪造文献、数值与时间不一致、地理/统计错误、无证据支持的主张、知识冲突下的错误覆盖、问答与摘要中的不忠实内容、归因错误、长文本事实漂移及过度自信错误。其核心作用是提升事实准确性、可验证性、证据归因忠实度与置信度校准,降低内在事实不一致和外在幻觉;对主观观点、纯逻辑推理错误、训练数据缺失或证据不可得问题缓解有限。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L018",
+                "interview-question://R002",
+                "interview-question://R017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.8675149083137512,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2711125243325661145,
+            "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+            "source": "interview-question://L001",
+            "domain": "llm-engineering",
+            "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+            "vector_score": 0.7745810151100159,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.8322646915912628,
+            "keyword_score": 0.7036739553758014,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4294420497335021517,
+            "title": "大模型的 RAG 主要用来解决什么问题?",
+            "source": "interview-question://R002",
+            "domain": "rag",
+            "content": "# 大模型的 RAG 主要用来解决什么问题?\n\n题目编号:R002\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG主要解决模型知识过时、无法访问私有数据、事实依据不可追溯和重新训练成本高的问题。它让知识与模型参数解耦,文档变化后可以重新索引。但RAG不能自动修复错误数据,也不能替代模型本身缺乏的推理能力;召回不到或上下文质量差时,生成仍会失败。例如,新发布的内部制度不在模型训练数据中,但文档入库后就能被检索使用,不必等待模型重新训练。把知识放在外部还便于控制文档权限、版本和来源,提高结果的可核查性。需要强调的是,RAG 只能提供可用信息,不能保证模型一定正确理解;过期文档、冲突证据和错误检索仍可能导致幻觉。实际目标是降低错误并让错误可定位,而不是承诺彻底消除幻觉。\n\n评分要点:知识更新、私域知识、可追溯性、低更新成本及能力边界。",
+            "vector_score": 0.8152664601802826,
+            "keyword_score": 0.9509551896632616,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 40.114,
+      "timings_seconds": {
+        "decomposition": 4.267446,
+        "retrieval": 35.846398,
+        "mqe": 14.206565,
+        "hyde": 19.828657,
+        "embedding": 1.375912,
+        "vector_search": 0.088078,
+        "keyword_search": 0.339637,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 35.846602,
+        "total": 40.114048,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-042",
+      "question": "模型为什么会编造事实，检索与验证分别能缓解哪些问题？",
+      "category": "terminology",
+      "split": "test",
+      "group": "R017",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://L018"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "模型目标是生成高概率文本而非验证事实，训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如，要求引用一篇不存在的论文时，模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零，概率最高的输出也可能不符合事实，所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果，分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性，统计误答与拒答，不能只观察答复是否自信、完整。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L018",
+        "interview-question://A015",
+        "interview-question://L022",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R002"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "模型为什么会编造事实，检索与验证分别能缓解哪些问题？",
+        "answer": "1. 模型为什么会编造事实？\n\n\n2. 检索能缓解模型编造事实的哪些问题？\n\n\n3. 验证能缓解模型编造事实的哪些问题？\n",
+        "sections": [
+          {
+            "question": "模型为什么会编造事实？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "模型为什么会编造事实?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L018",
+                "interview-question://A015",
+                "interview-question://L022"
+              ]
+            }
+          },
+          {
+            "question": "检索能缓解模型编造事实的哪些问题？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "检索能缓解模型编造事实的哪些问题?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L018",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://R002"
+              ]
+            }
+          },
+          {
+            "question": "验证能缓解模型编造事实的哪些问题？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证能缓解模型编造事实的哪些问题?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L018",
+                "interview-question://A015",
+                "interview-question://R002"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.8386420905590057,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2654545256875798294,
+            "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+            "source": "interview-question://A015",
+            "domain": "agent",
+            "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+            "vector_score": 0.7762697041034698,
+            "keyword_score": 0.7516025657780605,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.7071447670459747,
+            "keyword_score": 0.6619084977295704,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1105497267590274010,
+            "title": "建议的检索评估",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 建议的检索评估\n\n● 对每题标注支持块,计算 Recall@1、Recall@5 与 MRR。\n\n● 把“超温事故”“温度越界”“TEE”作为同义查询组,比较向量与 BM25 的互补性。\n● 将旧版 25% 作为高词面相似干扰块,检验 reranker 与版本元数据是否把 v1.4 排在前面。\n● 对无答案题检查模型是否引用无关块、拼接联系人信息或编造供应商。",
+            "vector_score": 0.7926291525363922,
+            "keyword_score": 0.8116943074605559,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 4294420497335021517,
+            "title": "大模型的 RAG 主要用来解决什么问题?",
+            "source": "interview-question://R002",
+            "domain": "rag",
+            "content": "# 大模型的 RAG 主要用来解决什么问题?\n\n题目编号:R002\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG主要解决模型知识过时、无法访问私有数据、事实依据不可追溯和重新训练成本高的问题。它让知识与模型参数解耦,文档变化后可以重新索引。但RAG不能自动修复错误数据,也不能替代模型本身缺乏的推理能力;召回不到或上下文质量差时,生成仍会失败。例如,新发布的内部制度不在模型训练数据中,但文档入库后就能被检索使用,不必等待模型重新训练。把知识放在外部还便于控制文档权限、版本和来源,提高结果的可核查性。需要强调的是,RAG 只能提供可用信息,不能保证模型一定正确理解;过期文档、冲突证据和错误检索仍可能导致幻觉。实际目标是降低错误并让错误可定位,而不是承诺彻底消除幻觉。\n\n评分要点:知识更新、私域知识、可追溯性、低更新成本及能力边界。",
+            "vector_score": 0.7579157054424286,
+            "keyword_score": 0.6090502319164803,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.959,
+      "timings_seconds": {
+        "decomposition": 4.267446,
+        "retrieval": 0.691419,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.575166,
+        "vector_search": 0.03367,
+        "keyword_search": 0.080801,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.691564,
+        "total": 4.95901,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-042",
+      "subquestions": [
+        {
+          "question": "模型为什么会编造事实？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "检索能缓解模型编造事实的哪些问题？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "验证能缓解模型编造事实的哪些问题？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 4.267445600002247
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 40.813,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

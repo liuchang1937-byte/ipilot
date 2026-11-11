@@ -1,0 +1,1059 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "efa5d4969f2245f19a309b45b6ae6e80",
+  "created_at": "2026-10-12T15:07:34.320443+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "2db2ea354311897247eeb996f1557718ea90ac4b9b48e1eb79ae32d9bbb2617c",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-1\\7528e5788df6d879\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 37.811,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 37.811,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.491317,
+          "p50": 6.491317,
+          "p95": 6.491317,
+          "max": 6.491317,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 31.319059,
+          "p50": 31.319059,
+          "p95": 31.319059,
+          "max": 31.319059,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 8.031448,
+          "p50": 8.031448,
+          "p95": 8.031448,
+          "max": 8.031448,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 21.142575,
+          "p50": 21.142575,
+          "p95": 21.142575,
+          "max": 21.142575,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.451541,
+          "p50": 1.451541,
+          "p95": 1.451541,
+          "max": 1.451541,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.114107,
+          "p50": 0.114107,
+          "p95": 0.114107,
+          "max": 0.114107,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.56905,
+          "p50": 0.56905,
+          "p95": 0.56905,
+          "max": 0.56905,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 31.319354,
+          "p50": 31.319354,
+          "p95": 31.319354,
+          "max": 31.319354,
+          "samples": 1
+        },
+        "total": {
+          "mean": 37.810671,
+          "p50": 37.810671,
+          "p95": 37.810671,
+          "max": 37.810671,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 6.983,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 6.983,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.491317,
+          "p50": 6.491317,
+          "p95": 6.491317,
+          "max": 6.491317,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.491762,
+          "p50": 0.491762,
+          "p95": 0.491762,
+          "max": 0.491762,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.303873,
+          "p50": 0.303873,
+          "p95": 0.303873,
+          "max": 0.303873,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.045604,
+          "p50": 0.045604,
+          "p95": 0.045604,
+          "max": 0.045604,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.139267,
+          "p50": 0.139267,
+          "p95": 0.139267,
+          "max": 0.139267,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.492044,
+          "p50": 0.492044,
+          "p95": 0.492044,
+          "max": 0.492044,
+          "samples": 1
+        },
+        "total": {
+          "mean": 6.983361,
+          "p50": 6.983361,
+          "p95": 6.983361,
+          "max": 6.983361,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 8.291,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 8.291,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.491317,
+          "p50": 6.491317,
+          "p95": 6.491317,
+          "max": 6.491317,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.607539,
+          "p50": 0.607539,
+          "p95": 0.607539,
+          "max": 0.607539,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.287749,
+          "p50": 0.287749,
+          "p95": 0.287749,
+          "max": 0.287749,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.046803,
+          "p50": 0.046803,
+          "p95": 0.046803,
+          "max": 0.046803,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.270217,
+          "p50": 0.270217,
+          "p95": 0.270217,
+          "max": 0.270217,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.192079,
+          "p50": 1.192079,
+          "p95": 1.192079,
+          "max": 1.192079,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.800049,
+          "p50": 1.800049,
+          "p95": 1.800049,
+          "max": 1.800049,
+          "samples": 1
+        },
+        "total": {
+          "mean": 8.291365,
+          "p50": 8.291365,
+          "p95": 8.291365,
+          "max": 8.291365,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-032",
+      "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "L008",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L008"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "微调通常不是第一选择，应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式，或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA；资源有限时LoRA/QLoRA最常用。SFT负责指令行为，有偏好对齐需求时还可使用DPO等方法，最终按数据、硬件和部署目标选型。全量微调更新大部分权重，容量较大但显存和优化器状态开销高；PEFT 只更新少量新增或选定参数，适合资源受限场景。QLoRA 将基座权重低比特存储，同时训练低秩适配器，不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式，LoRA 是参数更新方式，两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本，动态事实通常继续通过检索提供。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L008",
+        "interview-question://L009",
+        "interview-question://L015"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+        "answer": "1. 在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？\n\n\n2. 在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？\n",
+        "sections": [
+          {
+            "question": "在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在有限显存条件下,全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "有限显存条件下 全参数微调 LoRA QLoRA 显存需求 训练成本 对比"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型微调方法 Full Fine-tuning LoRA Adapter Prefix Tuning 显存占用 适用场景"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "GPU 显存不足 如何选择微调方式 全参数微调 vs LoRA vs QLoRA 成本 效果 场景"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在有限显存条件下,全参数微调、LoRA、QLoRA 等微调方式的显存需求、训练成本和适用场景差异显著。全参数微调(Full Fine-Tuning)需保存全部模型权重、梯度、优化器状态和激活值;混合精度 AdamW 下每参数约需 16–20 字节,7B 模型仅权重、梯度和优化器状态常超 80–100GB,加激活值后通常需多张 A100/H100,或依赖 ZeRO-3、FSDP、CPU offload、梯度检查点。其训练成本最高,更新全部参数,适合数据量大、领域偏移大、追求最高精度且具备多卡资源的场景。LoRA 冻结基座模型,仅训练低秩矩阵 A/B,可训练参数通常占 0.01%–1%,显存主要为 FP16/BF16 基座权重、LoRA 梯度与优化器状态及激活值;7B 模型约 14–20GB,13B 约 24–40GB,可在单张 24GB/48GB GPU 上训练。LoRA 训练成本低、checkpoint 小、易切换任务,适合指令微调、领域/风格适配、多任务服务和显存受限场景。QLoRA 将基座量化为 4-bit NF4,并配合 LoRA、双量化、分页优化器,7B 约 6–12GB,13B 约 12–20GB,33B/70B 可在单卡或少量卡加 offload 训练,显存最低但训练速度和精度略有折衷,适合极端显存限制。Adapter、Prefix Tuning、P-Tuning 等 PEFT 方法插入小模块或可训练前缀,显存和计算开销低,但推理可能增加延迟或容量受限,适合低资源适配。选择时需权衡模型规模、序列长度、batch size、优化器、梯度检查点、ZeRO/FSDP、offload 与量化。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L008",
+                "interview-question://L009",
+                "interview-question://L015"
+              ]
+            }
+          },
+          {
+            "question": "在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在有限显存条件下,如何根据模型规模、任务类型、数据量和训练目标等因素,在全参数微调、LoRA 等微调方式之间进行选择?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "有限显存条件下 全参数微调和 LoRA 微调 如何选择 模型规模 任务类型 数据量 训练目标"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "显存受限 大模型参数高效微调方法对比 LoRA QLoRA AdaLoRA 全量微调 适用场景 选择指南"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "limited GPU memory fine-tuning method selection: full fine-tuning vs LoRA vs QLoRA based on model size, task type, dataset size, and training objective"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在有限显存下,微调方案选择先估算全参数微调的显存需求:模型权重、梯度、AdamW 优化器状态、激活值,混合精度下约 16–20 字节/参数外加激活,7B 以上模型在单卡 16–24GB 通常不可行。模型规模 ≥7B 或显存 ≤24GB 时优先 LoRA、QLoRA、Adapter、Prefix/P-Tuning;其中 QLoRA 采用 4-bit NF4 量化、双重量化、分页优化器,冻结基座,仅训练低秩适配器,优化器状态按适配器参数计。任务为分类、信息抽取、格式对齐、轻量领域适配且数据量 <10k–100k 时,LoRA rank r=4–16,target_modules 选 q_proj、k_proj、v_proj、o_proj 即可;复杂推理、指令跟随、风格迁移、注入新知识或大领域漂移需 r=32–128、覆盖 gate_proj、up_proj、down_proj,或改用全参数微调。数据量 >1M、训练目标接近继续预训练或需改变模型能力时倾向全参数微调,并配合 ZeRO-3、CPU offload、梯度检查点、FlashAttention、8-bit Adam、梯度累积、序列并行。仅适配下游输出则用 LoRA/Adapter/Prefix/P-Tuning。全参学习率 1e-5–5e-5,LoRA 学习率 1e-4–5e-4,同时权衡灾难性遗忘、吞吐、推理延迟,LoRA 可合并回基座以消除推理开销。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L008",
+                "interview-question://L009",
+                "interview-question://L015"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 986183218169772871,
+            "title": "大模型微调的方案有哪些?",
+            "source": "interview-question://L008",
+            "domain": "llm-engineering",
+            "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+            "vector_score": 0.8830195665359497,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1962235713523519350,
+            "title": "请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?",
+            "source": "interview-question://L009",
+            "domain": "llm-engineering",
+            "content": "# 请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?\n\n题目编号:L009\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:LoRA冻结原权重,用两个低秩矩阵近似权重更新,并把更新注入注意力或其他线性层。除减少训练参数和显存外,它便于为多个任务保存小型适配器、快速切换或组合,也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W,训练的增量可以写成 ΔW=BA,秩 r 远小于原维度,再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算,并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支,未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围,但不能保证没有遗忘或副作用;秩、目标层、数据与评测比单纯追求最低参数量更重要。\n\n评分要点:低秩更新原理、多适配器、可合并及超参数权衡。",
+            "vector_score": 0.8387696743011475,
+            "keyword_score": 0.6895702173404484,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4463257598973586641,
+            "title": "大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?",
+            "source": "interview-question://L015",
+            "domain": "llm-engineering",
+            "content": "# 大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?\n\n题目编号:L015\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:量化用低比特表示权重或激活,以降低显存、带宽和计算成本,代价是精度风险。INT8通常损失小,INT4压缩更强;GPTQ利用校准数据做逐层训练后权重量化,通用性强;AWQ保护对输出敏感的重要权重,常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化,以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化,AWQ 利用激活信息调整重要通道的缩放,减少关键权重的误差;不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快,需要核对算子支持,并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。\n\n评分要点:量化对象、比特权衡、AWQ/GPTQ思路及硬件适配。",
+            "vector_score": 0.8134703636169434,
+            "keyword_score": 0.4666636769191596,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 37.811,
+      "timings_seconds": {
+        "decomposition": 6.491317,
+        "retrieval": 31.319059,
+        "mqe": 8.031448,
+        "hyde": 21.142575,
+        "embedding": 1.451541,
+        "vector_search": 0.114107,
+        "keyword_search": 0.56905,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 31.319354,
+        "total": 37.810671,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-032",
+      "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "L008",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://L008"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "微调通常不是第一选择，应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式，或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA；资源有限时LoRA/QLoRA最常用。SFT负责指令行为，有偏好对齐需求时还可使用DPO等方法，最终按数据、硬件和部署目标选型。全量微调更新大部分权重，容量较大但显存和优化器状态开销高；PEFT 只更新少量新增或选定参数，适合资源受限场景。QLoRA 将基座权重低比特存储，同时训练低秩适配器，不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式，LoRA 是参数更新方式，两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本，动态事实通常继续通过检索提供。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L008",
+        "interview-question://R003",
+        "interview-question://L009"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+        "answer": "1. 在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？\n\n\n2. 在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？\n",
+        "sections": [
+          {
+            "question": "在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在有限显存条件下,全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L008",
+                "interview-question://R003",
+                "interview-question://L009"
+              ]
+            }
+          },
+          {
+            "question": "在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在有限显存条件下,如何根据模型规模、任务类型、数据量和训练目标等因素,在全参数微调、LoRA 等微调方式之间进行选择?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L008",
+                "interview-question://L009",
+                "interview-question://R003"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 986183218169772871,
+            "title": "大模型微调的方案有哪些?",
+            "source": "interview-question://L008",
+            "domain": "llm-engineering",
+            "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+            "vector_score": 0.8717958927154541,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1412059223324461316,
+            "title": "相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?",
+            "source": "interview-question://R003",
+            "domain": "rag",
+            "content": "# 相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?\n\n题目编号:R003\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:RAG适合注入经常变化或私有的事实知识,更新快、可引用,但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力,推理时无需额外检索,但训练和更新成本高,事实难以精确修改。两者可组合:微调行为稳定性,RAG提供动态知识。例如,客服经常需要遵循固定语气与输出格式,可以先用提示和示例,必要时微调;产品价格与售后政策每天变化,则更适合外部知识库。微调也能学习事实,但事实的覆盖、版本和引用较难管理;RAG 也能改善任务表现,但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务,再比较标注数据、训练维护成本、检索延迟和最终业务指标。\n\n评分要点:从知识与行为区分;比较更新、成本、延迟和可解释性。",
+            "vector_score": 0.7670186161994934,
+            "keyword_score": 0.6028060401636378,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1962235713523519350,
+            "title": "请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?",
+            "source": "interview-question://L009",
+            "domain": "llm-engineering",
+            "content": "# 请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?\n\n题目编号:L009\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:LoRA冻结原权重,用两个低秩矩阵近似权重更新,并把更新注入注意力或其他线性层。除减少训练参数和显存外,它便于为多个任务保存小型适配器、快速切换或组合,也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W,训练的增量可以写成 ΔW=BA,秩 r 远小于原维度,再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算,并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支,未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围,但不能保证没有遗忘或副作用;秩、目标层、数据与评测比单纯追求最低参数量更重要。\n\n评分要点:低秩更新原理、多适配器、可合并及超参数权衡。",
+            "vector_score": 0.8061766922473907,
+            "keyword_score": 0.6756474194576555,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 6.983,
+      "timings_seconds": {
+        "decomposition": 6.491317,
+        "retrieval": 0.491762,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.303873,
+        "vector_search": 0.045604,
+        "keyword_search": 0.139267,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.492044,
+        "total": 6.983361,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-032",
+      "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "L008",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://L008"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "微调通常不是第一选择，应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式，或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA；资源有限时LoRA/QLoRA最常用。SFT负责指令行为，有偏好对齐需求时还可使用DPO等方法，最终按数据、硬件和部署目标选型。全量微调更新大部分权重，容量较大但显存和优化器状态开销高；PEFT 只更新少量新增或选定参数，适合资源受限场景。QLoRA 将基座权重低比特存储，同时训练低秩适配器，不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式，LoRA 是参数更新方式，两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本，动态事实通常继续通过检索提供。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L008"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+        "answer": "1. 在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？\n\n\n2. 在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？\n",
+        "sections": [
+          {
+            "question": "在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在有限显存条件下,全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://L008"
+              ]
+            }
+          },
+          {
+            "question": "在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在有限显存条件下,如何根据模型规模、任务类型、数据量和训练目标等因素,在全参数微调、LoRA 等微调方式之间进行选择?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://L008"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 986183218169772871,
+            "title": "大模型微调的方案有哪些?",
+            "source": "interview-question://L008",
+            "domain": "llm-engineering",
+            "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+            "vector_score": 0.8717958927154541,
+            "keyword_score": 1.0,
+            "rerank_score": 0.8142377734184265
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 8.291,
+      "timings_seconds": {
+        "decomposition": 6.491317,
+        "retrieval": 0.607539,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.287749,
+        "vector_search": 0.046803,
+        "keyword_search": 0.270217,
+        "rerank": 1.192079,
+        "generation": 0.0,
+        "pipeline": 1.800049,
+        "total": 8.291365,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-032",
+      "subquestions": [
+        {
+          "question": "在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 6.4913168999992195
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.011,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

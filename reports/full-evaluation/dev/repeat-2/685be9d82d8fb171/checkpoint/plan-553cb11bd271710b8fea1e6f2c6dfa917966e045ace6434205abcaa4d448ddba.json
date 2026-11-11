@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-048",
+  "subquestions": [
+    {
+      "question": "检索增强系统从资料入库到带证据回答的完整数据链路是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.397782999998526
+}

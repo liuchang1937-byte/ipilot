@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-002",
+      "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A002"
+      ],
+      "answerable": true,
+      "reference_answer": "Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策；工具负责搜索、执行代码或调用API，使Agent能够作用于外部环境；记忆保存对话和任务状态；规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为：用户目标进入规划模块，规划结果与已有状态组成模型上下文，模型选择工具，执行器校验参数并运行，结果写回状态和记忆，模型再判断是否继续。记忆不能只保存聊天文本，还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器，它负责停止条件、异常处理和检查点，避免模型输出了计划却没有执行。",
+      "group": "A001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

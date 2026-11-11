@@ -1,0 +1,356 @@
+{
+  "case_id": "V2-044",
+  "question": "CPU本地部署与GPU高并发服务，怎样选择推理运行框架？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "L015",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L020"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "vLLM适合GPU高吞吐服务，强调PagedAttention和连续批处理；TGI提供较完整的Hugging Face生产服务生态；llama.cpp适合CPU、边缘和量化本地部署；SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本，并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持，再用相同输入输出长度、并发与精度设置测试，避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列，重复前缀场景需要看缓存命中，本地部署则更关心内存与量化兼容。框架特性和维护状态会变化，不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力，而不是只说某框架最快。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L020",
+    "interview-question://L022",
+    "interview-question://T008",
+    "interview-question://T016",
+    "interview-question://T015"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "CPU本地部署与GPU高并发服务，怎样选择推理运行框架？",
+    "answer": "1. 在CPU本地部署场景下，选择推理运行框架应考虑哪些因素？\n\n\n2. 在GPU高并发服务场景下，选择推理运行框架应考虑哪些因素？\n\n\n3. CPU本地部署与GPU高并发服务在选择推理运行框架时的关键差异和决策依据是什么？\n\n\n4. 适合CPU本地部署的推理运行框架有哪些？\n\n\n5. 适合GPU高并发服务的推理运行框架有哪些？\n",
+    "sections": [
+      {
+        "question": "在CPU本地部署场景下，选择推理运行框架应考虑哪些因素？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在CPU本地部署场景下,选择推理运行框架应考虑哪些因素?"
+            },
+            {
+              "kind": "mqe",
+              "text": "CPU 本地部署 推理框架 选型 考虑因素"
+            },
+            {
+              "kind": "mqe",
+              "text": "本地 CPU 推理引擎 对比:延迟 吞吐 内存占用 量化支持"
+            },
+            {
+              "kind": "mqe",
+              "text": "无 GPU 本地环境部署模型 如何选择推理运行时框架"
+            },
+            {
+              "kind": "hyde",
+              "text": "在CPU本地部署场景下,选择推理运行框架应评估:CPU指令集与算子优化支持(x86 AVX2/AVX-512/VNNI/AMX、ARM NEON/SVE、oneDNN/oneMKL/OpenBLAS/MKL),量化与低精度推理能力(INT8/INT4、FP16/BF16、GGUF/AWQ/GPTQ/ONNX QDQ、校准与精度损失),模型格式与算子覆盖(ONNX、PyTorch、TensorFlow、Safetensors、GGUF;动态/静态shape、控制流、自定义算子),运行时性能与资源占用(首token延迟、token生成吞吐、批处理/连续批处理、内存带宽、KV Cache、NUMA与线程亲和、OpenMP/TBB、避免线程超订),图优化与编译能力(算子融合、常量折叠、内存复用、JIT/AOT、TVM/MLIR),部署集成与依赖(C/C++/Python/Java/Go API、二进制体积、跨平台Windows/Linux/macOS、容器化、离线安装),可观测性与调优(profiling、日志、指标、量化工具链),以及许可证、社区维护、硬件兼容性和长期可维护性。对LLM还需关注KV cache管理、paged attention、投机解码与采样算子支持;对CV/NLP需关注预处理/后处理集成、批流式推理及端到端流水线性能。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L020",
+            "interview-question://L022",
+            "interview-question://T008"
+          ]
+        }
+      },
+      {
+        "question": "在GPU高并发服务场景下，选择推理运行框架应考虑哪些因素？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在GPU高并发服务场景下,选择推理运行框架应考虑哪些因素?"
+            },
+            {
+              "kind": "mqe",
+              "text": "GPU 高并发场景 推理运行框架 选择 评估维度"
+            },
+            {
+              "kind": "mqe",
+              "text": "高吞吐低延迟 GPU 推理服务 框架对比 选型指南"
+            },
+            {
+              "kind": "mqe",
+              "text": "inference runtime framework selection for high-concurrency GPU serving"
+            },
+            {
+              "kind": "hyde",
+              "text": "在GPU高并发推理服务场景下,选择推理运行框架应综合评估:吞吐量、QPS、P95/P99延迟、首token延迟与token间延迟、最大并发数;是否支持动态批处理、连续批处理、请求调度、优先级队列、抢占与流式输出;显存管理与KV Cache优化,如PagedAttention、分页缓存、前缀缓存、KV量化;模型与算子支持,包括Transformer、MoE、多模态、自定义算子、ONNX/TensorRT/PyTorch导出;性能优化能力,如CUDA Graph、算子融合、FP8/INT8/INT4量化、投机解码、编译优化、动态shape;分布式扩展能力,包括张量并行、流水线并行、专家并行、多卡多机、NCCL通信、MIG隔离;部署与运维特性,如OpenAI兼容API、弹性伸缩、自动扩缩容、滚动升级、故障恢复、可观测性、Prometheus指标、日志与链路追踪;硬件兼容性与成本,覆盖NVIDIA/AMD/国产GPU、显存带宽、GPU利用率、单位token成本;以及生态与可维护性,包括社区活跃度、文档、插件、二次开发、安全隔离。框架选择需在延迟、吞吐、成本、稳定性和扩展性之间权衡。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L020",
+            "interview-question://L022",
+            "interview-question://T016"
+          ]
+        }
+      },
+      {
+        "question": "CPU本地部署与GPU高并发服务在选择推理运行框架时的关键差异和决策依据是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "CPU本地部署与GPU高并发服务在选择推理运行框架时的关键差异和决策依据是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "CPU本地部署与GPU高并发服务在选择推理运行框架时的关键差异和决策依据"
+            },
+            {
+              "kind": "mqe",
+              "text": "推理框架选型对比:CPU单机推理与GPU高并发在线服务在延迟、吞吐、并发、成本、可扩展性上的差异"
+            },
+            {
+              "kind": "mqe",
+              "text": "inference runtime framework selection criteria for CPU local deployment vs GPU high-concurrency serving: key differences and decision factors"
+            },
+            {
+              "kind": "hyde",
+              "text": "CPU本地部署与GPU高并发服务在选择推理运行框架时的关键差异在于优化目标:CPU本地部署以单流/低并发、低延迟、低内存占用、离线隐私和跨平台为目标,框架多采用 llama.cpp/GGUF、ONNX Runtime + OpenVINO/oneDNN、OpenVINO、MNN、NCNN、TFLite、PyTorch CPU/IPEX,依赖 AVX2/AVX-512/AMX、NUMA 绑核、线程池和 INT8/INT4 量化,通常不启用 continuous batching,瓶颈是内存带宽与单核性能。GPU高并发服务以吞吐、QPS、多用户并发和显存效率为目标,框架多采用 vLLM、TensorRT-LLM、SGLang、Hugging Face TGI、Triton Inference Server、DeepSpeed/FasterTransformer,依赖 CUDA/ROCm、Tensor Core、FP16/BF16/FP8/INT8、PagedAttention、continuous batching、动态 batching、prefix caching、speculative decoding、KV cache 管理、tensor/pipeline parallelism 与多卡扩展。决策依据包括并发量、QPS、延迟 SLO、模型规模、上下文长度、显存/内存容量、量化精度、硬件加速器、部署环境、成本与运维复杂度;低并发本地/边缘选 CPU 优先轻量框架,高并发在线 API/Agent/RAG 选 GPU 吞吐型服务框架,混合或统一 serving 可用 Triton/ONNX Runtime/Ray Serve 编排。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L020",
+            "interview-question://L022",
+            "interview-question://T015"
+          ]
+        }
+      },
+      {
+        "question": "适合CPU本地部署的推理运行框架有哪些？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "适合CPU本地部署的推理运行框架有哪些?"
+            },
+            {
+              "kind": "mqe",
+              "text": "适合CPU本地部署的推理运行框架有哪些"
+            },
+            {
+              "kind": "mqe",
+              "text": "CPU 本地运行深度学习模型 推理框架 推荐"
+            },
+            {
+              "kind": "mqe",
+              "text": "local CPU inference runtime frameworks for model deployment llama.cpp ONNX Runtime OpenVINO"
+            },
+            {
+              "kind": "hyde",
+              "text": "适合 CPU 本地部署的推理运行框架主要包括 llama.cpp、Ollama、llamafile、CTranslate2、MLC-LLM、ONNX Runtime、OpenVINO、Apache TVM、NCNN、MNN、TensorFlow Lite、Paddle Lite,以及 PyTorch + Intel Extension for PyTorch/IPEX 和 oneDNN 后端。大语言模型 CPU 推理常用 llama.cpp 及 GGUF 量化格式,支持 Q4_K_M、Q5_K_M、INT8/INT4 量化、KV cache、mmap 加载,并利用 AVX2、AVX-512、AMX、VNNI、OpenMP 多线程加速;Ollama 和 llamafile 提供本地 CPU 推理与模型服务封装;CTranslate2 通过 oneDNN 和 INT8 量化优化 Transformer CPU 推理。通用模型可选用 ONNX Runtime、OpenVINO Runtime、Apache TVM、TensorFlow Lite,结合图优化、算子融合、训练后量化、NUMA 绑定和线程亲和性提升吞吐。边缘 CPU 场景可选 NCNN、MNN、Paddle Lite,支持 ARM NEON、x86 SIMD 和低内存占用推理。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L020",
+            "interview-question://T008",
+            "interview-question://L022"
+          ]
+        }
+      },
+      {
+        "question": "适合GPU高并发服务的推理运行框架有哪些？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "适合GPU高并发服务的推理运行框架有哪些?"
+            },
+            {
+              "kind": "mqe",
+              "text": "GPU 高并发推理服务框架有哪些"
+            },
+            {
+              "kind": "mqe",
+              "text": "高吞吐低延迟 GPU 推理部署框架对比 Triton TensorRT vLLM"
+            },
+            {
+              "kind": "mqe",
+              "text": "GPU high concurrency inference serving framework comparison"
+            },
+            {
+              "kind": "hyde",
+              "text": "适合 GPU 高并发在线推理服务的运行框架主要包括:NVIDIA Triton Inference Server,支持动态批处理、并发模型执行、TensorRT/ONNX Runtime/PyTorch 后端、gRPC/HTTP 接口与 Prometheus 指标;TensorRT-LLM,面向 LLM 提供 in-flight batching、Paged KV Cache、连续批处理、FP8/INT4 量化、张量并行与流水线并行;vLLM,采用 PagedAttention、continuous batching、prefix caching、chunked prefill、speculative decoding 和 OpenAI 兼容 API;SGLang,基于 RadixAttention 与连续批处理;Hugging Face Text Generation Inference(TGI),支持 continuous batching、FlashAttention、张量并行与量化;DeepSpeed-FastGen,使用 Dynamic SplitFuse 提升吞吐;LMDeploy/TurboMind,支持持久化批处理与多 GPU 推理;NVIDIA Dynamo,面向 disaggregated serving、KV Cache 卸载与多节点推理调度;Ray Serve、KServe、TorchServe、BentoML、OpenLLM 用于分布式部署、弹性扩缩容、Kubernetes 服务化和多模型编排;MLC-LLM、FasterTransformer、ONNX Runtime CUDA/TensorRT EP 也用于 GPU 加速推理。典型优化技术包括 KV Cache 管理、动态/连续批处理、PagedAttention、张量/流水线并行、量化、CUDA Graph、prefill/decode 分离和 disaggregated serving,以降低首 token 延迟并提升 tokens/s 与 GPU 利用率。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L020",
+            "interview-question://T016",
+            "interview-question://T008"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2755254194570667966,
+        "title": "大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?",
+        "source": "interview-question://L020",
+        "domain": "llm-engineering",
+        "content": "# 大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?\n\n题目编号:L020\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:vLLM适合GPU高吞吐服务,强调PagedAttention和连续批处理;TGI提供较完整的Hugging Face生产服务生态;llama.cpp适合CPU、边缘和量化本地部署;SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本,并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持,再用相同输入输出长度、并发与精度设置测试,避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列,重复前缀场景需要看缓存命中,本地部署则更关心内存与量化兼容。框架特性和维护状态会变化,不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力,而不是只说某框架最快。\n\n评分要点:各方案定位和基于指标的选型。",
+        "vector_score": 0.8506408035755157,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.7772032022476196,
+        "keyword_score": 0.33023578222663347,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1010957861723506751,
+        "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+        "source": "interview-question://T008",
+        "domain": "llm-tool-calling",
+        "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+        "vector_score": 0.7469007968902588,
+        "keyword_score": 0.44306569175114524,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2169899495911519092,
+        "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+        "source": "interview-question://T016",
+        "domain": "llm-tool-calling",
+        "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+        "vector_score": 0.7606847286224365,
+        "keyword_score": 0.4882595200255945,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 574765045243999808,
+        "title": "为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?",
+        "source": "interview-question://T015",
+        "domain": "llm-tool-calling",
+        "content": "# 为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?\n\n题目编号:T015\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:WebRTC针对实时音视频设计,包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输;WebSocket只是可靠的双向字节通道,这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道,用WebSocket传控制事件也可以,选择取决于延迟、媒体质量和部署复杂度。例如,用户语音输入与模型语音输出同时进行,还要支持打断和网络抖动,媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP,丢包可能造成队头阻塞;WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP,也不是永远不重传,实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维,不应承诺固定毫秒数。\n\n评分要点:媒体专用能力、传输特性及组合使用。",
+        "vector_score": 0.7481646239757538,
+        "keyword_score": 0.5351876803217982,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 76.095,
+  "timings_seconds": {
+    "decomposition": 7.647248,
+    "retrieval": 68.446783,
+    "mqe": 15.597254,
+    "hyde": 49.19329,
+    "embedding": 2.059352,
+    "vector_search": 0.279414,
+    "keyword_search": 1.295391,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 68.447339,
+    "total": 76.094587,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 5,
+    "embedding_texts": 25,
+    "chat_calls": 10,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

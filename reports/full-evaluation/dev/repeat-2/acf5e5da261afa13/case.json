@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-009",
+      "question": "正在进行的任务和几周前的历史信息，应该用同一种方式保存吗？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A009"
+      ],
+      "answerable": true,
+      "reference_answer": "短期记忆通常就是上下文窗口中的对话与当前任务中间状态，任务结束后可释放；长期记忆把可复用信息Embedding后存入向量数据库，使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存：太细会增加噪声，太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选，避免永久保存错误结论。例如，当前订单号、已确认退款金额和待执行步骤适合结构化状态；近期问答可保存为消息列表；产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件，不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆，再执行过滤、召回和排序，将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录，并保留必要的版本关系。",
+      "group": "A009",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

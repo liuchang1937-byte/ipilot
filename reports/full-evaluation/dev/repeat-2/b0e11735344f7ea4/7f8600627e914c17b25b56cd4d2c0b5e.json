@@ -1,0 +1,976 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "7f8600627e914c17b25b56cd4d2c0b5e",
+  "created_at": "2026-10-12T11:17:44.126421+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "c53cdbef18dfdfdf8692abf9d2ad6b5eb03809d9b827eb1ea0d1b296d22db6b9",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\b0e11735344f7ea4\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 19.377,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 19.377,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 7.198038,
+          "p50": 7.198038,
+          "p95": 7.198038,
+          "max": 7.198038,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 12.178299,
+          "p50": 12.178299,
+          "p95": 12.178299,
+          "max": 12.178299,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 4.507759,
+          "p50": 4.507759,
+          "p95": 4.507759,
+          "max": 4.507759,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 6.9405,
+          "p50": 6.9405,
+          "p95": 6.9405,
+          "max": 6.9405,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.42465,
+          "p50": 0.42465,
+          "p95": 0.42465,
+          "max": 0.42465,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.054574,
+          "p50": 0.054574,
+          "p95": 0.054574,
+          "max": 0.054574,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.246583,
+          "p50": 0.246583,
+          "p95": 0.246583,
+          "max": 0.246583,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 12.178501,
+          "p50": 12.178501,
+          "p95": 12.178501,
+          "max": 12.178501,
+          "samples": 1
+        },
+        "total": {
+          "mean": 19.376539,
+          "p50": 19.376539,
+          "p95": 19.376539,
+          "max": 19.376539,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 7.495,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 7.495,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 7.198038,
+          "p50": 7.198038,
+          "p95": 7.198038,
+          "max": 7.198038,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.296349,
+          "p50": 0.296349,
+          "p95": 0.296349,
+          "max": 0.296349,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.203491,
+          "p50": 0.203491,
+          "p95": 0.203491,
+          "max": 0.203491,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.024131,
+          "p50": 0.024131,
+          "p95": 0.024131,
+          "max": 0.024131,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.067346,
+          "p50": 0.067346,
+          "p95": 0.067346,
+          "max": 0.067346,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.296599,
+          "p50": 0.296599,
+          "p95": 0.296599,
+          "max": 0.296599,
+          "samples": 1
+        },
+        "total": {
+          "mean": 7.494636,
+          "p50": 7.494636,
+          "p95": 7.494636,
+          "max": 7.494636,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 7.942,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 7.942,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 7.198038,
+          "p50": 7.198038,
+          "p95": 7.198038,
+          "max": 7.198038,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.228527,
+          "p50": 0.228527,
+          "p95": 0.228527,
+          "max": 0.228527,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.139366,
+          "p50": 0.139366,
+          "p95": 0.139366,
+          "max": 0.139366,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.023214,
+          "p50": 0.023214,
+          "p95": 0.023214,
+          "max": 0.023214,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.064867,
+          "p50": 0.064867,
+          "p95": 0.064867,
+          "max": 0.064867,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.515625,
+          "p50": 0.515625,
+          "p95": 0.515625,
+          "max": 0.515625,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.744434,
+          "p50": 0.744434,
+          "p95": 0.744434,
+          "max": 0.744434,
+          "samples": 1
+        },
+        "total": {
+          "mean": 7.942472,
+          "p50": 7.942472,
+          "p95": 7.942472,
+          "max": 7.942472,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-068",
+      "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R019",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R021"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "不能只按相似度决定，应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料，同时保留冲突证据；生成时说明差异及适用条件，无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如，同一产品在不同地区或生效日期下可能有不同政策，不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态，检索时先限制适用范围，再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用，必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试，向量相似度只代表相关性，不代表真实性。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R021",
+        "interview-question://R017",
+        "interview-question://R010"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当两篇检索材料给出矛盾结论时，系统应按什么依据选择结论或展示这两篇检索材料之间的差异？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当两篇检索材料给出矛盾结论时,系统应按什么依据选择结论或展示这两篇检索材料之间的差异?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "检索材料结论矛盾时 系统如何选择结论或展示两篇材料差异 依据"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "RAG 检索增强生成 矛盾证据 冲突结论 处理方法 选择依据 分歧展示"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "multi-document retrieval contradictory conclusions conflict resolution how to choose or present disagreement between retrieved documents"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在检索增强生成中,当两篇材料结论矛盾时,系统应执行矛盾检测、立场识别与证据仲裁,依据来源可信度、权威性、证据等级、同行评审状态、出版与更新时效、方法严谨性、样本量与可复现性、领域/地域/版本适用性、作者机构声誉、引用共识度、与查询意图相关性等维度加权评分。优先选择高可信度、高证据等级、最新且直接支持结论的一手来源;若评分接近、证据冲突或无法判定,则不应强行合并或单一选边,而应并列展示两篇材料,标注结论对立点、分歧原因、证据类型、时间/版本/人群/方法/适用范围差异、置信度与不确定性,并生成条件化答案、证据对照表或证据不足提示。可结合 RAG、source credibility ranking、evidence triangulation、provenance tracking、stance detection、contradiction resolution、multi-source fusion、side-by-side comparison、confidence calibration 与 abstention 机制。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R021",
+                "interview-question://R017",
+                "interview-question://R010"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1238589695376041488,
+            "title": "不同来源的文档发生知识冲突时,RAG 应该信谁?",
+            "source": "interview-question://R021",
+            "domain": "rag",
+            "content": "# 不同来源的文档发生知识冲突时,RAG 应该信谁?\n\n题目编号:R021\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:不能只按相似度决定,应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料,同时保留冲突证据;生成时说明差异及适用条件,无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如,同一产品在不同地区或生效日期下可能有不同政策,不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态,检索时先限制适用范围,再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用,必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试,向量相似度只代表相关性,不代表真实性。\n\n评分要点:来源优先级、时效、适用范围、冲突展示和人工治理。",
+            "vector_score": 0.8894985616207123,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.8593749701976776,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4411062690451180658,
+            "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+            "source": "interview-question://R010",
+            "domain": "rag",
+            "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+            "vector_score": 0.8441500961780548,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 19.377,
+      "timings_seconds": {
+        "decomposition": 7.198038,
+        "retrieval": 12.178299,
+        "mqe": 4.507759,
+        "hyde": 6.9405,
+        "embedding": 0.42465,
+        "vector_search": 0.054574,
+        "keyword_search": 0.246583,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 12.178501,
+        "total": 19.376539,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-068",
+      "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R019",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R021"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "不能只按相似度决定，应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料，同时保留冲突证据；生成时说明差异及适用条件，无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如，同一产品在不同地区或生效日期下可能有不同政策，不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态，检索时先限制适用范围，再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用，必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试，向量相似度只代表相关性，不代表真实性。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R021",
+        "interview-question://R010",
+        "interview-question://R017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当两篇检索材料给出矛盾结论时，系统应按什么依据选择结论或展示这两篇检索材料之间的差异？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当两篇检索材料给出矛盾结论时,系统应按什么依据选择结论或展示这两篇检索材料之间的差异?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R021",
+                "interview-question://R010",
+                "interview-question://R017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1238589695376041488,
+            "title": "不同来源的文档发生知识冲突时,RAG 应该信谁?",
+            "source": "interview-question://R021",
+            "domain": "rag",
+            "content": "# 不同来源的文档发生知识冲突时,RAG 应该信谁?\n\n题目编号:R021\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:不能只按相似度决定,应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料,同时保留冲突证据;生成时说明差异及适用条件,无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如,同一产品在不同地区或生效日期下可能有不同政策,不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态,检索时先限制适用范围,再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用,必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试,向量相似度只代表相关性,不代表真实性。\n\n评分要点:来源优先级、时效、适用范围、冲突展示和人工治理。",
+            "vector_score": 0.8270272016525269,
+            "keyword_score": 0.8524361395756387,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 4411062690451180658,
+            "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+            "source": "interview-question://R010",
+            "domain": "rag",
+            "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+            "vector_score": 0.8144602477550507,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.7888785004615784,
+            "keyword_score": 0.8442139866629375,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 7.495,
+      "timings_seconds": {
+        "decomposition": 7.198038,
+        "retrieval": 0.296349,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.203491,
+        "vector_search": 0.024131,
+        "keyword_search": 0.067346,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.296599,
+        "total": 7.494636,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-068",
+      "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R019",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://R021"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "不能只按相似度决定，应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料，同时保留冲突证据；生成时说明差异及适用条件，无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如，同一产品在不同地区或生效日期下可能有不同政策，不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态，检索时先限制适用范围，再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用，必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试，向量相似度只代表相关性，不代表真实性。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R021",
+        "interview-question://R010"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "当两篇检索材料给出矛盾结论时，系统应按什么依据选择结论或展示这两篇检索材料之间的差异？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "当两篇检索材料给出矛盾结论时,系统应按什么依据选择结论或展示这两篇检索材料之间的差异?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 2,
+              "selected_sources": [
+                "interview-question://R021",
+                "interview-question://R010"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1238589695376041488,
+            "title": "不同来源的文档发生知识冲突时,RAG 应该信谁?",
+            "source": "interview-question://R021",
+            "domain": "rag",
+            "content": "# 不同来源的文档发生知识冲突时,RAG 应该信谁?\n\n题目编号:R021\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:不能只按相似度决定,应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料,同时保留冲突证据;生成时说明差异及适用条件,无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如,同一产品在不同地区或生效日期下可能有不同政策,不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态,检索时先限制适用范围,再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用,必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试,向量相似度只代表相关性,不代表真实性。\n\n评分要点:来源优先级、时效、适用范围、冲突展示和人工治理。",
+            "vector_score": 0.8270272016525269,
+            "keyword_score": 0.8524361395756387,
+            "rerank_score": 0.3804245591163635
+          },
+          {
+            "id": 2,
+            "chunk_id": 4411062690451180658,
+            "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+            "source": "interview-question://R010",
+            "domain": "rag",
+            "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+            "vector_score": 0.8144602477550507,
+            "keyword_score": 1.0,
+            "rerank_score": 0.051867976784706116
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 7.942,
+      "timings_seconds": {
+        "decomposition": 7.198038,
+        "retrieval": 0.228527,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.139366,
+        "vector_search": 0.023214,
+        "keyword_search": 0.064867,
+        "rerank": 0.515625,
+        "generation": 0.0,
+        "pipeline": 0.744434,
+        "total": 7.942472,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-068",
+      "subquestions": [
+        {
+          "question": "当两篇检索材料给出矛盾结论时，系统应按什么依据选择结论或展示这两篇检索材料之间的差异？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 7.198037600001044
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 20.428,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

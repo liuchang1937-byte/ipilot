@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-027",
+  "subquestions": [
+    {
+      "question": "推理时注意力占用太多显存，MQA（Multi-Query Attention）优化什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "推理时注意力占用太多显存，GQA（Grouped-Query Attention）优化什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "推理时注意力占用太多显存，Flash Attention优化什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 9.118836000001465
+}

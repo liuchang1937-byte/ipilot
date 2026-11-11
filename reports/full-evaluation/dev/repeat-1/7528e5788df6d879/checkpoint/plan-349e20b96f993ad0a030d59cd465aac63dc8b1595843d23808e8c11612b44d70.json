@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-032",
+  "subquestions": [
+    {
+      "question": "在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.4913168999992195
+}

@@ -1,0 +1,710 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "983661d0e7d949328adc57d025228f6b",
+  "created_at": "2026-10-12T16:41:24.270045+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "8fef5282dd25c472fca97db6dc3ec1fcb9b15e321f82a54d8a9682f95c888a00",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 1,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\870fdd6163b5a76c\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 37.727,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 37.727,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 7.176626,
+          "p50": 7.176626,
+          "p95": 7.176626,
+          "max": 7.176626,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 19.031686,
+          "p50": 19.031686,
+          "p95": 19.031686,
+          "max": 19.031686,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.156439,
+          "p50": 6.156439,
+          "p95": 6.156439,
+          "max": 6.156439,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 11.731101,
+          "p50": 11.731101,
+          "p95": 11.731101,
+          "max": 11.731101,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.847103,
+          "p50": 0.847103,
+          "p95": 0.847103,
+          "max": 0.847103,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.066004,
+          "p50": 0.066004,
+          "p95": 0.066004,
+          "max": 0.066004,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.226209,
+          "p50": 0.226209,
+          "p95": 0.226209,
+          "max": 0.226209,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 11.518867,
+          "p50": 11.518867,
+          "p95": 11.518867,
+          "max": 11.518867,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 30.550757,
+          "p50": 30.550757,
+          "p95": 30.550757,
+          "max": 30.550757,
+          "samples": 1
+        },
+        "total": {
+          "mean": 37.727383,
+          "p50": 37.727383,
+          "p95": 37.727383,
+          "max": 37.727383,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 33.094733,
+          "p50": 33.094733,
+          "p95": 33.094733,
+          "max": 33.094733,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 1.0,
+        "answer_relevancy": 1.0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.9091
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-029",
+      "question": "文字送入模型前如何转换为token，分词方式为何影响长度与成本？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L005",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L005"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Tokenizer将字符串转换为有限词表中的Token ID，模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合，并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费；解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符，一个词可能被拆成多个子词，字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中；推理时按既定规则编码，再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用，代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L005",
+        "interview-question://L012",
+        "interview-question://L022",
+        "interview-question://L019"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "文字送入模型前如何转换为token，分词方式为何影响长度与成本？",
+        "answer": "1. 文字送入模型前如何转换为 token？\n文字送入模型前，先由对应模型的 tokenizer 处理：它把输入字符串按既定规则切分成 token，再把每个 token 映射为有限词表中的 Token ID；模型本身只处理这些 ID，而不是直接处理原始文字。[1] 常见做法包括 BPE、WordPiece 或 Unigram，它们从字符/字节出发学习高频子词组合，并保留特殊 Token。[1] 因此，Token 不等同于汉字、单词或字符，一个词可能被拆成多个子词，字节级方案也能表示少见字符串。[1] 推理时按既定规则编码；模型输出 ID 后，再通过解码把 Token 序列还原为文本。[1] 词表和算法会影响多语言压缩率、代码表示、未知字符、上下文占用与计费；词表学习是在压缩效率、覆盖范围和序列长度之间折中。[1] 领域术语若被拆得过碎，会增加长度与费用，代码和多语言尤其需要评估；估算上下文时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例。[1]\n\n2. 分词方式为何影响 token 长度与模型使用成本？\n分词方式决定同一段文本会被切分成多少个 Token：Tokenizer 先把字符串转换为有限词表中的 Token ID，模型只处理这些 ID [1]。常见 BPE、WordPiece 或 Unigram 从字符/字节出发学习高频子词组合，因此不同词表和算法对同一文本的切分结果不同，Token 也就不等同于汉字、单词或字符，一个词可能被拆成多个子词 [1]。如果某种分词方式把文本切得更碎，Token 数量就会变多，从而增加上下文占用和模型使用成本；资料明确指出词表和算法会影响多语言压缩率、代码表示、未知字符、上下文占用与计费，领域术语拆得过碎会增加长度与费用 [1]。反过来，压缩率更高、覆盖更合适的分词方式可以用更少 Token 表示相同文本，减少长度和费用。因此估算上下文或成本时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例 [1]。",
+        "sections": [
+          {
+            "question": "文字送入模型前如何转换为 token？",
+            "kind": "knowledge",
+            "answer": "文字送入模型前，先由对应模型的 tokenizer 处理：它把输入字符串按既定规则切分成 token，再把每个 token 映射为有限词表中的 Token ID；模型本身只处理这些 ID，而不是直接处理原始文字。[1] 常见做法包括 BPE、WordPiece 或 Unigram，它们从字符/字节出发学习高频子词组合，并保留特殊 Token。[1] 因此，Token 不等同于汉字、单词或字符，一个词可能被拆成多个子词，字节级方案也能表示少见字符串。[1] 推理时按既定规则编码；模型输出 ID 后，再通过解码把 Token 序列还原为文本。[1] 词表和算法会影响多语言压缩率、代码表示、未知字符、上下文占用与计费；词表学习是在压缩效率、覆盖范围和序列长度之间折中。[1] 领域术语若被拆得过碎，会增加长度与费用，代码和多语言尤其需要评估；估算上下文时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例。[1]",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "文字送入模型前如何转换为 token?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "文字送入大模型前如何分词并转换为 token"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型 文本 tokenization 流程 BPE WordPiece 原理"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How is text converted to tokens before being fed into a language model?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "文字送入模型前,先由 tokenizer 将原始字符串编码为 token 序列。流程通常包括 Unicode 规范化、预分词(按空格、标点、正则或字节切分)、子词切分(BPE、Byte-level BPE、WordPiece、Unigram、SentencePiece 等),将词表外词拆成常见子词或字节片段。每个 token 通过词表映射为整数 token ID,并添加特殊 token,如 [CLS]、[SEP]、<s>、</s>、<pad>、<unk>。随后生成 input_ids、attention_mask、token_type_ids 等张量,经 padding/truncation 对齐长度,再通过 embedding lookup 转为 embedding 向量输入模型。LLM 常用 byte-level BPE,使任意文本可编码为字节序列,减少 OOV;解码时按逆映射与 merge 规则还原文本。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L005",
+                "interview-question://L012",
+                "interview-question://L022"
+              ]
+            }
+          },
+          {
+            "question": "分词方式为何影响 token 长度与模型使用成本？",
+            "kind": "knowledge",
+            "answer": "分词方式决定同一段文本会被切分成多少个 Token：Tokenizer 先把字符串转换为有限词表中的 Token ID，模型只处理这些 ID [1]。常见 BPE、WordPiece 或 Unigram 从字符/字节出发学习高频子词组合，因此不同词表和算法对同一文本的切分结果不同，Token 也就不等同于汉字、单词或字符，一个词可能被拆成多个子词 [1]。如果某种分词方式把文本切得更碎，Token 数量就会变多，从而增加上下文占用和模型使用成本；资料明确指出词表和算法会影响多语言压缩率、代码表示、未知字符、上下文占用与计费，领域术语拆得过碎会增加长度与费用 [1]。反过来，压缩率更高、覆盖更合适的分词方式可以用更少 Token 表示相同文本，减少长度和费用。因此估算上下文或成本时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例 [1]。",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "分词方式为何影响 token 长度与模型使用成本?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "分词方式如何影响 token 数量、上下文长度与模型调用成本?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "BPE、WordPiece、SentencePiece 等分词算法如何决定大模型 token 长度和 API 计费成本?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How does tokenization method affect token length, context window usage, and LLM inference or API cost?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "分词方式通过改变文本到 token 序列的映射粒度,直接影响 token 数量与序列长度,进而影响模型使用成本。词级分词、字符级分词、字节级分词、BPE、WordPiece、Unigram、SentencePiece 等方案具有不同词表大小、合并规则和压缩率;细粒度分词如字节级或字符级会产生更多 token,粗粒度词级分词虽可能减少 token,却增加未登录词与词表规模。token 数决定 API 按 token 计费成本、上下文窗口占用、注意力计算复杂度、KV cache 显存、推理 FLOPs、延迟以及 batch padding 浪费。子词分词通过平衡词表覆盖率与序列压缩率,降低 tokens per word 或 fertility,提高 bytes per token 压缩效率。多语言、中文分词、日语、代码、数字和空格处理差异会使同一文本在不同分词器下 token 长度显著不同,因此分词方式决定 token 长度并最终影响训练、推理和调用成本。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L005",
+                "interview-question://L012",
+                "interview-question://L019"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.8604095280170441,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.8604095280170441,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.7862222194671631,
+            "keyword_score": 0.4435930742104081,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.7605838179588318,
+            "keyword_score": 0.4102769333787951,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3942832683636186050,
+            "title": "MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?",
+            "source": "interview-question://L019",
+            "domain": "llm-engineering",
+            "content": "# MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?\n\n题目编号:L019\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MoE在每层设置多个专家网络,由路由器为每个Token选择少数专家计算,因此总参数可以很大而单Token激活参数较少,提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量,而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家,路由器为每个 Token 选择少量专家,注意力等其他模块可能仍是共享的。专家是可训练的网络参数,并不天然对应一个具有人格的 Agent,也不等于多 Agent 协作。总参数与激活参数不同,但部署仍需要存放或分发大量专家权重,跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE,讨论优势必须限定具体架构与实际硬件条件。\n\n评分要点:稀疏激活、路由、容量收益和系统代价。",
+            "vector_score": 0.7592082619667053,
+            "keyword_score": 0.4972027592702409,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 0.9090909090909091,
+      "elapsed_seconds": 37.727,
+      "timings_seconds": {
+        "decomposition": 7.176626,
+        "retrieval": 19.031686,
+        "mqe": 6.156439,
+        "hyde": 11.731101,
+        "embedding": 0.847103,
+        "vector_search": 0.066004,
+        "keyword_search": 0.226209,
+        "rerank": 0.0,
+        "generation": 11.518867,
+        "pipeline": 30.550757,
+        "total": 37.727383,
+        "judge": 33.094733
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 1.0,
+          "answer_relevancy": 1.0,
+          "citation_precision": 1.0,
+          "citation_coverage": 0.9090909090909091
+        },
+        "claims": [
+          {
+            "text": "文字送入模型前，先由对应模型的 tokenizer 处理：它把输入字符串按既定规则切分成 token，再把每个 token 映射为有限词表中的 Token ID；模型本身只处理这些 ID，而不是直接处理原始文字。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。"
+              },
+              {
+                "source_id": 1,
+                "quote": "推理时按既定规则编码,再将模型输出 ID 解码。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文明确说明Tokenizer将字符串转换为Token ID且模型只处理Token ID，并说明按规则编码解码，支持该陈述。"
+          },
+          {
+            "text": "常见做法包括 BPE、WordPiece 或 Unigram，它们从字符/字节出发学习高频子词组合，并保留特殊 Token。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文原文直接列出BPE、WordPiece、Unigram及保留特殊Token，支持该陈述。"
+          },
+          {
+            "text": "因此，Token 不等同于汉字、单词或字符，一个词可能被拆成多个子词，字节级方案也能表示少见字符串。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文原文完全支持Token不等同于汉字、单词或字符，以及字节级方案可表示少见字符串。"
+          },
+          {
+            "text": "推理时按既定规则编码；模型输出 ID 后，再通过解码把 Token 序列还原为文本。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "解码时再把Token序列还原为文本。"
+              },
+              {
+                "source_id": 1,
+                "quote": "推理时按既定规则编码,再将模型输出 ID 解码。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文说明推理时编码、解码时还原文本，支持该陈述。"
+          },
+          {
+            "text": "词表和算法会影响多语言压缩率、代码表示、未知字符、上下文占用与计费；词表学习是在压缩效率、覆盖范围和序列长度之间折中。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。"
+              },
+              {
+                "source_id": 1,
+                "quote": "词表学习在压缩效率、覆盖范围和序列长度之间折中;"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文直接支持词表和算法影响压缩率、代码表示、未知字符、上下文占用与计费，以及词表学习的折中。"
+          },
+          {
+            "text": "领域术语若被拆得过碎，会增加长度与费用，代码和多语言尤其需要评估；估算上下文时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。"
+              },
+              {
+                "source_id": 1,
+                "quote": "估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文原文支持领域术语拆碎增加长度与费用，以及估算上下文应使用对应tokenizer。"
+          },
+          {
+            "text": "分词方式决定同一段文本会被切分成多少个 Token：Tokenizer 先把字符串转换为有限词表中的 Token ID，模型只处理这些 ID [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文支持Tokenizer转换为有限词表中的Token ID且模型只处理ID；分词方式决定Token数量是对上下文原理的合理概括。"
+          },
+          {
+            "text": "常见 BPE、WordPiece 或 Unigram 从字符/字节出发学习高频子词组合，因此不同词表和算法对同一文本的切分结果不同，Token 也就不等同于汉字、单词或字符，一个词可能被拆成多个子词 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。"
+              },
+              {
+                "source_id": 1,
+                "quote": "Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文支持常见子词算法及其切分特征，并支持Token不等同于汉字、单词或字符。"
+          },
+          {
+            "text": "如果某种分词方式把文本切得更碎，Token 数量就会变多，从而增加上下文占用和模型使用成本；资料明确指出词表和算法会影响多语言压缩率、代码表示、未知字符、上下文占用与计费，领域术语拆得过碎会增加长度与费用 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。"
+              },
+              {
+                "source_id": 1,
+                "quote": "领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文支持词表和算法影响上下文占用与计费，并明确领域术语拆碎会增加长度与费用。"
+          },
+          {
+            "text": "反过来，压缩率更高、覆盖更合适的分词方式可以用更少 Token 表示相同文本，减少长度和费用。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。"
+              },
+              {
+                "source_id": 1,
+                "quote": "词表学习在压缩效率、覆盖范围和序列长度之间折中;"
+              }
+            ],
+            "citations": [],
+            "reason": "上下文支持压缩率、覆盖范围与序列长度和计费相关；高压缩率用更少Token表示相同文本是合理推论。该句无引用标记，因此citations为空。"
+          },
+          {
+            "text": "因此估算上下文或成本时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "上下文原文直接支持估算上下文应使用对应模型tokenizer且不能默认固定换算比例。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": true,
+            "reason": "答案覆盖了参考要点中的Tokenizer转换为Token ID、模型只处理ID、BPE/WordPiece/Unigram、特殊Token、词表和算法对压缩率/代码/未知字符/上下文/计费的影响、解码还原文本、Token不等同于汉字/单词/字符、字节级方案表示少见字符串、词表学习折中、领域术语拆碎增加长度费用、代码和多语言评估、以及使用对应tokenizer估算上下文等关键内容。",
+            "point": "Tokenizer将字符串转换为有限词表中的Token ID，模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合，并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费；解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符，一个词可能被拆成多个子词，字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中；推理时按既定规则编码，再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用，代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer，不能默认所有模型共用固定的字数换算比例。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "答案直接回应原问题的两个子问：文字送入模型前如何转换为token，以及分词方式为何影响token长度与成本；内容完整覆盖转换流程、子词算法、词表与压缩率、上下文占用和计费影响。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-029",
+      "subquestions": [
+        {
+          "question": "文字送入模型前如何转换为 token？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "分词方式为何影响 token 长度与模型使用成本？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 7.176625899999635
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.006,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-025",
+      "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L001"
+      ],
+      "answerable": true,
+      "reference_answer": "大语言模型是在海量语料上通过自监督目标训练的通用生成模型，通常以Transformer为核心，通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务，但参数、推理成本、幻觉和不可解释性也更突出。例如，传统情感分类器通常输出正负标签，而生成式 LLM 可以根据指令解释原因、改写内容或总结文章，利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型，大模型也不是只能做聊天，因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标，通过上下文适应任务；它的输出是统计预测，不等于实时查阅事实库，也不保证理解与推理永远正确。",
+      "group": "L001",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

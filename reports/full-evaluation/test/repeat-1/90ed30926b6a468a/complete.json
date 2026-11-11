@@ -1,0 +1,799 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "70fd625750f24898bb38aa1521635bf5",
+  "created_at": "2026-10-12T15:20:29.293406+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "c629314eba2ef24081ead511e622da3ba16fbafdc3abff1058459b6da9cc23e0",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-1\\90ed30926b6a468a\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.8155,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.334,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.334,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.919755,
+          "p50": 3.919755,
+          "p95": 3.919755,
+          "max": 3.919755,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.413632,
+          "p50": 0.413632,
+          "p95": 0.413632,
+          "max": 0.413632,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.334279,
+          "p50": 0.334279,
+          "p95": 0.334279,
+          "max": 0.334279,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.025146,
+          "p50": 0.025146,
+          "p95": 0.025146,
+          "max": 0.025146,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.052913,
+          "p50": 0.052913,
+          "p95": 0.052913,
+          "max": 0.052913,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.413762,
+          "p50": 0.413762,
+          "p95": 0.413762,
+          "max": 0.413762,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.333517,
+          "p50": 4.333517,
+          "p95": 4.333517,
+          "max": 4.333517,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 22.696,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 22.696,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.919755,
+          "p50": 3.919755,
+          "p95": 3.919755,
+          "max": 3.919755,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 18.775823,
+          "p50": 18.775823,
+          "p95": 18.775823,
+          "max": 18.775823,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 8.724367,
+          "p50": 8.724367,
+          "p95": 8.724367,
+          "max": 8.724367,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 9.010676,
+          "p50": 9.010676,
+          "p95": 9.010676,
+          "max": 9.010676,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.788113,
+          "p50": 0.788113,
+          "p95": 0.788113,
+          "max": 0.788113,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.051716,
+          "p50": 0.051716,
+          "p95": 0.051716,
+          "max": 0.051716,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.19682,
+          "p50": 0.19682,
+          "p95": 0.19682,
+          "max": 0.19682,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 18.775953,
+          "p50": 18.775953,
+          "p95": 18.775953,
+          "max": 18.775953,
+          "samples": 1
+        },
+        "total": {
+          "mean": 22.695708,
+          "p50": 22.695708,
+          "p95": 22.695708,
+          "max": 22.695708,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 9,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-057",
+      "question": "用户提交问题后，系统如何依次检索资料并构造生成提示？",
+      "category": "terminology",
+      "split": "test",
+      "group": "R010",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R010"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "系统先结合会话解析查询，必要时做指代消解、改写、拆分和元数据过滤；随后生成查询向量并与关键词检索并行召回，融合去重后重排候选，组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用，之后可做引用核验与置信度判断，整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题，例如将“它支持什么索引”中的指代补全，但保留用户的限制和原始意图。检索返回后，应按权限、来源和版本去重，给片段附上稳定编号，并避免截断关键条件。流式输出改善等待体验，却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段；没有找到资料时，系统应明确说明缺少什么依据。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R010",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R017",
+        "interview-question://L016"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.8154648767857288,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "用户提交问题后，系统如何依次检索资料并构造生成提示？",
+        "answer": "1. 用户提交问题后，系统如何依次检索资料？\n\n\n2. 用户提交问题后，系统如何构造生成提示？\n",
+        "sections": [
+          {
+            "question": "用户提交问题后，系统如何依次检索资料？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "用户提交问题后,系统如何依次检索资料?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R010",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://R017"
+              ]
+            }
+          },
+          {
+            "question": "用户提交问题后，系统如何构造生成提示？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "用户提交问题后,系统如何构造生成提示?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R017",
+                "interview-question://R010",
+                "interview-question://L016"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4411062690451180658,
+            "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+            "source": "interview-question://R010",
+            "domain": "rag",
+            "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+            "vector_score": 0.7753454446792603,
+            "keyword_score": 0.8077542561348378,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3316265630962033877,
+            "title": "3.3 知识库摄取与检索流程",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+            "vector_score": 0.7667756378650665,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.7621830403804779,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3377336774797257112,
+            "title": "如何写好 Prompt?分享下 Prompt 工程实践经验?",
+            "source": "interview-question://L016",
+            "domain": "llm-engineering",
+            "content": "# 如何写好 Prompt?分享下 Prompt 工程实践经验?\n\n题目编号:L016\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:先明确角色、目标、输入数据、约束、输出Schema和失败行为,再提供少量代表性示例。把可信指令与外部文本分隔,要求信息不足时拒答,并对结构化输出做程序校验。Prompt应版本化,在固定评测集上比较正确率、格式率、成本和稳定性,避免只凭几个示例调词。例如,要求系统从资料回答时,应明确哪些内容是证据、哪些是指令,以及证据不足如何处理;要求 JSON 时,应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入,而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测,记录模型版本和参数。提示能引导行为,但权限、业务规则和外部动作仍由代码强制执行。\n\n评分要点:结构、边界、示例、校验、版本与评测。",
+            "vector_score": 0.7965985238552094,
+            "keyword_score": 0.639785375173825,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.334,
+      "timings_seconds": {
+        "decomposition": 3.919755,
+        "retrieval": 0.413632,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.334279,
+        "vector_search": 0.025146,
+        "keyword_search": 0.052913,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.413762,
+        "total": 4.333517,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-057",
+      "question": "用户提交问题后，系统如何依次检索资料并构造生成提示？",
+      "category": "terminology",
+      "split": "test",
+      "group": "R010",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R010"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "系统先结合会话解析查询，必要时做指代消解、改写、拆分和元数据过滤；随后生成查询向量并与关键词检索并行召回，融合去重后重排候选，组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用，之后可做引用核验与置信度判断，整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题，例如将“它支持什么索引”中的指代补全，但保留用户的限制和原始意图。检索返回后，应按权限、来源和版本去重，给片段附上稳定编号，并避免截断关键条件。流式输出改善等待体验，却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段；没有找到资料时，系统应明确说明缺少什么依据。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R010",
+        "interview-question://R001",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://L016",
+        "interview-question://R012"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "用户提交问题后，系统如何依次检索资料并构造生成提示？",
+        "answer": "1. 用户提交问题后，系统如何依次检索资料？\n\n\n2. 用户提交问题后，系统如何构造生成提示？\n",
+        "sections": [
+          {
+            "question": "用户提交问题后，系统如何依次检索资料？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "用户提交问题后,系统如何依次检索资料?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "用户提交问题后,系统依次检索资料的流程步骤"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "用户提问后,系统如何分步检索知识库、文档和资料"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "RAG 系统用户问题提交后检索流程、多阶段召回与排序步骤"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "用户提交问题后,系统依次执行:查询解析与预处理,进行意图识别、实体抽取、查询改写和查询扩展;将改写后查询输入嵌入模型生成稠密向量,在向量数据库中以 ANN 检索(如 HNSW、IVF)召回相似文档片段,同时通过倒排索引和 BM25 执行稀疏关键词检索;对稠密与稀疏结果进行混合检索融合,采用 RRF 或加权打分合并候选集,并按元数据、权限、时效性过滤;使用 cross-encoder 重排序模型对候选片段精排、去重、截断,保留 Top-k 相关块;最后按相关性拼接上下文,必要时触发多跳检索或迭代检索,形成 RAG 上下文供大模型生成答案。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R010",
+                "interview-question://R001",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          },
+          {
+            "question": "用户提交问题后，系统如何构造生成提示？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "用户提交问题后,系统如何构造生成提示?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "问答系统或大模型应用中,用户提问后生成 prompt 提示词的构造流程"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How is the generation prompt constructed after a user submits a question in an LLM system?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "用户提交问题后,系统执行查询理解、意图识别、实体抽取与查询改写,并通过检索器召回相关文档块;经重排序、去重、相关性过滤和 token 预算截断后,按提示模板组装生成提示。提示通常包含系统指令、角色设定、任务描述、对话历史、检索上下文、用户问题、输出格式约束和安全策略。系统在上下文窗口内动态分配各段长度,对超长内容进行摘要或裁剪,并注入来源、时间戳等元数据,最终拼接为结构化 prompt,传入大语言模型生成回答。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R010",
+                "interview-question://L016",
+                "interview-question://R012"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4411062690451180658,
+            "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+            "source": "interview-question://R010",
+            "domain": "rag",
+            "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+            "vector_score": 0.8301359415054321,
+            "keyword_score": 0.9644893543676917,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1192065734383377651,
+            "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+            "source": "interview-question://R001",
+            "domain": "rag",
+            "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+            "vector_score": 0.8789209127426147,
+            "keyword_score": 0.9771029213578762,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3316265630962033877,
+            "title": "3.3 知识库摄取与检索流程",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+            "vector_score": 0.8512409627437592,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3377336774797257112,
+            "title": "如何写好 Prompt?分享下 Prompt 工程实践经验?",
+            "source": "interview-question://L016",
+            "domain": "llm-engineering",
+            "content": "# 如何写好 Prompt?分享下 Prompt 工程实践经验?\n\n题目编号:L016\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:先明确角色、目标、输入数据、约束、输出Schema和失败行为,再提供少量代表性示例。把可信指令与外部文本分隔,要求信息不足时拒答,并对结构化输出做程序校验。Prompt应版本化,在固定评测集上比较正确率、格式率、成本和稳定性,避免只凭几个示例调词。例如,要求系统从资料回答时,应明确哪些内容是证据、哪些是指令,以及证据不足如何处理;要求 JSON 时,应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入,而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测,记录模型版本和参数。提示能引导行为,但权限、业务规则和外部动作仍由代码强制执行。\n\n评分要点:结构、边界、示例、校验、版本与评测。",
+            "vector_score": 0.7988697588443756,
+            "keyword_score": 0.639785375173825,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 3510013083994112628,
+            "title": "如何润色用户的 Query(Query Rewrite)?目的是什么?",
+            "source": "interview-question://R012",
+            "domain": "rag",
+            "content": "# 如何润色用户的 Query(Query Rewrite)?目的是什么?\n\n题目编号:R012\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询,从而提高召回。可以用规则、LLM、多查询扩展或HyDE,但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较,并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词,复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面,HyDE 生成假设文档用于语义检索,但假设内容不能作为回答证据。原始查询应保留在召回路径中,避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后,才值得默认启用复杂改写。\n\n评分要点:目的、常见方式、原意保护和可评测性。",
+            "vector_score": 0.81763756275177,
+            "keyword_score": 0.7926116281123764,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 22.696,
+      "timings_seconds": {
+        "decomposition": 3.919755,
+        "retrieval": 18.775823,
+        "mqe": 8.724367,
+        "hyde": 9.010676,
+        "embedding": 0.788113,
+        "vector_search": 0.051716,
+        "keyword_search": 0.19682,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 18.775953,
+        "total": 22.695708,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 9,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-057",
+      "subquestions": [
+        {
+          "question": "用户提交问题后，系统如何依次检索资料？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "用户提交问题后，系统如何构造生成提示？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.919754799997463
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 23.116,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-010",
+  "subquestions": [
+    {
+      "question": "让多个专门的助手共同完成一个任务，核心组织方式是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.7479969000014535
+}

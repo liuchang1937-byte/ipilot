@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-043",
+      "question": "混合专家模型为何只激活部分参数，路由和负载均衡有哪些代价？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L019"
+      ],
+      "answerable": true,
+      "reference_answer": "MoE在每层设置多个专家网络，由路由器为每个Token选择少数专家计算，因此总参数可以很大而单Token激活参数较少，提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量，而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家，路由器为每个 Token 选择少量专家，注意力等其他模块可能仍是共享的。专家是可训练的网络参数，并不天然对应一个具有人格的 Agent，也不等于多 Agent 协作。总参数与激活参数不同，但部署仍需要存放或分发大量专家权重，跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE，讨论优势必须限定具体架构与实际硬件条件。",
+      "group": "L019",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-002",
+  "subquestions": [
+    {
+      "question": "从零实现任务助手时，除模型之外，需要规划、工具以及哪些其他模块？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 11.964502599999832
+}

@@ -1,0 +1,963 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "8b27507f6e1c4dce82d7e2d2a2fa4f97",
+  "created_at": "2026-10-12T15:07:35.100833+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "fb1675b1acfa33194a42c445b9023ddee50147cf712b0d85dcf3f11575e857bf",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\2ffe7805190cd565\\checkpoint"
+  },
+  "options": {
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.421,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.421,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.527535,
+          "p50": 3.527535,
+          "p95": 3.527535,
+          "max": 3.527535,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.236005,
+          "p50": 0.236005,
+          "p95": 0.236005,
+          "max": 0.236005,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.12635,
+          "p50": 0.12635,
+          "p95": 0.12635,
+          "max": 0.12635,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.027226,
+          "p50": 0.027226,
+          "p95": 0.027226,
+          "max": 0.027226,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.081155,
+          "p50": 0.081155,
+          "p95": 0.081155,
+          "max": 0.081155,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.657614,
+          "p50": 0.657614,
+          "p95": 0.657614,
+          "max": 0.657614,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.893915,
+          "p50": 0.893915,
+          "p95": 0.893915,
+          "max": 0.893915,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.42145,
+          "p50": 4.42145,
+          "p95": 4.42145,
+          "max": 4.42145,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 14.444,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 14.444,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.527535,
+          "p50": 3.527535,
+          "p95": 3.527535,
+          "max": 3.527535,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 10.916285,
+          "p50": 10.916285,
+          "p95": 10.916285,
+          "max": 10.916285,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.917153,
+          "p50": 2.917153,
+          "p95": 2.917153,
+          "max": 2.917153,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 7.225,
+          "p50": 7.225,
+          "p95": 7.225,
+          "max": 7.225,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.410381,
+          "p50": 0.410381,
+          "p95": 0.410381,
+          "max": 0.410381,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.083583,
+          "p50": 0.083583,
+          "p95": 0.083583,
+          "max": 0.083583,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.275689,
+          "p50": 0.275689,
+          "p95": 0.275689,
+          "max": 0.275689,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 10.916522,
+          "p50": 10.916522,
+          "p95": 10.916522,
+          "max": 10.916522,
+          "samples": 1
+        },
+        "total": {
+          "mean": 14.444057,
+          "p50": 14.444057,
+          "p95": 14.444057,
+          "max": 14.444057,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.81,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.81,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.527535,
+          "p50": 3.527535,
+          "p95": 3.527535,
+          "max": 3.527535,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.282738,
+          "p50": 0.282738,
+          "p95": 0.282738,
+          "max": 0.282738,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.181405,
+          "p50": 0.181405,
+          "p95": 0.181405,
+          "max": 0.181405,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.031466,
+          "p50": 0.031466,
+          "p95": 0.031466,
+          "max": 0.031466,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.068766,
+          "p50": 0.068766,
+          "p95": 0.068766,
+          "max": 0.068766,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.282947,
+          "p50": 0.282947,
+          "p95": 0.282947,
+          "max": 0.282947,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.810482,
+          "p50": 3.810482,
+          "p95": 3.810482,
+          "max": 3.810482,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A013"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "为什么有些团队不采用现成智能体框架，而选择自己实现智能体执行循环？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为什么有些团队不采用现成智能体框架,而选择自己实现智能体执行循环?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://A013"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2622544271174588789,
+            "title": "在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?",
+            "source": "interview-question://A013",
+            "domain": "agent",
+            "content": "# 在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?\n\n题目编号:A013\n\n领域:agent\n\n难度:2\n\n标签:框架选型、可控性、可观测性\n- 考察方向:定制需求、依赖复杂度、调试能力和迁移成本。\n\n参考答案:当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时,自行实现循环往往更透明,也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排,但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件,而是保留核心控制权,同时复用模型客户端、追踪和存储等成熟基础设施。例如,业务只需要少量工具,但要求每一步精确记录状态、限制权限并支持断点恢复时,直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统,可以复用成熟基础设施,只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本;当流程复杂或框架能力已经满足需求时,使用框架往往更合适。\n\n评分要点:结合业务约束比较可控性、可观测性与维护成本;说明复用基础设施;不把手写或框架视为绝对更优。",
+            "vector_score": 0.8535482287406921,
+            "keyword_score": 1.0,
+            "rerank_score": 0.4464065730571747
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.421,
+      "timings_seconds": {
+        "decomposition": 3.527535,
+        "retrieval": 0.236005,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.12635,
+        "vector_search": 0.027226,
+        "keyword_search": 0.081155,
+        "rerank": 0.657614,
+        "generation": 0.0,
+        "pipeline": 0.893915,
+        "total": 4.42145,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A013",
+        "interview-question://A001",
+        "interview-question://A005"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "为什么有些团队不采用现成智能体框架，而选择自己实现智能体执行循环？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为什么有些团队不采用现成智能体框架,而选择自己实现智能体执行循环?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "为什么有些团队不采用现成智能体框架,而选择自己实现智能体执行循环"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "自研智能体执行循环与使用 LangChain、AutoGPT 等现成 Agent 框架的对比、原因和优缺点"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Why build a custom agent execution loop instead of using existing agent frameworks?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "有些团队选择自研智能体执行循环,而非直接采用 LangChain、AutoGen、CrewAI 等现成智能体框架,是因为生产级 agent 需要显式控制 plan-act-observe 循环、上下文窗口编排、工具调用 schema、状态机与记忆读写、重试/超时/幂等/回滚、并发与流式输出。现成框架的抽象泄漏和黑盒调度会导致调试困难、行为不可复现、token 成本与延迟不可控,并与内部鉴权、权限、审计、沙箱、可观测性、模型路由、降级和评估体系难以深度集成。自研 loop 可定制 LLM API/推理引擎调用、prompt 与工具中间件、OpenTelemetry tracing、离线评估与灰度发布,并避免 vendor lock-in 和框架升级带来的非预期行为变化。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A013",
+                "interview-question://A001",
+                "interview-question://A005"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2622544271174588789,
+            "title": "在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?",
+            "source": "interview-question://A013",
+            "domain": "agent",
+            "content": "# 在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?\n\n题目编号:A013\n\n领域:agent\n\n难度:2\n\n标签:框架选型、可控性、可观测性\n- 考察方向:定制需求、依赖复杂度、调试能力和迁移成本。\n\n参考答案:当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时,自行实现循环往往更透明,也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排,但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件,而是保留核心控制权,同时复用模型客户端、追踪和存储等成熟基础设施。例如,业务只需要少量工具,但要求每一步精确记录状态、限制权限并支持断点恢复时,直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统,可以复用成熟基础设施,只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本;当流程复杂或框架能力已经满足需求时,使用框架往往更合适。\n\n评分要点:结合业务约束比较可控性、可观测性与维护成本;说明复用基础设施;不把手写或框架视为绝对更优。",
+            "vector_score": 0.8549597561359406,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2926109573100487886,
+            "title": "什么是 Agent?与大模型有什么本质不同?",
+            "source": "interview-question://A001",
+            "domain": "agent",
+            "content": "# 什么是 Agent?与大模型有什么本质不同?\n\n题目编号:A001\n\n领域:agent\n\n难度:1\n\n标签:Agent 定义、LLM 应用、自主决策\n- 考察方向:候选人能否从目标、状态、行动、反馈闭环等角度定义 Agent。\n\n参考答案:大模型本质上是根据上下文生成输出的概率模型,本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统,它会感知当前状态,规划下一步,调用工具影响外部环境,读取执行结果并继续决策,直到完成目标或触发停止条件。两者的核心差异是:LLM 提供认知能力,Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如,一个资料调研 Agent 会先确定检索范围,调用搜索工具,检查是否获得足够证据,再组织结论;如果资料不足,就调整查询继续检索。控制循环通常由宿主代码驱动,模型输出的是行动建议,外部操作仍由程序执行。判断是否具备 Agent 特征,要看是否能依据观察更新决策,而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。\n\n评分要点:区分“模型”与“系统”;提到目标、状态、工具和反馈循环;说明 Agent 不等于简单聊天封装。",
+            "vector_score": 0.8119408488273621,
+            "keyword_score": 0.60838592505345,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 320541557706665564,
+            "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+            "source": "interview-question://A005",
+            "domain": "agent",
+            "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+            "vector_score": 0.7891241610050201,
+            "keyword_score": 0.7790940248686884,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 14.444,
+      "timings_seconds": {
+        "decomposition": 3.527535,
+        "retrieval": 10.916285,
+        "mqe": 2.917153,
+        "hyde": 7.225,
+        "embedding": 0.410381,
+        "vector_search": 0.083583,
+        "keyword_search": 0.275689,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 10.916522,
+        "total": 14.444057,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-013",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A013",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时，自行实现循环往往更透明，也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排，但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件，而是保留核心控制权，同时复用模型客户端、追踪和存储等成熟基础设施。例如，业务只需要少量工具，但要求每一步精确记录状态、限制权限并支持断点恢复时，直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统，可以复用成熟基础设施，只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本；当流程复杂或框架能力已经满足需求时，使用框架往往更合适。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A013",
+        "interview-question://A005",
+        "interview-question://A001"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "为什么有些团队不采用现成智能体框架，而选择自己实现智能体执行循环？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为什么有些团队不采用现成智能体框架,而选择自己实现智能体执行循环?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A013",
+                "interview-question://A005",
+                "interview-question://A001"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2622544271174588789,
+            "title": "在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?",
+            "source": "interview-question://A013",
+            "domain": "agent",
+            "content": "# 在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?\n\n题目编号:A013\n\n领域:agent\n\n难度:2\n\n标签:框架选型、可控性、可观测性\n- 考察方向:定制需求、依赖复杂度、调试能力和迁移成本。\n\n参考答案:当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时,自行实现循环往往更透明,也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排,但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件,而是保留核心控制权,同时复用模型客户端、追踪和存储等成熟基础设施。例如,业务只需要少量工具,但要求每一步精确记录状态、限制权限并支持断点恢复时,直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统,可以复用成熟基础设施,只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本;当流程复杂或框架能力已经满足需求时,使用框架往往更合适。\n\n评分要点:结合业务约束比较可控性、可观测性与维护成本;说明复用基础设施;不把手写或框架视为绝对更优。",
+            "vector_score": 0.8535482287406921,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 320541557706665564,
+            "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+            "source": "interview-question://A005",
+            "domain": "agent",
+            "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+            "vector_score": 0.7594612240791321,
+            "keyword_score": 0.5835909876614933,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2926109573100487886,
+            "title": "什么是 Agent?与大模型有什么本质不同?",
+            "source": "interview-question://A001",
+            "domain": "agent",
+            "content": "# 什么是 Agent?与大模型有什么本质不同?\n\n题目编号:A001\n\n领域:agent\n\n难度:1\n\n标签:Agent 定义、LLM 应用、自主决策\n- 考察方向:候选人能否从目标、状态、行动、反馈闭环等角度定义 Agent。\n\n参考答案:大模型本质上是根据上下文生成输出的概率模型,本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统,它会感知当前状态,规划下一步,调用工具影响外部环境,读取执行结果并继续决策,直到完成目标或触发停止条件。两者的核心差异是:LLM 提供认知能力,Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如,一个资料调研 Agent 会先确定检索范围,调用搜索工具,检查是否获得足够证据,再组织结论;如果资料不足,就调整查询继续检索。控制循环通常由宿主代码驱动,模型输出的是行动建议,外部操作仍由程序执行。判断是否具备 Agent 特征,要看是否能依据观察更新决策,而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。\n\n评分要点:区分“模型”与“系统”;提到目标、状态、工具和反馈循环;说明 Agent 不等于简单聊天封装。",
+            "vector_score": 0.7619956433773041,
+            "keyword_score": 0.38556321660036225,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.81,
+      "timings_seconds": {
+        "decomposition": 3.527535,
+        "retrieval": 0.282738,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.181405,
+        "vector_search": 0.031466,
+        "keyword_search": 0.068766,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.282947,
+        "total": 3.810482,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-013",
+      "subquestions": [
+        {
+          "question": "为什么有些团队不采用现成智能体框架，而选择自己实现智能体执行循环？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.527535100000023
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.009,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

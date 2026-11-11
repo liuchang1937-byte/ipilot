@@ -1,0 +1,989 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "a2bc51d6db234a619223d28edab4be83",
+  "created_at": "2026-10-12T15:07:34.102051+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "81cd47bb29b7851021ec1fe19577b7f0d6dab23c5c01240fc4c2714e7cd7d722",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-1\\2f9d7e073e57edb8\\checkpoint"
+  },
+  "options": {
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 7.732,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 7.732,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.69065,
+          "p50": 4.69065,
+          "p95": 4.69065,
+          "max": 4.69065,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.695534,
+          "p50": 0.695534,
+          "p95": 0.695534,
+          "max": 0.695534,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.421596,
+          "p50": 0.421596,
+          "p95": 0.421596,
+          "max": 0.421596,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.141716,
+          "p50": 0.141716,
+          "p95": 0.141716,
+          "max": 0.141716,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.082364,
+          "p50": 0.082364,
+          "p95": 0.082364,
+          "max": 0.082364,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 2.344742,
+          "p50": 2.344742,
+          "p95": 2.344742,
+          "max": 2.344742,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 3.041082,
+          "p50": 3.041082,
+          "p95": 3.041082,
+          "max": 3.041082,
+          "samples": 1
+        },
+        "total": {
+          "mean": 7.731732,
+          "p50": 7.731732,
+          "p95": 7.731732,
+          "max": 7.731732,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 13.251,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 13.251,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.69065,
+          "p50": 4.69065,
+          "p95": 4.69065,
+          "max": 4.69065,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 8.560536,
+          "p50": 8.560536,
+          "p95": 8.560536,
+          "max": 8.560536,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.444849,
+          "p50": 2.444849,
+          "p95": 2.444849,
+          "max": 2.444849,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 5.241592,
+          "p50": 5.241592,
+          "p95": 5.241592,
+          "max": 5.241592,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.53443,
+          "p50": 0.53443,
+          "p95": 0.53443,
+          "max": 0.53443,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.06458,
+          "p50": 0.06458,
+          "p95": 0.06458,
+          "max": 0.06458,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.270591,
+          "p50": 0.270591,
+          "p95": 0.270591,
+          "max": 0.270591,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 8.560832,
+          "p50": 8.560832,
+          "p95": 8.560832,
+          "max": 8.560832,
+          "samples": 1
+        },
+        "total": {
+          "mean": 13.251482,
+          "p50": 13.251482,
+          "p95": 13.251482,
+          "max": 13.251482,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.939,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.939,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.69065,
+          "p50": 4.69065,
+          "p95": 4.69065,
+          "max": 4.69065,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.247712,
+          "p50": 0.247712,
+          "p95": 0.247712,
+          "max": 0.247712,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.160476,
+          "p50": 0.160476,
+          "p95": 0.160476,
+          "max": 0.160476,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.021668,
+          "p50": 0.021668,
+          "p95": 0.021668,
+          "max": 0.021668,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.06438,
+          "p50": 0.06438,
+          "p95": 0.06438,
+          "max": 0.06438,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.247918,
+          "p50": 0.247918,
+          "p95": 0.247918,
+          "max": 0.247918,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.938568,
+          "p50": 4.938568,
+          "p95": 4.938568,
+          "max": 4.938568,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-050",
+      "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R003",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://R003"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "RAG适合注入经常变化或私有的事实知识，更新快、可引用，但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力，推理时无需额外检索，但训练和更新成本高，事实难以精确修改。两者可组合：微调行为稳定性，RAG提供动态知识。例如，客服经常需要遵循固定语气与输出格式，可以先用提示和示例，必要时微调；产品价格与售后政策每天变化，则更适合外部知识库。微调也能学习事实，但事实的覆盖、版本和引用较难管理；RAG 也能改善任务表现，但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务，再比较标注数据、训练维护成本、检索延迟和最终业务指标。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R003",
+        "interview-question://L008",
+        "interview-question://R016"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "在知识经常更新且需要出处的场景下，检索增强与参数微调应如何选择？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在知识经常更新且需要出处的场景下,检索增强与参数微调应如何选择?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R003",
+                "interview-question://L008",
+                "interview-question://R016"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1412059223324461316,
+            "title": "相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?",
+            "source": "interview-question://R003",
+            "domain": "rag",
+            "content": "# 相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?\n\n题目编号:R003\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:RAG适合注入经常变化或私有的事实知识,更新快、可引用,但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力,推理时无需额外检索,但训练和更新成本高,事实难以精确修改。两者可组合:微调行为稳定性,RAG提供动态知识。例如,客服经常需要遵循固定语气与输出格式,可以先用提示和示例,必要时微调;产品价格与售后政策每天变化,则更适合外部知识库。微调也能学习事实,但事实的覆盖、版本和引用较难管理;RAG 也能改善任务表现,但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务,再比较标注数据、训练维护成本、检索延迟和最终业务指标。\n\n评分要点:从知识与行为区分;比较更新、成本、延迟和可解释性。",
+            "vector_score": 0.8116956353187561,
+            "keyword_score": 1.0,
+            "rerank_score": 0.9356790781021118
+          },
+          {
+            "id": 2,
+            "chunk_id": 986183218169772871,
+            "title": "大模型微调的方案有哪些?",
+            "source": "interview-question://L008",
+            "domain": "llm-engineering",
+            "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+            "vector_score": 0.799005538225174,
+            "keyword_score": 0.7980280913411281,
+            "rerank_score": 0.8425193428993225
+          },
+          {
+            "id": 3,
+            "chunk_id": 2214053965974079694,
+            "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+            "source": "interview-question://R016",
+            "domain": "rag",
+            "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+            "vector_score": 0.7986187636852264,
+            "keyword_score": 0.741224099987996,
+            "rerank_score": 0.11825866997241974
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 7.732,
+      "timings_seconds": {
+        "decomposition": 4.69065,
+        "retrieval": 0.695534,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.421596,
+        "vector_search": 0.141716,
+        "keyword_search": 0.082364,
+        "rerank": 2.344742,
+        "generation": 0.0,
+        "pipeline": 3.041082,
+        "total": 7.731732,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-050",
+      "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R003",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R003"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "RAG适合注入经常变化或私有的事实知识，更新快、可引用，但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力，推理时无需额外检索，但训练和更新成本高，事实难以精确修改。两者可组合：微调行为稳定性，RAG提供动态知识。例如，客服经常需要遵循固定语气与输出格式，可以先用提示和示例，必要时微调；产品价格与售后政策每天变化，则更适合外部知识库。微调也能学习事实，但事实的覆盖、版本和引用较难管理；RAG 也能改善任务表现，但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务，再比较标注数据、训练维护成本、检索延迟和最终业务指标。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R003",
+        "interview-question://L008",
+        "interview-question://R002"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "在知识经常更新且需要出处的场景下，检索增强与参数微调应如何选择？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在知识经常更新且需要出处的场景下,检索增强与参数微调应如何选择?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "知识频繁更新且需要引用来源时,检索增强生成(RAG)与参数微调(fine-tuning)应如何选择?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "检索增强与微调在动态知识、可溯源场景下的对比、优缺点和选型指南"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "需要最新知识并提供出处:RAG 和 fine-tuning 的适用场景与决策框架"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在知识高频更新且要求可追溯出处的场景,应优先选择检索增强生成(RAG):将最新文档、数据库或知识库经切分、嵌入、向量索引与元数据过滤后,通过稀疏+稠密混合检索、重排序召回上下文,再由大模型基于证据生成答案,并输出引用溯源与答案接地,实现增量索引更新而无需重新训练模型。参数微调(全参数微调、LoRA、QLoRA、SFT)更适合固定领域语义、语气风格、输出格式、复杂指令遵循与工具调用等稳定能力,但会将知识固化在参数中,存在知识截止、更新需重训、难以提供细粒度出处和审计追踪的问题。因此,动态事实、时效性问答、合规溯源场景选RAG;稳定领域适配与格式控制选微调;二者可组合为RAG负责事实与出处,微调负责领域理解与生成规范。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R003",
+                "interview-question://L008",
+                "interview-question://R002"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1412059223324461316,
+            "title": "相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?",
+            "source": "interview-question://R003",
+            "domain": "rag",
+            "content": "# 相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?\n\n题目编号:R003\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:RAG适合注入经常变化或私有的事实知识,更新快、可引用,但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力,推理时无需额外检索,但训练和更新成本高,事实难以精确修改。两者可组合:微调行为稳定性,RAG提供动态知识。例如,客服经常需要遵循固定语气与输出格式,可以先用提示和示例,必要时微调;产品价格与售后政策每天变化,则更适合外部知识库。微调也能学习事实,但事实的覆盖、版本和引用较难管理;RAG 也能改善任务表现,但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务,再比较标注数据、训练维护成本、检索延迟和最终业务指标。\n\n评分要点:从知识与行为区分;比较更新、成本、延迟和可解释性。",
+            "vector_score": 0.8913040161132812,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 986183218169772871,
+            "title": "大模型微调的方案有哪些?",
+            "source": "interview-question://L008",
+            "domain": "llm-engineering",
+            "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+            "vector_score": 0.8383294343948364,
+            "keyword_score": 0.9174882730125841,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4294420497335021517,
+            "title": "大模型的 RAG 主要用来解决什么问题?",
+            "source": "interview-question://R002",
+            "domain": "rag",
+            "content": "# 大模型的 RAG 主要用来解决什么问题?\n\n题目编号:R002\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG主要解决模型知识过时、无法访问私有数据、事实依据不可追溯和重新训练成本高的问题。它让知识与模型参数解耦,文档变化后可以重新索引。但RAG不能自动修复错误数据,也不能替代模型本身缺乏的推理能力;召回不到或上下文质量差时,生成仍会失败。例如,新发布的内部制度不在模型训练数据中,但文档入库后就能被检索使用,不必等待模型重新训练。把知识放在外部还便于控制文档权限、版本和来源,提高结果的可核查性。需要强调的是,RAG 只能提供可用信息,不能保证模型一定正确理解;过期文档、冲突证据和错误检索仍可能导致幻觉。实际目标是降低错误并让错误可定位,而不是承诺彻底消除幻觉。\n\n评分要点:知识更新、私域知识、可追溯性、低更新成本及能力边界。",
+            "vector_score": 0.834846705198288,
+            "keyword_score": 0.8667224104496952,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 13.251,
+      "timings_seconds": {
+        "decomposition": 4.69065,
+        "retrieval": 8.560536,
+        "mqe": 2.444849,
+        "hyde": 5.241592,
+        "embedding": 0.53443,
+        "vector_search": 0.06458,
+        "keyword_search": 0.270591,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 8.560832,
+        "total": 13.251482,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-050",
+      "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R003",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R003"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "RAG适合注入经常变化或私有的事实知识，更新快、可引用，但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力，推理时无需额外检索，但训练和更新成本高，事实难以精确修改。两者可组合：微调行为稳定性，RAG提供动态知识。例如，客服经常需要遵循固定语气与输出格式，可以先用提示和示例，必要时微调；产品价格与售后政策每天变化，则更适合外部知识库。微调也能学习事实，但事实的覆盖、版本和引用较难管理；RAG 也能改善任务表现，但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务，再比较标注数据、训练维护成本、检索延迟和最终业务指标。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R003",
+        "interview-question://L008",
+        "interview-question://R016"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "在知识经常更新且需要出处的场景下，检索增强与参数微调应如何选择？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在知识经常更新且需要出处的场景下,检索增强与参数微调应如何选择?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R003",
+                "interview-question://L008",
+                "interview-question://R016"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1412059223324461316,
+            "title": "相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?",
+            "source": "interview-question://R003",
+            "domain": "rag",
+            "content": "# 相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?\n\n题目编号:R003\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:RAG适合注入经常变化或私有的事实知识,更新快、可引用,但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力,推理时无需额外检索,但训练和更新成本高,事实难以精确修改。两者可组合:微调行为稳定性,RAG提供动态知识。例如,客服经常需要遵循固定语气与输出格式,可以先用提示和示例,必要时微调;产品价格与售后政策每天变化,则更适合外部知识库。微调也能学习事实,但事实的覆盖、版本和引用较难管理;RAG 也能改善任务表现,但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务,再比较标注数据、训练维护成本、检索延迟和最终业务指标。\n\n评分要点:从知识与行为区分;比较更新、成本、延迟和可解释性。",
+            "vector_score": 0.8116956353187561,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 986183218169772871,
+            "title": "大模型微调的方案有哪些?",
+            "source": "interview-question://L008",
+            "domain": "llm-engineering",
+            "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+            "vector_score": 0.799005538225174,
+            "keyword_score": 0.7980280913411281,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2214053965974079694,
+            "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+            "source": "interview-question://R016",
+            "domain": "rag",
+            "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+            "vector_score": 0.7986187636852264,
+            "keyword_score": 0.741224099987996,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.939,
+      "timings_seconds": {
+        "decomposition": 4.69065,
+        "retrieval": 0.247712,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.160476,
+        "vector_search": 0.021668,
+        "keyword_search": 0.06438,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.247918,
+        "total": 4.938568,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-050",
+      "subquestions": [
+        {
+          "question": "在知识经常更新且需要出处的场景下，检索增强与参数微调应如何选择？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 4.690650299999106
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.009,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

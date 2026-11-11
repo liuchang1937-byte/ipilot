@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-110",
+  "subquestions": [
+    {
+      "question": "这套平台维护者上周在私有服务器上部署了多少个GPU节点？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.651399299998957
+}

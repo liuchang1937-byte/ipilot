@@ -1,0 +1,26 @@
+{
+  "case_id": "V2-079",
+  "subquestions": [
+    {
+      "question": "在一个系统中，函数调用格式如何与任务技能包配合？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在一个系统中，函数调用格式如何与工具连接协议配合？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在一个系统中，任务技能包如何与工具连接协议配合？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在一个系统中，函数调用格式、任务技能包和工具连接协议三者如何协同配合？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 11.926837299997715
+}

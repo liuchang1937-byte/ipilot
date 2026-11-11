@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-022",
+  "subquestions": [
+    {
+      "question": "多个助手并行写同一结果时，其中一个助手超时后，如何将超时助手未完成的工作交接给其他助手？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "多个助手并行写同一结果时，其中一个助手超时后，其他助手之间如何解决对同一结果的写入冲突？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.404809800000294
+}

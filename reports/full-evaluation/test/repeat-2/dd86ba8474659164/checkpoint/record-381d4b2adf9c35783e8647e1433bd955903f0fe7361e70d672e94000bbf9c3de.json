@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-082",
+  "question": "服务器持续推送文本与双向交互，SSE和WebSocket有什么差异？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "T014",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T014"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "SSE基于HTTP长连接，主要由服务端向客户端单向推送文本事件，浏览器支持自动重连，适合LLM Token流；WebSocket升级为全双工连接，可双向低延迟传输文本或二进制，适合实时协作。SSE不适合高频双向和二进制媒体，WebSocket则需要自己处理心跳、重连、代理兼容和水平扩展。例如，文本生成可以用一次 HTTP 请求发送问题，再用 SSE 接收增量内容；用户取消可以另发请求，不必为所有对话引入 WebSocket。WebSocket 更适合双方持续发送事件，但可靠重连和消息去重仍由应用实现。SSE 的浏览器连接限制与 HTTP 版本有关，不能把 HTTP/1.1 的常见限制当作所有部署都相同。无论哪种方式，代理缓冲、心跳和慢消费者都会影响实际延迟。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T014",
+    "interview-question://T015",
+    "interview-question://T013"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "服务器持续推送文本与双向交互，SSE和WebSocket有什么差异？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "SSE（Server-Sent Events）和 WebSocket 在服务器持续推送文本与双向交互方面有什么差异？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "SSE(Server-Sent Events)和 WebSocket 在服务器持续推送文本与双向交互方面有什么差异?"
+            },
+            {
+              "kind": "mqe",
+              "text": "SSE 与 WebSocket 的区别:服务器持续推送文本和双向交互能力对比"
+            },
+            {
+              "kind": "mqe",
+              "text": "Server-Sent Events vs WebSocket differences for server push text and bidirectional communication"
+            },
+            {
+              "kind": "mqe",
+              "text": "SSE WebSocket 对比 单向服务器推送 双向通信 长连接 文本流 适用场景"
+            },
+            {
+              "kind": "hyde",
+              "text": "SSE 基于 HTTP 长连接,客户端通过 EventSource 发起请求,响应类型为 text/event-stream,服务器以 data:、event:、id:、retry: 等字段持续推送 UTF-8 文本事件;它是单向 server-to-client 推送,客户端不能在同一通道内发送消息,需另发 HTTP 请求,但浏览器原生支持自动重连、Last-Event-ID 断点续传和事件 ID,适合通知、日志、行情、AI token 流等纯文本推送。WebSocket 通过 HTTP Upgrade 握手建立 ws:// 或 wss:// 全双工持久连接,握手后使用独立帧传输 text/binary 数据,客户端与服务器可同时双向发送消息,支持 ping/pong 心跳、较低帧开销和二进制数据,但需自行实现重连、心跳、消息协议、背压和鉴权续期。SSE 受 HTTP/1.1 每域连接数、代理缓冲和超时影响;WebSocket 需代理与负载均衡支持 Upgrade,状态管理更复杂。仅需服务器持续推送文本时 SSE 更简单;需低延迟双向交互、二进制或自定义协议时 WebSocket 更合适。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T014",
+            "interview-question://T015",
+            "interview-question://T013"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1450303408020870642,
+        "title": "说说 WebSocket 和 SSE 通信的区别及局限性?",
+        "source": "interview-question://T014",
+        "domain": "llm-tool-calling",
+        "content": "# 说说 WebSocket 和 SSE 通信的区别及局限性?\n\n题目编号:T014\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:SSE基于HTTP长连接,主要由服务端向客户端单向推送文本事件,浏览器支持自动重连,适合LLM Token流;WebSocket升级为全双工连接,可双向低延迟传输文本或二进制,适合实时协作。SSE不适合高频双向和二进制媒体,WebSocket则需要自己处理心跳、重连、代理兼容和水平扩展。例如,文本生成可以用一次 HTTP 请求发送问题,再用 SSE 接收增量内容;用户取消可以另发请求,不必为所有对话引入 WebSocket。WebSocket 更适合双方持续发送事件,但可靠重连和消息去重仍由应用实现。SSE 的浏览器连接限制与 HTTP 版本有关,不能把 HTTP/1.1 的常见限制当作所有部署都相同。无论哪种方式,代理缓冲、心跳和慢消费者都会影响实际延迟。\n\n评分要点:方向、协议、数据类型、重连与典型场景。",
+        "vector_score": 0.9223943948745728,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 574765045243999808,
+        "title": "为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?",
+        "source": "interview-question://T015",
+        "domain": "llm-tool-calling",
+        "content": "# 为什么要用 WebRTC 协议?它和 WebSocket 在 AI 对话流中的核心差异是什么?\n\n题目编号:T015\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:WebRTC针对实时音视频设计,包含媒体编解码、抖动缓冲、拥塞控制、NAT穿透和低延迟传输;WebSocket只是可靠的双向字节通道,这些媒体能力需自行实现。实时语音Agent通常用WebRTC承载音频和数据通道,用WebSocket传控制事件也可以,选择取决于延迟、媒体质量和部署复杂度。例如,用户语音输入与模型语音输出同时进行,还要支持打断和网络抖动,媒体通道更需要实时性而非等待每个旧包重新到达。WebSocket 常基于 TCP,丢包可能造成队头阻塞;WebRTC 有适合实时媒体的传输与带宽适应机制。不过 WebRTC 并不是绝对只走 UDP,也不是永远不重传,实际会受网络与中继影响。选择时比较通话质量、端到端延迟、穿透和运维,不应承诺固定毫秒数。\n\n评分要点:媒体专用能力、传输特性及组合使用。",
+        "vector_score": 0.8239214420318604,
+        "keyword_score": 0.8808815909810099,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 146725892672075800,
+        "title": "MCP 协议通常采用什么通信方式?",
+        "source": "interview-question://T013",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 协议通常采用什么通信方式?\n\n题目编号:T013\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:本地MCP Server常通过stdio由Client作为子进程启动,延迟低且无需开放端口;远程服务推荐使用Streamable HTTP,便于多Client共享和集中管理。早期HTTP+SSE双端点方案已不再是新项目的首选。无论使用哪种传输,消息层都采用JSON-RPC 2.0,传输方式只决定消息如何到达。stdio 使用标准输入输出传递协议消息,普通日志应写到 stderr,避免污染消息流。远程 Streamable HTTP 使用 HTTP 请求传递消息,并可通过 SSE 推送多个事件;并不是所有响应都必须保持一个长连接。2025-11-25 版规范列出这两种标准传输,旧 HTTP+SSE 应按兼容需求处理。客户端还要管理连接生命周期、会话和取消;重连不会自动保证外部操作只执行一次。\n\n评分要点:区分 JSON-RPC 消息语义与传输;说明 stdio、Streamable HTTP 和旧 HTTP+SSE 的兼容关系。",
+        "vector_score": 0.8049286901950836,
+        "keyword_score": 0.4464241795374586,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 13.238,
+  "timings_seconds": {
+    "decomposition": 4.464326,
+    "retrieval": 8.773961,
+    "mqe": 2.921892,
+    "hyde": 5.30926,
+    "embedding": 0.401854,
+    "vector_search": 0.026667,
+    "keyword_search": 0.111632,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 8.774112,
+    "total": 13.238437,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

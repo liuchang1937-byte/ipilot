@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-115",
+  "subquestions": [
+    {
+      "question": "资料中有用户ID PRIVATE-8842最近一次模拟面试的个人得分吗？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 1.8895330000013928
+}

@@ -1,0 +1,1365 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "67b4502ebf644357a211ee8c2f539dbb",
+  "created_at": "2026-10-12T11:26:18.625425+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "fa89b1cedad94f79d09b6ea1600d74c1aca0e204a56c5166ea09ff9d586cf7bd",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\8f2b0eef67c712ed\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.1667,
+      "ndcg_at_k": 0.3155,
+      "hit_rate": 1,
+      "mrr": 0.5,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 10.99,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 10.99,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 9.775059,
+          "p50": 9.775059,
+          "p95": 9.775059,
+          "max": 9.775059,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 1.21495,
+          "p50": 1.21495,
+          "p95": 1.21495,
+          "max": 1.21495,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.860976,
+          "p50": 0.860976,
+          "p95": 0.860976,
+          "max": 0.860976,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.090167,
+          "p50": 0.090167,
+          "p95": 0.090167,
+          "max": 0.090167,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.258063,
+          "p50": 0.258063,
+          "p95": 0.258063,
+          "max": 0.258063,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.215326,
+          "p50": 1.215326,
+          "p95": 1.215326,
+          "max": 1.215326,
+          "samples": 1
+        },
+        "total": {
+          "mean": 10.990385,
+          "p50": 10.990385,
+          "p95": 10.990385,
+          "max": 10.990385,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 13.096,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 13.096,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 9.775059,
+          "p50": 9.775059,
+          "p95": 9.775059,
+          "max": 9.775059,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.975556,
+          "p50": 0.975556,
+          "p95": 0.975556,
+          "max": 0.975556,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.598295,
+          "p50": 0.598295,
+          "p95": 0.598295,
+          "max": 0.598295,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.099524,
+          "p50": 0.099524,
+          "p95": 0.099524,
+          "max": 0.099524,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.272538,
+          "p50": 0.272538,
+          "p95": 0.272538,
+          "max": 0.272538,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 2.344855,
+          "p50": 2.344855,
+          "p95": 2.344855,
+          "max": 2.344855,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 3.321129,
+          "p50": 3.321129,
+          "p95": 3.321129,
+          "max": 3.321129,
+          "samples": 1
+        },
+        "total": {
+          "mean": 13.096188,
+          "p50": 13.096188,
+          "p95": 13.096188,
+          "max": 13.096188,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 4,
+        "rerank_pairs": 48
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "ndcg_at_k": 0.6577,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 90.742,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 90.742,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 9.775059,
+          "p50": 9.775059,
+          "p95": 9.775059,
+          "max": 9.775059,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 80.96613,
+          "p50": 80.96613,
+          "p95": 80.96613,
+          "max": 80.96613,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 18.945738,
+          "p50": 18.945738,
+          "p95": 18.945738,
+          "max": 18.945738,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 59.102115,
+          "p50": 59.102115,
+          "p95": 59.102115,
+          "max": 59.102115,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.460043,
+          "p50": 1.460043,
+          "p95": 1.460043,
+          "max": 1.460043,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.241108,
+          "p50": 0.241108,
+          "p95": 0.241108,
+          "max": 0.241108,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 1.198703,
+          "p50": 1.198703,
+          "p95": 1.198703,
+          "max": 1.198703,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 80.966475,
+          "p50": 80.966475,
+          "p95": 80.966475,
+          "max": 80.966475,
+          "samples": 1
+        },
+        "total": {
+          "mean": 90.741533,
+          "p50": 90.741533,
+          "p95": 90.741533,
+          "max": 90.741533,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 20,
+        "chat_calls": 8,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-053",
+      "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R006",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R006"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Embedding把文本映射为稠密向量，使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单，应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG，并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例，避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量，不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确，不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引，并比较召回率、尾部延迟、费用和内存，而不是只看单次相似度。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R007",
+        "interview-question://R006",
+        "interview-question://L022",
+        "interview-question://L021"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.16666666666666666,
+      "ndcg_at_k": 0.31546487678572877,
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+        "answer": "1. 选择文本向量模型时，验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么？\n\n\n2. 验证文本向量模型适合中文技术题检索时，应使用哪些评估指标？\n\n\n3. 验证文本向量模型适合中文技术题检索时，如何构建或选择中文技术题检索评测集？\n\n\n4. 验证文本向量模型适合中文技术题检索时，有哪些公开的中文技术题检索评测基准或数据集？\n",
+        "sections": [
+          {
+            "question": "选择文本向量模型时，验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "选择文本向量模型时,验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://R007",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          },
+          {
+            "question": "验证文本向量模型适合中文技术题检索时，应使用哪些评估指标？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证文本向量模型适合中文技术题检索时,应使用哪些评估指标?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://R006",
+                "interview-question://L022"
+              ]
+            }
+          },
+          {
+            "question": "验证文本向量模型适合中文技术题检索时，如何构建或选择中文技术题检索评测集？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证文本向量模型适合中文技术题检索时,如何构建或选择中文技术题检索评测集?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://R006",
+                "interview-question://L022"
+              ]
+            }
+          },
+          {
+            "question": "验证文本向量模型适合中文技术题检索时，有哪些公开的中文技术题检索评测基准或数据集？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证文本向量模型适合中文技术题检索时,有哪些公开的中文技术题检索评测基准或数据集?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://L021",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1105497267590274010,
+            "title": "建议的检索评估",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 建议的检索评估\n\n● 对每题标注支持块,计算 Recall@1、Recall@5 与 MRR。\n\n● 把“超温事故”“温度越界”“TEE”作为同义查询组,比较向量与 BM25 的互补性。\n● 将旧版 25% 作为高词面相似干扰块,检验 reranker 与版本元数据是否把 v1.4 排在前面。\n● 对无答案题检查模型是否引用无关块、拼接联系人信息或编造供应商。",
+            "vector_score": 0.8146186470985413,
+            "keyword_score": 0.7445390241888112,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.7964266240596771,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3911908167396159604,
+            "title": "推荐测试方式",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 推荐测试方式\n\n● 切块:分别尝试 200、500、800 中文字符,重叠比例 10% 至 20%。\n● 检索:对比纯向量、BM25 与混合检索;记录 Recall@5、MRR 和 nDCG@10。\n● 重排:先召回 20 个候选块,再由 reranker 选前 5 个;观察同义词与否定句。\n● 问答:要求答案附事实编号或章节名;缺少依据时应明确拒答。\n章节 内容 主要测试点\n1 项目概览与组织 实体、日期、地点、数值\n2 术语与同义词 embedding、缩写、歧义\n3 端到端流程 顺序、条件、跨块关联\n4 数据与权限 表格检索、过滤、否定事实\n5 案例研究 多跳问答、计算、归因\n6 故障与处置 相似症状、精确区分\n7 FAQ 自然语言问答、改写\n附录 事实清单与测试题 基准答案、召回评估",
+            "vector_score": 0.806398868560791,
+            "keyword_score": 0.763887044038502,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3773025965374103241,
+            "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+            "source": "interview-question://R006",
+            "domain": "rag",
+            "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+            "vector_score": 0.7901402711868286,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.8003620505332947,
+            "keyword_score": 0.7333824035720091,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 4468296057515630498,
+            "title": "大模型能力评测指标有哪些?",
+            "source": "interview-question://L021",
+            "domain": "llm-engineering",
+            "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+            "vector_score": 0.7975181937217712,
+            "keyword_score": 0.9780071736045608,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 10.99,
+      "timings_seconds": {
+        "decomposition": 9.775059,
+        "retrieval": 1.21495,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.860976,
+        "vector_search": 0.090167,
+        "keyword_search": 0.258063,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 1.215326,
+        "total": 10.990385,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-053",
+      "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R006",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://R006"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Embedding把文本映射为稠密向量，使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单，应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG，并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例，避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量，不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确，不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引，并比较召回率、尾部延迟、费用和内存，而不是只看单次相似度。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R006",
+        "interview-question://L022",
+        "interview-question://R007",
+        "interview-question://R018",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://L021"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+        "answer": "1. 选择文本向量模型时，验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么？\n\n\n2. 验证文本向量模型适合中文技术题检索时，应使用哪些评估指标？\n\n\n3. 验证文本向量模型适合中文技术题检索时，如何构建或选择中文技术题检索评测集？\n\n\n4. 验证文本向量模型适合中文技术题检索时，有哪些公开的中文技术题检索评测基准或数据集？\n",
+        "sections": [
+          {
+            "question": "选择文本向量模型时，验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "选择文本向量模型时,验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R006",
+                "interview-question://L022",
+                "interview-question://R007"
+              ]
+            }
+          },
+          {
+            "question": "验证文本向量模型适合中文技术题检索时，应使用哪些评估指标？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证文本向量模型适合中文技术题检索时,应使用哪些评估指标?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R006",
+                "interview-question://R018",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          },
+          {
+            "question": "验证文本向量模型适合中文技术题检索时，如何构建或选择中文技术题检索评测集？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证文本向量模型适合中文技术题检索时,如何构建或选择中文技术题检索评测集?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R006",
+                "interview-question://L022",
+                "interview-question://R018"
+              ]
+            }
+          },
+          {
+            "question": "验证文本向量模型适合中文技术题检索时，有哪些公开的中文技术题检索评测基准或数据集？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证文本向量模型适合中文技术题检索时,有哪些公开的中文技术题检索评测基准或数据集?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R006",
+                "interview-question://L021",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3773025965374103241,
+            "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+            "source": "interview-question://R006",
+            "domain": "rag",
+            "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+            "vector_score": 0.7761831283569336,
+            "keyword_score": 0.910866282086478,
+            "rerank_score": 0.5666419863700867
+          },
+          {
+            "id": 2,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.8003620505332947,
+            "keyword_score": 0.7333824035720091,
+            "rerank_score": 0.7487051486968994
+          },
+          {
+            "id": 3,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.7964266240596771,
+            "keyword_score": 1.0,
+            "rerank_score": 0.2571771442890167
+          },
+          {
+            "id": 4,
+            "chunk_id": 145210955334252079,
+            "title": "怎么量化你的 RAG 效果?",
+            "source": "interview-question://R018",
+            "domain": "rag",
+            "content": "# 怎么量化你的 RAG 效果?\n\n题目编号:R018\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景,避免只验证常见问题。模型裁判需要人工校准,线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本,并定位是召回失败还是生成失败。\n\n评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。",
+            "vector_score": 0.7847345769405365,
+            "keyword_score": 0.7131961665234092,
+            "rerank_score": 0.6851369738578796
+          },
+          {
+            "id": 5,
+            "chunk_id": 1105497267590274010,
+            "title": "建议的检索评估",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 建议的检索评估\n\n● 对每题标注支持块,计算 Recall@1、Recall@5 与 MRR。\n\n● 把“超温事故”“温度越界”“TEE”作为同义查询组,比较向量与 BM25 的互补性。\n● 将旧版 25% 作为高词面相似干扰块,检验 reranker 与版本元数据是否把 v1.4 排在前面。\n● 对无答案题检查模型是否引用无关块、拼接联系人信息或编造供应商。",
+            "vector_score": 0.8146186470985413,
+            "keyword_score": 0.7445390241888112,
+            "rerank_score": 0.2637951076030731
+          },
+          {
+            "id": 6,
+            "chunk_id": 4468296057515630498,
+            "title": "大模型能力评测指标有哪些?",
+            "source": "interview-question://L021",
+            "domain": "llm-engineering",
+            "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+            "vector_score": 0.7975181937217712,
+            "keyword_score": 0.9780071736045608,
+            "rerank_score": 0.40961745381355286
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 13.096,
+      "timings_seconds": {
+        "decomposition": 9.775059,
+        "retrieval": 0.975556,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.598295,
+        "vector_search": 0.099524,
+        "keyword_search": 0.272538,
+        "rerank": 2.344855,
+        "generation": 0.0,
+        "pipeline": 3.321129,
+        "total": 13.096188,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 4,
+        "rerank_pairs": 48
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-053",
+      "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R006",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R006"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Embedding把文本映射为稠密向量，使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单，应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG，并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例，避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量，不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确，不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引，并比较召回率、尾部延迟、费用和内存，而不是只看单次相似度。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R006",
+        "interview-question://L021"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "ndcg_at_k": 0.6577324383928644,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+        "answer": "1. 选择文本向量模型时，验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么？\n\n\n2. 验证文本向量模型适合中文技术题检索时，应使用哪些评估指标？\n\n\n3. 验证文本向量模型适合中文技术题检索时，如何构建或选择中文技术题检索评测集？\n\n\n4. 验证文本向量模型适合中文技术题检索时，有哪些公开的中文技术题检索评测基准或数据集？\n",
+        "sections": [
+          {
+            "question": "选择文本向量模型时，验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "选择文本向量模型时,验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "选择文本向量模型时,验证其是否适合中文技术题检索的整体流程和方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "中文技术问题检索 文本嵌入模型选型 评估流程 评测指标 基准数据集 对比实验"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "text embedding model validation pipeline for Chinese technical question retrieval evaluation methods"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "针对中文技术题检索选择文本向量模型时,验证流程为:明确检索形态(问题-问题、问题-答案、问题-文档)与部署约束(延迟、显存、成本、私有化、向量维度),构建中文技术领域评测集,包含代码片段、公式、英文缩写、中英混排、长尾术语、同义改写和难负例,形成 query-corpus-relevance judgment 标注。候选模型可覆盖 BGE、M3E、GTE、E5、text2vec、multilingual-e5、OpenAI embeddings 等,统一预处理包括 query/document instruction prefix、最大序列长度、chunk 切分、pooling、L2 归一化。使用 FAISS、HNSW、IVF-PQ 等建索引,以 cosine 或 dot product 检索,评估 Recall@k、Precision@k、MRR、MAP、nDCG@k、Hit Rate,并记录 QPS、内存占用和成本。通过消融实验比较维度、池化方式、指令模板、分词、切分策略和负例构造,结合 cross-encoder reranker 测上限。若效果不足,采用对比学习、硬负例挖掘、LoRA 或全参微调、领域适配预训练,并在留出集、C-MTEB/MTEB 类基准、真实流量 A/B 测试中验证泛化性、鲁棒性和线上检索效果。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://R006",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          },
+          {
+            "question": "验证文本向量模型适合中文技术题检索时，应使用哪些评估指标？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证文本向量模型适合中文技术题检索时,应使用哪些评估指标?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "验证文本向量模型是否适合中文技术题检索 应使用哪些评估指标"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "中文技术问答检索 文本嵌入模型 评估指标 Recall@K MRR nDCG MAP"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Chinese technical question retrieval text embedding model evaluation metrics benchmark"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "验证中文技术题检索用的文本向量模型,核心检索评估指标包括 Recall@k、Precision@k、Hit Rate@k、Top-k Accuracy、MRR@k、MAP@k、nDCG@k、R-Precision,常用 k=1、5、10、20、50、100。中文技术题场景应基于 query-技术题/答案段落相关性标注集,覆盖同义改写、术语缩写、代码符号、中英混排、公式与难负例,计算 embedding 的 cosine similarity 或 dot product,并结合 ANN 召回评估 R@1、R@5、R@10、MRR@10、nDCG@10、MAP@10、Hit@10、P@1。若含 reranker,还需评估 top-k 排序质量、查询吞吐 QPS、延迟和索引大小。综合语义相似度、排序指标与效率指标判断模型是否适合中文技术题检索。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R006",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          },
+          {
+            "question": "验证文本向量模型适合中文技术题检索时，如何构建或选择中文技术题检索评测集？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证文本向量模型适合中文技术题检索时,如何构建或选择中文技术题检索评测集?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "中文技术问答检索评测集 构建方法 文本向量模型评估"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "如何选择中文技术题检索基准数据集 embedding 模型评测"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "中文技术问题检索 评测数据集 设计 标准 选择 文本嵌入模型"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "用于验证文本向量模型对中文技术题检索的评测集,需先定义任务:query为中文技术问题、标题或真实查询日志,corpus为技术问答、文档、代码片段,标注query-document相关性。数据可来自Stack Overflow、CSDN、掘金、SegmentFault、GitHub Issues、官方文档、面试/考试题库,经过去重、去噪、去标识化、代码块保留、中英混合与实体规范化。查询由标题、正文摘要、用户日志构造,并加入同义改写、错别字、简称、代码标识符。正例取采纳答案、高赞答案或专家标注相关项,负例用随机负例、BM25/向量hard negatives、同技术栈相似题。采用0-3相关性分级、多标注者加专家仲裁、Kappa一致性校验。按技术栈、难度、时间分层划分train/valid/test,防止泄漏。现成集可选C-MTEB中文检索子集、T2Ranking、DuRetrieval、MIRACL-zh,若不匹配则用领域内技术问答构建;评测指标用Recall@k、MRR、MAP、nDCG@k。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R006",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          },
+          {
+            "question": "验证文本向量模型适合中文技术题检索时，有哪些公开的中文技术题检索评测基准或数据集？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "验证文本向量模型适合中文技术题检索时,有哪些公开的中文技术题检索评测基准或数据集?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "公开的中文技术题检索评测基准和数据集有哪些"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "中文技术问答检索 文本向量模型 评测数据集 benchmark"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Chinese technical question retrieval benchmark dataset for Chinese text embedding evaluation"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "验证文本向量模型在中文技术题检索中的效果,可选用公开中文检索评测基准与数据集:C-MTEB/MTEB 中文检索任务,包括 T2Retrieval、DuRetrieval、MMarcoRetrieval、CmedqaRetrieval、CovidRetrieval;T2Ranking 中文段落检索数据集;DuReader-Retrieval;MIRACL 中文子集;Mr. TyDi 中文子集;mMARCO 中文版;以及基于 Stack Overflow、SegmentFault、CSDN、知乎技术问答、开源中国等构建的中文技术问答检索集。此类数据通常包含 query、正例 passage/answer、负例 passage 与相关性标注,用于评估双塔文本向量模型的稠密检索、语义召回、相似问题检索和重排序。常用指标包括 nDCG@10、MRR@10、Recall@k、MAP、Precision@k;针对中文技术题可构造 question-title、question-answer、question-similar-question 检索任务。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://L021",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3911908167396159604,
+            "title": "推荐测试方式",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 推荐测试方式\n\n● 切块:分别尝试 200、500、800 中文字符,重叠比例 10% 至 20%。\n● 检索:对比纯向量、BM25 与混合检索;记录 Recall@5、MRR 和 nDCG@10。\n● 重排:先召回 20 个候选块,再由 reranker 选前 5 个;观察同义词与否定句。\n● 问答:要求答案附事实编号或章节名;缺少依据时应明确拒答。\n章节 内容 主要测试点\n1 项目概览与组织 实体、日期、地点、数值\n2 术语与同义词 embedding、缩写、歧义\n3 端到端流程 顺序、条件、跨块关联\n4 数据与权限 表格检索、过滤、否定事实\n5 案例研究 多跳问答、计算、归因\n6 故障与处置 相似症状、精确区分\n7 FAQ 自然语言问答、改写\n附录 事实清单与测试题 基准答案、召回评估",
+            "vector_score": 0.8331934809684753,
+            "keyword_score": 0.965326589019484,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3773025965374103241,
+            "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+            "source": "interview-question://R006",
+            "domain": "rag",
+            "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+            "vector_score": 0.8432003259658813,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1105497267590274010,
+            "title": "建议的检索评估",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 建议的检索评估\n\n● 对每题标注支持块,计算 Recall@1、Recall@5 与 MRR。\n\n● 把“超温事故”“温度越界”“TEE”作为同义查询组,比较向量与 BM25 的互补性。\n● 将旧版 25% 作为高词面相似干扰块,检验 reranker 与版本元数据是否把 v1.4 排在前面。\n● 对无答案题检查模型是否引用无关块、拼接联系人信息或编造供应商。",
+            "vector_score": 0.85576331615448,
+            "keyword_score": 0.7445390241888112,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4468296057515630498,
+            "title": "大模型能力评测指标有哪些?",
+            "source": "interview-question://L021",
+            "domain": "llm-engineering",
+            "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+            "vector_score": 0.7989285588264465,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 90.742,
+      "timings_seconds": {
+        "decomposition": 9.775059,
+        "retrieval": 80.96613,
+        "mqe": 18.945738,
+        "hyde": 59.102115,
+        "embedding": 1.460043,
+        "vector_search": 0.241108,
+        "keyword_search": 1.198703,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 80.966475,
+        "total": 90.741533,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 20,
+        "chat_calls": 8,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-053",
+      "subquestions": [
+        {
+          "question": "选择文本向量模型时，验证文本向量模型是否适合中文技术题检索的整体流程和方法是什么？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "验证文本向量模型适合中文技术题检索时，应使用哪些评估指标？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "验证文本向量模型适合中文技术题检索时，如何构建或选择中文技术题检索评测集？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "验证文本向量模型适合中文技术题检索时，有哪些公开的中文技术题检索评测基准或数据集？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 9.775058699999136
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 95.292,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

@@ -1,0 +1,691 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "86dbe1fc9e874d99bcc0785ac946c842",
+  "created_at": "2026-10-12T15:22:35.664464+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "8da08c3b398d7330390b38f816626b18ec5f4d4a1d6b424e1142b52d29909569",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-2\\f426ebdee0c354fa\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 15.583,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 15.583,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.909832,
+          "p50": 2.909832,
+          "p95": 2.909832,
+          "max": 2.909832,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 12.673469,
+          "p50": 12.673469,
+          "p95": 12.673469,
+          "max": 12.673469,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 5.543073,
+          "p50": 5.543073,
+          "p95": 5.543073,
+          "max": 5.543073,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 6.716591,
+          "p50": 6.716591,
+          "p95": 6.716591,
+          "max": 6.716591,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.301828,
+          "p50": 0.301828,
+          "p95": 0.301828,
+          "max": 0.301828,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.023868,
+          "p50": 0.023868,
+          "p95": 0.023868,
+          "max": 0.023868,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.085737,
+          "p50": 0.085737,
+          "p95": 0.085737,
+          "max": 0.085737,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 12.673625,
+          "p50": 12.673625,
+          "p95": 12.673625,
+          "max": 12.673625,
+          "samples": 1
+        },
+        "total": {
+          "mean": 15.583457,
+          "p50": 15.583457,
+          "p95": 15.583457,
+          "max": 15.583457,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 4,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.6309,
+      "hit_rate": 1,
+      "mrr": 0.5,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.116,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.116,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.909832,
+          "p50": 2.909832,
+          "p95": 2.909832,
+          "max": 2.909832,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.20559,
+          "p50": 0.20559,
+          "p95": 0.20559,
+          "max": 0.20559,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.164131,
+          "p50": 0.164131,
+          "p95": 0.164131,
+          "max": 0.164131,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.012887,
+          "p50": 0.012887,
+          "p95": 0.012887,
+          "max": 0.012887,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.027963,
+          "p50": 0.027963,
+          "p95": 0.027963,
+          "max": 0.027963,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.205721,
+          "p50": 0.205721,
+          "p95": 0.205721,
+          "max": 0.205721,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.115552,
+          "p50": 3.115552,
+          "p95": 3.115552,
+          "max": 3.115552,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-045",
+      "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+      "category": "terminology",
+      "split": "test",
+      "group": "L021",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L021"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro，代码类可参考 HumanEval 或 SWE-bench Verified，数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点，可能受到数据污染、评分方式与业务分布差异影响；最终应从真实请求与失败样本构建经过标注的业务测试集，定期回归。公开测试可区分知识、代码、数学与科学推理，GPQA 更偏高难度科学问答，不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本，保留固定留出集并持续补充失败案例。结构化任务测格式与参数，Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准，报告应同时给出质量、安全、费用和延迟，并防止只针对已知测试集调优。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L021",
+        "interview-question://L001",
+        "interview-question://L022"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "评估语言模型时，除了通用考试分数，还需要测试哪些维度？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "评估语言模型时,除了通用考试分数,还需要测试哪些维度?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型评测体系:除标准化基准考试成绩外,还应关注哪些能力与风险指标,如鲁棒性、公平性、安全性、推理和效率?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM evaluation dimensions beyond benchmark exam scores: what else should be tested, such as robustness, bias, safety, alignment, reasoning, and efficiency?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "评估语言模型时,除通用考试分数(如MMLU、GSM8K)外,还需覆盖:事实性与幻觉率、知识边界、拒答与弃权、校准与不确定性估计;鲁棒性、分布外泛化、对抗扰动、提示敏感性与改写一致性;安全性、对齐、越狱抵抗、毒性、偏见与公平性、隐私泄露与版权合规;指令遵循、约束满足、多轮对话一致性、长上下文检索与推理;复杂推理、数学与代码、规划、工具调用与智能体任务;多语言与跨文化能力、领域适应;以及推理延迟、吞吐、成本、能耗、可解释性、可审计性和人类偏好胜率。需结合自动指标、人工评估和红队测试,并检测数据污染与基准过拟合。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L021",
+                "interview-question://L001",
+                "interview-question://L022"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4468296057515630498,
+            "title": "大模型能力评测指标有哪些?",
+            "source": "interview-question://L021",
+            "domain": "llm-engineering",
+            "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+            "vector_score": 0.8634691536426544,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2711125243325661145,
+            "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+            "source": "interview-question://L001",
+            "domain": "llm-engineering",
+            "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+            "vector_score": 0.7759440541267395,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.8449420928955078,
+            "keyword_score": 0.8713170065290252,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 15.583,
+      "timings_seconds": {
+        "decomposition": 2.909832,
+        "retrieval": 12.673469,
+        "mqe": 5.543073,
+        "hyde": 6.716591,
+        "embedding": 0.301828,
+        "vector_search": 0.023868,
+        "keyword_search": 0.085737,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 12.673625,
+        "total": 15.583457,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 4,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-045",
+      "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+      "category": "terminology",
+      "split": "test",
+      "group": "L021",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://L021"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro，代码类可参考 HumanEval 或 SWE-bench Verified，数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点，可能受到数据污染、评分方式与业务分布差异影响；最终应从真实请求与失败样本构建经过标注的业务测试集，定期回归。公开测试可区分知识、代码、数学与科学推理，GPQA 更偏高难度科学问答，不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本，保留固定留出集并持续补充失败案例。结构化任务测格式与参数，Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准，报告应同时给出质量、安全、费用和延迟，并防止只针对已知测试集调优。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L022",
+        "interview-question://L021",
+        "interview-question://R006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.6309297535714575,
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "评估语言模型时，除了通用考试分数，还需要测试哪些维度？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "评估语言模型时,除了通用考试分数,还需要测试哪些维度?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L022",
+                "interview-question://L021",
+                "interview-question://R006"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.8449493646621704,
+            "keyword_score": 0.8713170065290252,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 4468296057515630498,
+            "title": "大模型能力评测指标有哪些?",
+            "source": "interview-question://L021",
+            "domain": "llm-engineering",
+            "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+            "vector_score": 0.8330066502094269,
+            "keyword_score": 0.8046103871509509,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3773025965374103241,
+            "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+            "source": "interview-question://R006",
+            "domain": "rag",
+            "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+            "vector_score": 0.7684170603752136,
+            "keyword_score": 0.9816409387234126,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.116,
+      "timings_seconds": {
+        "decomposition": 2.909832,
+        "retrieval": 0.20559,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.164131,
+        "vector_search": 0.012887,
+        "keyword_search": 0.027963,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.205721,
+        "total": 3.115552,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-045",
+      "subquestions": [
+        {
+          "question": "评估语言模型时，除了通用考试分数，还需要测试哪些维度？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.9098317000025418
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 15.797,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

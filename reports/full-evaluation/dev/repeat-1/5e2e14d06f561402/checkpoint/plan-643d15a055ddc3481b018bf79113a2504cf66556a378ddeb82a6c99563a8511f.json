@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-098",
+  "subquestions": [
+    {
+      "question": "MCP与函数调用有什么边界？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "技能包怎样与MCP和函数调用配合？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.779145300000891
+}

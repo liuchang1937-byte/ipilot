@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-075",
+      "question": "仅接一个内部函数与接多个外部服务，何时采用MCP更合适？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T007"
+      ],
+      "answerable": true,
+      "reference_answer": "如果工具少、只在单个应用内部使用，直接Function Calling加本地函数注册最简单；当工具需要跨应用复用、独立部署、动态发现或由第三方维护时，MCP可减少适配成本。两者并非互斥：MCP提供标准工具接入，模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如，应用内部只有一个查天气函数，直接注册通常足够；多个产品都需要共享同一订单服务，可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP，还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界，而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。",
+      "group": "T007",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

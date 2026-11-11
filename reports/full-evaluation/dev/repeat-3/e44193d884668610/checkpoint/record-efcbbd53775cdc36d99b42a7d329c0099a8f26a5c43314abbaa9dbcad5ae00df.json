@@ -1,0 +1,272 @@
+{
+  "case_id": "V2-044",
+  "question": "CPU本地部署与GPU高并发服务，怎样选择推理运行框架？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "L015",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L020"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "vLLM适合GPU高吞吐服务，强调PagedAttention和连续批处理；TGI提供较完整的Hugging Face生产服务生态；llama.cpp适合CPU、边缘和量化本地部署；SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本，并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持，再用相同输入输出长度、并发与精度设置测试，避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列，重复前缀场景需要看缓存命中，本地部署则更关心内存与量化兼容。框架特性和维护状态会变化，不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力，而不是只说某框架最快。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L020",
+    "interview-question://L022",
+    "interview-question://T008",
+    "interview-question://T016",
+    "interview-question://T007"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "CPU本地部署与GPU高并发服务，怎样选择推理运行框架？",
+    "answer": "1. 在CPU本地部署场景下，应如何选择推理运行框架？\n\n\n2. 在GPU高并发服务场景下，应如何选择推理运行框架？\n\n\n3. 针对CPU本地部署与GPU高并发服务两种场景，选择推理运行框架时的关键差异和决策依据是什么？\n",
+    "sections": [
+      {
+        "question": "在CPU本地部署场景下，应如何选择推理运行框架？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在CPU本地部署场景下,应如何选择推理运行框架?"
+            },
+            {
+              "kind": "mqe",
+              "text": "CPU本地部署 推理运行框架 选型指南"
+            },
+            {
+              "kind": "mqe",
+              "text": "CPU推理框架对比 ONNX Runtime OpenVINO TensorRT llama.cpp"
+            },
+            {
+              "kind": "mqe",
+              "text": "本地CPU部署大模型 推理引擎 如何选择 性能 兼容性"
+            },
+            {
+              "kind": "hyde",
+              "text": "在CPU本地部署场景下,推理运行框架的选择应围绕CPU指令集与厂商优化、模型格式与量化兼容性、算子覆盖、线程与内存管理、部署接口及实测性能展开。x86平台优先评估OpenVINO、ONNX Runtime、Intel Extension for PyTorch/IPEX-LLM、llama.cpp/ggml、CTranslate2;ARM平台可考虑MNN、NCNN、TFLite、ONNX Runtime和llama.cpp。LLM推理关注GGUF/INT4/INT8量化、KV Cache、连续批处理、首token延迟TTFT与每token延迟TPOT;传统CV/NLP模型关注ONNX/TFLite/OpenVINO IR、图优化、算子融合、动态shape和INT8 PTQ/QAT。选择时需验证是否支持AVX2/AVX-512/AMX、NEON/SVE、OpenMP/TBB、NUMA亲和性、多线程调度、内存复用和低内存占用,并比较冷启动、吞吐、延迟、CPU占用与能效。最终应基于目标CPU、模型结构、批量大小和并发量,用真实负载对候选框架进行基准测试,优先选择量化工具链完整、社区活跃、跨平台部署简单且满足延迟/内存约束的框架。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L020",
+            "interview-question://L022",
+            "interview-question://T008"
+          ]
+        }
+      },
+      {
+        "question": "在GPU高并发服务场景下，应如何选择推理运行框架？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在GPU高并发服务场景下,应如何选择推理运行框架?"
+            },
+            {
+              "kind": "mqe",
+              "text": "GPU高并发服务场景下 如何选择推理运行框架"
+            },
+            {
+              "kind": "mqe",
+              "text": "GPU 高并发 推理服务 运行框架 选型 对比 性能 吞吐 延迟"
+            },
+            {
+              "kind": "mqe",
+              "text": "GPU high concurrency inference serving framework selection comparison vLLM TensorRT-LLM TGI"
+            },
+            {
+              "kind": "hyde",
+              "text": "在GPU高并发推理服务中,框架选择取决于模型类型、SLO、硬件拓扑和部署生态。LLM/生成式场景优先选支持连续批处理(continuous batching)、PagedAttention/RadixAttention、KV Cache复用、投机解码、张量并行/流水线并行、FP8/INT8/INT4量化和CUDA Graph的框架:vLLM适合高吞吐在线服务,SGLang适合复杂提示与结构化生成,TensorRT-LLM适合NVIDIA GPU极致性能并与Triton集成,TGI适合Hugging Face生态。通用CV/NLP或多模型多框架场景选NVIDIA Triton Inference Server,结合TensorRT、ONNX Runtime、PyTorch后端,利用动态批处理、并发模型执行、实例组、集成流水线和Prometheus监控。PyTorch原生轻量服务可用TorchServe/KServe/Ray Serve。选型核心指标为QPS、P99尾延迟、tokens/s、GPU利用率、显存占用、最大批大小和并发数;部署需考虑K8s HPA、MIG/MPS、NVLink、模型缓存、冷启动和版本管理。高并发LLM通常vLLM/TensorRT-LLM,通用多模型推理通常Triton,跨平台优化可选ONNX Runtime。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L020",
+            "interview-question://L022",
+            "interview-question://T016"
+          ]
+        }
+      },
+      {
+        "question": "针对CPU本地部署与GPU高并发服务两种场景，选择推理运行框架时的关键差异和决策依据是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "针对CPU本地部署与GPU高并发服务两种场景,选择推理运行框架时的关键差异和决策依据是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "CPU本地部署与GPU高并发服务场景下,推理运行框架选型的关键差异和决策依据"
+            },
+            {
+              "kind": "mqe",
+              "text": "CPU本地推理部署与GPU高并发在线推理服务框架对比:性能、并发、延迟、吞吐、成本、运维"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何选择模型推理框架:CPU-only本地部署与GPU高并发推理服务的选型标准和考量因素"
+            },
+            {
+              "kind": "hyde",
+              "text": "针对CPU本地部署与GPU高并发服务,推理运行框架选型的关键差异在于执行后端、批处理调度、内存/KV缓存管理和并行策略。CPU本地部署通常面向单机、低并发、离线或隐私敏感、无CUDA环境,优先选择llama.cpp、Ollama、OpenVINO、ONNX Runtime、MNN、NCNN、MLC-LLM等,强调GGUF/GGML、AWQ/GPTQ、OpenVINO IR、ONNX量化、AVX2/AVX-512/NEON指令集优化、线程亲和性、内存占用和可移植性,批处理多为静态或小batch,吞吐受内存带宽限制。GPU高并发服务面向在线多用户、高QPS、低延迟SLO,优先选择vLLM、TensorRT-LLM、TGI、SGLang、Triton Inference Server等,核心能力包括连续批处理、PagedAttention/分页KV缓存、动态批处理、CUDA Graph、FlashAttention、张量并行、流水线并行、FP16/INT8/FP8量化和多卡多实例调度。决策依据包括并发量与请求到达率、TTFT/TPOT与P99延迟、吞吐与成本、模型规模和上下文长度、显存/内存容量、量化精度损失、硬件生态(CUDA/ROCm/CPU)、部署运维复杂度、可观测性、弹性扩展、隐私与离线要求。CPU场景重单机资源效率与兼容性,GPU场景重吞吐调度与显存效率。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L020",
+            "interview-question://T007",
+            "interview-question://L022"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2755254194570667966,
+        "title": "大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?",
+        "source": "interview-question://L020",
+        "domain": "llm-engineering",
+        "content": "# 大模型部署有哪些主流方案?vLLM、TGI、llama.cpp、SGLang 实际项目里怎么选?\n\n题目编号:L020\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:vLLM适合GPU高吞吐服务,强调PagedAttention和连续批处理;TGI提供较完整的Hugging Face生产服务生态;llama.cpp适合CPU、边缘和量化本地部署;SGLang擅长复杂生成程序、前缀复用和高性能Serving。选型看模型格式、硬件、并发、首Token/单Token延迟、量化、可观测和运维成本,并用业务负载压测。比较时先确定目标模型与硬件能否被正确支持,再用相同输入输出长度、并发与精度设置测试,避免只比较理想吞吐。GPU 服务需要关注批处理、KV 管理和队列,重复前缀场景需要看缓存命中,本地部署则更关心内存与量化兼容。框架特性和维护状态会变化,不能永久套用某次榜单排名。最终应同时考虑 P95、取消与流式行为、监控和团队维护能力,而不是只说某框架最快。\n\n评分要点:各方案定位和基于指标的选型。",
+        "vector_score": 0.8836363852024078,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.7936110496520996,
+        "keyword_score": 0.42725270562626505,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1010957861723506751,
+        "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+        "source": "interview-question://T008",
+        "domain": "llm-tool-calling",
+        "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+        "vector_score": 0.7574675381183624,
+        "keyword_score": 0.614689740037999,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2169899495911519092,
+        "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+        "source": "interview-question://T016",
+        "domain": "llm-tool-calling",
+        "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+        "vector_score": 0.7606912553310394,
+        "keyword_score": 0.5310294908047455,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.7502228319644928,
+        "keyword_score": 0.8150399793572615,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 46.477,
+  "timings_seconds": {
+    "decomposition": 4.864034,
+    "retrieval": 41.612675,
+    "mqe": 10.982565,
+    "hyde": 28.290302,
+    "embedding": 1.336503,
+    "vector_search": 0.196516,
+    "keyword_search": 0.793716,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 41.613072,
+    "total": 46.477107,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 15,
+    "chat_calls": 6,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

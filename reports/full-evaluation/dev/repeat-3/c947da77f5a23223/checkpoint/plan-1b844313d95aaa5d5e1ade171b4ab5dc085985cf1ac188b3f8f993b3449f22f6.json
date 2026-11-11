@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-056",
+  "subquestions": [
+    {
+      "question": "向量库的规模应该怎样测量？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "向量库的响应速度应该怎样测量？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "向量库的瓶颈通常应该怎样排查？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.0628762999986066
+}

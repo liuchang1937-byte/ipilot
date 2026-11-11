@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-046",
+  "subquestions": [
+    {
+      "question": "为业务选择模型时，如何比较候选模型的效果、延迟、费用与部署限制？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.8121785000003
+}

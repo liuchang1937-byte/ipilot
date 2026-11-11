@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-080",
+      "question": "助手之间交接任务与助手访问工具，A2A和MCP的边界是什么？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T012"
+      ],
+      "answerable": true,
+      "reference_answer": "A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付，交互对象是相对自主的Agent；MCP面向Host与工具/资源服务的连接，调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期，MCP处理工具调用和上下文接入，两者可以在同一多Agent系统中互补。例如，主 Agent 将一段研究任务交给外部研究 Agent，希望接收进度和最终报告，属于 Agent 协作；研究 Agent 自己调用搜索服务，可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段，结果以产物交付，调用方不必了解对方内部提示或工具。能力发现不等于可信授权，跨组织协作还需要身份、超时、取消和产物验证，不能仅凭对方自称完成就接受结果。",
+      "group": "T012",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "case_id": "V2-002",
+  "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A001",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://A002"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策；工具负责搜索、执行代码或调用API，使Agent能够作用于外部环境；记忆保存对话和任务状态；规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为：用户目标进入规划模块，规划结果与已有状态组成模型上下文，模型选择工具，执行器校验参数并运行，结果写回状态和记忆，模型再判断是否继续。记忆不能只保存聊天文本，还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器，它负责停止条件、异常处理和检查点，避免模型输出了计划却没有执行。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A002",
+    "interview-question://A005",
+    "interview-question://T005",
+    "interview-question://A014",
+    "interview-question://A007",
+    "interview-question://T009"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+    "answer": "1. 从零实现任务助手时，模型之外需要哪些模块？\n\n\n2. 从零实现任务助手时，规划模块需要包含哪些能力或组件？\n\n\n3. 从零实现任务助手时，工具模块需要包含哪些能力或组件？\n\n\n4. 从零实现任务助手时，除模型、规划、工具外还需要哪些模块？\n",
+    "sections": [
+      {
+        "question": "从零实现任务助手时，模型之外需要哪些模块？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "从零实现任务助手时,模型之外需要哪些模块?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A002",
+            "interview-question://A005",
+            "interview-question://T005"
+          ]
+        }
+      },
+      {
+        "question": "从零实现任务助手时，规划模块需要包含哪些能力或组件？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "从零实现任务助手时,规划模块需要包含哪些能力或组件?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A002",
+            "interview-question://A014",
+            "interview-question://A007"
+          ]
+        }
+      },
+      {
+        "question": "从零实现任务助手时，工具模块需要包含哪些能力或组件？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "从零实现任务助手时,工具模块需要包含哪些能力或组件?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A002",
+            "interview-question://T009",
+            "interview-question://T005"
+          ]
+        }
+      },
+      {
+        "question": "从零实现任务助手时，除模型、规划、工具外还需要哪些模块？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "从零实现任务助手时,除模型、规划、工具外还需要哪些模块?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A002",
+            "interview-question://A014",
+            "interview-question://A005"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1979822055872710034,
+        "title": "Agent 的基本架构由哪些核心组件构成?",
+        "source": "interview-question://A002",
+        "domain": "agent",
+        "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+        "vector_score": 0.8221597671508789,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 320541557706665564,
+        "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+        "source": "interview-question://A005",
+        "domain": "agent",
+        "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+        "vector_score": 0.7679871618747711,
+        "keyword_score": 0.5787881564626381,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 319809831368975428,
+        "title": "MCP 由哪几部分组成?",
+        "source": "interview-question://T005",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+        "vector_score": 0.7540507018566132,
+        "keyword_score": 0.6038185427182522,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 888008174752367641,
+        "title": "如何赋予 LLM 规划能力?",
+        "source": "interview-question://A014",
+        "domain": "agent",
+        "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+        "vector_score": 0.8100726306438446,
+        "keyword_score": 0.6643246230698688,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 291400306949050267,
+        "title": "复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?",
+        "source": "interview-question://A007",
+        "domain": "agent",
+        "content": "# 复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?\n\n题目编号:A007\n\n领域:agent\n\n难度:2\n\n标签:任务分解、依赖图、验收条件\n- 考察方向:子任务边界、依赖关系、完成判据与动态重规划。\n\n参考答案:先把目标转为可验证的交付物,再按信息依赖、工具边界或专业领域拆成子任务,并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划;拆得过细会增加通信成本。以技术调研为例,可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分,最后一部分依赖前面的证据。独立检索可并行,依赖同一业务状态的写入不能随意并行。每步返回结构化产物,使失败可以定位到局部并单独重试。是否改善效果,应比较任务成功率、返工率、总耗时与调用费用,不能把拆分后的局部准确率直接当成整体收益。\n\n评分要点:强调可验证输出和依赖;说明收益与过度拆分的代价。",
+        "vector_score": 0.7589662373065948,
+        "keyword_score": 0.33166294939588997,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 4502432493545340977,
+        "title": "Skill 是什么?",
+        "source": "interview-question://T009",
+        "domain": "llm-tool-calling",
+        "content": "# Skill 是什么?\n\n题目编号:T009\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制,通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明,并在任务中使用其中的脚本和材料。它不是单纯保存Prompt,而是“操作手册+工具箱”;触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式:先用名称和描述判断是否相关,命中后读取完整步骤,再按需访问脚本、参考资料和模板,避免把全部资源永久放进上下文。例如,生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法,不会自动赋予工具权限;脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出,避免对所有任务都触发。\n\n评分要点:任务知识与流程封装,而非把Skill等同于API。",
+        "vector_score": 0.7633812129497528,
+        "keyword_score": 0.6428994280127796,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 6.361,
+  "timings_seconds": {
+    "decomposition": 5.357841,
+    "retrieval": 1.002716,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.653179,
+    "vector_search": 0.089591,
+    "keyword_search": 0.255749,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 1.003046,
+    "total": 6.360887,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 4,
+    "embedding_texts": 4,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

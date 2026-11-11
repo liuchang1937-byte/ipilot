@@ -1,0 +1,1123 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "a297b7b5dc9946e99245d295308b8452",
+  "created_at": "2026-10-12T11:03:38.379737+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "d4125b562d92a1f509004a7f89e8265f02f9b35d6189241a0f84c784b7e91c57",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-1\\aae1863150f127ff\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 33.675,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 33.675,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 9.12793,
+          "p50": 9.12793,
+          "p95": 9.12793,
+          "max": 9.12793,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 24.547209,
+          "p50": 24.547209,
+          "p95": 24.547209,
+          "max": 24.547209,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.73788,
+          "p50": 6.73788,
+          "p95": 6.73788,
+          "max": 6.73788,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 16.152398,
+          "p50": 16.152398,
+          "p95": 16.152398,
+          "max": 16.152398,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.02275,
+          "p50": 1.02275,
+          "p95": 1.02275,
+          "max": 1.02275,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.116091,
+          "p50": 0.116091,
+          "p95": 0.116091,
+          "max": 0.116091,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.509198,
+          "p50": 0.509198,
+          "p95": 0.509198,
+          "max": 0.509198,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 24.547452,
+          "p50": 24.547452,
+          "p95": 24.547452,
+          "max": 24.547452,
+          "samples": 1
+        },
+        "total": {
+          "mean": 33.675382,
+          "p50": 33.675382,
+          "p95": 33.675382,
+          "max": 33.675382,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 9.603,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 9.603,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 9.12793,
+          "p50": 9.12793,
+          "p95": 9.12793,
+          "max": 9.12793,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.474732,
+          "p50": 0.474732,
+          "p95": 0.474732,
+          "max": 0.474732,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.315756,
+          "p50": 0.315756,
+          "p95": 0.315756,
+          "max": 0.315756,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.042284,
+          "p50": 0.042284,
+          "p95": 0.042284,
+          "max": 0.042284,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.113629,
+          "p50": 0.113629,
+          "p95": 0.113629,
+          "max": 0.113629,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.475099,
+          "p50": 0.475099,
+          "p95": 0.475099,
+          "max": 0.475099,
+          "samples": 1
+        },
+        "total": {
+          "mean": 9.603028,
+          "p50": 9.603028,
+          "p95": 9.603028,
+          "max": 9.603028,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 10.796,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 10.796,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 9.12793,
+          "p50": 9.12793,
+          "p95": 9.12793,
+          "max": 9.12793,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.488626,
+          "p50": 0.488626,
+          "p95": 0.488626,
+          "max": 0.488626,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.315985,
+          "p50": 0.315985,
+          "p95": 0.315985,
+          "max": 0.315985,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.042542,
+          "p50": 0.042542,
+          "p95": 0.042542,
+          "max": 0.042542,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.127325,
+          "p50": 0.127325,
+          "p95": 0.127325,
+          "max": 0.127325,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.178371,
+          "p50": 1.178371,
+          "p95": 1.178371,
+          "max": 1.178371,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.667574,
+          "p50": 1.667574,
+          "p95": 1.667574,
+          "max": 1.667574,
+          "samples": 1
+        },
+        "total": {
+          "mean": 10.795503,
+          "p50": 10.795503,
+          "p95": 10.795503,
+          "max": 10.795503,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-080",
+      "question": "助手之间交接任务与助手访问工具，A2A和MCP的边界是什么？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T012",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付，交互对象是相对自主的Agent；MCP面向Host与工具/资源服务的连接，调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期，MCP处理工具调用和上下文接入，两者可以在同一多Agent系统中互补。例如，主 Agent 将一段研究任务交给外部研究 Agent，希望接收进度和最终报告，属于 Agent 协作；研究 Agent 自己调用搜索服务，可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段，结果以产物交付，调用方不必了解对方内部提示或工具。能力发现不等于可信授权，跨组织协作还需要身份、超时、取消和产物验证，不能仅凭对方自称完成就接受结果。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T012",
+        "interview-question://T010",
+        "interview-question://T007",
+        "interview-question://T006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "助手之间交接任务与助手访问工具，A2A和MCP的边界是什么？",
+        "answer": "1. 在助手之间交接任务的场景中，A2A与MCP的边界是什么？\n\n\n2. 在助手访问工具的场景中，A2A与MCP的边界是什么？\n",
+        "sections": [
+          {
+            "question": "在助手之间交接任务的场景中，A2A与MCP的边界是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在助手之间交接任务的场景中,A2A与MCP的边界是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "在助手之间交接任务的场景中,A2A 与 MCP 的边界是什么"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "A2A 和 MCP 的区别与分工:AI 助手/智能体之间任务交接应该使用哪个协议"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Agent2Agent A2A vs Model Context Protocol MCP for task handoff between assistants: boundaries and use cases"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在助手之间交接任务的场景中,A2A 与 MCP 的边界是:A2A 负责 agent 到 agent 的横向协作与任务委派,MCP 负责单个 agent 到工具、资源、数据源和上下文服务器的纵向集成。任务交接时,发起方通过 A2A 发现远端 Agent Card、协商能力、创建 Task、发送 Message/Part、传递上下文引用与 Artifact,并跟踪 submitted、working、completed、failed 等任务生命周期;接收方作为独立 agent 接受委派、维护自身状态,并通过 MCP 调用其本地或远端 Tools、读取 Resources、使用 Prompts、注入模型上下文。A2A 解决“把任务交给哪个助手、如何交接、状态与结果如何回传”;MCP 解决“该助手如何访问工具、数据、知识和提示模板”。因此,跨助手委派、多跳协作、能力发现、会话与任务状态同步属于 A2A;工具调用、资源读写、上下文注入、函数/schema 暴露属于 MCP。若一个助手把另一个助手当作可调用工具,通常通过 A2A 建立 agent 协作语义,而非用 MCP 承载 agent 身份、委派语义和任务生命周期;MCP 不负责 agent 间任务交接,A2A 也不替代工具与资源访问层。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T012",
+                "interview-question://T010",
+                "interview-question://T007"
+              ]
+            }
+          },
+          {
+            "question": "在助手访问工具的场景中，A2A与MCP的边界是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在助手访问工具的场景中,A2A与MCP的边界是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "在助手访问工具的场景中,A2A 与 MCP 的边界是什么"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "A2A 与 MCP 在助手调用工具场景中的区别、分工和适用边界"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "A2A vs MCP boundary for assistant tool access and agent interoperability"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在助手访问工具的场景中,A2A 与 MCP 的边界可表述为:MCP(Model Context Protocol)解决助手/LLM 如何通过 MCP Client 连接 MCP Server,发现并调用 tools、resources、prompts,使用 JSON-RPC、stdio、HTTP+SSE/Streamable HTTP、tool schema、function calling、上下文注入、sampling、roots 等机制完成工具调用与上下文接入;A2A(Agent-to-Agent)解决一个智能体如何发现、委派、协调另一个智能体,通过 Agent Card、Task、Message、Artifact、任务生命周期、流式传输、推送通知、认证与远程代理完成代理间互操作。若助手直接操作函数、API、数据库、文件、检索器或上下文资源,边界在 MCP;若助手把子任务交给另一个具有自主决策和工具使用能力的代理,边界在 A2A。A2A 代理内部可再作为 MCP Client 调用其 MCP 工具,因此 A2A 是横向的 agent 互操作与任务委派协议,MCP 是纵向的模型/助手到工具、资源与上下文的接入协议;工具调用语义通常归 MCP,代理发现、任务委派与代理间消息归 A2A。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T012",
+                "interview-question://T007",
+                "interview-question://T006"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3876464561600690988,
+            "title": "什么是 A2A 协议?它和 MCP 协议的区别是什么?",
+            "source": "interview-question://T012",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 A2A 协议?它和 MCP 协议的区别是什么?\n\n题目编号:T012\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付,交互对象是相对自主的Agent;MCP面向Host与工具/资源服务的连接,调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期,MCP处理工具调用和上下文接入,两者可以在同一多Agent系统中互补。例如,主 Agent 将一段研究任务交给外部研究 Agent,希望接收进度和最终报告,属于 Agent 协作;研究 Agent 自己调用搜索服务,可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段,结果以产物交付,调用方不必了解对方内部提示或工具。能力发现不等于可信授权,跨组织协作还需要身份、超时、取消和产物验证,不能仅凭对方自称完成就接受结果。\n\n评分要点:Agent协作与工具接入的对象、语义和生命周期差异。",
+            "vector_score": 0.9060752689838409,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3483975197075879969,
+            "title": "MCP 和 Agent Skill 的区别是什么?",
+            "source": "interview-question://T010",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Agent Skill 的区别是什么?\n\n题目编号:T010\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:MCP主要标准化外部能力如何被发现和调用,相当于工具连接层;Skill封装完成任务所需的方法、顺序和经验,相当于操作手册。一个Skill可以调用多个MCP工具,一个MCP工具也能被多个Skill复用。前者关注协议与能力,后者关注任务策略与可复用流程。例如,数据库 MCP 服务暴露查询能力,而数据分析 Skill 指导 Agent 先确认指标口径,再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP,MCP 也可以被没有 Skill 的程序使用,因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性,Skill 的质量更多看步骤是否合理和结果能否验证;使用二者都不能绕过运行时授权。\n\n评分要点:工具连接层与任务知识层的区别和组合。",
+            "vector_score": 0.851298987865448,
+            "keyword_score": 0.5896733819596404,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.8781930506229401,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.8650183081626892,
+            "keyword_score": 0.5298752765189961,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 33.675,
+      "timings_seconds": {
+        "decomposition": 9.12793,
+        "retrieval": 24.547209,
+        "mqe": 6.73788,
+        "hyde": 16.152398,
+        "embedding": 1.02275,
+        "vector_search": 0.116091,
+        "keyword_search": 0.509198,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 24.547452,
+        "total": 33.675382,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-080",
+      "question": "助手之间交接任务与助手访问工具，A2A和MCP的边界是什么？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T012",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://T012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付，交互对象是相对自主的Agent；MCP面向Host与工具/资源服务的连接，调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期，MCP处理工具调用和上下文接入，两者可以在同一多Agent系统中互补。例如，主 Agent 将一段研究任务交给外部研究 Agent，希望接收进度和最终报告，属于 Agent 协作；研究 Agent 自己调用搜索服务，可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段，结果以产物交付，调用方不必了解对方内部提示或工具。能力发现不等于可信授权，跨组织协作还需要身份、超时、取消和产物验证，不能仅凭对方自称完成就接受结果。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T012",
+        "interview-question://T007",
+        "interview-question://T010",
+        "interview-question://T006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "助手之间交接任务与助手访问工具，A2A和MCP的边界是什么？",
+        "answer": "1. 在助手之间交接任务的场景中，A2A与MCP的边界是什么？\n\n\n2. 在助手访问工具的场景中，A2A与MCP的边界是什么？\n",
+        "sections": [
+          {
+            "question": "在助手之间交接任务的场景中，A2A与MCP的边界是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在助手之间交接任务的场景中,A2A与MCP的边界是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T012",
+                "interview-question://T007",
+                "interview-question://T010"
+              ]
+            }
+          },
+          {
+            "question": "在助手访问工具的场景中，A2A与MCP的边界是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在助手访问工具的场景中,A2A与MCP的边界是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T012",
+                "interview-question://T007",
+                "interview-question://T006"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3876464561600690988,
+            "title": "什么是 A2A 协议?它和 MCP 协议的区别是什么?",
+            "source": "interview-question://T012",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 A2A 协议?它和 MCP 协议的区别是什么?\n\n题目编号:T012\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付,交互对象是相对自主的Agent;MCP面向Host与工具/资源服务的连接,调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期,MCP处理工具调用和上下文接入,两者可以在同一多Agent系统中互补。例如,主 Agent 将一段研究任务交给外部研究 Agent,希望接收进度和最终报告,属于 Agent 协作;研究 Agent 自己调用搜索服务,可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段,结果以产物交付,调用方不必了解对方内部提示或工具。能力发现不等于可信授权,跨组织协作还需要身份、超时、取消和产物验证,不能仅凭对方自称完成就接受结果。\n\n评分要点:Agent协作与工具接入的对象、语义和生命周期差异。",
+            "vector_score": 0.8656827509403229,
+            "keyword_score": 0.5944546930144379,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.8234217762947083,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3483975197075879969,
+            "title": "MCP 和 Agent Skill 的区别是什么?",
+            "source": "interview-question://T010",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Agent Skill 的区别是什么?\n\n题目编号:T010\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:MCP主要标准化外部能力如何被发现和调用,相当于工具连接层;Skill封装完成任务所需的方法、顺序和经验,相当于操作手册。一个Skill可以调用多个MCP工具,一个MCP工具也能被多个Skill复用。前者关注协议与能力,后者关注任务策略与可复用流程。例如,数据库 MCP 服务暴露查询能力,而数据分析 Skill 指导 Agent 先确认指标口径,再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP,MCP 也可以被没有 Skill 的程序使用,因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性,Skill 的质量更多看步骤是否合理和结果能否验证;使用二者都不能绕过运行时授权。\n\n评分要点:工具连接层与任务知识层的区别和组合。",
+            "vector_score": 0.8000710308551788,
+            "keyword_score": 0.4440175833434028,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.8108368813991547,
+            "keyword_score": 0.3763480252093131,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 9.603,
+      "timings_seconds": {
+        "decomposition": 9.12793,
+        "retrieval": 0.474732,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.315756,
+        "vector_search": 0.042284,
+        "keyword_search": 0.113629,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.475099,
+        "total": 9.603028,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-080",
+      "question": "助手之间交接任务与助手访问工具，A2A和MCP的边界是什么？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "T012",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://T012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付，交互对象是相对自主的Agent；MCP面向Host与工具/资源服务的连接，调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期，MCP处理工具调用和上下文接入，两者可以在同一多Agent系统中互补。例如，主 Agent 将一段研究任务交给外部研究 Agent，希望接收进度和最终报告，属于 Agent 协作；研究 Agent 自己调用搜索服务，可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段，结果以产物交付，调用方不必了解对方内部提示或工具。能力发现不等于可信授权，跨组织协作还需要身份、超时、取消和产物验证，不能仅凭对方自称完成就接受结果。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T012",
+        "interview-question://T007",
+        "interview-question://T011",
+        "interview-question://T010"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "助手之间交接任务与助手访问工具，A2A和MCP的边界是什么？",
+        "answer": "1. 在助手之间交接任务的场景中，A2A与MCP的边界是什么？\n\n\n2. 在助手访问工具的场景中，A2A与MCP的边界是什么？\n",
+        "sections": [
+          {
+            "question": "在助手之间交接任务的场景中，A2A与MCP的边界是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在助手之间交接任务的场景中,A2A与MCP的边界是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T012",
+                "interview-question://T007",
+                "interview-question://T011"
+              ]
+            }
+          },
+          {
+            "question": "在助手访问工具的场景中，A2A与MCP的边界是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在助手访问工具的场景中,A2A与MCP的边界是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T012",
+                "interview-question://T007",
+                "interview-question://T010"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3876464561600690988,
+            "title": "什么是 A2A 协议?它和 MCP 协议的区别是什么?",
+            "source": "interview-question://T012",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 A2A 协议?它和 MCP 协议的区别是什么?\n\n题目编号:T012\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:A2A面向Agent之间的能力发现、任务委托、状态更新和结果交付,交互对象是相对自主的Agent;MCP面向Host与工具/资源服务的连接,调用对象通常是被动能力。A2A处理长任务协作、身份和任务生命周期,MCP处理工具调用和上下文接入,两者可以在同一多Agent系统中互补。例如,主 Agent 将一段研究任务交给外部研究 Agent,希望接收进度和最终报告,属于 Agent 协作;研究 Agent 自己调用搜索服务,可以使用 MCP。A2A 的任务可以经历进行中、等待补充输入、完成或失败等阶段,结果以产物交付,调用方不必了解对方内部提示或工具。能力发现不等于可信授权,跨组织协作还需要身份、超时、取消和产物验证,不能仅凭对方自称完成就接受结果。\n\n评分要点:Agent协作与工具接入的对象、语义和生命周期差异。",
+            "vector_score": 0.8656827509403229,
+            "keyword_score": 0.5944546930144379,
+            "rerank_score": 0.9954067468643188
+          },
+          {
+            "id": 2,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.8234217762947083,
+            "keyword_score": 1.0,
+            "rerank_score": 0.589871883392334
+          },
+          {
+            "id": 3,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.7750305533409119,
+            "keyword_score": 0.5754810478638975,
+            "rerank_score": 0.21775402128696442
+          },
+          {
+            "id": 4,
+            "chunk_id": 3483975197075879969,
+            "title": "MCP 和 Agent Skill 的区别是什么?",
+            "source": "interview-question://T010",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Agent Skill 的区别是什么?\n\n题目编号:T010\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:MCP主要标准化外部能力如何被发现和调用,相当于工具连接层;Skill封装完成任务所需的方法、顺序和经验,相当于操作手册。一个Skill可以调用多个MCP工具,一个MCP工具也能被多个Skill复用。前者关注协议与能力,后者关注任务策略与可复用流程。例如,数据库 MCP 服务暴露查询能力,而数据分析 Skill 指导 Agent 先确认指标口径,再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP,MCP 也可以被没有 Skill 的程序使用,因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性,Skill 的质量更多看步骤是否合理和结果能否验证;使用二者都不能绕过运行时授权。\n\n评分要点:工具连接层与任务知识层的区别和组合。",
+            "vector_score": 0.7989776134490967,
+            "keyword_score": 0.43834745014241544,
+            "rerank_score": 0.15876245498657227
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 10.796,
+      "timings_seconds": {
+        "decomposition": 9.12793,
+        "retrieval": 0.488626,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.315985,
+        "vector_search": 0.042542,
+        "keyword_search": 0.127325,
+        "rerank": 1.178371,
+        "generation": 0.0,
+        "pipeline": 1.667574,
+        "total": 10.795503,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-080",
+      "subquestions": [
+        {
+          "question": "在助手之间交接任务的场景中，A2A与MCP的边界是什么？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "在助手访问工具的场景中，A2A与MCP的边界是什么？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 9.127929599999334
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 35.833,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

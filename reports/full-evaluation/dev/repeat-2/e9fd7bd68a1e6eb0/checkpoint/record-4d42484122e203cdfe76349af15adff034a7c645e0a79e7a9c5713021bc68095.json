@@ -1,0 +1,146 @@
+{
+  "case_id": "V2-058",
+  "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R011",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R011"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R011"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+    "answer": "1. 在精确型号匹配场景下，关键词搜索与语义搜索各有什么长处？\n\n\n2. 在同义表达匹配场景下，关键词搜索与语义搜索各有什么长处？\n",
+    "sections": [
+      {
+        "question": "在精确型号匹配场景下，关键词搜索与语义搜索各有什么长处？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在精确型号匹配场景下,关键词搜索与语义搜索各有什么长处?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://R011"
+          ]
+        }
+      },
+      {
+        "question": "在同义表达匹配场景下，关键词搜索与语义搜索各有什么长处？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在同义表达匹配场景下,关键词搜索与语义搜索各有什么长处?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://R011"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2637356371800682692,
+        "title": "请你介绍一下向量检索和关键词检索的区别?",
+        "source": "interview-question://R011",
+        "domain": "rag",
+        "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+        "vector_score": 0.8044551610946655,
+        "keyword_score": 1.0,
+        "rerank_score": 0.8632612228393555
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 10.663,
+  "timings_seconds": {
+    "decomposition": 8.933248,
+    "retrieval": 0.454087,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.28352,
+    "vector_search": 0.044786,
+    "keyword_search": 0.122942,
+    "rerank": 1.275591,
+    "generation": 0.0,
+    "pipeline": 1.730236,
+    "total": 10.663484,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

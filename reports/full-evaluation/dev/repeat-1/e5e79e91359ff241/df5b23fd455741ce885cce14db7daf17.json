@@ -1,0 +1,1360 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "df5b23fd455741ce885cce14db7daf17",
+  "created_at": "2026-10-12T15:07:34.653702+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "1e8d84e357c9eebe3def438cb09e1766b35c7bf8a8543a4ccc63a18197b98f9d",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-1\\e5e79e91359ff241\\checkpoint"
+  },
+  "options": {
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 12.324,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 12.324,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 8.934758,
+          "p50": 8.934758,
+          "p95": 8.934758,
+          "max": 8.934758,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.976443,
+          "p50": 0.976443,
+          "p95": 0.976443,
+          "max": 0.976443,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.616274,
+          "p50": 0.616274,
+          "p95": 0.616274,
+          "max": 0.616274,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.091427,
+          "p50": 0.091427,
+          "p95": 0.091427,
+          "max": 0.091427,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.262435,
+          "p50": 0.262435,
+          "p95": 0.262435,
+          "max": 0.262435,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 2.412324,
+          "p50": 2.412324,
+          "p95": 2.412324,
+          "max": 2.412324,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 3.389504,
+          "p50": 3.389504,
+          "p95": 3.389504,
+          "max": 3.389504,
+          "samples": 1
+        },
+        "total": {
+          "mean": 12.324262,
+          "p50": 12.324262,
+          "p95": 12.324262,
+          "max": 12.324262,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 4,
+        "rerank_pairs": 48
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 61.577,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 61.577,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 8.934758,
+          "p50": 8.934758,
+          "p95": 8.934758,
+          "max": 8.934758,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 52.641512,
+          "p50": 52.641512,
+          "p95": 52.641512,
+          "max": 52.641512,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 20.485899,
+          "p50": 20.485899,
+          "p95": 20.485899,
+          "max": 20.485899,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 29.257418,
+          "p50": 29.257418,
+          "p95": 29.257418,
+          "max": 29.257418,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.663443,
+          "p50": 1.663443,
+          "p95": 1.663443,
+          "max": 1.663443,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.217096,
+          "p50": 0.217096,
+          "p95": 0.217096,
+          "max": 0.217096,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 1.00116,
+          "p50": 1.00116,
+          "p95": 1.00116,
+          "max": 1.00116,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 52.641901,
+          "p50": 52.641901,
+          "p95": 52.641901,
+          "max": 52.641901,
+          "samples": 1
+        },
+        "total": {
+          "mean": 61.57666,
+          "p50": 61.57666,
+          "p95": 61.57666,
+          "max": 61.57666,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 19,
+        "chat_calls": 8,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 9.977,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 9.977,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 8.934758,
+          "p50": 8.934758,
+          "p95": 8.934758,
+          "max": 8.934758,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 1.041492,
+          "p50": 1.041492,
+          "p95": 1.041492,
+          "max": 1.041492,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.677839,
+          "p50": 0.677839,
+          "p95": 0.677839,
+          "max": 0.677839,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.099906,
+          "p50": 0.099906,
+          "p95": 0.099906,
+          "max": 0.099906,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.258258,
+          "p50": 0.258258,
+          "p95": 0.258258,
+          "max": 0.258258,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.041861,
+          "p50": 1.041861,
+          "p95": 1.041861,
+          "max": 1.041861,
+          "samples": 1
+        },
+        "total": {
+          "mean": 9.97662,
+          "p50": 9.97662,
+          "p95": 9.97662,
+          "max": 9.97662,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-002",
+      "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A001",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A002"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策；工具负责搜索、执行代码或调用API，使Agent能够作用于外部环境；记忆保存对话和任务状态；规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为：用户目标进入规划模块，规划结果与已有状态组成模型上下文，模型选择工具，执行器校验参数并运行，结果写回状态和记忆，模型再判断是否继续。记忆不能只保存聊天文本，还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器，它负责停止条件、异常处理和检查点，避免模型输出了计划却没有执行。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A002",
+        "interview-question://T005",
+        "interview-question://A023",
+        "interview-question://A013",
+        "interview-question://A014"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+        "answer": "1. 从零实现任务助手时，模型之外的整体模块架构包括哪些模块？\n\n\n2. 从零实现任务助手时，规划模块在模型之外需要承担哪些职责？\n\n\n3. 从零实现任务助手时，工具模块在模型之外需要承担哪些职责？\n\n\n4. 从零实现任务助手时，除规划和工具模块外，模型之外还需要哪些模块？\n",
+        "sections": [
+          {
+            "question": "从零实现任务助手时，模型之外的整体模块架构包括哪些模块？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,模型之外的整体模块架构包括哪些模块?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 2,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://T005"
+              ]
+            }
+          },
+          {
+            "question": "从零实现任务助手时，规划模块在模型之外需要承担哪些职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,规划模块在模型之外需要承担哪些职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://A002"
+              ]
+            }
+          },
+          {
+            "question": "从零实现任务助手时，工具模块在模型之外需要承担哪些职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,工具模块在模型之外需要承担哪些职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://A023",
+                "interview-question://A013"
+              ]
+            }
+          },
+          {
+            "question": "从零实现任务助手时，除规划和工具模块外，模型之外还需要哪些模块？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,除规划和工具模块外,模型之外还需要哪些模块?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://A014",
+                "interview-question://A013"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1979822055872710034,
+            "title": "Agent 的基本架构由哪些核心组件构成?",
+            "source": "interview-question://A002",
+            "domain": "agent",
+            "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+            "vector_score": 0.8137015402317047,
+            "keyword_score": 1.0,
+            "rerank_score": 0.846247673034668
+          },
+          {
+            "id": 2,
+            "chunk_id": 319809831368975428,
+            "title": "MCP 由哪几部分组成?",
+            "source": "interview-question://T005",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+            "vector_score": 0.7680616080760956,
+            "keyword_score": 0.690208412361447,
+            "rerank_score": 0.08497779816389084
+          },
+          {
+            "id": 3,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.7936493158340454,
+            "keyword_score": 0.41851847026396927,
+            "rerank_score": 0.06831498444080353
+          },
+          {
+            "id": 4,
+            "chunk_id": 2622544271174588789,
+            "title": "在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?",
+            "source": "interview-question://A013",
+            "domain": "agent",
+            "content": "# 在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?\n\n题目编号:A013\n\n领域:agent\n\n难度:2\n\n标签:框架选型、可控性、可观测性\n- 考察方向:定制需求、依赖复杂度、调试能力和迁移成本。\n\n参考答案:当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时,自行实现循环往往更透明,也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排,但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件,而是保留核心控制权,同时复用模型客户端、追踪和存储等成熟基础设施。例如,业务只需要少量工具,但要求每一步精确记录状态、限制权限并支持断点恢复时,直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统,可以复用成熟基础设施,只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本;当流程复杂或框架能力已经满足需求时,使用框架往往更合适。\n\n评分要点:结合业务约束比较可控性、可观测性与维护成本;说明复用基础设施;不把手写或框架视为绝对更优。",
+            "vector_score": 0.7319317758083344,
+            "keyword_score": 0.4913511054686339,
+            "rerank_score": 0.07547429949045181
+          },
+          {
+            "id": 5,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.7991732656955719,
+            "keyword_score": 0.5570413491886872,
+            "rerank_score": 0.11301199346780777
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 12.324,
+      "timings_seconds": {
+        "decomposition": 8.934758,
+        "retrieval": 0.976443,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.616274,
+        "vector_search": 0.091427,
+        "keyword_search": 0.262435,
+        "rerank": 2.412324,
+        "generation": 0.0,
+        "pipeline": 3.389504,
+        "total": 12.324262,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 4,
+        "rerank_pairs": 48
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-002",
+      "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A001",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A002"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策；工具负责搜索、执行代码或调用API，使Agent能够作用于外部环境；记忆保存对话和任务状态；规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为：用户目标进入规划模块，规划结果与已有状态组成模型上下文，模型选择工具，执行器校验参数并运行，结果写回状态和记忆，模型再判断是否继续。记忆不能只保存聊天文本，还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器，它负责停止条件、异常处理和检查点，避免模型输出了计划却没有执行。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A002",
+        "interview-question://A014",
+        "interview-question://A008",
+        "interview-question://A004",
+        "interview-question://A003",
+        "interview-question://A023"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+        "answer": "1. 从零实现任务助手时，模型之外的整体模块架构包括哪些模块？\n\n\n2. 从零实现任务助手时，规划模块在模型之外需要承担哪些职责？\n\n\n3. 从零实现任务助手时，工具模块在模型之外需要承担哪些职责？\n\n\n4. 从零实现任务助手时，除规划和工具模块外，模型之外还需要哪些模块？\n",
+        "sections": [
+          {
+            "question": "从零实现任务助手时，模型之外的整体模块架构包括哪些模块？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,模型之外的整体模块架构包括哪些模块?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "从零实现任务助手 除模型外 整体架构 包含哪些模块"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "任务助手系统架构设计 模块组成 记忆 规划 工具调用 执行 反馈"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "task assistant architecture components beyond LLM planning memory tool use execution"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "从零实现任务助手时,模型之外的整体模块架构通常包括:接入层(Web/App/API Gateway/CLI)、会话与上下文管理(Session/Context Store、多轮对话状态)、意图识别与任务解析(NLU、Task Parser、槽位填充)、任务规划与编排(Planner、Orchestrator、Workflow Engine、DAG)、工具与插件系统(Tool Registry、Function Calling、API Connector、插件沙箱)、记忆模块(短期/长期记忆、向量数据库、用户画像)、知识检索增强(RAG、Embedding、Retriever、Reranker)、执行与调度(Executor、Scheduler、消息队列、异步任务)、状态与数据持久化(关系库、NoSQL、缓存、对象存储)、模型服务与路由(Inference Gateway、Model Router)、提示词与配置管理(Prompt Management、配置中心)、安全与权限(AuthN、AuthZ、API Key、内容安全、审计日志)、可观测与运维(日志、指标、追踪、评估、反馈收集、灰度发布)等模块。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://A014",
+                "interview-question://A008"
+              ]
+            }
+          },
+          {
+            "question": "从零实现任务助手时，规划模块在模型之外需要承担哪些职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,规划模块在模型之外需要承担哪些职责?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "任务型 AI Agent 规划模块职责:任务分解、状态跟踪、工具调用、执行监控与错误恢复"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "从零构建 LLM 任务助手:planner 在模型推理之外负责哪些架构功能?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在从零实现任务助手的架构中,规划模块在模型之外通常承担:目标解析与任务分解,将用户意图转化为子任务、任务树或DAG;计划表示与依赖管理,进行拓扑排序、优先级排序、并发/串行调度、资源与预算分配;状态与记忆管理,维护对话上下文、槽位、执行轨迹、短期/长期记忆;工具编排,选择函数/API、绑定参数、校验JSON Schema、解析调用结果;执行控制,循环调用LLM/工具、检测完成条件、处理超时、失败、重试、回退与中止;动态重规划,基于执行反馈、错误和环境变化进行反思、修正计划、替换子目标;约束与安全,权限校验、策略过滤、敏感操作确认、沙箱与限流;可观测性,日志、追踪、指标、评估与回放;人机协同,澄清提问、确认高风险步骤、支持中断恢复。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://A014",
+                "interview-question://A004"
+              ]
+            }
+          },
+          {
+            "question": "从零实现任务助手时，工具模块在模型之外需要承担哪些职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,工具模块在模型之外需要承担哪些职责?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "从零实现任务助手时 工具模块在模型之外需要承担哪些职责"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "任务助手 工具模块 职责 工具注册 参数校验 调用执行 错误处理 权限管理 状态维护"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM Agent 工具层 架构设计 模型外职责 工具编排 安全控制 结果解析 上下文管理"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在从零实现任务助手时,模型之外的工具体系通常承担工具注册与发现、Schema 描述、参数解析与校验、路由与编排、执行与隔离、安全控制、结果处理和可观测性等职责。具体包括:维护工具注册表(name、description、JSON Schema/Pydantic 参数模型、返回类型、版本、权限标签、示例);将模型输出的 tool_call/function_call 解析为具体调用,进行参数类型转换、必填校验、默认值填充和错误反馈;实现工具路由、依赖注入、顺序/并行调用、事务与补偿、幂等键、重试、超时、熔断、限流、降级和缓存;提供鉴权授权、密钥管理、沙箱执行、资源配额、网络访问控制、输入过滤与输出审查;对结果做序列化、截断、脱敏、结构化错误封装和证据引用;并记录日志、指标、链路追踪、审计和成本统计,管理工具版本、插件加载与生命周期。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://A003",
+                "interview-question://A023"
+              ]
+            }
+          },
+          {
+            "question": "从零实现任务助手时，除规划和工具模块外，模型之外还需要哪些模块？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,除规划和工具模块外,模型之外还需要哪些模块?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "从零实现任务助手时,除了规划模块、工具模块和模型本身,还需要哪些关键模块和组件?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "从零搭建 LLM Agent/任务助手,除了规划与工具调用,还需要哪些子系统:记忆、状态管理、执行器、调度、监控、评估、安全、人机交互?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "task assistant agent architecture components beyond planning and tools: memory, execution, orchestration, monitoring, evaluation, safety, state management modules"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "从零实现任务助手时,除规划模块、工具模块和基础大模型外,通常还需以下模块:记忆与状态模块,包括短期对话记忆、长期记忆、episodic/semantic memory、用户画像、会话状态、checkpointer 和持久化存储;上下文与检索模块,包括 context assembly、prompt template、embedding、向量数据库、RAG、知识库检索、重排序和引用溯源;执行与编排模块,包括 orchestrator、task queue、scheduler、异步执行、并发控制、超时、重试、回退、幂等和补偿事务;工具运行时与接口层,包括 tool registry、function calling、JSON Schema 参数校验、API 网关、鉴权和限流;输入输出解析模块,包括 intent recognition、slot filling、output parser、结构化输出、格式校验和结果渲染;对话管理模块,包括 turn management、澄清追问、中断恢复、多轮上下文和 human-in-the-loop;安全与治理模块,包括 guardrails、内容过滤、权限控制、审计日志、隐私脱敏和合规;可观测与评估模块,包括日志、指标、链路追踪、提示词版本管理、评测集、离线/在线评估和反馈闭环;配置与生命周期模块,包括模型路由、成本控制、缓存、配置中心、灰度发布和监控告警。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://A014",
+                "interview-question://A023"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1979822055872710034,
+            "title": "Agent 的基本架构由哪些核心组件构成?",
+            "source": "interview-question://A002",
+            "domain": "agent",
+            "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+            "vector_score": 0.8803504109382629,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.8397632539272308,
+            "keyword_score": 0.657976089832833,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3336624703043853631,
+            "title": "请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?",
+            "source": "interview-question://A008",
+            "domain": "agent",
+            "content": "# 请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?\n\n题目编号:A008\n\n领域:agent\n\n难度:2\n\n标签:记忆、状态、知识库\n- 考察方向:不同记忆类型的职责、生命周期和访问方式。\n\n参考答案:题解可将Agent记忆分为四层:感知记忆保存当前原始输入,短期记忆位于上下文窗口并服务当前任务,长期记忆存入外部数据库并通过语义检索召回,实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”,并根据类型选择主动注入或按需检索,同时处理去重、过期、权限和删除。这是一种便于解释的分类,并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作;长期记忆应保存跨会话有用且经过确认的信息;实体记忆适合记录对象属性与关系,避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度,检索时先按用户与权限过滤。不是所有工具日志都值得长期保存,也不能把模型猜测直接当成事实写入。\n\n评分要点:给出记忆分类;覆盖写入、检索、更新、遗忘和隐私。",
+            "vector_score": 0.7988117933273315,
+            "keyword_score": 0.608846579645016,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.8102159798145294,
+            "keyword_score": 0.47774752253442,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 2982864919778602991,
+            "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+            "source": "interview-question://A003",
+            "domain": "agent",
+            "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+            "vector_score": 0.8126849830150604,
+            "keyword_score": 0.5141041771169431,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.7952395677566528,
+            "keyword_score": 0.7417444800737701,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 61.577,
+      "timings_seconds": {
+        "decomposition": 8.934758,
+        "retrieval": 52.641512,
+        "mqe": 20.485899,
+        "hyde": 29.257418,
+        "embedding": 1.663443,
+        "vector_search": 0.217096,
+        "keyword_search": 1.00116,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 52.641901,
+        "total": 61.57666,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 19,
+        "chat_calls": 8,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-002",
+      "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A001",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A002"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策；工具负责搜索、执行代码或调用API，使Agent能够作用于外部环境；记忆保存对话和任务状态；规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为：用户目标进入规划模块，规划结果与已有状态组成模型上下文，模型选择工具，执行器校验参数并运行，结果写回状态和记忆，模型再判断是否继续。记忆不能只保存聊天文本，还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器，它负责停止条件、异常处理和检查点，避免模型输出了计划却没有执行。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A002",
+        "interview-question://T005",
+        "interview-question://A005",
+        "interview-question://A014",
+        "interview-question://A010"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+        "answer": "1. 从零实现任务助手时，模型之外的整体模块架构包括哪些模块？\n\n\n2. 从零实现任务助手时，规划模块在模型之外需要承担哪些职责？\n\n\n3. 从零实现任务助手时，工具模块在模型之外需要承担哪些职责？\n\n\n4. 从零实现任务助手时，除规划和工具模块外，模型之外还需要哪些模块？\n",
+        "sections": [
+          {
+            "question": "从零实现任务助手时，模型之外的整体模块架构包括哪些模块？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,模型之外的整体模块架构包括哪些模块?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://T005",
+                "interview-question://A005"
+              ]
+            }
+          },
+          {
+            "question": "从零实现任务助手时，规划模块在模型之外需要承担哪些职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,规划模块在模型之外需要承担哪些职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://A014",
+                "interview-question://A010"
+              ]
+            }
+          },
+          {
+            "question": "从零实现任务助手时，工具模块在模型之外需要承担哪些职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,工具模块在模型之外需要承担哪些职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://T005",
+                "interview-question://A010"
+              ]
+            }
+          },
+          {
+            "question": "从零实现任务助手时，除规划和工具模块外，模型之外还需要哪些模块？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "从零实现任务助手时,除规划和工具模块外,模型之外还需要哪些模块?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A002",
+                "interview-question://A014",
+                "interview-question://A005"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1979822055872710034,
+            "title": "Agent 的基本架构由哪些核心组件构成?",
+            "source": "interview-question://A002",
+            "domain": "agent",
+            "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+            "vector_score": 0.8137015402317047,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 319809831368975428,
+            "title": "MCP 由哪几部分组成?",
+            "source": "interview-question://T005",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+            "vector_score": 0.7643091678619385,
+            "keyword_score": 0.6742797010449988,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 320541557706665564,
+            "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+            "source": "interview-question://A005",
+            "domain": "agent",
+            "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+            "vector_score": 0.7617478668689728,
+            "keyword_score": 0.48587857321066774,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.7991732656955719,
+            "keyword_score": 0.5570413491886872,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 2175414725624058958,
+            "title": "什么是 Multi-Agent?",
+            "source": "interview-question://A010",
+            "domain": "agent",
+            "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+            "vector_score": 0.7599697709083557,
+            "keyword_score": 0.5330857133039956,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 9.977,
+      "timings_seconds": {
+        "decomposition": 8.934758,
+        "retrieval": 1.041492,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.677839,
+        "vector_search": 0.099906,
+        "keyword_search": 0.258258,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 1.041861,
+        "total": 9.97662,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-002",
+      "subquestions": [
+        {
+          "question": "从零实现任务助手时，模型之外的整体模块架构包括哪些模块？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "从零实现任务助手时，规划模块在模型之外需要承担哪些职责？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "从零实现任务助手时，工具模块在模型之外需要承担哪些职责？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "从零实现任务助手时，除规划和工具模块外，模型之外还需要哪些模块？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 8.934758299999885
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.009,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

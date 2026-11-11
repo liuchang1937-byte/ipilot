@@ -1,0 +1,224 @@
+{
+  "case_id": "V2-067",
+  "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "R020",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://R020"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "最难的通常不是调用向量库，而是建立持续的数据与评测闭环：异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开，例如表格解析丢失表头，导致条款召回成功却回答口径错误。先建立可追溯评测集，再根据检索日志和引用定位问题，逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强，要说明自己如何发现原因、选择措施以及用什么证据验证改进。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R020",
+    "interview-question://R015",
+    "interview-question://R014",
+    "interview-question://R017",
+    "interview-question://R001"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "检索增强落地时，数据质量、权限和评测哪些难点最容易被忽视？",
+    "answer": "1. 在检索增强（RAG）落地过程中，数据质量方面最容易被忽视的难点有哪些？\n\n\n2. 在检索增强（RAG）落地过程中，权限方面最容易被忽视的难点有哪些？\n\n\n3. 在检索增强（RAG）落地过程中，评测方面最容易被忽视的难点有哪些？\n",
+    "sections": [
+      {
+        "question": "在检索增强（RAG）落地过程中，数据质量方面最容易被忽视的难点有哪些？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在检索增强(RAG)落地过程中,数据质量方面最容易被忽视的难点有哪些?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R020",
+            "interview-question://R015",
+            "interview-question://R014"
+          ]
+        }
+      },
+      {
+        "question": "在检索增强（RAG）落地过程中，权限方面最容易被忽视的难点有哪些？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在检索增强(RAG)落地过程中,权限方面最容易被忽视的难点有哪些?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R020",
+            "interview-question://R017",
+            "interview-question://R001"
+          ]
+        }
+      },
+      {
+        "question": "在检索增强（RAG）落地过程中，评测方面最容易被忽视的难点有哪些？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在检索增强(RAG)落地过程中,评测方面最容易被忽视的难点有哪些?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R020",
+            "interview-question://R014",
+            "interview-question://R017"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3951388330187580936,
+        "title": "在实际落地中,你觉得 RAG 最难的地方是哪里?",
+        "source": "interview-question://R020",
+        "domain": "rag",
+        "content": "# 在实际落地中,你觉得 RAG 最难的地方是哪里?\n\n题目编号:R020\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:最难的通常不是调用向量库,而是建立持续的数据与评测闭环:异构文档解析、切块质量、权限继承、版本冲突、真实查询标注和失败定位都需要大量工程工作。线上还要平衡召回、上下文长度、延迟与成本。优秀回答应结合案例说明如何发现问题、建立指标并迭代。面试时最好用一条真实失败链展开,例如表格解析丢失表头,导致条款召回成功却回答口径错误。先建立可追溯评测集,再根据检索日志和引用定位问题,逐步比较数据清洗、切块、召回与生成策略。真实上线还要处理权限、版本更新、成本和尾部延迟。不要把最难的地方笼统归为模型不够强,要说明自己如何发现原因、选择措施以及用什么证据验证改进。\n\n评分要点:数据治理和评测闭环;最好具备量化与真实案例。",
+        "vector_score": 0.8954752683639526,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2710493368064654156,
+        "title": "了解哪些更复杂的 RAG 范式?",
+        "source": "interview-question://R015",
+        "domain": "rag",
+        "content": "# 了解哪些更复杂的 RAG 范式?\n\n题目编号:R015\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益,不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号;Corrective RAG 根据检索质量决定修正路径;Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本,也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用,以及对什么失败样本产生了收益。\n\n评分要点:解释至少三种范式的控制差异,并有选型意识。",
+        "vector_score": 0.7991783320903778,
+        "keyword_score": 0.8171512453231303,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3525225094256298830,
+        "title": "RAG 检索优化策略有哪些?",
+        "source": "interview-question://R014",
+        "domain": "rag",
+        "content": "# RAG 检索优化策略有哪些?\n\n题目编号:R014\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:可从四层优化:数据层清洗去重、补元数据;索引层结构化/语义切块和父子索引;查询层改写、拆分与过滤;检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开:没有合适知识先修数据,相关内容被切散先修 Chunking,查询表达与文档不同再做改写,精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后,可以扩大候选池或加重排;正确证据已经进入上下文却回答错误,则检查组织方式与生成约束。每次修改只控制少量变量,用检索和答案两层指标验证,避免叠加很多技术后无法归因。\n\n评分要点:分层说明并包含评测闭环。",
+        "vector_score": 0.7948166728019714,
+        "keyword_score": 0.6538837252158433,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.8189867436885834,
+        "keyword_score": 0.5767607400048128,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 1192065734383377651,
+        "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+        "source": "interview-question://R001",
+        "domain": "rag",
+        "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+        "vector_score": 0.7885612845420837,
+        "keyword_score": 0.9045670573907462,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.997,
+  "timings_seconds": {
+    "decomposition": 3.381026,
+    "retrieval": 0.615431,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.492817,
+    "vector_search": 0.03868,
+    "keyword_search": 0.081453,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.615597,
+    "total": 3.996623,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

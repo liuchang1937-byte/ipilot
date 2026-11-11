@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-049",
+  "subquestions": [
+    {
+      "question": "大语言模型不知道企业最新资料时，使用检索增强生成（RAG）能解决哪些限制？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.9293964999997115
+}

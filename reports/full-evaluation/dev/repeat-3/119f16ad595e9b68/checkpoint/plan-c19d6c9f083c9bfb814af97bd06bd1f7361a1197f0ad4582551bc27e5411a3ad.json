@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-113",
+  "subquestions": [
+    {
+      "question": "查询内部未发布的 LambdaAgent 团队下个月的招聘岗位名额。",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 1.7783606999983022
+}

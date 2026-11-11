@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-074",
+  "subquestions": [
+    {
+      "question": "模型选择函数与MCP提供工具连接，为什么不是同一层的机制？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 10.105957499999931
+}

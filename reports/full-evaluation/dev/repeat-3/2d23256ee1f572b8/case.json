@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-076",
+      "question": "推理模型没有原生工具格式就无法接MCP吗，适配层应该放在哪里？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T008"
+      ],
+      "answerable": true,
+      "reference_answer": "这道题需要先澄清前提：MCP 是 Host/Client 与 Server 之间的应用协议，不是直接写进模型权重的能力。所谓不支持，可能是宿主没有 MCP Client、模型接口暂未开放工具调用，或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突，能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认：模型 API 是否支持工具定义与工具结果消息，适配层是否正确维护调用 ID 和多轮上下文，Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成，但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口，也可以用结构化输出加受控解析适配，只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试，而不是笼统归因于思维链无法中断。",
+      "group": "T008",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

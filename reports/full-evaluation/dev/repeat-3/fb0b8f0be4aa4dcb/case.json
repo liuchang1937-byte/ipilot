@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-051",
+      "question": "长文档怎么拆成可检索片段，片段长度与重叠如何权衡？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R004"
+      ],
+      "answerable": true,
+      "reference_answer": "通常保存原文、元数据、父块、检索子块、Embedding和关键词索引。切块优先尊重标题、段落、表格和代码边界，再按Token预算控制长度；过小会丢上下文，过大则召回不精准且占用窗口。可采用重叠、语义切块、父子检索和按文档类型配置策略，最终粒度应通过Recall@K与答案质量实验确定。常见策略包括固定长度、递归分隔、标题结构和语义边界切块。重叠用来保留边界信息，父子结构让小块精准召回后返回更完整的章节；表格可补充表头，代码应尽量保留完整函数与说明。块大小没有统一最优值，要与文档结构、Embedding 输入长度和问题类型一起评估。不要把多个不同主题硬拼成一个块，也要避免仅命中标题却没有正文依据。",
+      "group": "R004",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

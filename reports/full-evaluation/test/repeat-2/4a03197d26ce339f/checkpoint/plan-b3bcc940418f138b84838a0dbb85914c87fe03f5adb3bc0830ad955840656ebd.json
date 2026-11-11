@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-019",
+  "subquestions": [
+    {
+      "question": "任务助手上线前，如何设计案例来检验它是否真的完成任务？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "任务助手上线前，如何设计指标来检验它是否真的完成任务？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.822945399999298
+}

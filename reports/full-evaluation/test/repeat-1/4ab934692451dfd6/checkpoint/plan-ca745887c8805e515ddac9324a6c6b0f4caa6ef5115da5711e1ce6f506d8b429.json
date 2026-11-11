@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-120",
+  "subquestions": [
+    {
+      "question": "请给出未入库文档 SecretCost-042 中的本月 API 费用账单。",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.2073044999997364
+}

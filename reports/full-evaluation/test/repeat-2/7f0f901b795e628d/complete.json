@@ -1,0 +1,775 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "b325ef9f03dd46f2bdd8ebf244ceacfa",
+  "created_at": "2026-10-12T15:27:36.579055+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "882a901a14303a200e6d908adce13180071af01f7fa00eaa1f1cfc7a86c9dc8f",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-2\\7f0f901b795e628d\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 6.673,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 6.673,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.185832,
+          "p50": 6.185832,
+          "p95": 6.185832,
+          "max": 6.185832,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.487293,
+          "p50": 0.487293,
+          "p95": 0.487293,
+          "max": 0.487293,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.403844,
+          "p50": 0.403844,
+          "p95": 0.403844,
+          "max": 0.403844,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.025365,
+          "p50": 0.025365,
+          "p95": 0.025365,
+          "max": 0.025365,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.056695,
+          "p50": 0.056695,
+          "p95": 0.056695,
+          "max": 0.056695,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.487422,
+          "p50": 0.487422,
+          "p95": 0.487422,
+          "max": 0.487422,
+          "samples": 1
+        },
+        "total": {
+          "mean": 6.673254,
+          "p50": 6.673254,
+          "p95": 6.673254,
+          "max": 6.673254,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 30.914,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 30.914,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.185832,
+          "p50": 6.185832,
+          "p95": 6.185832,
+          "max": 6.185832,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 24.728064,
+          "p50": 24.728064,
+          "p95": 24.728064,
+          "max": 24.728064,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 9.163187,
+          "p50": 9.163187,
+          "p95": 9.163187,
+          "max": 9.163187,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 14.376007,
+          "p50": 14.376007,
+          "p95": 14.376007,
+          "max": 14.376007,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.926129,
+          "p50": 0.926129,
+          "p95": 0.926129,
+          "max": 0.926129,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.053458,
+          "p50": 0.053458,
+          "p95": 0.053458,
+          "max": 0.053458,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.20519,
+          "p50": 0.20519,
+          "p95": 0.20519,
+          "max": 0.20519,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 24.728219,
+          "p50": 24.728219,
+          "p95": 24.728219,
+          "max": 24.728219,
+          "samples": 1
+        },
+        "total": {
+          "mean": 30.91405,
+          "p50": 30.91405,
+          "p95": 30.91405,
+          "max": 30.91405,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 9,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-041",
+      "question": "要求模型展示中间推理过程有什么价值，为什么也会增加风险与成本？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L017",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://L017"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "CoT通过中间推理步骤分解复杂问题，使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积，也不保证推理真实可靠；完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理，只向用户返回结论和可验证证据。例如，多步计算可以先列出变量和关系，再用计算器核对结果，比直接猜结论更容易验证。但中间步骤也可能是合理化解释，流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性，而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用，效果应通过正确率、延迟及 Token 成本的对照实验衡量。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L017",
+        "interview-question://A005",
+        "interview-question://T008",
+        "interview-question://R017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "要求模型展示中间推理过程有什么价值，为什么也会增加风险与成本？",
+        "answer": "1. 要求模型展示中间推理过程有什么价值？\n\n\n2. 为什么要求模型展示中间推理过程会增加风险与成本？\n",
+        "sections": [
+          {
+            "question": "要求模型展示中间推理过程有什么价值？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "要求模型展示中间推理过程有什么价值?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L017",
+                "interview-question://A005",
+                "interview-question://T008"
+              ]
+            }
+          },
+          {
+            "question": "为什么要求模型展示中间推理过程会增加风险与成本？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为什么要求模型展示中间推理过程会增加风险与成本?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L017",
+                "interview-question://T008",
+                "interview-question://R017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1514459175991001607,
+            "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+            "source": "interview-question://L017",
+            "domain": "llm-engineering",
+            "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+            "vector_score": 0.8253152966499329,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 320541557706665564,
+            "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+            "source": "interview-question://A005",
+            "domain": "agent",
+            "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+            "vector_score": 0.7871509194374084,
+            "keyword_score": 0.7993879435998196,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1010957861723506751,
+            "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+            "source": "interview-question://T008",
+            "domain": "llm-tool-calling",
+            "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+            "vector_score": 0.7764062583446503,
+            "keyword_score": 0.7974921045927036,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4065041854966392793,
+            "title": "如何规避 RAG 系统中大模型的幻觉?",
+            "source": "interview-question://R017",
+            "domain": "rag",
+            "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+            "vector_score": 0.7660063803195953,
+            "keyword_score": 0.9039320102137117,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 6.673,
+      "timings_seconds": {
+        "decomposition": 6.185832,
+        "retrieval": 0.487293,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.403844,
+        "vector_search": 0.025365,
+        "keyword_search": 0.056695,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.487422,
+        "total": 6.673254,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-041",
+      "question": "要求模型展示中间推理过程有什么价值，为什么也会增加风险与成本？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L017",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L017"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "CoT通过中间推理步骤分解复杂问题，使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积，也不保证推理真实可靠；完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理，只向用户返回结论和可验证证据。例如，多步计算可以先列出变量和关系，再用计算器核对结果，比直接猜结论更容易验证。但中间步骤也可能是合理化解释，流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性，而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用，效果应通过正确率、延迟及 Token 成本的对照实验衡量。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L017",
+        "interview-question://T008",
+        "interview-question://A005"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "要求模型展示中间推理过程有什么价值，为什么也会增加风险与成本？",
+        "answer": "1. 要求模型展示中间推理过程有什么价值？\n\n\n2. 为什么要求模型展示中间推理过程会增加风险与成本？\n",
+        "sections": [
+          {
+            "question": "要求模型展示中间推理过程有什么价值？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "要求模型展示中间推理过程有什么价值?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "要求模型展示中间推理过程的价值与意义"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "模型输出思维链的好处:可解释性、可信度与调试"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "benefits of requiring AI models to show intermediate reasoning steps chain-of-thought transparency"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "要求模型展示中间推理过程(chain-of-thought, CoT)的核心价值在于将端到端黑箱输出转化为可分解、可检查的推理轨迹,从而提升复杂任务准确率与鲁棒性:分步生成可降低多跳问答、数学应用题、符号推理、代码生成和智能体规划中的组合误差,并支持自我一致性、过程监督、过程奖励模型(PRM)、信用分配与错误定位。它增强可解释性、透明性、可审计性与人机协作,使人类能审查假设、验证逻辑、检测幻觉、偏见、捷径学习和不安全策略,用于信任校准、安全对齐、红队测试与模型调试。中间步骤还可作为训练信号和蒸馏信号,改善泛化与推理能力。需注意推理轨迹未必忠实(faithfulness),可能是事后合理化,因此价值依赖忠实性评估、因果干预和过程验证,并伴随推理成本、信息泄露与过度依赖风险。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L017",
+                "interview-question://T008",
+                "interview-question://A005"
+              ]
+            }
+          },
+          {
+            "question": "为什么要求模型展示中间推理过程会增加风险与成本？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "为什么要求模型展示中间推理过程会增加风险与成本?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型输出思维链或中间推理步骤的风险、成本与安全隐患有哪些?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Why does exposing model chain-of-thought reasoning increase risks and costs?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "要求模型展示中间推理过程(chain-of-thought、推理链、思维链)会显著增加自回归解码的 token 数、KV cache 占用、算力消耗、推理延迟与 API 计费成本,降低吞吐量并增加部署资源需求。同时,显式 reasoning trace 扩大攻击面:可被用于模型蒸馏、能力窃取、知识产权泄露,暴露系统提示、工具调用链、训练数据片段、用户隐私与安全策略,并便于提示注入、越狱和对抗性利用。中间步骤还可能不忠实、事后合理化或诱发奖励黑客,使审计、人工复核、日志存储、隐私脱敏与合规监控成本上升。因此,采用隐式推理、摘要式理由、受控审计通道或仅对高风险请求开放完整推理,可降低风险与成本。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L017",
+                "interview-question://T008",
+                "interview-question://A005"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1514459175991001607,
+            "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+            "source": "interview-question://L017",
+            "domain": "llm-engineering",
+            "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+            "vector_score": 0.8596886992454529,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1010957861723506751,
+            "title": "为什么有些特定的推理模型不支持 MCP 协议?",
+            "source": "interview-question://T008",
+            "domain": "llm-tool-calling",
+            "content": "# 为什么有些特定的推理模型不支持 MCP 协议?\n\n题目编号:T008\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:这道题需要先澄清前提:MCP 是 Host/Client 与 Server 之间的应用协议,不是直接写进模型权重的能力。所谓不支持,可能是宿主没有 MCP Client、模型接口暂未开放工具调用,或适配层没有正确处理工具消息与多轮执行。推理模型本身并不天然与 MCP 冲突,能否使用外部工具取决于具体接口、宿主和集成方式。排查时应依次确认:模型 API 是否支持工具定义与工具结果消息,适配层是否正确维护调用 ID 和多轮上下文,Host 是否兼容 Server 的协议版本与传输。推理过程的输出形式可能影响集成,但不是推理模型天生不能使用 MCP 的定律。即使模型缺少原生工具接口,也可以用结构化输出加受控解析适配,只是稳定性需要单独验证。判断结论应基于具体型号和调用链测试,而不是笼统归因于思维链无法中断。\n\n评分要点:纠正模型原生支持 MCP 的前提;区分宿主协议实现、模型工具接口和适配问题;给出具体排查步骤。",
+            "vector_score": 0.8085437715053558,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 320541557706665564,
+            "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+            "source": "interview-question://A005",
+            "domain": "agent",
+            "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+            "vector_score": 0.8034518659114838,
+            "keyword_score": 0.7179277412280163,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 30.914,
+      "timings_seconds": {
+        "decomposition": 6.185832,
+        "retrieval": 24.728064,
+        "mqe": 9.163187,
+        "hyde": 14.376007,
+        "embedding": 0.926129,
+        "vector_search": 0.053458,
+        "keyword_search": 0.20519,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 24.728219,
+        "total": 30.91405,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 9,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-041",
+      "subquestions": [
+        {
+          "question": "要求模型展示中间推理过程有什么价值？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "为什么要求模型展示中间推理过程会增加风险与成本？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 6.185831599999801
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 31.406,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

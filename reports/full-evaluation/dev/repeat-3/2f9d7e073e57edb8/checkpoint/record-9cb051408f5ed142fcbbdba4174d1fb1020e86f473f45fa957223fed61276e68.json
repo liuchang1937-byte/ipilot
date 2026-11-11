@@ -1,0 +1,272 @@
+{
+  "case_id": "V2-050",
+  "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R003",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R003"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "RAG适合注入经常变化或私有的事实知识，更新快、可引用，但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力，推理时无需额外检索，但训练和更新成本高，事实难以精确修改。两者可组合：微调行为稳定性，RAG提供动态知识。例如，客服经常需要遵循固定语气与输出格式，可以先用提示和示例，必要时微调；产品价格与售后政策每天变化，则更适合外部知识库。微调也能学习事实，但事实的覆盖、版本和引用较难管理；RAG 也能改善任务表现，但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务，再比较标注数据、训练维护成本、检索延迟和最终业务指标。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R003",
+    "interview-question://R002",
+    "interview-question://R015",
+    "interview-question://R001",
+    "interview-question://R010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+    "answer": "1. 在知识经常更新的条件下，检索增强（RAG）与参数微调（fine-tuning）在应对知识更新方面的区别和适用性是什么？\n\n\n2. 在需要出处的条件下，检索增强（RAG）与参数微调（fine-tuning）在提供出处或可溯源性方面的区别和适用性是什么？\n\n\n3. 在知识经常更新且需要出处的条件下，检索增强（RAG）与参数微调（fine-tuning）应该如何选择，选择标准或适用场景是什么？\n",
+    "sections": [
+      {
+        "question": "在知识经常更新的条件下，检索增强（RAG）与参数微调（fine-tuning）在应对知识更新方面的区别和适用性是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在知识经常更新的条件下,检索增强(RAG)与参数微调(fine-tuning)在应对知识更新方面的区别和适用性是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "在知识经常更新的条件下,RAG 与 fine-tuning 应对知识更新的区别和适用性"
+            },
+            {
+              "kind": "mqe",
+              "text": "知识频繁更新场景下,检索增强生成与参数微调的对比、优缺点及选型建议"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG vs fine-tuning for frequently updated knowledge: differences, applicability, and knowledge update mechanisms"
+            },
+            {
+              "kind": "hyde",
+              "text": "在知识经常更新的条件下,RAG(检索增强生成)通过外挂式非参数化记忆(向量数据库、倒排索引、文档库)动态注入最新知识,更新时仅需增量索引、重新嵌入、分块与版本管理,无需修改模型参数,具备实时性、可溯源性、易回滚和降低幻觉的优势,适合事实频繁变化、长尾知识、开放域问答、企业知识库和需要引用来源的场景。Fine-tuning(参数微调)将知识写入模型参数,更新需重新训练、继续预训练或适配器(LoRA/QLoRA)更新,成本高、周期长,易灾难性遗忘,难以精确溯源和局部删除,适合稳定领域知识、任务格式、术语风格、推理模式和决策行为的领域适配。两者区别在于知识存储位置、更新机制、延迟/成本与可控性:RAG 解决“事实时效性”,fine-tuning 解决“能力与行为一致性”。适用策略常为混合架构:用微调学习领域语义和输出规范,用 RAG 提供最新事实与可验证上下文;若知识高频变更优先 RAG,若知识稳定且需内化能力优先 fine-tuning。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R003",
+            "interview-question://R002",
+            "interview-question://R015"
+          ]
+        }
+      },
+      {
+        "question": "在需要出处的条件下，检索增强（RAG）与参数微调（fine-tuning）在提供出处或可溯源性方面的区别和适用性是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在需要出处的条件下,检索增强(RAG)与参数微调(fine-tuning)在提供出处或可溯源性方面的区别和适用性是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "在必须提供出处或引用的条件下,RAG(检索增强生成)与参数微调(fine-tuning)在可溯源性、来源归因和适用性上有何区别?"
+            },
+            {
+              "kind": "mqe",
+              "text": "需要引用来源和可追溯证据时,检索增强生成与模型微调两种方案在出处提供能力、优缺点及适用场景对比"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG vs fine-tuning for provenance and traceability:要求答案附出处、引用和可验证来源时,检索增强与参数微调的区别、局限与适用条件"
+            },
+            {
+              "kind": "hyde",
+              "text": "在需要出处或可溯源性时,检索增强生成(RAG)依赖非参数化外部知识库,通过检索器返回文档块、元数据、URL、标题、行号、相似度分数等来源信息,生成器基于检索上下文作答并可输出内联引用、片段级归因或实体级归因;其溯源链路为查询→检索结果→上下文块→生成句子,支持审计、动态更新、删除和权限过滤,但需处理引用忠实度、错误归因和生成器忽略检索证据等问题。参数微调(fine-tuning)将知识压缩进模型权重,属于参数化记忆,不保留原始文档级来源,无法可靠提供出处;训练数据中的 provenance 在优化过程中被隐式编码,溯源只能依赖训练日志、数据版本或事后探针,存在来源遗忘、数据污染、知识截止和幻觉风险。适用性上,出处敏感、合规审计、知识频繁更新或需可验证引用的场景优先采用 RAG,或采用 RAG 与微调混合方案(如 RAFT、检索感知指令微调、Self-RAG)提升引用选择与忠实度;纯微调适用于无出处要求、静态领域适配、风格/格式控制、工具调用和低延迟推理,但不宜作为主要溯源机制。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R003",
+            "interview-question://R001",
+            "interview-question://R010"
+          ]
+        }
+      },
+      {
+        "question": "在知识经常更新且需要出处的条件下，检索增强（RAG）与参数微调（fine-tuning）应该如何选择，选择标准或适用场景是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在知识经常更新且需要出处的条件下,检索增强(RAG)与参数微调(fine-tuning)应该如何选择,选择标准或适用场景是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "知识经常更新且需要出处引用时,RAG(检索增强生成)与 fine-tuning(参数微调)应该如何选择?选择标准与适用场景"
+            },
+            {
+              "kind": "mqe",
+              "text": "动态知识库与可溯源要求下,检索增强生成和模型微调对比:决策框架、优缺点、最佳实践"
+            },
+            {
+              "kind": "mqe",
+              "text": "retrieval-augmented generation vs fine-tuning for frequently updated knowledge with citation/provenance requirements: selection criteria and use cases"
+            },
+            {
+              "kind": "hyde",
+              "text": "在知识频繁更新且答案必须可溯源、需给出处/引用的条件下,通常优先选择检索增强生成(RAG)而非纯参数微调。RAG通过外部知识库、向量数据库、embedding、chunking、检索器、重排序和上下文注入,将最新文档片段提供给LLM,并利用chunk ID、文档元数据、来源URL实现引用、审计与权限过滤;知识更新只需增量索引或重建索引,无需重新训练,适合企业文档问答、法规政策、医疗金融合规、客服知识库等动态、长尾、事实型任务。参数微调(SFT、指令微调、LoRA、QLoRA、PEFT)通过更新部分或全部参数改变模型行为、风格、格式、领域术语和推理模式,适合知识相对稳定、标注数据充足、要求低延迟、固定输出结构或无需实时引用的任务;其知识更新需重新训练或增量微调,出处追溯困难,易遗忘和幻觉引用。选择标准包括知识时效性、出处可追溯性、事实准确性、任务类型、数据量与标注成本、推理延迟、算力预算和隐私部署。若知识高频变化且必须引用来源,选RAG;若需稳定能力、风格适配且知识稳定,选fine-tuning;若二者兼有,采用混合架构:RAG负责动态事实与出处,LoRA/SFT负责查询改写、重排序、引用格式、答案风格和工具调用,并以faithfulness、citation precision/recall、retrieval recall、延迟和成本评估。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R003",
+            "interview-question://R001",
+            "interview-question://R015"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1412059223324461316,
+        "title": "相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?",
+        "source": "interview-question://R003",
+        "domain": "rag",
+        "content": "# 相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?\n\n题目编号:R003\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:RAG适合注入经常变化或私有的事实知识,更新快、可引用,但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力,推理时无需额外检索,但训练和更新成本高,事实难以精确修改。两者可组合:微调行为稳定性,RAG提供动态知识。例如,客服经常需要遵循固定语气与输出格式,可以先用提示和示例,必要时微调;产品价格与售后政策每天变化,则更适合外部知识库。微调也能学习事实,但事实的覆盖、版本和引用较难管理;RAG 也能改善任务表现,但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务,再比较标注数据、训练维护成本、检索延迟和最终业务指标。\n\n评分要点:从知识与行为区分;比较更新、成本、延迟和可解释性。",
+        "vector_score": 0.8826283812522888,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4294420497335021517,
+        "title": "大模型的 RAG 主要用来解决什么问题?",
+        "source": "interview-question://R002",
+        "domain": "rag",
+        "content": "# 大模型的 RAG 主要用来解决什么问题?\n\n题目编号:R002\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG主要解决模型知识过时、无法访问私有数据、事实依据不可追溯和重新训练成本高的问题。它让知识与模型参数解耦,文档变化后可以重新索引。但RAG不能自动修复错误数据,也不能替代模型本身缺乏的推理能力;召回不到或上下文质量差时,生成仍会失败。例如,新发布的内部制度不在模型训练数据中,但文档入库后就能被检索使用,不必等待模型重新训练。把知识放在外部还便于控制文档权限、版本和来源,提高结果的可核查性。需要强调的是,RAG 只能提供可用信息,不能保证模型一定正确理解;过期文档、冲突证据和错误检索仍可能导致幻觉。实际目标是降低错误并让错误可定位,而不是承诺彻底消除幻觉。\n\n评分要点:知识更新、私域知识、可追溯性、低更新成本及能力边界。",
+        "vector_score": 0.8401147723197937,
+        "keyword_score": 0.8136020200323782,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2710493368064654156,
+        "title": "了解哪些更复杂的 RAG 范式?",
+        "source": "interview-question://R015",
+        "domain": "rag",
+        "content": "# 了解哪些更复杂的 RAG 范式?\n\n题目编号:R015\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益,不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号;Corrective RAG 根据检索质量决定修正路径;Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本,也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用,以及对什么失败样本产生了收益。\n\n评分要点:解释至少三种范式的控制差异,并有选型意识。",
+        "vector_score": 0.8331713676452637,
+        "keyword_score": 0.43897448882692497,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1192065734383377651,
+        "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+        "source": "interview-question://R001",
+        "domain": "rag",
+        "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+        "vector_score": 0.8174986839294434,
+        "keyword_score": 0.8340709013509974,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 4411062690451180658,
+        "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+        "source": "interview-question://R010",
+        "domain": "rag",
+        "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+        "vector_score": 0.8368449211120605,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 47.628,
+  "timings_seconds": {
+    "decomposition": 8.129504,
+    "retrieval": 39.498175,
+    "mqe": 10.757672,
+    "hyde": 26.883479,
+    "embedding": 1.384442,
+    "vector_search": 0.085051,
+    "keyword_search": 0.380455,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 39.498385,
+    "total": 47.627889,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 15,
+    "chat_calls": 6,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-117",
+  "subquestions": [
+    {
+      "question": "私有仓库 ZetaHost 的实际工具调用失败率是多少？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "私有仓库 ZetaHost 的实际工具调用失败率的统计日期是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.73242829999981
+}

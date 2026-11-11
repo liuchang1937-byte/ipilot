@@ -1,0 +1,189 @@
+{
+  "case_id": "V2-105",
+  "question": "更新资料后如何同步检索索引？两份资料冲突时如何处理来源？",
+  "category": "compound",
+  "split": "dev",
+  "group": "R019",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R019",
+    "interview-question://R021"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "为来源建立稳定ID、版本和内容哈希，通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding，并以新版本原子替换旧索引；删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换，以支持回滚。更新流程应覆盖新增、修改与删除：检测变更后做解析和内容校验，只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证，再原子切换可见版本，避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步，缓存要失效，删除要清理残留表示。模型或切块规则变化需要索引版本管理，不能把不同向量空间的数据混用。",
+    "不能只按相似度决定，应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料，同时保留冲突证据；生成时说明差异及适用条件，无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如，同一产品在不同地区或生效日期下可能有不同政策，不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态，检索时先限制适用范围，再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用，必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试，向量相似度只代表相关性，不代表真实性。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R019",
+    "interview-question://R002",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://R021"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.5,
+  "ndcg_at_k": 0.8065735963827292,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "更新资料后如何同步检索索引？两份资料冲突时如何处理来源？",
+    "answer": "1. 知识库资料更新后，如何同步检索索引？\n\n\n2. 知识库中两份资料存在冲突时，如何处理来源？\n",
+    "sections": [
+      {
+        "question": "知识库资料更新后，如何同步检索索引？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "知识库资料更新后,如何同步检索索引?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R019",
+            "interview-question://R002",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      },
+      {
+        "question": "知识库中两份资料存在冲突时，如何处理来源？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "知识库中两份资料存在冲突时,如何处理来源?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 2,
+          "selected_sources": [
+            "interview-question://R021",
+            "interview-question://R019"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4501121176323650097,
+        "title": "RAG 知识库如何实现动态与持续更新?",
+        "source": "interview-question://R019",
+        "domain": "rag",
+        "content": "# RAG 知识库如何实现动态与持续更新?\n\n题目编号:R019\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:为来源建立稳定ID、版本和内容哈希,通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding,并以新版本原子替换旧索引;删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换,以支持回滚。更新流程应覆盖新增、修改与删除:检测变更后做解析和内容校验,只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证,再原子切换可见版本,避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步,缓存要失效,删除要清理残留表示。模型或切块规则变化需要索引版本管理,不能把不同向量空间的数据混用。\n\n评分要点:覆盖新增、修改、删除与元数据变更;说明增量索引、版本切换、缓存失效和向量空间兼容性。",
+        "vector_score": 0.7539467811584473,
+        "keyword_score": 0.5954318827067326,
+        "rerank_score": 0.0993872731924057
+      },
+      {
+        "id": 2,
+        "chunk_id": 4294420497335021517,
+        "title": "大模型的 RAG 主要用来解决什么问题?",
+        "source": "interview-question://R002",
+        "domain": "rag",
+        "content": "# 大模型的 RAG 主要用来解决什么问题?\n\n题目编号:R002\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG主要解决模型知识过时、无法访问私有数据、事实依据不可追溯和重新训练成本高的问题。它让知识与模型参数解耦,文档变化后可以重新索引。但RAG不能自动修复错误数据,也不能替代模型本身缺乏的推理能力;召回不到或上下文质量差时,生成仍会失败。例如,新发布的内部制度不在模型训练数据中,但文档入库后就能被检索使用,不必等待模型重新训练。把知识放在外部还便于控制文档权限、版本和来源,提高结果的可核查性。需要强调的是,RAG 只能提供可用信息,不能保证模型一定正确理解;过期文档、冲突证据和错误检索仍可能导致幻觉。实际目标是降低错误并让错误可定位,而不是承诺彻底消除幻觉。\n\n评分要点:知识更新、私域知识、可追溯性、低更新成本及能力边界。",
+        "vector_score": 0.7148066163063049,
+        "keyword_score": 0.5729558097224073,
+        "rerank_score": 0.4706771671772003
+      },
+      {
+        "id": 3,
+        "chunk_id": 3917366364101235628,
+        "title": "3.3 知识库摄取与检索流程",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 3.3 知识库摄取与检索流程\n### document_id、version、section_path、page、effective_date 和 access_level 六项元数据。\n\nF-015 默认 chunk 大小为 500 个中文字符,重叠 75 字。\nF-016 每个知识块必须携带六项元数据,其中包括 section_path 与 access_level。",
+        "vector_score": 0.7468841075897217,
+        "keyword_score": 0.5939777926925609,
+        "rerank_score": 0.21685318648815155
+      },
+      {
+        "id": 4,
+        "chunk_id": 1238589695376041488,
+        "title": "不同来源的文档发生知识冲突时,RAG 应该信谁?",
+        "source": "interview-question://R021",
+        "domain": "rag",
+        "content": "# 不同来源的文档发生知识冲突时,RAG 应该信谁?\n\n题目编号:R021\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:不能只按相似度决定,应建立来源权威级别、发布时间、版本、适用地区或产品和审核状态。检索时优先满足当前条件的最新权威资料,同时保留冲突证据;生成时说明差异及适用条件,无法判定时拒绝给出唯一结论。治理侧还需冲突检测、人工审核与旧版本下线。例如,同一产品在不同地区或生效日期下可能有不同政策,不能单凭发布时间更晚就覆盖全部历史条款。入库保存适用产品、地区、生效区间、发布者和审核状态,检索时先限制适用范围,再比较来源权威性。对同等有效且矛盾的材料应并列说明冲突并保留引用,必要时请求审核。知识治理还要支持废弃标记、版本回滚和冲突测试,向量相似度只代表相关性,不代表真实性。\n\n评分要点:来源优先级、时效、适用范围、冲突展示和人工治理。",
+        "vector_score": 0.8915947675704956,
+        "keyword_score": 1.0,
+        "rerank_score": 0.9468095898628235
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.961,
+  "timings_seconds": {
+    "decomposition": 2.402463,
+    "retrieval": 0.431351,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.269529,
+    "vector_search": 0.044065,
+    "keyword_search": 0.115413,
+    "rerank": 1.126941,
+    "generation": 0.0,
+    "pipeline": 1.558755,
+    "total": 3.961218,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

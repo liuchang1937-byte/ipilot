@@ -1,0 +1,230 @@
+{
+  "case_id": "V2-038",
+  "question": "KV缓存与重复提示缓存分别复用了什么，为什么能减少计算？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A021",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L014"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "自回归生成时，KV Cache保存已有Token各层的Key/Value，后续每步只计算新Token，降低重复计算但消耗显存。Prompt Caching复用相同或相同前缀Prompt的预填充结果，可跨请求减少首Token延迟和输入计算。前者主要服务单次生成过程，后者强调重复前缀复用，都要处理缓存键、失效和内存成本。prefill 先处理输入并生成各层 K/V，decode 为每个新 Token 计算新表示，并读取已有缓存，避免重算历史 K/V。缓存随序列长度、层数和 K/V 头数增长，也会限制高并发。跨请求复用通常要求前缀与模型配置兼容，生成式同义改写并不能保证命中；缓存复用也不同于直接返回过去的答案。应比较命中率、TTFT 和显存占用，权限隔离、失效与生命周期由具体服务实现。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L014",
+    "interview-question://L003",
+    "interview-question://R011",
+    "interview-question://T016",
+    "interview-question://L017"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "KV缓存与重复提示缓存分别复用了什么，为什么能减少计算？",
+    "answer": "1. KV缓存复用了什么，为什么能减少计算？\n\n\n2. 重复提示缓存复用了什么，为什么能减少计算？\n",
+    "sections": [
+      {
+        "question": "KV缓存复用了什么，为什么能减少计算？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "KV缓存复用了什么,为什么能减少计算?"
+            },
+            {
+              "kind": "mqe",
+              "text": "KV缓存复用了哪些张量 为什么能减少Transformer推理计算量"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型自回归生成中 KV Cache 缓存 Key Value 避免重复计算 原理"
+            },
+            {
+              "kind": "mqe",
+              "text": "KV cache 复用已计算的 K/V 为什么降低计算 FLOPs 实现推理加速"
+            },
+            {
+              "kind": "hyde",
+              "text": "KV Cache 在自回归 Transformer 解码中复用每一层、每个注意力头对历史 token 已计算好的 Key 和 Value 张量,即 past_key_values;历史 token 的 K/V 不随新 token 生成而改变。因果自注意力计算为 softmax(QK^T/√d)V,生成当前 token 时只需用当前 Query 与缓存的历史 Key 做点积、再对缓存的历史 Value 加权求和。增量解码只为新 token 计算 Q/K/V 投影,并将新 K/V 追加到缓存,避免每步重新计算整个前缀的 K/V 线性投影和注意力中的 K/V 相关矩阵乘。因此每层每步复杂度从重算全序列的 O(t d^2 + t^2 d) 降至约 O(d^2 + t d),减少冗余 FLOPs 和解码延迟;代价是 KV Cache 占用显存/内存带宽。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L014",
+            "interview-question://L003",
+            "interview-question://R011"
+          ]
+        }
+      },
+      {
+        "question": "重复提示缓存复用了什么，为什么能减少计算？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "重复提示缓存复用了什么,为什么能减少计算?"
+            },
+            {
+              "kind": "mqe",
+              "text": "提示缓存 prompt caching 的原理:复用哪些中间状态、如何降低推理计算量"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型推理中重复提示的 KV Cache 复用为什么能节省 FLOPs 和延迟"
+            },
+            {
+              "kind": "mqe",
+              "text": "What does prompt caching reuse in transformer inference and why can it reduce computation?"
+            },
+            {
+              "kind": "hyde",
+              "text": "重复提示缓存(prompt cache / prefix cache)复用的是相同提示前缀在 Transformer 各层自注意力中已计算好的 key/value 张量(KV cache),也可包括隐藏状态、注意力输出及前缀中间激活。由于相同 token 前缀的 Q/K/V 投影、注意力分数和 FFN 激活是确定性的,缓存命中后推理系统直接读取这些 KV 状态,只为新增 token 执行增量 prefill/decoding,无需重新对整个前缀做前向传播。这样跳过了重复的矩阵乘、自注意力计算和显存读写,降低 FLOPs、首 token 延迟和总计算量;代价是额外 KV cache 存储、缓存查找与淘汰开销。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L014",
+            "interview-question://T016",
+            "interview-question://L017"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 282397171415824420,
+        "title": "KV Cache 是什么?Prompt Caching 的原理是什么?",
+        "source": "interview-question://L014",
+        "domain": "llm-engineering",
+        "content": "# KV Cache 是什么?Prompt Caching 的原理是什么?\n\n题目编号:L014\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:自回归生成时,KV Cache保存已有Token各层的Key/Value,后续每步只计算新Token,降低重复计算但消耗显存。Prompt Caching复用相同或相同前缀Prompt的预填充结果,可跨请求减少首Token延迟和输入计算。前者主要服务单次生成过程,后者强调重复前缀复用,都要处理缓存键、失效和内存成本。prefill 先处理输入并生成各层 K/V,decode 为每个新 Token 计算新表示,并读取已有缓存,避免重算历史 K/V。缓存随序列长度、层数和 K/V 头数增长,也会限制高并发。跨请求复用通常要求前缀与模型配置兼容,生成式同义改写并不能保证命中;缓存复用也不同于直接返回过去的答案。应比较命中率、TTFT 和显存占用,权限隔离、失效与生命周期由具体服务实现。\n\n评分要点:prefill/decode、单请求与跨请求、速度—显存权衡。",
+        "vector_score": 0.9176841974258423,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3401652904786247161,
+        "title": "多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?",
+        "source": "interview-question://L003",
+        "domain": "llm-engineering",
+        "content": "# 多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?\n\n题目编号:L003\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MHA 中每个查询头有独立的 K/V 头,长序列下 KV Cache 与显存带宽开销较大;稠密注意力还需要比较序列中的大量位置,计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V,GQA 则把查询头分组,每组共享 K/V,以减少缓存和访存,在速度、显存与表达能力间折中。FlashAttention 从实现层优化:通过分块与在线 Softmax,避免把完整注意力矩阵反复写入显存,从而降低 IO 与中间存储,仍计算精确注意力。它通常不将理论二次计算复杂度改成线性,也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用;实际收益需要在目标模型、序列长度、并发和硬件上测试,而不是只比较算法名称。\n\n评分要点:区分 MQA/GQA 的 K/V 共享与 FlashAttention 的 IO 优化;不把精确稠密注意力说成线性计算。",
+        "vector_score": 0.809514582157135,
+        "keyword_score": 0.8432746620237376,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2637356371800682692,
+        "title": "请你介绍一下向量检索和关键词检索的区别?",
+        "source": "interview-question://R011",
+        "domain": "rag",
+        "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+        "vector_score": 0.7701666951179504,
+        "keyword_score": 0.57569970148423,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2169899495911519092,
+        "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+        "source": "interview-question://T016",
+        "domain": "llm-tool-calling",
+        "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+        "vector_score": 0.7718755602836609,
+        "keyword_score": 0.48825634592600714,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 1514459175991001607,
+        "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+        "source": "interview-question://L017",
+        "domain": "llm-engineering",
+        "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+        "vector_score": 0.7648899853229523,
+        "keyword_score": 0.6800644008842036,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 30.852,
+  "timings_seconds": {
+    "decomposition": 2.362753,
+    "retrieval": 28.488558,
+    "mqe": 7.502084,
+    "hyde": 19.538799,
+    "embedding": 0.724808,
+    "vector_search": 0.137146,
+    "keyword_search": 0.576157,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 28.488851,
+    "total": 30.851603,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

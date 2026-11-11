@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-033",
+  "subquestions": [
+    {
+      "question": "用低秩矩阵适配模型，除了少训练参数，还有哪些工程收益？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.777219999999943
+}

@@ -1,0 +1,1111 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "4b76559eaeaa40eaa4c7d036c7972487",
+  "created_at": "2026-10-12T11:18:25.494184+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "8dbaa87e9db73376750132217b606016a5a3afded8c1eb4710ad516e32669d4e",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\1c7227a14d668778\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6667,
+      "ndcg_at_k": 0.9599,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.894,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.894,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.380585,
+          "p50": 4.380585,
+          "p95": 4.380585,
+          "max": 4.380585,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.513649,
+          "p50": 0.513649,
+          "p95": 0.513649,
+          "max": 0.513649,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.349914,
+          "p50": 0.349914,
+          "p95": 0.349914,
+          "max": 0.349914,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.043934,
+          "p50": 0.043934,
+          "p95": 0.043934,
+          "max": 0.043934,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.117816,
+          "p50": 0.117816,
+          "p95": 0.117816,
+          "max": 0.117816,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.513899,
+          "p50": 0.513899,
+          "p95": 0.513899,
+          "max": 0.513899,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.894484,
+          "p50": 4.894484,
+          "p95": 4.894484,
+          "max": 4.894484,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.7664,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 6.108,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 6.108,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.380585,
+          "p50": 4.380585,
+          "p95": 4.380585,
+          "max": 4.380585,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.479596,
+          "p50": 0.479596,
+          "p95": 0.479596,
+          "max": 0.479596,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.287662,
+          "p50": 0.287662,
+          "p95": 0.287662,
+          "max": 0.287662,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.05491,
+          "p50": 0.05491,
+          "p95": 0.05491,
+          "max": 0.05491,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.134742,
+          "p50": 0.134742,
+          "p95": 0.134742,
+          "max": 0.134742,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.247287,
+          "p50": 1.247287,
+          "p95": 1.247287,
+          "max": 1.247287,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.727455,
+          "p50": 1.727455,
+          "p95": 1.727455,
+          "max": 1.727455,
+          "samples": 1
+        },
+        "total": {
+          "mean": 6.10804,
+          "p50": 6.10804,
+          "p95": 6.10804,
+          "max": 6.10804,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6667,
+      "ndcg_at_k": 0.8066,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 26.13,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 26.13,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 4.380585,
+          "p50": 4.380585,
+          "p95": 4.380585,
+          "max": 4.380585,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 21.749034,
+          "p50": 21.749034,
+          "p95": 21.749034,
+          "max": 21.749034,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 8.406334,
+          "p50": 8.406334,
+          "p95": 8.406334,
+          "max": 8.406334,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 11.995898,
+          "p50": 11.995898,
+          "p95": 11.995898,
+          "max": 11.995898,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.704956,
+          "p50": 0.704956,
+          "p95": 0.704956,
+          "max": 0.704956,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.107958,
+          "p50": 0.107958,
+          "p95": 0.107958,
+          "max": 0.107958,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.524126,
+          "p50": 0.524126,
+          "p95": 0.524126,
+          "max": 0.524126,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 21.74924,
+          "p50": 21.74924,
+          "p95": 21.74924,
+          "max": 21.74924,
+          "samples": 1
+        },
+        "total": {
+          "mean": 26.129825,
+          "p50": 26.129825,
+          "p95": 26.129825,
+          "max": 26.129825,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-089",
+      "question": "助手要保留记忆时怎样设计存储？历史太长时又怎样压缩？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A008",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A008",
+        "interview-question://A012"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "题解可将Agent记忆分为四层：感知记忆保存当前原始输入，短期记忆位于上下文窗口并服务当前任务，长期记忆存入外部数据库并通过语义检索召回，实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”，并根据类型选择主动注入或按需检索，同时处理去重、过期、权限和删除。这是一种便于解释的分类，并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作；长期记忆应保存跨会话有用且经过确认的信息；实体记忆适合记录对象属性与关系，避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度，检索时先按用户与权限过滤。不是所有工具日志都值得长期保存，也不能把模型猜测直接当成事实写入。",
+        "常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索，以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用，关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存，近期原话保持较高保真度，历史细节按需取回。摘要要保留证据指针，不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致，以及恢复任务时是否丢失重要操作回执。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A008",
+        "interview-question://A009",
+        "interview-question://A012"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6666666666666666,
+      "ndcg_at_k": 0.9598603945740938,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "助手要保留记忆时怎样设计存储？历史太长时又怎样压缩？",
+        "answer": "1. 助手要保留记忆时，应怎样设计记忆存储？\n\n\n2. 助手要保留记忆且历史太长时，应怎样压缩历史？\n",
+        "sections": [
+          {
+            "question": "助手要保留记忆时，应怎样设计记忆存储？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "助手要保留记忆时,应怎样设计记忆存储?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A008",
+                "interview-question://A009",
+                "interview-question://A012"
+              ]
+            }
+          },
+          {
+            "question": "助手要保留记忆且历史太长时，应怎样压缩历史？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "助手要保留记忆且历史太长时,应怎样压缩历史?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A012",
+                "interview-question://A008",
+                "interview-question://A009"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3336624703043853631,
+            "title": "请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?",
+            "source": "interview-question://A008",
+            "domain": "agent",
+            "content": "# 请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?\n\n题目编号:A008\n\n领域:agent\n\n难度:2\n\n标签:记忆、状态、知识库\n- 考察方向:不同记忆类型的职责、生命周期和访问方式。\n\n参考答案:题解可将Agent记忆分为四层:感知记忆保存当前原始输入,短期记忆位于上下文窗口并服务当前任务,长期记忆存入外部数据库并通过语义检索召回,实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”,并根据类型选择主动注入或按需检索,同时处理去重、过期、权限和删除。这是一种便于解释的分类,并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作;长期记忆应保存跨会话有用且经过确认的信息;实体记忆适合记录对象属性与关系,避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度,检索时先按用户与权限过滤。不是所有工具日志都值得长期保存,也不能把模型猜测直接当成事实写入。\n\n评分要点:给出记忆分类;覆盖写入、检索、更新、遗忘和隐私。",
+            "vector_score": 0.773259311914444,
+            "keyword_score": 0.6568655729035806,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 262192336753681762,
+            "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+            "source": "interview-question://A009",
+            "domain": "agent",
+            "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+            "vector_score": 0.7669633626937866,
+            "keyword_score": 0.7658169592680006,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3617720858369486831,
+            "title": "Agent 记忆压缩通常有哪些方法?",
+            "source": "interview-question://A012",
+            "domain": "agent",
+            "content": "# Agent 记忆压缩通常有哪些方法?\n\n题目编号:A012\n\n领域:agent\n\n难度:3\n\n标签:上下文压缩、摘要、记忆\n- 考察方向:滑动窗口、结构化摘要、关键事件保留与可追溯性。\n\n参考答案:常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索,以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用,关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存,近期原话保持较高保真度,历史细节按需取回。摘要要保留证据指针,不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致,以及恢复任务时是否丢失重要操作回执。\n\n评分要点:至少三种方法;强调关键事实、可追溯和评测。",
+            "vector_score": 0.8429254591464996,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.894,
+      "timings_seconds": {
+        "decomposition": 4.380585,
+        "retrieval": 0.513649,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.349914,
+        "vector_search": 0.043934,
+        "keyword_search": 0.117816,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.513899,
+        "total": 4.894484,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-089",
+      "question": "助手要保留记忆时怎样设计存储？历史太长时又怎样压缩？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A008",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A008",
+        "interview-question://A012"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "题解可将Agent记忆分为四层：感知记忆保存当前原始输入，短期记忆位于上下文窗口并服务当前任务，长期记忆存入外部数据库并通过语义检索召回，实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”，并根据类型选择主动注入或按需检索，同时处理去重、过期、权限和删除。这是一种便于解释的分类，并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作；长期记忆应保存跨会话有用且经过确认的信息；实体记忆适合记录对象属性与关系，避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度，检索时先按用户与权限过滤。不是所有工具日志都值得长期保存，也不能把模型猜测直接当成事实写入。",
+        "常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索，以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用，关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存，近期原话保持较高保真度，历史细节按需取回。摘要要保留证据指针，不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致，以及恢复任务时是否丢失重要操作回执。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A008",
+        "interview-question://A009",
+        "interview-question://A012",
+        "interview-question://A018"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.766433990956823,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "助手要保留记忆时怎样设计存储？历史太长时又怎样压缩？",
+        "answer": "1. 助手要保留记忆时，应怎样设计记忆存储？\n\n\n2. 助手要保留记忆且历史太长时，应怎样压缩历史？\n",
+        "sections": [
+          {
+            "question": "助手要保留记忆时，应怎样设计记忆存储？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "助手要保留记忆时,应怎样设计记忆存储?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A008",
+                "interview-question://A009",
+                "interview-question://A012"
+              ]
+            }
+          },
+          {
+            "question": "助手要保留记忆且历史太长时，应怎样压缩历史？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "助手要保留记忆且历史太长时,应怎样压缩历史?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A012",
+                "interview-question://A009",
+                "interview-question://A018"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 3336624703043853631,
+            "title": "请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?",
+            "source": "interview-question://A008",
+            "domain": "agent",
+            "content": "# 请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?\n\n题目编号:A008\n\n领域:agent\n\n难度:2\n\n标签:记忆、状态、知识库\n- 考察方向:不同记忆类型的职责、生命周期和访问方式。\n\n参考答案:题解可将Agent记忆分为四层:感知记忆保存当前原始输入,短期记忆位于上下文窗口并服务当前任务,长期记忆存入外部数据库并通过语义检索召回,实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”,并根据类型选择主动注入或按需检索,同时处理去重、过期、权限和删除。这是一种便于解释的分类,并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作;长期记忆应保存跨会话有用且经过确认的信息;实体记忆适合记录对象属性与关系,避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度,检索时先按用户与权限过滤。不是所有工具日志都值得长期保存,也不能把模型猜测直接当成事实写入。\n\n评分要点:给出记忆分类;覆盖写入、检索、更新、遗忘和隐私。",
+            "vector_score": 0.8373070955276489,
+            "keyword_score": 1.0,
+            "rerank_score": 0.9651853442192078
+          },
+          {
+            "id": 2,
+            "chunk_id": 262192336753681762,
+            "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+            "source": "interview-question://A009",
+            "domain": "agent",
+            "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+            "vector_score": 0.7669633626937866,
+            "keyword_score": 0.7658169592680006,
+            "rerank_score": 0.5104780197143555
+          },
+          {
+            "id": 3,
+            "chunk_id": 3617720858369486831,
+            "title": "Agent 记忆压缩通常有哪些方法?",
+            "source": "interview-question://A012",
+            "domain": "agent",
+            "content": "# Agent 记忆压缩通常有哪些方法?\n\n题目编号:A012\n\n领域:agent\n\n难度:3\n\n标签:上下文压缩、摘要、记忆\n- 考察方向:滑动窗口、结构化摘要、关键事件保留与可追溯性。\n\n参考答案:常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索,以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用,关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存,近期原话保持较高保真度,历史细节按需取回。摘要要保留证据指针,不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致,以及恢复任务时是否丢失重要操作回执。\n\n评分要点:至少三种方法;强调关键事实、可追溯和评测。",
+            "vector_score": 0.8429254591464996,
+            "keyword_score": 1.0,
+            "rerank_score": 0.9457486271858215
+          },
+          {
+            "id": 4,
+            "chunk_id": 2584544441468433340,
+            "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+            "source": "interview-question://A018",
+            "domain": "agent",
+            "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+            "vector_score": 0.7634023725986481,
+            "keyword_score": 0.3572116731617781,
+            "rerank_score": 0.19013603031635284
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 6.108,
+      "timings_seconds": {
+        "decomposition": 4.380585,
+        "retrieval": 0.479596,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.287662,
+        "vector_search": 0.05491,
+        "keyword_search": 0.134742,
+        "rerank": 1.247287,
+        "generation": 0.0,
+        "pipeline": 1.727455,
+        "total": 6.10804,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-089",
+      "question": "助手要保留记忆时怎样设计存储？历史太长时又怎样压缩？",
+      "category": "compound",
+      "split": "dev",
+      "group": "A008",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A008",
+        "interview-question://A012"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "题解可将Agent记忆分为四层：感知记忆保存当前原始输入，短期记忆位于上下文窗口并服务当前任务，长期记忆存入外部数据库并通过语义检索召回，实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”，并根据类型选择主动注入或按需检索，同时处理去重、过期、权限和删除。这是一种便于解释的分类，并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作；长期记忆应保存跨会话有用且经过确认的信息；实体记忆适合记录对象属性与关系，避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度，检索时先按用户与权限过滤。不是所有工具日志都值得长期保存，也不能把模型猜测直接当成事实写入。",
+        "常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索，以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用，关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存，近期原话保持较高保真度，历史细节按需取回。摘要要保留证据指针，不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致，以及恢复任务时是否丢失重要操作回执。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A009",
+        "interview-question://A008",
+        "interview-question://A012"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6666666666666666,
+      "ndcg_at_k": 0.8065735963827292,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "助手要保留记忆时怎样设计存储？历史太长时又怎样压缩？",
+        "answer": "1. 助手要保留记忆时，应怎样设计记忆存储？\n\n\n2. 助手要保留记忆且历史太长时，应怎样压缩历史？\n",
+        "sections": [
+          {
+            "question": "助手要保留记忆时，应怎样设计记忆存储？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "助手要保留记忆时,应怎样设计记忆存储?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "助手长期记忆存储如何设计"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM 智能体记忆系统架构与短期长期记忆存储方案"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "对话助手记忆持久化设计:向量数据库、知识图谱与关系型数据库怎么选"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "助手保留记忆时应采用分层记忆存储架构:短期/工作记忆保留在上下文窗口或会话缓冲区,长期记忆外置于向量数据库、关系型数据库和知识图谱。写入阶段通过显著性检测、实体抽取、摘要压缩和嵌入模型生成记忆条目,存储 user_id、session_id、timestamp、source、confidence、access_level、TTL、embedding、原文与摘要。检索阶段使用混合检索(稠密向量 ANN + 稀疏 BM25)、元数据过滤、时间衰减、重要性评分和 cross-encoder 重排序,将 top-k 记忆注入 RAG 上下文。维护阶段执行去重、冲突消解、版本化、周期摘要、记忆合并、衰减与遗忘策略,并结合加密、访问控制、用户同意和保留策略满足隐私要求。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A009",
+                "interview-question://A008",
+                "interview-question://A012"
+              ]
+            }
+          },
+          {
+            "question": "助手要保留记忆且历史太长时，应怎样压缩历史？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "助手要保留记忆且历史太长时,应怎样压缩历史?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "助手要保留记忆且历史太长时如何压缩历史"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型助手 长期记忆 上下文窗口过长 对话历史压缩方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM assistant long-term memory long conversation history compression summarization techniques"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "当助手需要保留长期记忆但对话历史超出上下文窗口时,可采用分层记忆压缩:短期记忆用滑动窗口、滚动缓冲区保留最近 N 轮;中期记忆用增量摘要、递归摘要、Map-Reduce 摘要或层次化摘要树,把旧对话压缩成要点、事件、决策、待办和用户偏好;长期记忆通过实体抽取、事实抽取、意图识别、知识图谱、键值记忆或向量数据库存储,并用嵌入检索、RAG、语义召回按相关性调取。结合重要性评分、显著性排序、时间衰减、去重、冲突消解和记忆合并,过滤低价值 token;使用 token 预算动态拼接最近轮次、压缩摘要和检索片段。还可采用 gist token、prompt compression、LLM 摘要、记忆巩固、周期性 consolidation、用户画像更新和状态摘要,在有限上下文内保持记忆连续性、一致性与可检索性。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A012",
+                "interview-question://A009",
+                "interview-question://A008"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 262192336753681762,
+            "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+            "source": "interview-question://A009",
+            "domain": "agent",
+            "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+            "vector_score": 0.8476913273334503,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3336624703043853631,
+            "title": "请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?",
+            "source": "interview-question://A008",
+            "domain": "agent",
+            "content": "# 请你介绍一下 AI Agent 的记忆机制,并说明在实际开发中应该如何设计记忆模块?\n\n题目编号:A008\n\n领域:agent\n\n难度:2\n\n标签:记忆、状态、知识库\n- 考察方向:不同记忆类型的职责、生命周期和访问方式。\n\n参考答案:题解可将Agent记忆分为四层:感知记忆保存当前原始输入,短期记忆位于上下文窗口并服务当前任务,长期记忆存入外部数据库并通过语义检索召回,实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”,并根据类型选择主动注入或按需检索,同时处理去重、过期、权限和删除。这是一种便于解释的分类,并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作;长期记忆应保存跨会话有用且经过确认的信息;实体记忆适合记录对象属性与关系,避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度,检索时先按用户与权限过滤。不是所有工具日志都值得长期保存,也不能把模型猜测直接当成事实写入。\n\n评分要点:给出记忆分类;覆盖写入、检索、更新、遗忘和隐私。",
+            "vector_score": 0.8243968486785889,
+            "keyword_score": 0.9720553228294081,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3617720858369486831,
+            "title": "Agent 记忆压缩通常有哪些方法?",
+            "source": "interview-question://A012",
+            "domain": "agent",
+            "content": "# Agent 记忆压缩通常有哪些方法?\n\n题目编号:A012\n\n领域:agent\n\n难度:3\n\n标签:上下文压缩、摘要、记忆\n- 考察方向:滑动窗口、结构化摘要、关键事件保留与可追溯性。\n\n参考答案:常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索,以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用,关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存,近期原话保持较高保真度,历史细节按需取回。摘要要保留证据指针,不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致,以及恢复任务时是否丢失重要操作回执。\n\n评分要点:至少三种方法;强调关键事实、可追溯和评测。",
+            "vector_score": 0.8496501445770264,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 26.13,
+      "timings_seconds": {
+        "decomposition": 4.380585,
+        "retrieval": 21.749034,
+        "mqe": 8.406334,
+        "hyde": 11.995898,
+        "embedding": 0.704956,
+        "vector_search": 0.107958,
+        "keyword_search": 0.524126,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 21.74924,
+        "total": 26.129825,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-089",
+      "subquestions": [
+        {
+          "question": "助手要保留记忆时，应怎样设计记忆存储？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "助手要保留记忆且历史太长时，应怎样压缩历史？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 4.380584500000623
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 28.385,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

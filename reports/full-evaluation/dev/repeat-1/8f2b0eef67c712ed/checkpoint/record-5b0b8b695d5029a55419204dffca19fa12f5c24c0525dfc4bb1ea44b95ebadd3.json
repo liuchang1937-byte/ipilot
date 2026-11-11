@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-053",
+  "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R006",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R006"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Embedding把文本映射为稠密向量，使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单，应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG，并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例，避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量，不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确，不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引，并比较召回率、尾部延迟、费用和内存，而不是只看单次相似度。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R006",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://R007"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "在选择文本向量模型时，如何验证该文本向量模型适合中文技术题检索？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在选择文本向量模型时,如何验证该文本向量模型适合中文技术题检索?"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何验证文本向量模型适合中文技术题检索:评测指标与方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "中文技术问答检索场景下文本嵌入模型选型、对比测试与基准数据集"
+            },
+            {
+              "kind": "mqe",
+              "text": "sentence embedding model evaluation for Chinese technical question retrieval C-MTEB benchmark"
+            },
+            {
+              "kind": "hyde",
+              "text": "验证中文技术题检索适配性,需构建领域评测集:从技术社区、文档、题库、GitHub Issues 采集 query-文档对,覆盖 API 名、框架术语、报错信息、代码片段、数学公式、缩写与同义表达,并进行多级相关性标注。采用 hard negative mining 构造难负例,按 query 划分训练/验证/测试。用该向量模型做稠密检索,计算 Recall@1/5/10、MRR@10、nDCG@10、MAP、Hit Rate,与 BM25、TF-IDF、通用中文/多语言 embedding、微调模型及混合检索对比。微调时使用对比学习损失如 InfoNCE、Triplet、MultipleNegativesRankingLoss,评估 zero-shot 与 fine-tuned 差异。检查分词、最大序列长度、pooling 策略、向量归一化、余弦相似度、chunk 切分对长技术文档的影响,并用 t-SNE/UMAP 观察聚类。补充 C-MTEB、MTEB 中文检索、T2Ranking、DuReader 等基准,最后做鲁棒性、消融、延迟/吞吐/显存/索引大小测试和线上 A/B 测试,分析未召回、排序错误及 OOV/术语漂移案例。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R006",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "interview-question://R007"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3773025965374103241,
+        "title": "在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?",
+        "source": "interview-question://R006",
+        "domain": "rag",
+        "content": "# 在 RAG 中 Embedding 究竟是什么?如何选择和评估一个 Embedding 模型?\n\n题目编号:R006\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding把文本映射为稠密向量,使语义相近内容在向量空间中距离较近。选型需考虑语言和领域覆盖、最大长度、维度、任务类型、吞吐、费用及许可证。不能只看公开榜单,应在业务查询—相关文档标注集上测Recall@K、MRR或nDCG,并结合端到端答案质量、延迟和存储成本选择。评测集应包含同义改写、行业术语、缩写、精确编号和困难负例,避免只测容易的问题。查询与文档还要遵循模型要求的前缀、归一化和距离度量,不能只替换模型名而保留不兼容向量。向量维度更大并不必然更准确,不同模型的分数也不能直接比较。更换模型后通常需要重建文档向量与索引,并比较召回率、尾部延迟、费用和内存,而不是只看单次相似度。\n\n评分要点:定义正确;覆盖业务评测、性能、成本与领域适配。",
+        "vector_score": 0.8154527842998505,
+        "keyword_score": 0.9607088294880956,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3911908167396159604,
+        "title": "推荐测试方式",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 推荐测试方式\n\n● 切块:分别尝试 200、500、800 中文字符,重叠比例 10% 至 20%。\n● 检索:对比纯向量、BM25 与混合检索;记录 Recall@5、MRR 和 nDCG@10。\n● 重排:先召回 20 个候选块,再由 reranker 选前 5 个;观察同义词与否定句。\n● 问答:要求答案附事实编号或章节名;缺少依据时应明确拒答。\n章节 内容 主要测试点\n1 项目概览与组织 实体、日期、地点、数值\n2 术语与同义词 embedding、缩写、歧义\n3 端到端流程 顺序、条件、跨块关联\n4 数据与权限 表格检索、过滤、否定事实\n5 案例研究 多跳问答、计算、归因\n6 故障与处置 相似症状、精确区分\n7 FAQ 自然语言问答、改写\n附录 事实清单与测试题 基准答案、召回评估",
+        "vector_score": 0.8479366600513458,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1225609568031859411,
+        "title": "Embedding 有哪几种算法你了解过吗?",
+        "source": "interview-question://R007",
+        "domain": "rag",
+        "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+        "vector_score": 0.8182748258113861,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 21.949,
+  "timings_seconds": {
+    "decomposition": 6.660965,
+    "retrieval": 15.288008,
+    "mqe": 4.8906,
+    "hyde": 9.650418,
+    "embedding": 0.395741,
+    "vector_search": 0.070138,
+    "keyword_search": 0.276002,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 15.288206,
+    "total": 21.949171,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

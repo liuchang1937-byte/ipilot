@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-053",
+  "subquestions": [
+    {
+      "question": "在选择文本向量模型时，如何验证该文本向量模型适合中文技术题检索？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.66096540000035
+}

@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-062",
+  "question": "Self-RAG、Corrective RAG和Agentic RAG控制流程有何差别？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R015",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://R015"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益，不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号；Corrective RAG 根据检索质量决定修正路径；Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本，也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用，以及对什么失败样本产生了收益。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R015",
+    "interview-question://R001",
+    "interview-question://A004"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "Self-RAG、Corrective RAG和Agentic RAG控制流程有何差别？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "Self-RAG、Corrective RAG和Agentic RAG三者在控制流程上的差别是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "Self-RAG、Corrective RAG和Agentic RAG三者在控制流程上的差别是什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R015",
+            "interview-question://R001",
+            "interview-question://A004"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2710493368064654156,
+        "title": "了解哪些更复杂的 RAG 范式?",
+        "source": "interview-question://R015",
+        "domain": "rag",
+        "content": "# 了解哪些更复杂的 RAG 范式?\n\n题目编号:R015\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益,不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号;Corrective RAG 根据检索质量决定修正路径;Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本,也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用,以及对什么失败样本产生了收益。\n\n评分要点:解释至少三种范式的控制差异,并有选型意识。",
+        "vector_score": 0.8789689540863037,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1192065734383377651,
+        "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+        "source": "interview-question://R001",
+        "domain": "rag",
+        "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+        "vector_score": 0.8321332335472107,
+        "keyword_score": 0.7414983423792993,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1330550128706514072,
+        "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+        "source": "interview-question://A004",
+        "domain": "agent",
+        "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+        "vector_score": 0.8002810478210449,
+        "keyword_score": 0.8243827376328345,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 2.684,
+  "timings_seconds": {
+    "decomposition": 2.449842,
+    "retrieval": 0.234115,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.134041,
+    "vector_search": 0.033811,
+    "keyword_search": 0.064876,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.234338,
+    "total": 2.68418,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

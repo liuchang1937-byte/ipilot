@@ -1,0 +1,570 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "ce4532b3dcd74fbc843b9fb9c59a35dc",
+  "created_at": "2026-10-12T16:42:56.218775+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "3003a0305acebb1db8688b0b68be188f9c2c1a04deaf091399aafdc5e15f6218",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 1,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\88aa4d6b1323e8a7\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 24.101,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 24.101,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.43945,
+          "p50": 2.43945,
+          "p95": 2.43945,
+          "max": 2.43945,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 12.163851,
+          "p50": 12.163851,
+          "p95": 12.163851,
+          "max": 12.163851,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.374895,
+          "p50": 2.374895,
+          "p95": 2.374895,
+          "max": 2.374895,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 9.277915,
+          "p50": 9.277915,
+          "p95": 9.277915,
+          "max": 9.277915,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.36732,
+          "p50": 0.36732,
+          "p95": 0.36732,
+          "max": 0.36732,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.027526,
+          "p50": 0.027526,
+          "p95": 0.027526,
+          "max": 0.027526,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.113275,
+          "p50": 0.113275,
+          "p95": 0.113275,
+          "max": 0.113275,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 9.498041,
+          "p50": 9.498041,
+          "p95": 9.498041,
+          "max": 9.498041,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 21.662033,
+          "p50": 21.662033,
+          "p95": 21.662033,
+          "max": 21.662033,
+          "samples": 1
+        },
+        "total": {
+          "mean": 24.101484,
+          "p50": 24.101484,
+          "p95": 24.101484,
+          "max": 24.101484,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 63.700357,
+          "p50": 63.700357,
+          "p95": 63.700357,
+          "max": 63.700357,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 1.0,
+        "answer_relevancy": 1.0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.8
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-035",
+      "question": "直接用偏好数据优化与基于奖励模型做PPO，有哪些训练差异？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L010",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L011"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "PPO式RLHF先训练奖励模型，再在线采样并通过策略梯度优化，同时用KL约束防止偏离参考模型，流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标，直接提高chosen相对rejected的概率，不需显式奖励模型，训练更稳定简单，但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型，训练流程较简单，但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案，还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价，选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L011",
+        "interview-question://L010",
+        "interview-question://L006"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "直接用偏好数据优化与基于奖励模型做PPO，有哪些训练差异？",
+        "answer": "按资料，直接用偏好数据优化通常对应 DPO 式方法，而基于奖励模型做 PPO 通常对应 RLHF。训练上的主要差异是：第一，训练信号与目标不同。DPO 从偏好对推导出分类式目标，不需要显式奖励模型，直接提高 chosen 相对 rejected 的概率，并比较好坏答案相对参考策略的概率；PPO 式 RLHF 则先训练奖励模型，再在线采样并通过策略梯度优化，直接优化奖励，同时用 KL 约束防止偏离参考模型[1]。第二，流程与组件不同。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，流程复杂；标准 DPO 通常使用离线的 chosen/rejected 数据与参考模型，训练流程更简单、更稳定[1]。第三，在线/离线与数据边界不同。PPO 通过在线采样适应当前策略的输出分布，而 DPO 主要依赖离线偏好数据，受离线偏好数据覆盖限制，未覆盖的偏好场景仍可能失败[1]。第四，成本与选择不同。两者并非对任意训练过程都等价，选择时要考虑奖励来源、在线采样条件、计算预算及数据质量；RLHF 通常训练奖励模型并用 PPO 优化策略，DPO 直接利用偏好对，省去显式奖励模型和在线强化学习[1][2]。",
+        "sections": [
+          {
+            "question": "直接用偏好数据优化与基于奖励模型做PPO在训练上有哪些差异？",
+            "kind": "knowledge",
+            "answer": "按资料，直接用偏好数据优化通常对应 DPO 式方法，而基于奖励模型做 PPO 通常对应 RLHF。训练上的主要差异是：第一，训练信号与目标不同。DPO 从偏好对推导出分类式目标，不需要显式奖励模型，直接提高 chosen 相对 rejected 的概率，并比较好坏答案相对参考策略的概率；PPO 式 RLHF 则先训练奖励模型，再在线采样并通过策略梯度优化，直接优化奖励，同时用 KL 约束防止偏离参考模型[1]。第二，流程与组件不同。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，流程复杂；标准 DPO 通常使用离线的 chosen/rejected 数据与参考模型，训练流程更简单、更稳定[1]。第三，在线/离线与数据边界不同。PPO 通过在线采样适应当前策略的输出分布，而 DPO 主要依赖离线偏好数据，受离线偏好数据覆盖限制，未覆盖的偏好场景仍可能失败[1]。第四，成本与选择不同。两者并非对任意训练过程都等价，选择时要考虑奖励来源、在线采样条件、计算预算及数据质量；RLHF 通常训练奖励模型并用 PPO 优化策略，DPO 直接利用偏好对，省去显式奖励模型和在线强化学习[1][2]。",
+            "source_ids": [
+              1,
+              2
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "直接用偏好数据优化与基于奖励模型做PPO在训练上有哪些差异?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "直接偏好优化与基于奖励模型的PPO在训练上的差异"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "DPO 直接偏好数据优化 vs RLHF PPO 奖励模型 训练过程对比"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "difference between direct preference optimization and PPO with reward model training RLHF"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "直接用偏好数据优化(如 DPO、IPO、KTO)与基于奖励模型的 PPO(RLHF-PPO)在训练流程上差异显著。DPO 跳过显式奖励建模和强化学习循环,直接在离线成对偏好数据 \\((x, y_w, y_l)\\) 上优化策略 \\(\\pi_\\theta\\),损失为 \\(-\\log \\sigma(\\beta \\log(\\pi_\\theta(y_w|x)/\\pi_{\\text{ref}}(y_w|x)) - \\beta \\log(\\pi_\\theta(y_l|x)/\\pi_{\\text{ref}}(y_l|x)))\\),其中 \\(\\pi_{\\text{ref}}\\) 为参考模型,\\(\\beta\\) 控制隐式 KL 约束;它通过策略与参考策略的对数比隐式表示奖励,无需采样 rollout、价值网络、优势估计或奖励模型。PPO 路线先以 Bradley-Terry 模型在偏好数据上训练奖励模型 \\(r_\\phi(x,y)\\),再用当前策略生成 on-policy 轨迹,由 \\(r_\\phi\\) 打分并加入 token 级或序列级 KL 惩罚,使用 actor-critic、GAE、价值函数、裁剪目标 PPO-Clip 和多次更新优化策略,目标是最大化 \\(\\mathbb{E}[r_\\phi(x,y)] - \\beta \\mathrm{KL}(\\pi_\\theta \\| \\pi_{\\text{ref}})\\)。因此 DPO 是离线、监督式、无 rollout、无 reward model、无 value function 的直接策略优化,计算与实现更简单、训练更稳定,但受限于静态偏好数据、探索不足和对偏好分布偏移敏感;PPO 是在线/on-policy 强化学习,依赖奖励模型泛化,训练开销大、超参敏感、易出现 reward hacking,但可通过在线采样探索并利用奖励模型提供密集信号。DPO 的隐式奖励与 PPO 的显式奖励模型、KL 正则位置、数据来源和优化目标均不同。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L011",
+                "interview-question://L010",
+                "interview-question://L006"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 1961663981704191464,
+            "title": "大模型的 DPO 和 PPO 的区别是什么?",
+            "source": "interview-question://L011",
+            "domain": "llm-engineering",
+            "content": "# 大模型的 DPO 和 PPO 的区别是什么?\n\n题目编号:L011\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:PPO式RLHF先训练奖励模型,再在线采样并通过策略梯度优化,同时用KL约束防止偏离参考模型,流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标,直接提高chosen相对rejected的概率,不需显式奖励模型,训练更稳定简单,但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计,并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型,训练流程较简单,但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案,还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价,选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。\n\n评分要点:奖励模型、在线/离线、优化目标、稳定性与数据边界。",
+            "vector_score": 0.9316489100456238,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1564593821354906773,
+            "title": "SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?",
+            "source": "interview-question://L010",
+            "domain": "llm-engineering",
+            "content": "# SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?\n\n题目编号:L010\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:SFT后可用拒绝采样从多个候选中选优再训练;RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习;GRPO使用组内相对奖励估计优势,减少价值模型依赖。它们都利用偏好或奖励改善行为,但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化,不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习;DPO 用偏好对直接优化;PPO 和 GRPO 则属于强化优化方式,奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势,避免单独训练价值模型,但仍有采样与奖励成本。方法可以组合,关键是训练信号可靠以及收益能通过独立测试确认。\n\n评分要点:说明 SFT 与后训练的关系;比较拒绝采样、PPO 式 RLHF、DPO 和 GRPO 的训练信号与成本。",
+            "vector_score": 0.8617918491363525,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1961663981704191464,
+            "title": "大模型的 DPO 和 PPO 的区别是什么?",
+            "source": "interview-question://L011",
+            "domain": "llm-engineering",
+            "content": "# 大模型的 DPO 和 PPO 的区别是什么?\n\n题目编号:L011\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:PPO式RLHF先训练奖励模型,再在线采样并通过策略梯度优化,同时用KL约束防止偏离参考模型,流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标,直接提高chosen相对rejected的概率,不需显式奖励模型,训练更稳定简单,但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计,并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型,训练流程较简单,但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案,还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价,选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。\n\n评分要点:奖励模型、在线/离线、优化目标、稳定性与数据边界。",
+            "vector_score": 0.9316489100456238,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1564593821354906773,
+            "title": "SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?",
+            "source": "interview-question://L010",
+            "domain": "llm-engineering",
+            "content": "# SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?\n\n题目编号:L010\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:SFT后可用拒绝采样从多个候选中选优再训练;RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习;GRPO使用组内相对奖励估计优势,减少价值模型依赖。它们都利用偏好或奖励改善行为,但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化,不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习;DPO 用偏好对直接优化;PPO 和 GRPO 则属于强化优化方式,奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势,避免单独训练价值模型,但仍有采样与奖励成本。方法可以组合,关键是训练信号可靠以及收益能通过独立测试确认。\n\n评分要点:说明 SFT 与后训练的关系;比较拒绝采样、PPO 式 RLHF、DPO 和 GRPO 的训练信号与成本。",
+            "vector_score": 0.8617918491363525,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3102864813120224030,
+            "title": "大模型是怎么训练出来的?",
+            "source": "interview-question://L006",
+            "domain": "llm-engineering",
+            "content": "# 大模型是怎么训练出来的?\n\n题目编号:L006\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料,控制领域与语言配比,处理测试污染,再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识,工程上依靠分布式并行、混合精度、优化器和检查点,兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令;偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定,SFT 本身也属于后训练,部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名,还要说明每阶段解决什么问题;数据质量差或奖励定义错误时,增加训练步骤并不保证效果提升。\n\n评分要点:数据、预训练、后训练、评测和分布式工程。",
+            "vector_score": 0.7906897962093353,
+            "keyword_score": 0.793943440901775,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 0.8,
+      "elapsed_seconds": 24.101,
+      "timings_seconds": {
+        "decomposition": 2.43945,
+        "retrieval": 12.163851,
+        "mqe": 2.374895,
+        "hyde": 9.277915,
+        "embedding": 0.36732,
+        "vector_search": 0.027526,
+        "keyword_search": 0.113275,
+        "rerank": 0.0,
+        "generation": 9.498041,
+        "pipeline": 21.662033,
+        "total": 24.101484,
+        "judge": 63.700357
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 1.0,
+          "answer_relevancy": 1.0,
+          "citation_precision": 1.0,
+          "citation_coverage": 0.8
+        },
+        "claims": [
+          {
+            "text": "按资料，直接用偏好数据优化通常对应 DPO 式方法，而基于奖励模型做 PPO 通常对应 RLHF。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 2,
+                "quote": "RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习"
+              }
+            ],
+            "citations": [],
+            "reason": "资料2将RLHF对应为训练奖励模型并用PPO优化策略，将DPO对应为直接利用偏好对，支持该对应关系。"
+          },
+          {
+            "text": "DPO 从偏好对推导出分类式目标，不需要显式奖励模型，直接提高 chosen 相对 rejected 的概率，并比较好坏答案相对参考策略的概率；PPO 式 RLHF 则先训练奖励模型，再在线采样并通过策略梯度优化，直接优化奖励，同时用 KL 约束防止偏离参考模型[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "DPO从偏好对推导出分类式目标,直接提高chosen相对rejected的概率,不需显式奖励模型,训练更稳定简单,但受离线偏好数据覆盖限制。"
+              },
+              {
+                "source_id": 1,
+                "quote": "PPO式RLHF先训练奖励模型,再在线采样并通过策略梯度优化,同时用KL约束防止偏离参考模型,流程复杂但能直接优化奖励。"
+              },
+              {
+                "source_id": 1,
+                "quote": "它不是只让模型模仿好答案,还会比较好坏答案相对参考策略的概率。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1明确给出DPO分类式目标、无需显式奖励模型、提高chosen相对rejected概率以及比较相对参考策略概率，也给出PPO式RLHF先训奖励模型、在线采样、策略梯度、KL约束和直接优化奖励。"
+          },
+          {
+            "text": "标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，流程复杂；标准 DPO 通常使用离线的 chosen/rejected 数据与参考模型，训练流程更简单、更稳定[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计,并通过在线采样适应当前策略的输出分布。"
+              },
+              {
+                "source_id": 1,
+                "quote": "PPO式RLHF先训练奖励模型,再在线采样并通过策略梯度优化,同时用KL约束防止偏离参考模型,流程复杂但能直接优化奖励。"
+              },
+              {
+                "source_id": 1,
+                "quote": "标准 DPO 通常使用离线 chosen/rejected 数据与参考模型,训练流程较简单,但未覆盖的偏好场景仍可能失败。"
+              },
+              {
+                "source_id": 1,
+                "quote": "DPO从偏好对推导出分类式目标,直接提高chosen相对rejected的概率,不需显式奖励模型,训练更稳定简单,但受离线偏好数据覆盖限制。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1说明标准PPO式RLHF涉及策略、参考、奖励、价值估计且流程复杂；标准DPO使用离线chosen/rejected数据与参考模型，训练较简单且更稳定。"
+          },
+          {
+            "text": "PPO 通过在线采样适应当前策略的输出分布，而 DPO 主要依赖离线偏好数据，受离线偏好数据覆盖限制，未覆盖的偏好场景仍可能失败[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计,并通过在线采样适应当前策略的输出分布。"
+              },
+              {
+                "source_id": 1,
+                "quote": "DPO从偏好对推导出分类式目标,直接提高chosen相对rejected的概率,不需显式奖励模型,训练更稳定简单,但受离线偏好数据覆盖限制。"
+              },
+              {
+                "source_id": 1,
+                "quote": "标准 DPO 通常使用离线 chosen/rejected 数据与参考模型,训练流程较简单,但未覆盖的偏好场景仍可能失败。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持PPO在线采样适应输出分布，也支持DPO依赖离线数据、受覆盖限制且未覆盖偏好场景可能失败。"
+          },
+          {
+            "text": "两者并非对任意训练过程都等价，选择时要考虑奖励来源、在线采样条件、计算预算及数据质量；RLHF 通常训练奖励模型并用 PPO 优化策略，DPO 直接利用偏好对，省去显式奖励模型和在线强化学习[1][2]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "两者并非对任意训练过程都等价,选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。"
+              },
+              {
+                "source_id": 1,
+                "quote": "PPO式RLHF先训练奖励模型,再在线采样并通过策略梯度优化,同时用KL约束防止偏离参考模型,流程复杂但能直接优化奖励。"
+              },
+              {
+                "source_id": 1,
+                "quote": "标准 DPO 通常使用离线 chosen/rejected 数据与参考模型,训练流程较简单,但未覆盖的偏好场景仍可能失败。"
+              },
+              {
+                "source_id": 2,
+                "quote": "RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              },
+              {
+                "id": 2,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持非等价与选择因素；资料1和资料2都支持RLHF训练奖励模型并用PPO、DPO直接利用偏好对且省去显式奖励模型和在线强化学习。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": true,
+            "reason": "答案覆盖了参考要点中的PPO式RLHF先训奖励模型、在线采样、策略梯度、KL约束、直接优化奖励和流程复杂；也覆盖DPO分类式目标、提高chosen相对rejected概率、无需显式奖励模型、更稳定简单、受离线偏好覆盖限制；还覆盖标准PPO涉及策略/参考/奖励/价值估计、在线采样适应输出分布，标准DPO使用离线chosen/rejected数据与参考模型、未覆盖偏好场景可能失败，以及两者非等价和选择考虑因素。",
+            "point": "PPO式RLHF先训练奖励模型，再在线采样并通过策略梯度优化，同时用KL约束防止偏离参考模型，流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标，直接提高chosen相对rejected的概率，不需显式奖励模型，训练更稳定简单，但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型，训练流程较简单，但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案，还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价，选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "答案直接回应原问题，围绕训练信号与目标、流程与组件、在线/离线与数据边界、成本与选择等方面比较直接用偏好数据优化（DPO）与基于奖励模型做PPO，覆盖全部核心差异。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-035",
+      "subquestions": [
+        {
+          "question": "直接用偏好数据优化与基于奖励模型做PPO在训练上有哪些差异？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.4394503999974404
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.004,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

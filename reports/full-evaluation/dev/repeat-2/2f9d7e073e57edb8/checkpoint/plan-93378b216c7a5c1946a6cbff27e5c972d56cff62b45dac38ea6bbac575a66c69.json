@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-050",
+  "subquestions": [
+    {
+      "question": "在知识经常更新的场景下，检索增强与参数微调各自的优缺点和适用条件是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在需要出处或引用来源的场景下，检索增强与参数微调各自如何满足出处要求及有何优缺点？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当同时要求知识经常更新和需要出处时，检索增强与参数微调应依据哪些标准进行选择？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.911055300000953
+}

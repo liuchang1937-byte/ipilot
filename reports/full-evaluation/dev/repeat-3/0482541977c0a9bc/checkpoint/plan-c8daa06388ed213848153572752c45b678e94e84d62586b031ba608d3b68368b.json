@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-007",
+  "subquestions": [
+    {
+      "question": "当一个请求包含多个依赖步骤时，应该如何将其拆成可验证的小任务？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 12.467313400000421
+}

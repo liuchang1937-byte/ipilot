@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-030",
+      "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L006"
+      ],
+      "answerable": true,
+      "reference_answer": "可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料，控制领域与语言配比，处理测试污染，再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识，工程上依靠分布式并行、混合精度、优化器和检查点，兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令；偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定，SFT 本身也属于后训练，部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名，还要说明每阶段解决什么问题；数据质量差或奖励定义错误时，增加训练步骤并不保证效果提升。",
+      "group": "L006",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

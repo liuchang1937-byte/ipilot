@@ -1,0 +1,799 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "c963694810f5422c8198ac4f09ee2641",
+  "created_at": "2026-10-12T15:16:25.338688+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "07bf3319d95b9605a315db63fc81bd25efc9b5ec067d1cf6e7a1e5fc26563360",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-1\\d1f27b77494229c1\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.8066,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 4.366,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 4.366,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.789118,
+          "p50": 3.789118,
+          "p95": 3.789118,
+          "max": 3.789118,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.576643,
+          "p50": 0.576643,
+          "p95": 0.576643,
+          "max": 0.576643,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.445502,
+          "p50": 0.445502,
+          "p95": 0.445502,
+          "max": 0.445502,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.038128,
+          "p50": 0.038128,
+          "p95": 0.038128,
+          "max": 0.038128,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.063682,
+          "p50": 0.063682,
+          "p95": 0.063682,
+          "max": 0.063682,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.576912,
+          "p50": 0.576912,
+          "p95": 0.576912,
+          "max": 0.576912,
+          "samples": 1
+        },
+        "total": {
+          "mean": 4.366031,
+          "p50": 4.366031,
+          "p95": 4.366031,
+          "max": 4.366031,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.8066,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 24.598,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 24.598,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.789118,
+          "p50": 3.789118,
+          "p95": 3.789118,
+          "max": 3.789118,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 20.809063,
+          "p50": 20.809063,
+          "p95": 20.809063,
+          "max": 20.809063,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 5.646351,
+          "p50": 5.646351,
+          "p95": 5.646351,
+          "max": 5.646351,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 13.877109,
+          "p50": 13.877109,
+          "p95": 13.877109,
+          "max": 13.877109,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.982967,
+          "p50": 0.982967,
+          "p95": 0.982967,
+          "max": 0.982967,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.061896,
+          "p50": 0.061896,
+          "p95": 0.061896,
+          "max": 0.061896,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.236218,
+          "p50": 0.236218,
+          "p95": 0.236218,
+          "max": 0.236218,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 20.809231,
+          "p50": 20.809231,
+          "p95": 20.809231,
+          "max": 20.809231,
+          "samples": 1
+        },
+        "total": {
+          "mean": 24.59835,
+          "p50": 24.59835,
+          "p95": 24.59835,
+          "max": 24.59835,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-102",
+      "question": "指令微调后的偏好优化有哪些路线？DPO与PPO主要差别是什么？",
+      "category": "compound",
+      "split": "test",
+      "group": "L010",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://L010",
+        "interview-question://L011"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "SFT后可用拒绝采样从多个候选中选优再训练；RLHF通常训练奖励模型并用PPO优化策略；DPO直接利用偏好对，省去显式奖励模型和在线强化学习；GRPO使用组内相对奖励估计优势，减少价值模型依赖。它们都利用偏好或奖励改善行为，但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化，不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习；DPO 用偏好对直接优化；PPO 和 GRPO 则属于强化优化方式，奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势，避免单独训练价值模型，但仍有采样与奖励成本。方法可以组合，关键是训练信号可靠以及收益能通过独立测试确认。",
+        "PPO式RLHF先训练奖励模型，再在线采样并通过策略梯度优化，同时用KL约束防止偏离参考模型，流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标，直接提高chosen相对rejected的概率，不需显式奖励模型，训练更稳定简单，但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型，训练流程较简单，但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案，还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价，选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L010",
+        "interview-question://L008",
+        "interview-question://L006",
+        "interview-question://L011"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.8065735963827292,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "指令微调后的偏好优化有哪些路线？DPO与PPO主要差别是什么？",
+        "answer": "1. 在指令微调之后，偏好优化有哪些主要技术路线？\n\n\n2. 在指令微调后的偏好优化中，DPO与PPO的主要差别是什么？\n",
+        "sections": [
+          {
+            "question": "在指令微调之后，偏好优化有哪些主要技术路线？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在指令微调之后,偏好优化有哪些主要技术路线?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L010",
+                "interview-question://L008",
+                "interview-question://L006"
+              ]
+            }
+          },
+          {
+            "question": "在指令微调后的偏好优化中，DPO与PPO的主要差别是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在指令微调后的偏好优化中,DPO与PPO的主要差别是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L011",
+                "interview-question://L010",
+                "interview-question://L008"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1564593821354906773,
+            "title": "SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?",
+            "source": "interview-question://L010",
+            "domain": "llm-engineering",
+            "content": "# SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?\n\n题目编号:L010\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:SFT后可用拒绝采样从多个候选中选优再训练;RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习;GRPO使用组内相对奖励估计优势,减少价值模型依赖。它们都利用偏好或奖励改善行为,但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化,不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习;DPO 用偏好对直接优化;PPO 和 GRPO 则属于强化优化方式,奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势,避免单独训练价值模型,但仍有采样与奖励成本。方法可以组合,关键是训练信号可靠以及收益能通过独立测试确认。\n\n评分要点:说明 SFT 与后训练的关系;比较拒绝采样、PPO 式 RLHF、DPO 和 GRPO 的训练信号与成本。",
+            "vector_score": 0.8392875492572784,
+            "keyword_score": 0.9675352991259469,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 986183218169772871,
+            "title": "大模型微调的方案有哪些?",
+            "source": "interview-question://L008",
+            "domain": "llm-engineering",
+            "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+            "vector_score": 0.773966521024704,
+            "keyword_score": 0.9938145294359327,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3102864813120224030,
+            "title": "大模型是怎么训练出来的?",
+            "source": "interview-question://L006",
+            "domain": "llm-engineering",
+            "content": "# 大模型是怎么训练出来的?\n\n题目编号:L006\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料,控制领域与语言配比,处理测试污染,再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识,工程上依靠分布式并行、混合精度、优化器和检查点,兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令;偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定,SFT 本身也属于后训练,部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名,还要说明每阶段解决什么问题;数据质量差或奖励定义错误时,增加训练步骤并不保证效果提升。\n\n评分要点:数据、预训练、后训练、评测和分布式工程。",
+            "vector_score": 0.7802011966705322,
+            "keyword_score": 0.5318487456314199,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1961663981704191464,
+            "title": "大模型的 DPO 和 PPO 的区别是什么?",
+            "source": "interview-question://L011",
+            "domain": "llm-engineering",
+            "content": "# 大模型的 DPO 和 PPO 的区别是什么?\n\n题目编号:L011\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:PPO式RLHF先训练奖励模型,再在线采样并通过策略梯度优化,同时用KL约束防止偏离参考模型,流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标,直接提高chosen相对rejected的概率,不需显式奖励模型,训练更稳定简单,但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计,并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型,训练流程较简单,但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案,还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价,选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。\n\n评分要点:奖励模型、在线/离线、优化目标、稳定性与数据边界。",
+            "vector_score": 0.9185947179794312,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 4.366,
+      "timings_seconds": {
+        "decomposition": 3.789118,
+        "retrieval": 0.576643,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.445502,
+        "vector_search": 0.038128,
+        "keyword_search": 0.063682,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.576912,
+        "total": 4.366031,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-102",
+      "question": "指令微调后的偏好优化有哪些路线？DPO与PPO主要差别是什么？",
+      "category": "compound",
+      "split": "test",
+      "group": "L010",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L010",
+        "interview-question://L011"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "SFT后可用拒绝采样从多个候选中选优再训练；RLHF通常训练奖励模型并用PPO优化策略；DPO直接利用偏好对，省去显式奖励模型和在线强化学习；GRPO使用组内相对奖励估计优势，减少价值模型依赖。它们都利用偏好或奖励改善行为，但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化，不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习；DPO 用偏好对直接优化；PPO 和 GRPO 则属于强化优化方式，奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势，避免单独训练价值模型，但仍有采样与奖励成本。方法可以组合，关键是训练信号可靠以及收益能通过独立测试确认。",
+        "PPO式RLHF先训练奖励模型，再在线采样并通过策略梯度优化，同时用KL约束防止偏离参考模型，流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标，直接提高chosen相对rejected的概率，不需显式奖励模型，训练更稳定简单，但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计，并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型，训练流程较简单，但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案，还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价，选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L010",
+        "interview-question://L008",
+        "interview-question://L006",
+        "interview-question://L011"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.8065735963827292,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "指令微调后的偏好优化有哪些路线？DPO与PPO主要差别是什么？",
+        "answer": "1. 在指令微调之后，偏好优化有哪些主要技术路线？\n\n\n2. 在指令微调后的偏好优化中，DPO与PPO的主要差别是什么？\n",
+        "sections": [
+          {
+            "question": "在指令微调之后，偏好优化有哪些主要技术路线？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在指令微调之后,偏好优化有哪些主要技术路线?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "指令微调之后 偏好优化 主要技术路线 有哪些"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型对齐 偏好优化方法 RLHF DPO PPO 对比 综述"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "after instruction tuning preference optimization approaches RLHF DPO IPO KTO ORPO survey"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在指令微调(SFT)之后,大语言模型偏好优化的主要技术路线包括:基于奖励模型的强化学习路线,即训练奖励模型(RM)后用PPO、GRPO、RLOO、ReMax等策略优化算法进行RLHF/RLAIF;直接偏好优化路线,绕过显式奖励模型和在线强化学习,直接利用偏好对(chosen/rejected)构造对比损失,代表方法有DPO、IPO、KTO、ORPO、SimPO、CPO、SLiC-HF、RRHF、PRO等;在线或迭代偏好优化路线,通过模型采样新回复、重新标注偏好或拒绝采样进行iterative DPO、online DPO、OAIF、SPIN、Self-Rewarding、Constitutional AI/RLAIF等;以及拒绝采样微调、Best-of-N、条件SFT等推理期或数据侧对齐方法,并延伸至Safe RLHF、约束DPO等多目标与安全约束偏好优化。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L010",
+                "interview-question://L008",
+                "interview-question://L006"
+              ]
+            }
+          },
+          {
+            "question": "在指令微调后的偏好优化中，DPO与PPO的主要差别是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在指令微调后的偏好优化中,DPO与PPO的主要差别是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "DPO与PPO在指令微调后的偏好优化中的主要区别是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Direct Preference Optimization 与 PPO 在大语言模型对齐/偏好优化中的对比 指令微调"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "DPO vs PPO: differences in preference optimization after instruction tuning for LLM alignment"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在指令微调后的偏好优化中,DPO 与 PPO 的主要差别在于优化范式和奖励建模方式。PPO 属于典型 RLHF 流程:先利用成对偏好数据训练显式奖励模型,再由当前策略进行 on-policy 采样,通过 PPO-Clip、优势估计、价值函数以及到参考策略的 KL 惩罚来最大化奖励,需要在线 rollout、actor-critic 训练和较多超参数。DPO 则绕过显式奖励模型和在线强化学习,基于 Bradley-Terry 偏好模型与最优策略的闭式关系,将奖励隐式表示为策略与参考策略的对数概率比,直接在离线偏好数据上优化二元交叉熵式 DPO loss。因此,DPO 更接近离线监督式偏好优化,训练更稳定、计算开销更低、超参更少;PPO 更灵活、支持在线探索,但训练复杂,受奖励模型质量、KL 系数、clip 范围、价值网络和采样效率影响较大。两者都约束策略不要偏离参考模型,区别在于 DPO 将 KL 正则与偏好拟合合并进同一损失,PPO 则在 RL 循环中显式加入 KL 奖励惩罚。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L011",
+                "interview-question://L010",
+                "interview-question://L008"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1564593821354906773,
+            "title": "SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?",
+            "source": "interview-question://L010",
+            "domain": "llm-engineering",
+            "content": "# SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?\n\n题目编号:L010\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:SFT后可用拒绝采样从多个候选中选优再训练;RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习;GRPO使用组内相对奖励估计优势,减少价值模型依赖。它们都利用偏好或奖励改善行为,但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化,不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习;DPO 用偏好对直接优化;PPO 和 GRPO 则属于强化优化方式,奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势,避免单独训练价值模型,但仍有采样与奖励成本。方法可以组合,关键是训练信号可靠以及收益能通过独立测试确认。\n\n评分要点:说明 SFT 与后训练的关系;比较拒绝采样、PPO 式 RLHF、DPO 和 GRPO 的训练信号与成本。",
+            "vector_score": 0.8426696062088013,
+            "keyword_score": 0.9675352991259469,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 986183218169772871,
+            "title": "大模型微调的方案有哪些?",
+            "source": "interview-question://L008",
+            "domain": "llm-engineering",
+            "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+            "vector_score": 0.776083767414093,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3102864813120224030,
+            "title": "大模型是怎么训练出来的?",
+            "source": "interview-question://L006",
+            "domain": "llm-engineering",
+            "content": "# 大模型是怎么训练出来的?\n\n题目编号:L006\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:可以按数据准备、预训练、后训练和验证四部分展开。首先收集、清洗和去重语料,控制领域与语言配比,处理测试污染,再确定分词器与模型配置。预训练通过预测 Token 等自监督目标学习语言模式和知识,工程上依靠分布式并行、混合精度、优化器和检查点,兼顾计算效率与故障恢复。后训练中的 SFT 用高质量示范教模型遵循指令;偏好优化或强化训练则利用人类偏好、奖励模型或可验证反馈改善回答与任务表现。阶段不一定严格固定,SFT 本身也属于后训练,部分模型会穿插数据筛选、继续预训练和强化优化。最后使用独立能力集、业务任务、安全测试和部署压测验证质量。回答不应只列方法名,还要说明每阶段解决什么问题;数据质量差或奖励定义错误时,增加训练步骤并不保证效果提升。\n\n评分要点:数据、预训练、后训练、评测和分布式工程。",
+            "vector_score": 0.787437379360199,
+            "keyword_score": 0.7402781201320857,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1961663981704191464,
+            "title": "大模型的 DPO 和 PPO 的区别是什么?",
+            "source": "interview-question://L011",
+            "domain": "llm-engineering",
+            "content": "# 大模型的 DPO 和 PPO 的区别是什么?\n\n题目编号:L011\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:PPO式RLHF先训练奖励模型,再在线采样并通过策略梯度优化,同时用KL约束防止偏离参考模型,流程复杂但能直接优化奖励。DPO从偏好对推导出分类式目标,直接提高chosen相对rejected的概率,不需显式奖励模型,训练更稳定简单,但受离线偏好数据覆盖限制。标准 PPO 式 RLHF 常涉及策略、参考、奖励和价值估计,并通过在线采样适应当前策略的输出分布。标准 DPO 通常使用离线 chosen/rejected 数据与参考模型,训练流程较简单,但未覆盖的偏好场景仍可能失败。它不是只让模型模仿好答案,还会比较好坏答案相对参考策略的概率。两者并非对任意训练过程都等价,选择时应考虑奖励来源、在线采样条件、计算预算及数据质量。\n\n评分要点:奖励模型、在线/离线、优化目标、稳定性与数据边界。",
+            "vector_score": 0.9310717582702637,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 24.598,
+      "timings_seconds": {
+        "decomposition": 3.789118,
+        "retrieval": 20.809063,
+        "mqe": 5.646351,
+        "hyde": 13.877109,
+        "embedding": 0.982967,
+        "vector_search": 0.061896,
+        "keyword_search": 0.236218,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 20.809231,
+        "total": 24.59835,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-102",
+      "subquestions": [
+        {
+          "question": "在指令微调之后，偏好优化有哪些主要技术路线？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "在指令微调后的偏好优化中，DPO与PPO的主要差别是什么？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.7891184000000067
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 25.182,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

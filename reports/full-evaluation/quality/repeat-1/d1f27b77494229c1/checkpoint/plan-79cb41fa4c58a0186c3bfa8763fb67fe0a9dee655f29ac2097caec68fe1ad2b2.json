@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-102",
+  "subquestions": [
+    {
+      "question": "指令微调后的偏好优化有哪些路线？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在指令微调后的偏好优化中，DPO与PPO的主要差别是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.784314500000619
+}

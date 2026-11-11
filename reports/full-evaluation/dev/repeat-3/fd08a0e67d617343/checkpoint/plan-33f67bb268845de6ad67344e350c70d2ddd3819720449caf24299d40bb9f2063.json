@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-108",
+  "subquestions": [
+    {
+      "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.4452433999995264
+}

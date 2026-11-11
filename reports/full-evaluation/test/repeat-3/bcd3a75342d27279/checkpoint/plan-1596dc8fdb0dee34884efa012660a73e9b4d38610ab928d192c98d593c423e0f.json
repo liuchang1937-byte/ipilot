@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-042",
+  "subquestions": [
+    {
+      "question": "模型为什么会编造事实？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "检索与验证分别能缓解模型编造事实中的哪些问题？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.229735000000801
+}

@@ -1,0 +1,811 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "b777921c23d74c269f64b07a0d6662a9",
+  "created_at": "2026-10-12T15:30:56.812108+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "40f3dfd487b7ac114e25d9a16ecec598575fe21d619da9f058f819f2531b2e3e",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-3\\210722e318064f87\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 38.628,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 38.628,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 14.880778,
+          "p50": 14.880778,
+          "p95": 14.880778,
+          "max": 14.880778,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 23.747339,
+          "p50": 23.747339,
+          "p95": 23.747339,
+          "max": 23.747339,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.508278,
+          "p50": 6.508278,
+          "p95": 6.508278,
+          "max": 6.508278,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 16.145749,
+          "p50": 16.145749,
+          "p95": 16.145749,
+          "max": 16.145749,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.751271,
+          "p50": 0.751271,
+          "p95": 0.751271,
+          "max": 0.751271,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.053336,
+          "p50": 0.053336,
+          "p95": 0.053336,
+          "max": 0.053336,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.284335,
+          "p50": 0.284335,
+          "p95": 0.284335,
+          "max": 0.284335,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 23.747483,
+          "p50": 23.747483,
+          "p95": 23.747483,
+          "max": 23.747483,
+          "samples": 1
+        },
+        "total": {
+          "mean": 38.628261,
+          "p50": 38.628261,
+          "p95": 38.628261,
+          "max": 38.628261,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 9,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 15.409,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 15.409,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 14.880778,
+          "p50": 14.880778,
+          "p95": 14.880778,
+          "max": 14.880778,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.528423,
+          "p50": 0.528423,
+          "p95": 0.528423,
+          "max": 0.528423,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.448772,
+          "p50": 0.448772,
+          "p95": 0.448772,
+          "max": 0.448772,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.024563,
+          "p50": 0.024563,
+          "p95": 0.024563,
+          "max": 0.024563,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.053979,
+          "p50": 0.053979,
+          "p95": 0.053979,
+          "max": 0.053979,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.528543,
+          "p50": 0.528543,
+          "p95": 0.528543,
+          "max": 0.528543,
+          "samples": 1
+        },
+        "total": {
+          "mean": 15.409321,
+          "p50": 15.409321,
+          "p95": 15.409321,
+          "max": 15.409321,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-031",
+      "question": "扩大数据、参数和计算量时能力如何变化，所谓涌现如何解释？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L007",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L007"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Scaling Law描述模型参数、训练数据、计算量与损失之间近似幂律关系，可用于分配训练预算，但前提是数据质量和训练方式相近。所谓涌现是某些能力在规模提高后指标看似突然出现，部分来自能力真实提升，部分也可能由离散评测阈值造成。规模并不保证特定业务效果，仍需任务评测。它用于给定训练设置下估算参数、数据与计算的收益，帮助安排计算预算，而不是保证无限扩大会永远按相同比例进步。计算最优和部署总成本最优也可能不同，因为小模型多训练一些可能更省长期推理费用。所谓涌现是某些能力随规模表现出明显变化，但阈值也可能受离散评分方式影响；应同时观察连续指标与业务表现，不能把某条参数数据比例当成所有模型的通用常数。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L007",
+        "interview-question://L019",
+        "interview-question://L009",
+        "interview-question://L018",
+        "interview-question://A014"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "扩大数据、参数和计算量时能力如何变化，所谓涌现如何解释？",
+        "answer": "1. 扩大数据、参数和计算量时，模型能力如何变化？\n\n\n2. 所谓涌现（emergent abilities）如何解释？\n",
+        "sections": [
+          {
+            "question": "扩大数据、参数和计算量时，模型能力如何变化？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "扩大数据、参数和计算量时,模型能力如何变化?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型扩展定律 scaling laws:数据规模、参数量与计算量对模型性能的影响"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How does model capability change with scaling data, parameters, and compute? scaling laws"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在神经语言模型与大规模深度学习中,扩大参数量、训练数据量和计算量通常遵循神经缩放定律(neural scaling laws)。测试集交叉熵损失与困惑度随模型参数量 \\(N\\)、数据量 \\(D\\)、计算量 \\(C\\) 增加呈幂律下降,即 \\(L \\propto N^{-\\alpha}, D^{-\\beta}, C^{-\\gamma}\\),并趋于不可约误差下限。Chinchilla 式计算最优训练表明,在固定算力预算下,参数量与训练 token 数应按近似比例协同扩展,避免模型过大而数据不足,或数据过多而模型欠参数化。能力变化表现为:多数下游任务准确率、少样本/零样本泛化、上下文学习与推理性能平滑提升;部分能力在特定规模阈值后出现涌现(emergent abilities)或相变式跃升。收益递减仍存在:规模增大时,单位算力带来的损失下降变小,且受数据质量、分布覆盖、架构、优化器、序列长度和训练稳定性制约。若数据重复、噪声或分布偏移,缩放效率下降;若过拟合或欠训练,缩放律偏离。总体趋势是能力随规模、数据、算力增加而提升,但提升幅度服从幂律与饱和,最优资源分配决定实际效率。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L007",
+                "interview-question://L019",
+                "interview-question://L009"
+              ]
+            }
+          },
+          {
+            "question": "所谓涌现（emergent abilities）如何解释？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "所谓涌现(emergent abilities)如何解释?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "涌现能力(emergent abilities)如何解释?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型中的涌现能力 产生原因 机制 解释"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "emergent abilities in large language models explanation mechanisms debate"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "涌现能力指大语言模型在参数规模、训练算力或数据量超过某一临界阈值后,在下游任务上表现出从接近随机到显著提升的非线性、阶段性甚至突变式性能增长。常见于少样本提示、思维链、算术推理、符号推理、指令遵循和上下文学习。其解释包括:一是真实机制涌现,即网络内部形成 induction heads、任务电路、组合性表征与多步推理路径,误差累积在任务成功率上产生阈值效应;二是度量假象,即 exact match、全对全错、任务级聚合等非线性或离散指标把平滑的 per-token loss 或 log-likelihood 放大为表观相变,换用连续指标后可能呈平滑 scaling law;三是训练动力学相变,规模、数据分布、优化与架构共同导致能力临界跃迁。因此,涌现应区分为能力突变与测量导致的表观突变,并结合 scaling law、mechanistic interpretability 与任务级评测分析。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L007",
+                "interview-question://L018",
+                "interview-question://A014"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 137701820198514010,
+            "title": "什么是 Scaling Law?大模型的「涌现能力」是怎么回事?",
+            "source": "interview-question://L007",
+            "domain": "llm-engineering",
+            "content": "# 什么是 Scaling Law?大模型的「涌现能力」是怎么回事?\n\n题目编号:L007\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:Scaling Law描述模型参数、训练数据、计算量与损失之间近似幂律关系,可用于分配训练预算,但前提是数据质量和训练方式相近。所谓涌现是某些能力在规模提高后指标看似突然出现,部分来自能力真实提升,部分也可能由离散评测阈值造成。规模并不保证特定业务效果,仍需任务评测。它用于给定训练设置下估算参数、数据与计算的收益,帮助安排计算预算,而不是保证无限扩大会永远按相同比例进步。计算最优和部署总成本最优也可能不同,因为小模型多训练一些可能更省长期推理费用。所谓涌现是某些能力随规模表现出明显变化,但阈值也可能受离散评分方式影响;应同时观察连续指标与业务表现,不能把某条参数数据比例当成所有模型的通用常数。\n\n评分要点:幂律关系、算力最优配比、涌现解释和边界。",
+            "vector_score": 0.8785654306411743,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3942832683636186050,
+            "title": "MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?",
+            "source": "interview-question://L019",
+            "domain": "llm-engineering",
+            "content": "# MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?\n\n题目编号:L019\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MoE在每层设置多个专家网络,由路由器为每个Token选择少数专家计算,因此总参数可以很大而单Token激活参数较少,提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量,而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家,路由器为每个 Token 选择少量专家,注意力等其他模块可能仍是共享的。专家是可训练的网络参数,并不天然对应一个具有人格的 Agent,也不等于多 Agent 协作。总参数与激活参数不同,但部署仍需要存放或分发大量专家权重,跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE,讨论优势必须限定具体架构与实际硬件条件。\n\n评分要点:稀疏激活、路由、容量收益和系统代价。",
+            "vector_score": 0.7474014163017273,
+            "keyword_score": 0.7285908026362018,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1962235713523519350,
+            "title": "请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?",
+            "source": "interview-question://L009",
+            "domain": "llm-engineering",
+            "content": "# 请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?\n\n题目编号:L009\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:LoRA冻结原权重,用两个低秩矩阵近似权重更新,并把更新注入注意力或其他线性层。除减少训练参数和显存外,它便于为多个任务保存小型适配器、快速切换或组合,也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W,训练的增量可以写成 ΔW=BA,秩 r 远小于原维度,再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算,并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支,未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围,但不能保证没有遗忘或副作用;秩、目标层、数据与评测比单纯追求最低参数量更重要。\n\n评分要点:低秩更新原理、多适配器、可合并及超参数权衡。",
+            "vector_score": 0.7432043552398682,
+            "keyword_score": 0.49358976137973887,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.7820771932601929,
+            "keyword_score": 0.4704360575762783,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.7449740767478943,
+            "keyword_score": 0.3798760423669393,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 38.628,
+      "timings_seconds": {
+        "decomposition": 14.880778,
+        "retrieval": 23.747339,
+        "mqe": 6.508278,
+        "hyde": 16.145749,
+        "embedding": 0.751271,
+        "vector_search": 0.053336,
+        "keyword_search": 0.284335,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 23.747483,
+        "total": 38.628261,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 9,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-031",
+      "question": "扩大数据、参数和计算量时能力如何变化，所谓涌现如何解释？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L007",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://L007"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Scaling Law描述模型参数、训练数据、计算量与损失之间近似幂律关系，可用于分配训练预算，但前提是数据质量和训练方式相近。所谓涌现是某些能力在规模提高后指标看似突然出现，部分来自能力真实提升，部分也可能由离散评测阈值造成。规模并不保证特定业务效果，仍需任务评测。它用于给定训练设置下估算参数、数据与计算的收益，帮助安排计算预算，而不是保证无限扩大会永远按相同比例进步。计算最优和部署总成本最优也可能不同，因为小模型多训练一些可能更省长期推理费用。所谓涌现是某些能力随规模表现出明显变化，但阈值也可能受离散评分方式影响；应同时观察连续指标与业务表现，不能把某条参数数据比例当成所有模型的通用常数。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L007",
+        "interview-question://L019",
+        "interview-question://L021",
+        "interview-question://L018",
+        "interview-question://L017"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "扩大数据、参数和计算量时能力如何变化，所谓涌现如何解释？",
+        "answer": "1. 扩大数据、参数和计算量时，模型能力如何变化？\n\n\n2. 所谓涌现（emergent abilities）如何解释？\n",
+        "sections": [
+          {
+            "question": "扩大数据、参数和计算量时，模型能力如何变化？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "扩大数据、参数和计算量时,模型能力如何变化?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L007",
+                "interview-question://L019",
+                "interview-question://L021"
+              ]
+            }
+          },
+          {
+            "question": "所谓涌现（emergent abilities）如何解释？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "所谓涌现(emergent abilities)如何解释?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L007",
+                "interview-question://L018",
+                "interview-question://L017"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 137701820198514010,
+            "title": "什么是 Scaling Law?大模型的「涌现能力」是怎么回事?",
+            "source": "interview-question://L007",
+            "domain": "llm-engineering",
+            "content": "# 什么是 Scaling Law?大模型的「涌现能力」是怎么回事?\n\n题目编号:L007\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:Scaling Law描述模型参数、训练数据、计算量与损失之间近似幂律关系,可用于分配训练预算,但前提是数据质量和训练方式相近。所谓涌现是某些能力在规模提高后指标看似突然出现,部分来自能力真实提升,部分也可能由离散评测阈值造成。规模并不保证特定业务效果,仍需任务评测。它用于给定训练设置下估算参数、数据与计算的收益,帮助安排计算预算,而不是保证无限扩大会永远按相同比例进步。计算最优和部署总成本最优也可能不同,因为小模型多训练一些可能更省长期推理费用。所谓涌现是某些能力随规模表现出明显变化,但阈值也可能受离散评分方式影响;应同时观察连续指标与业务表现,不能把某条参数数据比例当成所有模型的通用常数。\n\n评分要点:幂律关系、算力最优配比、涌现解释和边界。",
+            "vector_score": 0.8218027353286743,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3942832683636186050,
+            "title": "MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?",
+            "source": "interview-question://L019",
+            "domain": "llm-engineering",
+            "content": "# MoE 混合专家模型是什么?DeepSeek V3、Qwen 为什么用 MoE?\n\n题目编号:L019\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MoE在每层设置多个专家网络,由路由器为每个Token选择少数专家计算,因此总参数可以很大而单Token激活参数较少,提升容量与计算效率。代价是路由负载不均、专家通信、训练稳定性和部署复杂度。采用MoE通常是为了在可控推理成本下扩大模型容量,而非完全免费地增加能力。典型做法是将部分 FFN 换成多个专家,路由器为每个 Token 选择少量专家,注意力等其他模块可能仍是共享的。专家是可训练的网络参数,并不天然对应一个具有人格的 Agent,也不等于多 Agent 协作。总参数与激活参数不同,但部署仍需要存放或分发大量专家权重,跨设备通信可能成为瓶颈。不是所有 Qwen 型号都使用 MoE,讨论优势必须限定具体架构与实际硬件条件。\n\n评分要点:稀疏激活、路由、容量收益和系统代价。",
+            "vector_score": 0.7421230673789978,
+            "keyword_score": 0.7285908026362018,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 4468296057515630498,
+            "title": "大模型能力评测指标有哪些?",
+            "source": "interview-question://L021",
+            "domain": "llm-engineering",
+            "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+            "vector_score": 0.7489864230155945,
+            "keyword_score": 0.5242079020476335,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.6966404616832733,
+            "keyword_score": 0.35577833578184115,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 1514459175991001607,
+            "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+            "source": "interview-question://L017",
+            "domain": "llm-engineering",
+            "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+            "vector_score": 0.6981844305992126,
+            "keyword_score": 0.23315376604240684,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 15.409,
+      "timings_seconds": {
+        "decomposition": 14.880778,
+        "retrieval": 0.528423,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.448772,
+        "vector_search": 0.024563,
+        "keyword_search": 0.053979,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.528543,
+        "total": 15.409321,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-031",
+      "subquestions": [
+        {
+          "question": "扩大数据、参数和计算量时，模型能力如何变化？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "所谓涌现（emergent abilities）如何解释？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 14.88077759999942
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 39.164,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

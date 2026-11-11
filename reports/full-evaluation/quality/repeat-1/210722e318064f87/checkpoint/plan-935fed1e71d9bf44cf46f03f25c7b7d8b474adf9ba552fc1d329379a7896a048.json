@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-031",
+  "subquestions": [
+    {
+      "question": "在大语言模型中，扩大训练数据、模型参数和计算量时模型能力如何变化？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "大语言模型中所谓的“涌现”应如何解释？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.868863700001384
+}

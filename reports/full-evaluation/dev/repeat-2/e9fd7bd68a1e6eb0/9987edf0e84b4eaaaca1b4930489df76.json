@@ -1,0 +1,1070 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "9987edf0e84b4eaaaca1b4930489df76",
+  "created_at": "2026-10-12T11:15:06.878355+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "a2d7327c73bb3f20568420922733c600dd3737fa4a5d7789c5896b116cb89ecd",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\e9fd7bd68a1e6eb0\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 30.367,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 30.367,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 8.933248,
+          "p50": 8.933248,
+          "p95": 8.933248,
+          "max": 8.933248,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 21.433986,
+          "p50": 21.433986,
+          "p95": 21.433986,
+          "max": 21.433986,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.16701,
+          "p50": 6.16701,
+          "p95": 6.16701,
+          "max": 6.16701,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 13.796443,
+          "p50": 13.796443,
+          "p95": 13.796443,
+          "max": 13.796443,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.777358,
+          "p50": 0.777358,
+          "p95": 0.777358,
+          "max": 0.777358,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.119289,
+          "p50": 0.119289,
+          "p95": 0.119289,
+          "max": 0.119289,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.564174,
+          "p50": 0.564174,
+          "p95": 0.564174,
+          "max": 0.564174,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 21.43425,
+          "p50": 21.43425,
+          "p95": 21.43425,
+          "max": 21.43425,
+          "samples": 1
+        },
+        "total": {
+          "mean": 30.367497,
+          "p50": 30.367497,
+          "p95": 30.367497,
+          "max": 30.367497,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 9.403,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 9.403,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 8.933248,
+          "p50": 8.933248,
+          "p95": 8.933248,
+          "max": 8.933248,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.469592,
+          "p50": 0.469592,
+          "p95": 0.469592,
+          "max": 0.469592,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.295714,
+          "p50": 0.295714,
+          "p95": 0.295714,
+          "max": 0.295714,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.044323,
+          "p50": 0.044323,
+          "p95": 0.044323,
+          "max": 0.044323,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.127059,
+          "p50": 0.127059,
+          "p95": 0.127059,
+          "max": 0.127059,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.469858,
+          "p50": 0.469858,
+          "p95": 0.469858,
+          "max": 0.469858,
+          "samples": 1
+        },
+        "total": {
+          "mean": 9.403106,
+          "p50": 9.403106,
+          "p95": 9.403106,
+          "max": 9.403106,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 10.663,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 10.663,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 8.933248,
+          "p50": 8.933248,
+          "p95": 8.933248,
+          "max": 8.933248,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.454087,
+          "p50": 0.454087,
+          "p95": 0.454087,
+          "max": 0.454087,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.28352,
+          "p50": 0.28352,
+          "p95": 0.28352,
+          "max": 0.28352,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.044786,
+          "p50": 0.044786,
+          "p95": 0.044786,
+          "max": 0.044786,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.122942,
+          "p50": 0.122942,
+          "p95": 0.122942,
+          "max": 0.122942,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.275591,
+          "p50": 1.275591,
+          "p95": 1.275591,
+          "max": 1.275591,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.730236,
+          "p50": 1.730236,
+          "p95": 1.730236,
+          "max": 1.730236,
+          "samples": 1
+        },
+        "total": {
+          "mean": 10.663484,
+          "p50": 10.663484,
+          "p95": 10.663484,
+          "max": 10.663484,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-058",
+      "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R011",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://R011"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R011",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R007"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+        "answer": "1. 在精确型号匹配场景下，关键词搜索与语义搜索各有什么长处？\n\n\n2. 在同义表达匹配场景下，关键词搜索与语义搜索各有什么长处？\n",
+        "sections": [
+          {
+            "question": "在精确型号匹配场景下，关键词搜索与语义搜索各有什么长处？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在精确型号匹配场景下,关键词搜索与语义搜索各有什么长处?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "精确型号匹配场景下 关键词搜索和语义搜索的优势对比"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "型号精确匹配 关键词检索与语义检索 各有哪些优缺点"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "SKU/零件号精确匹配 关键词搜索与向量语义搜索 的长处对比"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在精确型号匹配场景(如SKU、零件号、产品型号、序列号等字母数字混合标识)下,关键词搜索的长处是:基于倒排索引、TF-IDF/BM25和词项级精确匹配,对查询与字段进行分词、大小写归一、标点规范化后的完全一致命中,擅长稀有词、未登录词、数字-字母组合、型号后缀/前缀等精确字符串,具有高精确率、低延迟、可解释性强、无需训练嵌入,并能避免语义泛化造成的近似误召回。语义搜索的长处是:通过稠密向量表示、双塔/句向量编码和ANN近似最近邻检索,捕捉上下文、同义改写、缩写、别名、规格描述和用户意图,对拼写错误、语序变化、多语言及自然语言查询更鲁棒,可提升语义等价型号的召回,但需警惕型号中数字或字母细微差异被嵌入平滑导致假阳性。因此,精确型号匹配常用关键词/词项匹配保证唯一性与精确率,语义向量检索补充模糊表达、别名和描述性查询的召回,混合检索(BM25+向量)、字段加权与结构化过滤可兼顾精确率与召回率。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R011",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://R007"
+              ]
+            }
+          },
+          {
+            "question": "在同义表达匹配场景下，关键词搜索与语义搜索各有什么长处？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在同义表达匹配场景下,关键词搜索与语义搜索各有什么长处?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "同义表达匹配场景下 关键词搜索与语义搜索的长处 对比"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "同义词 近义词匹配时 关键词检索和语义检索各自的优势"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "语义相似表达匹配中 关键词搜索与语义搜索的优点及适用场景"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在同义表达匹配场景下,关键词搜索依托倒排索引、TF-IDF/BM25、布尔逻辑和短语/邻近查询,对精确词项、专有名词、缩写、编号等具有高精度、低延迟、可解释的匹配能力;配合同义词词典、查询扩展或词项归一化,可覆盖受控同义表达,召回稳定且易调参。语义搜索通过稠密向量、句向量/双塔编码、嵌入相似度和ANN检索,在语义空间中直接匹配同义、近义、释义、改写及上下文变体,缓解词汇鸿沟与一词多义,对自然语言问句和未见同义表达具有更强泛化召回。实践中常采用BM25与向量检索的混合检索及重排序融合二者优势。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R011",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2637356371800682692,
+            "title": "请你介绍一下向量检索和关键词检索的区别?",
+            "source": "interview-question://R011",
+            "domain": "rag",
+            "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+            "vector_score": 0.8396736681461334,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3911908167396159604,
+            "title": "推荐测试方式",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 推荐测试方式\n\n● 切块:分别尝试 200、500、800 中文字符,重叠比例 10% 至 20%。\n● 检索:对比纯向量、BM25 与混合检索;记录 Recall@5、MRR 和 nDCG@10。\n● 重排:先召回 20 个候选块,再由 reranker 选前 5 个;观察同义词与否定句。\n● 问答:要求答案附事实编号或章节名;缺少依据时应明确拒答。\n章节 内容 主要测试点\n1 项目概览与组织 实体、日期、地点、数值\n2 术语与同义词 embedding、缩写、歧义\n3 端到端流程 顺序、条件、跨块关联\n4 数据与权限 表格检索、过滤、否定事实\n5 案例研究 多跳问答、计算、归因\n6 故障与处置 相似症状、精确区分\n7 FAQ 自然语言问答、改写\n附录 事实清单与测试题 基准答案、召回评估",
+            "vector_score": 0.7801527380943298,
+            "keyword_score": 0.4533243214342426,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.8014262914657593,
+            "keyword_score": 0.4377456064882645,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2334208301773254536,
+            "title": "2 术语、缩写与语义边界",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 2 术语、缩写与语义边界\n\n本章故意加入近义词、别名和易混概念,用于评估 embedding 与查询改写。\n术语 定义 别名/相关表达 不等同于\n温控窗口 货物允许的温度区间及持续时间条件 合规温区、许可区间 某一瞬间的温度值\n温度失控事件(TEE\n)\n连续超过许可区间 6 分钟及以上 超温事件、越界事件 单次尖峰\n\n冷链完整率(CCI) 未发生 TEE 的订单数 / 有效订单数 完整交付比例 准时送达率\n有效订单 传感覆盖率不少于 90% 且订单已完成 可评估订单 所有创建的订单\n静默期 网关连续 4 分钟没有接收标签数据 数据沉默、遥测中断 车辆停止移动\n二次召回 首次检索不足时,改写查询并扩大候选\n集\n补充检索 rerank\n\n重排(rerank) 对已召回候选按查询相关性重新排序 候选重评分 生成答案",
+            "vector_score": 0.7601498961448669,
+            "keyword_score": 0.4099859675753686,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 30.367,
+      "timings_seconds": {
+        "decomposition": 8.933248,
+        "retrieval": 21.433986,
+        "mqe": 6.16701,
+        "hyde": 13.796443,
+        "embedding": 0.777358,
+        "vector_search": 0.119289,
+        "keyword_search": 0.564174,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 21.43425,
+        "total": 30.367497,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-058",
+      "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R011",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://R011"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R011",
+        "interview-question://R007",
+        "interview-question://R016"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+        "answer": "1. 在精确型号匹配场景下，关键词搜索与语义搜索各有什么长处？\n\n\n2. 在同义表达匹配场景下，关键词搜索与语义搜索各有什么长处？\n",
+        "sections": [
+          {
+            "question": "在精确型号匹配场景下，关键词搜索与语义搜索各有什么长处？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在精确型号匹配场景下,关键词搜索与语义搜索各有什么长处?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R011",
+                "interview-question://R007",
+                "interview-question://R016"
+              ]
+            }
+          },
+          {
+            "question": "在同义表达匹配场景下，关键词搜索与语义搜索各有什么长处？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在同义表达匹配场景下,关键词搜索与语义搜索各有什么长处?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R011",
+                "interview-question://R016",
+                "interview-question://R007"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2637356371800682692,
+            "title": "请你介绍一下向量检索和关键词检索的区别?",
+            "source": "interview-question://R011",
+            "domain": "rag",
+            "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+            "vector_score": 0.8044551610946655,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1225609568031859411,
+            "title": "Embedding 有哪几种算法你了解过吗?",
+            "source": "interview-question://R007",
+            "domain": "rag",
+            "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+            "vector_score": 0.7220551371574402,
+            "keyword_score": 0.3559160653299527,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2214053965974079694,
+            "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+            "source": "interview-question://R016",
+            "domain": "rag",
+            "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+            "vector_score": 0.7244349718093872,
+            "keyword_score": 0.3904090312003959,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 9.403,
+      "timings_seconds": {
+        "decomposition": 8.933248,
+        "retrieval": 0.469592,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.295714,
+        "vector_search": 0.044323,
+        "keyword_search": 0.127059,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.469858,
+        "total": 9.403106,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-058",
+      "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "R011",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://R011"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://R011"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+        "answer": "1. 在精确型号匹配场景下，关键词搜索与语义搜索各有什么长处？\n\n\n2. 在同义表达匹配场景下，关键词搜索与语义搜索各有什么长处？\n",
+        "sections": [
+          {
+            "question": "在精确型号匹配场景下，关键词搜索与语义搜索各有什么长处？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在精确型号匹配场景下,关键词搜索与语义搜索各有什么长处?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://R011"
+              ]
+            }
+          },
+          {
+            "question": "在同义表达匹配场景下，关键词搜索与语义搜索各有什么长处？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在同义表达匹配场景下,关键词搜索与语义搜索各有什么长处?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://R011"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2637356371800682692,
+            "title": "请你介绍一下向量检索和关键词检索的区别?",
+            "source": "interview-question://R011",
+            "domain": "rag",
+            "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+            "vector_score": 0.8044551610946655,
+            "keyword_score": 1.0,
+            "rerank_score": 0.8632612228393555
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 10.663,
+      "timings_seconds": {
+        "decomposition": 8.933248,
+        "retrieval": 0.454087,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.28352,
+        "vector_search": 0.044786,
+        "keyword_search": 0.122942,
+        "rerank": 1.275591,
+        "generation": 0.0,
+        "pipeline": 1.730236,
+        "total": 10.663484,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 2,
+        "rerank_pairs": 24
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-058",
+      "subquestions": [
+        {
+          "question": "在精确型号匹配场景下，关键词搜索与语义搜索各有什么长处？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "在同义表达匹配场景下，关键词搜索与语义搜索各有什么长处？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 8.933247599999959
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 32.58,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

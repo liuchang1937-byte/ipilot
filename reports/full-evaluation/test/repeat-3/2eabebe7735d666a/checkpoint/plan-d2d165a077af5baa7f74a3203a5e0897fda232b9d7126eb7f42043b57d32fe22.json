@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-034",
+  "subquestions": [
+    {
+      "question": "指令微调完成之后，偏好优化解决哪些问题？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "指令微调完成之后，拒绝采样解决哪些问题？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.2089164999997593
+}

@@ -1,0 +1,230 @@
+{
+  "case_id": "V2-015",
+  "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+  "category": "terminology",
+  "split": "test",
+  "group": "A015",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A015"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "反思是让 Agent 根据目标、轨迹和结果识别错误，再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发；实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议，再将结论写入状态并重试。为避免无限自省，应限制次数和Token预算，要求每次反思产生可验证的新动作，没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果，再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试，随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果，事实任务优先核对来源，模型评价只做补充。反思可能重复相同偏差或引入新错误，因此需要最大次数、质量变化阈值和停止条件，不是次数越多越准确。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A015",
+    "interview-question://R012",
+    "interview-question://L017",
+    "interview-question://R017",
+    "interview-question://L018"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "让模型检查自己的结果再修改，何时有收益、怎样避免反复自我修正？",
+    "answer": "1. 让模型检查自己的结果再修改，何时会有收益？\n\n\n2. 怎样避免模型在检查自己的结果再修改时反复自我修正？\n",
+    "sections": [
+      {
+        "question": "让模型检查自己的结果再修改，何时会有收益？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "让模型检查自己的结果再修改,何时会有收益?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型自我检查并修改结果在什么条件下能带来收益"
+            },
+            {
+              "kind": "mqe",
+              "text": "self-refinement 自我修正 收益 条件 大语言模型"
+            },
+            {
+              "kind": "mqe",
+              "text": "When does LLM self-verification and iterative self-correction improve performance?"
+            },
+            {
+              "kind": "hyde",
+              "text": "让模型检查自己的结果再修改(self-critique、self-refine、iterative self-correction、self-debugging)通常在验证比生成更容易、模型能可靠检测并定位错误、存在外部可验证反馈(代码执行、单元测试、数学答案校验、检索证据、工具调用、过程奖励模型/验证器)时获得收益。初始答案接近正确、错误可修复、修改空间受限、采样多样性高并可用自洽性/多数投票/重排序选择时,收益最大。若缺乏外部信号、仅靠内在自评、模型校准差、任务开放主观或知识不足,则自检查-再修改易导致过校正、错误累积和性能下降,收益有限甚至为负。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A015",
+            "interview-question://R012",
+            "interview-question://L017"
+          ]
+        }
+      },
+      {
+        "question": "怎样避免模型在检查自己的结果再修改时反复自我修正？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "怎样避免模型在检查自己的结果再修改时反复自我修正?"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何防止大语言模型在自我检查与自我修正过程中陷入反复修改循环"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM self-critique self-refine oscillation infinite loop stopping criteria mitigation"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型自我验证后过度纠错 如何稳定收敛 避免重复修改"
+            },
+            {
+              "kind": "hyde",
+              "text": "为避免模型在自检-修改循环中反复自我修正,可采用有界迭代精炼与收敛停止准则:设定最大修订轮数 K,监控相邻两轮输出的语义一致性、编辑距离、答案熵和置信度变化;若语义等价、编辑距离低于阈值、置信度不再提升或验证器评分稳定,则立即冻结答案并输出。引入独立外部验证器、过程奖励模型或工具验证,只奖励最终答案正确性,惩罚无实质改进的改写,避免奖励编辑行为导致自我修正振荡。使用自洽性投票、温度退火、一致性约束解码和早停策略稳定生成;检测到循环振荡、过度修正、退化或奖励黑客时,回退到历史最优版本并终止迭代。通过置信度校准和不确定性阈值触发人工或外部工具验证,而非让模型继续自我批判。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A015",
+            "interview-question://R017",
+            "interview-question://L018"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2654545256875798294,
+        "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+        "source": "interview-question://A015",
+        "domain": "agent",
+        "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+        "vector_score": 0.8346770107746124,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3510013083994112628,
+        "title": "如何润色用户的 Query(Query Rewrite)?目的是什么?",
+        "source": "interview-question://R012",
+        "domain": "rag",
+        "content": "# 如何润色用户的 Query(Query Rewrite)?目的是什么?\n\n题目编号:R012\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询,从而提高召回。可以用规则、LLM、多查询扩展或HyDE,但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较,并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词,复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面,HyDE 生成假设文档用于语义检索,但假设内容不能作为回答证据。原始查询应保留在召回路径中,避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后,才值得默认启用复杂改写。\n\n评分要点:目的、常见方式、原意保护和可评测性。",
+        "vector_score": 0.7848438024520874,
+        "keyword_score": 0.6891354754088267,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1514459175991001607,
+        "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+        "source": "interview-question://L017",
+        "domain": "llm-engineering",
+        "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+        "vector_score": 0.7991997599601746,
+        "keyword_score": 0.8003734818845905,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.8014290928840637,
+        "keyword_score": 0.7517400793943548,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 3477555688369766113,
+        "title": "大模型为什么会出现幻觉?怎么缓解?",
+        "source": "interview-question://L018",
+        "domain": "llm-engineering",
+        "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+        "vector_score": 0.8120562434196472,
+        "keyword_score": 0.7971227979485342,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 28.375,
+  "timings_seconds": {
+    "decomposition": 3.287667,
+    "retrieval": 25.087673,
+    "mqe": 9.974518,
+    "hyde": 13.924071,
+    "embedding": 0.887611,
+    "vector_search": 0.065055,
+    "keyword_search": 0.231851,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 25.087829,
+    "total": 28.375495,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

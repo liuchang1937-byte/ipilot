@@ -1,0 +1,2103 @@
+{
+  "id": "c00a40431f994623af5b105b2c9007bf",
+  "kind": "scoring_experiment",
+  "schema_version": 1,
+  "created_at": "2026-10-12T06:32:28.573877+00:00",
+  "dataset": {
+    "name": "逐点评分种子集 v1 · 24题",
+    "label_status": "seed_requires_human_review",
+    "sha256": "001d54445c83ff964a8f99ee9c17f304342e808926a06aee196459ec6c6f77a2",
+    "selected_cases": 24
+  },
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash"
+  },
+  "repeats": 1,
+  "summary": {
+    "case_observations": 24,
+    "independent_cases": 24,
+    "point_observations": 72,
+    "verified_points": 30,
+    "agreement_all_points": 0.4027777777777778,
+    "agreement_verified_points": 0.9666666666666667,
+    "unverified_rate": 0.5833333333333333,
+    "fallback_cases": 14,
+    "macro_f1": 0.5894808743169399,
+    "per_class": {
+      "mastered": {
+        "precision": 1.0,
+        "recall": 0.35555555555555557,
+        "f1": 0.5245901639344263,
+        "support": 45
+      },
+      "partial": {
+        "precision": 0.6666666666666666,
+        "recall": 0.4,
+        "f1": 0.5,
+        "support": 5
+      },
+      "incorrect": {
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666,
+        "support": 12
+      },
+      "not_addressed": {
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666,
+        "support": 10
+      }
+    },
+    "confusion_matrix": {
+      "mastered": {
+        "mastered": 16,
+        "partial": 1,
+        "incorrect": 0,
+        "not_addressed": 0,
+        "unverified": 28
+      },
+      "partial": {
+        "mastered": 0,
+        "partial": 2,
+        "incorrect": 0,
+        "not_addressed": 0,
+        "unverified": 3
+      },
+      "incorrect": {
+        "mastered": 0,
+        "partial": 0,
+        "incorrect": 6,
+        "not_addressed": 0,
+        "unverified": 6
+      },
+      "not_addressed": {
+        "mastered": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "not_addressed": 5,
+        "unverified": 5
+      }
+    },
+    "repeat_modal_agreement": null,
+    "repeat_cases": 0,
+    "mean_seconds": 7.759464583333333
+  },
+  "records": [
+    {
+      "case_id": "S-001",
+      "repeat": 1,
+      "category": "correct",
+      "answers": [
+        "模型选工具并给参数，宿主校验参数和权限后执行，再将结果回填模型。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 90.0,
+          "reasoning": 90.0,
+          "depth": 90.0,
+          "communication": 90.0,
+          "adaptability": 90.0
+        },
+        "overall": 90.0,
+        "missing_points": [],
+        "incorrect_points": [],
+        "feedback": "候选人准确概括了 Function Calling 的核心链路：模型选择工具并生成参数，宿主校验参数和权限后执行，再把结果回填模型。三个评分点均覆盖，表述简洁；可继续引申到执行前确定性检查、权限与业务校验、结果关联等工程细节。",
+        "interviewer_reply": "你概括得很准：模型负责选工具和给参数，宿主在鉴权、校验后执行，再把结果回填给模型生成回答。",
+        "needs_followup": false,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你说宿主校验参数和权限后执行，那如果参数格式正确但订单号不属于当前用户，宿主为什么仍不能直接执行？还需要哪些确定性检查？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "模型选择工具并生成参数",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "模型选工具并给参数"
+              }
+            ],
+            "reason": "原回答明确说明模型选择工具并生成参数，与评分点一致。"
+          },
+          {
+            "point_id": "P2",
+            "point": "宿主校验参数和权限并执行工具",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "宿主校验参数和权限后执行"
+              }
+            ],
+            "reason": "原回答明确说明宿主校验参数和权限后执行，覆盖宿主校验、鉴权与执行职责。"
+          },
+          {
+            "point_id": "P3",
+            "point": "执行结果回填模型",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "再将结果回填模型"
+              }
+            ],
+            "reason": "原回答明确说明将执行结果回填模型，覆盖结果回传环节。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 16.17489
+    },
+    {
+      "case_id": "S-002",
+      "repeat": 1,
+      "category": "partial",
+      "answers": [
+        "模型会给出工具名和参数，程序会调用这个函数。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "partial",
+        "P3": "not_addressed"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 38.0,
+          "reasoning": 38.0,
+          "depth": 38.0,
+          "communication": 38.0,
+          "adaptability": 38.0
+        },
+        "overall": 38.0,
+        "missing_points": [
+          "宿主程序在工具执行前校验参数、鉴权并执行工具",
+          "工具执行结果回填模型，由模型生成最终回答",
+          "Function Calling 不是模型直接执行函数",
+          "工具结果需与对应调用关联，JSON 格式正确也不代表业务、权限或条件正确",
+          "超时、重试、幂等和安全控制不能由 Function Calling 替代"
+        ],
+        "incorrect_points": [],
+        "feedback": "基础方向正确，但回答不完整。只覆盖模型生成工具名和参数、程序执行，尚未说明宿主校验参数和权限、结果回填模型，也未涉及模型不直接执行函数及安全控制。需要补齐完整调用闭环。",
+        "interviewer_reply": "你提到模型给出工具名和参数、程序负责调用，这一步理解到了；但还需要补充调用前宿主如何校验参数和权限，以及执行结果怎样回到模型生成最终回答。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到程序会调用这个函数，那在真正调用前，宿主程序通常要对工具名和参数做哪些校验或鉴权？执行后的结果又如何回到模型并生成最终回答？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "模型选择工具并生成参数",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "模型会给出工具名和参数，程序会调用这个函数。"
+              }
+            ],
+            "reason": "候选人明确说出模型给出工具名和参数，等价于模型选择工具并生成结构化调用参数，核心要点已覆盖。"
+          },
+          {
+            "point_id": "P2",
+            "point": "宿主校验参数和权限并执行工具",
+            "status": "partial",
+            "label": "部分掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "程序会调用这个函数。"
+              }
+            ],
+            "reason": "候选人提到程序会调用函数，覆盖了执行工具这一部分；但没有说明宿主在调用前需要校验参数和权限，因此只部分覆盖。"
+          },
+          {
+            "point_id": "P3",
+            "point": "执行结果回填模型",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "候选人未提及工具执行结果回填模型或由模型生成最终回答。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 14.82276
+    },
+    {
+      "case_id": "S-003",
+      "repeat": 1,
+      "category": "incorrect",
+      "answers": [
+        "模型在自己的参数中直接执行函数，宿主不需要检查权限，也不用把结果给模型。"
+      ],
+      "expected_statuses": {
+        "P1": "incorrect",
+        "P2": "incorrect",
+        "P3": "incorrect"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 8.0,
+          "reasoning": 8.0,
+          "depth": 8.0,
+          "communication": 8.0,
+          "adaptability": 8.0
+        },
+        "overall": 8.0,
+        "missing_points": [
+          "模型根据用户意图和工具Schema选择工具并生成结构化参数",
+          "宿主程序校验参数、鉴权并真实执行工具",
+          "工具执行结果作为工具消息回填模型，由模型生成最终回答",
+          "模型不直接执行函数，执行前仍需确定性检查"
+        ],
+        "incorrect_points": [
+          "模型在自己的参数中直接执行函数",
+          "宿主不需要检查权限",
+          "不用把工具执行结果给模型"
+        ],
+        "feedback": "候选人把 Function Calling 的核心机制完全答反：模型被描述为直接执行函数，宿主不检查权限，结果也不回填模型。参考答案要求模型只生成结构化调用请求，宿主负责校验、鉴权、执行，并将结果返回模型，因此三个评分点均未掌握。",
+        "interviewer_reply": "你刚才说模型会在自己的参数中直接执行函数，并且宿主不检查权限、结果也不回传模型；这三点与实际流程正好相反。",
+        "needs_followup": false,
+        "unmastered_points": [],
+        "next_action": "new_topic",
+        "next_query": "你刚才提到模型自己执行函数、宿主不检查权限；先换个基础架构题：在一个普通 API 调用中，客户端、服务端和下游服务各自负责什么？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "模型选择工具并生成参数",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "模型在自己的参数中直接执行函数"
+              }
+            ],
+            "reason": "候选人把模型职责说成直接执行函数，这与“模型只选择工具并生成参数”相反，未认可模型应生成结构化调用请求。"
+          },
+          {
+            "point_id": "P2",
+            "point": "宿主校验参数和权限并执行工具",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "宿主不需要检查权限"
+              }
+            ],
+            "reason": "候选人明确说宿主不需要检查权限，且把执行归给模型，与“宿主校验参数和权限并执行工具”相反。"
+          },
+          {
+            "point_id": "P3",
+            "point": "执行结果回填模型",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "也不用把结果给模型"
+              }
+            ],
+            "reason": "候选人明确说不用把结果给模型，与“执行结果回填模型”相反。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 43.621026
+    },
+    {
+      "case_id": "S-004",
+      "repeat": 1,
+      "category": "omission",
+      "answers": [
+        "模型选择工具并生成参数。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "not_addressed",
+        "P3": "not_addressed"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 33.0,
+          "reasoning": 33.0,
+          "depth": 33.0,
+          "communication": 33.0,
+          "adaptability": 33.0
+        },
+        "overall": 33.0,
+        "missing_points": [
+          "宿主校验参数和权限并执行工具",
+          "执行结果回填模型"
+        ],
+        "incorrect_points": [],
+        "feedback": "候选人答出了 Function Calling 中模型选择工具并生成参数这一核心点，但没有说明宿主程序负责校验参数、鉴权并真实执行工具，也没有说明工具执行结果需要回填给模型生成最终回答。整体只覆盖了原理链路的第一步，深度不足，但未出现明显错误。",
+        "interviewer_reply": "你指出模型会先选择工具并生成参数，这是 Function Calling 的模型侧动作。接下来宿主程序如何处理这些参数并执行工具、再把结果交回模型？",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到模型会选择工具并生成参数，那么宿主程序收到这些结构化调用后，需要做哪些校验、鉴权和执行？执行结果又如何回填给模型生成最终回答？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "模型选择工具并生成参数",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "模型选择工具并生成参数。"
+              }
+            ],
+            "reason": "候选人明确说出“模型选择工具并生成参数”，与评分点P1一致，已掌握模型侧选择工具并生成结构化参数这一环节。"
+          },
+          {
+            "point_id": "P2",
+            "point": "宿主校验参数和权限并执行工具",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "候选人未提及宿主程序校验参数、鉴权或真实执行工具，因此该评分点没有被回答涉及。"
+          },
+          {
+            "point_id": "P3",
+            "point": "执行结果回填模型",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "候选人未提及工具执行结果需要回填给模型，因此该评分点没有被回答涉及。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 8.674284
+    },
+    {
+      "case_id": "S-005",
+      "repeat": 1,
+      "category": "equivalent",
+      "answers": [
+        "语言模型发出调用请求，应用层检查入参并鉴权后运行外部函数，返回值作为工具消息加入后续对话。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 76.0,
+          "reasoning": 76.0,
+          "depth": 76.0,
+          "communication": 76.0,
+          "adaptability": 76.0
+        },
+        "overall": 76.0,
+        "missing_points": [
+          "模型侧需要选择工具并生成结构化参数（工具名、参数等）"
+        ],
+        "incorrect_points": [],
+        "feedback": "候选人清楚描述宿主检查入参、鉴权并执行外部函数，再把返回值作为工具消息加入对话，核心数据流理解正确。但对模型侧职责只说到发出调用请求，未点明选择工具和生成参数，深度略不足。",
+        "interviewer_reply": "你提到应用层检查入参并鉴权后运行外部函数，也把返回值作为工具消息放回对话，这个流程方向是对的；不过还需要明确模型侧具体生成的是工具选择和参数。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "那模型发出的这个调用请求里，通常包含哪些由模型生成的信息？它和宿主程序真正执行函数之间怎么衔接？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "模型选择工具并生成参数",
+            "status": "partial",
+            "label": "部分掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "语言模型发出调用请求"
+              }
+            ],
+            "reason": "候选人说模型发出调用请求，可认可模型侧会生成调用；但未明确“选择工具”和“生成参数”，属于表述不全。"
+          },
+          {
+            "point_id": "P2",
+            "point": "宿主校验参数和权限并执行工具",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "应用层检查入参并鉴权后运行外部函数"
+              }
+            ],
+            "reason": "应用层检查入参并鉴权后运行外部函数，等价覆盖宿主校验参数和权限并执行工具。"
+          },
+          {
+            "point_id": "P3",
+            "point": "执行结果回填模型",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "返回值作为工具消息加入后续对话"
+              }
+            ],
+            "reason": "返回值作为工具消息加入后续对话，等价覆盖执行结果回填模型。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 14.105469
+    },
+    {
+      "case_id": "S-006",
+      "repeat": 1,
+      "category": "correction",
+      "answers": [
+        "是模型直接执行函数。",
+        "我纠正前面的话：模型只决定函数名与参数，宿主检查参数和权限再执行，并把返回值交给模型继续回答。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 84.0,
+          "reasoning": 84.0,
+          "depth": 84.0,
+          "communication": 84.0,
+          "adaptability": 84.0
+        },
+        "overall": 84.0,
+        "missing_points": [],
+        "incorrect_points": [
+          "首次回答错误地称“模型直接执行函数”，但补充回答已明确纠正。"
+        ],
+        "feedback": "核心三点均覆盖：模型选择函数并生成参数、宿主校验参数和权限后执行、执行结果回填模型；且能主动纠正初次错误。可继续深入宿主校验失败、权限拒绝、调用结果与调用ID关联等生产化细节。",
+        "interviewer_reply": "你这次明确把模型职责限定为选择函数名和参数，并说明宿主检查参数、权限后执行，再把返回值交回模型继续回答，这已经形成了完整链路。",
+        "needs_followup": false,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到宿主检查参数和权限再执行；如果模型生成的参数 JSON 格式正确，但订单号越权或业务状态不允许查询，宿主应如何拒绝并把什么结果回填给模型？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "模型选择工具并生成参数",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "模型只决定函数名与参数"
+              }
+            ],
+            "reason": "候选人补充回答明确说明模型只决定函数名与参数，等价于模型选择工具并生成调用参数。"
+          },
+          {
+            "point_id": "P2",
+            "point": "宿主校验参数和权限并执行工具",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "宿主检查参数和权限再执行"
+              }
+            ],
+            "reason": "候选人补充回答明确说明宿主检查参数和权限再执行，覆盖宿主校验与真实执行职责。"
+          },
+          {
+            "point_id": "P3",
+            "point": "执行结果回填模型",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 2,
+                "quote": "并把返回值交给模型继续回答"
+              }
+            ],
+            "reason": "候选人补充回答明确说明把返回值交给模型继续回答，覆盖执行结果回填模型。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 13.237505
+    },
+    {
+      "case_id": "S-007",
+      "repeat": 1,
+      "category": "correct",
+      "answers": [
+        "关键词适合精确术语和编号，向量适合语义与同义问法，两路召回可以用RRF融合排名并去重。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 82.0,
+          "reasoning": 82.0,
+          "depth": 82.0,
+          "communication": 82.0,
+          "adaptability": 82.0
+        },
+        "overall": 82.0,
+        "missing_points": [
+          "未展开关键词检索可解释、成本低但同义召回差等局限",
+          "未说明向量检索可能忽略字面约束并产生语义误召回",
+          "未解释两路原始分数范围不同、不能直接相加，需归一化或按排名融合",
+          "未提及重排、上下文长度控制和业务评测对混合检索效果的影响"
+        ],
+        "incorrect_points": [],
+        "feedback": "核心区别掌握准确，能指出关键词适合精确术语/编号、向量适合语义/同义问法，并提到RRF融合排名与去重。回答较概括，未展开两类检索的局限、分数融合口径差异以及重排和评测等工程细节。",
+        "interviewer_reply": "你提到两路召回用RRF融合排名并去重，这里关键确实不只是拼接结果，而是把不同来源的排序统一融合；其中去重也说明你注意到混合检索不能简单堆叠候选。",
+        "needs_followup": false,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到RRF融合排名并去重，能具体说说RRF如何计算融合分数，以及为什么通常不直接把关键词检索和向量检索的原始分数相加吗？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "关键词检索擅长精确词项匹配",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "关键词适合精确术语和编号"
+              }
+            ],
+            "reason": "候选人指出关键词适合精确术语和编号，属于精确词项匹配的典型场景，认可为等价表述。"
+          },
+          {
+            "point_id": "P2",
+            "point": "向量检索擅长语义同义匹配",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "向量适合语义与同义问法"
+              }
+            ],
+            "reason": "候选人指出向量适合语义与同义问法，对应向量检索擅长语义同义匹配。"
+          },
+          {
+            "point_id": "P3",
+            "point": "混合检索需要融合排序并去重",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "两路召回可以用RRF融合排名并去重"
+              }
+            ],
+            "reason": "候选人提到两路召回可以用RRF融合排名并去重，对应混合检索需要融合排序并去重。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 14.261096
+    },
+    {
+      "case_id": "S-008",
+      "repeat": 1,
+      "category": "partial",
+      "answers": [
+        "关键词按词匹配，向量按语义匹配，把两路结果合在一起。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "partial"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 68.0,
+          "reasoning": 68.0,
+          "depth": 68.0,
+          "communication": 68.0,
+          "adaptability": 68.0
+        },
+        "overall": 68.0,
+        "missing_points": [
+          "关键词检索在错误码、编号、精确短语等字面约束上的优势，以及可解释、成本低的特点",
+          "向量检索在改写、跨语言表达上的召回优势，以及可能忽略关键字面约束、产生语义误召回的风险",
+          "混合检索的融合排序方法（如分数归一化、RRF）、去重和统一重排，以及两路分数不能简单相加"
+        ],
+        "incorrect_points": [],
+        "feedback": "回答抓住了关键词按词匹配、向量按语义匹配以及两路结果合并的基本框架，方向正确但比较概括。还缺少精确检索优势、语义召回风险，以及混合检索中融合排序、去重和分数不可直接相加等关键细节。",
+        "interviewer_reply": "你抓住了关键词按词匹配、向量按语义匹配，并提出把两路结果合在一起；那合并时具体怎么做排序和去重？",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你提到把两路结果合在一起，具体融合时如何避免原始分数范围不同导致简单相加不合理？会怎么去重和重排？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "关键词检索擅长精确词项匹配",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "关键词按词匹配"
+              }
+            ],
+            "reason": "候选人指出关键词按词匹配，等价覆盖了关键词检索依赖词项匹配的核心含义；未展开精确短语、错误码等场景，但不影响该要点成立。"
+          },
+          {
+            "point_id": "P2",
+            "point": "向量检索擅长语义同义匹配",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "向量按语义匹配"
+              }
+            ],
+            "reason": "候选人明确说向量按语义匹配，与向量检索擅长语义同义匹配的要点一致。"
+          },
+          {
+            "point_id": "P3",
+            "point": "混合检索需要融合排序并去重",
+            "status": "partial",
+            "label": "部分掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "把两路结果合在一起"
+              }
+            ],
+            "reason": "候选人提到把两路结果合在一起，覆盖了混合检索的基本方向，但没有说明融合排序、去重以及原始分数不可简单相加等关键处理。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 17.052884
+    },
+    {
+      "case_id": "S-009",
+      "repeat": 1,
+      "category": "incorrect",
+      "answers": [
+        "关键词检索不依赖词项而只理解语义，向量只能匹配相同字面，融合不用处理排序和重复项。"
+      ],
+      "expected_statuses": {
+        "P1": "incorrect",
+        "P2": "incorrect",
+        "P3": "incorrect"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 10.0,
+          "reasoning": 10.0,
+          "depth": 10.0,
+          "communication": 10.0,
+          "adaptability": 10.0
+        },
+        "overall": 10.0,
+        "missing_points": [
+          "关键词检索依赖词项匹配和统计权重，擅长人名、编号、错误码、精确短语",
+          "向量检索按语义相似度匹配，擅长同义改写和跨语言表达",
+          "混合检索需融合两路召回结果，常用归一化或 RRF，并去重和重排"
+        ],
+        "incorrect_points": [
+          "关键词检索不依赖词项而只理解语义",
+          "向量检索只能匹配相同字面",
+          "混合检索融合不用处理排序和重复项"
+        ],
+        "feedback": "本题三个核心点均被说反，未体现出关键词检索、向量检索和混合检索的基本区别。需要重新区分：关键词检索=词项/精确匹配，向量检索=语义/同义匹配，混合检索=融合排序+去重。",
+        "interviewer_reply": "你这里把关键词检索和向量检索的特点说反了：关键词检索通常依赖词项匹配，向量检索才按语义相似度召回。混合检索一般也需要融合排序和去重，你能用错误码 E102 说明一下关键词检索为什么更稳吗？",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "new_topic",
+        "next_query": "你刚才说向量只能匹配相同字面，那错误码 E102 在关键词检索和向量检索中分别会怎样？为什么？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "关键词检索擅长精确词项匹配",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "关键词检索不依赖词项而只理解语义"
+              }
+            ],
+            "reason": "候选人称关键词检索不依赖词项而只理解语义，正好违背评分要点：关键词检索擅长且依赖精确词项匹配。"
+          },
+          {
+            "point_id": "P2",
+            "point": "向量检索擅长语义同义匹配",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "向量只能匹配相同字面"
+              }
+            ],
+            "reason": "候选人称向量只能匹配相同字面，与向量检索擅长语义同义匹配相反。"
+          },
+          {
+            "point_id": "P3",
+            "point": "混合检索需要融合排序并去重",
+            "status": "incorrect",
+            "label": "存在错误",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "融合不用处理排序和重复项"
+              }
+            ],
+            "reason": "候选人称融合不用处理排序和重复项，与混合检索需要融合排序并去重相反。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 25.423728
+    },
+    {
+      "case_id": "S-010",
+      "repeat": 1,
+      "category": "omission",
+      "answers": [
+        "向量可以找到同义表达，查询与文档被映射为向量再比较相似度。"
+      ],
+      "expected_statuses": {
+        "P1": "not_addressed",
+        "P2": "mastered",
+        "P3": "not_addressed"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 40.0,
+          "reasoning": 40.0,
+          "depth": 40.0,
+          "communication": 40.0,
+          "adaptability": 40.0
+        },
+        "overall": 40.0,
+        "missing_points": [
+          "未说明关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码、精确短语等精确约束场景。",
+          "未说明关键词检索可解释、成本低，但同义表达召回差。",
+          "未说明向量检索可能忽略关键字面约束，并可能产生语义误召回。",
+          "未说明混合检索常见做法是两路召回后融合排序，例如使用RRF或归一化处理，并去重、重排。",
+          "未比较两种检索的适用场景，也未说明原始分数范围不同、不能简单相加。"
+        ],
+        "incorrect_points": [],
+        "feedback": "候选人只覆盖了向量检索的语义相似度/同义表达匹配，未回答关键词检索精确匹配和混合检索融合去重，因此对原题差异的掌握不完整。已掌握点可认可，但需补充关键词检索特点及融合排序方案。",
+        "interviewer_reply": "你提到向量检索会把查询和文档映射成向量、通过相似度找同义表达，这个方向是对的；但还需要说明关键词检索的精确词项匹配优势，以及两者一起用时的融合排序和去重。",
+        "needs_followup": true,
+        "unmastered_points": [],
+        "next_action": "extend",
+        "next_query": "你刚才说向量检索靠向量相似度找同义表达，那关键词检索在错误码、人名这类精确约束上有什么优势？如果两路召回一起用，排序结果应该怎么融合和去重？",
+        "scoring_method": "model",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "关键词检索擅长精确词项匹配",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "本轮回答未提及关键词检索或精确词项匹配。"
+          },
+          {
+            "point_id": "P2",
+            "point": "向量检索擅长语义同义匹配",
+            "status": "mastered",
+            "label": "掌握",
+            "evidence": [
+              {
+                "answer_index": 1,
+                "quote": "向量可以找到同义表达，查询与文档被映射为向量再比较相似度。"
+              }
+            ],
+            "reason": "候选人明确说出向量可找到同义表达，并说明查询和文档被映射为向量后比较相似度，符合向量检索擅长语义同义匹配。"
+          },
+          {
+            "point_id": "P3",
+            "point": "混合检索需要融合排序并去重",
+            "status": "not_addressed",
+            "label": "未涉及",
+            "evidence": [],
+            "reason": "本轮回答未提及混合检索、融合排序或去重。"
+          }
+        ],
+        "point_review_complete": true
+      },
+      "elapsed_seconds": 12.91673
+    },
+    {
+      "case_id": "S-011",
+      "repeat": 1,
+      "category": "equivalent",
+      "answers": [
+        "倒排召回抓住型号和术语，稠密表示找到不同措辞下的同一含义；两个有序列表按名次合并，同一资料只保留一份。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 39.0,
+          "reasoning": 39.0,
+          "depth": 39.0,
+          "communication": 39.0,
+          "adaptability": 39.0
+        },
+        "overall": 39.0,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "关键词检索擅长精确词项匹配",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "向量检索擅长语义同义匹配",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "混合检索需要融合排序并去重",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.408266
+    },
+    {
+      "case_id": "S-012",
+      "repeat": 1,
+      "category": "correction",
+      "answers": [
+        "向量只能匹配原词。",
+        "刚才说反了：倒排擅长精确词项，向量覆盖同义语义，结果用排序融合并去掉重复资料。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 41.7,
+          "reasoning": 41.7,
+          "depth": 41.7,
+          "communication": 41.7,
+          "adaptability": 41.7
+        },
+        "overall": 41.7,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "关键词检索擅长精确词项匹配",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "向量检索擅长语义同义匹配",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "混合检索需要融合排序并去重",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.393635
+    },
+    {
+      "case_id": "S-013",
+      "repeat": 1,
+      "category": "correct",
+      "answers": [
+        "清洗资料、切块并嵌入建索引，用户查询后召回相关内容，把证据放进提示让模型生成带来源的答案。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 40.4,
+          "reasoning": 40.4,
+          "depth": 40.4,
+          "communication": 40.4,
+          "adaptability": 40.4
+        },
+        "overall": 40.4,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.382879
+    },
+    {
+      "case_id": "S-014",
+      "repeat": 1,
+      "category": "partial",
+      "answers": [
+        "先把资料存起来，查询时找相关内容，再让模型回答。"
+      ],
+      "expected_statuses": {
+        "P1": "partial",
+        "P2": "mastered",
+        "P3": "partial"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 32.4,
+          "reasoning": 32.4,
+          "depth": 32.4,
+          "communication": 32.4,
+          "adaptability": 32.4
+        },
+        "overall": 32.4,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.399033
+    },
+    {
+      "case_id": "S-015",
+      "repeat": 1,
+      "category": "incorrect",
+      "answers": [
+        "RAG就是直接把资料训练进模型参数，不需要查询检索任何资料，回答也不使用外部证据。"
+      ],
+      "expected_statuses": {
+        "P1": "incorrect",
+        "P2": "incorrect",
+        "P3": "incorrect"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 34.6,
+          "reasoning": 34.6,
+          "depth": 34.6,
+          "communication": 34.6,
+          "adaptability": 34.6
+        },
+        "overall": 34.6,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.386137
+    },
+    {
+      "case_id": "S-016",
+      "repeat": 1,
+      "category": "omission",
+      "answers": [
+        "先清洗资料，按语义切块，生成向量并建立索引。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "not_addressed",
+        "P3": "not_addressed"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 29.5,
+          "reasoning": 29.5,
+          "depth": 29.5,
+          "communication": 29.5,
+          "adaptability": 29.5
+        },
+        "overall": 29.5,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.392745
+    },
+    {
+      "case_id": "S-017",
+      "repeat": 1,
+      "category": "equivalent",
+      "answers": [
+        "离线把文档整理成片段、编码为稠密表示存入库；在线用问句取回匹配片段，把正文与出处作为上下文交给生成器。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 36.8,
+          "reasoning": 36.8,
+          "depth": 36.8,
+          "communication": 36.8,
+          "adaptability": 36.8
+        },
+        "overall": 36.8,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.430498
+    },
+    {
+      "case_id": "S-018",
+      "repeat": 1,
+      "category": "correction",
+      "answers": [
+        "RAG不做检索。",
+        "修正一下：先清洗切块生成向量索引，再检索与问题相关的资料，证据和出处进入提示用于生成有引用的回答。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 41.2,
+          "reasoning": 41.2,
+          "depth": 41.2,
+          "communication": 41.2,
+          "adaptability": 41.2
+        },
+        "overall": 41.2,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "资料清洗切块并建立向量索引",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "查询检索相关资料",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "将检索证据加入提示生成带来源回答",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.3959
+    },
+    {
+      "case_id": "S-019",
+      "repeat": 1,
+      "category": "correct",
+      "answers": [
+        "记录当前阶段与任务进度，状态持久化后重启可恢复，使用请求ID去重和幂等操作避免重复执行。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 41.2,
+          "reasoning": 41.2,
+          "depth": 41.2,
+          "communication": 41.2,
+          "adaptability": 41.2
+        },
+        "overall": 41.2,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.408108
+    },
+    {
+      "case_id": "S-020",
+      "repeat": 1,
+      "category": "partial",
+      "answers": [
+        "保存当前处在哪一步，重启后继续执行。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "partial",
+        "P3": "not_addressed"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 26.0,
+          "reasoning": 26.0,
+          "depth": 26.0,
+          "communication": 26.0,
+          "adaptability": 26.0
+        },
+        "overall": 26.0,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.439538
+    },
+    {
+      "case_id": "S-021",
+      "repeat": 1,
+      "category": "incorrect",
+      "answers": [
+        "完全不保存当前任务状态，所有信息只在内存里所以重启也不会丢，重试请求重复执行也不需要控制。"
+      ],
+      "expected_statuses": {
+        "P1": "incorrect",
+        "P2": "incorrect",
+        "P3": "incorrect"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 35.1,
+          "reasoning": 35.1,
+          "depth": 35.1,
+          "communication": 35.1,
+          "adaptability": 35.1
+        },
+        "overall": 35.1,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.39934
+    },
+    {
+      "case_id": "S-022",
+      "repeat": 1,
+      "category": "omission",
+      "answers": [
+        "给每个请求唯一编号，重复请求只处理一次。"
+      ],
+      "expected_statuses": {
+        "P1": "not_addressed",
+        "P2": "not_addressed",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 26.8,
+          "reasoning": 26.8,
+          "depth": 26.8,
+          "communication": 26.8,
+          "adaptability": 26.8
+        },
+        "overall": 26.8,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.715471
+    },
+    {
+      "case_id": "S-023",
+      "repeat": 1,
+      "category": "equivalent",
+      "answers": [
+        "将流程节点及其进度写入数据库检查点，进程重建后从检查点续跑，以业务唯一键检查已经执行的步骤。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 36.6,
+          "reasoning": 36.6,
+          "depth": 36.6,
+          "communication": 36.6,
+          "adaptability": 36.6
+        },
+        "overall": 36.6,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.377938
+    },
+    {
+      "case_id": "S-024",
+      "repeat": 1,
+      "category": "correction",
+      "answers": [
+        "服务重启只能重新开始。",
+        "更正：保存阶段与任务状态到持久存储，重启后读取恢复，并使用幂等键防止相同请求再次执行。"
+      ],
+      "expected_statuses": {
+        "P1": "mastered",
+        "P2": "mastered",
+        "P3": "mastered"
+      },
+      "evaluation": {
+        "scores": {
+          "knowledge": 43.4,
+          "reasoning": 43.4,
+          "depth": 43.4,
+          "communication": 43.4,
+          "adaptability": 43.4
+        },
+        "overall": 43.4,
+        "missing_points": [
+          "模型评分不可用，已使用词项覆盖率降级评分"
+        ],
+        "incorrect_points": [],
+        "feedback": "当前结果为降级评分，正式报告建议使用模型评分。",
+        "scoring_method": "fallback",
+        "interviewer_reply": "评分服务暂时不可用，这题的评价会在报告中标注为降级评分。",
+        "point_reviews": [
+          {
+            "point_id": "P1",
+            "point": "保存会话阶段和当前任务状态",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P2",
+            "point": "持久化状态以支持中断恢复",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          },
+          {
+            "point_id": "P3",
+            "point": "使用请求去重或幂等避免重复执行",
+            "status": "unverified",
+            "label": "待核验",
+            "evidence": [],
+            "reason": "评分服务不可用，未进行语义逐点评价。"
+          }
+        ],
+        "point_review_complete": false
+      },
+      "elapsed_seconds": 0.40729
+    }
+  ],
+  "by_category": {
+    "correct": {
+      "case_observations": 4,
+      "independent_cases": 4,
+      "point_observations": 12,
+      "verified_points": 6,
+      "agreement_all_points": 0.5,
+      "agreement_verified_points": 1.0,
+      "unverified_rate": 0.5,
+      "fallback_cases": 2,
+      "macro_f1": 0.6666666666666666,
+      "per_class": {
+        "mastered": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "support": 12
+        },
+        "partial": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "incorrect": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "not_addressed": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "mastered": {
+          "mastered": 6,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 6
+        },
+        "partial": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "incorrect": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "not_addressed": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        }
+      },
+      "repeat_modal_agreement": null,
+      "repeat_cases": 0,
+      "mean_seconds": 7.80674325
+    },
+    "correction": {
+      "case_observations": 4,
+      "independent_cases": 4,
+      "point_observations": 12,
+      "verified_points": 3,
+      "agreement_all_points": 0.25,
+      "agreement_verified_points": 1.0,
+      "unverified_rate": 0.75,
+      "fallback_cases": 3,
+      "macro_f1": 0.4,
+      "per_class": {
+        "mastered": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "support": 12
+        },
+        "partial": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "incorrect": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "not_addressed": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "mastered": {
+          "mastered": 3,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 9
+        },
+        "partial": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "incorrect": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "not_addressed": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        }
+      },
+      "repeat_modal_agreement": null,
+      "repeat_cases": 0,
+      "mean_seconds": 3.6085825000000002
+    },
+    "equivalent": {
+      "case_observations": 4,
+      "independent_cases": 4,
+      "point_observations": 12,
+      "verified_points": 3,
+      "agreement_all_points": 0.16666666666666666,
+      "agreement_verified_points": 0.6666666666666666,
+      "unverified_rate": 0.75,
+      "fallback_cases": 3,
+      "macro_f1": 0.2857142857142857,
+      "per_class": {
+        "mastered": {
+          "precision": 1.0,
+          "recall": 0.16666666666666666,
+          "f1": 0.2857142857142857,
+          "support": 12
+        },
+        "partial": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "incorrect": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "not_addressed": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "mastered": {
+          "mastered": 2,
+          "partial": 1,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 9
+        },
+        "partial": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "incorrect": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "not_addressed": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        }
+      },
+      "repeat_modal_agreement": null,
+      "repeat_cases": 0,
+      "mean_seconds": 3.8305427499999998
+    },
+    "incorrect": {
+      "case_observations": 4,
+      "independent_cases": 4,
+      "point_observations": 12,
+      "verified_points": 6,
+      "agreement_all_points": 0.5,
+      "agreement_verified_points": 1.0,
+      "unverified_rate": 0.5,
+      "fallback_cases": 2,
+      "macro_f1": 0.6666666666666666,
+      "per_class": {
+        "mastered": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "partial": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "incorrect": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "support": 12
+        },
+        "not_addressed": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        }
+      },
+      "confusion_matrix": {
+        "mastered": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "partial": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "incorrect": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 6,
+          "not_addressed": 0,
+          "unverified": 6
+        },
+        "not_addressed": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        }
+      },
+      "repeat_modal_agreement": null,
+      "repeat_cases": 0,
+      "mean_seconds": 17.45755775
+    },
+    "omission": {
+      "case_observations": 4,
+      "independent_cases": 4,
+      "point_observations": 12,
+      "verified_points": 6,
+      "agreement_all_points": 0.5,
+      "agreement_verified_points": 1.0,
+      "unverified_rate": 0.5,
+      "fallback_cases": 2,
+      "macro_f1": 0.6666666666666666,
+      "per_class": {
+        "mastered": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "support": 4
+        },
+        "partial": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "incorrect": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "not_addressed": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "support": 8
+        }
+      },
+      "confusion_matrix": {
+        "mastered": {
+          "mastered": 2,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 2
+        },
+        "partial": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "incorrect": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "not_addressed": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 4,
+          "unverified": 4
+        }
+      },
+      "repeat_modal_agreement": null,
+      "repeat_cases": 0,
+      "mean_seconds": 5.6748075
+    },
+    "partial": {
+      "case_observations": 4,
+      "independent_cases": 4,
+      "point_observations": 12,
+      "verified_points": 6,
+      "agreement_all_points": 0.5,
+      "agreement_verified_points": 1.0,
+      "unverified_rate": 0.5,
+      "fallback_cases": 2,
+      "macro_f1": 0.6626984126984127,
+      "per_class": {
+        "mastered": {
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75,
+          "support": 5
+        },
+        "partial": {
+          "precision": 1.0,
+          "recall": 0.4,
+          "f1": 0.5714285714285714,
+          "support": 5
+        },
+        "incorrect": {
+          "precision": 0.0,
+          "recall": null,
+          "f1": null,
+          "support": 0
+        },
+        "not_addressed": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "support": 2
+        }
+      },
+      "confusion_matrix": {
+        "mastered": {
+          "mastered": 3,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 2
+        },
+        "partial": {
+          "mastered": 0,
+          "partial": 2,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 3
+        },
+        "incorrect": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 0,
+          "unverified": 0
+        },
+        "not_addressed": {
+          "mastered": 0,
+          "partial": 0,
+          "incorrect": 0,
+          "not_addressed": 1,
+          "unverified": 1
+        }
+      },
+      "repeat_modal_agreement": null,
+      "repeat_cases": 0,
+      "mean_seconds": 8.17855375
+    }
+  },
+  "notes": [
+    "一致率是与所给标注的符合程度，种子标注未复核时不能称为人工评分准确率。",
+    "无效原文或降级评分记待核验，并计入全部评分点的一致率分母。",
+    "原文存在只证明出处，不能证明语义评价正确。宏F1仅平均有标注支持的类别。",
+    "重复一致性是同题多次评价中众数状态向量的比例，不等于判断正确性。",
+    "评测调用生产评分逻辑，不保存面试会话，也不修改题库或历史评分。"
+  ]
+}

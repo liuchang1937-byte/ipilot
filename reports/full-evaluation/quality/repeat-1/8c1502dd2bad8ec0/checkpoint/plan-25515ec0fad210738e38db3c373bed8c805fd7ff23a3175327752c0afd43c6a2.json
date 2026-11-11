@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-111",
+  "subquestions": [
+    {
+      "question": "请按知识库提供Orion-RAG内部采购合同中向量数据库的成交价格。",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 1.176522900001146
+}

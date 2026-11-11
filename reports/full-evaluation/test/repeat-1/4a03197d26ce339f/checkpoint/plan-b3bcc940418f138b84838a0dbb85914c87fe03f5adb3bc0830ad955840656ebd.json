@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-019",
+  "subquestions": [
+    {
+      "question": "任务助手上线前，如何设计案例来检验任务助手是否真正完成任务？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "任务助手上线前，如何设计指标来检验任务助手是否真正完成任务？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "任务助手上线前，如何结合案例与指标来检验任务助手是否真正完成任务？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.175537799997983
+}

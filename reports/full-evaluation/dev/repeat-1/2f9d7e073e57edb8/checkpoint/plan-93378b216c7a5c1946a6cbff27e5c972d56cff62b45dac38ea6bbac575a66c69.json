@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-050",
+  "subquestions": [
+    {
+      "question": "在知识经常更新且需要出处的场景下，检索增强与参数微调应如何选择？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.690650299999106
+}

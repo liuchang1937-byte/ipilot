@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-036",
+  "question": "生成答案时，确定性选词、束搜索和随机采样如何取舍？",
+  "category": "terminology",
+  "split": "test",
+  "group": "L012",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L012"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "贪心每步选择最高概率Token，速度快且稳定但容易局部最优；Beam Search保留多条高概率序列，适合翻译等更重整体概率的任务，但成本高且开放生成可能僵硬；采样按概率随机选择，可配合Temperature、Top-K和Top-P增加多样性，适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择，Beam Search 保留有限数量的序列候选，也不保证找到真正的全局最优；它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token，用随机性换取多样性。结构化输出需要格式约束与校验，低随机性不能替代这些机制。即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L012",
+    "interview-question://A004",
+    "interview-question://A006"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "生成答案时，确定性选词、束搜索和随机采样如何取舍？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "生成答案时，应如何在确定性选词、束搜索和随机采样之间进行取舍？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "生成答案时,应如何在确定性选词、束搜索和随机采样之间进行取舍?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L012",
+            "interview-question://A004",
+            "interview-question://A006"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2130560796992190475,
+        "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+        "source": "interview-question://L012",
+        "domain": "llm-engineering",
+        "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+        "vector_score": 0.811249315738678,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1330550128706514072,
+        "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+        "source": "interview-question://A004",
+        "domain": "agent",
+        "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+        "vector_score": 0.750142365694046,
+        "keyword_score": 0.5388397494640824,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 340363636581916227,
+        "title": "ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?",
+        "source": "interview-question://A006",
+        "domain": "agent",
+        "content": "# ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?\n\n题目编号:A006\n\n领域:agent\n\n难度:2\n\n标签:Plan-and-Execute、Reflection、ReAct\n- 考察方向:三类范式的准确性、延迟、成本和恢复能力差异。\n\n参考答案:ReAct 边思考边行动,适合信息逐步显现、需要频繁工具交互的任务,但调用轮次多;Plan-and-Execute 先生成整体计划再逐项执行,适合依赖关系清楚的长任务,但初始计划错误会向后传播;Reflection 在结果或阶段完成后检查缺陷并修正,适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价,复杂项目常把三者组合使用。例如,开放式故障调查适合根据日志逐步选择工具;生成研究报告可以先列出资料搜集、比较和写作步骤,再由执行器完成;报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据,而不是让同一个模型无限重写。计划遇到新信息也需要修订,并非提前规划后就禁止变化;三种机制都应有步数、费用和时间上限。\n\n评分要点:比较三者控制时机和代价;给出基于场景的选择依据。",
+        "vector_score": 0.7498952746391296,
+        "keyword_score": 0.48099880244058585,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 7.435,
+  "timings_seconds": {
+    "decomposition": 7.26173,
+    "retrieval": 0.173238,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.134154,
+    "vector_search": 0.010728,
+    "keyword_search": 0.027821,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.173343,
+    "total": 7.435073,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

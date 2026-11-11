@@ -1,0 +1,146 @@
+{
+  "case_id": "V2-107",
+  "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-107",
+  "variant": "hybrid",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A021",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://R009"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A021",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "interview-question://R009"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3534902068064850797,
+        "title": "线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?",
+        "source": "interview-question://A021",
+        "domain": "agent",
+        "content": "# 线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?\n\n题目编号:A021\n\n领域:agent\n\n难度:3\n\n标签:可观测性、Trace、性能优化\n- 考察方向:模型、检索、工具、网络和重试链路的分段诊断。\n\n参考答案:为一次任务建立统一Trace ID,并为模型调用、检索、重排、工具、数据库、重试和排队创建Span,记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径,再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环,并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时,再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模,通过慢请求与正常请求对比找关键路径。若慢在工具排队,换模型不会解决;若步数膨胀,则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率,不能用牺牲回答质量换来的速度作为唯一成果。\n\n评分要点:分段追踪、关键指标、定位方法以及质量—延迟权衡。",
+        "vector_score": 0.7380700707435608,
+        "keyword_score": 0.6334670651329531,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4216223474749563969,
+        "title": "附录 B RAG 测试题与参考答案",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 附录 B RAG 测试题与参考答案\n\n题目覆盖单跳、多跳、否定、比较、计算、版本和无答案场景。\n\n类型 测试问题 参考答案 / 依据\n单跳 云杉计划哪天立项? 2024-03-18(F-001)\n单跳 当前标签电量低于多少应换电? 30%(F-023,v1.4)\n否定 东港是否属于试点? 不属于(F-002)\n多跳 谁审批原始温度导出,授权最长多久? 周砚;8 小时(F-004、F-021)\n比较 设备遥测比个人信息多保留多久? 12 个月(18-6;F-019)\n计算 YG-0512 有多少单发生 TEE? 12 单(240-228;案例 C)\n辨析 案例 B 的静默期是否是 TEE? 不是;回传温度始终合规(F-028)\n流程 混合召回后有 16 块,通常给生成器多少块? 重排前 5 块(F-017)\n冲突 换电阈值是 25% 还是 30%? 当前为 30%;25% 是旧版\n无答案 项目使用哪家云服务商? 资料未提供,应拒答\n无答案 林岑的手机号码是多少? 资料未提供,应拒答",
+        "vector_score": 0.7217346429824829,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2886579831854676340,
+        "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+        "source": "interview-question://R009",
+        "domain": "rag",
+        "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+        "vector_score": 0.7247133255004883,
+        "keyword_score": 0.5097911379069551,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 1.614,
+  "timings_seconds": {
+    "decomposition": 1.332119,
+    "retrieval": 0.281696,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.162876,
+    "vector_search": 0.032288,
+    "keyword_search": 0.085345,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.281869,
+    "total": 1.613988,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

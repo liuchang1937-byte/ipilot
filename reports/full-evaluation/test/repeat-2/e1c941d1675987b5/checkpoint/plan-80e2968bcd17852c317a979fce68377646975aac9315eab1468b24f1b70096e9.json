@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-063",
+  "subquestions": [
+    {
+      "question": "在需要沿实体依赖关系查询多跳路径的问题上，图检索相比纯向量检索有哪些优势？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.7328889000018535
+}

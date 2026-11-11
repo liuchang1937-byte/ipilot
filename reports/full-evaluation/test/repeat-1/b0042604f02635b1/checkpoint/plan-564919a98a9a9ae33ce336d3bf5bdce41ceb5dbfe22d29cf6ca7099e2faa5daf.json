@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-119",
+  "subquestions": [
+    {
+      "question": "内部评审未公开的AtlasMemo记忆压缩实验到底节约了多少token？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.4490122999995947
+}

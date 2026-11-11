@@ -1,0 +1,16 @@
+{
+  "python": "3.12.13",
+  "packages": {
+    "chromadb": "1.5.9",
+    "litellm": "1.102.0",
+    "onnxruntime": "1.20.1",
+    "tokenizers": "0.23.2",
+    "numpy": "2.5.3",
+    "fastapi": "0.142.2",
+    "httpx": "0.28.1"
+  },
+  "code_sha256": "e182d7e2056fa8593d711a5ef3523418278ae34c8acd853c4ca1417b68bd5d22",
+  "snapshot_verified": true,
+  "uv_lock_sha256": "24de1b17f0783353b4df95cc1576c6b9fc1a1fc3f6f6d7c3e0300abc211f093b",
+  "note": "仅保存项目源代码及版本信息，未复制.env或任何API密钥；供应商API模型名称为请求别名，不是权重快照。"
+}

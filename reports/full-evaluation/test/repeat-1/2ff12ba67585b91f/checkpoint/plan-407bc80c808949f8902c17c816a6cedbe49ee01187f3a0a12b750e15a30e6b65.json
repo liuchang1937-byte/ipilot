@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-006",
+  "subquestions": [
+    {
+      "question": "边想边做、先规划后执行和完成后反思这三种方式在延迟和可控性上有什么取舍？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 7.137239600000612
+}

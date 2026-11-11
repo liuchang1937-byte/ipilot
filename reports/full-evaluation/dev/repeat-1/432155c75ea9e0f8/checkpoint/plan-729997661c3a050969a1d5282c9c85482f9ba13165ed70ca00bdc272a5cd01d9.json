@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-066",
+  "subquestions": [
+    {
+      "question": "资料修改或删除后，怎样让关键词索引持续保持最新？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "资料修改或删除后，怎样让向量索引持续保持最新？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.408088899999711
+}

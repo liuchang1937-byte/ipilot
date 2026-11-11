@@ -1,0 +1,224 @@
+{
+  "case_id": "V2-037",
+  "question": "temperature、top_p与top_k对生成分布各有什么影响？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "L012",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L013"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Temperature缩放Logits，越低分布越尖锐；Top-K只在概率最高的K个Token中采样；Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度，创作可提高温度并使用Top-P；不存在通用最佳值，应基于任务集评估，而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布，Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合。它们只改变采样行为，不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数，再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同，因此不存在跨模型通用的最佳数值，温度为零也不等于结果一定可复现。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L013",
+    "interview-question://L012",
+    "interview-question://R018",
+    "interview-question://L004",
+    "interview-question://L014"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.7539531690476383,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "temperature、top_p与top_k对生成分布各有什么影响？",
+    "answer": "1. temperature对生成分布有什么影响？\n\n\n2. top_p对生成分布有什么影响？\n\n\n3. top_k对生成分布有什么影响？\n",
+    "sections": [
+      {
+        "question": "temperature对生成分布有什么影响？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "temperature对生成分布有什么影响?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L013",
+            "interview-question://L012",
+            "interview-question://R018"
+          ]
+        }
+      },
+      {
+        "question": "top_p对生成分布有什么影响？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "top_p对生成分布有什么影响?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L012",
+            "interview-question://L013",
+            "interview-question://L004"
+          ]
+        }
+      },
+      {
+        "question": "top_k对生成分布有什么影响？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "top_k对生成分布有什么影响?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L012",
+            "interview-question://L013",
+            "interview-question://L014"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 96113536461836751,
+        "title": "大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?",
+        "source": "interview-question://L013",
+        "domain": "llm-engineering",
+        "content": "# 大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?\n\n题目编号:L013\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度,创作可提高温度并使用Top-P;不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。它们只改变采样行为,不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数,再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同,因此不存在跨模型通用的最佳数值,温度为零也不等于结果一定可复现。\n\n评分要点:参数机制准确;场景化而非给出绝对最佳值。",
+        "vector_score": 0.832513689994812,
+        "keyword_score": 0.5704410025906554,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2130560796992190475,
+        "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+        "source": "interview-question://L012",
+        "domain": "llm-engineering",
+        "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+        "vector_score": 0.7770831286907196,
+        "keyword_score": 0.6453983573110548,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 145210955334252079,
+        "title": "怎么量化你的 RAG 效果?",
+        "source": "interview-question://R018",
+        "domain": "rag",
+        "content": "# 怎么量化你的 RAG 效果?\n\n题目编号:R018\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景,避免只验证常见问题。模型裁判需要人工校准,线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本,并定位是召回失败还是生成失败。\n\n评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。",
+        "vector_score": 0.6872363686561584,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2551140976894006908,
+        "title": "大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?",
+        "source": "interview-question://L004",
+        "domain": "llm-engineering",
+        "content": "# 大模型的位置编码是干什么用的?sin/cos、RoPE、ALiBi 有什么区别?\n\n题目编号:L004\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:自注意力本身对顺序不敏感,因此需要位置编码。sin/cos把绝对位置向量加入表示,可一定程度外推;RoPE通过旋转Q/K把相对位置信息编码进注意力内积,是当前常用方案;ALiBi直接给注意力分数加入与距离相关的线性偏置,简单且具备长度外推特性。三者在实现、相对位置表达和长上下文表现上不同。如果没有位置信息,注意力难以区分同一组词的不同顺序。sin/cos 使用固定频率的位置向量,RoPE 对 Q/K 做与位置有关的旋转,使点积体现相对位置关系,ALiBi 则在注意力分数中加入与距离相关的偏置。它们影响长度泛化,但支持更长窗口还与训练长度、缩放方案和任务有关。不能仅因使用 RoPE 就保证超出训练长度后仍准确,应该测不同位置和跨段依赖任务。\n\n评分要点:为何需要位置;三种方案的作用位置与特点。",
+        "vector_score": 0.7284314334392548,
+        "keyword_score": 0.7767916984466108,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 282397171415824420,
+        "title": "KV Cache 是什么?Prompt Caching 的原理是什么?",
+        "source": "interview-question://L014",
+        "domain": "llm-engineering",
+        "content": "# KV Cache 是什么?Prompt Caching 的原理是什么?\n\n题目编号:L014\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:自回归生成时,KV Cache保存已有Token各层的Key/Value,后续每步只计算新Token,降低重复计算但消耗显存。Prompt Caching复用相同或相同前缀Prompt的预填充结果,可跨请求减少首Token延迟和输入计算。前者主要服务单次生成过程,后者强调重复前缀复用,都要处理缓存键、失效和内存成本。prefill 先处理输入并生成各层 K/V,decode 为每个新 Token 计算新表示,并读取已有缓存,避免重算历史 K/V。缓存随序列长度、层数和 K/V 头数增长,也会限制高并发。跨请求复用通常要求前缀与模型配置兼容,生成式同义改写并不能保证命中;缓存复用也不同于直接返回过去的答案。应比较命中率、TTFT 和显存占用,权限隔离、失效与生命周期由具体服务实现。\n\n评分要点:prefill/decode、单请求与跨请求、速度—显存权衡。",
+        "vector_score": 0.7431920766830444,
+        "keyword_score": 0.49110843852888825,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.593,
+  "timings_seconds": {
+    "decomposition": 5.037832,
+    "retrieval": 0.555426,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.436175,
+    "vector_search": 0.036756,
+    "keyword_search": 0.08037,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.555584,
+    "total": 5.593416,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

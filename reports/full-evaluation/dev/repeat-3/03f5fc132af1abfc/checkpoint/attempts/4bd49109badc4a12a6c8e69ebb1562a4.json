@@ -1,0 +1,276 @@
+{
+  "case_id": "V2-095",
+  "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+  "category": "compound",
+  "split": "dev",
+  "group": "R011",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R011",
+    "interview-question://R013"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "关键词检索依靠词项匹配和统计权重，擅长人名、编号、错误码和精确短语，可解释且成本低，但同义表达召回差。向量检索按语义相似度匹配，擅长改写和跨语言表达，但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合，再统一重排。例如，用户问错误码 E102，关键词检索通常更容易保持这个精确约束；用户问“怎么减少推理时反复计算”，向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同，不能简单相加；可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果，中文分词、候选数量、权重和负例都需要业务评测，重排后再控制上下文长度。",
+    "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R011",
+    "interview-question://R001",
+    "interview-question://R013",
+    "interview-question://R016",
+    "interview-question://R007"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.5555555555555556,
+  "ndcg_at_k": 0.7420981285103055,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+    "answer": "1. 关键词召回适合解决什么问题？\n\n\n2. 向量召回适合解决什么问题？\n\n\n3. 关键词召回和向量召回得到的两个结果列表如何融合？\n",
+    "sections": [
+      {
+        "question": "关键词召回适合解决什么问题？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "关键词召回适合解决什么问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "关键词召回适合解决什么问题 应用场景"
+            },
+            {
+              "kind": "mqe",
+              "text": "关键词召回 适用任务 优缺点 什么情况下使用"
+            },
+            {
+              "kind": "mqe",
+              "text": "基于关键词的检索召回 能解决哪些业务问题"
+            },
+            {
+              "kind": "hyde",
+              "text": "关键词召回(基于倒排索引、TF-IDF、BM25的稀疏检索)适合解决查询与文档存在显式词项重叠的召回问题,尤其是专有名词、产品型号、SKU、订单号、错误码、异常栈、API名称、代码符号、法律条文、医学术语、人名地名、低频长尾词、新词和OOV词等精确匹配场景。它适用于搜索引擎、电商搜索、日志检索、代码检索、企业知识库中的高精度、低延迟、可解释初筛,以及布尔查询、短语匹配、强约束过滤和垂直领域术语召回。其优势是精确词项匹配、召回稳定、计算高效,但不擅长同义改写、语义泛化、模糊意图理解和纯语义相似召回。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R011",
+            "interview-question://R001",
+            "interview-question://R013"
+          ]
+        }
+      },
+      {
+        "question": "向量召回适合解决什么问题？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "向量召回适合解决什么问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量召回适合解决哪些业务问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "向量检索与稠密向量召回的应用场景和优势是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "什么情况下应该使用向量召回而不是关键词召回?"
+            },
+            {
+              "kind": "hyde",
+              "text": "向量召回适合解决大规模候选集中基于语义相似度的 Top-K 检索问题:将查询和文档、物品、用户、图像、音频等对象映射为稠密 embedding,通过余弦相似度、内积或欧氏距离度量语义相关性,并借助 ANN 索引(HNSW、IVF、PQ、LSH 等)实现低延迟、高吞吐的近似最近邻搜索。典型场景包括语义搜索、稠密检索、RAG 检索、开放域问答、推荐系统召回、跨模态与多模态检索(文本搜图、图搜文)、相似内容去重、个性化召回、长尾查询、同义扩展和模糊匹配,以及 query-document、user-item、image-text 等非结构化数据的向量化召回。其核心优势是解决关键词不重叠但语义相关、高维稀疏特征难以覆盖、候选规模大且要求实时返回 top-k 的召回需求。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R016",
+            "interview-question://R007",
+            "interview-question://R011"
+          ]
+        }
+      },
+      {
+        "question": "关键词召回和向量召回得到的两个结果列表如何融合？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "关键词召回和向量召回得到的两个结果列表如何融合?"
+            },
+            {
+              "kind": "mqe",
+              "text": "关键词召回和向量召回的结果列表融合方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何合并关键词检索与向量检索的召回结果并排序"
+            },
+            {
+              "kind": "mqe",
+              "text": "混合检索中关键词召回与向量召回结果融合策略 RRF 加权"
+            },
+            {
+              "kind": "hyde",
+              "text": "关键词召回与向量召回的结果列表融合通常先按文档 ID 去重合并候选集,再对两路分数做归一化(Min-Max、Z-Score 或 rank 归一化),然后采用加权线性融合:`final_score(d)=α·norm(score_kw(d))+(1−α)·norm(score_vec(d))`,α 可离线调参或按查询类型动态设定。若原始分数不可比,使用排名融合,如 Reciprocal Rank Fusion:`RRF(d)=Σ_{r∈{kw,vec}} 1/(k+rank_r(d))`,k 常取 60;也可用 CombSUM、CombMNZ、Borda count。工业界常采用并行召回→去重→RRF/加权融合→粗排/精排级联,并可引入 Learning-to-Rank、LambdaMART 或 cross-encoder 重排学习最优融合权重。该混合检索可兼顾关键词精确匹配与向量语义召回,提升最终召回率与排序质量。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R011",
+            "interview-question://R013",
+            "interview-question://R007"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2637356371800682692,
+        "title": "请你介绍一下向量检索和关键词检索的区别?",
+        "source": "interview-question://R011",
+        "domain": "rag",
+        "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+        "vector_score": 0.9121391475200653,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1192065734383377651,
+        "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+        "source": "interview-question://R001",
+        "domain": "rag",
+        "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+        "vector_score": 0.7892976403236389,
+        "keyword_score": 0.6971397495617272,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 610611646742673801,
+        "title": "什么是多路召回?具体怎么做?",
+        "source": "interview-question://R013",
+        "domain": "rag",
+        "content": "# 什么是多路召回?具体怎么做?\n\n题目编号:R013\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:多路召回让不同检索器或查询视角并行取得候选,例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重,再使用RRF等名次融合方法解决分数不可比问题,扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询,把每路候选保留来源信息,按文档或块 ID 去重,再融合排名。RRF 用候选在各路的排名贡献得分,不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量,再用原查询统一重排。新增检索路线也会增加噪声与延迟,需要单路、两路和扩展方案的消融对比,确认各路真正补充了哪些失败样本。\n\n评分要点:多样召回、融合去重、重排和通道评测。",
+        "vector_score": 0.8575621247291565,
+        "keyword_score": 0.8924549889712678,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2214053965974079694,
+        "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+        "source": "interview-question://R016",
+        "domain": "rag",
+        "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+        "vector_score": 0.8343180418014526,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 1225609568031859411,
+        "title": "Embedding 有哪几种算法你了解过吗?",
+        "source": "interview-question://R007",
+        "domain": "rag",
+        "content": "# Embedding 有哪几种算法你了解过吗?\n\n题目编号:R007\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Embedding 可以从表示粒度和训练方式理解。Word2Vec、GloVe 是静态词向量,同一词的表示不随语境变化;BERT 类模型提供上下文相关的 Token 表示,但直接平均原始表示不一定适合句子相似度。SBERT、SimCSE、BGE 等通过相似文本与负例训练,使查询和文档可以独立编码后比较,适合离线建立稠密索引。稀疏表示还包括 TF-IDF 和学习型稀疏检索,如 SPLADE;多向量模型则保存多个 Token 表示,以更细的交互提高匹配能力,但存储与计算开销较大。双编码器适合第一阶段召回,Cross-Encoder 联合读取查询和文档,更适合小候选集重排。模型架构和检索方式是两件事,BERT 并不必然要求查询与每个文档一起编码,关键在于是否训练成适合独立编码的检索表示。\n\n评分要点:区分静态词向量、上下文表示与检索训练;解释双编码召回、Cross-Encoder 重排及稀疏或多向量的取舍。",
+        "vector_score": 0.8515456318855286,
+        "keyword_score": 0.6466083491794072,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 29.045,
+  "timings_seconds": {
+    "decomposition": 2.486588,
+    "retrieval": 26.558378,
+    "mqe": 8.071436,
+    "hyde": 16.86208,
+    "embedding": 1.165217,
+    "vector_search": 0.083022,
+    "keyword_search": 0.369935,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 26.558562,
+    "total": 29.04515,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 15,
+    "chat_calls": 6,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

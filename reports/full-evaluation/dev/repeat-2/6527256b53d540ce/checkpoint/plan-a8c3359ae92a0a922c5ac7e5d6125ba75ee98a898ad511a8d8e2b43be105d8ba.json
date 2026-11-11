@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-070",
+  "subquestions": [
+    {
+      "question": "语言模型为何能够生成工具调用请求，以及语言模型生成工具调用请求的能力来自哪里？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.236702399999558
+}

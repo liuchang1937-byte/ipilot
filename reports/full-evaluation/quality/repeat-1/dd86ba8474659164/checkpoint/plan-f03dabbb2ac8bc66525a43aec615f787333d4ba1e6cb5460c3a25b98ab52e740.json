@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-082",
+  "subquestions": [
+    {
+      "question": "在服务器持续推送文本方面，SSE 与 WebSocket 的差异是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在双向交互方面，SSE 与 WebSocket 的差异是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 7.060926800000743
+}

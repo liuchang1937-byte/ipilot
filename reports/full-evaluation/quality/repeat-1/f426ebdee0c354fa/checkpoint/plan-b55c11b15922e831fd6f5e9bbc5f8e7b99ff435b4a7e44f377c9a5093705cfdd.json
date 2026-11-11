@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-045",
+  "subquestions": [
+    {
+      "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.6381825000025856
+}

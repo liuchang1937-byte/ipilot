@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-062",
+  "subquestions": [
+    {
+      "question": "Self-RAG、Corrective RAG和Agentic RAG三者在控制流程上的差别是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.4498418000002857
+}

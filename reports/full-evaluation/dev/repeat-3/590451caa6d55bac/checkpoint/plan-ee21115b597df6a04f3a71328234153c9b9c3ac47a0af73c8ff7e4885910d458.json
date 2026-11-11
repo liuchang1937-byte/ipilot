@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-020",
+  "subquestions": [
+    {
+      "question": "助手反复选择同一个工具且没有推进时，如何识别这种循环？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "助手反复选择同一个工具且没有推进时，如何终止这种循环？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.907755399999587
+}

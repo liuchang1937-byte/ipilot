@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-085",
+  "subquestions": [
+    {
+      "question": "当工具目录很大时，把所有工具Schema放进提示会有什么问题？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当工具目录很大时，如何按需选择工具？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.4742799999985436
+}

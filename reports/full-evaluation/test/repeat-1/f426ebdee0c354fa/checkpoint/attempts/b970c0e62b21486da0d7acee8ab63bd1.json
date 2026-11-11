@@ -1,0 +1,160 @@
+{
+  "case_id": "V2-045",
+  "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+  "category": "terminology",
+  "split": "test",
+  "group": "L021",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L021"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro，代码类可参考 HumanEval 或 SWE-bench Verified，数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点，可能受到数据污染、评分方式与业务分布差异影响；最终应从真实请求与失败样本构建经过标注的业务测试集，定期回归。公开测试可区分知识、代码、数学与科学推理，GPQA 更偏高难度科学问答，不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本，保留固定留出集并持续补充失败案例。结构化任务测格式与参数，Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准，报告应同时给出质量、安全、费用和延迟，并防止只针对已知测试集调优。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L021",
+    "interview-question://L001",
+    "interview-question://L022"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "评估语言模型时，除了通用考试分数，还需要测试哪些维度？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "评估语言模型时,除了通用考试分数,还需要测试哪些维度?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大语言模型评测维度 除基准考试成绩外 安全性 鲁棒性 偏见 事实性 推理 校准 效率 多轮对话 长上下文"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM evaluation dimensions beyond exam benchmarks: safety, robustness, bias, factuality, reasoning, calibration, efficiency, long-context, tool use"
+            },
+            {
+              "kind": "hyde",
+              "text": "评估语言模型时,除通用考试分数和静态基准(如 MMLU、GSM8K、HumanEval)外,还需测试:事实性与幻觉率、知识时效性、多跳推理与规划、数学与代码能力、指令遵循与约束满足、多轮对话一致性、长上下文检索与位置鲁棒性、多语言与跨文化泛化、领域专业能力、工具调用与智能体任务、安全性对齐(毒性、偏见、越狱、提示注入、隐私泄露)、鲁棒性与分布外泛化(对抗扰动、语义改写、拼写噪声)、校准与不确定性(ECE、Brier、拒答/弃权)、可解释性与归因、人类偏好与主观质量(成对比较、Elo、win rate)、红队测试、数据污染检测、持续学习与灾难性遗忘、公平性与可访问性、推理效率与部署成本(延迟、吞吐、FLOPs、能耗)。评测方法涵盖静态/动态基准、人类评估、LLM-as-a-judge、对抗测试、A/B 测试、在线指标和消融实验。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L021",
+            "interview-question://L001",
+            "interview-question://L022"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4468296057515630498,
+        "title": "大模型能力评测指标有哪些?",
+        "source": "interview-question://L021",
+        "domain": "llm-engineering",
+        "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+        "vector_score": 0.8608245253562927,
+        "keyword_score": 0.8046103871509509,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2711125243325661145,
+        "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+        "source": "interview-question://L001",
+        "domain": "llm-engineering",
+        "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+        "vector_score": 0.7816193401813507,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3045560838137241851,
+        "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+        "source": "interview-question://L022",
+        "domain": "llm-engineering",
+        "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+        "vector_score": 0.8449420928955078,
+        "keyword_score": 0.8713170065290252,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 13.31,
+  "timings_seconds": {
+    "decomposition": 2.020762,
+    "retrieval": 11.288955,
+    "mqe": 3.390414,
+    "hyde": 7.402851,
+    "embedding": 0.376351,
+    "vector_search": 0.028992,
+    "keyword_search": 0.08851,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 11.289066,
+    "total": 13.309828,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 4,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

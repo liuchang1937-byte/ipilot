@@ -1,0 +1,976 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "0a86efbfc7a3495fa3103f2cc9a5881b",
+  "created_at": "2026-10-12T11:22:07.336555+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "09f2aab21d5585f693bfdb277759fd093be17f46b03fc90d89e4181a405bc69c",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-2\\a74b0a866503e95f\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.6309,
+      "hit_rate": 1,
+      "mrr": 0.5,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 2.288,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 2.288,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.03643,
+          "p50": 2.03643,
+          "p95": 2.03643,
+          "max": 2.03643,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.251356,
+          "p50": 0.251356,
+          "p95": 0.251356,
+          "max": 0.251356,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.156817,
+          "p50": 0.156817,
+          "p95": 0.156817,
+          "max": 0.156817,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.024816,
+          "p50": 0.024816,
+          "p95": 0.024816,
+          "max": 0.024816,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.068447,
+          "p50": 0.068447,
+          "p95": 0.068447,
+          "max": 0.068447,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.251567,
+          "p50": 0.251567,
+          "p95": 0.251567,
+          "max": 0.251567,
+          "samples": 1
+        },
+        "total": {
+          "mean": 2.287997,
+          "p50": 2.287997,
+          "p95": 2.287997,
+          "max": 2.287997,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.6309,
+      "hit_rate": 1,
+      "mrr": 0.5,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 2.885,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 2.885,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.03643,
+          "p50": 2.03643,
+          "p95": 2.03643,
+          "max": 2.03643,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.256048,
+          "p50": 0.256048,
+          "p95": 0.256048,
+          "max": 0.256048,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.162011,
+          "p50": 0.162011,
+          "p95": 0.162011,
+          "max": 0.162011,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.026553,
+          "p50": 0.026553,
+          "p95": 0.026553,
+          "max": 0.026553,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.065131,
+          "p50": 0.065131,
+          "p95": 0.065131,
+          "max": 0.065131,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.592508,
+          "p50": 0.592508,
+          "p95": 0.592508,
+          "max": 0.592508,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.848875,
+          "p50": 0.848875,
+          "p95": 0.848875,
+          "max": 0.848875,
+          "samples": 1
+        },
+        "total": {
+          "mean": 2.885305,
+          "p50": 2.885305,
+          "p95": 2.885305,
+          "max": 2.885305,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.5,
+      "hit_rate": 1,
+      "mrr": 0.3333,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 13.888,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 13.888,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.03643,
+          "p50": 2.03643,
+          "p95": 2.03643,
+          "max": 2.03643,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 11.851366,
+          "p50": 11.851366,
+          "p95": 11.851366,
+          "max": 11.851366,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 3.766029,
+          "p50": 3.766029,
+          "p95": 3.766029,
+          "max": 3.766029,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 7.354544,
+          "p50": 7.354544,
+          "p95": 7.354544,
+          "max": 7.354544,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.391412,
+          "p50": 0.391412,
+          "p95": 0.391412,
+          "max": 0.391412,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.061545,
+          "p50": 0.061545,
+          "p95": 0.061545,
+          "max": 0.061545,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.272827,
+          "p50": 0.272827,
+          "p95": 0.272827,
+          "max": 0.272827,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 11.851577,
+          "p50": 11.851577,
+          "p95": 11.851577,
+          "max": 11.851577,
+          "samples": 1
+        },
+        "total": {
+          "mean": 13.888007,
+          "p50": 13.888007,
+          "p95": 13.888007,
+          "max": 13.888007,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-004",
+      "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A004",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A004"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定，优点是稳定、可测试；Agent 的路径由模型结合环境动态选择，适合目标明确但步骤未知的任务。实际工程常采用混合设计：高风险步骤使用 Workflow 固化，信息收集和方案探索交给 Agent。这些概念也不全在同一层级：ReAct 和 Plan-and-Execute 描述执行与决策的组织方式，Reflection 是可叠加的检查机制，Supervisor 则更多描述多个执行者的调度架构。例如，退款的身份核验与额度判断适合固定流程，定位复杂故障可能需要动态调查。即使采用 Agent，也能用状态机限制合法转移，所以动态决策不等于完全放任模型控制。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A014",
+        "interview-question://A004",
+        "interview-question://A003"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.6309297535714575,
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "对于审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "对于审批步骤很固定的业务,应该让模型自由规划还是预先定义流程?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A014",
+                "interview-question://A004",
+                "interview-question://A003"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.7856182754039764,
+            "keyword_score": 0.8706756230976862,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.7909805774688721,
+            "keyword_score": 0.6502444914658525,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2982864919778602991,
+            "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+            "source": "interview-question://A003",
+            "domain": "agent",
+            "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+            "vector_score": 0.7736620903015137,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 2.288,
+      "timings_seconds": {
+        "decomposition": 2.03643,
+        "retrieval": 0.251356,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.156817,
+        "vector_search": 0.024816,
+        "keyword_search": 0.068447,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.251567,
+        "total": 2.287997,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-004",
+      "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A004",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A004"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定，优点是稳定、可测试；Agent 的路径由模型结合环境动态选择，适合目标明确但步骤未知的任务。实际工程常采用混合设计：高风险步骤使用 Workflow 固化，信息收集和方案探索交给 Agent。这些概念也不全在同一层级：ReAct 和 Plan-and-Execute 描述执行与决策的组织方式，Reflection 是可叠加的检查机制，Supervisor 则更多描述多个执行者的调度架构。例如，退款的身份核验与额度判断适合固定流程，定位复杂故障可能需要动态调查。即使采用 Agent，也能用状态机限制合法转移，所以动态决策不等于完全放任模型控制。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A003",
+        "interview-question://A004"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.6309297535714575,
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "对于审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "对于审批步骤很固定的业务,应该让模型自由规划还是预先定义流程?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 2,
+              "selected_sources": [
+                "interview-question://A003",
+                "interview-question://A004"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2982864919778602991,
+            "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+            "source": "interview-question://A003",
+            "domain": "agent",
+            "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+            "vector_score": 0.7736620903015137,
+            "keyword_score": 1.0,
+            "rerank_score": 0.2727625370025635
+          },
+          {
+            "id": 2,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.7909805774688721,
+            "keyword_score": 0.6502444914658525,
+            "rerank_score": 0.15271764993667603
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 2.885,
+      "timings_seconds": {
+        "decomposition": 2.03643,
+        "retrieval": 0.256048,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.162011,
+        "vector_search": 0.026553,
+        "keyword_search": 0.065131,
+        "rerank": 0.592508,
+        "generation": 0.0,
+        "pipeline": 0.848875,
+        "total": 2.885305,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 1,
+        "chat_calls": 0,
+        "rerank_calls": 1,
+        "rerank_pairs": 12
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-004",
+      "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+      "category": "paraphrase",
+      "split": "dev",
+      "group": "A004",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A004"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定，优点是稳定、可测试；Agent 的路径由模型结合环境动态选择，适合目标明确但步骤未知的任务。实际工程常采用混合设计：高风险步骤使用 Workflow 固化，信息收集和方案探索交给 Agent。这些概念也不全在同一层级：ReAct 和 Plan-and-Execute 描述执行与决策的组织方式，Reflection 是可叠加的检查机制，Supervisor 则更多描述多个执行者的调度架构。例如，退款的身份核验与额度判断适合固定流程，定位复杂故障可能需要动态调查。即使采用 Agent，也能用状态机限制合法转移，所以动态决策不等于完全放任模型控制。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A003",
+        "interview-question://A014",
+        "interview-question://A004"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.5,
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+        "answer": "",
+        "sections": [
+          {
+            "question": "对于审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "对于审批步骤很固定的业务,应该让模型自由规划还是预先定义流程?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "审批步骤固定的业务 应该用大模型自由规划还是预先定义流程"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "固定审批流程自动化 预定义工作流与 LLM Agent 自主规划 对比"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM agent autonomous planning vs predefined workflow for fixed approval process"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "对于审批步骤高度固定的业务,应优先采用预先定义流程,而不是让 LLM/Agent 自由规划。将审批逻辑建模为 BPMN、状态机或 DAG 工作流,通过工作流引擎/编排引擎按审批矩阵、路由规则、权限与条件分支确定性执行,可保证合规性、可审计性、可复现性与 SLA。LLM 仅嵌入各节点作为语义理解、表单抽取、材料校验、风险摘要或审批意见生成组件,受 JSON Schema、规则引擎、策略校验和 Human-in-the-loop 约束。自由规划适合步骤不确定、开放式决策场景,但在固定审批中易产生漏步、跳步、幻觉路由、不可复现和审计困难。若需一定灵活性,可采用混合模式:固定流程骨架 + LLM 在受限分支/异常处理中做受约束决策,并设置 guardrails、回退与人工升级。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A003",
+                "interview-question://A014",
+                "interview-question://A004"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2982864919778602991,
+            "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+            "source": "interview-question://A003",
+            "domain": "agent",
+            "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+            "vector_score": 0.8397284746170044,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.8218830823898315,
+            "keyword_score": 0.8706756230976862,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.8128178417682648,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 13.888,
+      "timings_seconds": {
+        "decomposition": 2.03643,
+        "retrieval": 11.851366,
+        "mqe": 3.766029,
+        "hyde": 7.354544,
+        "embedding": 0.391412,
+        "vector_search": 0.061545,
+        "keyword_search": 0.272827,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 11.851577,
+        "total": 13.888007,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-004",
+      "subquestions": [
+        {
+          "question": "对于审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.036429899999348
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 15.001,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "case_id": "V2-086",
+  "subquestions": [
+    {
+      "question": "当模型传错参数时，如何校验参数的正确性？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当工具执行超时时，如何校验工具执行状态以判断是否需要重试？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当模型传错参数时，如何重试或纠正参数后重新调用？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当工具执行超时时，如何重试工具执行？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在模型传错参数或工具执行超时后的重试过程中，如何防止重复副作用？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 6.013414799999737
+}

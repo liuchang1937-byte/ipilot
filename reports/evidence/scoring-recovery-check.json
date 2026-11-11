@@ -1,0 +1,11 @@
+{
+  "report": "E:\\study\\project\\TechRAG\\reports\\scoring\\4fcb1ed1721b461f9621e5bcdd118022.json",
+  "independent_cases": 24,
+  "retained_cases": 10,
+  "retried_cases": 14,
+  "original_records_unchanged": true,
+  "unique_complete_case_coverage": true,
+  "models_match": true,
+  "all_evidence_excerpts_match": true,
+  "fallback_cases": 0
+}

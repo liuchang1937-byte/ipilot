@@ -1,0 +1,404 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "beefabad2e524733bbe01d7678ead694",
+  "created_at": "2026-10-12T15:52:41.000844+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "b394fcab2f39a1ed84440047fe7e81784c990c60f935bf10d16775d78c7d8823",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\4ab934692451dfd6\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit_rate": null,
+      "mrr": null,
+      "all_sources_rate": null,
+      "correct_refusal_rate": 1,
+      "false_refusal_rate": null,
+      "mean_seconds": 19.5,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": null,
+      "p95_seconds": 19.5,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.887022,
+          "p50": 2.887022,
+          "p95": 2.887022,
+          "max": 2.887022,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 12.828818,
+          "p50": 12.828818,
+          "p95": 12.828818,
+          "max": 12.828818,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 3.371021,
+          "p50": 3.371021,
+          "p95": 3.371021,
+          "max": 3.371021,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 8.95559,
+          "p50": 8.95559,
+          "p95": 8.95559,
+          "max": 8.95559,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.356677,
+          "p50": 0.356677,
+          "p95": 0.356677,
+          "max": 0.356677,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.027717,
+          "p50": 0.027717,
+          "p95": 0.027717,
+          "max": 0.027717,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.115309,
+          "p50": 0.115309,
+          "p95": 0.115309,
+          "max": 0.115309,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 3.783499,
+          "p50": 3.783499,
+          "p95": 3.783499,
+          "max": 3.783499,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 16.612479,
+          "p50": 16.612479,
+          "p95": 16.612479,
+          "max": 16.612479,
+          "samples": 1
+        },
+        "total": {
+          "mean": 19.499501,
+          "p50": 19.499501,
+          "p95": 19.499501,
+          "max": 19.499501,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 3.76441,
+          "p50": 3.76441,
+          "p95": 3.76441,
+          "max": 3.76441,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 0,
+        "precision_at_k": 0,
+        "ndcg_at_k": 0,
+        "hit": 0,
+        "reciprocal_rank": 0,
+        "correct_refusal": 1,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 1,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": 1.0,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-120",
+      "question": "请给出未入库文档SecretCost-042中的本月API费用账单。",
+      "category": "unanswerable",
+      "split": "test",
+      "group": "V2-120",
+      "variant": "expanded",
+      "expected_sources": [],
+      "answerable": false,
+      "reference_points": [],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A024",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "recall_at_k": null,
+      "precision_at_k": null,
+      "ndcg_at_k": null,
+      "hit": null,
+      "reciprocal_rank": null,
+      "all_sources_found": null,
+      "correct_refusal": true,
+      "false_refusal": null,
+      "result": {
+        "question": "请给出未入库文档SecretCost-042中的本月API费用账单。",
+        "answer": "当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+        "sections": [
+          {
+            "question": "未入库文档SecretCost-042中的本月API费用账单是什么？",
+            "kind": "knowledge",
+            "answer": "当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+            "source_ids": [],
+            "insufficient": true,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "未入库文档SecretCost-042中的本月API费用账单是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "未入库文档 SecretCost-042 本月 API 费用账单"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "SecretCost-042 当月 API 成本账单 未归档文档"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "SecretCost-042 当前月份 API 计费明细 未录入"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "SecretCost-042 为未入库文档,尚未完成解析、分块、向量化、embedding 与索引写入,因此其本月 API 费用账单无法从向量数据库中检索;当前无可用字段 api_monthly_cost、token_usage、request_count、billing_period 或应付金额记录,需先完成文档入库与索引构建。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A024",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1161528079708033534,
+            "title": "大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?",
+            "source": "interview-question://A024",
+            "domain": "agent",
+            "content": "# 大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?\n\n题目编号:A024\n\n领域:agent\n\n难度:3\n\n标签:数据库安全、权限、审计\n- 考察方向:最小权限、查询白名单、脱敏、只读代理和结果验证。\n\n参考答案:不要把数据库高权限凭据直接交给模型,应通过受控数据访问层暴露允许的表、字段和查询模板,默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截,再在限时限量的隔离账号中执行;结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID,查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态,不由模型从用户文字中自行决定。能提供查订单等固定业务接口时,就不暴露任意 SQL;必须生成 SQL 时要解析语法树,限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入,不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏,写操作使用独立权限、事务和审计,并校验指标口径及时间范围,兼顾查询安全和答案正确性。\n\n评分要点:最小权限、SQL验证、隔离执行、脱敏审计和结果证据。",
+            "vector_score": 0.7557791471481323,
+            "keyword_score": 0.5266084397992306,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 4216223474749563969,
+            "title": "附录 B RAG 测试题与参考答案",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 附录 B RAG 测试题与参考答案\n\n题目覆盖单跳、多跳、否定、比较、计算、版本和无答案场景。\n\n类型 测试问题 参考答案 / 依据\n单跳 云杉计划哪天立项? 2024-03-18(F-001)\n单跳 当前标签电量低于多少应换电? 30%(F-023,v1.4)\n否定 东港是否属于试点? 不属于(F-002)\n多跳 谁审批原始温度导出,授权最长多久? 周砚;8 小时(F-004、F-021)\n比较 设备遥测比个人信息多保留多久? 12 个月(18-6;F-019)\n计算 YG-0512 有多少单发生 TEE? 12 单(240-228;案例 C)\n辨析 案例 B 的静默期是否是 TEE? 不是;回传温度始终合规(F-028)\n流程 混合召回后有 16 块,通常给生成器多少块? 重排前 5 块(F-017)\n冲突 换电阈值是 25% 还是 30%? 当前为 30%;25% 是旧版\n无答案 项目使用哪家云服务商? 资料未提供,应拒答\n无答案 林岑的手机号码是多少? 资料未提供,应拒答",
+            "vector_score": 0.7243203520774841,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 607069691282008855,
+            "title": "文档结束",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 文档结束\n\n校验摘要:本文包含 33 个编号事实、8 组 FAQ、11 道基准测试题、3\n\n个案例,以及多个表格、否定陈述和版本冲突。所有组织、人物和业务数据均为虚构。\n\n云杉计划知识手册 | RAG 测试语料 第 11 页 / 共 11 页",
+            "vector_score": 0.7338344752788544,
+            "keyword_score": 0.5539685653054629,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": 1.0,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 19.5,
+      "timings_seconds": {
+        "decomposition": 2.887022,
+        "retrieval": 12.828818,
+        "mqe": 3.371021,
+        "hyde": 8.95559,
+        "embedding": 0.356677,
+        "vector_search": 0.027717,
+        "keyword_search": 0.115309,
+        "rerank": 0.0,
+        "generation": 3.783499,
+        "pipeline": 16.612479,
+        "total": 19.499501,
+        "judge": 3.76441
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": 1.0,
+          "citation_precision": null,
+          "citation_coverage": null
+        },
+        "claims": [],
+        "reference_points": [],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "该问题询问未入库文档 SecretCost-042 中的本月 API 费用账单，answerable 为 false，且提供的资料中没有该文档或账单信息。答案明确说明知识库中无足够相关资料、无法依据知识库回答，属于合理拒答，未编造账单内容，回应了原问题的不可回答性质。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-120",
+      "subquestions": [
+        {
+          "question": "未入库文档SecretCost-042中的本月API费用账单是什么？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.88702209999974
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 23.268,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

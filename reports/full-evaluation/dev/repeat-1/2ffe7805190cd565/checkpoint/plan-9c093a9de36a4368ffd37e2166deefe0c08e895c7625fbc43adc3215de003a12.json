@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-013",
+  "subquestions": [
+    {
+      "question": "为什么有的团队不采用现成智能体框架，而选择自己实现执行循环？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.5593922000007296
+}

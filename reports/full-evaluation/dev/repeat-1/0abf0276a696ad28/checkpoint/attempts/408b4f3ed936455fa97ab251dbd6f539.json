@@ -1,0 +1,186 @@
+{
+  "case_id": "V2-078",
+  "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "T010",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://T010"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "MCP主要标准化外部能力如何被发现和调用，相当于工具连接层；Skill封装完成任务所需的方法、顺序和经验，相当于操作手册。一个Skill可以调用多个MCP工具，一个MCP工具也能被多个Skill复用。前者关注协议与能力，后者关注任务策略与可复用流程。例如，数据库 MCP 服务暴露查询能力，而数据分析 Skill 指导 Agent 先确认指标口径，再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP，MCP 也可以被没有 Skill 的程序使用，因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性，Skill 的质量更多看步骤是否合理和结果能否验证；使用二者都不能绕过运行时授权。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T011",
+    "interview-question://T010",
+    "interview-question://T005",
+    "interview-question://T009"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.8154648767857288,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+    "answer": "1. 在提供工具访问协议方面，MCP和Skill各负责什么？\n\n\n2. 在提供任务操作指南方面，MCP和Skill各负责什么？\n",
+    "sections": [
+      {
+        "question": "在提供工具访问协议方面，MCP和Skill各负责什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在提供工具访问协议方面,MCP和Skill各负责什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T011",
+            "interview-question://T010",
+            "interview-question://T005"
+          ]
+        }
+      },
+      {
+        "question": "在提供任务操作指南方面，MCP和Skill各负责什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在提供任务操作指南方面,MCP和Skill各负责什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T010",
+            "interview-question://T011",
+            "interview-question://T009"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 4412077096281725584,
+        "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+        "source": "interview-question://T011",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+        "vector_score": 0.8732164800167084,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3483975197075879969,
+        "title": "MCP 和 Agent Skill 的区别是什么?",
+        "source": "interview-question://T010",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 和 Agent Skill 的区别是什么?\n\n题目编号:T010\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:MCP主要标准化外部能力如何被发现和调用,相当于工具连接层;Skill封装完成任务所需的方法、顺序和经验,相当于操作手册。一个Skill可以调用多个MCP工具,一个MCP工具也能被多个Skill复用。前者关注协议与能力,后者关注任务策略与可复用流程。例如,数据库 MCP 服务暴露查询能力,而数据分析 Skill 指导 Agent 先确认指标口径,再查询、检查异常并解释结果。Skill 可以使用本地脚本而不连接 MCP,MCP 也可以被没有 Skill 的程序使用,因此两者独立但互补。MCP 接口的质量主要看契约、兼容与可靠性,Skill 的质量更多看步骤是否合理和结果能否验证;使用二者都不能绕过运行时授权。\n\n评分要点:工具连接层与任务知识层的区别和组合。",
+        "vector_score": 0.8844916224479675,
+        "keyword_score": 0.9246397061883179,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 319809831368975428,
+        "title": "MCP 由哪几部分组成?",
+        "source": "interview-question://T005",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+        "vector_score": 0.8550060987472534,
+        "keyword_score": 0.7908722822100362,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 4502432493545340977,
+        "title": "Skill 是什么?",
+        "source": "interview-question://T009",
+        "domain": "llm-tool-calling",
+        "content": "# Skill 是什么?\n\n题目编号:T009\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Agent Skill是把指令、脚本、模板和参考资料打包成可复用能力的机制,通常以包含SKILL.md及可选资源的目录存在。Agent可以发现Skill、按需加载说明,并在任务中使用其中的脚本和材料。它不是单纯保存Prompt,而是“操作手册+工具箱”;触发条件、步骤、输入输出、失败处理和安全边界都应写清楚。加载通常采用渐进方式:先用名称和描述判断是否相关,命中后读取完整步骤,再按需访问脚本、参考资料和模板,避免把全部资源永久放进上下文。例如,生成报告的 Skill 可以约定资料检查、内容组织、排版和验证流程。它提供的是任务方法,不会自动赋予工具权限;脚本执行仍受宿主的权限和环境约束。一个好的 Skill 需要明确适用范围与输入输出,避免对所有任务都触发。\n\n评分要点:任务知识与流程封装,而非把Skill等同于API。",
+        "vector_score": 0.8109802603721619,
+        "keyword_score": 0.7435408195269125,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.459,
+  "timings_seconds": {
+    "decomposition": 3.884886,
+    "retrieval": 0.573359,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.388,
+    "vector_search": 0.048954,
+    "keyword_search": 0.133781,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.57365,
+    "total": 4.458536,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

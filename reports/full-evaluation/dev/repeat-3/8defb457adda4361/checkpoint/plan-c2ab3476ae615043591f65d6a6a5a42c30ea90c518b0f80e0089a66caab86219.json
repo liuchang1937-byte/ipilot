@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-060",
+  "subquestions": [
+    {
+      "question": "在同时进行关键词召回与向量召回后，如何融合两路召回结果的排名？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在同时进行关键词召回与向量召回后，如何对召回结果去重？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.6960541999978886
+}

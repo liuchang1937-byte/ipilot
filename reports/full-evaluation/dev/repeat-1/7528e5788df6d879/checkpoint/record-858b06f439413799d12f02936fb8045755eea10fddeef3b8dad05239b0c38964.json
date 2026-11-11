@@ -1,0 +1,206 @@
+{
+  "case_id": "V2-032",
+  "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "L008",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L008"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "微调通常不是第一选择，应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式，或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA；资源有限时LoRA/QLoRA最常用。SFT负责指令行为，有偏好对齐需求时还可使用DPO等方法，最终按数据、硬件和部署目标选型。全量微调更新大部分权重，容量较大但显存和优化器状态开销高；PEFT 只更新少量新增或选定参数，适合资源受限场景。QLoRA 将基座权重低比特存储，同时训练低秩适配器，不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式，LoRA 是参数更新方式，两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本，动态事实通常继续通过检索提供。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L008",
+    "interview-question://L009",
+    "interview-question://L015"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+    "answer": "1. 在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？\n\n\n2. 在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？\n",
+    "sections": [
+      {
+        "question": "在有限显存条件下，全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在有限显存条件下,全参数微调、LoRA 等常见微调方式各自的显存需求、训练成本和适用场景是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "有限显存条件下 全参数微调 LoRA QLoRA 显存需求 训练成本 对比"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型微调方法 Full Fine-tuning LoRA Adapter Prefix Tuning 显存占用 适用场景"
+            },
+            {
+              "kind": "mqe",
+              "text": "GPU 显存不足 如何选择微调方式 全参数微调 vs LoRA vs QLoRA 成本 效果 场景"
+            },
+            {
+              "kind": "hyde",
+              "text": "在有限显存条件下,全参数微调、LoRA、QLoRA 等微调方式的显存需求、训练成本和适用场景差异显著。全参数微调(Full Fine-Tuning)需保存全部模型权重、梯度、优化器状态和激活值;混合精度 AdamW 下每参数约需 16–20 字节,7B 模型仅权重、梯度和优化器状态常超 80–100GB,加激活值后通常需多张 A100/H100,或依赖 ZeRO-3、FSDP、CPU offload、梯度检查点。其训练成本最高,更新全部参数,适合数据量大、领域偏移大、追求最高精度且具备多卡资源的场景。LoRA 冻结基座模型,仅训练低秩矩阵 A/B,可训练参数通常占 0.01%–1%,显存主要为 FP16/BF16 基座权重、LoRA 梯度与优化器状态及激活值;7B 模型约 14–20GB,13B 约 24–40GB,可在单张 24GB/48GB GPU 上训练。LoRA 训练成本低、checkpoint 小、易切换任务,适合指令微调、领域/风格适配、多任务服务和显存受限场景。QLoRA 将基座量化为 4-bit NF4,并配合 LoRA、双量化、分页优化器,7B 约 6–12GB,13B 约 12–20GB,33B/70B 可在单卡或少量卡加 offload 训练,显存最低但训练速度和精度略有折衷,适合极端显存限制。Adapter、Prefix Tuning、P-Tuning 等 PEFT 方法插入小模块或可训练前缀,显存和计算开销低,但推理可能增加延迟或容量受限,适合低资源适配。选择时需权衡模型规模、序列长度、batch size、优化器、梯度检查点、ZeRO/FSDP、offload 与量化。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L008",
+            "interview-question://L009",
+            "interview-question://L015"
+          ]
+        }
+      },
+      {
+        "question": "在有限显存条件下，如何根据模型规模、任务类型、数据量和训练目标等因素，在全参数微调、LoRA 等微调方式之间进行选择？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在有限显存条件下,如何根据模型规模、任务类型、数据量和训练目标等因素,在全参数微调、LoRA 等微调方式之间进行选择?"
+            },
+            {
+              "kind": "mqe",
+              "text": "有限显存条件下 全参数微调和 LoRA 微调 如何选择 模型规模 任务类型 数据量 训练目标"
+            },
+            {
+              "kind": "mqe",
+              "text": "显存受限 大模型参数高效微调方法对比 LoRA QLoRA AdaLoRA 全量微调 适用场景 选择指南"
+            },
+            {
+              "kind": "mqe",
+              "text": "limited GPU memory fine-tuning method selection: full fine-tuning vs LoRA vs QLoRA based on model size, task type, dataset size, and training objective"
+            },
+            {
+              "kind": "hyde",
+              "text": "在有限显存下,微调方案选择先估算全参数微调的显存需求:模型权重、梯度、AdamW 优化器状态、激活值,混合精度下约 16–20 字节/参数外加激活,7B 以上模型在单卡 16–24GB 通常不可行。模型规模 ≥7B 或显存 ≤24GB 时优先 LoRA、QLoRA、Adapter、Prefix/P-Tuning;其中 QLoRA 采用 4-bit NF4 量化、双重量化、分页优化器,冻结基座,仅训练低秩适配器,优化器状态按适配器参数计。任务为分类、信息抽取、格式对齐、轻量领域适配且数据量 <10k–100k 时,LoRA rank r=4–16,target_modules 选 q_proj、k_proj、v_proj、o_proj 即可;复杂推理、指令跟随、风格迁移、注入新知识或大领域漂移需 r=32–128、覆盖 gate_proj、up_proj、down_proj,或改用全参数微调。数据量 >1M、训练目标接近继续预训练或需改变模型能力时倾向全参数微调,并配合 ZeRO-3、CPU offload、梯度检查点、FlashAttention、8-bit Adam、梯度累积、序列并行。仅适配下游输出则用 LoRA/Adapter/Prefix/P-Tuning。全参学习率 1e-5–5e-5,LoRA 学习率 1e-4–5e-4,同时权衡灾难性遗忘、吞吐、推理延迟,LoRA 可合并回基座以消除推理开销。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L008",
+            "interview-question://L009",
+            "interview-question://L015"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 986183218169772871,
+        "title": "大模型微调的方案有哪些?",
+        "source": "interview-question://L008",
+        "domain": "llm-engineering",
+        "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+        "vector_score": 0.8830195665359497,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1962235713523519350,
+        "title": "请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?",
+        "source": "interview-question://L009",
+        "domain": "llm-engineering",
+        "content": "# 请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?\n\n题目编号:L009\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:LoRA冻结原权重,用两个低秩矩阵近似权重更新,并把更新注入注意力或其他线性层。除减少训练参数和显存外,它便于为多个任务保存小型适配器、快速切换或组合,也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W,训练的增量可以写成 ΔW=BA,秩 r 远小于原维度,再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算,并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支,未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围,但不能保证没有遗忘或副作用;秩、目标层、数据与评测比单纯追求最低参数量更重要。\n\n评分要点:低秩更新原理、多适配器、可合并及超参数权衡。",
+        "vector_score": 0.8387696743011475,
+        "keyword_score": 0.6895702173404484,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4463257598973586641,
+        "title": "大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?",
+        "source": "interview-question://L015",
+        "domain": "llm-engineering",
+        "content": "# 大模型量化是什么?INT8/INT4/AWQ/GPTQ 怎么选?\n\n题目编号:L015\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:量化用低比特表示权重或激活,以降低显存、带宽和计算成本,代价是精度风险。INT8通常损失小,INT4压缩更强;GPTQ利用校准数据做逐层训练后权重量化,通用性强;AWQ保护对输出敏感的重要权重,常有较好部署效果。选型需看硬件内核、模型大小、吞吐、延迟和业务精度实测。要区分权重量化、激活量化和 KV Cache 量化,以及只压缩存储和真实使用低比特内核计算。GPTQ 常用校准数据与误差近似逐层优化量化,AWQ 利用激活信息调整重要通道的缩放,减少关键权重的误差;不能把 AWQ 简化成始终保留一批 FP16 权重。四位模型未必在所有硬件都更快,需要核对算子支持,并在长文、代码和业务任务上验证精度、吞吐及尾部延迟。\n\n评分要点:量化对象、比特权衡、AWQ/GPTQ思路及硬件适配。",
+        "vector_score": 0.8134703636169434,
+        "keyword_score": 0.4666636769191596,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 37.811,
+  "timings_seconds": {
+    "decomposition": 6.491317,
+    "retrieval": 31.319059,
+    "mqe": 8.031448,
+    "hyde": 21.142575,
+    "embedding": 1.451541,
+    "vector_search": 0.114107,
+    "keyword_search": 0.56905,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 31.319354,
+    "total": 37.810671,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

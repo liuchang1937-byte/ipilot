@@ -1,0 +1,983 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "a1e51e3e1a9a4430b3354daf162c3172",
+  "created_at": "2026-10-12T15:23:42.836212+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "2562a8720da20bd6fe571850c8f9c8994b2b7c739c0eb7394c768d31c22af39a",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-2\\2ff12ba67585b91f\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.7827,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 33.325,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 33.325,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 32.290958,
+          "p50": 32.290958,
+          "p95": 32.290958,
+          "max": 32.290958,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 1.034106,
+          "p50": 1.034106,
+          "p95": 1.034106,
+          "max": 1.034106,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.873347,
+          "p50": 0.873347,
+          "p95": 0.873347,
+          "max": 0.873347,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.049766,
+          "p50": 0.049766,
+          "p95": 0.049766,
+          "max": 0.049766,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.108095,
+          "p50": 0.108095,
+          "p95": 0.108095,
+          "max": 0.108095,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 1.034299,
+          "p50": 1.034299,
+          "p95": 1.034299,
+          "max": 1.034299,
+          "samples": 1
+        },
+        "total": {
+          "mean": 33.325257,
+          "p50": 33.325257,
+          "p95": 33.325257,
+          "max": 33.325257,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.8155,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 88.422,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 88.422,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 32.290958,
+          "p50": 32.290958,
+          "p95": 32.290958,
+          "max": 32.290958,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 56.130531,
+          "p50": 56.130531,
+          "p95": 56.130531,
+          "max": 56.130531,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 18.236722,
+          "p50": 18.236722,
+          "p95": 18.236722,
+          "max": 18.236722,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 35.921139,
+          "p50": 35.921139,
+          "p95": 35.921139,
+          "max": 35.921139,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.421358,
+          "p50": 1.421358,
+          "p95": 1.421358,
+          "max": 1.421358,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.108607,
+          "p50": 0.108607,
+          "p95": 0.108607,
+          "max": 0.108607,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.434348,
+          "p50": 0.434348,
+          "p95": 0.434348,
+          "max": 0.434348,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 56.130728,
+          "p50": 56.130728,
+          "p95": 56.130728,
+          "max": 56.130728,
+          "samples": 1
+        },
+        "total": {
+          "mean": 88.421686,
+          "p50": 88.421686,
+          "p95": 88.421686,
+          "max": 88.421686,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 20,
+        "chat_calls": 8,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-006",
+      "question": "边想边做、先规划后执行和完成后反思，在延迟和可控性上有什么取舍？",
+      "category": "terminology",
+      "split": "test",
+      "group": "A005",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A006"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "ReAct 边思考边行动，适合信息逐步显现、需要频繁工具交互的任务，但调用轮次多；Plan-and-Execute 先生成整体计划再逐项执行，适合依赖关系清楚的长任务，但初始计划错误会向后传播；Reflection 在结果或阶段完成后检查缺陷并修正，适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价，复杂项目常把三者组合使用。例如，开放式故障调查适合根据日志逐步选择工具；生成研究报告可以先列出资料搜集、比较和写作步骤，再由执行器完成；报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据，而不是让同一个模型无限重写。计划遇到新信息也需要修订，并非提前规划后就禁止变化；三种机制都应有步数、费用和时间上限。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A013",
+        "interview-question://L017",
+        "interview-question://A006",
+        "interview-question://A014",
+        "interview-question://A004",
+        "interview-question://A015"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.7827324383928644,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "边想边做、先规划后执行和完成后反思，在延迟和可控性上有什么取舍？",
+        "answer": "1. 边想边做在延迟和可控性上有什么特点和取舍？\n\n\n2. 先规划后执行在延迟和可控性上有什么特点和取舍？\n\n\n3. 完成后反思在延迟和可控性上有什么特点和取舍？\n\n\n4. 边想边做、先规划后执行和完成后反思在延迟和可控性上的相对取舍和比较是什么？\n",
+        "sections": [
+          {
+            "question": "边想边做在延迟和可控性上有什么特点和取舍？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "边想边做在延迟和可控性上有什么特点和取舍?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A013",
+                "interview-question://L017",
+                "interview-question://A006"
+              ]
+            }
+          },
+          {
+            "question": "先规划后执行在延迟和可控性上有什么特点和取舍？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "先规划后执行在延迟和可控性上有什么特点和取舍?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A006",
+                "interview-question://A014",
+                "interview-question://A004"
+              ]
+            }
+          },
+          {
+            "question": "完成后反思在延迟和可控性上有什么特点和取舍？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "完成后反思在延迟和可控性上有什么特点和取舍?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A015",
+                "interview-question://A006",
+                "interview-question://L017"
+              ]
+            }
+          },
+          {
+            "question": "边想边做、先规划后执行和完成后反思在延迟和可控性上的相对取舍和比较是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "边想边做、先规划后执行和完成后反思在延迟和可控性上的相对取舍和比较是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A006",
+                "interview-question://A004",
+                "interview-question://A014"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2622544271174588789,
+            "title": "在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?",
+            "source": "interview-question://A013",
+            "domain": "agent",
+            "content": "# 在工程实践中,为什么有时候选择「手搓」Agent,而不是直接用成熟框架?\n\n题目编号:A013\n\n领域:agent\n\n难度:2\n\n标签:框架选型、可控性、可观测性\n- 考察方向:定制需求、依赖复杂度、调试能力和迁移成本。\n\n参考答案:当流程较小但对状态、延迟、权限、日志或故障恢复有强定制要求时,自行实现循环往往更透明,也能减少框架抽象和版本依赖。成熟框架适合快速搭建、通用集成和复杂编排,但可能带来隐式行为、调试困难和升级成本。手搓并非从零造所有组件,而是保留核心控制权,同时复用模型客户端、追踪和存储等成熟基础设施。例如,业务只需要少量工具,但要求每一步精确记录状态、限制权限并支持断点恢复时,直接实现调用循环可能更容易调试。手写并不意味着重造模型客户端、数据库和监控系统,可以复用成熟基础设施,只掌握关键控制逻辑。相应代价是自己维护消息格式、异常分支、兼容性与测试。回答应比较团队经验和长期维护成本;当流程复杂或框架能力已经满足需求时,使用框架往往更合适。\n\n评分要点:结合业务约束比较可控性、可观测性与维护成本;说明复用基础设施;不把手写或框架视为绝对更优。",
+            "vector_score": 0.733020544052124,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1514459175991001607,
+            "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+            "source": "interview-question://L017",
+            "domain": "llm-engineering",
+            "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+            "vector_score": 0.7472517192363739,
+            "keyword_score": 0.9002133381613275,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 340363636581916227,
+            "title": "ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?",
+            "source": "interview-question://A006",
+            "domain": "agent",
+            "content": "# ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?\n\n题目编号:A006\n\n领域:agent\n\n难度:2\n\n标签:Plan-and-Execute、Reflection、ReAct\n- 考察方向:三类范式的准确性、延迟、成本和恢复能力差异。\n\n参考答案:ReAct 边思考边行动,适合信息逐步显现、需要频繁工具交互的任务,但调用轮次多;Plan-and-Execute 先生成整体计划再逐项执行,适合依赖关系清楚的长任务,但初始计划错误会向后传播;Reflection 在结果或阶段完成后检查缺陷并修正,适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价,复杂项目常把三者组合使用。例如,开放式故障调查适合根据日志逐步选择工具;生成研究报告可以先列出资料搜集、比较和写作步骤,再由执行器完成;报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据,而不是让同一个模型无限重写。计划遇到新信息也需要修订,并非提前规划后就禁止变化;三种机制都应有步数、费用和时间上限。\n\n评分要点:比较三者控制时机和代价;给出基于场景的选择依据。",
+            "vector_score": 0.7946223616600037,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.7506234645843506,
+            "keyword_score": 0.9106979847494099,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.7780029475688934,
+            "keyword_score": 0.8906213704531281,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 2654545256875798294,
+            "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+            "source": "interview-question://A015",
+            "domain": "agent",
+            "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+            "vector_score": 0.7876703143119812,
+            "keyword_score": 0.8488082592736154,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 33.325,
+      "timings_seconds": {
+        "decomposition": 32.290958,
+        "retrieval": 1.034106,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.873347,
+        "vector_search": 0.049766,
+        "keyword_search": 0.108095,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 1.034299,
+        "total": 33.325257,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 4,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-006",
+      "question": "边想边做、先规划后执行和完成后反思，在延迟和可控性上有什么取舍？",
+      "category": "terminology",
+      "split": "test",
+      "group": "A005",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A006"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "ReAct 边思考边行动，适合信息逐步显现、需要频繁工具交互的任务，但调用轮次多；Plan-and-Execute 先生成整体计划再逐项执行，适合依赖关系清楚的长任务，但初始计划错误会向后传播；Reflection 在结果或阶段完成后检查缺陷并修正，适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价，复杂项目常把三者组合使用。例如，开放式故障调查适合根据日志逐步选择工具；生成研究报告可以先列出资料搜集、比较和写作步骤，再由执行器完成；报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据，而不是让同一个模型无限重写。计划遇到新信息也需要修订，并非提前规划后就禁止变化；三种机制都应有步数、费用和时间上限。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L017",
+        "interview-question://A006",
+        "interview-question://A021",
+        "interview-question://A004",
+        "interview-question://A014",
+        "interview-question://A015"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.8154648767857288,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "边想边做、先规划后执行和完成后反思，在延迟和可控性上有什么取舍？",
+        "answer": "1. 边想边做在延迟和可控性上有什么特点和取舍？\n\n\n2. 先规划后执行在延迟和可控性上有什么特点和取舍？\n\n\n3. 完成后反思在延迟和可控性上有什么特点和取舍？\n\n\n4. 边想边做、先规划后执行和完成后反思在延迟和可控性上的相对取舍和比较是什么？\n",
+        "sections": [
+          {
+            "question": "边想边做在延迟和可控性上有什么特点和取舍？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "边想边做在延迟和可控性上有什么特点和取舍?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "边想边做 延迟 可控性 特点 取舍"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "边思考边行动 实时推理 延迟 控制性 权衡"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "interleaved reasoning and acting latency controllability trade-offs"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "边想边做(interleaved reasoning and acting,ReAct 式 think-act-observation 循环)将链式思维、工具调用与观察反馈交替执行。延迟上,它降低首步动作延迟(time-to-first-action)并支持流式、增量式执行,但因多次 LLM 推理、工具往返、上下文累积、KV cache 失效和串行依赖,端到端延迟、token 成本与尾延迟通常高于先规划后执行;可用异步工具调用、并行动作、缓存、投机执行、预算控制和最大步数限制缓解。可控性上,它暴露中间推理与动作,便于 human-in-the-loop 干预、护栏、审计、回滚、动态重规划和错误恢复,适合部分可观测与不确定环境;但循环越长,行为越难预测,终止性、计划一致性、全局最优性和安全约束更难保证,需要显式状态、策略约束、动作空间限制与监控。取舍是:前置规划/一次性 CoT 降低总延迟并增强全局可控性,但首动作慢、适应性差;边想边做提升自适应性、可干预性和容错性,却以更高推理开销、调度复杂度、上下文压力和可控性碎片化为代价。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L017",
+                "interview-question://A006",
+                "interview-question://A021"
+              ]
+            }
+          },
+          {
+            "question": "先规划后执行在延迟和可控性上有什么特点和取舍？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "先规划后执行在延迟和可控性上有什么特点和取舍?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "先规划后执行 延迟 可控性 特点 取舍"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "plan-then-execute latency controllability trade-offs"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "先规划后执行 与 边规划边执行 延迟 可控性 对比"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "先规划后执行(Plan-then-Execute)将任务分为规划阶段与执行阶段,规划器先输出显式计划,执行器再按计划行动。延迟方面,规划引入额外推理、搜索、验证与计划生成开销,执行需等待计划完成,导致端到端时延、首响应延迟和 P99 延迟升高;串行化、长程计划、人工审批与重规划会进一步放大延迟。可控性方面,显式计划提供可解释中间表示、可审计轨迹、约束校验、安全过滤与人在回路干预,可在执行前发现冲突、避免不可逆动作,并提升可预测性、可复现性和策略合规性。取舍是以更高延迟、计算与 token 成本换取更强控制、安全与全局优化;在动态或实时环境中,计划易过时,需重规划或退化为反应式执行。混合方案如 plan-act-observe、滚动时域规划、异步规划、分层规划、计划缓存与推测执行可缓解延迟,而纯反应式策略延迟更低但可控性较弱。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A006",
+                "interview-question://A004",
+                "interview-question://A014"
+              ]
+            }
+          },
+          {
+            "question": "完成后反思在延迟和可控性上有什么特点和取舍？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "完成后反思在延迟和可控性上有什么特点和取舍?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "完成后反思 延迟 可控性 特点 取舍"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "事后反思 响应延迟 可控性 权衡 优缺点"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "post-completion reflection latency controllability trade-offs"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "完成后反思(post-completion reflection)指任务执行结束后再调用模型对最终结果、执行轨迹和中间状态进行自检、归因、纠错与策略校验。延迟方面:它通常引入至少一次额外LLM推理或工具调用,导致端到端延迟、尾延迟和token成本上升;若采用多轮反思、迭代精炼或多智能体验证,延迟会随反思轮数、上下文长度和验证深度增加。可控性方面:它提供事后干预点,支持规则/策略校验、置信度门控、人工审核、可观测性与审计,能抑制幻觉、越权操作和不可逆错误,提升可引导性、可解释性与合规性。核心取舍是:强完成后反思换取高可靠性和强可控性,但牺牲实时性、吞吐和成本;弱反思或跳过反思降低延迟,却削弱纠错、合规和人工介入能力。工程上常用异步反思、并行验证、缓存复用、置信度/风险触发、单轮critique、最大迭代预算和早停来平衡延迟与可控性;实时交互场景倾向轻量后验校验,高风险或离线场景倾向多轮完成后反思。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A015",
+                "interview-question://A006",
+                "interview-question://A004"
+              ]
+            }
+          },
+          {
+            "question": "边想边做、先规划后执行和完成后反思在延迟和可控性上的相对取舍和比较是什么？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "边想边做、先规划后执行和完成后反思在延迟和可控性上的相对取舍和比较是什么?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "边想边做 先规划后执行 完成后反思 延迟 可控性 相对取舍 比较"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "边想边做 vs 先规划后执行 vs 完成后反思 智能体 延迟 可控性 权衡"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "think-while-acting vs plan-then-execute vs reflect-after-completion latency controllability trade-offs"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "边想边做(interleaved reasoning-acting,如 ReAct)在每步动作前做短程推理,延迟由逐步 LLM 推理与工具/环境调用叠加,随步数近似线性增长,token 开销和工具往返延迟高;可控性最强:每步可观测、可审计、可干预、可重规划,适合动态、部分可观测、需在线纠错的任务,但长程易累积误差和策略漂移。先规划后执行(plan-and-execute / plan-then-act)先一次性生成全局计划再批量或并行执行,延迟集中在初始规划,执行阶段 LLM 调用少、端到端 wall-clock 延迟通常较低;可控性中等:计划提供全局约束、预算分配、可审计与可回滚,但环境变化时在线适应性差,纠错需重规划,规划错误会级联传播,适合静态、可预测、长程结构化任务。完成后反思(post-hoc reflection / Reflexion)仅在任务结束后评估轨迹、归因失败并更新记忆/策略,当前任务延迟最低或仅增加尾部评估延迟,跨轮可提升;可控性最弱:无法在线干预和实时纠错,只能改善后续任务,适合可多次试错、延迟敏感、非安全关键场景。总体在延迟-可控性 Pareto 前沿上:边想边做牺牲延迟换在线可控性,先规划后执行折中且执行延迟低,完成后反思延迟最低但控制粒度跨任务且滞后;混合调度可用轻量 ReAct 在线控制、全局 plan 降搜索延迟、reflection 做长期策略优化。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A006",
+                "interview-question://A004",
+                "interview-question://A015"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1514459175991001607,
+            "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+            "source": "interview-question://L017",
+            "domain": "llm-engineering",
+            "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+            "vector_score": 0.7976197302341461,
+            "keyword_score": 0.9560881121287398,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 340363636581916227,
+            "title": "ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?",
+            "source": "interview-question://A006",
+            "domain": "agent",
+            "content": "# ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?\n\n题目编号:A006\n\n领域:agent\n\n难度:2\n\n标签:Plan-and-Execute、Reflection、ReAct\n- 考察方向:三类范式的准确性、延迟、成本和恢复能力差异。\n\n参考答案:ReAct 边思考边行动,适合信息逐步显现、需要频繁工具交互的任务,但调用轮次多;Plan-and-Execute 先生成整体计划再逐项执行,适合依赖关系清楚的长任务,但初始计划错误会向后传播;Reflection 在结果或阶段完成后检查缺陷并修正,适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价,复杂项目常把三者组合使用。例如,开放式故障调查适合根据日志逐步选择工具;生成研究报告可以先列出资料搜集、比较和写作步骤,再由执行器完成;报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据,而不是让同一个模型无限重写。计划遇到新信息也需要修订,并非提前规划后就禁止变化;三种机制都应有步数、费用和时间上限。\n\n评分要点:比较三者控制时机和代价;给出基于场景的选择依据。",
+            "vector_score": 0.8748037815093994,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3534902068064850797,
+            "title": "线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?",
+            "source": "interview-question://A021",
+            "domain": "agent",
+            "content": "# 线上 Agent 延迟明显升高时,如何通过 Trace 定位和优化?\n\n题目编号:A021\n\n领域:agent\n\n难度:3\n\n标签:可观测性、Trace、性能优化\n- 考察方向:模型、检索、工具、网络和重试链路的分段诊断。\n\n参考答案:为一次任务建立统一Trace ID,并为模型调用、检索、重排、工具、数据库、重试和排队创建Span,记录耗时、Token、候选量、状态码和缓存命中。先看P95/P99关键路径,再区分是模型首Token慢、工具阻塞、检索候选过大还是重试放大。优化可采用并行调用、超时、缓存、候选裁剪、流式返回、模型分级和减少无价值循环,并用相同样本回归质量。应先区分首 Token 延迟和任务总耗时,再用统一 Trace ID 串起排队、检索、模型、工具和编排节点。每个 Span 记录耗时、重试、调用轮数及输入输出规模,通过慢请求与正常请求对比找关键路径。若慢在工具排队,换模型不会解决;若步数膨胀,则应减少无效追问和重复调用。优化后同时验证成功率、P95/P99、费用和错误率,不能用牺牲回答质量换来的速度作为唯一成果。\n\n评分要点:分段追踪、关键指标、定位方法以及质量—延迟权衡。",
+            "vector_score": 0.7538922131061554,
+            "keyword_score": 0.6074360306212313,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.8372635245323181,
+            "keyword_score": 0.8906213704531281,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 888008174752367641,
+            "title": "如何赋予 LLM 规划能力?",
+            "source": "interview-question://A014",
+            "domain": "agent",
+            "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+            "vector_score": 0.7842143177986145,
+            "keyword_score": 0.8839700545892577,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 2654545256875798294,
+            "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+            "source": "interview-question://A015",
+            "domain": "agent",
+            "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+            "vector_score": 0.8026227056980133,
+            "keyword_score": 0.7765760596683094,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 88.422,
+      "timings_seconds": {
+        "decomposition": 32.290958,
+        "retrieval": 56.130531,
+        "mqe": 18.236722,
+        "hyde": 35.921139,
+        "embedding": 1.421358,
+        "vector_search": 0.108607,
+        "keyword_search": 0.434348,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 56.130728,
+        "total": 88.421686,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 4,
+        "embedding_texts": 20,
+        "chat_calls": 8,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-006",
+      "subquestions": [
+        {
+          "question": "边想边做在延迟和可控性上有什么特点和取舍？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "先规划后执行在延迟和可控性上有什么特点和取舍？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "完成后反思在延迟和可控性上有什么特点和取舍？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "边想边做、先规划后执行和完成后反思在延迟和可控性上的相对取舍和比较是什么？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 32.29095790000065
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 89.464,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

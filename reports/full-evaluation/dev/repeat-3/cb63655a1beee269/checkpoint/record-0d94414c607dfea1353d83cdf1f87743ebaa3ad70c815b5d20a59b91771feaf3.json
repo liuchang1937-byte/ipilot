@@ -1,0 +1,161 @@
+{
+  "case_id": "V2-118",
+  "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-118",
+  "variant": "expanded",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://R017"
+  ],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少?"
+            },
+            {
+              "kind": "mqe",
+              "text": "V9-NOT-RECORDED 隐藏版本 重排阈值 最终设置值"
+            },
+            {
+              "kind": "mqe",
+              "text": "知识库 V9-NOT-RECORDED 重排序阈值 配置 最终确定为什么"
+            },
+            {
+              "kind": "mqe",
+              "text": "V9-NOT-RECORDED rerank threshold final value knowledge base hidden version"
+            },
+            {
+              "kind": "hyde",
+              "text": "知识库隐藏版本 V9-NOT-RECORDED 的重排阈值(rerank_threshold)最终设置为未记录(NULL/未持久化),配置中该字段为空,没有写入具体数值,因此 V9-NOT-RECORDED 的最终重排阈值不可用。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "interview-question://R017",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3316265630962033877,
+        "title": "3.3 知识库摄取与检索流程",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+        "vector_score": 0.8202429115772247,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.799096405506134,
+        "keyword_score": 0.5533216028198119,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1582090342757356371,
+        "title": "4.2 版本优先级示例",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 4.2 版本优先级示例\n### 的规则。\n\nF-023 当前标签换电阈值为电量低于 30%,依据 v1.4。\n否定事实:云杉计划没有使用人脸识别;没有采集司机的私人聊天内容;没有把原始个人信息用于路线推荐模型训练。\nF-024 路线推荐模型不使用原始个人信息训练。\n\n云杉计划知识手册 | RAG 测试语料 第 6 页 / 共 11 页\n\n---",
+        "vector_score": 0.7919889390468597,
+        "keyword_score": 0.6114514098172197,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 12.004,
+  "timings_seconds": {
+    "decomposition": 2.140552,
+    "retrieval": 9.863501,
+    "mqe": 3.447049,
+    "hyde": 5.935704,
+    "embedding": 0.33709,
+    "vector_search": 0.02525,
+    "keyword_search": 0.11622,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 9.863597,
+    "total": 12.004148,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

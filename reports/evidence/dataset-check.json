@@ -1,0 +1,31 @@
+{
+  "retrieval_cases": 120,
+  "split_counts": {
+    "dev": 80,
+    "test": 40
+  },
+  "retrieval_categories": {
+    "paraphrase": 58,
+    "terminology": 28,
+    "compound": 14,
+    "cross_domain": 6,
+    "unanswerable": 14
+  },
+  "independent_groups": 80,
+  "source_overlap_between_splits": false,
+  "missing_sources": [],
+  "scoring_cases": 24,
+  "scoring_categories": {
+    "correct": 4,
+    "partial": 4,
+    "incorrect": 4,
+    "omission": 4,
+    "equivalent": 4,
+    "correction": 4
+  },
+  "retrieval_label_status": "human_reviewed",
+  "scoring_label_status": "human_reviewed",
+  "reviewed_retrieval_cases": 120,
+  "reviewed_scoring_cases": 24,
+  "human_review_complete": true
+}

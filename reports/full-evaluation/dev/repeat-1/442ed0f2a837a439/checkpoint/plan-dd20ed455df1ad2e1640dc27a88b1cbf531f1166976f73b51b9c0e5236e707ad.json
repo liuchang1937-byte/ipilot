@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-027",
+  "subquestions": [
+    {
+      "question": "在推理时注意力占用太多显存的背景下，MQA（Multi-Query Attention）主要优化什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在推理时注意力占用太多显存的背景下，GQA（Grouped-Query Attention）主要优化什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在推理时注意力占用太多显存的背景下，Flash Attention主要优化什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.387290099999518
+}

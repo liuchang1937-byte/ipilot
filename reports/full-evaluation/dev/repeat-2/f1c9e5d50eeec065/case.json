@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-022",
+      "question": "多个助手并行写同一结果，其中一个超时，如何处理交接与冲突？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A022"
+      ],
+      "answerable": true,
+      "reference_answer": "为子任务设置租约、心跳、截止时间和幂等任务ID，超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入，冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态；对有外部副作用的步骤使用幂等键、补偿操作和人工审批，避免重试造成重复执行。超时不一定代表旧执行者已停止，因此任务接管可用租约与递增代次，阻止失效实例提交结果。恢复时加载检查点，并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权，使用隔离工作区、版本校验和统一集成入口；文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工，同时保留失败原因与完成产物，避免两个执行者同时重做同一操作。",
+      "group": "A022",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

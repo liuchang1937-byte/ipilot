@@ -1,0 +1,611 @@
+{
+  "case_id": "V2-037",
+  "question": "temperature、top_p与top_k对生成分布各有什么影响？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "L012",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L013"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Temperature缩放Logits，越低分布越尖锐；Top-K只在概率最高的K个Token中采样；Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度，创作可提高温度并使用Top-P；不存在通用最佳值，应基于任务集评估，而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布，Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合。它们只改变采样行为，不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数，再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同，因此不存在跨模型通用的最佳数值，温度为零也不等于结果一定可复现。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L013",
+    "interview-question://L012",
+    "interview-question://L018",
+    "interview-question://L010",
+    "interview-question://L005"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.8769765845238192,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": false,
+  "result": {
+    "question": "temperature、top_p与top_k对生成分布各有什么影响？",
+    "answer": "1. temperature 对生成分布有什么影响？\ntemperature 通过缩放 logits 改变生成分布：通常将 logits 除以 T 后再做 Softmax [1]。因此 T 越低，分布越尖锐，高概率 Token 的优势被放大，采样更确定、随机性更低；T 越高，分布越平坦，低概率 Token 的相对概率上升，输出更多样，但随机性增加，可能更不稳定或更容易产生幻觉 [1][2][3]。它改变的是采样行为或分布形状，不能给模型补充知识或保证事实正确；温度为零也不等于结果一定可复现，且低温只减少随机性，不保证事实正确 [1][3]。Top-K/Top-P 等会在此基础上进一步限制候选集合，但 temperature 本身主要调节分布的尖锐或平坦程度 [1]。\n\n2. top_p 对生成分布有什么影响？\nTop-P（nucleus sampling）作用于采样分布：它按累计概率选择达到阈值 p 的最小 token 集合，并仅在该动态候选集合中采样 [1]。因此，p 越小，候选集合越小、生成分布越集中，结果通常更确定；p 越大，候选集合越大、越容易包含长尾 token，生成多样性通常更高 [1]。它与 Top-K 不同：Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合 [1]。这种调整只改变采样行为，不会给模型补充知识或保证事实正确；也不存在通用最佳值，应结合任务集评估，并通常避免同时激进调整所有参数 [1]。\n\n3. top_k 对生成分布有什么影响？\nTop-K 是解码/采样阶段作用于生成分布的参数：它不改变模型本身，只改变采样行为。使用 Top-K 时，生成不会在整个词表上采样，而是只在概率最高的 K 个 Token 中采样，因此候选集合被固定为前 K 个，概率排序在 K 名之外的 Token 不会进入采样范围。[1] K 决定候选数量：K 越小，可选 Token 越少；K 越大，可选集合越大。与 Top-P 根据累计概率动态决定候选集合不同，Top-K 固定候选数量。[1] 采样会从调整后的分布抽取 Token，Top-K 可与 Temperature、Top-P 配合使用，用于增加多样性；但不存在通用最佳值，应基于任务集评估，并通常避免同时激进调整所有参数。[1][2] 这些参数只改变采样行为，不能给模型补充知识或保证事实正确。[1]",
+    "sections": [
+      {
+        "question": "temperature 对生成分布有什么影响？",
+        "kind": "knowledge",
+        "answer": "temperature 通过缩放 logits 改变生成分布：通常将 logits 除以 T 后再做 Softmax [1]。因此 T 越低，分布越尖锐，高概率 Token 的优势被放大，采样更确定、随机性更低；T 越高，分布越平坦，低概率 Token 的相对概率上升，输出更多样，但随机性增加，可能更不稳定或更容易产生幻觉 [1][2][3]。它改变的是采样行为或分布形状，不能给模型补充知识或保证事实正确；温度为零也不等于结果一定可复现，且低温只减少随机性，不保证事实正确 [1][3]。Top-K/Top-P 等会在此基础上进一步限制候选集合，但 temperature 本身主要调节分布的尖锐或平坦程度 [1]。",
+        "source_ids": [
+          1,
+          2,
+          3
+        ],
+        "insufficient": false,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "temperature 对生成分布有什么影响?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大语言模型中的 temperature 如何影响下一个 token 的概率分布"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM sampling temperature effect on generation distribution softmax"
+            },
+            {
+              "kind": "hyde",
+              "text": "温度 T 是自回归语言模型解码中的 logits 缩放因子,将原始 logits \\(z_i\\) 变换为 \\(z_i/T\\),再经 softmax 得到生成分布 \\(p_i(T)=\\exp(z_i/T)/\\sum_j \\exp(z_j/T)\\)。低温 \\(T<1\\) 使分布更尖锐,放大高概率 token、抑制低概率 token,降低熵与多样性,趋向贪婪解码;\\(T \\to 0\\) 时分布趋近 one-hot,生成更确定但可能重复。高温 \\(T>1\\) 使分布更平坦,概率质量向低概率 token 转移,增加熵、随机性、探索性与多样性,但可能产生不连贯或低质量 token;\\(T \\to \\infty\\) 时趋近均匀分布。\\(T=1\\) 保持模型原始 softmax 分布,因此 temperature 控制生成分布的 sharpness/flatness、entropy、diversity 与 determinism 之间的 trade-off,并常与 top-k、top-p、beam search 等解码策略联合使用。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L013",
+            "interview-question://L012",
+            "interview-question://L018"
+          ]
+        }
+      },
+      {
+        "question": "top_p 对生成分布有什么影响？",
+        "kind": "knowledge",
+        "answer": "Top-P（nucleus sampling）作用于采样分布：它按累计概率选择达到阈值 p 的最小 token 集合，并仅在该动态候选集合中采样 [1]。因此，p 越小，候选集合越小、生成分布越集中，结果通常更确定；p 越大，候选集合越大、越容易包含长尾 token，生成多样性通常更高 [1]。它与 Top-K 不同：Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合 [1]。这种调整只改变采样行为，不会给模型补充知识或保证事实正确；也不存在通用最佳值，应结合任务集评估，并通常避免同时激进调整所有参数 [1]。",
+        "source_ids": [
+          1
+        ],
+        "insufficient": false,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "top_p 对生成分布有什么影响?"
+            },
+            {
+              "kind": "mqe",
+              "text": "top_p 采样 对语言模型生成概率分布的影响"
+            },
+            {
+              "kind": "mqe",
+              "text": "nucleus sampling 如何改变文本生成中的 token 分布"
+            },
+            {
+              "kind": "mqe",
+              "text": "top-p parameter effect on LLM output probability distribution"
+            },
+            {
+              "kind": "hyde",
+              "text": "top_p(nucleus sampling,核采样)在解码时对生成分布进行动态词表截断:先按概率降序排列,保留最小 token 集合 S,使其累积概率 ∑_{i∈S} P(i) ≥ p,再将 S 外 token 概率置零,并对 S 内概率重新归一化 P'(i)=P(i)/∑_{j∈S}P(j)。因此 top_p 改变生成分布的支撑集与形状:p 越小,nucleus 越窄,分布更尖锐、熵更低、生成更确定且保守,长尾低概率 token 被抑制;p 越大,保留 token 越多,分布越接近原始 softmax 分布,熵更高、多样性更大,但可能采样到低概率或不连贯 token。top_p=1 基本不截断,top_p→0 近似贪心/最大概率解码。它通常作用于温度缩放后的概率分布,并与 temperature、top_k 等采样策略共同影响生成分布。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L013",
+            "interview-question://L012",
+            "interview-question://L010"
+          ]
+        }
+      },
+      {
+        "question": "top_k 对生成分布有什么影响？",
+        "kind": "knowledge",
+        "answer": "Top-K 是解码/采样阶段作用于生成分布的参数：它不改变模型本身，只改变采样行为。使用 Top-K 时，生成不会在整个词表上采样，而是只在概率最高的 K 个 Token 中采样，因此候选集合被固定为前 K 个，概率排序在 K 名之外的 Token 不会进入采样范围。[1] K 决定候选数量：K 越小，可选 Token 越少；K 越大，可选集合越大。与 Top-P 根据累计概率动态决定候选集合不同，Top-K 固定候选数量。[1] 采样会从调整后的分布抽取 Token，Top-K 可与 Temperature、Top-P 配合使用，用于增加多样性；但不存在通用最佳值，应基于任务集评估，并通常避免同时激进调整所有参数。[1][2] 这些参数只改变采样行为，不能给模型补充知识或保证事实正确。[1]",
+        "source_ids": [
+          1,
+          2
+        ],
+        "insufficient": false,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "top_k 对生成分布有什么影响?"
+            },
+            {
+              "kind": "mqe",
+              "text": "top_k 对语言模型生成分布有什么影响"
+            },
+            {
+              "kind": "mqe",
+              "text": "top-k 采样如何改变下一个 token 的概率分布"
+            },
+            {
+              "kind": "mqe",
+              "text": "top_k sampling effect on text generation probability distribution"
+            },
+            {
+              "kind": "hyde",
+              "text": "top_k 采样通过截断语言模型输出的 logits 或 softmax 概率分布,仅保留概率最高的 k 个 token,将其余 token 概率置零并重新归一化。因此,k 越小,生成分布的支持集越小、熵越低、概率质量越集中于头部 token,输出更确定、更保守、多样性下降,k=1 等价于贪心解码;k 越大,保留 token 越多,生成分布越接近原始 softmax 分布,熵和多样性升高,但可能采样到低概率、低质量 token,k=词表大小等价于不截断。top_k 不改变被保留 token 的相对概率排序,只改变其绝对概率值,并常与 temperature、top_p、nucleus sampling、beam search 等解码策略结合调节生成分布。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L012",
+            "interview-question://L013",
+            "interview-question://L005"
+          ]
+        }
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "chunk_id": 96113536461836751,
+        "title": "大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?",
+        "source": "interview-question://L013",
+        "domain": "llm-engineering",
+        "content": "# 大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?\n\n题目编号:L013\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度,创作可提高温度并使用Top-P;不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。它们只改变采样行为,不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数,再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同,因此不存在跨模型通用的最佳数值,温度为零也不等于结果一定可复现。\n\n评分要点:参数机制准确;场景化而非给出绝对最佳值。",
+        "vector_score": 0.843828409910202,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2130560796992190475,
+        "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+        "source": "interview-question://L012",
+        "domain": "llm-engineering",
+        "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+        "vector_score": 0.8512590825557709,
+        "keyword_score": 0.6453983573110548,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3477555688369766113,
+        "title": "大模型为什么会出现幻觉?怎么缓解?",
+        "source": "interview-question://L018",
+        "domain": "llm-engineering",
+        "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+        "vector_score": 0.8014663755893707,
+        "keyword_score": 0.3906546251503618,
+        "rerank_score": null
+      }
+    ],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 96113536461836751,
+        "title": "大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?",
+        "source": "interview-question://L013",
+        "domain": "llm-engineering",
+        "content": "# 大模型的参数:温度值、Top-P、Top-K 分别是什么?各个场景下的最佳设置是什么?\n\n题目编号:L013\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度,创作可提高温度并使用Top-P;不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布,Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合。它们只改变采样行为,不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数,再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同,因此不存在跨模型通用的最佳数值,温度为零也不等于结果一定可复现。\n\n评分要点:参数机制准确;场景化而非给出绝对最佳值。",
+        "vector_score": 0.843828409910202,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2130560796992190475,
+        "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+        "source": "interview-question://L012",
+        "domain": "llm-engineering",
+        "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+        "vector_score": 0.8512590825557709,
+        "keyword_score": 0.6453983573110548,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3477555688369766113,
+        "title": "大模型为什么会出现幻觉?怎么缓解?",
+        "source": "interview-question://L018",
+        "domain": "llm-engineering",
+        "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+        "vector_score": 0.8014663755893707,
+        "keyword_score": 0.3906546251503618,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1564593821354906773,
+        "title": "SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?",
+        "source": "interview-question://L010",
+        "domain": "llm-engineering",
+        "content": "# SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?\n\n题目编号:L010\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:SFT后可用拒绝采样从多个候选中选优再训练;RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习;GRPO使用组内相对奖励估计优势,减少价值模型依赖。它们都利用偏好或奖励改善行为,但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化,不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习;DPO 用偏好对直接优化;PPO 和 GRPO 则属于强化优化方式,奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势,避免单独训练价值模型,但仍有采样与奖励成本。方法可以组合,关键是训练信号可靠以及收益能通过独立测试确认。\n\n评分要点:说明 SFT 与后训练的关系;比较拒绝采样、PPO 式 RLHF、DPO 和 GRPO 的训练信号与成本。",
+        "vector_score": 0.7707536220550537,
+        "keyword_score": 0.5394304795481404,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 3992986612229194933,
+        "title": "什么是大模型项目的分词器?原理是什么?",
+        "source": "interview-question://L005",
+        "domain": "llm-engineering",
+        "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+        "vector_score": 0.760980486869812,
+        "keyword_score": 0.7979719953204018,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "end_to_end"
+  },
+  "error": null,
+  "faithfulness": 1.0,
+  "answer_correctness": 0.0,
+  "answer_relevancy": 1.0,
+  "citation_precision": 1.0,
+  "citation_coverage": 0.8571428571428571,
+  "elapsed_seconds": 54.408,
+  "timings_seconds": {
+    "decomposition": 2.532379,
+    "retrieval": 25.046892,
+    "mqe": 8.431549,
+    "hyde": 15.224566,
+    "embedding": 0.973695,
+    "vector_search": 0.085614,
+    "keyword_search": 0.324652,
+    "rerank": 0.0,
+    "generation": 26.828071,
+    "pipeline": 51.875222,
+    "total": 54.407601,
+    "judge": 66.534647
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 14,
+    "chat_calls": 9,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "completed",
+    "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_correctness": 0.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 0.8571428571428571
+    },
+    "claims": [
+      {
+        "text": "temperature 通过缩放 logits 改变生成分布：通常将 logits 除以 T 后再做 Softmax [1]。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "温度常通过 logits 除以 T 后做 Softmax 改变分布"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1说明温度常通过 logits 除以 T 后做 Softmax 改变分布，支持该陈述。"
+      },
+      {
+        "text": "因此 T 越低，分布越尖锐，高概率 Token 的优势被放大，采样更确定、随机性更低；T 越高，分布越平坦，低概率 Token 的相对概率上升，输出更多样，但随机性增加，可能更不稳定或更容易产生幻觉 [1][2][3]。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "Temperature缩放Logits,越低分布越尖锐"
+          },
+          {
+            "source_id": 2,
+            "quote": "采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。"
+          },
+          {
+            "source_id": 3,
+            "quote": "高随机性都可能导致幻觉"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          },
+          {
+            "id": 2,
+            "supported": true
+          },
+          {
+            "id": 3,
+            "supported": true
+          }
+        ],
+        "reason": "资料1支持低温分布尖锐，资料2支持增加多样性，资料3支持高随机性可能导致幻觉，整体与参考一致。"
+      },
+      {
+        "text": "它改变的是采样行为或分布形状，不能给模型补充知识或保证事实正确；温度为零也不等于结果一定可复现，且低温只减少随机性，不保证事实正确 [1][3]。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "它们只改变采样行为,不能给模型补充知识或保证事实正确"
+          },
+          {
+            "source_id": 1,
+            "quote": "温度为零也不等于结果一定可复现"
+          },
+          {
+            "source_id": 3,
+            "quote": "低温只减少随机性"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          },
+          {
+            "id": 3,
+            "supported": true
+          }
+        ],
+        "reason": "资料1和3支持只改变采样行为、温度为零不可复现及低温不保证事实正确。"
+      },
+      {
+        "text": "Top-K/Top-P 等会在此基础上进一步限制候选集合，但 temperature 本身主要调节分布的尖锐或平坦程度 [1]。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "Temperature缩放Logits,越低分布越尖锐;Top-K只在概率最高的K个Token中采样;Top-P选择累计概率达到阈值的最小集合"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1分别说明温度调节尖锐程度，Top-K/Top-P限制候选集合。"
+      },
+      {
+        "text": "Top-P（nucleus sampling）作用于采样分布：它按累计概率选择达到阈值 p 的最小 token 集合，并仅在该动态候选集合中采样 [1]。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "Top-P选择累计概率达到阈值的最小集合"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1说明Top-P选择累计概率达到阈值的最小集合。"
+      },
+      {
+        "text": "因此，p 越小，候选集合越小、生成分布越集中，结果通常更确定；p 越大，候选集合越大、越容易包含长尾 token，生成多样性通常更高 [1]。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "Top-P选择累计概率达到阈值的最小集合"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "由资料1的Top-P机制可推出阈值越小候选集越小、越大候选集越大。"
+      },
+      {
+        "text": "它与 Top-K 不同：Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合 [1]。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1明确比较Top-K固定候选数量与Top-P动态决定候选集合。"
+      },
+      {
+        "text": "这种调整只改变采样行为，不会给模型补充知识或保证事实正确；也不存在通用最佳值，应结合任务集评估，并通常避免同时激进调整所有参数 [1]。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "它们只改变采样行为,不能给模型补充知识或保证事实正确"
+          },
+          {
+            "source_id": 1,
+            "quote": "不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1支持只改变采样行为、无通用最佳值、基于任务集评估并避免同时激进调整。"
+      },
+      {
+        "text": "Top-K 是解码/采样阶段作用于生成分布的参数：它不改变模型本身，只改变采样行为。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "它们只改变采样行为,不能给模型补充知识或保证事实正确"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1支持只改变采样行为；不改变模型本身是合理表述。"
+      },
+      {
+        "text": "使用 Top-K 时，生成不会在整个词表上采样，而是只在概率最高的 K 个 Token 中采样，因此候选集合被固定为前 K 个，概率排序在 K 名之外的 Token 不会进入采样范围。[1]",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "Top-K只在概率最高的K个Token中采样"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1说明Top-K只在概率最高的K个Token中采样。"
+      },
+      {
+        "text": "K 决定候选数量：K 越小，可选 Token 越少；K 越大，可选集合越大。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "Top-K 固定候选数量"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1支持Top-K固定候选数量，由此可推出K决定候选数量。"
+      },
+      {
+        "text": "与 Top-P 根据累计概率动态决定候选集合不同，Top-K 固定候选数量。[1]",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "Top-K 固定候选数量,Top-P 根据累计概率动态决定候选集合"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1明确说明Top-K固定候选数量、Top-P动态决定候选集合。"
+      },
+      {
+        "text": "采样会从调整后的分布抽取 Token，Top-K 可与 Temperature、Top-P 配合使用，用于增加多样性；但不存在通用最佳值，应基于任务集评估，并通常避免同时激进调整所有参数。[1][2]",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 2,
+            "quote": "采样则从调整后的分布抽取 Token,用随机性换取多样性"
+          },
+          {
+            "source_id": 2,
+            "quote": "采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。"
+          },
+          {
+            "source_id": 1,
+            "quote": "不存在通用最佳值,应基于任务集评估,而且通常避免同时激进调整所有参数"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          },
+          {
+            "id": 2,
+            "supported": true
+          }
+        ],
+        "reason": "资料2支持采样与参数配合增加多样性，资料1支持无通用最佳值及避免同时激进调整。"
+      },
+      {
+        "text": "这些参数只改变采样行为，不能给模型补充知识或保证事实正确。[1]",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "它们只改变采样行为,不能给模型补充知识或保证事实正确"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1直接支持该陈述。"
+      }
+    ],
+    "reference_points": [
+      {
+        "index": 1,
+        "covered": false,
+        "reason": "答案覆盖了Temperature/Top-K/Top-P机制、无通用最佳值、避免同时激进调整、只改变采样行为、温度为零不一定可复现等；但未覆盖参考要点中的场景化建议（事实问答/代码用低温度，创作提高温度并用Top-P）、固定模型版本与其他参数后用业务集比较指标、以及不同API参数范围和组合行为可能不同等内容。",
+        "point": "Temperature缩放Logits，越低分布越尖锐；Top-K只在概率最高的K个Token中采样；Top-P选择累计概率达到阈值的最小集合。事实问答和代码可用低温度，创作可提高温度并使用Top-P；不存在通用最佳值，应基于任务集评估，而且通常避免同时激进调整所有参数。温度常通过 logits 除以 T 后做 Softmax 改变分布，Top-K 固定候选数量，Top-P 根据累计概率动态决定候选集合。它们只改变采样行为，不能给模型补充知识或保证事实正确。实践应先固定模型版本和其他参数，再用业务集比较正确率、多样性、重复率与格式稳定性。不同 API 的参数范围和组合行为可能不同，因此不存在跨模型通用的最佳数值，温度为零也不等于结果一定可复现。"
+      }
+    ],
+    "answer_relevancy": {
+      "score": 1.0,
+      "reason": "答案逐一解释 temperature、top_p、top_k 对生成分布的影响，包括缩放logits、候选集合限制、确定性与多样性变化，直接回应原问题三个子项。"
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 1
+  }
+}

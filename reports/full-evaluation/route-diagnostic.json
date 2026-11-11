@@ -1,0 +1,14 @@
+[
+  {
+    "route": "/beta/chat/completions",
+    "status": 200,
+    "model": "deepseek-flash",
+    "total_tokens": 79
+  },
+  {
+    "route": "/chat/completions",
+    "status": 200,
+    "model": "deepseek-flash",
+    "total_tokens": 79
+  }
+]

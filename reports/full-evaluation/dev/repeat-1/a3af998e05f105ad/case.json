@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-011",
+      "question": "什么情况下一个助手已经足够，什么情况下值得拆成多个角色？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A011"
+      ],
+      "answerable": true,
+      "reference_answer": "Single-Agent 由一个决策核心访问多种工具，状态集中、调试简单，适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent，可由 Supervisor 统一调度，也可通过消息或共享状态协作，适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够，只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具，结构简单，调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总，但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分，而不是只看问题文字是否复杂。先建立单 Agent 基线，再用相同测试集证明成功率或延迟收益足以抵消协作成本。",
+      "group": "A011",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

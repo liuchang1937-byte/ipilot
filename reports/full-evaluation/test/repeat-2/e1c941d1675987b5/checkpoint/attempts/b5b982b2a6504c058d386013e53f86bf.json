@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-063",
+  "question": "问题要沿实体依赖关系查多跳路径，图检索比纯向量有什么优势？",
+  "category": "terminology",
+  "split": "test",
+  "group": "R016",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://R016"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时，图数据库更有优势，例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档，再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答，构图、实体消歧和持续更新成本可能大于收益。例如，查询某服务故障可能影响哪些下游系统，答案需要沿依赖关系收集节点，而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源，再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题，引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本，应在多跳任务上证明收益，并保留关系的证据来源。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R016",
+    "interview-question://R015",
+    "interview-question://R013"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "问题要沿实体依赖关系查多跳路径，图检索比纯向量有什么优势？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "在需要沿实体依赖关系查询多跳路径的问题上，图检索相比纯向量检索有哪些优势？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在需要沿实体依赖关系查询多跳路径的问题上,图检索相比纯向量检索有哪些优势?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R016",
+            "interview-question://R015",
+            "interview-question://R013"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2214053965974079694,
+        "title": "在什么场景下,你会选择使用图数据库来增强传统的向量检索?",
+        "source": "interview-question://R016",
+        "domain": "rag",
+        "content": "# 在什么场景下,你会选择使用图数据库来增强传统的向量检索?\n\n题目编号:R016\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:当问题依赖明确实体关系、多跳路径、层级网络或全局聚合时,图数据库更有优势,例如供应链影响、组织关系和复杂依赖。可以先用向量召回实体或文档,再沿图扩展关系并把证据交给生成模型。若只是单文档语义问答,构图、实体消歧和持续更新成本可能大于收益。例如,查询某服务故障可能影响哪些下游系统,答案需要沿依赖关系收集节点,而不是只找一段语义相似的说明。图谱可显式表示实体、关系与来源,再把查询到的子图和相关正文交给模型。不过向量检索也能结合多轮查询处理复杂问题,引入图并不是唯一办法。构建图谱有实体消歧、关系抽取、更新和权限成本,应在多跳任务上证明收益,并保留关系的证据来源。\n\n评分要点:关系、多跳、混合检索和构建成本。",
+        "vector_score": 0.9026014804840088,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2710493368064654156,
+        "title": "了解哪些更复杂的 RAG 范式?",
+        "source": "interview-question://R015",
+        "domain": "rag",
+        "content": "# 了解哪些更复杂的 RAG 范式?\n\n题目编号:R015\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:常见范式包括Agentic RAG、Self-RAG、Corrective RAG、Adaptive RAG、Graph RAG、Multi-Hop RAG和迭代检索。它们分别增加自主工具编排、自我判断检索、质量纠正、按难度路由、图关系推理或多轮证据补全。选择要看任务复杂度和收益,不能为追求概念先进而引入无意义延迟。Self-RAG 侧重是否检索及证据、生成质量的反思信号;Corrective RAG 根据检索质量决定修正路径;Agentic RAG 根据多轮反馈动态选择检索动作。GraphRAG 常利用实体关系和层次摘要支持跨文档或全局问题。它们不是必须依次升级的版本,也不能只靠一个普通提示就声称复现了对应论文。应明确自己实现的是哪个模块、增加了哪些调用,以及对什么失败样本产生了收益。\n\n评分要点:解释至少三种范式的控制差异,并有选型意识。",
+        "vector_score": 0.7953775227069855,
+        "keyword_score": 0.3034254569675395,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 610611646742673801,
+        "title": "什么是多路召回?具体怎么做?",
+        "source": "interview-question://R013",
+        "domain": "rag",
+        "content": "# 什么是多路召回?具体怎么做?\n\n题目编号:R013\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:多路召回让不同检索器或查询视角并行取得候选,例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重,再使用RRF等名次融合方法解决分数不可比问题,扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询,把每路候选保留来源信息,按文档或块 ID 去重,再融合排名。RRF 用候选在各路的排名贡献得分,不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量,再用原查询统一重排。新增检索路线也会增加噪声与延迟,需要单路、两路和扩展方案的消融对比,确认各路真正补充了哪些失败样本。\n\n评分要点:多样召回、融合去重、重排和通道评测。",
+        "vector_score": 0.7803969979286194,
+        "keyword_score": 0.39657290840645154,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 6.008,
+  "timings_seconds": {
+    "decomposition": 5.732889,
+    "retrieval": 0.275186,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.233571,
+    "vector_search": 0.012571,
+    "keyword_search": 0.028029,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.275292,
+    "total": 6.008181,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

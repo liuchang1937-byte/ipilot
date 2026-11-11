@@ -1,0 +1,222 @@
+{
+  "case_id": "V2-090",
+  "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+  "category": "cross_domain",
+  "split": "dev",
+  "group": "A018",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A018",
+    "interview-question://T018"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "将消息历史与业务状态分离，显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint；恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数；外部工具需支持幂等键，避免恢复后重复产生副作用。例如，用户补充预算上限时，应更新约束而保留原目标；用户明确取消任务时，才进入结束或取消状态。检查点不仅保存消息，还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果，尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离，状态更新可以使用版本号或事务，防止旧回复覆盖用户的新指令。",
+    "执行前用Schema校验并对可修复格式做受控纠正，缺少业务参数时向用户澄清；调用时设置超时、取消、幂等键和分类重试，失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务，超过预算后停止并转人工，所有动作记录审计与Trace。需要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试。幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试，临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A018",
+    "interview-question://T018",
+    "interview-question://A002",
+    "interview-question://T001"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.6666666666666666,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+    "answer": "1. 对话服务重启时，如何恢复阶段？\n\n\n2. 对话服务中工具请求失败重试时，如何避免重复执行？\n",
+    "sections": [
+      {
+        "question": "对话服务重启时，如何恢复阶段？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对话服务重启时,如何恢复阶段?"
+            },
+            {
+              "kind": "mqe",
+              "text": "对话服务重启后如何恢复对话阶段和上下文状态"
+            },
+            {
+              "kind": "mqe",
+              "text": "会话服务重启 阶段恢复 状态持久化 恢复机制"
+            },
+            {
+              "kind": "mqe",
+              "text": "chat service restart recover conversation stage and state persistence"
+            },
+            {
+              "kind": "hyde",
+              "text": "对话服务重启时,阶段恢复通过持久化会话状态与对话状态机实现:服务启动后按 session_id 从 Redis/DB 加载最新 checkpoint/snapshot,读取 current_stage、dialog_state、slot_values、turn_index、context_version、pending_action、锁令牌与超时时间;若有 WAL/事件日志,则从快照后按 event_seq 重放事件,以幂等键去重并重建 FSM 状态。根据状态迁移规则恢复阶段:等待输入则恢复监听,处理中则续跑 pending_action 或按补偿逻辑回滚至稳定态,多轮流程则恢复 slot filling、确认、支付等阶段。校验版本号与 fencing token,处理并发冲突,发布 session_restored 事件并更新心跳,完成阶段恢复。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A018",
+            "interview-question://T018",
+            "interview-question://A002"
+          ]
+        }
+      },
+      {
+        "question": "对话服务中工具请求失败重试时，如何避免重复执行？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对话服务中工具请求失败重试时,如何避免重复执行?"
+            },
+            {
+              "kind": "mqe",
+              "text": "对话服务中工具调用失败重试时如何避免重复执行 幂等设计"
+            },
+            {
+              "kind": "mqe",
+              "text": "聊天机器人 function calling 工具请求重试 去重 idempotency key 方案"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM Agent 工具调用 重试 防止重复执行 exactly-once 幂等 去重表"
+            },
+            {
+              "kind": "hyde",
+              "text": "对话服务中,工具请求失败重试避免重复执行的核心是端到端幂等。每次 tool call 生成唯一 idempotency key(如 conversation_id + tool_call_id + turn_id),在工具执行前原子写入幂等表或 Redis,并建立数据库唯一索引;若键已存在且执行成功,直接返回持久化结果,若执行中则拒绝并发重试或轮询等待,若失败则仅允许同键重试。工具侧配合乐观锁、版本号、条件更新、事务 outbox、补偿事务和状态机,将 at-least-once 重试收敛为 exactly-once 语义,同时用分布式锁防止多实例并发重复执行。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T018",
+            "interview-question://A018",
+            "interview-question://T001"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2584544441468433340,
+        "title": "Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?",
+        "source": "interview-question://A018",
+        "domain": "agent",
+        "content": "# Agent 的多轮对话状态如何管理?如何防止跑偏并支持中断恢复?\n\n题目编号:A018\n\n领域:agent\n\n难度:3\n\n标签:Checkpoint、幂等、状态恢复\n- 考察方向:状态快照、事件日志、幂等工具及恢复边界。\n\n参考答案:将消息历史与业务状态分离,显式保存当前阶段、目标、计划、已完成步骤、工具结果、约束和预算。每个状态转移写入事件日志并定期生成Checkpoint;恢复时从最近检查点重放未完成事件。防跑偏依靠阶段允许动作、目标一致性检查、摘要中的未完成事项和最大步数;外部工具需支持幂等键,避免恢复后重复产生副作用。例如,用户补充预算上限时,应更新约束而保留原目标;用户明确取消任务时,才进入结束或取消状态。检查点不仅保存消息,还要保存未决工具请求、产物版本与已确认的外部操作。恢复时先核查这些操作的真实结果,尤其不能因为没有收到响应就再次付款或发送通知。并发会话按身份和会话 ID 隔离,状态更新可以使用版本号或事务,防止旧回复覆盖用户的新指令。\n\n评分要点:显式状态、Checkpoint/事件、约束校验和幂等恢复。",
+        "vector_score": 0.8213326036930084,
+        "keyword_score": 0.8442177719927005,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3035522643108457551,
+        "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+        "source": "interview-question://T018",
+        "domain": "llm-tool-calling",
+        "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+        "vector_score": 0.8809054791927338,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1979822055872710034,
+        "title": "Agent 的基本架构由哪些核心组件构成?",
+        "source": "interview-question://A002",
+        "domain": "agent",
+        "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+        "vector_score": 0.7580337822437286,
+        "keyword_score": 0.35599181030526544,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2985301377255987593,
+        "title": "什么是 Function Calling?原理是什么?",
+        "source": "interview-question://T001",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+        "vector_score": 0.826376348733902,
+        "keyword_score": 0.9347441185124928,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 21.349,
+  "timings_seconds": {
+    "decomposition": 2.833124,
+    "retrieval": 18.516054,
+    "mqe": 5.004362,
+    "hyde": 11.805273,
+    "embedding": 1.017192,
+    "vector_search": 0.128728,
+    "keyword_search": 0.551187,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 18.516235,
+    "total": 21.349359,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

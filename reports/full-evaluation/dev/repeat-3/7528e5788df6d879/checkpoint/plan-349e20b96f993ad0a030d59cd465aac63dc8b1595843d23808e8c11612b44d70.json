@@ -1,0 +1,30 @@
+{
+  "case_id": "V2-032",
+  "subquestions": [
+    {
+      "question": "在有限显存条件下，全参数微调对显存的需求和资源限制是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在有限显存条件下，LoRA 微调对显存的需求和资源限制是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在有限显存条件下，除 LoRA 外还有哪些常见微调方式，它们的显存需求和适用条件是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在有限显存条件下，如何比较全参数微调与 LoRA 等微调方式在显存占用、训练效果和实现成本上的差异？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在有限显存条件下，如何根据具体任务和资源约束在全参数、LoRA 等微调方式之间做出选择？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.830699699999968
+}

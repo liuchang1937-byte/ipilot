@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-030",
+  "subquestions": [
+    {
+      "question": "从大量原始文本到能遵循指令的模型，通常经历哪些训练阶段？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.3801586000008683
+}

@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-020",
+      "question": "助手反复选同一个工具且没有推进，怎样识别并终止这种循环？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A020"
+      ],
+      "answerable": true,
+      "reference_answer": "常见原因是目标或终止条件含糊、工具结果没有改变状态、模型看不到历史动作、错误重试没有退避，或两个策略互相推翻。可以对“状态—动作—参数”生成轨迹指纹，检测短周期重复和无进展步数，并设置最大调用次数、时间和费用预算。治理上要明确完成条件、压缩重复历史、增加失败分类与替代路径，触发阈值后熔断或转人工。可以为工具名与规范化参数建立动作指纹，同时比较新增证据、待办减少和状态变化。重复工具调用本身不等于死循环，例如分页检索和受控重试可能是合理的；重复但没有进展才应触发治理。发现空转后先判断错误类型，再修正参数、换工具或重新规划；多 Agent 系统还要检查交接图中的环。预算耗尽时返回已完成工作和具体卡点，让用户知道系统为何停止。",
+      "group": "A020",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

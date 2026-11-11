@@ -1,0 +1,234 @@
+{
+  "case_id": "V2-093",
+  "question": "频繁更新的知识应该检索还是微调？另外LoRA有哪些工程收益？",
+  "category": "cross_domain",
+  "split": "dev",
+  "group": "R003",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R003",
+    "interview-question://L009"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "RAG适合注入经常变化或私有的事实知识，更新快、可引用，但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力，推理时无需额外检索，但训练和更新成本高，事实难以精确修改。两者可组合：微调行为稳定性，RAG提供动态知识。例如，客服经常需要遵循固定语气与输出格式，可以先用提示和示例，必要时微调；产品价格与售后政策每天变化，则更适合外部知识库。微调也能学习事实，但事实的覆盖、版本和引用较难管理；RAG 也能改善任务表现，但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务，再比较标注数据、训练维护成本、检索延迟和最终业务指标。",
+    "LoRA冻结原权重，用两个低秩矩阵近似权重更新，并把更新注入注意力或其他线性层。除减少训练参数和显存外，它便于为多个任务保存小型适配器、快速切换或组合，也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W，训练的增量可以写成 ΔW=BA，秩 r 远小于原维度，再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算，并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支，未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围，但不能保证没有遗忘或副作用；秩、目标层、数据与评测比单纯追求最低参数量更重要。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R003",
+    "interview-question://R019",
+    "interview-question://L008",
+    "interview-question://L009",
+    "interview-question://L010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.6131471927654584,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "频繁更新的知识应该检索还是微调？另外LoRA有哪些工程收益？",
+    "answer": "1. 对于频繁更新的知识，应该采用检索还是微调？\n\n\n2. LoRA有哪些工程收益？\n",
+    "sections": [
+      {
+        "question": "对于频繁更新的知识，应该采用检索还是微调？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于频繁更新的知识,应该采用检索还是微调?"
+            },
+            {
+              "kind": "mqe",
+              "text": "频繁更新的知识 应该采用检索增强生成还是微调"
+            },
+            {
+              "kind": "mqe",
+              "text": "动态知识频繁变化 RAG 检索与微调 方案对比"
+            },
+            {
+              "kind": "mqe",
+              "text": "retrieval augmented generation vs fine-tuning for frequently updated knowledge"
+            },
+            {
+              "kind": "hyde",
+              "text": "对于频繁更新的知识,通常应优先采用检索增强生成(RAG)而非全参数微调。微调将知识固化到模型权重中,更新周期长、算力成本高,且新数据覆盖旧事实时易导致灾难性遗忘、幻觉和版本不可追溯;删除或修正单条事实也困难。检索方案把知识存放在外部知识库或向量数据库,通过嵌入检索、BM25与稠密向量混合检索、元数据过滤和重排序注入上下文,支持增量索引、热更新、实时或近实时同步、细粒度权限和来源追溯。因此,时效性强、变更频繁、需要精确引用或访问控制的事实型知识适合检索;微调或参数高效微调(LoRA、Adapter、Prefix Tuning)更适合稳定能力、输出格式、领域术语、推理风格和工具调用行为对齐。生产系统常采用混合架构:检索负责动态事实,微调负责行为与领域适配,并配合缓存、索引刷新、版本管理和冲突消解。若更新极低频且要求低延迟离线推理,可考虑微调或知识编辑;但频繁更新场景下检索优先。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R003",
+            "interview-question://R019",
+            "interview-question://L008"
+          ]
+        }
+      },
+      {
+        "question": "LoRA有哪些工程收益？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "LoRA有哪些工程收益?"
+            },
+            {
+              "kind": "mqe",
+              "text": "LoRA 有哪些工程收益"
+            },
+            {
+              "kind": "mqe",
+              "text": "LoRA 在实际工程中的优势 训练 推理 部署 成本"
+            },
+            {
+              "kind": "mqe",
+              "text": "LoRA engineering benefits practical advantages training inference deployment"
+            },
+            {
+              "kind": "hyde",
+              "text": "LoRA(Low-Rank Adaptation)的工程收益包括:仅训练低秩分解矩阵 A、B,冻结基座模型权重,大幅减少可训练参数量、梯度和优化器状态显存,降低微调 GPU 显存占用与训练成本,支持更大 batch size、更长序列和单卡/少卡训练。LoRA checkpoint 体积从全量参数级降至 MB 级,便于存储、传输、版本管理和快速迭代。推理时可将 BA 合并回原权重 W=W0+BA,不引入额外推理延迟;也可不合并,动态加载、热切换、组合多个 adapter,实现多租户、多任务、多风格共享同一基座模型,减少模型副本和 GPU 占用。配合 QLoRA、4-bit 量化、PEFT、vLLM、LoRAX、S-LoRA 等框架,可提升服务吞吐、弹性扩缩容和部署效率,并降低微调与上线维护成本。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L009",
+            "interview-question://L008",
+            "interview-question://L010"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1412059223324461316,
+        "title": "相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?",
+        "source": "interview-question://R003",
+        "domain": "rag",
+        "content": "# 相比直接微调 LLM,RAG 解决了什么问题?微调和 RAG 各自的优劣势是什么?\n\n题目编号:R003\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:RAG适合注入经常变化或私有的事实知识,更新快、可引用,但依赖检索质量并增加在线延迟。微调更适合改变模型行为、格式、风格或特定任务能力,推理时无需额外检索,但训练和更新成本高,事实难以精确修改。两者可组合:微调行为稳定性,RAG提供动态知识。例如,客服经常需要遵循固定语气与输出格式,可以先用提示和示例,必要时微调;产品价格与售后政策每天变化,则更适合外部知识库。微调也能学习事实,但事实的覆盖、版本和引用较难管理;RAG 也能改善任务表现,但不能替代所有专门训练。选择应先分析失败是缺知识还是不会按要求完成任务,再比较标注数据、训练维护成本、检索延迟和最终业务指标。\n\n评分要点:从知识与行为区分;比较更新、成本、延迟和可解释性。",
+        "vector_score": 0.9005759656429291,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4501121176323650097,
+        "title": "RAG 知识库如何实现动态与持续更新?",
+        "source": "interview-question://R019",
+        "domain": "rag",
+        "content": "# RAG 知识库如何实现动态与持续更新?\n\n题目编号:R019\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:为来源建立稳定ID、版本和内容哈希,通过定时抓取、事件或CDC发现新增、修改与删除。只对变更文档重新解析、切块和Embedding,并以新版本原子替换旧索引;删除要同步处理向量、关键词与缓存。模型或切块策略变化时采用索引版本、双写和验证后切换,以支持回滚。更新流程应覆盖新增、修改与删除:检测变更后做解析和内容校验,只重建受影响文档的块、向量及关键词索引。可以先构建新版本并验证,再原子切换可见版本,避免先删除旧数据导致查询出现空窗。权限与元数据变化即使正文相同也要同步,缓存要失效,删除要清理残留表示。模型或切块规则变化需要索引版本管理,不能把不同向量空间的数据混用。\n\n评分要点:覆盖新增、修改、删除与元数据变更;说明增量索引、版本切换、缓存失效和向量空间兼容性。",
+        "vector_score": 0.8552947640419006,
+        "keyword_score": 0.6128146486353345,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 986183218169772871,
+        "title": "大模型微调的方案有哪些?",
+        "source": "interview-question://L008",
+        "domain": "llm-engineering",
+        "content": "# 大模型微调的方案有哪些?\n\n题目编号:L008\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:微调通常不是第一选择,应先尝试Prompt、Few-shot或RAG。真正需要稳定输出特定风格、格式,或希望用小模型替代昂贵模型时再考虑。方案包括全量微调、Adapter、Prefix/Prompt Tuning、LoRA和QLoRA;资源有限时LoRA/QLoRA最常用。SFT负责指令行为,有偏好对齐需求时还可使用DPO等方法,最终按数据、硬件和部署目标选型。全量微调更新大部分权重,容量较大但显存和优化器状态开销高;PEFT 只更新少量新增或选定参数,适合资源受限场景。QLoRA 将基座权重低比特存储,同时训练低秩适配器,不等于所有训练计算都用四位精度。SFT 是训练目标与数据形式,LoRA 是参数更新方式,两者可结合。是否值得微调还要比较数据准备、回归风险与维护成本,动态事实通常继续通过检索提供。\n\n评分要点:列举全量与多种PEFT;能说明场景取舍。",
+        "vector_score": 0.8482957482337952,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1962235713523519350,
+        "title": "请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?",
+        "source": "interview-question://L009",
+        "domain": "llm-engineering",
+        "content": "# 请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?\n\n题目编号:L009\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:LoRA冻结原权重,用两个低秩矩阵近似权重更新,并把更新注入注意力或其他线性层。除减少训练参数和显存外,它便于为多个任务保存小型适配器、快速切换或组合,也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W,训练的增量可以写成 ΔW=BA,秩 r 远小于原维度,再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算,并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支,未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围,但不能保证没有遗忘或副作用;秩、目标层、数据与评测比单纯追求最低参数量更重要。\n\n评分要点:低秩更新原理、多适配器、可合并及超参数权衡。",
+        "vector_score": 0.8921907544136047,
+        "keyword_score": 0.9882285063013055,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 1564593821354906773,
+        "title": "SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?",
+        "source": "interview-question://L010",
+        "domain": "llm-engineering",
+        "content": "# SFT 之后还有哪些 Post-Training?RLHF、DPO、GRPO、拒绝采样什么关系?\n\n题目编号:L010\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:SFT后可用拒绝采样从多个候选中选优再训练;RLHF通常训练奖励模型并用PPO优化策略;DPO直接利用偏好对,省去显式奖励模型和在线强化学习;GRPO使用组内相对奖励估计优势,减少价值模型依赖。它们都利用偏好或奖励改善行为,但数据、在线采样、稳定性和成本不同。Post-Training 通常包含 SFT 及其后的优化,不应严格定义成仅 SFT 之后。拒绝采样可选出高质量候选再用于监督学习;DPO 用偏好对直接优化;PPO 和 GRPO 则属于强化优化方式,奖励可以来自模型、人类或可验证规则。GRPO 常以同一问题的一组输出构造相对优势,避免单独训练价值模型,但仍有采样与奖励成本。方法可以组合,关键是训练信号可靠以及收益能通过独立测试确认。\n\n评分要点:说明 SFT 与后训练的关系;比较拒绝采样、PPO 式 RLHF、DPO 和 GRPO 的训练信号与成本。",
+        "vector_score": 0.7494124472141266,
+        "keyword_score": 0.9547253679596396,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 23.676,
+  "timings_seconds": {
+    "decomposition": 2.424703,
+    "retrieval": 21.251527,
+    "mqe": 6.549215,
+    "hyde": 13.328993,
+    "embedding": 0.732073,
+    "vector_search": 0.118239,
+    "keyword_search": 0.513905,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 21.251784,
+    "total": 23.676487,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

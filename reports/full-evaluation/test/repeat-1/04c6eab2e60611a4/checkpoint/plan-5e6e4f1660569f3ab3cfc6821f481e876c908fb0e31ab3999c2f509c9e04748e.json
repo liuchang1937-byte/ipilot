@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-025",
+  "subquestions": [
+    {
+      "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.707834799999546
+}

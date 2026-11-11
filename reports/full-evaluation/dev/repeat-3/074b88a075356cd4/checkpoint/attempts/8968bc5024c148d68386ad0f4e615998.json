@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-061",
+  "question": "召回效果不好时，应该从查询、切块、混合召回还是重排开始检查？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R014",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://R014"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "可从四层优化：数据层清洗去重、补元数据；索引层结构化/语义切块和父子索引；查询层改写、拆分与过滤；检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开：没有合适知识先修数据，相关内容被切散先修 Chunking，查询表达与文档不同再做改写，精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后，可以扩大候选池或加重排；正确证据已经进入上下文却回答错误，则检查组织方式与生成约束。每次修改只控制少量变量，用检索和答案两层指标验证，避免叠加很多技术后无法归因。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R014",
+    "interview-question://R013",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "召回效果不好时，应该从查询、切块、混合召回还是重排开始检查？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "召回效果不好时，应该从查询、切块、混合召回还是重排开始检查？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "召回效果不好时,应该从查询、切块、混合召回还是重排开始检查?"
+            },
+            {
+              "kind": "mqe",
+              "text": "召回效果差时,排查顺序应该先看查询、切块、混合召回还是重排?"
+            },
+            {
+              "kind": "mqe",
+              "text": "RAG 召回率低优化步骤:如何定位是查询改写、文档切块、混合检索还是重排序的问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索召回效果不佳时,应该从查询理解、切块策略、混合召回还是重排开始检查?"
+            },
+            {
+              "kind": "hyde",
+              "text": "召回效果不好时,建议按“查询理解→切块策略→混合召回→重排”排查,优先从查询和切块开始。先区分候选集 recall@k 是否不足:若 top_k 候选集中就没有相关文档,重排无法恢复召回,应检查 query rewrite、query expansion、multi-query、HyDE、意图识别、实体归一化、同义词、停用词及 metadata filter;再检查 chunk size、overlap、语义切分、parent-child chunk、表格/代码切块、embedding 模型与领域适配;然后检查 hybrid retrieval 中 BM25/sparse 与 dense 的权重、RRF/加权融合、top_k、ANN 参数、分词、索引和过滤条件;最后才检查 cross-encoder rerank 的 top_n、截断、训练分布和 hard negative。若候选集 recall@k 高但最终 top_n 召回低,瓶颈在重排截断;若候选集 recall@k 低,瓶颈在上游查询、切块或混合召回。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R014",
+            "interview-question://R013",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3525225094256298830,
+        "title": "RAG 检索优化策略有哪些?",
+        "source": "interview-question://R014",
+        "domain": "rag",
+        "content": "# RAG 检索优化策略有哪些?\n\n题目编号:R014\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:可从四层优化:数据层清洗去重、补元数据;索引层结构化/语义切块和父子索引;查询层改写、拆分与过滤;检索层采用关键词+向量、多路召回、RRF和重排。检索后还可扩展邻块、去冗余和压缩上下文。每项优化都应通过标注集测Recall@K、MRR及端到端答案指标。优化应按失败类型展开:没有合适知识先修数据,相关内容被切散先修 Chunking,查询表达与文档不同再做改写,精确实体遗漏可以补关键词召回。候选里已有答案但排序靠后,可以扩大候选池或加重排;正确证据已经进入上下文却回答错误,则检查组织方式与生成约束。每次修改只控制少量变量,用检索和答案两层指标验证,避免叠加很多技术后无法归因。\n\n评分要点:分层说明并包含评测闭环。",
+        "vector_score": 0.8847952783107758,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 610611646742673801,
+        "title": "什么是多路召回?具体怎么做?",
+        "source": "interview-question://R013",
+        "domain": "rag",
+        "content": "# 什么是多路召回?具体怎么做?\n\n题目编号:R013\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:多路召回让不同检索器或查询视角并行取得候选,例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重,再使用RRF等名次融合方法解决分数不可比问题,扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询,把每路候选保留来源信息,按文档或块 ID 去重,再融合排名。RRF 用候选在各路的排名贡献得分,不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量,再用原查询统一重排。新增检索路线也会增加噪声与延迟,需要单路、两路和扩展方案的消融对比,确认各路真正补充了哪些失败样本。\n\n评分要点:多样召回、融合去重、重排和通道评测。",
+        "vector_score": 0.844622790813446,
+        "keyword_score": 0.992962953393515,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3316265630962033877,
+        "title": "3.3 知识库摄取与检索流程",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 3.3 知识库摄取与检索流程\n### 时,系统发起二次召回;若二次召回后仍无可靠证据,则回答“资料中未找到足够依据”。\n\nF-017 混合召回去重后最多保留 16 个候选,最终默认向生成器提供前 5 个。\nF-018 触发二次召回的最高重排分阈值是 0.42。\n\n云杉计划知识手册 | RAG 测试语料 第 5 页 / 共 11 页\n\n---",
+        "vector_score": 0.8618148565292358,
+        "keyword_score": 0.9187422363243575,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 14.846,
+  "timings_seconds": {
+    "decomposition": 2.869286,
+    "retrieval": 11.977017,
+    "mqe": 2.246485,
+    "hyde": 8.958053,
+    "embedding": 0.461819,
+    "vector_search": 0.050908,
+    "keyword_search": 0.255554,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 11.977147,
+    "total": 14.846432,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

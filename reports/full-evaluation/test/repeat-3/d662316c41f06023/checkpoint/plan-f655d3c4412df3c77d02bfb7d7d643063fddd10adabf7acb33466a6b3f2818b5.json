@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-043",
+  "subquestions": [
+    {
+      "question": "混合专家模型为何只激活部分参数？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "混合专家模型中的路由和负载均衡有哪些代价？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 7.034480100002838
+}

@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-050",
+  "subquestions": [
+    {
+      "question": "在知识经常更新的条件下，检索增强（RAG）与参数微调（fine-tuning）在应对知识更新方面的区别和适用性是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在需要出处的条件下，检索增强（RAG）与参数微调（fine-tuning）在提供出处或可溯源性方面的区别和适用性是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在知识经常更新且需要出处的条件下，检索增强（RAG）与参数微调（fine-tuning）应该如何选择，选择标准或适用场景是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.129504299999098
+}

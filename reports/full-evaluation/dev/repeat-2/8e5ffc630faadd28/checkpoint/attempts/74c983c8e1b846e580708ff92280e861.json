@@ -1,0 +1,104 @@
+{
+  "case_id": "V2-110",
+  "question": "这套平台维护者上周在私有服务器上部署了多少个GPU节点？",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-110",
+  "variant": "hybrid_reranked",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "这套平台维护者上周在私有服务器上部署了多少个GPU节点？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "这套平台维护者上周在私有服务器上部署了多少个GPU节点？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "这套平台维护者上周在私有服务器上部署了多少个GPU节点?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 0,
+          "selected_sources": []
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 3.511,
+  "timings_seconds": {
+    "decomposition": 2.651399,
+    "retrieval": 0.275112,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.189093,
+    "vector_search": 0.023049,
+    "keyword_search": 0.061929,
+    "rerank": 0.584,
+    "generation": 0.0,
+    "pipeline": 0.859343,
+    "total": 3.510742,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

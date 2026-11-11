@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-008",
+      "question": "助手要记住用户偏好和当前任务进度，记忆模块如何设计？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://A008"
+      ],
+      "answerable": true,
+      "reference_answer": "题解可将Agent记忆分为四层：感知记忆保存当前原始输入，短期记忆位于上下文窗口并服务当前任务，长期记忆存入外部数据库并通过语义检索召回，实体记忆则结构化保存人物、对象和关键事实。实际设计要回答“存什么、怎么存、何时取”，并根据类型选择主动注入或按需检索，同时处理去重、过期、权限和删除。这是一种便于解释的分类，并非所有框架统一采用的标准。短期记忆应包含目标、近期消息和未决动作；长期记忆应保存跨会话有用且经过确认的信息；实体记忆适合记录对象属性与关系，避免姓名、日期和约束被摘要误改。写入时保留来源、时间和可信度，检索时先按用户与权限过滤。不是所有工具日志都值得长期保存，也不能把模型猜测直接当成事实写入。",
+      "group": "A008",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

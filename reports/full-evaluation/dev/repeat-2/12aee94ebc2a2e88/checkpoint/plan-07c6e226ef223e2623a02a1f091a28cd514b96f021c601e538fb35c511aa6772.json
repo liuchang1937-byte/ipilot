@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-075",
+  "subquestions": [
+    {
+      "question": "当一个系统仅接入一个内部函数时，采用MCP更合适的条件是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "当一个系统接入多个外部服务时，采用MCP更合适的条件是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在系统仅接入一个内部函数与接入多个外部服务两种情况下，采用MCP更合适的判断标准和权衡因素是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 15.73552700000073
+}

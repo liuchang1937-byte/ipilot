@@ -1,0 +1,246 @@
+{
+  "case_id": "V2-100",
+  "question": "模型网关提供哪些治理能力？助手连接数据库又如何限制权限？",
+  "category": "cross_domain",
+  "split": "test",
+  "group": "T016",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T016",
+    "interview-question://A024"
+  ],
+  "answerable": true,
+  "reference_points": [
+    "LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测，还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态，否则会形成难维护的中心化逻辑。例如，一个团队同时接入多个模型供应商，网关统一记录费用、设置团队配额，并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现，回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围，不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容，需要明确部分输出与恢复策略。",
+    "不要把数据库高权限凭据直接交给模型，应通过受控数据访问层暴露允许的表、字段和查询模板，默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截，再在限时限量的隔离账号中执行；结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID，查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态，不由模型从用户文字中自行决定。能提供查订单等固定业务接口时，就不暴露任意 SQL；必须生成 SQL 时要解析语法树，限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入，不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏，写操作使用独立权限、事务和审计，并校验指标口径及时间范围，兼顾查询安全和答案正确性。"
+  ],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T016",
+    "interview-question://T004",
+    "interview-question://T005",
+    "interview-question://A024",
+    "C:\\Users\\orzlc\\Desktop\\test.pdf",
+    "interview-question://R009"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.6131471927654584,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "模型网关提供哪些治理能力？助手连接数据库又如何限制权限？",
+    "answer": "1. 模型网关提供哪些治理能力？\n\n\n2. 助手连接数据库时如何限制权限？\n",
+    "sections": [
+      {
+        "question": "模型网关提供哪些治理能力？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "模型网关提供哪些治理能力?"
+            },
+            {
+              "kind": "mqe",
+              "text": "模型网关的治理能力包括哪些?"
+            },
+            {
+              "kind": "mqe",
+              "text": "AI 模型网关提供哪些治理功能与管控机制?"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM Gateway governance capabilities and features"
+            },
+            {
+              "kind": "hyde",
+              "text": "模型网关(Model Gateway / LLM Gateway)提供统一接入、协议转换、多模型适配、模型路由和 API 生命周期治理。核心治理能力包括:身份认证、API Key/OAuth2/JWT、RBAC/ABAC 鉴权、租户隔离、密钥与权限管理;配额管理、QPS/TPS 限流、并发控制、熔断、降级、重试、超时、负载均衡、灰度发布、A/B 测试和金丝雀发布;模型注册、版本管理、Prompt 模板管理、模型评测与 SLA 治理;内容安全审核、敏感词过滤、Prompt 注入与越狱防护、输出审核、PII 脱敏、DLP 与合规策略;日志、指标、链路追踪、Token 计量、调用审计、告警与可观测性;Token 计费、预算控制、成本分摊、语义缓存与策略引擎动态下发。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T016",
+            "interview-question://T004",
+            "interview-question://T005"
+          ]
+        }
+      },
+      {
+        "question": "助手连接数据库时如何限制权限？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "助手连接数据库时如何限制权限?"
+            },
+            {
+              "kind": "mqe",
+              "text": "助手连接数据库时如何限制权限"
+            },
+            {
+              "kind": "mqe",
+              "text": "数据库连接账号最小权限配置与只读权限设置"
+            },
+            {
+              "kind": "mqe",
+              "text": "AI assistant database connection permission restriction least privilege"
+            },
+            {
+              "kind": "hyde",
+              "text": "AI助手或智能体连接数据库时采用最小权限原则:创建专用数据库账号/角色,仅授予SELECT权限或通过只读视图、存储过程、函数暴露数据,显式REVOKE INSERT、UPDATE、DELETE、DROP、ALTER、CREATE、GRANT、FILE、EXECUTE等权限;使用RBAC、行级安全RLS、列级权限、动态数据脱敏和视图隔离敏感字段;连接层启用IAM认证、临时令牌、Secret Manager、TLS、IP白名单、VPC/安全组、只读副本或只读事务;在代理层实施SQL解析、语句白名单、参数化查询、查询超时、最大返回行数、速率限制、资源组和审计日志;定期轮换凭据、复核权限并监控异常查询。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A024",
+            "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "interview-question://R009"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2169899495911519092,
+        "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+        "source": "interview-question://T016",
+        "domain": "llm-tool-calling",
+        "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+        "vector_score": 0.8690081238746643,
+        "keyword_score": 0.8255921625520751,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4536864493093651401,
+        "title": "什么是 MCP(模型上下文协议)?讲讲它的核心内容?",
+        "source": "interview-question://T004",
+        "domain": "llm-tool-calling",
+        "content": "# 什么是 MCP(模型上下文协议)?讲讲它的核心内容?\n\n题目编号:T004\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:MCP是连接AI宿主与外部能力的标准协议,统一能力发现、工具调用、资源读取和提示模板等交互。它解决不同应用重复编写集成的问题,使MCP Server可以被多个Host复用。MCP不替模型决定业务策略,也不会自动解决权限、可信度和工具副作用,这些仍由宿主和服务端治理。典型能力包括 Tools、Resources 和 Prompts:工具提供可调用操作,资源提供上下文数据,提示模板提供可复用消息构造。工具既可能只读,也可能产生副作用,不能把 Tools 一律定义为写操作。应用与服务端按协议协商能力并交换消息,模型并不直接解析网络协议。标准化降低重复集成成本,但真实可用性仍取决于双方支持的协议版本、身份验证和工具质量。\n\n评分要点:说明标准化接入与能力协商;区分 Tools、Resources、Prompts;知道工具可只读也可有副作用。",
+        "vector_score": 0.7841227054595947,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 319809831368975428,
+        "title": "MCP 由哪几部分组成?",
+        "source": "interview-question://T005",
+        "domain": "llm-tool-calling",
+        "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+        "vector_score": 0.7900418639183044,
+        "keyword_score": 0.7635290109126299,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1161528079708033534,
+        "title": "大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?",
+        "source": "interview-question://A024",
+        "domain": "agent",
+        "content": "# 大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?\n\n题目编号:A024\n\n领域:agent\n\n难度:3\n\n标签:数据库安全、权限、审计\n- 考察方向:最小权限、查询白名单、脱敏、只读代理和结果验证。\n\n参考答案:不要把数据库高权限凭据直接交给模型,应通过受控数据访问层暴露允许的表、字段和查询模板,默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截,再在限时限量的隔离账号中执行;结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID,查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态,不由模型从用户文字中自行决定。能提供查订单等固定业务接口时,就不暴露任意 SQL;必须生成 SQL 时要解析语法树,限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入,不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏,写操作使用独立权限、事务和审计,并校验指标口径及时间范围,兼顾查询安全和答案正确性。\n\n评分要点:最小权限、SQL验证、隔离执行、脱敏审计和结果证据。",
+        "vector_score": 0.8839038610458374,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 4047647256512424992,
+        "title": "4.1 权限原则",
+        "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "domain": "",
+        "content": "# 4.1 权限原则\n### 小时。任何角色都不能仅凭项目负责人林岑的口头同意导出 L3 数据。\n\nF-021 L2 原始数据临时导出授权最长 8 小时。\nF-022 林岑的口头同意不足以授权导出 L3 数据。",
+        "vector_score": 0.7462641000747681,
+        "keyword_score": 0.33984907844969214,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 2886579831854676340,
+        "title": "讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?",
+        "source": "interview-question://R009",
+        "domain": "rag",
+        "content": "# 讲讲你用的向量数据库?数据量级是多大?性能如何?遇到过性能瓶颈吗?\n\n题目编号:R009\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:应结合真实项目说明产品、向量数量和维度、索引类型、写入频率、查询并发、Top-K、P95延迟和召回率。常见瓶颈包括过滤后候选不足、索引参数不合理、内存不足、读写竞争和网络开销;可通过索引调参、分区分片、压缩、批量写入和缓存优化,但必须同步观察召回损失。如果讲本项目,应如实说明子块向量存入本地 Chroma,由 cosine HNSW 索引召回,再与应用层中文 BM25 排序融合并返回完整父块;目前没有部署分布式集群,也不能套用其他项目的百万级数据和延迟。项目经验应给出可复现的测试环境、查询集、并发与过滤条件。先用耗时分解和资源监控确认瓶颈,再选择批量读取、缓存或引入专门索引;优化前后要在同一数据与负载上对照,否则性能数字缺乏意义。\n\n评分要点:项目经验与数据规模必须真实;给出测试条件和量化指标;从实际瓶颈推导优化并验证召回损失。",
+        "vector_score": 0.721849262714386,
+        "keyword_score": 0.29228820499812264,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 29.412,
+  "timings_seconds": {
+    "decomposition": 3.149802,
+    "retrieval": 26.261627,
+    "mqe": 8.647651,
+    "hyde": 16.622206,
+    "embedding": 0.714791,
+    "vector_search": 0.055851,
+    "keyword_search": 0.216948,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 26.261781,
+    "total": 29.411583,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

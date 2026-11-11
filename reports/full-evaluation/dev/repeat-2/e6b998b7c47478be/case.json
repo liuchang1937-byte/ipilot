@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-071",
+      "question": "训练一个可靠工具调用模型，需要哪些数据与执行反馈？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T003"
+      ],
+      "answerable": true,
+      "reference_answer": "数据应覆盖正确调用、不应调用、缺参数先澄清、多工具选择、连续调用、并行调用及失败恢复。通过SFT学习调用格式和决策，再可用偏好优化提升工具选择与参数质量。训练还要加入未知工具、恶意描述和异常结果，避免模型只会理想路径；评测分别检查选工具、参数、执行后回答和拒绝调用。一条训练样本可包含用户需求、候选工具定义、正确调用请求、执行观察和最终答复。需要构造相似工具的困难负例，以及参数缺失、过期结果、权限拒绝等情况，防止模型只记住名称。奖励不能只检查调用格式，执行结果与任务是否完成也很重要。测试时把训练出现过的工具和新工具分开，分别测工具选择、参数有效性、多轮完成率和不该调用时的拒绝率，避免数据泄漏掩盖问题。",
+      "group": "T003",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

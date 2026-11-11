@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-104",
+  "subquestions": [
+    {
+      "question": "部署模型时如何选择量化方案？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "部署模型时 CPU 和 GPU 服务框架如何取舍？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.3116792000000714
+}

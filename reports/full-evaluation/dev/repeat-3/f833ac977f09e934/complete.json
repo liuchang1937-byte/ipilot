@@ -1,0 +1,1259 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "479b0b20723943398d4e77a617a568b8",
+  "created_at": "2026-10-12T15:07:35.642194+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "153540f6f07cec41e1cb3c433b52753671a109f310efc95a1f89dcf4e513a5ab",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 3,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\dev\\repeat-3\\f833ac977f09e934\\checkpoint"
+  },
+  "options": {
+    "hybrid_reranked": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid_reranked",
+      "label": "混合 + 精排",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "hit_rate": 0,
+      "mrr": 0.0,
+      "all_sources_rate": 0,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 9.159,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 0,
+      "p95_seconds": 9.159,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.710603,
+          "p50": 6.710603,
+          "p95": 6.710603,
+          "max": 6.710603,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.873268,
+          "p50": 0.873268,
+          "p95": 0.873268,
+          "max": 0.873268,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.583384,
+          "p50": 0.583384,
+          "p95": 0.583384,
+          "max": 0.583384,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.080659,
+          "p50": 0.080659,
+          "p95": 0.080659,
+          "max": 0.080659,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.204503,
+          "p50": 0.204503,
+          "p95": 0.204503,
+          "max": 0.204503,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 1.574337,
+          "p50": 1.574337,
+          "p95": 1.574337,
+          "max": 1.574337,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 2.448125,
+          "p50": 2.448125,
+          "p95": 2.448125,
+          "max": 2.448125,
+          "samples": 1
+        },
+        "total": {
+          "mean": 9.158728,
+          "p50": 9.158728,
+          "p95": 9.158728,
+          "max": 9.158728,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 1,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 3,
+        "rerank_pairs": 36
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222,
+      "ndcg_at_k": 0.5,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 61.166,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 61.166,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.710603,
+          "p50": 6.710603,
+          "p95": 6.710603,
+          "max": 6.710603,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 54.45533,
+          "p50": 54.45533,
+          "p95": 54.45533,
+          "max": 54.45533,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 11.1478,
+          "p50": 11.1478,
+          "p95": 11.1478,
+          "max": 11.1478,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 41.11676,
+          "p50": 41.11676,
+          "p95": 41.11676,
+          "max": 41.11676,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.233957,
+          "p50": 1.233957,
+          "p95": 1.233957,
+          "max": 1.233957,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.197199,
+          "p50": 0.197199,
+          "p95": 0.197199,
+          "max": 0.197199,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.746497,
+          "p50": 0.746497,
+          "p95": 0.746497,
+          "max": 0.746497,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 54.455646,
+          "p50": 54.455646,
+          "p95": 54.455646,
+          "max": 54.455646,
+          "samples": 1
+        },
+        "total": {
+          "mean": 61.166249,
+          "p50": 61.166249,
+          "p95": 61.166249,
+          "max": 61.166249,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222,
+      "ndcg_at_k": 0.377,
+      "hit_rate": 1,
+      "mrr": 0.5,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 7.383,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 7.383,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.710603,
+          "p50": 6.710603,
+          "p95": 6.710603,
+          "max": 6.710603,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.671911,
+          "p50": 0.671911,
+          "p95": 0.671911,
+          "max": 0.671911,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.419294,
+          "p50": 0.419294,
+          "p95": 0.419294,
+          "max": 0.419294,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.067243,
+          "p50": 0.067243,
+          "p95": 0.067243,
+          "max": 0.067243,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.182156,
+          "p50": 0.182156,
+          "p95": 0.182156,
+          "max": 0.182156,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.672231,
+          "p50": 0.672231,
+          "p95": 0.672231,
+          "max": 0.672231,
+          "samples": 1
+        },
+        "total": {
+          "mean": 7.382834,
+          "p50": 7.382834,
+          "p95": 7.382834,
+          "max": 7.382834,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-003",
+      "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A003",
+      "variant": "hybrid_reranked",
+      "expected_sources": [
+        "interview-question://A003"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Tool 是一个边界清晰、可调用的外部能力，如查询数据库或发送邮件；Workflow 是预先定义好的步骤、分支和依赖，执行路径主要由代码决定；Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合：Workflow 控制关键流程，Agent 处理开放决策，Tool 提供实际执行能力。例如，报销系统中的金额校验是 Tool，固定的提交、审核、付款流程是 Workflow，自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数，也可以是一次模型调用或一个 Agent；Agent 也能调用固定子流程。因此三者不是互斥产品，更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性，哪些决策需要运行时探索。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A001"
+      ],
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "all_sources_found": false,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+        "answer": "1. 固定流程承担什么职责？\n\n\n2. 会自主决定下一步的助手承担什么职责？\n\n\n3. 外部函数承担什么职责？\n",
+        "sections": [
+          {
+            "question": "固定流程承担什么职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "固定流程承担什么职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 0,
+              "selected_sources": []
+            }
+          },
+          {
+            "question": "会自主决定下一步的助手承担什么职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "会自主决定下一步的助手承担什么职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 1,
+              "selected_sources": [
+                "interview-question://A001"
+              ]
+            }
+          },
+          {
+            "question": "外部函数承担什么职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "外部函数承担什么职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": true,
+              "candidate_count": 12,
+              "rerank_requested": true,
+              "selected_count": 0,
+              "selected_sources": []
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2926109573100487886,
+            "title": "什么是 Agent?与大模型有什么本质不同?",
+            "source": "interview-question://A001",
+            "domain": "agent",
+            "content": "# 什么是 Agent?与大模型有什么本质不同?\n\n题目编号:A001\n\n领域:agent\n\n难度:1\n\n标签:Agent 定义、LLM 应用、自主决策\n- 考察方向:候选人能否从目标、状态、行动、反馈闭环等角度定义 Agent。\n\n参考答案:大模型本质上是根据上下文生成输出的概率模型,本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统,它会感知当前状态,规划下一步,调用工具影响外部环境,读取执行结果并继续决策,直到完成目标或触发停止条件。两者的核心差异是:LLM 提供认知能力,Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如,一个资料调研 Agent 会先确定检索范围,调用搜索工具,检查是否获得足够证据,再组织结论;如果资料不足,就调整查询继续检索。控制循环通常由宿主代码驱动,模型输出的是行动建议,外部操作仍由程序执行。判断是否具备 Agent 特征,要看是否能依据观察更新决策,而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。\n\n评分要点:区分“模型”与“系统”;提到目标、状态、工具和反馈循环;说明 Agent 不等于简单聊天封装。",
+            "vector_score": 0.7403362691402435,
+            "keyword_score": 0.48013842817955865,
+            "rerank_score": 0.11948734521865845
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": true,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 9.159,
+      "timings_seconds": {
+        "decomposition": 6.710603,
+        "retrieval": 0.873268,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.583384,
+        "vector_search": 0.080659,
+        "keyword_search": 0.204503,
+        "rerank": 1.574337,
+        "generation": 0.0,
+        "pipeline": 2.448125,
+        "total": 9.158728,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 3,
+        "rerank_pairs": 36
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-003",
+      "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A003",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A003"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Tool 是一个边界清晰、可调用的外部能力，如查询数据库或发送邮件；Workflow 是预先定义好的步骤、分支和依赖，执行路径主要由代码决定；Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合：Workflow 控制关键流程，Agent 处理开放决策，Tool 提供实际执行能力。例如，报销系统中的金额校验是 Tool，固定的提交、审核、付款流程是 Workflow，自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数，也可以是一次模型调用或一个 Agent；Agent 也能调用固定子流程。因此三者不是互斥产品，更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性，哪些决策需要运行时探索。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A003",
+        "interview-question://A004",
+        "interview-question://R001",
+        "interview-question://A001",
+        "interview-question://A010",
+        "interview-question://T001",
+        "interview-question://T006",
+        "interview-question://T011"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222222222222222,
+      "ndcg_at_k": 0.5,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+        "answer": "1. 固定流程承担什么职责？\n\n\n2. 会自主决定下一步的助手承担什么职责？\n\n\n3. 外部函数承担什么职责？\n",
+        "sections": [
+          {
+            "question": "固定流程承担什么职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "固定流程承担什么职责?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "固定流程的职责和作用是什么"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "固定流程负责哪些工作或功能"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "固定流程在业务流程中承担什么职能"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "固定流程(静态工作流/预定义流程)承担标准化任务编排与执行控制职责:依据预定义BPMN模型或状态机,完成流程实例创建、节点路由、任务分派、角色权限校验、表单与数据流转、条件分支、并行/串行会签、审批决策、超时提醒、异常捕获与补偿、状态持久化、审计日志、合规检查、SLA监控及指标统计。其核心作用是保证业务操作可重复、可预测、可追溯,降低人为偏差,提高自动化与协作效率,并支持流程版本管理与变更控制。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A003",
+                "interview-question://A004",
+                "interview-question://R001"
+              ]
+            }
+          },
+          {
+            "question": "会自主决定下一步的助手承担什么职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "会自主决定下一步的助手承担什么职责?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "自主决定下一步的助手 职责 角色"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "能自主规划下一步的AI智能体 承担哪些任务和责任"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "autonomous AI assistant responsibilities roles next-step decision-making"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "具备自主决定下一步能力的助手通常作为自主智能体(autonomous agent)承担目标解析、任务分解、动态规划、下一步动作选择、工具调用与API编排、上下文与长期记忆管理、执行监控、状态跟踪、异常恢复、结果验证、反思重规划、资源与成本预算控制、权限与安全合规检查、人机协同确认等职责。它基于环境反馈、奖励信号、约束条件和不确定性进行策略决策,支持 ReAct、Plan-and-Execute、Reflexion、思维链、状态机或工作流引擎等机制,并对任务完成度、执行效率、安全性与可解释性负责。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A001",
+                "interview-question://A010",
+                "interview-question://A003"
+              ]
+            }
+          },
+          {
+            "question": "外部函数承担什么职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "外部函数承担什么职责?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "外部函数的主要职责和作用是什么"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "外部函数在程序设计中承担哪些功能与任务"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "external function responsibilities and role in programming"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "外部函数(external/outer function)承担跨边界与作用域职责:在C/C++等模块化语言中,具有外部链接的函数通过头文件声明、源文件定义向其他翻译单元暴露可调用接口,符号在目标文件中全局可见,由链接器解析与重定位;调用方遵循相同调用约定和ABI传递参数、接收返回值,外部函数实现约定功能并可能产生副作用,支持分离编译、模块复用与跨文件调用。在嵌套函数/闭包中,外部函数创建词法作用域,封装并维持内部函数引用的自由变量,返回内部函数以形成闭包,实现状态私有化与变量捕获。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T001",
+                "interview-question://T006",
+                "interview-question://T011"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2982864919778602991,
+            "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+            "source": "interview-question://A003",
+            "domain": "agent",
+            "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+            "vector_score": 0.7968111038208008,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.7762339413166046,
+            "keyword_score": 0.8897240319253245,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1192065734383377651,
+            "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+            "source": "interview-question://R001",
+            "domain": "rag",
+            "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+            "vector_score": 0.7357085347175598,
+            "keyword_score": 0.9526623533734335,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2926109573100487886,
+            "title": "什么是 Agent?与大模型有什么本质不同?",
+            "source": "interview-question://A001",
+            "domain": "agent",
+            "content": "# 什么是 Agent?与大模型有什么本质不同?\n\n题目编号:A001\n\n领域:agent\n\n难度:1\n\n标签:Agent 定义、LLM 应用、自主决策\n- 考察方向:候选人能否从目标、状态、行动、反馈闭环等角度定义 Agent。\n\n参考答案:大模型本质上是根据上下文生成输出的概率模型,本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统,它会感知当前状态,规划下一步,调用工具影响外部环境,读取执行结果并继续决策,直到完成目标或触发停止条件。两者的核心差异是:LLM 提供认知能力,Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如,一个资料调研 Agent 会先确定检索范围,调用搜索工具,检查是否获得足够证据,再组织结论;如果资料不足,就调整查询继续检索。控制循环通常由宿主代码驱动,模型输出的是行动建议,外部操作仍由程序执行。判断是否具备 Agent 特征,要看是否能依据观察更新决策,而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。\n\n评分要点:区分“模型”与“系统”;提到目标、状态、工具和反馈循环;说明 Agent 不等于简单聊天封装。",
+            "vector_score": 0.8120659589767456,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 2175414725624058958,
+            "title": "什么是 Multi-Agent?",
+            "source": "interview-question://A010",
+            "domain": "agent",
+            "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+            "vector_score": 0.7897918522357941,
+            "keyword_score": 0.8521988437586537,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.7290398478507996,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 7,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.7491593956947327,
+            "keyword_score": 0.884719080766871,
+            "rerank_score": null
+          },
+          {
+            "id": 8,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.7474690675735474,
+            "keyword_score": 0.8249912236646099,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 61.166,
+      "timings_seconds": {
+        "decomposition": 6.710603,
+        "retrieval": 54.45533,
+        "mqe": 11.1478,
+        "hyde": 41.11676,
+        "embedding": 1.233957,
+        "vector_search": 0.197199,
+        "keyword_search": 0.746497,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 54.455646,
+        "total": 61.166249,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-003",
+      "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+      "category": "terminology",
+      "split": "dev",
+      "group": "A003",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A003"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "Tool 是一个边界清晰、可调用的外部能力，如查询数据库或发送邮件；Workflow 是预先定义好的步骤、分支和依赖，执行路径主要由代码决定；Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合：Workflow 控制关键流程，Agent 处理开放决策，Tool 提供实际执行能力。例如，报销系统中的金额校验是 Tool，固定的提交、审核、付款流程是 Workflow，自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数，也可以是一次模型调用或一个 Agent；Agent 也能调用固定子流程。因此三者不是互斥产品，更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性，哪些决策需要运行时探索。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A004",
+        "interview-question://A003",
+        "interview-question://R001",
+        "interview-question://A010",
+        "interview-question://A001",
+        "interview-question://T001",
+        "interview-question://T007"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2222222222222222,
+      "ndcg_at_k": 0.37697658452381916,
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+        "answer": "1. 固定流程承担什么职责？\n\n\n2. 会自主决定下一步的助手承担什么职责？\n\n\n3. 外部函数承担什么职责？\n",
+        "sections": [
+          {
+            "question": "固定流程承担什么职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "固定流程承担什么职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A004",
+                "interview-question://A003",
+                "interview-question://R001"
+              ]
+            }
+          },
+          {
+            "question": "会自主决定下一步的助手承担什么职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "会自主决定下一步的助手承担什么职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A010",
+                "interview-question://A001",
+                "interview-question://A003"
+              ]
+            }
+          },
+          {
+            "question": "外部函数承担什么职责？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "外部函数承担什么职责?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T001",
+                "interview-question://A010",
+                "interview-question://T007"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.7400846481323242,
+            "keyword_score": 0.8043687099118056,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2982864919778602991,
+            "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+            "source": "interview-question://A003",
+            "domain": "agent",
+            "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+            "vector_score": 0.7187796235084534,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1192065734383377651,
+            "title": "什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?",
+            "source": "interview-question://R001",
+            "domain": "rag",
+            "content": "# 什么是 RAG?详细描述一个完整 RAG 系统的详细工作流程?\n\n题目编号:R001\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:RAG是检索增强生成,把外部知识作为证据注入模型上下文。离线阶段完成文档采集、清洗、结构化切块、元数据增强、Embedding计算及关键词/向量索引;在线阶段解析和改写查询,执行过滤、多路召回、融合、重排与上下文组装,再由LLM生成带引用的回答。生产系统还需要权限、拒答、缓存、增量更新、监控和分层评测。例如,员工询问报销标准时,系统先在其权限范围内找到当前有效的制度片段,再把来源、版本与内容传给模型,由模型组织答复。Embedding 负责语义召回,重排负责筛掉看似相关的噪声,生成阶段负责解释证据,三者职责不同。检索没有可靠依据时应澄清或拒答,而不是继续编造。每次运行保留查询、候选、引用和耗时,才能定位失败发生在入库、召回还是生成阶段。\n\n评分要点:离线与在线链路完整;提到召回、重排、证据生成和评测。",
+            "vector_score": 0.71876460313797,
+            "keyword_score": 0.8782364979746962,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2175414725624058958,
+            "title": "什么是 Multi-Agent?",
+            "source": "interview-question://A010",
+            "domain": "agent",
+            "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+            "vector_score": 0.7273322939872742,
+            "keyword_score": 0.9735569538109003,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 2926109573100487886,
+            "title": "什么是 Agent?与大模型有什么本质不同?",
+            "source": "interview-question://A001",
+            "domain": "agent",
+            "content": "# 什么是 Agent?与大模型有什么本质不同?\n\n题目编号:A001\n\n领域:agent\n\n难度:1\n\n标签:Agent 定义、LLM 应用、自主决策\n- 考察方向:候选人能否从目标、状态、行动、反馈闭环等角度定义 Agent。\n\n参考答案:大模型本质上是根据上下文生成输出的概率模型,本身不负责持续维护任务状态或真实执行动作。Agent 是以 LLM 为推理核心、以目标为驱动的运行系统,它会感知当前状态,规划下一步,调用工具影响外部环境,读取执行结果并继续决策,直到完成目标或触发停止条件。两者的核心差异是:LLM 提供认知能力,Agent 在其外部增加状态、工具、控制循环、记忆和反馈闭环。例如,一个资料调研 Agent 会先确定检索范围,调用搜索工具,检查是否获得足够证据,再组织结论;如果资料不足,就调整查询继续检索。控制循环通常由宿主代码驱动,模型输出的是行动建议,外部操作仍由程序执行。判断是否具备 Agent 特征,要看是否能依据观察更新决策,而不是仅仅看界面能否聊天或是否注册了工具。自主性也应受权限、预算和验收条件约束。\n\n评分要点:区分“模型”与“系统”;提到目标、状态、工具和反馈循环;说明 Agent 不等于简单聊天封装。",
+            "vector_score": 0.7403362691402435,
+            "keyword_score": 0.48013842817955865,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.7290398478507996,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 7,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.7284981310367584,
+            "keyword_score": 0.9368077118350158,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 7.383,
+      "timings_seconds": {
+        "decomposition": 6.710603,
+        "retrieval": 0.671911,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.419294,
+        "vector_search": 0.067243,
+        "keyword_search": 0.182156,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.672231,
+        "total": 7.382834,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 3,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-003",
+      "subquestions": [
+        {
+          "question": "固定流程承担什么职责？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "会自主决定下一步的助手承担什么职责？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "外部函数承担什么职责？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 6.710603400000764
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.004,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

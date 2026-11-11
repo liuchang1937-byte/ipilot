@@ -1,0 +1,455 @@
+{
+  "case_id": "V2-085",
+  "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+  "category": "paraphrase",
+  "split": "test",
+  "group": "T017",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://T017"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索得到小候选集，再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如，先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义；相似工具要有明确区分。权限过滤在执行时再次校验，路由正确不代表获得授权，评测还要覆盖容易混淆与无适用工具的请求。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://T017",
+    "interview-question://T002",
+    "interview-question://T018",
+    "interview-question://T007",
+    "interview-question://A003"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": false,
+  "result": {
+    "question": "工具目录很大，把所有Schema放进提示有什么问题，如何按需选工具？",
+    "answer": "1. 当工具目录很大时，把所有工具 Schema 放进提示会有什么问题？\n当工具目录很大时，把所有工具 Schema 放进提示会带来两类主要问题：一是 Token 开销增大，二是工具选择更容易出错（误选率上升）。资料建议先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索，得到小候选集，再让模型选择，并且最后只把少量相关 Schema 交给模型，从而减少 Token 并避免选错工具。评测中应统计工具 Recall、误选率、参数正确率、Token 和延迟等指标；工具描述还应包含何时使用、何时不用和参数语义，相似工具要有明确区分。[1]\n\n2. 当工具目录很大时，如何按需选择工具？\n当工具目录很大时，按需选择的核心是“先缩小候选，再让模型决策”：先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先用规则或语义检索得到小候选集，再让模型选择；可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认；例如先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型；第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住；工具描述应包含何时使用、何时不用和参数语义，相似工具要有明确区分；权限过滤在执行时再次校验，路由正确不代表获得授权；评测应统计工具 Recall、误选率、参数正确率、Token 和延迟，并覆盖容易混淆与无适用工具的请求。[1] 另外，工具多并不自动意味着必须使用 MCP，还要评估鉴权、版本管理、传输故障和运维成本等治理成本。[4]",
+    "sections": [
+      {
+        "question": "当工具目录很大时，把所有工具 Schema 放进提示会有什么问题？",
+        "kind": "knowledge",
+        "answer": "当工具目录很大时，把所有工具 Schema 放进提示会带来两类主要问题：一是 Token 开销增大，二是工具选择更容易出错（误选率上升）。资料建议先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索，得到小候选集，再让模型选择，并且最后只把少量相关 Schema 交给模型，从而减少 Token 并避免选错工具。评测中应统计工具 Recall、误选率、参数正确率、Token 和延迟等指标；工具描述还应包含何时使用、何时不用和参数语义，相似工具要有明确区分。[1]",
+        "source_ids": [
+          1
+        ],
+        "insufficient": false,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当工具目录很大时,把所有工具 Schema 放进提示会有什么问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大型工具目录场景下,把全部工具 Schema 放进提示词会带来哪些风险和局限?"
+            },
+            {
+              "kind": "mqe",
+              "text": "工具数量很多时,LLM 全量工具定义放入上下文对 token 消耗、推理延迟和工具选择准确率的影响"
+            },
+            {
+              "kind": "mqe",
+              "text": "large tool catalog include all tool schemas in prompt problems context window cost latency tool selection accuracy"
+            },
+            {
+              "kind": "hyde",
+              "text": "当工具目录很大时,把所有工具 Schema 一次性放入提示会导致上下文窗口膨胀、token 成本与推理延迟显著上升,甚至超出最大上下文长度而截断;大量无关 JSON Schema、函数描述和参数定义会稀释注意力,造成 lost-in-the-middle、工具选择准确率下降、函数调用误选、参数填充错误和 schema 幻觉。还会降低提示缓存命中率,增加 system prompt 维护与版本冲突风险,并扩大恶意工具描述或 schema 注入的攻击面。更优方案是采用工具检索、tool RAG、语义路由或分层工具选择,仅将 top-k 相关工具 Schema 动态注入提示。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T017",
+            "interview-question://T002",
+            "interview-question://T018"
+          ]
+        }
+      },
+      {
+        "question": "当工具目录很大时，如何按需选择工具？",
+        "kind": "knowledge",
+        "answer": "当工具目录很大时，按需选择的核心是“先缩小候选，再让模型决策”：先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先用规则或语义检索得到小候选集，再让模型选择；可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认；例如先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型；第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住；工具描述应包含何时使用、何时不用和参数语义，相似工具要有明确区分；权限过滤在执行时再次校验，路由正确不代表获得授权；评测应统计工具 Recall、误选率、参数正确率、Token 和延迟，并覆盖容易混淆与无适用工具的请求。[1] 另外，工具多并不自动意味着必须使用 MCP，还要评估鉴权、版本管理、传输故障和运维成本等治理成本。[4]",
+        "source_ids": [
+          1,
+          4
+        ],
+        "insufficient": false,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当工具目录很大时,如何按需选择工具?"
+            },
+            {
+              "kind": "mqe",
+              "text": "海量工具库中动态检索并选择合适工具的方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "large tool catalog on-demand tool selection LLM agent tool retrieval"
+            },
+            {
+              "kind": "hyde",
+              "text": "当工具目录很大时,采用按需工具选择(Tool RAG / dynamic tool retrieval)流程:离线构建工具索引,为每个 API/function 生成结构化工具卡片,包含名称、描述、参数 schema、示例、标签、权限、领域、成本与延迟,并建立稠密向量索引与 BM25 稀疏索引。在线先做意图识别、查询重写和子任务分解,再用混合检索从向量数据库召回候选工具,结合元数据过滤缩小范围。随后用 cross-encoder 或 LLM reranker 按能力匹配度、参数兼容性、成功率和上下文相关性精排,选 top-k 最小充分工具集,必要时用 MMR 去冗余并控制 token budget。复杂任务可用分层路由:领域分类器 → 工具簇/技能图 → 具体工具,或由 planner/controller 逐步选择并调用。执行反馈、成功率与用户行为用于更新索引和路由策略,高频工具可缓存,最终实现按需 function calling 与 API selection。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://T017",
+            "interview-question://T007",
+            "interview-question://A003"
+          ]
+        }
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "chunk_id": 108826138093358449,
+        "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+        "source": "interview-question://T017",
+        "domain": "llm-tool-calling",
+        "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+        "vector_score": 0.8901494145393372,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.8128404319286346,
+        "keyword_score": 0.7096754636554021,
+        "rerank_score": null
+      }
+    ],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 108826138093358449,
+        "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+        "source": "interview-question://T017",
+        "domain": "llm-tool-calling",
+        "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+        "vector_score": 0.8901494145393372,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1074467055826810929,
+        "title": "LLM 是如何学会调用外部工具的?",
+        "source": "interview-question://T002",
+        "domain": "llm-tool-calling",
+        "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+        "vector_score": 0.8258956372737885,
+        "keyword_score": 0.7908932361615064,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 3035522643108457551,
+        "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+        "source": "interview-question://T018",
+        "domain": "llm-tool-calling",
+        "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+        "vector_score": 0.8149969577789307,
+        "keyword_score": 0.6222219230177348,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 2799217389024114252,
+        "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+        "source": "interview-question://T007",
+        "domain": "llm-tool-calling",
+        "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+        "vector_score": 0.8128404319286346,
+        "keyword_score": 0.7096754636554021,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 2982864919778602991,
+        "title": "Workflow,Agent,Tools 这三个的概念和区别介绍一下?",
+        "source": "interview-question://A003",
+        "domain": "agent",
+        "content": "# Workflow,Agent,Tools 这三个的概念和区别介绍一下?\n\n题目编号:A003\n\n领域:agent\n\n难度:1\n\n标签:Workflow、工具调用、Agent\n- 考察方向:确定性编排与模型自主决策之间的边界。\n\n参考答案:Tool 是一个边界清晰、可调用的外部能力,如查询数据库或发送邮件;Workflow 是预先定义好的步骤、分支和依赖,执行路径主要由代码决定;Agent 则依据目标和运行时反馈动态决定下一步做什么、调用哪个工具以及何时结束。三者可以组合:Workflow 控制关键流程,Agent 处理开放决策,Tool 提供实际执行能力。例如,报销系统中的金额校验是 Tool,固定的提交、审核、付款流程是 Workflow,自动分析异常票据并决定补查哪些资料的部分可以是 Agent。Workflow 的节点既可以是普通函数,也可以是一次模型调用或一个 Agent;Agent 也能调用固定子流程。因此三者不是互斥产品,更不能简单理解成工具数量增加后就自动变成 Agent。选型应看哪些步骤需要确定性,哪些决策需要运行时探索。\n\n评分要点:说清能力、流程和决策三个层级;避免把 Tool Calling 直接等同于 Agent。",
+        "vector_score": 0.8136433362960815,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "end_to_end"
+  },
+  "error": null,
+  "faithfulness": 1.0,
+  "answer_correctness": 1.0,
+  "answer_relevancy": 1.0,
+  "citation_precision": 1.0,
+  "citation_coverage": 0.25,
+  "elapsed_seconds": 35.257,
+  "timings_seconds": {
+    "decomposition": 2.666674,
+    "retrieval": 17.997296,
+    "mqe": 6.31468,
+    "hyde": 10.760682,
+    "embedding": 0.656419,
+    "vector_search": 0.052233,
+    "keyword_search": 0.205871,
+    "rerank": 0.0,
+    "generation": 14.592319,
+    "pipeline": 32.589884,
+    "total": 35.256558,
+    "judge": 54.671709
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 9,
+    "chat_calls": 6,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "completed",
+    "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+    "metrics": {
+      "faithfulness": 1.0,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 0.25
+    },
+    "claims": [
+      {
+        "text": "当工具目录很大时，把所有工具 Schema 放进提示会带来两类主要问题：一是 Token 开销增大，二是工具选择更容易出错（误选率上升）。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "如何做 Tool Routing,减少 Token 并避免选错工具?"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1讨论工具很多时的路由问题，目标正是减少Token并避免选错工具，支持该问题概括。"
+      },
+      {
+        "text": "资料建议先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索，得到小候选集，再让模型选择，并且最后只把少量相关 Schema 交给模型，从而减少 Token 并避免选错工具。",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。"
+          },
+          {
+            "source_id": 1,
+            "quote": "最后只把少量相关 Schema 交给模型。"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1的参考答案完整覆盖该建议，且与问题相关。"
+      },
+      {
+        "text": "评测中应统计工具 Recall、误选率、参数正确率、Token 和延迟等指标；工具描述还应包含何时使用、何时不用和参数语义，相似工具要有明确区分。[1]",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "评测应统计工具Recall、误选率、参数正确率、Token和延迟。"
+          },
+          {
+            "source_id": 1,
+            "quote": "工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1直接支持评测指标与工具描述要求。"
+      },
+      {
+        "text": "当工具目录很大时，按需选择的核心是“先缩小候选，再让模型决策”：先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;"
+          },
+          {
+            "source_id": 1,
+            "quote": "运行时先做规则或语义检索得到小候选集,再让模型选择。"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1支持先按领域和权限建目录并生成能力描述，也支持先缩小候选再由模型选择。"
+      },
+      {
+        "text": "运行时先用规则或语义检索得到小候选集，再让模型选择；",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "运行时先做规则或语义检索得到小候选集,再让模型选择。"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1原文支持该按需选择步骤。"
+      },
+      {
+        "text": "可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认；",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1原文支持分层路由、工具组、历史成功率、上下文约束和高风险二次确认。"
+      },
+      {
+        "text": "例如先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型；",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1原文支持该示例流程。"
+      },
+      {
+        "text": "第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住；",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1原文支持保持召回与扩大候选范围的要求。"
+      },
+      {
+        "text": "工具描述应包含何时使用、何时不用和参数语义，相似工具要有明确区分；",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1原文支持工具描述与相似工具区分要求。"
+      },
+      {
+        "text": "权限过滤在执行时再次校验，路由正确不代表获得授权；",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "权限过滤在执行时再次校验,路由正确不代表获得授权"
+          }
+        ],
+        "citations": [],
+        "reason": "资料1原文支持权限过滤与授权校验的区分。"
+      },
+      {
+        "text": "评测应统计工具 Recall、误选率、参数正确率、Token 和延迟，并覆盖容易混淆与无适用工具的请求。[1]",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 1,
+            "quote": "评测应统计工具Recall、误选率、参数正确率、Token和延迟。"
+          },
+          {
+            "source_id": 1,
+            "quote": "评测还要覆盖容易混淆与无适用工具的请求。"
+          }
+        ],
+        "citations": [
+          {
+            "id": 1,
+            "supported": true
+          }
+        ],
+        "reason": "资料1直接支持评测指标并覆盖容易混淆与无适用工具请求。"
+      },
+      {
+        "text": "另外，工具多并不自动意味着必须使用 MCP，还要评估鉴权、版本管理、传输故障和运维成本等治理成本。[4]",
+        "supported": true,
+        "correct": true,
+        "evidence": [
+          {
+            "source_id": 4,
+            "quote": "但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。"
+          }
+        ],
+        "citations": [
+          {
+            "id": 4,
+            "supported": true
+          }
+        ],
+        "reason": "资料4支持工具多不必然使用MCP，并需评估鉴权、版本、传输故障和运维成本。"
+      }
+    ],
+    "reference_points": [
+      {
+        "index": 1,
+        "covered": true,
+        "reason": "答案覆盖了先按领域和权限建目录、生成可区分描述、规则或语义检索缩小候选、模型选择、分层路由、工具组、历史成功率、上下文约束、高风险二次确认、评测指标、订单/文档/日程示例、保持召回并可扩大候选、描述何时使用/不用与参数语义、相似工具区分、权限执行时再校验、覆盖容易混淆和无适用工具请求等要点。",
+        "point": "先按领域和权限建立工具目录，为工具生成简洁、可区分的能力描述；运行时先做规则或语义检索得到小候选集，再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束，并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如，先按订单、文档和日程等领域筛选，再检索候选工具，最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回，模型判断现有工具不合适时可以扩大候选范围，而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义；相似工具要有明确区分。权限过滤在执行时再次校验，路由正确不代表获得授权，评测还要覆盖容易混淆与无适用工具的请求。"
+      }
+    ],
+    "answer_relevancy": {
+      "score": 1.0,
+      "reason": "答案直接回应原问题两个部分：说明把所有Schema放进提示会增加Token并提高误选率，并详细给出按需选工具的方法、评测与安全注意事项；额外MCP治理说明也与工具选型相关，未偏离问题。"
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 1
+  }
+}

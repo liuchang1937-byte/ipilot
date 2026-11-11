@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-064",
+  "subquestions": [
+    {
+      "question": "在检索增强生成中，当已经检索到材料但模型仍然编造结论时，如何约束模型的结论必须依据检索到的证据？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在检索增强生成中，当已经检索到材料但模型仍然编造结论时，如何使模型在检索证据不足或不支持结论时拒答？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.044114800002717
+}

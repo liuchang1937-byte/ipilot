@@ -1,0 +1,174 @@
+{
+  "case_id": "V2-060",
+  "question": "同时走关键词与向量召回后，如何融合排名并去重？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "R011",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R013"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "多路召回让不同检索器或查询视角并行取得候选，例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重，再使用RRF等名次融合方法解决分数不可比问题，扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询，把每路候选保留来源信息，按文档或块 ID 去重，再融合排名。RRF 用候选在各路的排名贡献得分，不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量，再用原查询统一重排。新增检索路线也会增加噪声与延迟，需要单路、两路和扩展方案的消融对比，确认各路真正补充了哪些失败样本。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R011",
+    "interview-question://R013",
+    "interview-question://R010"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 0.5654648767857288,
+  "hit": true,
+  "reciprocal_rank": 0.5,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "同时走关键词与向量召回后，如何融合排名并去重？",
+    "answer": "1. 同时走关键词召回与向量召回后，如何融合两路召回结果的排名？\n\n\n2. 同时走关键词召回与向量召回后，对融合排名后的结果如何去重？\n",
+    "sections": [
+      {
+        "question": "同时走关键词召回与向量召回后，如何融合两路召回结果的排名？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "同时走关键词召回与向量召回后,如何融合两路召回结果的排名?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R011",
+            "interview-question://R013",
+            "interview-question://R010"
+          ]
+        }
+      },
+      {
+        "question": "同时走关键词召回与向量召回后，对融合排名后的结果如何去重？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "同时走关键词召回与向量召回后,对融合排名后的结果如何去重?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://R011",
+            "interview-question://R010",
+            "interview-question://R013"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 2637356371800682692,
+        "title": "请你介绍一下向量检索和关键词检索的区别?",
+        "source": "interview-question://R011",
+        "domain": "rag",
+        "content": "# 请你介绍一下向量检索和关键词检索的区别?\n\n题目编号:R011\n\n领域:rag\n\n难度:1\n\n标签:\n\n参考答案:关键词检索依靠词项匹配和统计权重,擅长人名、编号、错误码和精确短语,可解释且成本低,但同义表达召回差。向量检索按语义相似度匹配,擅长改写和跨语言表达,但可能忽略关键字面约束并产生语义误召回。常见方案是两路召回后用RRF融合,再统一重排。例如,用户问错误码 E102,关键词检索通常更容易保持这个精确约束;用户问“怎么减少推理时反复计算”,向量检索可能匹配到 KV Cache 的解释。两路的原始分数范围不同,不能简单相加;可以归一化或按排名用 RRF 融合。混合检索也不保证必然提高效果,中文分词、候选数量、权重和负例都需要业务评测,重排后再控制上下文长度。\n\n评分要点:精确匹配与语义匹配的互补;提到混合检索。",
+        "vector_score": 0.8630950748920441,
+        "keyword_score": 0.9242666331859015,
+        "rerank_score": 0.9567667841911316
+      },
+      {
+        "id": 2,
+        "chunk_id": 610611646742673801,
+        "title": "什么是多路召回?具体怎么做?",
+        "source": "interview-question://R013",
+        "domain": "rag",
+        "content": "# 什么是多路召回?具体怎么做?\n\n题目编号:R013\n\n领域:rag\n\n难度:3\n\n标签:\n\n参考答案:多路召回让不同检索器或查询视角并行取得候选,例如BM25、向量、多查询、HyDE、字段索引和图检索。结果按文档或父块去重,再使用RRF等名次融合方法解决分数不可比问题,扩大候选后交给Cross-Encoder重排。还应记录各通道贡献并做消融实验。实现时可并行运行向量、BM25、多个查询或结构化查询,把每路候选保留来源信息,按文档或块 ID 去重,再融合排名。RRF 用候选在各路的排名贡献得分,不要求不同检索分数处于同一尺度。候选池通常大于最终返回数量,再用原查询统一重排。新增检索路线也会增加噪声与延迟,需要单路、两路和扩展方案的消融对比,确认各路真正补充了哪些失败样本。\n\n评分要点:多样召回、融合去重、重排和通道评测。",
+        "vector_score": 0.8380782604217529,
+        "keyword_score": 1.0,
+        "rerank_score": 0.9289060831069946
+      },
+      {
+        "id": 3,
+        "chunk_id": 4411062690451180658,
+        "title": "你使用 RAG 给大模型一个输入,系统是怎样的工作流程?",
+        "source": "interview-question://R010",
+        "domain": "rag",
+        "content": "# 你使用 RAG 给大模型一个输入,系统是怎样的工作流程?\n\n题目编号:R010\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:系统先结合会话解析查询,必要时做指代消解、改写、拆分和元数据过滤;随后生成查询向量并与关键词检索并行召回,融合去重后重排候选,组装受Token预算约束的上下文。LLM基于证据生成答案并标注引用,之后可做引用核验与置信度判断,整条链路记录候选、分数、上下文和响应。多轮输入需要先解析本轮真实问题,例如将“它支持什么索引”中的指代补全,但保留用户的限制和原始意图。检索返回后,应按权限、来源和版本去重,给片段附上稳定编号,并避免截断关键条件。流式输出改善等待体验,却不能减少证据核查要求。最终引用应能定位到实际支持结论的片段;没有找到资料时,系统应明确说明缺少什么依据。\n\n评分要点:查询处理、混合召回、融合重排、生成引用和可观测性。",
+        "vector_score": 0.7933723032474518,
+        "keyword_score": 0.6677405832364263,
+        "rerank_score": 0.9414190053939819
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 8.107,
+  "timings_seconds": {
+    "decomposition": 6.424345,
+    "retrieval": 0.496297,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.322498,
+    "vector_search": 0.045845,
+    "keyword_search": 0.125491,
+    "rerank": 1.185639,
+    "generation": 0.0,
+    "pipeline": 1.682408,
+    "total": 8.106752,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 2,
+    "chat_calls": 0,
+    "rerank_calls": 2,
+    "rerank_pairs": 24
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

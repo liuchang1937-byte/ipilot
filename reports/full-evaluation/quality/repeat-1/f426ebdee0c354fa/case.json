@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-045",
+      "question": "评估语言模型时，除了通用考试分数还需要测哪些维度？",
+      "category": "terminology",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://L021"
+      ],
+      "answerable": true,
+      "reference_answer": "大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro，代码类可参考 HumanEval 或 SWE-bench Verified，数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点，可能受到数据污染、评分方式与业务分布差异影响；最终应从真实请求与失败样本构建经过标注的业务测试集，定期回归。公开测试可区分知识、代码、数学与科学推理，GPQA 更偏高难度科学问答，不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本，保留固定留出集并持续补充失败案例。结构化任务测格式与参数，Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准，报告应同时给出质量、安全、费用和延迟，并防止只针对已知测试集调优。",
+      "group": "L021",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

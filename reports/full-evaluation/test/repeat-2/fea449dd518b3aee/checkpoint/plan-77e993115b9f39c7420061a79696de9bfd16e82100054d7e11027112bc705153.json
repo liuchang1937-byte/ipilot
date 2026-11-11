@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-036",
+  "subquestions": [
+    {
+      "question": "生成答案时，应如何在确定性选词、束搜索和随机采样之间进行取舍？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 7.261729699999705
+}

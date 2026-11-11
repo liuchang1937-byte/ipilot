@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-047",
+  "subquestions": [
+    {
+      "question": "为什么模型在长提示中容易丢失中间位置的信息，导致明明包含在长提示里的资料被忽略？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.615678500000286
+}

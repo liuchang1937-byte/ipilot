@@ -1,0 +1,104 @@
+{
+  "case_id": "V2-114",
+  "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+  "category": "unanswerable",
+  "split": "dev",
+  "group": "V2-114",
+  "variant": "hybrid_reranked",
+  "expected_sources": [],
+  "answerable": false,
+  "reference_points": [],
+  "reference_answer": null,
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [],
+  "recall_at_k": null,
+  "precision_at_k": null,
+  "ndcg_at_k": null,
+  "hit": null,
+  "reciprocal_rank": null,
+  "all_sources_found": null,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+    "answer": "",
+    "sections": [
+      {
+        "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 0,
+          "selected_sources": []
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 2.451,
+  "timings_seconds": {
+    "decomposition": 1.514385,
+    "retrieval": 0.284253,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.164643,
+    "vector_search": 0.029494,
+    "keyword_search": 0.088689,
+    "rerank": 0.652019,
+    "generation": 0.0,
+    "pipeline": 0.936547,
+    "total": 2.450932,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

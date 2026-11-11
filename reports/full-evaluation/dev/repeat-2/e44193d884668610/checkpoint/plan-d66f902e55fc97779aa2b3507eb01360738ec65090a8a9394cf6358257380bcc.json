@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-044",
+  "subquestions": [
+    {
+      "question": "面向CPU本地部署场景，选择推理运行框架时应考虑哪些因素和标准？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "面向GPU高并发服务场景，选择推理运行框架时应考虑哪些因素和标准？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在CPU本地部署与GPU高并发服务两种场景下，推理运行框架的选择差异、权衡因素和整体选择方法是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 7.992128899999443
+}

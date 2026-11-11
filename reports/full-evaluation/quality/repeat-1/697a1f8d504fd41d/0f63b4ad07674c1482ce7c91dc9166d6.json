@@ -1,0 +1,749 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "0f63b4ad07674c1482ce7c91dc9166d6",
+  "created_at": "2026-10-12T16:22:27.242739+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "2129ab51268b1e2b81676df0163ed219a9ea71e9feb09c7874198b75ca1ae495",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\697a1f8d504fd41d\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 53.655,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 53.655,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 1.950378,
+          "p50": 1.950378,
+          "p95": 1.950378,
+          "max": 1.950378,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 25.688011,
+          "p50": 25.688011,
+          "p95": 25.688011,
+          "max": 25.688011,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.29952,
+          "p50": 6.29952,
+          "p95": 6.29952,
+          "max": 6.29952,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 17.570571,
+          "p50": 17.570571,
+          "p95": 17.570571,
+          "max": 17.570571,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.376955,
+          "p50": 1.376955,
+          "p95": 1.376955,
+          "max": 1.376955,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.084868,
+          "p50": 0.084868,
+          "p95": 0.084868,
+          "max": 0.084868,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.348201,
+          "p50": 0.348201,
+          "p95": 0.348201,
+          "max": 0.348201,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 26.016028,
+          "p50": 26.016028,
+          "p95": 26.016028,
+          "max": 26.016028,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 51.704284,
+          "p50": 51.704284,
+          "p95": 51.704284,
+          "max": 51.704284,
+          "samples": 1
+        },
+        "total": {
+          "mean": 53.654662,
+          "p50": 53.654662,
+          "p95": 53.654662,
+          "max": 53.654662,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 48.18289,
+          "p50": 48.18289,
+          "p95": 48.18289,
+          "max": 48.18289,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 0.0,
+        "answer_relevancy": 0.4,
+        "citation_precision": 1.0,
+        "citation_coverage": 1.0
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 1,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 9,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-084",
+      "question": "统一模型网关怎样处理路由、限流和服务失败回退？",
+      "category": "terminology",
+      "split": "test",
+      "group": "T016",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://T016"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测，还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态，否则会形成难维护的中心化逻辑。例如，一个团队同时接入多个模型供应商，网关统一记录费用、设置团队配额，并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现，回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围，不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容，需要明确部分输出与恢复策略。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T016",
+        "interview-question://T017",
+        "interview-question://T005",
+        "interview-question://A024",
+        "interview-question://T018",
+        "interview-question://A016"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "统一模型网关怎样处理路由、限流和服务失败回退？",
+        "answer": "1. 统一模型网关如何处理路由？\n当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。\n\n2. 统一模型网关如何处理限流？\n当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。\n\n3. 统一模型网关如何处理服务失败回退？\n统一模型网关把服务失败回退作为横切能力处理：它在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测等，并在可恢复故障时执行受控降级[1]。流程上，先对失败分类：临时限流可尊重 Retry-After 并做退避，权限拒绝和业务参数错误通常不能原样重试[5]；同时设置超时、取消、幂等键和分类重试[5]。若仍失败，可把结构化错误返回上游，由模型选择替代工具或降级[5]；若属于服务或供应商故障，网关依靠熔断避免持续调用，并通过模型路由或受控降级处理[1]。还要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试[5]。为安全恢复，幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键[5]。对部分成功的外部操作使用补偿事务；补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管；超过预算后停止并转人工，所有动作记录审计与 Trace[5]。流式响应中途失败不能简单重试后拼接重复内容，需要明确部分输出与恢复策略[1]。",
+        "sections": [
+          {
+            "question": "统一模型网关如何处理路由？",
+            "kind": "knowledge",
+            "answer": "当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+            "source_ids": [],
+            "insufficient": true,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "统一模型网关如何处理路由?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "统一模型网关 路由 机制 实现 方式"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "模型网关 请求路由 策略 负载均衡 分发"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "unified model gateway routing architecture and request routing mechanism"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "统一模型网关接收请求后,解析模型名、模型别名、租户、任务类型、模态、上下文长度、工具调用、区域、合规域、成本预算、延迟SLO等元数据,经认证鉴权、配额限流后进入模型路由层。路由层由策略引擎、模型注册中心、动态路由表和健康检查模块组成,将逻辑模型映射到物理模型、提供商端点与适配器。规则路由按租户、优先级、灰度标签、A/B测试比例、成本阈值、区域与合规要求匹配;语义路由通过嵌入向量相似度、意图分类器或轻量LLM分类器选择最适模型;能力路由依据上下文窗口、多模态、函数调用、推理能力、微调版本过滤候选。负载均衡采用加权轮询、最少连接、一致性哈希、优先级队列,并结合熔断、重试、超时、降级回退、跨提供商故障转移。决策后执行协议适配、参数重写、提示模板注入、缓存命中、服务发现和可观测性埋点,记录路由轨迹、指标、日志与链路追踪,支持策略热更新和动态调优。"
+                }
+              ],
+              "warnings": [
+                "资料不足，本次已移除不能支撑回答的引用。"
+              ],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T016",
+                "interview-question://T017",
+                "interview-question://T005"
+              ]
+            }
+          },
+          {
+            "question": "统一模型网关如何处理限流？",
+            "kind": "knowledge",
+            "answer": "当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+            "source_ids": [],
+            "insufficient": true,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "统一模型网关如何处理限流?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "统一模型网关 限流 实现 机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型网关 限流 策略 方案"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM Gateway rate limiting architecture best practices"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "统一模型网关在入口层实施多维限流:按 API Key、租户、用户、模型、路由和上游供应商维度配置 QPS/TPS、并发数、Token 速率及日/月配额。采用令牌桶、漏桶或滑动窗口算法进行平滑限流,单机用本地内存限流器降低延迟,分布式场景通过 Redis + Lua、Redisson、Envoy Rate Limit 或专用限流服务同步全局计数,保证集群一致性。网关在路由前执行准入控制,支持优先级队列、权重、突发容量、预热和动态阈值;超限时返回 429 Too Many Requests 和 Retry-After,并可降级到备用模型、缓存结果或排队等待。针对大模型流式响应,按输入/输出 Token 用量实时计量扣减,结合并发信号量、背压、熔断和自适应限流防止雪崩。限流策略由控制面动态下发,指标经 Prometheus/OpenTelemetry 采集,支持告警、审计和配额重置。"
+                }
+              ],
+              "warnings": [
+                "资料不足，本次已移除不能支撑回答的引用。"
+              ],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T016",
+                "interview-question://A024",
+                "interview-question://T017"
+              ]
+            }
+          },
+          {
+            "question": "统一模型网关如何处理服务失败回退？",
+            "kind": "knowledge",
+            "answer": "统一模型网关把服务失败回退作为横切能力处理：它在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测等，并在可恢复故障时执行受控降级[1]。流程上，先对失败分类：临时限流可尊重 Retry-After 并做退避，权限拒绝和业务参数错误通常不能原样重试[5]；同时设置超时、取消、幂等键和分类重试[5]。若仍失败，可把结构化错误返回上游，由模型选择替代工具或降级[5]；若属于服务或供应商故障，网关依靠熔断避免持续调用，并通过模型路由或受控降级处理[1]。还要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试[5]。为安全恢复，幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键[5]。对部分成功的外部操作使用补偿事务；补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管；超过预算后停止并转人工，所有动作记录审计与 Trace[5]。流式响应中途失败不能简单重试后拼接重复内容，需要明确部分输出与恢复策略[1]。",
+            "source_ids": [
+              1,
+              5
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "统一模型网关如何处理服务失败回退?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "统一模型网关 服务失败 回退机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大模型网关 故障转移 降级 容错策略"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM gateway service failure fallback handling architecture"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "统一模型网关通过多级容错与智能路由实现服务失败回退。请求先经健康检查、熔断器和限流器判断主模型服务状态;若出现超时、5xx、限流、配额耗尽或错误率超阈值,触发重试策略,采用指数退避、抖动、重试预算和幂等键避免雪崩。重试失败后按 fallback chain 降级到备用模型、备用供应商、同供应商其他区域或本地小模型,并结合权重路由、优先级路由、最少延迟路由、成本路由和 SLA 策略选择目标。网关还支持超时预算、并发隔离、舱壁隔离、队列缓冲、请求排队和缓存命中回退。若所有候选均不可用,则返回缓存结果、模板化兜底响应、降级答案或标准化错误码,并记录 trace、metrics、日志和告警,支持动态配置热更新与灰度切换。关键组件包括路由层、策略引擎、熔断器、重试器、降级器、健康检查与可观测性模块。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T016",
+                "interview-question://T018",
+                "interview-question://A016"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 2169899495911519092,
+            "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+            "source": "interview-question://T016",
+            "domain": "llm-tool-calling",
+            "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+            "vector_score": 0.8567827641963959,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.7677845656871796,
+            "keyword_score": 0.5476036204679123,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2169899495911519092,
+            "title": "有没有用过大模型的网关框架?网关层解决了什么问题?",
+            "source": "interview-question://T016",
+            "domain": "llm-tool-calling",
+            "content": "# 有没有用过大模型的网关框架?网关层解决了什么问题?\n\n题目编号:T016\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态,否则会形成难维护的中心化逻辑。例如,一个团队同时接入多个模型供应商,网关统一记录费用、设置团队配额,并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现,回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围,不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。\n\n评分要点:横切能力完整;能说出实践和职责边界。",
+            "vector_score": 0.8567827641963959,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 108826138093358449,
+            "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+            "source": "interview-question://T017",
+            "domain": "llm-tool-calling",
+            "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+            "vector_score": 0.7527267634868622,
+            "keyword_score": 0.3212316020082356,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 319809831368975428,
+            "title": "MCP 由哪几部分组成?",
+            "source": "interview-question://T005",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 由哪几部分组成?\n\n题目编号:T005\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:典型结构包括Host、Client和Server。Host承载用户体验与模型,Client在Host内维护到某个Server的协议会话,Server暴露Tools、Resources和Prompts等能力;底层通过支持的传输交换JSON-RPC消息。完整实现还包括初始化和能力协商、生命周期、错误处理及权限策略。例如,一个桌面 AI 应用是 Host,内部为文件服务与数据库服务各建立 Client 连接,两个 Server 分别暴露自己的工具和资源。初始化时协商协议版本与能力,之后发现工具、发送请求并关联响应,结束时释放连接。Host 决定哪些能力对模型可见,Server 仍应独立检查访问权限。三种角色描述的是职责,不要求部署成三个独立进程,也不是模型、浏览器和数据库的固定对应关系。\n\n评分要点:三类参与方、暴露能力、协议交互和生命周期。",
+            "vector_score": 0.7580600678920746,
+            "keyword_score": 0.5027221241280223,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1161528079708033534,
+            "title": "大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?",
+            "source": "interview-question://A024",
+            "domain": "agent",
+            "content": "# 大模型或 Agent 连接数据库时,如何防止越权、敏感数据泄漏和查询幻觉?\n\n题目编号:A024\n\n领域:agent\n\n难度:3\n\n标签:数据库安全、权限、审计\n- 考察方向:最小权限、查询白名单、脱敏、只读代理和结果验证。\n\n参考答案:不要把数据库高权限凭据直接交给模型,应通过受控数据访问层暴露允许的表、字段和查询模板,默认只读并实施行列级权限。生成SQL后先做AST检查、参数化、成本预估和敏感字段拦截,再在限时限量的隔离账号中执行;结果按用户权限脱敏并记录审计日志。回答必须引用真实查询结果和执行ID,查询失败或空结果时不得自行补全。身份和租户范围应来自可信登录态,不由模型从用户文字中自行决定。能提供查订单等固定业务接口时,就不暴露任意 SQL;必须生成 SQL 时要解析语法树,限制表、列、函数、语句类型和结果规模。参数化查询主要防止值注入,不能替代授权和逻辑检查。查询返回前做字段裁剪与脱敏,写操作使用独立权限、事务和审计,并校验指标口径及时间范围,兼顾查询安全和答案正确性。\n\n评分要点:最小权限、SQL验证、隔离执行、脱敏审计和结果证据。",
+            "vector_score": 0.7472963333129883,
+            "keyword_score": 0.34684494717038267,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 3035522643108457551,
+            "title": "工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?",
+            "source": "interview-question://T018",
+            "domain": "llm-tool-calling",
+            "content": "# 工具调用格式非法、参数错误、超时或失败时,Agent 如何容错?\n\n题目编号:T018\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:执行前用Schema校验并对可修复格式做受控纠正,缺少业务参数时向用户澄清;调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。\n\n评分要点:校验、澄清、超时重试、幂等、补偿和人工接管。",
+            "vector_score": 0.7677845656871796,
+            "keyword_score": 0.5476036204679123,
+            "rerank_score": null
+          },
+          {
+            "id": 6,
+            "chunk_id": 2769771559713974979,
+            "title": "如何设计多 Agent 的协作与动态切换机制?",
+            "source": "interview-question://A016",
+            "domain": "agent",
+            "content": "# 如何设计多 Agent 的协作与动态切换机制?\n\n题目编号:A016\n\n领域:agent\n\n难度:3\n\n标签:Agent 路由、任务交接、协议\n- 考察方向:能力描述、上下文传递、结果契约及动态切换。\n\n参考答案:多Agent协作主要依靠消息传递和共享状态:前者把上一个Agent的产物交给下一个,后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。同步协作可用结构化调用,长任务可用消息队列和任务表,所有路径都由协调器追踪。动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。共享状态应通过受控更新接口提交,不能让多个 Agent 随意覆盖同一份任务记录。\n\n评分要点:角色契约、路由依据、上下文交接和故障接管完整。",
+            "vector_score": 0.7433082461357117,
+            "keyword_score": 0.6005035429592739,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [
+          "资料不足，本次已移除不能支撑回答的引用。"
+        ],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 0.0,
+      "answer_relevancy": 0.4,
+      "citation_precision": 1.0,
+      "citation_coverage": 1.0,
+      "elapsed_seconds": 53.655,
+      "timings_seconds": {
+        "decomposition": 1.950378,
+        "retrieval": 25.688011,
+        "mqe": 6.29952,
+        "hyde": 17.570571,
+        "embedding": 1.376955,
+        "vector_search": 0.084868,
+        "keyword_search": 0.348201,
+        "rerank": 0.0,
+        "generation": 26.016028,
+        "pipeline": 51.704284,
+        "total": 53.654662,
+        "judge": 48.18289
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 9,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 0.0,
+          "answer_relevancy": 0.4,
+          "citation_precision": 1.0,
+          "citation_coverage": 1.0
+        },
+        "claims": [
+          {
+            "text": "统一模型网关把服务失败回退作为横切能力处理：它在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测等，并在可恢复故障时执行受控降级[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。"
+              },
+              {
+                "source_id": 1,
+                "quote": "并在可恢复故障时执行受控降级。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持网关在业务与模型供应商间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测，并支持在可恢复故障时执行受控降级。"
+          },
+          {
+            "text": "流程上，先对失败分类：临时限流可尊重 Retry-After 并做退避，权限拒绝和业务参数错误通常不能原样重试[5]；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 5,
+                "quote": "权限拒绝和业务参数错误通常不能原样重试,临时限流则可尊重 Retry-After 并做退避。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 5,
+                "supported": true
+              }
+            ],
+            "reason": "资料5支持对权限拒绝、业务参数错误和临时限流做不同处理，并支持临时限流尊重 Retry-After 做退避。"
+          },
+          {
+            "text": "同时设置超时、取消、幂等键和分类重试[5]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 5,
+                "quote": "调用时设置超时、取消、幂等键和分类重试,失败后把结构化错误返回模型选择替代工具或降级。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 5,
+                "supported": true
+              }
+            ],
+            "reason": "资料5明确支持调用时设置超时、取消、幂等键和分类重试。"
+          },
+          {
+            "text": "若仍失败，可把结构化错误返回上游，由模型选择替代工具或降级[5]；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 5,
+                "quote": "失败后把结构化错误返回模型选择替代工具或降级。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 5,
+                "supported": true
+              }
+            ],
+            "reason": "资料5支持失败后把结构化错误返回模型，由模型选择替代工具或降级。"
+          },
+          {
+            "text": "若属于服务或供应商故障，网关依靠熔断避免持续调用，并通过模型路由或受控降级处理[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测,还可做敏感信息过滤。"
+              },
+              {
+                "source_id": 1,
+                "quote": "并在可恢复故障时执行受控降级。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持网关具备熔断、模型路由和受控降级能力，因此用于服务或供应商故障回退处理是合理且相关的。"
+          },
+          {
+            "text": "还要区分明确失败和结果未知：例如请求超时后订单可能已经创建，此时优先用请求 ID 查询状态，再决定是否重试[5]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 5,
+                "quote": "需要区分明确失败和结果未知:例如请求超时后订单可能已经创建,此时优先用请求 ID 查询状态,再决定是否重试。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 5,
+                "supported": true
+              }
+            ],
+            "reason": "资料5直接支持区分明确失败与结果未知，并在结果未知时先用请求ID查询状态再决定是否重试。"
+          },
+          {
+            "text": "为安全恢复，幂等键应在第一次执行前生成并持久化，恢复时继续复用，不能每次重试换一个键[5]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 5,
+                "quote": "幂等键应在第一次执行前生成并持久化,恢复时继续复用,不能每次重试换一个键。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 5,
+                "supported": true
+              }
+            ],
+            "reason": "资料5明确支持幂等键应在首次执行前生成并持久化，恢复时复用，不能每次重试更换。"
+          },
+          {
+            "text": "对部分成功的外部操作使用补偿事务；补偿也是新的业务操作，可能再次失败，需要记录部分完成状态并准备人工接管；超过预算后停止并转人工，所有动作记录审计与 Trace[5]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 5,
+                "quote": "对部分成功的外部操作使用补偿事务,超过预算后停止并转人工,所有动作记录审计与Trace。"
+              },
+              {
+                "source_id": 5,
+                "quote": "补偿也是新的业务操作,可能再次失败,需要记录部分完成状态并准备人工接管。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 5,
+                "supported": true
+              }
+            ],
+            "reason": "资料5支持对部分成功操作使用补偿事务、记录部分完成状态、准备人工接管、超预算转人工以及记录审计与Trace。"
+          },
+          {
+            "text": "流式响应中途失败不能简单重试后拼接重复内容，需要明确部分输出与恢复策略[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "流式响应中途失败也不能简单重试后拼接重复内容,需要明确部分输出与恢复策略。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1直接支持流式响应中途失败不能简单重试后拼接重复内容，需要明确部分输出与恢复策略。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": false,
+            "reason": "参考要点包含网关统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计、观测、敏感信息过滤，以及实践框架/自研方案、职责边界、缓存键和流式恢复策略等。答案只覆盖了部分横切能力和流式恢复策略，且路由、限流子问未回答，未说明具体框架或路由策略、职责边界、缓存键等，因此不能算完整覆盖。",
+            "point": "LLM网关在业务与模型供应商之间统一接口、鉴权、模型路由、限流、配额、重试、熔断、缓存、成本统计和观测，还可做敏感信息过滤。实践回答应说明具体框架或自研方案及路由策略。网关不应承担具体业务Prompt和Agent状态，否则会形成难维护的中心化逻辑。例如，一个团队同时接入多个模型供应商，网关统一记录费用、设置团队配额，并在可恢复故障时执行受控降级。但 SDK 统一调用和部署网关服务是不同层次的实现，回答时应讲清实际使用方式。缓存键应包含模型、参数、上下文和权限范围，不能把不同用户的私有回答混用。流式响应中途失败也不能简单重试后拼接重复内容，需要明确部分输出与恢复策略。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 0.4,
+          "reason": "问题包含路由、限流和服务失败回退三个子问；答案对路由和限流均以无资料为由拒答，只对服务失败回退给出了较详细说明，因此虽部分相关，但整体未能完整回应原问题。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-084",
+      "subquestions": [
+        {
+          "question": "统一模型网关如何处理路由？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "统一模型网关如何处理限流？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "统一模型网关如何处理服务失败回退？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 1.9503775000011956
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 101.845,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

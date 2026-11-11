@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-079",
+      "question": "函数调用格式、任务技能包和工具连接协议如何在一个系统里配合？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://T011"
+      ],
+      "answerable": true,
+      "reference_answer": "Function Calling是模型输出结构化工具意图的机制；MCP是宿主连接、发现和调用外部能力的协议；Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言，MCP提供标准化能力接口，Skill提供如何完成任务的方法，但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例，Skill 给出核对时间范围、查询和总结的步骤；MCP 提供订单服务的工具描述与调用接口；Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求，得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图，但都不是完整 Agent 控制器，仍需要外层管理状态、停止条件、执行结果和错误恢复。",
+      "group": "T006",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

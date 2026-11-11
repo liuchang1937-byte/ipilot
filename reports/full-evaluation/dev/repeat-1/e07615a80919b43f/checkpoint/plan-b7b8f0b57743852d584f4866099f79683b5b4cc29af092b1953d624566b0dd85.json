@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-049",
+  "subquestions": [
+    {
+      "question": "检索增强能解决大语言模型不知道企业最新资料所导致的哪些限制？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.606444899998678
+}

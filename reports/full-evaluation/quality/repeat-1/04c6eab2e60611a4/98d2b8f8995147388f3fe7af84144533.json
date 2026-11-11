@@ -1,0 +1,568 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "98d2b8f8995147388f3fe7af84144533",
+  "created_at": "2026-10-12T16:49:12.005134+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "d95c4ace38203ae64f4a7065085e5fce31e1de86e756c238b66d320dd9b1ea1d",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 1,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\04c6eab2e60611a4\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 20.986,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 20.986,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 2.632257,
+          "p50": 2.632257,
+          "p95": 2.632257,
+          "max": 2.632257,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 11.062429,
+          "p50": 11.062429,
+          "p95": 11.062429,
+          "max": 11.062429,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 4.043188,
+          "p50": 4.043188,
+          "p95": 4.043188,
+          "max": 4.043188,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 6.443601,
+          "p50": 6.443601,
+          "p95": 6.443601,
+          "max": 6.443601,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.426523,
+          "p50": 0.426523,
+          "p95": 0.426523,
+          "max": 0.426523,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.02712,
+          "p50": 0.02712,
+          "p95": 0.02712,
+          "max": 0.02712,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.119724,
+          "p50": 0.119724,
+          "p95": 0.119724,
+          "max": 0.119724,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 7.291038,
+          "p50": 7.291038,
+          "p95": 7.291038,
+          "max": 7.291038,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 18.353646,
+          "p50": 18.353646,
+          "p95": 18.353646,
+          "max": 18.353646,
+          "samples": 1
+        },
+        "total": {
+          "mean": 20.985903,
+          "p50": 20.985903,
+          "p95": 20.985903,
+          "max": 20.985903,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 33.675038,
+          "p50": 33.675038,
+          "p95": 33.675038,
+          "max": 33.675038,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 1.0,
+        "answer_relevancy": 1.0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.875
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-025",
+      "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "L001",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L001"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "大语言模型是在海量语料上通过自监督目标训练的通用生成模型，通常以Transformer为核心，通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务，但参数、推理成本、幻觉和不可解释性也更突出。例如，传统情感分类器通常输出正负标签，而生成式 LLM 可以根据指令解释原因、改写内容或总结文章，利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型，大模型也不是只能做聊天，因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标，通过上下文适应任务；它的输出是统计预测，不等于实时查阅事实库，也不保证理解与推理永远正确。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L001",
+        "interview-question://L012",
+        "interview-question://L005"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+        "answer": "生成式语言模型与传统文本分类或序列标注模型的主要差异可以从训练目标、任务通用性和工程代价来看。生成式语言模型是在海量语料上通过自监督目标训练的通用生成模型，通常以Transformer为核心，通过上下文预测下一个Token；而传统文本分类或序列标注模型通常针对分类、序列标注等单任务设计，并使用专门标注数据。[1] 在任务处理上，生成式LLM可通过提示和上下文学习统一处理多任务，而传统模型一般面向特定任务。[1] 输出形态也不同：例如传统情感分类器通常输出正负标签，而生成式LLM可根据指令解释原因、改写内容或总结文章，用同一个预训练模型处理不同任务。[1] 但差异不能简单概括为“标签对文本”，因为传统NLP也包含生成模型，大模型也不是只能做聊天。[1] 此外，当前常见生成式LLM使用自回归目标，通过上下文适应任务；它的输出是统计预测，不等于实时查阅事实库，也不保证理解与推理永远正确。[1] 工程上，LLM的参数、推理成本、幻觉和不可解释性也更突出。[1] 因此，核心区别在于预训练目标、通用性、上下文学习及工程代价。[1]",
+        "sections": [
+          {
+            "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+            "kind": "knowledge",
+            "answer": "生成式语言模型与传统文本分类或序列标注模型的主要差异可以从训练目标、任务通用性和工程代价来看。生成式语言模型是在海量语料上通过自监督目标训练的通用生成模型，通常以Transformer为核心，通过上下文预测下一个Token；而传统文本分类或序列标注模型通常针对分类、序列标注等单任务设计，并使用专门标注数据。[1] 在任务处理上，生成式LLM可通过提示和上下文学习统一处理多任务，而传统模型一般面向特定任务。[1] 输出形态也不同：例如传统情感分类器通常输出正负标签，而生成式LLM可根据指令解释原因、改写内容或总结文章，用同一个预训练模型处理不同任务。[1] 但差异不能简单概括为“标签对文本”，因为传统NLP也包含生成模型，大模型也不是只能做聊天。[1] 此外，当前常见生成式LLM使用自回归目标，通过上下文适应任务；它的输出是统计预测，不等于实时查阅事实库，也不保证理解与推理永远正确。[1] 工程上，LLM的参数、推理成本、幻觉和不可解释性也更突出。[1] 因此，核心区别在于预训练目标、通用性、上下文学习及工程代价。[1]",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "生成式语言模型与传统文本分类或序列标注模型有何不同?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "生成式语言模型与传统文本分类、序列标注模型在模型架构、训练目标和推理方式上有哪些区别?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "生成式语言模型与判别式模型(文本分类、序列标注)的对比:优缺点、适用场景和典型代表"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型生成范式与BERT类文本分类和序列标注模型在任务形式、输出空间及评价指标上的差异"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "生成式语言模型(如GPT、LLaMA等decoder-only Transformer)以自回归下一词预测为目标,建模 \\(P(x_t \\mid x_{<t})\\),将文本分类、序列标注等任务统一为“文本到文本”的条件生成,通过提示、指令微调、上下文学习/少样本学习完成,输出空间开放、可变长、自由文本,常用温度采样、top-k、beam search等解码策略。传统文本分类或序列标注模型通常是判别式模型,直接建模 \\(P(y \\mid x)\\),使用任务特定输出头,如BERT+softmax分类器、BiLSTM-CRF或BERT+CRF,输出封闭标签集合或逐token标签序列(BIO/BMES),以交叉熵损失监督微调,评价指标为准确率、F1等。前者参数规模大、任务统一、泛化与零样本能力强,但存在幻觉、解码不可控和推理成本高;后者任务专用、输出结构稳定、训练高效、判别性能强,但依赖标注数据、跨任务迁移和开放生成能力弱。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L001",
+                "interview-question://L012",
+                "interview-question://L005"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 2711125243325661145,
+            "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+            "source": "interview-question://L001",
+            "domain": "llm-engineering",
+            "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+            "vector_score": 0.8830075860023499,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2711125243325661145,
+            "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+            "source": "interview-question://L001",
+            "domain": "llm-engineering",
+            "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+            "vector_score": 0.8830075860023499,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.8179579973220825,
+            "keyword_score": 0.6241687553830203,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3992986612229194933,
+            "title": "什么是大模型项目的分词器?原理是什么?",
+            "source": "interview-question://L005",
+            "domain": "llm-engineering",
+            "content": "# 什么是大模型项目的分词器?原理是什么?\n\n题目编号:L005\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Tokenizer将字符串转换为有限词表中的Token ID,模型只处理这些ID。常见BPE、WordPiece或Unigram从字符/字节出发学习高频子词组合,并保留特殊Token。词表和算法影响多语言压缩率、代码表示、未知字符、上下文占用与计费;解码时再把Token序列还原为文本。Token 不等同于汉字、单词或字符,一个词可能被拆成多个子词,字节级方案也能表示少见字符串。词表学习在压缩效率、覆盖范围和序列长度之间折中;推理时按既定规则编码,再将模型输出 ID 解码。领域术语拆得过碎会增加长度与费用,代码和多语言尤其需要评估。估算上下文时应使用对应模型的 tokenizer,不能默认所有模型共用固定的字数换算比例。\n\n评分要点:文本到ID、子词算法、词表训练及业务影响。",
+            "vector_score": 0.7700218260288239,
+            "keyword_score": 0.528653124134229,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 0.875,
+      "elapsed_seconds": 20.986,
+      "timings_seconds": {
+        "decomposition": 2.632257,
+        "retrieval": 11.062429,
+        "mqe": 4.043188,
+        "hyde": 6.443601,
+        "embedding": 0.426523,
+        "vector_search": 0.02712,
+        "keyword_search": 0.119724,
+        "rerank": 0.0,
+        "generation": 7.291038,
+        "pipeline": 18.353646,
+        "total": 20.985903,
+        "judge": 33.675038
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 1.0,
+          "answer_relevancy": 1.0,
+          "citation_precision": 1.0,
+          "citation_coverage": 0.875
+        },
+        "claims": [
+          {
+            "text": "生成式语言模型与传统文本分类或序列标注模型的主要差异可以从训练目标、任务通用性和工程代价来看。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "评分要点:预训练目标、通用性、上下文学习及工程代价。"
+              }
+            ],
+            "citations": [],
+            "reason": "资料中的评分要点列出了预训练目标、通用性、上下文学习及工程代价，与答案概括的主要差异方向一致。"
+          },
+          {
+            "text": "生成式语言模型是在海量语料上通过自监督目标训练的通用生成模型，通常以Transformer为核心，通过上下文预测下一个Token；而传统文本分类或序列标注模型通常针对分类、序列标注等单任务设计，并使用专门标注数据。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料第1条明确支持生成式模型的自监督预训练、Transformer和下一Token预测，以及传统NLP面向分类、序列标注等单任务并使用专门标注数据。"
+          },
+          {
+            "text": "在任务处理上，生成式LLM可通过提示和上下文学习统一处理多任务，而传统模型一般面向特定任务。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料第1条支持LLM通过提示和上下文学习统一处理多任务，并说明传统NLP常面向分类、序列标注等单任务设计。"
+          },
+          {
+            "text": "输出形态也不同：例如传统情感分类器通常输出正负标签，而生成式LLM可根据指令解释原因、改写内容或总结文章，用同一个预训练模型处理不同任务。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料第1条直接给出传统情感分类器输出正负标签，而生成式LLM可解释、改写、总结并复用同一预训练模型的例子。"
+          },
+          {
+            "text": "但差异不能简单概括为“标签对文本”，因为传统NLP也包含生成模型，大模型也不是只能做聊天。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料第1条明确提醒传统NLP也包含生成模型，大模型也不是只能做聊天，不能简单概括为标签对文本。"
+          },
+          {
+            "text": "此外，当前常见生成式LLM使用自回归目标，通过上下文适应任务；它的输出是统计预测，不等于实时查阅事实库，也不保证理解与推理永远正确。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料第1条直接支持生成式LLM使用自回归目标、通过上下文适应任务，以及输出是统计预测、不保证理解与推理永远正确等表述。"
+          },
+          {
+            "text": "工程上，LLM的参数、推理成本、幻觉和不可解释性也更突出。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料第1条明确指出LLM的参数、推理成本、幻觉和不可解释性更突出。"
+          },
+          {
+            "text": "因此，核心区别在于预训练目标、通用性、上下文学习及工程代价。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "评分要点:预训练目标、通用性、上下文学习及工程代价。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料第1条的评分要点与答案结论一致，即核心区别在预训练目标、通用性、上下文学习及工程代价。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": true,
+            "reason": "答案完整覆盖参考要点：自监督预训练、Transformer、下一Token预测，传统NLP单任务与专门标注数据，提示与上下文学习统一多任务，参数/推理成本/幻觉/不可解释性，情感分类器与生成式LLM输出示例，不能简单概括为标签对文本，自回归目标与统计预测局限。",
+            "point": "大语言模型是在海量语料上通过自监督目标训练的通用生成模型，通常以Transformer为核心，通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务，但参数、推理成本、幻觉和不可解释性也更突出。例如，传统情感分类器通常输出正负标签，而生成式 LLM 可以根据指令解释原因、改写内容或总结文章，利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型，大模型也不是只能做聊天，因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标，通过上下文适应任务；它的输出是统计预测，不等于实时查阅事实库，也不保证理解与推理永远正确。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "答案直接回应生成式语言模型与传统文本分类或序列标注模型的差异，并从训练目标、任务通用性、上下文学习、输出形态和工程代价等方面完整说明，与问题高度相关。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-025",
+      "subquestions": [
+        {
+          "question": "生成式语言模型与传统文本分类或序列标注模型有何不同？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 2.6322572999997647
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 0.0,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

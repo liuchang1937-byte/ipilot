@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-012",
+  "subquestions": [
+    {
+      "question": "在对话系统中，当历史对话超出上下文窗口限制时，除了截掉旧消息，还有哪些压缩历史对话的方法？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.4298768999997264
+}

@@ -1,0 +1,811 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "retrieval_only",
+  "id": "075bb0be58934a7d8d5d014ff0159dac",
+  "created_at": "2026-10-12T15:16:40.231782+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "3300100bfca7309cbec2ed549a153dd20cf86454ab7a320cd0099ebc18f446f1",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\test\\repeat-1\\8b73f193f092f349\\checkpoint"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    },
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 0.6131,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 3.542,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 3.542,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.183771,
+          "p50": 3.183771,
+          "p95": 3.183771,
+          "max": 3.183771,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 0.358502,
+          "p50": 0.358502,
+          "p95": 0.358502,
+          "max": 0.358502,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.269184,
+          "p50": 0.269184,
+          "p95": 0.269184,
+          "max": 0.269184,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.029358,
+          "p50": 0.029358,
+          "p95": 0.029358,
+          "max": 0.029358,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.057865,
+          "p50": 0.057865,
+          "p95": 0.057865,
+          "max": 0.057865,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 0.358664,
+          "p50": 0.358664,
+          "p95": 0.358664,
+          "max": 0.358664,
+          "samples": 1
+        },
+        "total": {
+          "mean": 3.542435,
+          "p50": 3.542435,
+          "p95": 3.542435,
+          "max": 3.542435,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    },
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.7664,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": null,
+      "mean_seconds": 20.923,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 20.923,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.183771,
+          "p50": 3.183771,
+          "p95": 3.183771,
+          "max": 3.183771,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 17.739375,
+          "p50": 17.739375,
+          "p95": 17.739375,
+          "max": 17.739375,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 5.774446,
+          "p50": 5.774446,
+          "p95": 5.774446,
+          "max": 5.774446,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 10.806352,
+          "p50": 10.806352,
+          "p95": 10.806352,
+          "max": 10.806352,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.859323,
+          "p50": 0.859323,
+          "p95": 0.859323,
+          "max": 0.859323,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.058664,
+          "p50": 0.058664,
+          "p95": 0.058664,
+          "max": 0.058664,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.235755,
+          "p50": 0.235755,
+          "p95": 0.235755,
+          "max": 0.235755,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 17.739538,
+          "p50": 17.739538,
+          "p95": 17.739538,
+          "max": 17.739538,
+          "samples": 1
+        },
+        "total": {
+          "mean": 20.923309,
+          "p50": 20.923309,
+          "p95": 20.923309,
+          "max": 20.923309,
+          "samples": 1
+        },
+        "judge": {
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null,
+          "samples": 0
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 0,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 0,
+      "judge_calls": 0,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-088",
+      "question": "ReAct执行循环怎么工作？再比较先规划后执行与反思。",
+      "category": "compound",
+      "split": "test",
+      "group": "A005",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://A005",
+        "interview-question://A006"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程；CoT让模型先组织多步推理再给结论；ReAct进一步把推理与行动交替进行，形成Thought—Action—Observation循环：模型决定工具及参数，宿主执行后把观察结果送回模型，直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环：构建消息，调用模型，判断返回的是最终答案还是工具请求；若是工具请求，就检查工具名、参数和权限，执行后追加工具结果，再进入下一轮。工具报错应作为明确观察反馈，不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息，不是强制打印完整思维过程；日志可以保存动作、观察和简短决策依据，而不依赖模型内部推理文本。",
+        "ReAct 边思考边行动，适合信息逐步显现、需要频繁工具交互的任务，但调用轮次多；Plan-and-Execute 先生成整体计划再逐项执行，适合依赖关系清楚的长任务，但初始计划错误会向后传播；Reflection 在结果或阶段完成后检查缺陷并修正，适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价，复杂项目常把三者组合使用。例如，开放式故障调查适合根据日志逐步选择工具；生成研究报告可以先列出资料搜集、比较和写作步骤，再由执行器完成；报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据，而不是让同一个模型无限重写。计划遇到新信息也需要修订，并非提前规划后就禁止变化；三种机制都应有步数、费用和时间上限。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A005",
+        "interview-question://A004",
+        "interview-question://A002",
+        "interview-question://A006",
+        "interview-question://A015"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 0.6131471927654584,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "ReAct执行循环怎么工作？再比较先规划后执行与反思。",
+        "answer": "1. ReAct执行循环怎么工作？\n\n\n2. 比较先规划后执行与反思两种执行方式。\n",
+        "sections": [
+          {
+            "question": "ReAct执行循环怎么工作？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "ReAct执行循环怎么工作?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A005",
+                "interview-question://A004",
+                "interview-question://A002"
+              ]
+            }
+          },
+          {
+            "question": "比较先规划后执行与反思两种执行方式。",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "比较先规划后执行与反思两种执行方式。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A006",
+                "interview-question://A004",
+                "interview-question://A015"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 320541557706665564,
+            "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+            "source": "interview-question://A005",
+            "domain": "agent",
+            "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+            "vector_score": 0.8939096033573151,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.7919279038906097,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 1979822055872710034,
+            "title": "Agent 的基本架构由哪些核心组件构成?",
+            "source": "interview-question://A002",
+            "domain": "agent",
+            "content": "# Agent 的基本架构由哪些核心组件构成?\n\n题目编号:A002\n\n领域:agent\n\n难度:1\n\n标签:架构、规划、工具、记忆\n- 考察方向:核心组件及一次任务从输入到完成的调用链。\n\n参考答案:Agent的四个核心组件是LLM、工具、记忆和规划模块。LLM负责理解任务与决策;工具负责搜索、执行代码或调用API,使Agent能够作用于外部环境;记忆保存对话和任务状态;规划模块把复杂目标拆成可执行步骤。System Prompt、权限、日志和容错属于这些核心组件之外的重要工程支撑。一次运行的数据流可以概括为:用户目标进入规划模块,规划结果与已有状态组成模型上下文,模型选择工具,执行器校验参数并运行,结果写回状态和记忆,模型再判断是否继续。记忆不能只保存聊天文本,还要保存已完成步骤、待办和工具回执。真正把组件串起来的是运行时控制器,它负责停止条件、异常处理和检查点,避免模型输出了计划却没有执行。\n\n评分要点:至少覆盖模型、规划、工具、记忆和运行循环;能说清模块之间的数据流。",
+            "vector_score": 0.779045581817627,
+            "keyword_score": 0.7284579749610931,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 340363636581916227,
+            "title": "ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?",
+            "source": "interview-question://A006",
+            "domain": "agent",
+            "content": "# ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?\n\n题目编号:A006\n\n领域:agent\n\n难度:2\n\n标签:Plan-and-Execute、Reflection、ReAct\n- 考察方向:三类范式的准确性、延迟、成本和恢复能力差异。\n\n参考答案:ReAct 边思考边行动,适合信息逐步显现、需要频繁工具交互的任务,但调用轮次多;Plan-and-Execute 先生成整体计划再逐项执行,适合依赖关系清楚的长任务,但初始计划错误会向后传播;Reflection 在结果或阶段完成后检查缺陷并修正,适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价,复杂项目常把三者组合使用。例如,开放式故障调查适合根据日志逐步选择工具;生成研究报告可以先列出资料搜集、比较和写作步骤,再由执行器完成;报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据,而不是让同一个模型无限重写。计划遇到新信息也需要修订,并非提前规划后就禁止变化;三种机制都应有步数、费用和时间上限。\n\n评分要点:比较三者控制时机和代价;给出基于场景的选择依据。",
+            "vector_score": 0.8131959736347198,
+            "keyword_score": 0.7325831467751788,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 2654545256875798294,
+            "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+            "source": "interview-question://A015",
+            "domain": "agent",
+            "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+            "vector_score": 0.786343902349472,
+            "keyword_score": 0.6538529395432701,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 3.542,
+      "timings_seconds": {
+        "decomposition": 3.183771,
+        "retrieval": 0.358502,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.269184,
+        "vector_search": 0.029358,
+        "keyword_search": 0.057865,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 0.358664,
+        "total": 3.542435,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 0,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    },
+    {
+      "case_id": "V2-088",
+      "question": "ReAct执行循环怎么工作？再比较先规划后执行与反思。",
+      "category": "compound",
+      "split": "test",
+      "group": "A005",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A005",
+        "interview-question://A006"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程；CoT让模型先组织多步推理再给结论；ReAct进一步把推理与行动交替进行，形成Thought—Action—Observation循环：模型决定工具及参数，宿主执行后把观察结果送回模型，直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环：构建消息，调用模型，判断返回的是最终答案还是工具请求；若是工具请求，就检查工具名、参数和权限，执行后追加工具结果，再进入下一轮。工具报错应作为明确观察反馈，不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息，不是强制打印完整思维过程；日志可以保存动作、观察和简短决策依据，而不依赖模型内部推理文本。",
+        "ReAct 边思考边行动，适合信息逐步显现、需要频繁工具交互的任务，但调用轮次多；Plan-and-Execute 先生成整体计划再逐项执行，适合依赖关系清楚的长任务，但初始计划错误会向后传播；Reflection 在结果或阶段完成后检查缺陷并修正，适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价，复杂项目常把三者组合使用。例如，开放式故障调查适合根据日志逐步选择工具；生成研究报告可以先列出资料搜集、比较和写作步骤，再由执行器完成；报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据，而不是让同一个模型无限重写。计划遇到新信息也需要修订，并非提前规划后就禁止变化；三种机制都应有步数、费用和时间上限。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A005",
+        "interview-question://A004",
+        "interview-question://A006",
+        "interview-question://A015"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.5,
+      "ndcg_at_k": 0.766433990956823,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": null,
+      "result": {
+        "question": "ReAct执行循环怎么工作？再比较先规划后执行与反思。",
+        "answer": "1. ReAct执行循环怎么工作？\n\n\n2. 比较先规划后执行与反思两种执行方式。\n",
+        "sections": [
+          {
+            "question": "ReAct执行循环怎么工作？",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "ReAct执行循环怎么工作?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "ReAct 执行循环 原理解析"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "ReAct Agent 的 Thought Action Observation 迭代流程"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How does the ReAct prompting execution loop work: reason, act, observe"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "ReAct 执行循环将推理轨迹与工具动作交错:每轮 LLM 基于当前上下文(问题、历史 Thought/Action/Observation、few-shot 示例)生成 Thought,再生成 Action;解析器抽取工具名与参数,调用外部环境(搜索、计算器、API 等)并返回 Observation;随后将 Thought、Action、Observation 追加到 scratchpad/上下文,进入下一轮。循环持续到输出 Final Answer/Finish 动作、达到 max steps/token 预算或无法继续。核心是 reason-act-observe 交替,使推理指导行动、观察结果修正后续推理。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A005",
+                "interview-question://A004",
+                "interview-question://A006"
+              ]
+            }
+          },
+          {
+            "question": "比较先规划后执行与反思两种执行方式。",
+            "kind": "knowledge",
+            "answer": "",
+            "source_ids": [],
+            "insufficient": null,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "比较先规划后执行与反思两种执行方式。"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "先规划后执行 与 反思 两种执行方式 的对比"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "Plan-and-Execute 和 Reflection 智能体执行模式 优缺点 比较"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM Agent 规划执行 vs 反思执行 性能 效果 对比 研究"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "先规划后执行(Plan-and-Execute)与反思式执行(Reflection/Reflexion)是两类典型 LLM Agent 执行范式。Plan-and-Execute 先生成全局任务分解与步骤序列,再按计划调用工具、子智能体或执行模块,强调全局优化、结构化分解、降低逐步推理开销,适合目标明确、环境稳定的长程任务;但计划初期误差会沿执行链传播,环境变化时需动态重规划,且前期规划延迟与 token 成本较高。反思式执行采用“行动—观察—自我评估—反馈—重试”的迭代循环,通过自我批判、失败归因、经验记忆和 verbal reinforcement 改进后续决策,强调在线适应、错误纠正与鲁棒性,适合开放环境、试错型任务;但推理调用次数多、延迟和成本高,易陷入循环、过度反思或局部修补,缺乏全局规划一致性。二者关键权衡包括成功率、泛化性、鲁棒性、延迟、算力成本、可解释性与长程依赖处理能力。混合范式如带反思重规划的计划执行、ReAct、Reflexion、Plan-and-Solve、LLM Compiler 等,通常先全局规划,再在执行中反思并按需重规划,以兼顾全局结构与在线自适应。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A006",
+                "interview-question://A004",
+                "interview-question://A015"
+              ]
+            }
+          }
+        ],
+        "sources": [],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 320541557706665564,
+            "title": "Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?",
+            "source": "interview-question://A005",
+            "domain": "agent",
+            "content": "# Agent 推理模式有哪些?ReAct 是啥?具体是怎么实现的?\n\n题目编号:A005\n\n领域:agent\n\n难度:2\n\n标签:ReAct、状态机、推理循环\n- 考察方向:Thought/Action/Observation 循环及其可执行实现。\n\n参考答案:常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程;CoT让模型先组织多步推理再给结论;ReAct进一步把推理与行动交替进行,形成Thought—Action—Observation循环:模型决定工具及参数,宿主执行后把观察结果送回模型,直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环:构建消息,调用模型,判断返回的是最终答案还是工具请求;若是工具请求,就检查工具名、参数和权限,执行后追加工具结果,再进入下一轮。工具报错应作为明确观察反馈,不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息,不是强制打印完整思维过程;日志可以保存动作、观察和简短决策依据,而不依赖模型内部推理文本。\n\n评分要点:完整说明 Action—Observation反馈;提到工具执行由宿主完成;具备停止与容错意识。",
+            "vector_score": 0.9186802804470062,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1330550128706514072,
+            "title": "了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?",
+            "source": "interview-question://A004",
+            "domain": "agent",
+            "content": "# 了解哪些其他的 Agent 设计范式?Agent 和 Workflow 的区别是什么?\n\n题目编号:A004\n\n领域:agent\n\n难度:2\n\n标签:架构选型、确定性、成本\n- 考察方向:能否结合可预测性、失败成本和任务开放程度进行选型。\n\n参考答案:常见范式包括 ReAct、Plan-and-Execute、Reflection、Router、Supervisor、并行多 Agent 和黑板协作等。Workflow 的节点和转移条件通常预先确定,优点是稳定、可测试;Agent 的路径由模型结合环境动态选择,适合目标明确但步骤未知的任务。实际工程常采用混合设计:高风险步骤使用 Workflow 固化,信息收集和方案探索交给 Agent。这些概念也不全在同一层级:ReAct 和 Plan-and-Execute 描述执行与决策的组织方式,Reflection 是可叠加的检查机制,Supervisor 则更多描述多个执行者的调度架构。例如,退款的身份核验与额度判断适合固定流程,定位复杂故障可能需要动态调查。即使采用 Agent,也能用状态机限制合法转移,所以动态决策不等于完全放任模型控制。\n\n评分要点:说明 Workflow 与 Agent 的决策边界;比较 ReAct、规划执行与反思;认识不同架构层级与混合使用。",
+            "vector_score": 0.859354555606842,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 340363636581916227,
+            "title": "ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?",
+            "source": "interview-question://A006",
+            "domain": "agent",
+            "content": "# ReAct、Plan-and-Execute、Reflection 三种范式有什么核心区别?实际项目中该如何选型?\n\n题目编号:A006\n\n领域:agent\n\n难度:2\n\n标签:Plan-and-Execute、Reflection、ReAct\n- 考察方向:三类范式的准确性、延迟、成本和恢复能力差异。\n\n参考答案:ReAct 边思考边行动,适合信息逐步显现、需要频繁工具交互的任务,但调用轮次多;Plan-and-Execute 先生成整体计划再逐项执行,适合依赖关系清楚的长任务,但初始计划错误会向后传播;Reflection 在结果或阶段完成后检查缺陷并修正,适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价,复杂项目常把三者组合使用。例如,开放式故障调查适合根据日志逐步选择工具;生成研究报告可以先列出资料搜集、比较和写作步骤,再由执行器完成;报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据,而不是让同一个模型无限重写。计划遇到新信息也需要修订,并非提前规划后就禁止变化;三种机制都应有步数、费用和时间上限。\n\n评分要点:比较三者控制时机和代价;给出基于场景的选择依据。",
+            "vector_score": 0.8685214519500732,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 2654545256875798294,
+            "title": "讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?",
+            "source": "interview-question://A015",
+            "domain": "agent",
+            "content": "# 讲讲 Agent 的反思机制?为什么要用反思?具体怎么实现?\n\n题目编号:A015\n\n领域:agent\n\n难度:3\n\n标签:Reflection、触发条件、成本控制\n- 考察方向:基于失败或低置信度触发反思,并设置预算和停止条件。\n\n参考答案:反思是让 Agent 根据目标、轨迹和结果识别错误,再提出修正方案。它可在工具失败、验证未通过、置信度低或阶段结束时触发;实现上通常由独立评审提示或模型检查事实、遗漏、约束违反和下一步建议,再将结论写入状态并重试。为避免无限自省,应限制次数和Token预算,要求每次反思产生可验证的新动作,没有新证据时停止或转人工。一个可执行方案是先得到草稿或行动结果,再用明确检查表指出缺少的证据、逻辑冲突或未通过的测试,随后将这些问题作为修改目标。只有带来可验证改进才保留新版本。代码任务优先使用测试结果,事实任务优先核对来源,模型评价只做补充。反思可能重复相同偏差或引入新错误,因此需要最大次数、质量变化阈值和停止条件,不是次数越多越准确。\n\n评分要点:说明触发、检查、修正闭环;包含停止条件。",
+            "vector_score": 0.833054780960083,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "retrieval_only"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 20.923,
+      "timings_seconds": {
+        "decomposition": 3.183771,
+        "retrieval": 17.739375,
+        "mqe": 5.774446,
+        "hyde": 10.806352,
+        "embedding": 0.859323,
+        "vector_search": 0.058664,
+        "keyword_search": 0.235755,
+        "rerank": 0.0,
+        "generation": 0.0,
+        "pipeline": 17.739538,
+        "total": 20.923309,
+        "judge": 0.0
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 4,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "disabled",
+        "reason": "已关闭答案评审。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 0
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-088",
+      "subquestions": [
+        {
+          "question": "ReAct执行循环怎么工作？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "比较先规划后执行与反思两种执行方式。",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.183770999999979
+    }
+  ],
+  "answer_judge": {
+    "enabled": false,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 21.292,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "retrieval_only只运行真实检索链路，未生成答案，不评拒答或回答质量；此模式下total是检索流程耗时，不能当作问答时延。"
+  ]
+}

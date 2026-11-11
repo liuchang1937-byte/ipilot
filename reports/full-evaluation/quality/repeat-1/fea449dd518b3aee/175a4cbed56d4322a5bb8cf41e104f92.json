@@ -1,0 +1,417 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "175a4cbed56d4322a5bb8cf41e104f92",
+  "created_at": "2026-10-12T16:32:09.026401+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "bb952e423ae522638cc39e63450764710b13939890d7c5fa3bd5e5b6d28946bc",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\fea449dd518b3aee\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 25.121,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 25.121,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 6.01706,
+          "p50": 6.01706,
+          "p95": 6.01706,
+          "max": 6.01706,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 11.380905,
+          "p50": 11.380905,
+          "p95": 11.380905,
+          "max": 11.380905,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 2.660833,
+          "p50": 2.660833,
+          "p95": 2.660833,
+          "max": 2.660833,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 8.265235,
+          "p50": 8.265235,
+          "p95": 8.265235,
+          "max": 8.265235,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.310367,
+          "p50": 0.310367,
+          "p95": 0.310367,
+          "max": 0.310367,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.028068,
+          "p50": 0.028068,
+          "p95": 0.028068,
+          "max": 0.028068,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.114211,
+          "p50": 0.114211,
+          "p95": 0.114211,
+          "max": 0.114211,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 7.723307,
+          "p50": 7.723307,
+          "p95": 7.723307,
+          "max": 7.723307,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 19.104365,
+          "p50": 19.104365,
+          "p95": 19.104365,
+          "max": 19.104365,
+          "samples": 1
+        },
+        "total": {
+          "mean": 25.121425,
+          "p50": 25.121425,
+          "p95": 25.121425,
+          "max": 25.121425,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 63.629183,
+          "p50": 63.629183,
+          "p95": 63.629183,
+          "max": 63.629183,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 0,
+        "answer_correctness": 0,
+        "answer_relevancy": 0,
+        "citation_precision": 0,
+        "citation_coverage": 0
+      },
+      "answer_quality": {
+        "faithfulness": null,
+        "answer_correctness": null,
+        "answer_relevancy": null,
+        "citation_precision": null,
+        "citation_coverage": null
+      },
+      "judged_cases": 0,
+      "judge_failures": 1,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-036",
+      "question": "生成答案时，确定性选词、束搜索和随机采样如何取舍？",
+      "category": "terminology",
+      "split": "test",
+      "group": "L012",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://L012"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "贪心每步选择最高概率Token，速度快且稳定但容易局部最优；Beam Search保留多条高概率序列，适合翻译等更重整体概率的任务，但成本高且开放生成可能僵硬；采样按概率随机选择，可配合Temperature、Top-K和Top-P增加多样性，适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择，Beam Search 保留有限数量的序列候选，也不保证找到真正的全局最优；它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token，用随机性换取多样性。结构化输出需要格式约束与校验，低随机性不能替代这些机制。即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://L012",
+        "interview-question://L022",
+        "interview-question://L018"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "生成答案时，确定性选词、束搜索和随机采样如何取舍？",
+        "answer": "生成答案时，三者取舍主要看任务对稳定性、整体概率和多样性的需求。确定性选词（如贪心）每步选择最高概率 Token，速度快、稳定、成本低，适合结构化任务或需要低随机性的场景；但它只做局部选择，容易局部最优，开放生成可能僵硬。[1] 束搜索保留多条高概率序列，适合翻译等更重整体概率的任务，但成本更高，且只保留有限候选，不保证找到真正全局最优，开放生成还可能偏好常见而缺乏多样性的表达。[1] 随机采样按概率从调整后的分布抽取 Token，可配合 Temperature、Top-K 和 Top-P 增加多样性，适合创作和对话；但随机性会带来不稳定，结构化输出仍需格式约束与校验，低随机性不能替代这些机制。[1] 因此：结构化或确定性优先可选贪心或低随机性策略；封闭且重整体概率的任务可考虑束搜索；开放创作、对话可考虑采样并调参。需要注意，即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性。[1]",
+        "sections": [
+          {
+            "question": "生成答案时，确定性选词、束搜索和随机采样如何取舍？",
+            "kind": "knowledge",
+            "answer": "生成答案时，三者取舍主要看任务对稳定性、整体概率和多样性的需求。确定性选词（如贪心）每步选择最高概率 Token，速度快、稳定、成本低，适合结构化任务或需要低随机性的场景；但它只做局部选择，容易局部最优，开放生成可能僵硬。[1] 束搜索保留多条高概率序列，适合翻译等更重整体概率的任务，但成本更高，且只保留有限候选，不保证找到真正全局最优，开放生成还可能偏好常见而缺乏多样性的表达。[1] 随机采样按概率从调整后的分布抽取 Token，可配合 Temperature、Top-K 和 Top-P 增加多样性，适合创作和对话；但随机性会带来不稳定，结构化输出仍需格式约束与校验，低随机性不能替代这些机制。[1] 因此：结构化或确定性优先可选贪心或低随机性策略；封闭且重整体概率的任务可考虑束搜索；开放创作、对话可考虑采样并调参。需要注意，即使使用贪心，相同请求在不同后端、数值计算或模型版本下也不一定逐字一致，应区分算法意图与工程可复现性。[1]",
+            "source_ids": [
+              1
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "生成答案时,确定性选词、束搜索和随机采样如何取舍?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "生成答案时 确定性选词 束搜索 随机采样 如何选择 对比"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "大语言模型 文本生成 解码策略 greedy beam search sampling 取舍 优缺点"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM generation decoding methods deterministic vs beam search vs random sampling trade-offs"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "生成答案时,解码策略的取舍取决于任务对确定性、质量、多样性、事实性与计算开销的要求。确定性选词(greedy/argmax)每步取最高概率 token,速度快、可复现、延迟低,适合事实问答、代码生成和抽取式任务,但易重复、缺乏多样性并陷入局部最优。束搜索(beam search)保留多个候选序列,以长度归一化对数概率选优,适合机器翻译、摘要等强调序列连贯和参考指标的任务,但计算/显存开销大,输出偏保守、通用,且不保证事实正确。随机采样按概率分布生成,结合 temperature、top-k、top-p(nucleus sampling)、重复惩罚等控制随机性:高温和大 top-p 提升多样性、创意性,但增加幻觉、跑题和不一致;低温和小 top-k/top-p 更稳定,接近确定性。实践原则:需稳定可复现、低延迟选 greedy;需高质量序列且算力允许选 beam search;开放对话、创意写作、多答案探索选随机采样;事实性、安全性优先用低温+top-p 或 greedy/beam,并可用 rerank、集成解码、约束解码平衡质量与多样性。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://L012",
+                "interview-question://L022",
+                "interview-question://L018"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.9225283563137054,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2130560796992190475,
+            "title": "大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?",
+            "source": "interview-question://L012",
+            "domain": "llm-engineering",
+            "content": "# 大模型生成文本时的解码策略有哪些?贪心、Beam Search、采样分别什么时候用?\n\n题目编号:L012\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:贪心每步选择最高概率Token,速度快且稳定但容易局部最优;Beam Search保留多条高概率序列,适合翻译等更重整体概率的任务,但成本高且开放生成可能僵硬;采样按概率随机选择,可配合Temperature、Top-K和Top-P增加多样性,适合创作和对话。结构化任务通常偏确定性。贪心只做局部选择,Beam Search 保留有限数量的序列候选,也不保证找到真正的全局最优;它还可能偏好常见而缺乏多样性的表达。采样则从调整后的分布抽取 Token,用随机性换取多样性。结构化输出需要格式约束与校验,低随机性不能替代这些机制。即使使用贪心,相同请求在不同后端、数值计算或模型版本下也不一定逐字一致,应区分算法意图与工程可复现性。\n\n评分要点:三者机制、成本、多样性和适用场景。",
+            "vector_score": 0.9225283563137054,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 3045560838137241851,
+            "title": "对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?",
+            "source": "interview-question://L022",
+            "domain": "llm-engineering",
+            "content": "# 对比使用过哪些主流大模型?你们项目中最终选用了哪个模型?为什么?\n\n题目编号:L022\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:回答应先说明候选模型和业务约束,再用同一评测集比较任务正确率、结构化输出、工具调用、上下文、中文能力、延迟、吞吐、价格、部署和合规。最终选择应有量化依据,并说明是否采用模型路由,例如简单任务用低成本模型、复杂任务升级更强模型,而不是只说某模型“效果最好”。例如,如果系统主要做中文题库评分,应重点比较参考答案遵循、JSON 稳定性、追问相关性和费用,而不是只引用通用知识排名。题库、Prompt 与参数在候选间尽量保持一致,记录失败样本和延迟分位数。对尚未实际测试的模型应明确只是候选,不能编造调用经验或压测数字。模型路由也需要回归验证和降级规则,避免更换模型后输出格式、工具行为和评分口径悄悄变化。\n\n评分要点:真实候选、统一评测、量化结果和业务权衡。",
+            "vector_score": 0.7756458818912506,
+            "keyword_score": 0.4823110324716867,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 3477555688369766113,
+            "title": "大模型为什么会出现幻觉?怎么缓解?",
+            "source": "interview-question://L018",
+            "domain": "llm-engineering",
+            "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+            "vector_score": 0.785194605588913,
+            "keyword_score": 0.5782639095745922,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null,
+      "elapsed_seconds": 25.121,
+      "timings_seconds": {
+        "decomposition": 6.01706,
+        "retrieval": 11.380905,
+        "mqe": 2.660833,
+        "hyde": 8.265235,
+        "embedding": 0.310367,
+        "vector_search": 0.028068,
+        "keyword_search": 0.114211,
+        "rerank": 0.0,
+        "generation": 7.723307,
+        "pipeline": 19.104365,
+        "total": 25.121425,
+        "judge": 63.629183
+      },
+      "calls": {
+        "embedding_calls": 1,
+        "embedding_texts": 5,
+        "chat_calls": 3,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "unavailable",
+        "reason": "答案评审失败或格式/原文校验未通过；未计入质量均值。",
+        "metrics": {
+          "faithfulness": null,
+          "answer_correctness": null,
+          "answer_relevancy": null,
+          "citation_precision": null,
+          "citation_coverage": null
+        },
+        "claims": [],
+        "reference_points": []
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-036",
+      "subquestions": [
+        {
+          "question": "生成答案时，确定性选词、束搜索和随机采样如何取舍？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 6.017059599998902
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 88.755,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

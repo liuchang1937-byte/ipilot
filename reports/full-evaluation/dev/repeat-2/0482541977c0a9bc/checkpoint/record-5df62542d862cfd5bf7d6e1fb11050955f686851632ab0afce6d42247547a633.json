@@ -1,0 +1,368 @@
+{
+  "case_id": "V2-007",
+  "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A007",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A007"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先把目标转为可验证的交付物，再按信息依赖、工具边界或专业领域拆成子任务，并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划；拆得过细会增加通信成本。以技术调研为例，可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分，最后一部分依赖前面的证据。独立检索可并行，依赖同一业务状态的写入不能随意并行。每步返回结构化产物，使失败可以定位到局部并单独重试。是否改善效果，应比较任务成功率、返工率、总耗时与调用费用，不能把拆分后的局部准确率直接当成整体收益。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A007",
+    "interview-question://L017",
+    "interview-question://A023",
+    "interview-question://B003",
+    "interview-question://A022",
+    "interview-question://A019"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+    "answer": "1. 对于包含多个依赖步骤的请求，拆成可验证小任务的总体方法和步骤是什么？\n\n\n2. 对于包含多个依赖步骤的请求，如何确定每个小任务的范围和边界？\n\n\n3. 对于包含多个依赖步骤的请求，如何为每个小任务定义可验证的完成标准？\n\n\n4. 对于包含多个依赖步骤的请求，如何表示和处理步骤之间的依赖关系？\n\n\n5. 对于包含多个依赖步骤的请求，如何判断拆分后的小任务是否满足可验证要求？\n",
+    "sections": [
+      {
+        "question": "对于包含多个依赖步骤的请求，拆成可验证小任务的总体方法和步骤是什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,拆成可验证小任务的总体方法和步骤是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "包含多个依赖步骤的请求 拆成可验证小任务 总体方法 步骤"
+            },
+            {
+              "kind": "mqe",
+              "text": "复杂多步骤依赖任务如何分解为可验证的子任务?整体流程和方法论是什么?"
+            },
+            {
+              "kind": "mqe",
+              "text": "methodology and steps for decomposing multi-step dependent requests into verifiable subtasks"
+            },
+            {
+              "kind": "hyde",
+              "text": "总体方法是将多依赖请求建模为有向无环图(DAG),按拓扑排序逐层分解为原子任务或可验证小任务。步骤:明确最终目标、约束、成功标准和验收条件;识别步骤、数据流、前置条件与依赖关系,构建依赖图;将流程拆成独立任务,定义输入输出契约、操作边界、中间产物、检查点、测试用例与断言;区分关键路径和可并行分支,用里程碑、状态机和上下文传播管理执行;按拓扑顺序逐任务验证,失败时定位、回滚、重试或重新分解;最后集成子任务结果,执行端到端验证与回归测试,确保每步可观测、可追溯、可独立验收。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A007",
+            "interview-question://L017",
+            "interview-question://A023"
+          ]
+        }
+      },
+      {
+        "question": "对于包含多个依赖步骤的请求，如何确定每个小任务的范围和边界？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,如何确定每个小任务的范围和边界?"
+            },
+            {
+              "kind": "mqe",
+              "text": "多步骤依赖任务 如何划分 子任务范围 与 边界 方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "复杂请求 多步依赖 任务分解 粒度 界定 子任务边界"
+            },
+            {
+              "kind": "mqe",
+              "text": "multi-step dependent request how to determine scope and boundaries of each subtask task decomposition"
+            },
+            {
+              "kind": "hyde",
+              "text": "对于包含多个依赖步骤的请求,先将其形式化为可验证目标,并构建任务依赖图或 DAG,节点表示最小可交付子任务,边表示数据依赖、控制依赖或时序约束。依据单一职责、高内聚低耦合原则进行任务分解,用输入/输出契约、前置条件、后置条件、验收标准和 Definition of Done 划定每个子任务边界。边界由接口、状态所有权和副作用范围决定,确保子任务可独立执行、可验证、可回滚、可观测,避免范围重叠或遗漏。通过拓扑排序、关键路径和同步点确定执行顺序、并行边界及跨任务共享状态,最终以 WBS 或工作分解结构固化每个小任务的范围、依赖和交付物。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A007",
+            "interview-question://B003",
+            "interview-question://A022"
+          ]
+        }
+      },
+      {
+        "question": "对于包含多个依赖步骤的请求，如何为每个小任务定义可验证的完成标准？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,如何为每个小任务定义可验证的完成标准?"
+            },
+            {
+              "kind": "mqe",
+              "text": "多步骤依赖请求中,如何为每个小任务定义可验证的完成标准?"
+            },
+            {
+              "kind": "mqe",
+              "text": "依赖型任务分解 子任务 验收标准 可验证指标 制定方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "multi-step dependent tasks how to define verifiable completion criteria for each subtask"
+            },
+            {
+              "kind": "hyde",
+              "text": "对于包含多个依赖步骤的请求,先将其分解为有向无环图(DAG)中的原子子任务,并为每个子任务定义 I/O 契约、前置条件、后置条件和不变量。每个小任务的完成标准采用可验证的 Definition of Done:明确交付物/artifact、可观测输出、验收标准(acceptance criteria)、验证方法(单元测试、契约测试、集成测试、端到端测试、静态检查或人工检查)、证据(测试报告、日志、指标、截图)以及二元通过/失败阈值。标准应满足 SMART、可测试、无歧义、可追溯至父需求。使用 Given-When-Then 或 checklist 描述预期行为、边界条件、错误处理和性能指标。依赖边定义门控条件:只有前驱任务输出通过验证且满足后继任务前置条件,后继任务才可开始。通过拓扑排序执行,标记阻塞、可并行和就绪状态。每个任务设置退出标准(exit criteria)和回滚/重试策略。聚合验证在集成点和最终端到端验收,确保所有子任务完成标准共同满足原始请求。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A007",
+            "interview-question://A023",
+            "interview-question://A019"
+          ]
+        }
+      },
+      {
+        "question": "对于包含多个依赖步骤的请求，如何表示和处理步骤之间的依赖关系？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,如何表示和处理步骤之间的依赖关系?"
+            },
+            {
+              "kind": "mqe",
+              "text": "多步骤请求中步骤依赖关系的表示与处理方法"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何用依赖图 DAG 建模并处理多步骤任务之间的依赖"
+            },
+            {
+              "kind": "mqe",
+              "text": "工作流任务编排中多步请求的步骤依赖管理与执行顺序调度"
+            },
+            {
+              "kind": "hyde",
+              "text": "对于包含多个依赖步骤的请求,通常将每个步骤抽象为任务节点,将步骤间依赖抽象为有向边,形成依赖图/任务图,并要求无环,即 DAG。表示层可用邻接表、逆邻接表、边列表或依赖矩阵,节点记录 task_id、输入、输出、状态、重试策略、超时、条件表达式;边表示前置依赖、数据依赖或控制依赖,并区分强依赖与弱依赖。处理时对 DAG 做环检测和拓扑排序,按入度调度:入度为 0 的任务可并行执行,完成后更新后继节点入度并触发就绪队列;也可采用动态拓扑排序、事件驱动调度、工作流引擎或编排器。运行时维护任务状态 pending/running/succeeded/failed/skipped,支持 fan-out/fan-in、条件分支、子工作流、动态依赖扩展、失败重试、补偿/回滚、超时与取消。实现上可用 Promise/async-await、Future/CompletableFuture、任务队列、状态机、Airflow/DAG 调度器等,保证依赖步骤按偏序执行,无依赖步骤并发执行,并处理循环依赖、死锁与关键路径优化。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A007",
+            "interview-question://A022",
+            "interview-question://B003"
+          ]
+        }
+      },
+      {
+        "question": "对于包含多个依赖步骤的请求，如何判断拆分后的小任务是否满足可验证要求？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "对于包含多个依赖步骤的请求,如何判断拆分后的小任务是否满足可验证要求?"
+            },
+            {
+              "kind": "mqe",
+              "text": "多依赖步骤请求 任务拆解 子任务可验证性 判断标准"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何判断拆分后的小任务是否满足可验证要求 多步骤依赖任务"
+            },
+            {
+              "kind": "mqe",
+              "text": "任务分解 可验证子任务 评估方法 多步骤工作流"
+            },
+            {
+              "kind": "hyde",
+              "text": "对于包含多个依赖步骤的请求,判断拆分后的小任务是否满足可验证要求,需检查其是否具备明确输入/输出契约、前置条件、后置条件与不变式;能否通过断言、单元测试、集成测试、规则校验、模式匹配或独立 verifier 给出确定性成功/失败判定;在依赖 DAG 中是否可单独执行并产生可观测中间产物;验收标准是否量化、无歧义、可复现且可追踪到最终目标。若子任务仍依赖主观判断、隐含上下文、多步耦合输出,或无法定义 oracle、判定阈值与可观测信号,则不满足可验证性,应继续拆分或补充验证器。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A007",
+            "interview-question://L017",
+            "interview-question://A019"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 291400306949050267,
+        "title": "复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?",
+        "source": "interview-question://A007",
+        "domain": "agent",
+        "content": "# 复杂任务怎么做的任务拆分?为什么要拆分?效果如何提升?\n\n题目编号:A007\n\n领域:agent\n\n难度:2\n\n标签:任务分解、依赖图、验收条件\n- 考察方向:子任务边界、依赖关系、完成判据与动态重规划。\n\n参考答案:先把目标转为可验证的交付物,再按信息依赖、工具边界或专业领域拆成子任务,并为每个子任务定义输入、输出、前置条件和验收标准。拆分可以缩短单步上下文、提高可观测性、支持并行和失败重试。效果提升依靠依赖图、关键路径优先、子任务粒度约束、执行后校验以及根据新信息动态重规划;拆得过细会增加通信成本。以技术调研为例,可拆成明确范围、并行搜集多个方案、统一指标对比、形成建议四部分,最后一部分依赖前面的证据。独立检索可并行,依赖同一业务状态的写入不能随意并行。每步返回结构化产物,使失败可以定位到局部并单独重试。是否改善效果,应比较任务成功率、返工率、总耗时与调用费用,不能把拆分后的局部准确率直接当成整体收益。\n\n评分要点:强调可验证输出和依赖;说明收益与过度拆分的代价。",
+        "vector_score": 0.8743779063224792,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 1514459175991001607,
+        "title": "什么是 CoT?为啥效果好?它有什么缺点或局限性?",
+        "source": "interview-question://L017",
+        "domain": "llm-engineering",
+        "content": "# 什么是 CoT?为啥效果好?它有什么缺点或局限性?\n\n题目编号:L017\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:CoT通过中间推理步骤分解复杂问题,使模型在数学、规划等任务中更容易保持局部一致。它可能增加Token、延迟和错误累积,也不保证推理真实可靠;完整内部推理还可能泄露敏感信息。工程上可要求简短依据或使用隐藏推理,只向用户返回结论和可验证证据。例如,多步计算可以先列出变量和关系,再用计算器核对结果,比直接猜结论更容易验证。但中间步骤也可能是合理化解释,流畅的推理链不能证明答案真实。任务可用可执行代码、检索证据或检查表提高可靠性,而不是要求每个问题都输出很长的分析。对用户展示简短依据和验证结果通常更实用,效果应通过正确率、延迟及 Token 成本的对照实验衡量。\n\n评分要点:分解带来的收益、成本、可靠性和隐私边界。",
+        "vector_score": 0.7931143939495087,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 2890477536712920412,
+        "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+        "source": "interview-question://A023",
+        "domain": "agent",
+        "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+        "vector_score": 0.7952584624290466,
+        "keyword_score": 0.5370809876534604,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 1917314499465437771,
+        "title": "请描述一次你在时间紧、任务多的情况下如何确定优先级。",
+        "source": "interview-question://B003",
+        "domain": "behavioral",
+        "content": "# 请描述一次你在时间紧、任务多的情况下如何确定优先级。\n\n题目编号:B003\n\n领域:behavioral\n\n难度:1\n\n标签:优先级、时间管理、交付\n\n参考答案:先按业务影响、截止时间、依赖关系和风险对任务排序,与相关人确认取舍和最低可交付范围。执行中设置里程碑并同步风险,对可延后事项明确承诺时间。最后说明交付结果以及优先级判断是否需要调整。\n\n评分要点:有明确排序依据;主动沟通取舍;过程可跟踪;不是简单依靠加班。",
+        "vector_score": 0.7488253712654114,
+        "keyword_score": 0.865901513206972,
+        "rerank_score": null
+      },
+      {
+        "id": 5,
+        "chunk_id": 266251793803114372,
+        "title": "Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?",
+        "source": "interview-question://A022",
+        "domain": "agent",
+        "content": "# Multi-Agent 系统如何处理子 Agent 超时、失联和并发修改冲突?\n\n题目编号:A022\n\n领域:agent\n\n难度:3\n\n标签:并发控制、故障恢复、Multi-Agent\n- 考察方向:版本控制、锁、补偿事务、超时与接管机制。\n\n参考答案:为子任务设置租约、心跳、截止时间和幂等任务ID,超时后由调度器重试、降级或分配给备用Agent。共享状态使用版本号、乐观锁或按字段所有权控制并发写入,冲突时依据业务规则合并或回滚。每个结果需带来源、版本和完成状态;对有外部副作用的步骤使用幂等键、补偿操作和人工审批,避免重试造成重复执行。超时不一定代表旧执行者已停止,因此任务接管可用租约与递增代次,阻止失效实例提交结果。恢复时加载检查点,并以稳定任务 ID 和幂等键核对外部副作用。共享文件或状态应明确所有权,使用隔离工作区、版本校验和统一集成入口;文本合并成功后还需要检查语义冲突。连续失败时可以降级或交给人工,同时保留失败原因与完成产物,避免两个执行者同时重做同一操作。\n\n评分要点:故障检测、接管、并发控制和副作用治理。",
+        "vector_score": 0.7647047638893127,
+        "keyword_score": 0.8612812531301152,
+        "rerank_score": null
+      },
+      {
+        "id": 6,
+        "chunk_id": 4611361965580952492,
+        "title": "如何评估一个 Agent 的效果?评测集和指标怎么设计?",
+        "source": "interview-question://A019",
+        "domain": "agent",
+        "content": "# 如何评估一个 Agent 的效果?评测集和指标怎么设计?\n\n题目编号:A019\n\n领域:agent\n\n难度:2\n\n标签:评测、成功率、成本、轨迹\n- 考察方向:任务成功率、步骤正确率、延迟、费用和人工评价。\n\n参考答案:指标应同时覆盖结果、过程与成本:任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布,并包含正常、歧义、工具失败、权限不足和对抗样本;为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法,覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款,不能只看最终文字是否漂亮。工具选择和参数可用程序校验,开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹,主要约束关键检查点、禁用动作和完成条件,并统计成本、接管率与长尾延迟。\n\n评分要点:不能只评最终文本;指标与数据集覆盖真实失败模式。",
+        "vector_score": 0.7934224605560303,
+        "keyword_score": 0.8311042067605642,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 64.694,
+  "timings_seconds": {
+    "decomposition": 8.46625,
+    "retrieval": 56.227772,
+    "mqe": 17.618804,
+    "hyde": 34.68193,
+    "embedding": 2.313211,
+    "vector_search": 0.284214,
+    "keyword_search": 1.306373,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 56.228176,
+    "total": 64.694425,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 5,
+    "embedding_texts": 25,
+    "chat_calls": 10,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

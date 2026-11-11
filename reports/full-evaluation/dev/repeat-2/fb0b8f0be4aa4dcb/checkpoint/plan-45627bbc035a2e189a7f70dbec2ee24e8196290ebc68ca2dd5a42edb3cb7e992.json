@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-051",
+  "subquestions": [
+    {
+      "question": "长文档如何拆分成可检索片段？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在长文档拆分成可检索片段时，片段长度与重叠应如何权衡？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.1541018999996595
+}

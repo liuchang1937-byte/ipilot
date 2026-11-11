@@ -1,0 +1,593 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "361e20ad5e5e4502829baa6473c8d86a",
+  "created_at": "2026-10-12T15:44:40.514546+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "841f9d1d12eae84df39083a986c6ae3b1d740095789c10792e96c1228b6383fa",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\f9d5de0ac4514df6\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 44.769,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 44.769,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 3.379034,
+          "p50": 3.379034,
+          "p95": 3.379034,
+          "max": 3.379034,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 22.555086,
+          "p50": 22.555086,
+          "p95": 22.555086,
+          "max": 22.555086,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 6.831471,
+          "p50": 6.831471,
+          "p95": 6.831471,
+          "max": 6.831471,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 14.726979,
+          "p50": 14.726979,
+          "p95": 14.726979,
+          "max": 14.726979,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.687546,
+          "p50": 0.687546,
+          "p95": 0.687546,
+          "max": 0.687546,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.059092,
+          "p50": 0.059092,
+          "p95": 0.059092,
+          "max": 0.059092,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.243173,
+          "p50": 0.243173,
+          "p95": 0.243173,
+          "max": 0.243173,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 18.83447,
+          "p50": 18.83447,
+          "p95": 18.83447,
+          "max": 18.83447,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 41.389777,
+          "p50": 41.389777,
+          "p95": 41.389777,
+          "max": 41.389777,
+          "samples": 1
+        },
+        "total": {
+          "mean": 44.768811,
+          "p50": 44.768811,
+          "p95": 44.768811,
+          "max": 44.768811,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 51.222664,
+          "p50": 51.222664,
+          "p95": 51.222664,
+          "max": 51.222664,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 0.0,
+        "answer_relevancy": 0.6,
+        "citation_precision": 1.0,
+        "citation_coverage": 1.0
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 1,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-016",
+      "question": "不同专长的助手如何交接任务，什么时候动态切换角色？",
+      "category": "paraphrase",
+      "split": "test",
+      "group": "A016",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A016"
+      ],
+      "answerable": true,
+      "reference_points": [],
+      "reference_answer": "多Agent协作主要依靠消息传递和共享状态：前者把上一个Agent的产物交给下一个，后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成，可按预设规则做静态路由，也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案，并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本，避免把全部历史原样转发。同步协作可用结构化调用，长任务可用消息队列和任务表，所有路径都由协调器追踪。动态切换需要明确触发条件，例如专业能力不足、任务阶段变化或执行失败，并限制交接次数。共享状态应通过受控更新接口提交，不能让多个 Agent 随意覆盖同一份任务记录。",
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A016",
+        "interview-question://A011",
+        "interview-question://A010"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "不同专长的助手如何交接任务，什么时候动态切换角色？",
+        "answer": "1. 不同专长的助手之间如何交接任务？\n当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。\n\n2. 不同专长的助手在什么时候动态切换角色？\n不同专长的助手不会随意切换角色，通常由协调器（Orchestrator）统一管控，在触发条件出现时动态切换：专业能力不足、任务阶段变化或执行失败时，协调器可触发切换，并限制交接次数[1]。协调器既可依据预设规则做静态路由，也可让 LLM 依据当前状态动态选择，实践中常用“主流程静态、边缘情况动态”的混合方案[1]。例如搜索、编码、评审分别由专业 Agent 承担[3]，当搜索阶段完成进入编码阶段，或执行失败需要接管时，就可交给对应专长的助手[1]。切换/交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本，避免把全部历史原样转发，并定义输入输出、权限、超时和幂等约束[1]。",
+        "sections": [
+          {
+            "question": "不同专长的助手之间如何交接任务？",
+            "kind": "knowledge",
+            "answer": "当前知识库中没有找到足够相关的资料，暂时无法依据知识库回答这个问题。",
+            "source_ids": [],
+            "insufficient": true,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "不同专长的助手之间如何交接任务?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "不同专长的助手之间如何交接任务"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "多智能体系统中专家助手之间的任务转交与协作机制"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "AI assistants with different specialties task handoff delegation workflow"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在多助手协作系统中,不同专长助手之间的任务交接通常由编排器或路由器基于能力画像、技能标签、领域知识、工具权限、置信度和负载进行能力匹配,采用技能路由、合同网、角色委派或动态任务分解机制。交接时,源助手将任务目标、用户意图、约束条件、上下文摘要、对话状态、中间产物、工具调用记录、共享记忆键值、未决问题和期望输出封装为结构化 handoff message,通过消息总线、黑板系统或共享内存传递给目标专家助手。目标助手确认接收、校验上下文完整性、请求缺失信息,并在其专长范围内继续规划与执行;若能力不匹配或置信度低于阈值,则触发回退、升级、重路由或 human-in-the-loop 转交。完成后,结果回传编排器或原助手,进行状态合并、结果验证、冲突消解和最终聚合响应,支持顺序、并行、层级和动态交接流程。"
+                }
+              ],
+              "warnings": [
+                "回答引用校验未通过，本次未展示未经验证的答案。"
+              ],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A016",
+                "interview-question://A011",
+                "interview-question://A010"
+              ]
+            }
+          },
+          {
+            "question": "不同专长的助手在什么时候动态切换角色？",
+            "kind": "knowledge",
+            "answer": "不同专长的助手不会随意切换角色，通常由协调器（Orchestrator）统一管控，在触发条件出现时动态切换：专业能力不足、任务阶段变化或执行失败时，协调器可触发切换，并限制交接次数[1]。协调器既可依据预设规则做静态路由，也可让 LLM 依据当前状态动态选择，实践中常用“主流程静态、边缘情况动态”的混合方案[1]。例如搜索、编码、评审分别由专业 Agent 承担[3]，当搜索阶段完成进入编码阶段，或执行失败需要接管时，就可交给对应专长的助手[1]。切换/交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本，避免把全部历史原样转发，并定义输入输出、权限、超时和幂等约束[1]。",
+            "source_ids": [
+              1,
+              3
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "不同专长的助手在什么时候动态切换角色?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "不同专长的助手在什么时机动态切换角色 触发条件"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "多智能体系统中不同领域专长的智能体何时进行动态角色切换"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "LLM 多助手不同专长动态角色转换的时机与调度策略"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在多助手协作系统中,不同专长的助手由调度器或编排器根据任务上下文动态切换角色。触发条件包括:任务阶段或子目标边界变化、用户意图或领域漂移、当前助手置信度低于阈值、能力-任务不匹配、工具/API 可用性变化、执行失败或异常、知识冲突或共识不足、延迟/成本/安全约束变化,以及负载均衡需求。切换时通过专长路由、角色分配策略、交接协议和元控制器完成规划者、执行者、验证者、领域专家等角色的重指派,确保由最匹配专长的助手接管。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A016",
+                "interview-question://A010",
+                "interview-question://A011"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 2769771559713974979,
+            "title": "如何设计多 Agent 的协作与动态切换机制?",
+            "source": "interview-question://A016",
+            "domain": "agent",
+            "content": "# 如何设计多 Agent 的协作与动态切换机制?\n\n题目编号:A016\n\n领域:agent\n\n难度:3\n\n标签:Agent 路由、任务交接、协议\n- 考察方向:能力描述、上下文传递、结果契约及动态切换。\n\n参考答案:多Agent协作主要依靠消息传递和共享状态:前者把上一个Agent的产物交给下一个,后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。同步协作可用结构化调用,长任务可用消息队列和任务表,所有路径都由协调器追踪。动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。共享状态应通过受控更新接口提交,不能让多个 Agent 随意覆盖同一份任务记录。\n\n评分要点:角色契约、路由依据、上下文交接和故障接管完整。",
+            "vector_score": 0.8517700433731079,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2175414725624058958,
+            "title": "什么是 Multi-Agent?",
+            "source": "interview-question://A010",
+            "domain": "agent",
+            "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+            "vector_score": 0.7936963737010956,
+            "keyword_score": 0.9171026702471345,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2769771559713974979,
+            "title": "如何设计多 Agent 的协作与动态切换机制?",
+            "source": "interview-question://A016",
+            "domain": "agent",
+            "content": "# 如何设计多 Agent 的协作与动态切换机制?\n\n题目编号:A016\n\n领域:agent\n\n难度:3\n\n标签:Agent 路由、任务交接、协议\n- 考察方向:能力描述、上下文传递、结果契约及动态切换。\n\n参考答案:多Agent协作主要依靠消息传递和共享状态:前者把上一个Agent的产物交给下一个,后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。同步协作可用结构化调用,长任务可用消息队列和任务表,所有路径都由协调器追踪。动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。共享状态应通过受控更新接口提交,不能让多个 Agent 随意覆盖同一份任务记录。\n\n评分要点:角色契约、路由依据、上下文交接和故障接管完整。",
+            "vector_score": 0.8517700433731079,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1602129502117344900,
+            "title": "说说 Single-Agent 和 Multi-Agent 的设计方案?",
+            "source": "interview-question://A011",
+            "domain": "agent",
+            "content": "# 说说 Single-Agent 和 Multi-Agent 的设计方案?\n\n题目编号:A011\n\n领域:agent\n\n难度:3\n\n标签:Multi-Agent、角色设计、协调\n- 考察方向:角色边界、输入输出契约、调度者和共享状态。\n\n参考答案:Single-Agent 由一个决策核心访问多种工具,状态集中、调试简单,适合中小型任务。Multi-Agent 将任务按领域、权限或上下文拆给多个 Agent,可由 Supervisor 统一调度,也可通过消息或共享状态协作,适合可并行且专业差异明显的任务。选型时先验证单 Agent 是否已足够,只有上下文膨胀、权限隔离或专业并行收益明显时再拆分。Single-Agent 通常由一个循环维护任务状态并选择工具,结构简单,调试和归因较容易。Multi-Agent 可以采用主管分发、流水线交接或并行专家汇总,但必须定义输入输出契约和结果合并规则。应在工具权限需要隔离、上下文相互干扰或子任务可独立并行时考虑拆分,而不是只看问题文字是否复杂。先建立单 Agent 基线,再用相同测试集证明成功率或延迟收益足以抵消协作成本。\n\n评分要点:描述两种架构;给出选择条件而非只列优缺点。",
+            "vector_score": 0.7725021839141846,
+            "keyword_score": 0.86180067303199,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2175414725624058958,
+            "title": "什么是 Multi-Agent?",
+            "source": "interview-question://A010",
+            "domain": "agent",
+            "content": "# 什么是 Multi-Agent?\n\n题目编号:A010\n\n领域:agent\n\n难度:2\n\n标签:Multi-Agent、职责拆分、复杂任务\n- 考察方向:专业能力、上下文隔离、并行性与治理成本之间的权衡。\n\n参考答案:Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。它主要缓解单Agent的上下文窗口限制和单点能力限制,并可通过并行执行缩短长任务时间。代价是通信、状态一致性、重复劳动和故障治理更复杂,因此只有专业分工或并行收益明显时才值得使用。例如,一个执行者负责查资料,一个负责验证结论,一个负责整理报告,协调器统一维护目标与交付状态。这里的多个 Agent 不一定使用不同模型,区别在于角色、工具权限、上下文和职责。多 Agent 有利于隔离复杂子任务和独立检查,但增加了交接、重复调用与一致性成本;如果只是同一个模型连续改写几遍文本,却没有角色边界和协作状态,就不能说明系统设计得更好。\n\n评分要点:提到独立角色与协作机制;同时说明收益和治理成本。",
+            "vector_score": 0.7936963737010956,
+            "keyword_score": 0.9171026702471345,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [
+          "回答引用校验未通过，本次未展示未经验证的答案。"
+        ],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 0.0,
+      "answer_relevancy": 0.6,
+      "citation_precision": 1.0,
+      "citation_coverage": 1.0,
+      "elapsed_seconds": 44.769,
+      "timings_seconds": {
+        "decomposition": 3.379034,
+        "retrieval": 22.555086,
+        "mqe": 6.831471,
+        "hyde": 14.726979,
+        "embedding": 0.687546,
+        "vector_search": 0.059092,
+        "keyword_search": 0.243173,
+        "rerank": 0.0,
+        "generation": 18.83447,
+        "pipeline": 41.389777,
+        "total": 44.768811,
+        "judge": 51.222664
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 10,
+        "chat_calls": 6,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 0.0,
+          "answer_relevancy": 0.6,
+          "citation_precision": 1.0,
+          "citation_coverage": 1.0
+        },
+        "claims": [
+          {
+            "text": "不同专长的助手不会随意切换角色，通常由协调器（Orchestrator）统一管控，在触发条件出现时动态切换：专业能力不足、任务阶段变化或执行失败时，协调器可触发切换，并限制交接次数[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。"
+              },
+              {
+                "source_id": 1,
+                "quote": "动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1说明动态切换通常由Orchestrator完成，并列出专业能力不足、任务阶段变化或执行失败等触发条件以及限制交接次数，支持该陈述。"
+          },
+          {
+            "text": "协调器既可依据预设规则做静态路由，也可让 LLM 依据当前状态动态选择，实践中常用“主流程静态、边缘情况动态”的混合方案[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "动态切换通常由Orchestrator完成,可按预设规则做静态路由,也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案,并为交接定义输入输出、权限、超时和幂等约束。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1明确给出静态路由、LLM动态选择以及“主流程静态、边缘情况动态”的混合方案，支持该陈述。"
+          },
+          {
+            "text": "例如搜索、编码、评审分别由专业 Agent 承担[3]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 3,
+                "quote": "Multi-Agent是多个具有不同分工的Agent协作完成任务,例如搜索、编码和评审分别由专业Agent承担。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 3,
+                "supported": true
+              }
+            ],
+            "reason": "资料3直接说明搜索、编码和评审分别由专业Agent承担，支持该陈述。"
+          },
+          {
+            "text": "当搜索阶段完成进入编码阶段，或执行失败需要接管时，就可交给对应专长的助手[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "动态切换需要明确触发条件,例如专业能力不足、任务阶段变化或执行失败,并限制交接次数。"
+              },
+              {
+                "source_id": 3,
+                "quote": "例如搜索、编码和评审分别由专业Agent承担。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持任务阶段变化或执行失败时触发动态切换，资料3支持搜索与编码由不同专业Agent承担，因此该示例性陈述成立。"
+          },
+          {
+            "text": "切换/交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本，避免把全部历史原样转发，并定义输入输出、权限、超时和幂等约束[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本,避免把全部历史原样转发。"
+              },
+              {
+                "source_id": 1,
+                "quote": "并为交接定义输入输出、权限、超时和幂等约束。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1完整列出交接应传递的上下文、避免转发全部历史以及定义输入输出、权限、超时和幂等约束，支持该陈述。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": false,
+            "reason": "答案覆盖了动态切换的触发条件、Orchestrator路由、静态/动态混合方案、交接内容与约束，但对“如何交接任务”直接表示无资料，未覆盖消息传递、共享状态、结构化调用、消息队列/任务表、受控共享状态更新等核心内容，因此未完整覆盖该参考要点。",
+            "point": "多Agent协作主要依靠消息传递和共享状态：前者把上一个Agent的产物交给下一个，后者让多个Agent读取统一的任务进度和中间结果。动态切换通常由Orchestrator完成，可按预设规则做静态路由，也可让LLM依据当前状态动态选择。实践中常用“主流程静态、边缘情况动态”的混合方案，并为交接定义输入输出、权限、超时和幂等约束。交接时应传递目标、当前状态、已获取证据、待办、权限范围和产物版本，避免把全部历史原样转发。同步协作可用结构化调用，长任务可用消息队列和任务表，所有路径都由协调器追踪。动态切换需要明确触发条件，例如专业能力不足、任务阶段变化或执行失败，并限制交接次数。共享状态应通过受控更新接口提交，不能让多个 Agent 随意覆盖同一份任务记录。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 0.6,
+          "reason": "答案对“什么时候动态切换角色”有较完整回应，并给出交接时应传递的信息；但对“不同专长的助手如何交接任务”直接拒答，未覆盖消息传递、共享状态等交接机制，且资料中存在相关内容，因此只部分回应原问题。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-016",
+      "subquestions": [
+        {
+          "question": "不同专长的助手之间如何交接任务？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "不同专长的助手在什么时候动态切换角色？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 3.3790336000020034
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 96.0,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

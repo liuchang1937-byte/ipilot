@@ -1,0 +1,14 @@
+{
+  "case_id": "V2-072",
+  "subquestions": [
+    {
+      "question": "MCP（Model Context Protocol）在通过统一接口把外部资源和工具接入助手时规范了哪些事情？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 9.174778000000515
+}

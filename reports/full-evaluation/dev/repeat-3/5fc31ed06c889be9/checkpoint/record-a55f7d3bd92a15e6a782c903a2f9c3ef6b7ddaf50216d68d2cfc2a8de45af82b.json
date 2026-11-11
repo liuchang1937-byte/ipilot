@@ -1,0 +1,148 @@
+{
+  "case_id": "V2-040",
+  "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "L016",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L016"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "先明确角色、目标、输入数据、约束、输出Schema和失败行为，再提供少量代表性示例。把可信指令与外部文本分隔，要求信息不足时拒答，并对结构化输出做程序校验。Prompt应版本化，在固定评测集上比较正确率、格式率、成本和稳定性，避免只凭几个示例调词。例如，要求系统从资料回答时，应明确哪些内容是证据、哪些是指令，以及证据不足如何处理；要求 JSON 时，应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入，而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测，记录模型版本和参数。提示能引导行为，但权限、业务规则和外部动作仍由代码强制执行。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L016",
+    "interview-question://A014",
+    "interview-question://A017"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "想让模型稳定输出结构化结果,提示中应明确哪些约束?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L016",
+            "interview-question://A014",
+            "interview-question://A017"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3377336774797257112,
+        "title": "如何写好 Prompt?分享下 Prompt 工程实践经验?",
+        "source": "interview-question://L016",
+        "domain": "llm-engineering",
+        "content": "# 如何写好 Prompt?分享下 Prompt 工程实践经验?\n\n题目编号:L016\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:先明确角色、目标、输入数据、约束、输出Schema和失败行为,再提供少量代表性示例。把可信指令与外部文本分隔,要求信息不足时拒答,并对结构化输出做程序校验。Prompt应版本化,在固定评测集上比较正确率、格式率、成本和稳定性,避免只凭几个示例调词。例如,要求系统从资料回答时,应明确哪些内容是证据、哪些是指令,以及证据不足如何处理;要求 JSON 时,应定义字段、类型和允许为空的条件。少量示例应包含正常、缺信息和异常输入,而不是只演示理想输出。改进 Prompt 要根据失败样本提出假设并做对照评测,记录模型版本和参数。提示能引导行为,但权限、业务规则和外部动作仍由代码强制执行。\n\n评分要点:结构、边界、示例、校验、版本与评测。",
+        "vector_score": 0.8505352437496185,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 888008174752367641,
+        "title": "如何赋予 LLM 规划能力?",
+        "source": "interview-question://A014",
+        "domain": "agent",
+        "content": "# 如何赋予 LLM 规划能力?\n\n题目编号:A014\n\n领域:agent\n\n难度:3\n\n标签:规划器、执行器、状态机\n- 考察方向:计划表示、步骤验证、工具执行与动态重规划。\n\n参考答案:可以用不同复杂度的推理方法赋予LLM规划能力。CoT让模型线性写出中间步骤,成本最低、最常用;ToT让模型同时探索多条候选路径并评估选择,质量更高但模型调用明显增加;GoT把推理表示成可复用、可合并的图结构,适合更复杂的规划但工程成熟度较低。落地时还应把计划结构化,由执行器校验步骤、依赖和完成条件,并在失败后重规划。规划结果应是可执行的任务结构,例如每步的目标、输入、工具、依赖和完成条件,而不只是自然语言想法。可以通过示例、结构化输出或专门规划调用引导模型生成计划,再由程序检查依赖环、未知工具和不可执行参数。执行过程中把真实观察反馈给规划器,必要时只修订未完成部分。一个任务是否完成要由验收条件判断,不能仅因模型写出了看似完整的步骤就视为规划成功。\n\n评分要点:规划必须结构化并由执行器落地;涵盖校验、反馈和重规划。",
+        "vector_score": 0.807945191860199,
+        "keyword_score": 0.514444731185584,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1914948693301866705,
+        "title": "Agent 的上下文工程怎么设计?",
+        "source": "interview-question://A017",
+        "domain": "agent",
+        "content": "# Agent 的上下文工程怎么设计?\n\n题目编号:A017\n\n领域:agent\n\n难度:3\n\n标签:上下文工程、检索、Token 预算\n- 考察方向:系统指令、任务状态、记忆、工具结果和知识证据的优先级。\n\n参考答案:上下文应按任务动态装配,而非永久堆积。一般包含稳定系统规则、当前目标与计划、最近交互、必要工具描述、检索证据和相关长期记忆。通过元数据过滤、语义检索、摘要、去重和Token预算控制数量,并明确不同内容的可信等级。工具原始结果与用户输入要做边界标记,防止提示注入影响系统指令。可以把上下文分成稳定指令、当前目标、结构化状态、近期对话、相关证据和本轮工具结果,并为各部分设定预算。用户的纠错和硬约束应显式更新状态,陈旧工具输出则摘要或移出窗口。长文不是越多越好,需要去重、重排并标识来源;外部文档中的指令只作为数据处理。评测应检查同一任务在不同轮数、噪声和截断条件下是否仍能正确选择工具并保持目标。\n\n评分要点:动态选择、预算控制、来源分层和安全隔离。",
+        "vector_score": 0.7934832870960236,
+        "keyword_score": 0.5471598272238845,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.537,
+  "timings_seconds": {
+    "decomposition": 4.077647,
+    "retrieval": 0.459082,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.417735,
+    "vector_search": 0.01199,
+    "keyword_search": 0.028353,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.459193,
+    "total": 4.53684,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

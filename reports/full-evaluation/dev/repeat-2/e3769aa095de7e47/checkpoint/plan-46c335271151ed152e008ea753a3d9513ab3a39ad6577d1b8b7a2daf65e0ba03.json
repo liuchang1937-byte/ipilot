@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-094",
+  "subquestions": [
+    {
+      "question": "资料切块时如何选择切块长度与重叠？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "答案跨片段时如何保留完整上下文？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.287750600000436
+}

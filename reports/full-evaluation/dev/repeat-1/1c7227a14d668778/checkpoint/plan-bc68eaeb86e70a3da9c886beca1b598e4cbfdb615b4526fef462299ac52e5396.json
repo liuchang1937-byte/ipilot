@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-089",
+  "subquestions": [
+    {
+      "question": "助手要保留记忆时，怎样设计存储？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "助手的历史太长时，怎样压缩？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 2.7971373000000312
+}

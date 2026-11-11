@@ -1,0 +1,36 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-049",
+      "question": "模型不知道企业最新资料，用检索增强能解决哪些限制？",
+      "category": "paraphrase",
+      "domains": [],
+      "expected_sources": [
+        "interview-question://R002"
+      ],
+      "answerable": true,
+      "reference_answer": "RAG主要解决模型知识过时、无法访问私有数据、事实依据不可追溯和重新训练成本高的问题。它让知识与模型参数解耦，文档变化后可以重新索引。但RAG不能自动修复错误数据，也不能替代模型本身缺乏的推理能力；召回不到或上下文质量差时，生成仍会失败。例如，新发布的内部制度不在模型训练数据中，但文档入库后就能被检索使用，不必等待模型重新训练。把知识放在外部还便于控制文档权限、版本和来源，提高结果的可核查性。需要强调的是，RAG 只能提供可用信息，不能保证模型一定正确理解；过期文档、冲突证据和错误检索仍可能导致幻觉。实际目标是降低错误并让错误可定位，而不是承诺彻底消除幻觉。",
+      "group": "R002",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "dev"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "case_id": "V2-042",
+  "question": "模型为什么会编造事实，检索与验证分别能缓解哪些问题？",
+  "category": "terminology",
+  "split": "test",
+  "group": "R017",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://L018"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "模型目标是生成高概率文本而非验证事实，训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如，要求引用一篇不存在的论文时，模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零，概率最高的输出也可能不符合事实，所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果，分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性，统计误答与拒答，不能只观察答复是否自信、完整。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L018",
+    "interview-question://L001",
+    "interview-question://R017",
+    "interview-question://R005"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "模型为什么会编造事实，检索与验证分别能缓解哪些问题？",
+    "answer": "1. 模型为什么会编造事实？\n\n\n2. 检索与验证分别能缓解模型编造事实中的哪些问题？\n",
+    "sections": [
+      {
+        "question": "模型为什么会编造事实？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "模型为什么会编造事实?"
+            },
+            {
+              "kind": "mqe",
+              "text": "大模型为什么会编造事实 产生幻觉的原因"
+            },
+            {
+              "kind": "mqe",
+              "text": "语言模型为什么会胡编乱造 事实性错误机制"
+            },
+            {
+              "kind": "mqe",
+              "text": "Why do large language models hallucinate and fabricate facts?"
+            },
+            {
+              "kind": "hyde",
+              "text": "模型编造事实通常称为幻觉或虚构,其根源在于大语言模型以自回归下一词预测和最大似然估计为目标,学习训练语料中的统计共现、分布模式与参数化记忆,而非维护可验证的事实数据库。当模型面对知识缺失、长尾稀疏、知识截止、上下文歧义、多跳推理失败或注意力分配错误时,会依据先验概率和上下文插值、外推,生成流畅且看似合理但无事实依据的内容。解码策略如温度采样、top-k、top-p 增加随机性,RLHF 和奖励模型可能强化迎合性、自信语气与格式偏好而非真实性,导致不确定性校准不足。缺乏外部检索、检索增强生成、工具调用、事实验证和真值接地时,模型无法区分记忆、猜测与推断,从而将低置信补全表述为确定事实。数据偏差、暴露偏差、过拟合、虚假相关和分布外泛化也会加剧事实编造。简言之,统计生成机制、无外部真值约束与不确定性未校准共同导致模型幻觉。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L018",
+            "interview-question://L001",
+            "interview-question://R017"
+          ]
+        }
+      },
+      {
+        "question": "检索与验证分别能缓解模型编造事实中的哪些问题？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "检索与验证分别能缓解模型编造事实中的哪些问题?"
+            },
+            {
+              "kind": "mqe",
+              "text": "检索增强生成 RAG 缓解 大模型 事实幻觉 编造事实 的具体问题"
+            },
+            {
+              "kind": "mqe",
+              "text": "事实核查 验证 方法 减少 语言模型 幻觉 事实错误 的问题"
+            },
+            {
+              "kind": "mqe",
+              "text": "retrieval and verification respectively mitigate which problems in LLM factual hallucination"
+            },
+            {
+              "kind": "hyde",
+              "text": "检索增强生成通过外部知识检索、向量数据库、知识图谱、网页或API证据注入,缓解模型因参数化知识不足、知识过时、长尾/领域知识缺失、事实记忆错误、实体关系混淆和时间敏感信息导致的无中生有、张冠李戴及过时事实编造。验证机制在生成后通过断言级事实验证、证据归因、蕴含判断、多源交叉验证、自洽性采样、工具校验和置信度校准,缓解检索未覆盖或检索后仍出现的无支持陈述、与证据矛盾、引用伪造、数值/日期/实体错误、逻辑不一致和过度自信;对不可验证内容触发纠正、拒答或降置信,降低事实性幻觉和忠实性幻觉的传播。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L018",
+            "interview-question://R017",
+            "interview-question://R005"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3477555688369766113,
+        "title": "大模型为什么会出现幻觉?怎么缓解?",
+        "source": "interview-question://L018",
+        "domain": "llm-engineering",
+        "content": "# 大模型为什么会出现幻觉?怎么缓解?\n\n题目编号:L018\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:模型目标是生成高概率文本而非验证事实,训练数据缺失或冲突、问题歧义、上下文噪声和高随机性都可能导致幻觉。缓解方法包括RAG或工具获取证据、限定回答范围、低温生成、信息不足时拒答、结构校验、引用核验和人工审核。高风险任务不能只依赖模型自我反思。例如,要求引用一篇不存在的论文时,模型可能根据常见论文命名方式生成看似可信的标题。即使温度为零,概率最高的输出也可能不符合事实,所以低温只减少随机性。应区分事实错误、违反给定材料和错误解释工具结果,分别通过证据查询、约束与确定性核验处理。评测要包含不可回答问题和引用真实性,统计误答与拒答,不能只观察答复是否自信、完整。\n\n评分要点:原因覆盖训练、输入和解码;治理覆盖证据、拒答和验证。",
+        "vector_score": 0.8517082035541534,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 2711125243325661145,
+        "title": "什么是大语言模型?和传统 NLP 模型有什么区别?",
+        "source": "interview-question://L001",
+        "domain": "llm-engineering",
+        "content": "# 什么是大语言模型?和传统 NLP 模型有什么区别?\n\n题目编号:L001\n\n领域:llm-engineering\n\n难度:1\n\n标签:\n\n参考答案:大语言模型是在海量语料上通过自监督目标训练的通用生成模型,通常以Transformer为核心,通过上下文预测下一个Token。传统NLP常针对分类、序列标注等单任务设计并使用专门标注数据。LLM可通过提示和上下文学习统一处理多任务,但参数、推理成本、幻觉和不可解释性也更突出。例如,传统情感分类器通常输出正负标签,而生成式 LLM 可以根据指令解释原因、改写内容或总结文章,利用同一预训练模型处理不同任务。但传统 NLP 也包含生成模型,大模型也不是只能做聊天,因此差异不能简单概括为标签对文本。当前常见生成式 LLM 使用自回归目标,通过上下文适应任务;它的输出是统计预测,不等于实时查阅事实库,也不保证理解与推理永远正确。\n\n评分要点:预训练目标、通用性、上下文学习及工程代价。",
+        "vector_score": 0.7600957453250885,
+        "keyword_score": 0.6176712948749049,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 4065041854966392793,
+        "title": "如何规避 RAG 系统中大模型的幻觉?",
+        "source": "interview-question://R017",
+        "domain": "rag",
+        "content": "# 如何规避 RAG 系统中大模型的幻觉?\n\n题目编号:R017\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先提升数据质量和召回准确性,避免把冲突或无关材料交给模型;提示中要求只依据证据回答、逐项引用,并在证据不足时拒答。生成后检查关键陈述是否被片段支持,可用规则或验证模型做蕴含判断。高风险问题还需限定来源、展示原文并加入人工审核。可以分别检查证据是否召回、证据是否有效、结论是否真正受到证据支持。提示词约束只是第一层,检索门控、权限过滤和生成后引用核验更容易形成可测试规则。重排分数通常不是校准后的正确概率,拒答阈值应在标注集上调节,并平衡误答与过度拒答。遇到冲突或信息不足时说明限制,不能把格式正确、带引用或低温度误认为事实一定正确。\n\n评分要点:检索、生成和验证三层治理,不能只说优化Prompt。",
+        "vector_score": 0.8607214689254761,
+        "keyword_score": 0.698159306767684,
+        "rerank_score": null
+      },
+      {
+        "id": 4,
+        "chunk_id": 3747615631573896845,
+        "title": "怎么规避语义被切割掉的问题?",
+        "source": "interview-question://R005",
+        "domain": "rag",
+        "content": "# 怎么规避语义被切割掉的问题?\n\n题目编号:R005\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:一方面在切块阶段按句子、段落和标题等自然边界切分,并使用适量重叠;另一方面在检索后补回上下文,例如命中句子后返回周围窗口,或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval:在Embedding前为每个Chunk生成与全文相关的背景说明,再与正文共同索引,减轻孤立Chunk缺少上下文的问题。例如,一个段落先说明条件、后说明例外,按固定字符数切开可能只召回例外,导致错误结论。可以保存标题路径、块位置与父文档 ID,在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查,避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度,因此应去重并控制返回预算,用跨段问题检验收益。\n\n评分要点:语义边界、重叠、上下文标题、邻块扩展或父块返回。",
+        "vector_score": 0.7999653816223145,
+        "keyword_score": 0.7659631655323517,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 27.473,
+  "timings_seconds": {
+    "decomposition": 4.010545,
+    "retrieval": 23.461975,
+    "mqe": 8.754825,
+    "hyde": 13.717481,
+    "embedding": 0.713921,
+    "vector_search": 0.05248,
+    "keyword_search": 0.219407,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 23.462108,
+    "total": 27.472653,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 2,
+    "embedding_texts": 10,
+    "chat_calls": 4,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "case_id": "V2-017",
+  "question": "工具描述、历史对话、检索资料与当前目标如何组织进上下文？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "A017",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A017"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "上下文应按任务动态装配，而非永久堆积。一般包含稳定系统规则、当前目标与计划、最近交互、必要工具描述、检索证据和相关长期记忆。通过元数据过滤、语义检索、摘要、去重和Token预算控制数量，并明确不同内容的可信等级。工具原始结果与用户输入要做边界标记，防止提示注入影响系统指令。可以把上下文分成稳定指令、当前目标、结构化状态、近期对话、相关证据和本轮工具结果，并为各部分设定预算。用户的纠错和硬约束应显式更新状态，陈旧工具输出则摘要或移出窗口。长文不是越多越好，需要去重、重排并标识来源；外部文档中的指令只作为数据处理。评测应检查同一任务在不同轮数、噪声和截断条件下是否仍能正确选择工具并保持目标。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A017",
+    "interview-question://T017",
+    "interview-question://T002"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "工具描述、历史对话、检索资料与当前目标如何组织进上下文？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "工具描述、历史对话、检索资料与当前目标如何组织进上下文？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "工具描述、历史对话、检索资料与当前目标如何组织进上下文?"
+            },
+            {
+              "kind": "mqe",
+              "text": "如何将工具描述、历史对话、检索资料和当前目标组织到 LLM 上下文中?"
+            },
+            {
+              "kind": "mqe",
+              "text": "LLM 智能体上下文工程:工具说明、对话历史、检索文档与当前任务目标如何整合?"
+            },
+            {
+              "kind": "mqe",
+              "text": "How to organize tool descriptions, conversation history, retrieved documents, and the current goal into an LLM context?"
+            },
+            {
+              "kind": "hyde",
+              "text": "在智能体上下文组装中,采用分层提示模板:system/developer消息放置角色、全局约束、当前目标、输出格式和工具使用策略;工具描述以function calling的JSON Schema(name、description、parameters、required)放入tools参数或system块,并附调用示例。历史对话按system/user/assistant/tool消息序列组织:近期轮次逐字保留,远期轮次经摘要、状态记忆、实体/槽位压缩后置于memory段。检索资料经RAG召回、rerank、去重、截断,以带metadata和分隔符的evidence块注入retrieved_context段。典型顺序为system(角色+目标+约束)→tools→memory/summary→retrieved_context→recent_dialogue→current_user_query→output_instruction。按token预算动态分配,优先级:当前目标>工具约束>最新对话>高相关检索证据>远期历史;超窗时滑动窗口、摘要压缩、上下文剪枝或检索替代。工具调用与结果作为tool消息回填,当前目标在system和末轮user中双重强调。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A017",
+            "interview-question://T017",
+            "interview-question://T002"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 1914948693301866705,
+        "title": "Agent 的上下文工程怎么设计?",
+        "source": "interview-question://A017",
+        "domain": "agent",
+        "content": "# Agent 的上下文工程怎么设计?\n\n题目编号:A017\n\n领域:agent\n\n难度:3\n\n标签:上下文工程、检索、Token 预算\n- 考察方向:系统指令、任务状态、记忆、工具结果和知识证据的优先级。\n\n参考答案:上下文应按任务动态装配,而非永久堆积。一般包含稳定系统规则、当前目标与计划、最近交互、必要工具描述、检索证据和相关长期记忆。通过元数据过滤、语义检索、摘要、去重和Token预算控制数量,并明确不同内容的可信等级。工具原始结果与用户输入要做边界标记,防止提示注入影响系统指令。可以把上下文分成稳定指令、当前目标、结构化状态、近期对话、相关证据和本轮工具结果,并为各部分设定预算。用户的纠错和硬约束应显式更新状态,陈旧工具输出则摘要或移出窗口。长文不是越多越好,需要去重、重排并标识来源;外部文档中的指令只作为数据处理。评测应检查同一任务在不同轮数、噪声和截断条件下是否仍能正确选择工具并保持目标。\n\n评分要点:动态选择、预算控制、来源分层和安全隔离。",
+        "vector_score": 0.833698570728302,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 108826138093358449,
+        "title": "工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?",
+        "source": "interview-question://T017",
+        "domain": "llm-tool-calling",
+        "content": "# 工具很多时,Agent 如何做 Tool Routing,减少 Token 并避免选错工具?\n\n题目编号:T017\n\n领域:llm-tool-calling\n\n难度:3\n\n标签:\n\n参考答案:先按领域和权限建立工具目录,为工具生成简洁、可区分的能力描述;运行时先做规则或语义检索得到小候选集,再让模型选择。可使用分层路由、工具组、历史成功率和上下文约束,并对高风险工具二次确认。评测应统计工具Recall、误选率、参数正确率、Token和延迟。例如,先按订单、文档和日程等领域筛选,再检索候选工具,最后只把少量相关 Schema 交给模型。第一阶段要保持足够召回,模型判断现有工具不合适时可以扩大候选范围,而不是被错误路由永久锁住。工具描述应包含何时使用、何时不用和参数语义;相似工具要有明确区分。权限过滤在执行时再次校验,路由正确不代表获得授权,评测还要覆盖容易混淆与无适用工具的请求。\n\n评分要点:检索缩小候选、分层选择、安全控制和量化评测。",
+        "vector_score": 0.7927965819835663,
+        "keyword_score": 0.964019743693966,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1074467055826810929,
+        "title": "LLM 是如何学会调用外部工具的?",
+        "source": "interview-question://T002",
+        "domain": "llm-tool-calling",
+        "content": "# LLM 是如何学会调用外部工具的?\n\n题目编号:T002\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:模型通过预训练获得语言与代码模式,再在指令微调或偏好训练中学习“用户请求—工具描述—结构化调用—工具结果—最终回答”的样本。推理时工具Schema与上下文一起输入,模型预测工具名和参数Token;宿主解析执行。提示和约束解码可提高格式稳定性,但最终仍需程序校验。示范数据让模型学会的不只是 JSON 语法,还包括调用时机、工具选择、参数映射和结果解释。比如查询订单需要先取得订单号,缺失时应询问用户,而不是猜一个值。偏好或奖励训练可以改善不必要调用和失败恢复,但并非每个模型都必须经过同一种训练流程。Schema 描述有助于推理时泛化到新工具,却不会凭空授予网络权限;最终动作仍由应用执行和记录。\n\n评分要点:训练样本、Schema条件生成、宿主执行和校验。",
+        "vector_score": 0.809384673833847,
+        "keyword_score": 0.6841503571712781,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 15.568,
+  "timings_seconds": {
+    "decomposition": 3.609815,
+    "retrieval": 11.957576,
+    "mqe": 2.307655,
+    "hyde": 8.901766,
+    "embedding": 0.368577,
+    "vector_search": 0.06185,
+    "keyword_search": 0.313146,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 11.957785,
+    "total": 15.5676,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 5,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-015",
+  "subquestions": [
+    {
+      "question": "让模型检查自己的结果再修改，在什么条件下能够带来收益？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "如何避免模型在检查自己的结果并修改时反复进行自我修正？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.32755090000137
+}

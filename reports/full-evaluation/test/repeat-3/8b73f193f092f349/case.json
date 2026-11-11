@@ -1,0 +1,40 @@
+{
+  "name": "知识库检索分组种子集 v2 · 120题",
+  "schema_version": 2,
+  "label_status": "human_reviewed",
+  "source_answers_sha256": "75f1eba9c9d7f2e5b3c36b3d0bd750bbf8ece67c75d8ac04bba76069ac9c052a",
+  "description": "86条独立改写、20条双主题查询、14条无资料查询；按来源关联主题划分80开发/40测试。原始标注由开发辅助生成，项目作者于2026-10-12确认逐条复核并全部认可，来源、参考要点和分组均未修改。",
+  "cases": [
+    {
+      "id": "V2-088",
+      "question": "ReAct执行循环怎么工作？再比较先规划后执行与反思。",
+      "category": "compound",
+      "domains": [],
+      "answerable": true,
+      "expected_sources": [
+        "interview-question://A005",
+        "interview-question://A006"
+      ],
+      "reference_points": [
+        "常见推理模式包括直接回答、CoT和ReAct。直接回答没有显式中间过程；CoT让模型先组织多步推理再给结论；ReAct进一步把推理与行动交替进行，形成Thought—Action—Observation循环：模型决定工具及参数，宿主执行后把观察结果送回模型，直到满足结束条件。工程实现还要限制步数、预算和重复调用。代码层面可以实现一个有界循环：构建消息，调用模型，判断返回的是最终答案还是工具请求；若是工具请求，就检查工具名、参数和权限，执行后追加工具结果，再进入下一轮。工具报错应作为明确观察反馈，不能直接吞掉。ReAct 的关键是行动改变了下一次决策所依据的信息，不是强制打印完整思维过程；日志可以保存动作、观察和简短决策依据，而不依赖模型内部推理文本。",
+        "ReAct 边思考边行动，适合信息逐步显现、需要频繁工具交互的任务，但调用轮次多；Plan-and-Execute 先生成整体计划再逐项执行，适合依赖关系清楚的长任务，但初始计划错误会向后传播；Reflection 在结果或阶段完成后检查缺陷并修正，适合质量要求高、允许增加成本的任务。选型要结合任务开放度、可逆性、延迟预算和失败代价，复杂项目常把三者组合使用。例如，开放式故障调查适合根据日志逐步选择工具；生成研究报告可以先列出资料搜集、比较和写作步骤，再由执行器完成；报告完成后则可检查论据缺失和结论冲突。Reflection 应有具体标准和外部证据，而不是让同一个模型无限重写。计划遇到新信息也需要修订，并非提前规划后就禁止变化；三种机制都应有步数、费用和时间上限。"
+      ],
+      "group": "A005",
+      "review": {
+        "approved": true,
+        "reviewer": "项目作者（用户确认）",
+        "reviewed_at": "2026-10-12",
+        "notes": "项目作者确认已完成全部复核，认可本案例原来源、参考要点或逐点标签，未修改标注。",
+        "confirmation_source": "user_message"
+      },
+      "split": "test"
+    }
+  ],
+  "review_summary": {
+    "reviewer": "项目作者（用户确认）",
+    "reviewed_at": "2026-10-12",
+    "confirmation_source": "user_message",
+    "confirmation": "120 条检索案例＋24 条评分案例，原标注全部认可",
+    "annotation_changes": false
+  }
+}

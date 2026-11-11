@@ -1,0 +1,917 @@
+Starting dev: 80 cases, 3 variants, 240 jobs
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "E:\study\project\TechRAG\.uv-python\cpython-3.12-windows-x86_64-none\Lib\concurrent\futures\process.py", line 264, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\study\project\TechRAG\scripts\run_full_evaluation.py", line 94, in _run_case
+    report = run_benchmark(
+             ^^^^^^^^^^^^^^
+  File "E:\study\project\TechRAG\src\techrag\benchmark.py", line 336, in run_benchmark
+    stop_on_permanent_error()
+  File "E:\study\project\TechRAG\src\techrag\benchmark.py", line 310, in stop_on_permanent_error
+    raise BenchmarkBlockedError(reason + "，已停止后续调用；已保存的结果可断点续跑。")
+techrag.benchmark.BenchmarkBlockedError: 模型API余额不足，已停止后续调用；已保存的结果可断点续跑。
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\study\project\TechRAG\scripts\run_full_evaluation.py", line 357, in <module>
+    main()
+  File "E:\study\project\TechRAG\scripts\run_full_evaluation.py", line 353, in main
+    execute_study(args)
+  File "E:\study\project\TechRAG\scripts\run_full_evaluation.py", line 327, in execute_study
+    result = future.result()
+             ^^^^^^^^^^^^^^^
+  File "E:\study\project\TechRAG\.uv-python\cpython-3.12-windows-x86_64-none\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "E:\study\project\TechRAG\.uv-python\cpython-3.12-windows-x86_64-none\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+techrag.benchmark.BenchmarkBlockedError: 模型API余额不足，已停止后续调用；已保存的结果可断点续跑。
+Starting dev: 80 cases, 3 variants, 240 jobs
+[dev 1/240] V2-050 repeat=1
+[dev 2/240] V2-077 repeat=1
+[dev 3/240] V2-106 repeat=1
+[dev 4/240] V2-028 repeat=1
+[dev 5/240] V2-040 repeat=1
+[dev 6/240] V2-068 repeat=1
+[dev 7/240] V2-053 repeat=1
+[dev 8/240] V2-026 repeat=1
+[dev 9/240] V2-087 repeat=1
+[dev 10/240] V2-052 repeat=1
+[dev 11/240] V2-070 repeat=1
+[dev 12/240] V2-107 repeat=1
+[dev 13/240] V2-023 repeat=1
+[dev 14/240] V2-114 repeat=1
+[dev 15/240] V2-003 repeat=1
+[dev 16/240] V2-090 repeat=1
+[dev 17/240] V2-108 repeat=1
+[dev 18/240] V2-071 repeat=1
+[dev 19/240] V2-105 repeat=1
+[dev 20/240] V2-095 repeat=1
+[dev 21/240] V2-011 repeat=1
+[dev 22/240] V2-118 repeat=1
+[dev 23/240] V2-051 repeat=1
+[dev 24/240] V2-038 repeat=1
+[dev 25/240] V2-104 repeat=1
+[dev 26/240] V2-021 repeat=1
+[dev 27/240] V2-008 repeat=1
+[dev 28/240] V2-032 repeat=1
+[dev 29/240] V2-113 repeat=1
+[dev 30/240] V2-098 repeat=1
+[dev 31/240] V2-094 repeat=1
+[dev 32/240] V2-116 repeat=1
+[dev 33/240] V2-062 repeat=1
+[dev 34/240] V2-097 repeat=1
+[dev 35/240] V2-004 repeat=1
+[dev 36/240] V2-039 repeat=1
+[dev 37/240] V2-078 repeat=1
+[dev 38/240] V2-009 repeat=1
+[dev 39/240] V2-072 repeat=1
+[dev 40/240] V2-001 repeat=1
+[dev 41/240] V2-007 repeat=1
+[dev 42/240] V2-048 repeat=1
+[dev 43/240] V2-080 repeat=1
+[dev 44/240] V2-018 repeat=1
+[dev 45/240] V2-012 repeat=1
+[dev 46/240] V2-055 repeat=1
+[dev 47/240] V2-093 repeat=1
+[dev 48/240] V2-049 repeat=1
+[dev 49/240] V2-027 repeat=1
+[dev 50/240] V2-074 repeat=1
+[dev 51/240] V2-110 repeat=1
+[dev 52/240] V2-058 repeat=1
+[dev 53/240] V2-075 repeat=1
+[dev 54/240] V2-060 repeat=1
+[dev 55/240] V2-033 repeat=1
+[dev 56/240] V2-101 repeat=1
+[dev 57/240] V2-010 repeat=1
+[dev 58/240] V2-089 repeat=1
+[dev 59/240] V2-115 repeat=1
+[dev 60/240] V2-092 repeat=1
+[dev 61/240] V2-076 repeat=1
+[dev 62/240] V2-069 repeat=1
+[dev 63/240] V2-086 repeat=1
+[dev 64/240] V2-017 repeat=1
+[dev 65/240] V2-117 repeat=1
+[dev 66/240] V2-073 repeat=1
+[dev 67/240] V2-059 repeat=1
+[dev 68/240] V2-002 repeat=1
+[dev 69/240] V2-022 repeat=1
+[dev 70/240] V2-020 repeat=1
+[dev 71/240] V2-066 repeat=1
+[dev 72/240] V2-013 repeat=1
+[dev 73/240] V2-061 repeat=1
+[dev 74/240] V2-056 repeat=1
+[dev 75/240] V2-079 repeat=1
+[dev 76/240] V2-109 repeat=1
+[dev 77/240] V2-054 repeat=1
+[dev 78/240] V2-112 repeat=1
+[dev 79/240] V2-047 repeat=1
+[dev 80/240] V2-044 repeat=1
+[dev 81/240] V2-012 repeat=2
+[dev 82/240] V2-056 repeat=2
+[dev 83/240] V2-115 repeat=2
+[dev 84/240] V2-038 repeat=2
+[dev 85/240] V2-116 repeat=2
+[dev 86/240] V2-047 repeat=2
+[dev 87/240] V2-079 repeat=2
+[dev 88/240] V2-106 repeat=2
+[dev 89/240] V2-003 repeat=2
+[dev 90/240] V2-095 repeat=2
+[dev 91/240] V2-009 repeat=2
+[dev 92/240] V2-098 repeat=2
+[dev 93/240] V2-076 repeat=2
+[dev 94/240] V2-071 repeat=2
+[dev 95/240] V2-054 repeat=2
+[dev 96/240] V2-087 repeat=2
+[dev 97/240] V2-053 repeat=2
+[dev 98/240] V2-007 repeat=2
+[dev 99/240] V2-093 repeat=2
+[dev 100/240] V2-073 repeat=2
+[dev 101/240] V2-080 repeat=2
+[dev 102/240] V2-069 repeat=2
+[dev 103/240] V2-050 repeat=2
+[dev 104/240] V2-094 repeat=2
+[dev 105/240] V2-114 repeat=2
+[dev 106/240] V2-040 repeat=2
+[dev 107/240] V2-052 repeat=2
+[dev 108/240] V2-001 repeat=2
+[dev 109/240] V2-104 repeat=2
+[dev 110/240] V2-058 repeat=2
+[dev 111/240] V2-101 repeat=2
+[dev 112/240] V2-060 repeat=2
+[dev 113/240] V2-039 repeat=2
+[dev 114/240] V2-105 repeat=2
+[dev 115/240] V2-108 repeat=2
+[dev 116/240] V2-026 repeat=2
+[dev 117/240] V2-017 repeat=2
+[dev 118/240] V2-061 repeat=2
+[dev 119/240] V2-049 repeat=2
+[dev 120/240] V2-013 repeat=2
+[dev 121/240] V2-118 repeat=2
+[dev 122/240] V2-055 repeat=2
+[dev 123/240] V2-028 repeat=2
+[dev 124/240] V2-027 repeat=2
+[dev 125/240] V2-072 repeat=2
+[dev 126/240] V2-068 repeat=2
+[dev 127/240] V2-092 repeat=2
+[dev 128/240] V2-010 repeat=2
+[dev 129/240] V2-089 repeat=2
+[dev 130/240] V2-066 repeat=2
+[dev 131/240] V2-002 repeat=2
+[dev 132/240] V2-109 repeat=2
+[dev 133/240] V2-033 repeat=2
+[dev 134/240] V2-097 repeat=2
+[dev 135/240] V2-112 repeat=2
+[dev 136/240] V2-051 repeat=2
+[dev 137/240] V2-022 repeat=2
+[dev 138/240] V2-074 repeat=2
+[dev 139/240] V2-107 repeat=2
+[dev 140/240] V2-078 repeat=2
+[dev 141/240] V2-021 repeat=2
+[dev 142/240] V2-070 repeat=2
+[dev 143/240] V2-110 repeat=2
+[dev 144/240] V2-075 repeat=2
+[dev 145/240] V2-020 repeat=2
+[dev 146/240] V2-032 repeat=2
+[dev 147/240] V2-077 repeat=2
+[dev 148/240] V2-023 repeat=2
+[dev 149/240] V2-090 repeat=2
+[dev 150/240] V2-062 repeat=2
+[dev 151/240] V2-044 repeat=2
+[dev 152/240] V2-048 repeat=2
+[dev 153/240] V2-018 repeat=2
+[dev 154/240] V2-011 repeat=2
+[dev 155/240] V2-004 repeat=2
+[dev 156/240] V2-113 repeat=2
+[dev 157/240] V2-059 repeat=2
+[dev 158/240] V2-117 repeat=2
+[dev 159/240] V2-008 repeat=2
+[dev 160/240] V2-101 repeat=3
+[dev 161/240] V2-086 repeat=2
+[dev 162/240] V2-077 repeat=3
+[dev 163/240] V2-105 repeat=3
+[dev 164/240] V2-048 repeat=3
+[dev 165/240] V2-022 repeat=3
+[dev 166/240] V2-052 repeat=3
+[dev 167/240] V2-104 repeat=3
+[dev 168/240] V2-007 repeat=3
+[dev 169/240] V2-026 repeat=3
+[dev 170/240] V2-009 repeat=3
+[dev 171/240] V2-021 repeat=3
+[dev 172/240] V2-109 repeat=3
+[dev 173/240] V2-074 repeat=3
+[dev 174/240] V2-023 repeat=3
+[dev 175/240] V2-044 repeat=3
+[dev 176/240] V2-039 repeat=3
+[dev 177/240] V2-053 repeat=3
+[dev 178/240] V2-049 repeat=3
+[dev 179/240] V2-066 repeat=3
+[dev 180/240] V2-098 repeat=3
+[dev 181/240] V2-108 repeat=3
+[dev 182/240] V2-086 repeat=3
+[dev 183/240] V2-106 repeat=3
+[dev 184/240] V2-002 repeat=3
+[dev 185/240] V2-011 repeat=3
+[dev 186/240] V2-012 repeat=3
+[dev 187/240] V2-055 repeat=3
+[dev 188/240] V2-061 repeat=3
+[dev 189/240] V2-058 repeat=3
+[dev 190/240] V2-001 repeat=3
+[dev 191/240] V2-008 repeat=3
+[dev 192/240] V2-107 repeat=3
+[dev 193/240] V2-003 repeat=3
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "E:\study\project\TechRAG\.uv-python\cpython-3.12-windows-x86_64-none\Lib\concurrent\futures\process.py", line 264, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\study\project\TechRAG\scripts\run_full_evaluation.py", line 94, in _run_case
+    report = run_benchmark(
+             ^^^^^^^^^^^^^^
+  File "E:\study\project\TechRAG\src\techrag\benchmark.py", line 451, in run_benchmark
+    stop_on_permanent_error()
+  File "E:\study\project\TechRAG\src\techrag\benchmark.py", line 310, in stop_on_permanent_error
+    raise BenchmarkBlockedError(reason + "，已停止后续调用；已保存的结果可断点续跑。")
+techrag.benchmark.BenchmarkBlockedError: 模型API余额不足，已停止后续调用；已保存的结果可断点续跑。
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\study\project\TechRAG\scripts\run_full_evaluation.py", line 357, in <module>
+    main()
+  File "E:\study\project\TechRAG\scripts\run_full_evaluation.py", line 353, in main
+    execute_study(args)
+  File "E:\study\project\TechRAG\scripts\run_full_evaluation.py", line 327, in execute_study
+    result = future.result()
+             ^^^^^^^^^^^^^^^
+  File "E:\study\project\TechRAG\.uv-python\cpython-3.12-windows-x86_64-none\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "E:\study\project\TechRAG\.uv-python\cpython-3.12-windows-x86_64-none\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+techrag.benchmark.BenchmarkBlockedError: 模型API余额不足，已停止后续调用；已保存的结果可断点续跑。
+Starting dev: 80 cases, 3 variants, 240 jobs
+[dev 1/240] V2-077 repeat=1
+[dev 2/240] V2-028 repeat=1
+[dev 3/240] V2-050 repeat=1
+[dev 4/240] V2-068 repeat=1
+[dev 5/240] V2-040 repeat=1
+[dev 6/240] V2-026 repeat=1
+[dev 7/240] V2-053 repeat=1
+[dev 8/240] V2-087 repeat=1
+[dev 9/240] V2-070 repeat=1
+[dev 10/240] V2-106 repeat=1
+[dev 11/240] V2-052 repeat=1
+[dev 12/240] V2-003 repeat=1
+[dev 13/240] V2-107 repeat=1
+[dev 14/240] V2-023 repeat=1
+[dev 15/240] V2-114 repeat=1
+[dev 16/240] V2-090 repeat=1
+[dev 17/240] V2-108 repeat=1
+[dev 18/240] V2-071 repeat=1
+[dev 19/240] V2-105 repeat=1
+[dev 20/240] V2-095 repeat=1
+[dev 21/240] V2-011 repeat=1
+[dev 22/240] V2-051 repeat=1
+[dev 23/240] V2-038 repeat=1
+[dev 24/240] V2-118 repeat=1
+[dev 25/240] V2-008 repeat=1
+[dev 26/240] V2-104 repeat=1
+[dev 27/240] V2-032 repeat=1
+[dev 28/240] V2-021 repeat=1
+[dev 29/240] V2-113 repeat=1
+[dev 30/240] V2-098 repeat=1
+[dev 31/240] V2-094 repeat=1
+[dev 32/240] V2-116 repeat=1
+[dev 33/240] V2-039 repeat=1
+[dev 34/240] V2-097 repeat=1
+[dev 35/240] V2-062 repeat=1
+[dev 36/240] V2-078 repeat=1
+[dev 37/240] V2-004 repeat=1
+[dev 38/240] V2-007 repeat=1
+[dev 39/240] V2-072 repeat=1
+[dev 40/240] V2-009 repeat=1
+[dev 41/240] V2-001 repeat=1
+[dev 42/240] V2-080 repeat=1
+[dev 43/240] V2-048 repeat=1
+[dev 44/240] V2-018 repeat=1
+[dev 45/240] V2-055 repeat=1
+[dev 46/240] V2-012 repeat=1
+[dev 47/240] V2-093 repeat=1
+[dev 48/240] V2-074 repeat=1
+[dev 49/240] V2-027 repeat=1
+[dev 50/240] V2-049 repeat=1
+[dev 51/240] V2-110 repeat=1
+[dev 52/240] V2-058 repeat=1
+[dev 53/240] V2-075 repeat=1
+[dev 54/240] V2-060 repeat=1
+[dev 55/240] V2-101 repeat=1
+[dev 56/240] V2-010 repeat=1
+[dev 57/240] V2-033 repeat=1
+[dev 58/240] V2-115 repeat=1
+[dev 59/240] V2-089 repeat=1
+[dev 60/240] V2-092 repeat=1
+[dev 61/240] V2-017 repeat=1
+[dev 62/240] V2-076 repeat=1
+[dev 63/240] V2-086 repeat=1
+[dev 64/240] V2-117 repeat=1
+[dev 65/240] V2-002 repeat=1
+[dev 66/240] V2-069 repeat=1
+[dev 67/240] V2-059 repeat=1
+[dev 68/240] V2-073 repeat=1
+[dev 69/240] V2-022 repeat=1
+[dev 70/240] V2-066 repeat=1
+[dev 71/240] V2-020 repeat=1
+[dev 72/240] V2-013 repeat=1
+[dev 73/240] V2-061 repeat=1
+[dev 74/240] V2-056 repeat=1
+[dev 75/240] V2-044 repeat=1
+[dev 76/240] V2-054 repeat=1
+[dev 77/240] V2-079 repeat=1
+[dev 78/240] V2-109 repeat=1
+[dev 79/240] V2-047 repeat=1
+[dev 80/240] V2-112 repeat=1
+[dev 81/240] V2-038 repeat=2
+[dev 82/240] V2-012 repeat=2
+[dev 83/240] V2-115 repeat=2
+[dev 84/240] V2-056 repeat=2
+[dev 85/240] V2-047 repeat=2
+[dev 86/240] V2-116 repeat=2
+[dev 87/240] V2-003 repeat=2
+[dev 88/240] V2-095 repeat=2
+[dev 89/240] V2-079 repeat=2
+[dev 90/240] V2-106 repeat=2
+[dev 91/240] V2-098 repeat=2
+[dev 92/240] V2-009 repeat=2
+[dev 93/240] V2-076 repeat=2
+[dev 94/240] V2-053 repeat=2
+[dev 95/240] V2-071 repeat=2
+[dev 96/240] V2-054 repeat=2
+[dev 97/240] V2-087 repeat=2
+[dev 98/240] V2-093 repeat=2
+[dev 99/240] V2-007 repeat=2
+[dev 100/240] V2-073 repeat=2
+[dev 101/240] V2-050 repeat=2
+[dev 102/240] V2-080 repeat=2
+[dev 103/240] V2-094 repeat=2
+[dev 104/240] V2-040 repeat=2
+[dev 105/240] V2-069 repeat=2
+[dev 106/240] V2-114 repeat=2
+[dev 107/240] V2-001 repeat=2
+[dev 108/240] V2-052 repeat=2
+[dev 109/240] V2-058 repeat=2
+[dev 110/240] V2-104 repeat=2
+[dev 111/240] V2-060 repeat=2
+[dev 112/240] V2-101 repeat=2
+[dev 113/240] V2-039 repeat=2
+[dev 114/240] V2-105 repeat=2
+[dev 115/240] V2-026 repeat=2
+[dev 116/240] V2-061 repeat=2
+[dev 117/240] V2-017 repeat=2
+[dev 118/240] V2-108 repeat=2
+[dev 119/240] V2-049 repeat=2
+[dev 120/240] V2-055 repeat=2
+[dev 121/240] V2-013 repeat=2
+[dev 122/240] V2-028 repeat=2
+[dev 123/240] V2-118 repeat=2
+[dev 124/240] V2-072 repeat=2
+[dev 125/240] V2-027 repeat=2
+[dev 126/240] V2-092 repeat=2
+[dev 127/240] V2-068 repeat=2
+[dev 128/240] V2-066 repeat=2
+[dev 129/240] V2-010 repeat=2
+[dev 130/240] V2-089 repeat=2
+[dev 131/240] V2-002 repeat=2
+[dev 132/240] V2-109 repeat=2
+[dev 133/240] V2-097 repeat=2
+[dev 134/240] V2-033 repeat=2
+[dev 135/240] V2-051 repeat=2
+[dev 136/240] V2-112 repeat=2
+[dev 137/240] V2-022 repeat=2
+[dev 138/240] V2-107 repeat=2
+[dev 139/240] V2-074 repeat=2
+[dev 140/240] V2-078 repeat=2
+[dev 141/240] V2-075 repeat=2
+[dev 142/240] V2-021 repeat=2
+[dev 143/240] V2-070 repeat=2
+[dev 144/240] V2-110 repeat=2
+[dev 145/240] V2-077 repeat=2
+[dev 146/240] V2-044 repeat=2
+[dev 147/240] V2-020 repeat=2
+[dev 148/240] V2-032 repeat=2
+[dev 149/240] V2-023 repeat=2
+[dev 150/240] V2-090 repeat=2
+[dev 151/240] V2-018 repeat=2
+[dev 152/240] V2-062 repeat=2
+[dev 153/240] V2-011 repeat=2
+[dev 154/240] V2-048 repeat=2
+[dev 155/240] V2-004 repeat=2
+[dev 156/240] V2-059 repeat=2
+[dev 157/240] V2-113 repeat=2
+[dev 158/240] V2-117 repeat=2
+[dev 159/240] V2-086 repeat=2
+[dev 160/240] V2-008 repeat=2
+[dev 161/240] V2-077 repeat=3
+[dev 162/240] V2-101 repeat=3
+[dev 163/240] V2-022 repeat=3
+[dev 164/240] V2-105 repeat=3
+[dev 165/240] V2-048 repeat=3
+[dev 166/240] V2-021 repeat=3
+[dev 167/240] V2-052 repeat=3
+[dev 168/240] V2-104 repeat=3
+[dev 169/240] V2-007 repeat=3
+[dev 170/240] V2-009 repeat=3
+[dev 171/240] V2-026 repeat=3
+[dev 172/240] V2-074 repeat=3
+[dev 173/240] V2-109 repeat=3
+[dev 174/240] V2-053 repeat=3
+[dev 175/240] V2-023 repeat=3
+[dev 176/240] V2-044 repeat=3
+[dev 177/240] V2-039 repeat=3
+[dev 178/240] V2-049 repeat=3
+[dev 179/240] V2-066 repeat=3
+[dev 180/240] V2-086 repeat=3
+[dev 181/240] V2-098 repeat=3
+[dev 182/240] V2-108 repeat=3
+[dev 183/240] V2-002 repeat=3
+[dev 184/240] V2-106 repeat=3
+[dev 185/240] V2-055 repeat=3
+[dev 186/240] V2-012 repeat=3
+[dev 187/240] V2-058 repeat=3
+[dev 188/240] V2-011 repeat=3
+[dev 189/240] V2-003 repeat=3
+[dev 190/240] V2-061 repeat=3
+[dev 191/240] V2-008 repeat=3
+[dev 192/240] V2-107 repeat=3
+[dev 193/240] V2-001 repeat=3
+[dev 194/240] V2-051 repeat=3
+[dev 195/240] V2-028 repeat=3
+[dev 196/240] V2-059 repeat=3
+[dev 197/240] V2-095 repeat=3
+[dev 198/240] V2-075 repeat=3
+[dev 199/240] V2-017 repeat=3
+[dev 200/240] V2-062 repeat=3
+[dev 201/240] V2-117 repeat=3
+[dev 202/240] V2-092 repeat=3
+[dev 203/240] V2-038 repeat=3
+[dev 204/240] V2-093 repeat=3
+[dev 205/240] V2-070 repeat=3
+[dev 206/240] V2-018 repeat=3
+[dev 207/240] V2-078 repeat=3
+[dev 208/240] V2-032 repeat=3
+[dev 209/240] V2-114 repeat=3
+[dev 210/240] V2-020 repeat=3
+[dev 211/240] V2-076 repeat=3
+[dev 212/240] V2-094 repeat=3
+[dev 213/240] V2-118 repeat=3
+[dev 214/240] V2-079 repeat=3
+[dev 215/240] V2-004 repeat=3
+[dev 216/240] V2-040 repeat=3
+[dev 217/240] V2-069 repeat=3
+[dev 218/240] V2-071 repeat=3
+[dev 219/240] V2-072 repeat=3
+[dev 220/240] V2-054 repeat=3
+[dev 221/240] V2-073 repeat=3
+[dev 222/240] V2-056 repeat=3
+[dev 223/240] V2-027 repeat=3
+[dev 224/240] V2-112 repeat=3
+[dev 225/240] V2-060 repeat=3
+[dev 226/240] V2-047 repeat=3
+[dev 227/240] V2-087 repeat=3
+[dev 228/240] V2-097 repeat=3
+[dev 229/240] V2-113 repeat=3
+[dev 230/240] V2-090 repeat=3
+[dev 231/240] V2-115 repeat=3
+[dev 232/240] V2-013 repeat=3
+[dev 233/240] V2-110 repeat=3
+[dev 234/240] V2-050 repeat=3
+[dev 235/240] V2-080 repeat=3
+[dev 236/240] V2-010 repeat=3
+[dev 237/240] V2-089 repeat=3
+[dev 238/240] V2-068 repeat=3
+[dev 239/240] V2-116 repeat=3
+[dev 240/240] V2-033 repeat=3
+Saved: E:\study\project\TechRAG\reports\full-evaluation\dev.json
+Starting test: 40 cases, 2 variants, 120 jobs
+[test 1/120] V2-081 repeat=1
+[test 2/120] V2-006 repeat=1
+[test 3/120] V2-102 repeat=1
+[test 4/120] V2-088 repeat=1
+[test 5/120] V2-016 repeat=1
+[test 6/120] V2-103 repeat=1
+[test 7/120] V2-046 repeat=1
+[test 8/120] V2-024 repeat=1
+[test 9/120] V2-029 repeat=1
+[test 10/120] V2-025 repeat=1
+[test 11/120] V2-067 repeat=1
+[test 12/120] V2-005 repeat=1
+[test 13/120] V2-120 repeat=1
+[test 14/120] V2-030 repeat=1
+[test 15/120] V2-082 repeat=1
+[test 16/120] V2-119 repeat=1
+[test 17/120] V2-065 repeat=1
+[test 18/120] V2-063 repeat=1
+[test 19/120] V2-041 repeat=1
+[test 20/120] V2-043 repeat=1
+[test 21/120] V2-031 repeat=1
+[test 22/120] V2-099 repeat=1
+[test 23/120] V2-035 repeat=1
+[test 24/120] V2-045 repeat=1
+[test 25/120] V2-083 repeat=1
+[test 26/120] V2-014 repeat=1
+[test 27/120] V2-015 repeat=1
+[test 28/120] V2-096 repeat=1
+[test 29/120] V2-064 repeat=1
+[test 30/120] V2-084 repeat=1
+[test 31/120] V2-034 repeat=1
+[test 32/120] V2-091 repeat=1
+[test 33/120] V2-057 repeat=1
+[test 34/120] V2-100 repeat=1
+[test 35/120] V2-037 repeat=1
+[test 36/120] V2-036 repeat=1
+[test 37/120] V2-111 repeat=1
+[test 38/120] V2-085 repeat=1
+[test 39/120] V2-042 repeat=1
+[test 40/120] V2-019 repeat=1
+[test 41/120] V2-065 repeat=2
+[test 42/120] V2-046 repeat=2
+[test 43/120] V2-100 repeat=2
+[test 44/120] V2-084 repeat=2
+[test 45/120] V2-036 repeat=2
+[test 46/120] V2-045 repeat=2
+[test 47/120] V2-030 repeat=2
+[test 48/120] V2-088 repeat=2
+[test 49/120] V2-064 repeat=2
+[test 50/120] V2-019 repeat=2
+[test 51/120] V2-081 repeat=2
+[test 52/120] V2-006 repeat=2
+[test 53/120] V2-119 repeat=2
+[test 54/120] V2-057 repeat=2
+[test 55/120] V2-024 repeat=2
+[test 56/120] V2-029 repeat=2
+[test 57/120] V2-082 repeat=2
+[test 58/120] V2-102 repeat=2
+[test 59/120] V2-015 repeat=2
+[test 60/120] V2-035 repeat=2
+[test 61/120] V2-111 repeat=2
+[test 62/120] V2-016 repeat=2
+[test 63/120] V2-025 repeat=2
+[test 64/120] V2-043 repeat=2
+[test 65/120] V2-034 repeat=2
+[test 66/120] V2-099 repeat=2
+[test 67/120] V2-103 repeat=2
+[test 68/120] V2-042 repeat=2
+[test 69/120] V2-063 repeat=2
+[test 70/120] V2-031 repeat=2
+[test 71/120] V2-091 repeat=2
+[test 72/120] V2-037 repeat=2
+[test 73/120] V2-085 repeat=2
+[test 74/120] V2-120 repeat=2
+[test 75/120] V2-014 repeat=2
+[test 76/120] V2-096 repeat=2
+[test 77/120] V2-005 repeat=2
+[test 78/120] V2-083 repeat=2
+[test 79/120] V2-041 repeat=2
+[test 80/120] V2-067 repeat=2
+[test 81/120] V2-005 repeat=3
+[test 82/120] V2-037 repeat=3
+[test 83/120] V2-064 repeat=3
+[test 84/120] V2-102 repeat=3
+[test 85/120] V2-065 repeat=3
+[test 86/120] V2-042 repeat=3
+[test 87/120] V2-029 repeat=3
+[test 88/120] V2-120 repeat=3
+[test 89/120] V2-043 repeat=3
+[test 90/120] V2-014 repeat=3
+[test 91/120] V2-046 repeat=3
+[test 92/120] V2-083 repeat=3
+[test 93/120] V2-096 repeat=3
+[test 94/120] V2-035 repeat=3
+[test 95/120] V2-084 repeat=3
+[test 96/120] V2-100 repeat=3
+[test 97/120] V2-085 repeat=3
+[test 98/120] V2-025 repeat=3
+[test 99/120] V2-030 repeat=3
+[test 100/120] V2-019 repeat=3
+[test 101/120] V2-031 repeat=3
+[test 102/120] V2-067 repeat=3
+[test 103/120] V2-016 repeat=3
+[test 104/120] V2-036 repeat=3
+[test 105/120] V2-082 repeat=3
+[test 106/120] V2-024 repeat=3
+[test 107/120] V2-111 repeat=3
+[test 108/120] V2-063 repeat=3
+[test 109/120] V2-103 repeat=3
+[test 110/120] V2-088 repeat=3
+[test 111/120] V2-119 repeat=3
+[test 112/120] V2-081 repeat=3
+[test 113/120] V2-006 repeat=3
+[test 114/120] V2-091 repeat=3
+[test 115/120] V2-015 repeat=3
+[test 116/120] V2-099 repeat=3
+[test 117/120] V2-057 repeat=3
+[test 118/120] V2-034 repeat=3
+[test 119/120] V2-045 repeat=3
+[test 120/120] V2-041 repeat=3
+Saved: E:\study\project\TechRAG\reports\full-evaluation\test.json
+Starting quality: 40 cases, 1 variants, 40 jobs
+[quality 1/40] V2-081 repeat=1
+[quality 2/40] V2-006 repeat=1
+[quality 3/40] V2-102 repeat=1
+[quality 4/40] V2-103 repeat=1
+[quality 5/40] V2-088 repeat=1
+[quality 6/40] V2-016 repeat=1
+[quality 7/40] V2-024 repeat=1
+[quality 8/40] V2-046 repeat=1
+[quality 9/40] V2-029 repeat=1
+[quality 10/40] V2-025 repeat=1
+[quality 11/40] V2-067 repeat=1
+[quality 12/40] V2-120 repeat=1
+[quality 13/40] V2-005 repeat=1
+[quality 14/40] V2-030 repeat=1
+[quality 15/40] V2-065 repeat=1
+[quality 16/40] V2-082 repeat=1
+[quality 17/40] V2-119 repeat=1
+[quality 18/40] V2-043 repeat=1
+[quality 19/40] V2-041 repeat=1
+[quality 20/40] V2-063 repeat=1
+[quality 21/40] V2-031 repeat=1
+[quality 22/40] V2-099 repeat=1
+[quality 23/40] V2-035 repeat=1
+[quality 24/40] V2-083 repeat=1
+[quality 25/40] V2-014 repeat=1
+[quality 26/40] V2-045 repeat=1
+[quality 27/40] V2-015 repeat=1
+[quality 28/40] V2-096 repeat=1
+[quality 29/40] V2-064 repeat=1
+[quality 30/40] V2-084 repeat=1
+[quality 31/40] V2-034 repeat=1
+[quality 32/40] V2-091 repeat=1
+[quality 33/40] V2-057 repeat=1
+[quality 34/40] V2-037 repeat=1
+[quality 35/40] V2-100 repeat=1
+[quality 36/40] V2-036 repeat=1
+[quality 37/40] V2-042 repeat=1
+[quality 38/40] V2-111 repeat=1
+[quality 39/40] V2-085 repeat=1
+[quality 40/40] V2-019 repeat=1
+Saved: E:\study\project\TechRAG\reports\full-evaluation\quality.json
+Starting quality: 40 cases, 1 variants, 40 jobs
+[quality 1/40] V2-081 repeat=1
+[quality 2/40] V2-006 repeat=1
+[quality 3/40] V2-102 repeat=1
+[quality 4/40] V2-103 repeat=1
+[quality 5/40] V2-088 repeat=1
+[quality 6/40] V2-016 repeat=1
+[quality 7/40] V2-024 repeat=1
+[quality 8/40] V2-046 repeat=1
+[quality 9/40] V2-029 repeat=1
+[quality 10/40] V2-025 repeat=1
+[quality 11/40] V2-067 repeat=1
+[quality 12/40] V2-120 repeat=1
+[quality 13/40] V2-005 repeat=1
+[quality 14/40] V2-030 repeat=1
+[quality 15/40] V2-065 repeat=1
+[quality 16/40] V2-082 repeat=1
+[quality 17/40] V2-119 repeat=1
+[quality 18/40] V2-043 repeat=1
+[quality 19/40] V2-041 repeat=1
+[quality 20/40] V2-063 repeat=1
+[quality 21/40] V2-031 repeat=1
+[quality 22/40] V2-099 repeat=1
+[quality 23/40] V2-035 repeat=1
+[quality 24/40] V2-083 repeat=1
+[quality 25/40] V2-014 repeat=1
+[quality 26/40] V2-045 repeat=1
+[quality 27/40] V2-015 repeat=1
+[quality 28/40] V2-096 repeat=1
+[quality 29/40] V2-064 repeat=1
+[quality 30/40] V2-084 repeat=1
+[quality 31/40] V2-034 repeat=1
+[quality 32/40] V2-091 repeat=1
+[quality 33/40] V2-057 repeat=1
+[quality 34/40] V2-037 repeat=1
+[quality 35/40] V2-100 repeat=1
+[quality 36/40] V2-036 repeat=1
+[quality 37/40] V2-042 repeat=1
+[quality 38/40] V2-111 repeat=1
+[quality 39/40] V2-085 repeat=1
+[quality 40/40] V2-019 repeat=1
+Saved: E:\study\project\TechRAG\reports\full-evaluation\quality.json
+Starting quality: 40 cases, 1 variants, 40 jobs
+[quality 1/40] V2-081 repeat=1
+[quality 2/40] V2-006 repeat=1
+[quality 3/40] V2-102 repeat=1
+[quality 4/40] V2-103 repeat=1
+[quality 5/40] V2-088 repeat=1
+[quality 6/40] V2-016 repeat=1
+[quality 7/40] V2-024 repeat=1
+[quality 8/40] V2-046 repeat=1
+[quality 9/40] V2-029 repeat=1
+[quality 10/40] V2-025 repeat=1
+[quality 11/40] V2-067 repeat=1
+[quality 12/40] V2-120 repeat=1
+[quality 13/40] V2-005 repeat=1
+[quality 14/40] V2-030 repeat=1
+[quality 15/40] V2-065 repeat=1
+[quality 16/40] V2-082 repeat=1
+[quality 17/40] V2-119 repeat=1
+[quality 18/40] V2-043 repeat=1
+[quality 19/40] V2-041 repeat=1
+[quality 20/40] V2-063 repeat=1
+[quality 21/40] V2-031 repeat=1
+[quality 22/40] V2-099 repeat=1
+[quality 23/40] V2-035 repeat=1
+[quality 24/40] V2-083 repeat=1
+[quality 25/40] V2-014 repeat=1
+[quality 26/40] V2-045 repeat=1
+[quality 27/40] V2-015 repeat=1
+[quality 28/40] V2-096 repeat=1
+[quality 29/40] V2-064 repeat=1
+[quality 30/40] V2-084 repeat=1
+[quality 31/40] V2-034 repeat=1
+[quality 32/40] V2-091 repeat=1
+[quality 33/40] V2-057 repeat=1
+[quality 34/40] V2-037 repeat=1
+[quality 35/40] V2-100 repeat=1
+[quality 36/40] V2-036 repeat=1
+[quality 37/40] V2-042 repeat=1
+[quality 38/40] V2-111 repeat=1
+[quality 39/40] V2-085 repeat=1
+[quality 40/40] V2-019 repeat=1
+Saved: E:\study\project\TechRAG\reports\full-evaluation\quality.json

@@ -1,0 +1,200 @@
+{
+  "case_id": "V2-027",
+  "question": "推理时注意力占用太多显存，MQA、GQA与Flash Attention各优化什么？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "L003",
+  "variant": "hybrid",
+  "expected_sources": [
+    "interview-question://L003"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "MHA 中每个查询头有独立的 K/V 头，长序列下 KV Cache 与显存带宽开销较大；稠密注意力还需要比较序列中的大量位置，计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V，GQA 则把查询头分组，每组共享 K/V，以减少缓存和访存，在速度、显存与表达能力间折中。FlashAttention 从实现层优化：通过分块与在线 Softmax，避免把完整注意力矩阵反复写入显存，从而降低 IO 与中间存储，仍计算精确注意力。它通常不将理论二次计算复杂度改成线性，也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用；实际收益需要在目标模型、序列长度、并发和硬件上测试，而不是只比较算法名称。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://L003",
+    "interview-question://L002",
+    "interview-question://L009"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "推理时注意力占用太多显存，MQA、GQA与Flash Attention各优化什么？",
+    "answer": "1. 在推理时注意力占用太多显存的场景下，MQA（Multi-Query Attention）主要优化什么？\n\n\n2. 在推理时注意力占用太多显存的场景下，GQA（Grouped-Query Attention）主要优化什么？\n\n\n3. 在推理时注意力占用太多显存的场景下，Flash Attention 主要优化什么？\n",
+    "sections": [
+      {
+        "question": "在推理时注意力占用太多显存的场景下，MQA（Multi-Query Attention）主要优化什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在推理时注意力占用太多显存的场景下,MQA(Multi-Query Attention)主要优化什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L003",
+            "interview-question://L002",
+            "interview-question://L009"
+          ]
+        }
+      },
+      {
+        "question": "在推理时注意力占用太多显存的场景下，GQA（Grouped-Query Attention）主要优化什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在推理时注意力占用太多显存的场景下,GQA(Grouped-Query Attention)主要优化什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L003",
+            "interview-question://L002",
+            "interview-question://L009"
+          ]
+        }
+      },
+      {
+        "question": "在推理时注意力占用太多显存的场景下，Flash Attention 主要优化什么？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "在推理时注意力占用太多显存的场景下,Flash Attention 主要优化什么?"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://L003",
+            "interview-question://L002",
+            "interview-question://L009"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3401652904786247161,
+        "title": "多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?",
+        "source": "interview-question://L003",
+        "domain": "llm-engineering",
+        "content": "# 多头注意力(MHA)有哪些局限?MQA、GQA、Flash Attention 怎么解决?\n\n题目编号:L003\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:MHA 中每个查询头有独立的 K/V 头,长序列下 KV Cache 与显存带宽开销较大;稠密注意力还需要比较序列中的大量位置,计算量通常随长度平方增长。MQA 让所有查询头共享一组 K/V,GQA 则把查询头分组,每组共享 K/V,以减少缓存和访存,在速度、显存与表达能力间折中。FlashAttention 从实现层优化:通过分块与在线 Softmax,避免把完整注意力矩阵反复写入显存,从而降低 IO 与中间存储,仍计算精确注意力。它通常不将理论二次计算复杂度改成线性,也不改变查询头与 K/V 的共享方式。因此 GQA 可以与 FlashAttention 一起使用;实际收益需要在目标模型、序列长度、并发和硬件上测试,而不是只比较算法名称。\n\n评分要点:区分 MQA/GQA 的 K/V 共享与 FlashAttention 的 IO 优化;不把精确稠密注意力说成线性计算。",
+        "vector_score": 0.8661901652812958,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 4572293691332530417,
+        "title": "讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?",
+        "source": "interview-question://L002",
+        "domain": "llm-engineering",
+        "content": "# 讲讲 Transformer 架构基本原理?Encoder 和 Decoder 是什么?\n\n题目编号:L002\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:Transformer由多层注意力、前馈网络、残差连接和归一化组成。Encoder对输入做双向表示,Decoder通过掩码自注意力自回归生成,并可用交叉注意力读取Encoder输出。仅Encoder适合理解任务,仅Decoder是多数生成式LLM的选择,Encoder-Decoder适合输入到输出的条件生成。Self-Attention 将输入映射成 Q、K、V,通过 Q 与 K 的匹配权重聚合 V,再配合前馈网络、残差和归一化更新表示。Encoder 通常读取双向上下文,Decoder 的自注意力用因果遮罩限制未来信息;原始 Encoder-Decoder 还通过交叉注意力读取编码结果。训练时可并行处理已知序列,推理生成仍逐 Token 进行。注意力改善长距离信息连接,却有计算与显存成本,不能理解为所有阶段都完全并行。\n\n评分要点:注意力与FFN;三种架构及掩码/交叉注意力。",
+        "vector_score": 0.7748657166957855,
+        "keyword_score": 0.8105935448994889,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 1962235713523519350,
+        "title": "请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?",
+        "source": "interview-question://L009",
+        "domain": "llm-engineering",
+        "content": "# 请讲一下 LoRA 技术,除了减少参数量,它还有哪些优点?\n\n题目编号:L009\n\n领域:llm-engineering\n\n难度:3\n\n标签:\n\n参考答案:LoRA冻结原权重,用两个低秩矩阵近似权重更新,并把更新注入注意力或其他线性层。除减少训练参数和显存外,它便于为多个任务保存小型适配器、快速切换或组合,也可在部署前合并进基础权重而不增加推理层。秩、目标模块和数据质量仍会影响容量与效果。若原矩阵为 W,训练的增量可以写成 ΔW=BA,秩 r 远小于原维度,再按缩放系数加回权重。训练时仍需要基座前向和反向相关计算,并非参数少就没有计算成本。合并适配器后通常可避免额外推理分支,未合并和多适配器服务的开销则要实测。冻结基座有助于控制更新范围,但不能保证没有遗忘或副作用;秩、目标层、数据与评测比单纯追求最低参数量更重要。\n\n评分要点:低秩更新原理、多适配器、可合并及超参数权衡。",
+        "vector_score": 0.7531787753105164,
+        "keyword_score": 0.5718177447690684,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 5.417,
+  "timings_seconds": {
+    "decomposition": 4.563275,
+    "retrieval": 0.853807,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.580789,
+    "vector_search": 0.0701,
+    "keyword_search": 0.198613,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 0.854155,
+    "total": 5.417429,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 3,
+    "embedding_texts": 3,
+    "chat_calls": 0,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

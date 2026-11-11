@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-103",
+  "subquestions": [
+    {
+      "question": "文本生成时如何选择解码策略？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "文本生成时，温度和截断采样参数如何影响随机性？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.394189599999663
+}

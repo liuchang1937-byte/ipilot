@@ -1,0 +1,122 @@
+{
+  "case_id": "V2-059",
+  "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+  "category": "paraphrase",
+  "split": "dev",
+  "group": "R012",
+  "variant": "hybrid_reranked",
+  "expected_sources": [
+    "interview-question://R012"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询，从而提高召回。可以用规则、LLM、多查询扩展或HyDE，但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较，并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词，复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面，HyDE 生成假设文档用于语义检索，但假设内容不能作为回答证据。原始查询应保留在召回路径中，避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后，才值得默认启用复杂改写。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://R012"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "当用户问法过于口语化时，如何将其改写为查询，同时确保不改变原始需求？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当用户问法过于口语化时,如何将其改写为查询,同时确保不改变原始需求?"
+            }
+          ],
+          "warnings": [],
+          "reranked": true,
+          "candidate_count": 12,
+          "rerank_requested": true,
+          "selected_count": 1,
+          "selected_sources": [
+            "interview-question://R012"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3510013083994112628,
+        "title": "如何润色用户的 Query(Query Rewrite)?目的是什么?",
+        "source": "interview-question://R012",
+        "domain": "rag",
+        "content": "# 如何润色用户的 Query(Query Rewrite)?目的是什么?\n\n题目编号:R012\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:Query Rewrite用于消除歧义、补全多轮指代、加入领域术语、拆分复合问题或生成多个等价查询,从而提高召回。可以用规则、LLM、多查询扩展或HyDE,但应保留原查询并禁止添加用户未表达的限制。效果通过改写前后的Recall和误召回比较,并保留改写轨迹以便回放。改写时可结合历史做指代消解、展开缩写、补充同义词,复杂问题还可拆成几个子查询。MQE 生成不同问法提高覆盖面,HyDE 生成假设文档用于语义检索,但假设内容不能作为回答证据。原始查询应保留在召回路径中,避免改写丢失否定、时间、数字或产品约束。只有在对照集上确认召回收益能覆盖额外模型费用和延迟后,才值得默认启用复杂改写。\n\n评分要点:目的、常见方式、原意保护和可评测性。",
+        "vector_score": 0.8696522116661072,
+        "keyword_score": 1.0,
+        "rerank_score": 0.8077054023742676
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": true,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 4.405,
+  "timings_seconds": {
+    "decomposition": 3.048872,
+    "retrieval": 0.245373,
+    "mqe": 0.0,
+    "hyde": 0.0,
+    "embedding": 0.199936,
+    "vector_search": 0.011912,
+    "keyword_search": 0.032907,
+    "rerank": 1.110276,
+    "generation": 0.0,
+    "pipeline": 1.355852,
+    "total": 4.404724,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 1,
+    "chat_calls": 0,
+    "rerank_calls": 1,
+    "rerank_pairs": 12
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

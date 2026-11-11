@@ -1,0 +1,160 @@
+{
+  "case_id": "V2-012",
+  "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+  "category": "terminology",
+  "split": "dev",
+  "group": "A008",
+  "variant": "expanded",
+  "expected_sources": [
+    "interview-question://A012"
+  ],
+  "answerable": true,
+  "reference_points": [],
+  "reference_answer": "常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索，以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用，关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存，近期原话保持较高保真度，历史细节按需取回。摘要要保留证据指针，不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致，以及恢复任务时是否丢失重要操作回执。",
+  "source_relevance": {},
+  "top_k": 3,
+  "retrieved_sources": [
+    "interview-question://A012",
+    "interview-question://R005",
+    "interview-question://A009"
+  ],
+  "recall_at_k": 1.0,
+  "precision_at_k": 0.3333333333333333,
+  "ndcg_at_k": 1.0,
+  "hit": true,
+  "reciprocal_rank": 1.0,
+  "all_sources_found": true,
+  "correct_refusal": null,
+  "false_refusal": null,
+  "result": {
+    "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+    "answer": "",
+    "sections": [
+      {
+        "question": "当历史对话超出上下文容量时，除了截掉旧消息，还有哪些压缩历史对话的方法？",
+        "kind": "knowledge",
+        "answer": "",
+        "source_ids": [],
+        "insufficient": null,
+        "trace": {
+          "mode": "hybrid",
+          "queries": [
+            {
+              "kind": "original",
+              "text": "当历史对话超出上下文容量时,除了截掉旧消息,还有哪些压缩历史对话的方法?"
+            },
+            {
+              "kind": "mqe",
+              "text": "长对话 上下文窗口 超出 历史压缩 方法 摘要 记忆检索 分层压缩 替代截断"
+            },
+            {
+              "kind": "mqe",
+              "text": "dialogue history compression methods beyond truncation context window LLM summarization memory retrieval"
+            },
+            {
+              "kind": "hyde",
+              "text": "当历史对话超出上下文容量时,除截断旧消息外,可采用递归摘要、滚动摘要、层次摘要、多级摘要、抽象式/抽取式对话摘要,将长历史压缩为短期摘要与长期记忆摘要;通过关键句抽取、TextRank、TF-IDF、注意力显著性、重要性评分、时间衰减选择关键 utterance;利用实体/槽位抽取、对话状态跟踪、事件时间线、知识图谱三元组进行结构化压缩;采用语义压缩、上下文蒸馏、gist tokens、软提示、信息瓶颈、LLMLingua、选择性上下文、token merging、KV cache 压缩等 prompt 压缩技术;将历史分块嵌入向量数据库,构建 RAG、检索增强记忆、相似度召回与查询重写;结合记忆分层、分页、LRU/LFU 淘汰、记忆巩固、反思、聚类、主题分段摘要,形成摘要+检索+结构化记忆的混合上下文管理。"
+            }
+          ],
+          "warnings": [],
+          "reranked": false,
+          "candidate_count": 12,
+          "rerank_requested": false,
+          "selected_count": 3,
+          "selected_sources": [
+            "interview-question://A012",
+            "interview-question://R005",
+            "interview-question://A009"
+          ]
+        }
+      }
+    ],
+    "sources": [],
+    "retrieved_contexts": [
+      {
+        "id": 1,
+        "chunk_id": 3617720858369486831,
+        "title": "Agent 记忆压缩通常有哪些方法?",
+        "source": "interview-question://A012",
+        "domain": "agent",
+        "content": "# Agent 记忆压缩通常有哪些方法?\n\n题目编号:A012\n\n领域:agent\n\n难度:3\n\n标签:上下文压缩、摘要、记忆\n- 考察方向:滑动窗口、结构化摘要、关键事件保留与可追溯性。\n\n参考答案:常见方法有滑动窗口、递归摘要、结构化状态抽取、按重要性保留、相似消息聚类去重、旧消息外置后按需检索,以及只保留决策、证据和未完成事项。压缩结果应带原始消息引用,关键约束和工具结果不能只靠自由文本摘要。最好通过“压缩后能否继续完成任务”的回归集评估信息损失。具体可组合滑动窗口、阶段摘要、结构化事实提取、语义检索与冗余工具输出裁剪。压缩时应把用户确认的硬约束、关键决策和未完成步骤单独保存,近期原话保持较高保真度,历史细节按需取回。摘要要保留证据指针,不能把不确定信息压缩成确定事实。验证时可以检查目标、对象和约束在多轮后是否仍一致,以及恢复任务时是否丢失重要操作回执。\n\n评分要点:至少三种方法;强调关键事实、可追溯和评测。",
+        "vector_score": 0.8533161282539368,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 2,
+        "chunk_id": 3747615631573896845,
+        "title": "怎么规避语义被切割掉的问题?",
+        "source": "interview-question://R005",
+        "domain": "rag",
+        "content": "# 怎么规避语义被切割掉的问题?\n\n题目编号:R005\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:一方面在切块阶段按句子、段落和标题等自然边界切分,并使用适量重叠;另一方面在检索后补回上下文,例如命中句子后返回周围窗口,或采用“小块检索、大块返回”的父子结构。还可以使用Contextual Retrieval:在Embedding前为每个Chunk生成与全文相关的背景说明,再与正文共同索引,减轻孤立Chunk缺少上下文的问题。例如,一个段落先说明条件、后说明例外,按固定字符数切开可能只召回例外,导致错误结论。可以保存标题路径、块位置与父文档 ID,在召回后取回同一章节的必要邻块。背景增强必须基于原文生成并能核查,避免把生成的猜测作为证据写入。重叠、父块和邻块都会增加重复内容与上下文长度,因此应去重并控制返回预算,用跨段问题检验收益。\n\n评分要点:语义边界、重叠、上下文标题、邻块扩展或父块返回。",
+        "vector_score": 0.7954457402229309,
+        "keyword_score": 1.0,
+        "rerank_score": null
+      },
+      {
+        "id": 3,
+        "chunk_id": 262192336753681762,
+        "title": "Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?",
+        "source": "interview-question://A009",
+        "domain": "agent",
+        "content": "# Agent 的长短期记忆系统怎么做的?记忆是怎么存的?粒度是多少?怎么用的?\n\n题目编号:A009\n\n领域:agent\n\n难度:3\n\n标签:长期记忆、去重、遗忘策略\n- 考察方向:记忆抽取、重要性评分、冲突处理、过期与压缩。\n\n参考答案:短期记忆通常就是上下文窗口中的对话与当前任务中间状态,任务结束后可释放;长期记忆把可复用信息Embedding后存入向量数据库,使用时做语义检索并注入Prompt。粒度可按一次完整交互或一个关键事件保存:太细会增加噪声,太粗会损失细节。写入前还应按重要性、新颖性和可信度筛选,避免永久保存错误结论。例如,当前订单号、已确认退款金额和待执行步骤适合结构化状态;近期问答可保存为消息列表;产品知识可以按主题片段建立向量索引。粒度应围绕可独立复用的事实或事件,不是机械地一轮对话存一条向量。读取时先判断当前任务需要哪些记忆,再执行过滤、召回和排序,将少量相关内容注入上下文。用户纠错后要更新或废弃旧记录,并保留必要的版本关系。\n\n评分要点:明确存储介质不是核心,关键是粒度、生命周期与读写策略。",
+        "vector_score": 0.8034899234771729,
+        "keyword_score": 0.7168884968093336,
+        "rerank_score": null
+      }
+    ],
+    "warnings": [],
+    "options": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3
+    },
+    "evaluation_mode": "retrieval_only"
+  },
+  "error": null,
+  "faithfulness": null,
+  "answer_correctness": null,
+  "answer_relevancy": null,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "elapsed_seconds": 18.915,
+  "timings_seconds": {
+    "decomposition": 6.873198,
+    "retrieval": 12.042003,
+    "mqe": 2.536664,
+    "hyde": 8.94325,
+    "embedding": 0.316399,
+    "vector_search": 0.047061,
+    "keyword_search": 0.194027,
+    "rerank": 0.0,
+    "generation": 0.0,
+    "pipeline": 12.042208,
+    "total": 18.915406,
+    "judge": 0.0
+  },
+  "calls": {
+    "embedding_calls": 1,
+    "embedding_texts": 4,
+    "chat_calls": 2,
+    "rerank_calls": 0,
+    "rerank_pairs": 0
+  },
+  "answer_evaluation": {
+    "status": "disabled",
+    "reason": "已关闭答案评审。",
+    "metrics": {
+      "faithfulness": null,
+      "answer_correctness": null,
+      "answer_relevancy": null,
+      "citation_precision": null,
+      "citation_coverage": null
+    }
+  },
+  "judge_calls": {
+    "chat_calls": 0
+  }
+}

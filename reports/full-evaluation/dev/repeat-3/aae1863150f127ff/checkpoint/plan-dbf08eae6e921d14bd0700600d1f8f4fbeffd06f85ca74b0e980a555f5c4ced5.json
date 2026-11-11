@@ -1,0 +1,22 @@
+{
+  "case_id": "V2-080",
+  "subquestions": [
+    {
+      "question": "A2A（Agent-to-Agent）协议的定义、设计目标及其主要应用场景是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "MCP（Model Context Protocol）协议的定义、设计目标及其主要应用场景是什么？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在助手之间交接任务与助手访问工具的场景中，A2A 和 MCP 的职责边界、区别与协作关系是什么？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 10.57982720000291
+}

@@ -1,0 +1,977 @@
+{
+  "schema_version": 2,
+  "evaluation_mode": "end_to_end",
+  "id": "ba78b6df680c4f67b95689fb450162ee",
+  "created_at": "2026-10-12T16:26:47.406639+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "human_reviewed",
+    "sha256": "cb912ee4d115e7e16fedb3aea54ed3b8d6023521dec5bdcd5376eb015f4db2ac",
+    "total_cases": 1,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "config": {
+    "db_path": "E:\\study\\project\\TechRAG\\data\\chroma",
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "vector_weight": 0.65,
+    "search_mode": "hybrid",
+    "semantic_chunking": true,
+    "semantic_threshold": 0.45,
+    "markdown_chunking": true,
+    "hierarchical_retrieval": true,
+    "child_chunk_size": 180,
+    "child_chunk_overlap": 30,
+    "rerank_oversample": 4,
+    "chunk_neighbors": 1,
+    "adaptive_retrieval": true,
+    "self_query": false,
+    "enable_mqe": false,
+    "enable_hyde": false,
+    "candidate_pool_multiplier": 4,
+    "max_context_chars": 12000,
+    "reranker_dir": "E:\\study\\project\\TechRAG\\models\\mmarco-cross-encoder",
+    "knowledge_min_rerank_score": 0.05
+  },
+  "resume": {
+    "reused_records": 0,
+    "checkpoint_dir": "E:\\study\\project\\TechRAG\\reports\\full-evaluation\\quality\\repeat-1\\ce0c70adddbd7b19\\checkpoint"
+  },
+  "options": {
+    "expanded": {
+      "decompose": true,
+      "mqe": true,
+      "hyde": true,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "expanded",
+      "label": "混合 + MQE/HyDE",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6667,
+      "ndcg_at_k": 0.9465,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 72.572,
+      "completion_rate": 1.0,
+      "end_to_end_recall_at_k": 1.0,
+      "p95_seconds": 72.572,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 12.86153,
+          "p50": 12.86153,
+          "p95": 12.86153,
+          "max": 12.86153,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 28.257766,
+          "p50": 28.257766,
+          "p95": 28.257766,
+          "max": 28.257766,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 8.274932,
+          "p50": 8.274932,
+          "p95": 8.274932,
+          "max": 8.274932,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 18.061674,
+          "p50": 18.061674,
+          "p95": 18.061674,
+          "max": 18.061674,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 1.48151,
+          "p50": 1.48151,
+          "p95": 1.48151,
+          "max": 1.48151,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.088099,
+          "p50": 0.088099,
+          "p95": 0.088099,
+          "max": 0.088099,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.344316,
+          "p50": 0.344316,
+          "p95": 0.344316,
+          "max": 0.344316,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 31.45209,
+          "p50": 31.45209,
+          "p95": 31.45209,
+          "max": 31.45209,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 59.710052,
+          "p50": 59.710052,
+          "p95": 59.710052,
+          "max": 59.710052,
+          "samples": 1
+        },
+        "total": {
+          "mean": 72.571582,
+          "p50": 72.571582,
+          "p95": 72.571582,
+          "max": 72.571582,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 76.489243,
+          "p50": 76.489243,
+          "p95": 76.489243,
+          "max": 76.489243,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 1.0,
+        "answer_relevancy": 1.0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.9412
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 9,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "V2-091",
+      "question": "如何评估助手任务完成情况？另外怎样拆开衡量检索与回答质量？",
+      "category": "cross_domain",
+      "split": "test",
+      "group": "A019",
+      "variant": "expanded",
+      "expected_sources": [
+        "interview-question://A019",
+        "interview-question://R018"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "指标应同时覆盖结果、过程与成本：任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布，并包含正常、歧义、工具失败、权限不足和对抗样本；为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法，覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮。工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件，并统计成本、接管率与长尾延迟。",
+        "先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG；生成层评估正确性、相关性、完整性、忠实度和引用准确率；系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG，分别关注覆盖、是否命中及排名质量；生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景，避免只验证常见问题。模型裁判需要人工校准，线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本，并定位是召回失败还是生成失败。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://A019",
+        "interview-question://A023",
+        "interview-question://R018",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://L021"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6666666666666666,
+      "ndcg_at_k": 0.9464805260987917,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "如何评估助手任务完成情况？另外怎样拆开衡量检索与回答质量？",
+        "answer": "1. 如何评估助手任务完成情况？\n评估助手任务完成情况，核心是把“自然语言自述”与“执行事实”分离，不能只评最终文本或只看回复是否流畅[1][2]。\n\n建议同时覆盖结果、过程与成本：结果指标如任务成功率、关键约束满足率；过程指标如工具选择/参数正确率、轨迹长度、重复调用率；成本与安全指标如延迟、Token与费用、安全违规率[1]。\n\n完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定，并区分 planned、running、succeeded、failed；每个完成声明应关联工具调用 ID 和结果证据，关键操作完成后再读取外部状态确认，失败时明确报告而不是补写成功叙述[2]。例如，退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮[1]；模型生成发送通知计划，不能据此声称通知已发送，接口只返回已受理也不代表业务最终成功[2]。\n\n评测集应来自真实任务分布，包含正常、歧义、工具失败、权限不足和对抗样本；每题定义可自动检查的最终状态及允许路径。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件[1]。还应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率[2]。\n\n上线后要用人工抽检和失败案例持续更新回归集；工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断，并统计成本、接管率与长尾延迟[1]。\n\n2. 在评估助手任务完成情况时，如何单独衡量检索质量？\n单独衡量检索质量的关键是把检索层与生成/任务完成层拆开：检索层只判断是否召回了支撑回答的知识，以及排序好坏，不直接看最终回答是否漂亮或任务是否成功[3]。做法如下：1）建标注集：为每题标注相关文档/支持块和参考答案，并覆盖可回答、不可回答、多跳、精确实体和过期知识等场景，避免只测常见问题[3][4]。2）计算检索指标：用 Recall@K、Precision@K、Hit@K、MRR、nDCG，分别关注覆盖、是否命中及排名质量[3]；具体可对每题标注支持块，计算 Recall@1、Recall@5 与 MRR[4]。3）做诊断对照：把“超温事故”“温度越界”“TEE”作为同义查询组，比较向量与 BM25 的互补性[4]；用旧版 25% 等高词面相似干扰块，检验 reranker 与版本元数据是否把 v1.4 排在前面[4]；对无答案题检查是否引用无关块、拼接联系人信息或编造供应商[4]。4）与任务完成指标分开报告：任务成功率、关键约束满足率、工具选择/参数正确率等属于结果/过程层指标[1]，不能替代检索指标；定位失败时应区分召回失败还是生成失败[3]。\n\n3. 在评估助手任务完成情况时，如何单独衡量回答质量？\n在评估助手任务完成情况时，若要把“回答质量”单独衡量，应与任务成功率、工具/动作正确性、轨迹、成本等分开，只针对最终回答内容评分。对开放式回答，可用人工评价与模型裁判共同判断[1]。在生成层可分别评估正确性、相关性、完整性、忠实度和引用准确率等质量维度[3]；使用模型裁判时需要人工校准[3]。同时，整体 Agent 评估不能只评最终文本，仍需核对任务最终状态和允许动作[1]，因此回答质量只是整体评估的一部分。",
+        "sections": [
+          {
+            "question": "如何评估助手任务完成情况？",
+            "kind": "knowledge",
+            "answer": "评估助手任务完成情况，核心是把“自然语言自述”与“执行事实”分离，不能只评最终文本或只看回复是否流畅[1][2]。\n\n建议同时覆盖结果、过程与成本：结果指标如任务成功率、关键约束满足率；过程指标如工具选择/参数正确率、轨迹长度、重复调用率；成本与安全指标如延迟、Token与费用、安全违规率[1]。\n\n完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定，并区分 planned、running、succeeded、failed；每个完成声明应关联工具调用 ID 和结果证据，关键操作完成后再读取外部状态确认，失败时明确报告而不是补写成功叙述[2]。例如，退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮[1]；模型生成发送通知计划，不能据此声称通知已发送，接口只返回已受理也不代表业务最终成功[2]。\n\n评测集应来自真实任务分布，包含正常、歧义、工具失败、权限不足和对抗样本；每题定义可自动检查的最终状态及允许路径。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件[1]。还应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率[2]。\n\n上线后要用人工抽检和失败案例持续更新回归集；工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断，并统计成本、接管率与长尾延迟[1]。",
+            "source_ids": [
+              1,
+              2
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "如何评估助手任务完成情况?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "如何评估助手任务完成情况"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "AI助手任务完成度评估指标与方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "智能助手任务执行效果评估基准与测试"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "评估助手任务完成情况可采用结果级与过程级指标结合的多维框架。结果级指标包括任务成功率、目标达成率、精确匹配、准确率、F1、ROUGE、BLEU、BERTScore、语义相似度、用户满意度、端到端通过率;过程级指标包括指令遵循率、约束满足度、工具调用准确率、参数选择正确率、多轮对话状态跟踪一致性、步骤完整性、冗余步骤率、幻觉率、安全合规率、延迟与token效率。评估方法包括人工评分、规则校验、单元测试与沙箱执行、自动评估脚本、LLM-as-a-judge、奖励模型、A/B测试、在线点击/采纳率与人工复核。对可验证任务优先使用执行成功率;对开放生成任务结合事实一致性、相关性、完整性、流畅性和有害性。最终通过加权综合得分、置信区间及评分者一致性进行校准。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A019",
+                "interview-question://A023",
+                "interview-question://R018"
+              ]
+            }
+          },
+          {
+            "question": "在评估助手任务完成情况时，如何单独衡量检索质量？",
+            "kind": "knowledge",
+            "answer": "单独衡量检索质量的关键是把检索层与生成/任务完成层拆开：检索层只判断是否召回了支撑回答的知识，以及排序好坏，不直接看最终回答是否漂亮或任务是否成功[3]。做法如下：1）建标注集：为每题标注相关文档/支持块和参考答案，并覆盖可回答、不可回答、多跳、精确实体和过期知识等场景，避免只测常见问题[3][4]。2）计算检索指标：用 Recall@K、Precision@K、Hit@K、MRR、nDCG，分别关注覆盖、是否命中及排名质量[3]；具体可对每题标注支持块，计算 Recall@1、Recall@5 与 MRR[4]。3）做诊断对照：把“超温事故”“温度越界”“TEE”作为同义查询组，比较向量与 BM25 的互补性[4]；用旧版 25% 等高词面相似干扰块，检验 reranker 与版本元数据是否把 v1.4 排在前面[4]；对无答案题检查是否引用无关块、拼接联系人信息或编造供应商[4]。4）与任务完成指标分开报告：任务成功率、关键约束满足率、工具选择/参数正确率等属于结果/过程层指标[1]，不能替代检索指标；定位失败时应区分召回失败还是生成失败[3]。",
+            "source_ids": [
+              1,
+              3,
+              4
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在评估助手任务完成情况时,如何单独衡量检索质量?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "评估助手任务完成情况时,如何独立衡量检索模块的质量?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "RAG助手任务评测中,检索质量与生成质量分开评估的指标和方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "How to separately evaluate retrieval quality in assistant task completion evaluation?"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "单独衡量检索质量时,应将助手任务拆分为检索子任务与生成子任务,固定生成模型或跳过生成,仅评估检索器返回的 top-k 文档/片段。构建带 qrels 或 relevance judgments 的查询集,标注 query 与 gold passages 的相关性等级。使用 Recall@k、Precision@k、Hit Rate@k、MRR、MAP、nDCG@k 衡量证据召回与排序质量;使用 context recall 评估 gold evidence 覆盖比例,context precision 评估 retrieved chunks 中相关片段占比,answerability 或 evidence sufficiency 判断上下文是否足以回答问题。可独立比较 BM25、稠密向量检索、hybrid search、embedding 模型、reranker、chunking 策略与 k 值,并控制索引、查询集和延迟/成本变量。核心指标包括检索相关性、证据覆盖率、排序质量、冗余度与多样性,而不依赖最终生成答案的正确性。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://R018",
+                "C:\\Users\\orzlc\\Desktop\\test.pdf",
+                "interview-question://A019"
+              ]
+            }
+          },
+          {
+            "question": "在评估助手任务完成情况时，如何单独衡量回答质量？",
+            "kind": "knowledge",
+            "answer": "在评估助手任务完成情况时，若要把“回答质量”单独衡量，应与任务成功率、工具/动作正确性、轨迹、成本等分开，只针对最终回答内容评分。对开放式回答，可用人工评价与模型裁判共同判断[1]。在生成层可分别评估正确性、相关性、完整性、忠实度和引用准确率等质量维度[3]；使用模型裁判时需要人工校准[3]。同时，整体 Agent 评估不能只评最终文本，仍需核对任务最终状态和允许动作[1]，因此回答质量只是整体评估的一部分。",
+            "source_ids": [
+              1,
+              3
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在评估助手任务完成情况时,如何单独衡量回答质量?"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "如何单独评估AI助手的回答质量而不受任务完成情况影响"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "助手任务完成度评估中 回答质量 独立指标 方法"
+                },
+                {
+                  "kind": "mqe",
+                  "text": "separately evaluating answer quality in assistant task completion metrics and methods"
+                },
+                {
+                  "kind": "hyde",
+                  "text": "在评估助手任务完成情况时,单独衡量回答质量可将其建模为与任务完成度正交的评估维度。采用多维度 rubric,包括 correctness、completeness、relevance、faithfulness、instruction following、coherence、fluency、conciseness、helpfulness、safety 等,不纳入任务是否达成、工具调用是否成功等信号,仅评价最终回答文本。有人工参考答案时,可用 reference-based metrics:exact match、F1、ROUGE、METEOR、BERTScore、semantic similarity;无参考答案时,可用 reference-free 方法:LLM-as-a-judge、human preference、pairwise comparison、Likert scale、Elo、win rate。为隔离回答质量,可固定任务完成状态或控制 task success 标签后,对回答进行条件评分,并通过多评分者一致性、校准、去偏、rubric 加权聚合得到 answer quality score。也可用因子分析或残差化将 task completion score 与 response quality score 分离。"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://A019",
+                "interview-question://R018",
+                "interview-question://L021"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 4611361965580952492,
+            "title": "如何评估一个 Agent 的效果?评测集和指标怎么设计?",
+            "source": "interview-question://A019",
+            "domain": "agent",
+            "content": "# 如何评估一个 Agent 的效果?评测集和指标怎么设计?\n\n题目编号:A019\n\n领域:agent\n\n难度:2\n\n标签:评测、成功率、成本、轨迹\n- 考察方向:任务成功率、步骤正确率、延迟、费用和人工评价。\n\n参考答案:指标应同时覆盖结果、过程与成本:任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布,并包含正常、歧义、工具失败、权限不足和对抗样本;为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法,覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款,不能只看最终文字是否漂亮。工具选择和参数可用程序校验,开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹,主要约束关键检查点、禁用动作和完成条件,并统计成本、接管率与长尾延迟。\n\n评分要点:不能只评最终文本;指标与数据集覆盖真实失败模式。",
+            "vector_score": 0.8282777070999146,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.816752552986145,
+            "keyword_score": 0.7365250860652172,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 145210955334252079,
+            "title": "怎么量化你的 RAG 效果?",
+            "source": "interview-question://R018",
+            "domain": "rag",
+            "content": "# 怎么量化你的 RAG 效果?\n\n题目编号:R018\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景,避免只验证常见问题。模型裁判需要人工校准,线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本,并定位是召回失败还是生成失败。\n\n评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。",
+            "vector_score": 0.8115643262863159,
+            "keyword_score": 0.8206383324316981,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1105497267590274010,
+            "title": "建议的检索评估",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 建议的检索评估\n\n● 对每题标注支持块,计算 Recall@1、Recall@5 与 MRR。\n\n● 把“超温事故”“温度越界”“TEE”作为同义查询组,比较向量与 BM25 的互补性。\n● 将旧版 25% 作为高词面相似干扰块,检验 reranker 与版本元数据是否把 v1.4 排在前面。\n● 对无答案题检查模型是否引用无关块、拼接联系人信息或编造供应商。",
+            "vector_score": 0.8552587628364563,
+            "keyword_score": 0.610266527275316,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 4611361965580952492,
+            "title": "如何评估一个 Agent 的效果?评测集和指标怎么设计?",
+            "source": "interview-question://A019",
+            "domain": "agent",
+            "content": "# 如何评估一个 Agent 的效果?评测集和指标怎么设计?\n\n题目编号:A019\n\n领域:agent\n\n难度:2\n\n标签:评测、成功率、成本、轨迹\n- 考察方向:任务成功率、步骤正确率、延迟、费用和人工评价。\n\n参考答案:指标应同时覆盖结果、过程与成本:任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布,并包含正常、歧义、工具失败、权限不足和对抗样本;为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法,覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款,不能只看最终文字是否漂亮。工具选择和参数可用程序校验,开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹,主要约束关键检查点、禁用动作和完成条件,并统计成本、接管率与长尾延迟。\n\n评分要点:不能只评最终文本;指标与数据集覆盖真实失败模式。",
+            "vector_score": 0.8282777070999146,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 2890477536712920412,
+            "title": "Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?",
+            "source": "interview-question://A023",
+            "domain": "agent",
+            "content": "# Agent 的「任务幻觉」是什么?如何避免没有执行工具却声称任务已经完成?\n\n题目编号:A023\n\n领域:agent\n\n难度:3\n\n标签:任务幻觉、工具证据、完成判定\n- 考察方向:结果凭证、状态校验、工具返回签名和完成条件。\n\n参考答案:任务幻觉是模型把“准备做、模拟做或生成了调用文本”误报为真实完成。完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。系统应区分计划、执行中、成功、已验证和结果未知,完成声明只能依据工具回执与外部状态核验。调用超时时优先查询请求结果而不是盲目重试。评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。\n\n评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。",
+            "vector_score": 0.816752552986145,
+            "keyword_score": 0.7365250860652172,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 145210955334252079,
+            "title": "怎么量化你的 RAG 效果?",
+            "source": "interview-question://R018",
+            "domain": "rag",
+            "content": "# 怎么量化你的 RAG 效果?\n\n题目编号:R018\n\n领域:rag\n\n难度:2\n\n标签:\n\n参考答案:先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景,避免只验证常见问题。模型裁判需要人工校准,线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本,并定位是召回失败还是生成失败。\n\n评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。",
+            "vector_score": 0.8115643262863159,
+            "keyword_score": 0.8206383324316981,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 1105497267590274010,
+            "title": "建议的检索评估",
+            "source": "C:\\Users\\orzlc\\Desktop\\test.pdf",
+            "domain": "",
+            "content": "# 建议的检索评估\n\n● 对每题标注支持块,计算 Recall@1、Recall@5 与 MRR。\n\n● 把“超温事故”“温度越界”“TEE”作为同义查询组,比较向量与 BM25 的互补性。\n● 将旧版 25% 作为高词面相似干扰块,检验 reranker 与版本元数据是否把 v1.4 排在前面。\n● 对无答案题检查模型是否引用无关块、拼接联系人信息或编造供应商。",
+            "vector_score": 0.8552587628364563,
+            "keyword_score": 0.610266527275316,
+            "rerank_score": null
+          },
+          {
+            "id": 5,
+            "chunk_id": 4468296057515630498,
+            "title": "大模型能力评测指标有哪些?",
+            "source": "interview-question://L021",
+            "domain": "llm-engineering",
+            "content": "# 大模型能力评测指标有哪些?\n\n题目编号:L021\n\n领域:llm-engineering\n\n难度:2\n\n标签:\n\n参考答案:大模型评测需要区分模型能力与业务效果。知识类可参考 MMLU/MMLU-Pro,代码类可参考 HumanEval 或 SWE-bench Verified,数学与科学推理需要各自合适的任务集。但公开 Benchmark 只能作为选型起点,可能受到数据污染、评分方式与业务分布差异影响;最终应从真实请求与失败样本构建经过标注的业务测试集,定期回归。公开测试可区分知识、代码、数学与科学推理,GPQA 更偏高难度科学问答,不能笼统归为数学。业务集应包含正常、缺信息、错误输入、多轮和不可回答样本,保留固定留出集并持续补充失败案例。结构化任务测格式与参数,Agent 任务还要验证实际动作和外部结果。模型裁判需人工校准,报告应同时给出质量、安全、费用和延迟,并防止只针对已知测试集调优。\n\n评分要点:区分知识、代码、数学与科学任务;认识榜单局限;设计业务留出集并兼顾安全、费用和延迟。",
+            "vector_score": 0.8105912208557129,
+            "keyword_score": 0.5532481604498122,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": true,
+          "hyde": true,
+          "rerank": false,
+          "top_k": 3
+        },
+        "evaluation_mode": "end_to_end"
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 0.9411764705882353,
+      "elapsed_seconds": 72.572,
+      "timings_seconds": {
+        "decomposition": 12.86153,
+        "retrieval": 28.257766,
+        "mqe": 8.274932,
+        "hyde": 18.061674,
+        "embedding": 1.48151,
+        "vector_search": 0.088099,
+        "keyword_search": 0.344316,
+        "rerank": 0.0,
+        "generation": 31.45209,
+        "pipeline": 59.710052,
+        "total": 72.571582,
+        "judge": 76.489243
+      },
+      "calls": {
+        "embedding_calls": 3,
+        "embedding_texts": 15,
+        "chat_calls": 9,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 1.0,
+          "answer_relevancy": 1.0,
+          "citation_precision": 1.0,
+          "citation_coverage": 0.9411764705882353
+        },
+        "claims": [
+          {
+            "text": "评估助手任务完成情况，核心是把“自然语言自述”与“执行事实”分离，不能只评最终文本或只看回复是否流畅[1][2]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "评分要点:不能只评最终文本;指标与数据集覆盖真实失败模式。"
+              },
+              {
+                "source_id": 2,
+                "quote": "评分要点:执行事实与自然语言分离;具有状态机、证据和后验验证。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              },
+              {
+                "id": 2,
+                "supported": true
+              }
+            ],
+            "reason": "答案强调分离自述与执行事实，且不能只评最终文本；资料1和2分别支持这两点。"
+          },
+          {
+            "text": "建议同时覆盖结果、过程与成本：结果指标如任务成功率、关键约束满足率；过程指标如工具选择/参数正确率、轨迹长度、重复调用率；成本与安全指标如延迟、Token与费用、安全违规率[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "指标应同时覆盖结果、过程与成本:任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1列出了结果、过程、成本与安全指标，与陈述一致。"
+          },
+          {
+            "text": "完成状态不能由模型自述决定，而应由执行器根据工具成功响应、外部资源状态或可验证产物判定，并区分 planned、running、succeeded、failed；每个完成声明应关联工具调用 ID 和结果证据，关键操作完成后再读取外部状态确认，失败时明确报告而不是补写成功叙述[2]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 2,
+                "quote": "完成状态不能由模型自述决定,而应由执行器根据工具成功响应、外部资源状态或可验证产物判定。系统应区分planned、running、succeeded和failed,要求每个完成声明关联工具调用ID和结果证据;关键操作完成后再次读取外部状态确认,失败时明确报告而不是补写成功叙述。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 2,
+                "supported": true
+              }
+            ],
+            "reason": "资料2完整支持完成状态判定、状态区分、证据关联与后验确认。"
+          },
+          {
+            "text": "例如，退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮[1]；",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "比如退款任务要核对订单最终状态以及是否重复退款,不能只看最终文字是否漂亮。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1用退款任务说明不能只看最终文字，支持该例证。"
+          },
+          {
+            "text": "模型生成发送通知计划，不能据此声称通知已发送，接口只返回已受理也不代表业务最终成功[2]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 2,
+                "quote": "例如,模型生成了发送通知的计划,不能据此声称通知已发送;接口只返回已受理,也不代表业务最终成功。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 2,
+                "supported": true
+              }
+            ],
+            "reason": "资料2明确支持发送通知计划与接口受理不等于最终成功的例子。"
+          },
+          {
+            "text": "评测集应来自真实任务分布，包含正常、歧义、工具失败、权限不足和对抗样本；每题定义可自动检查的最终状态及允许路径。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "评测集应来自真实任务分布,并包含正常、歧义、工具失败、权限不足和对抗样本;为每题定义可自动检查的最终状态及允许路径。"
+              },
+              {
+                "source_id": 1,
+                "quote": "允许存在多条正确轨迹,主要约束关键检查点、禁用动作和完成条件,并统计成本、接管率与长尾延迟。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1覆盖评测集来源、场景、最终状态、允许路径、多轨迹和关键约束。"
+          },
+          {
+            "text": "还应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容，统计错误完成声明率[2]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 2,
+                "quote": "评测应专门覆盖响应丢失、部分成功、异步处理和伪造成功内容,统计错误完成声明率,而不是只给流畅的最终回复打高分。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 2,
+                "supported": true
+              }
+            ],
+            "reason": "资料2明确要求覆盖这些异常并统计错误完成声明率。"
+          },
+          {
+            "text": "上线后要用人工抽检和失败案例持续更新回归集；工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断，并统计成本、接管率与长尾延迟[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "上线后还要用人工抽检和失败案例持续更新回归集。"
+              },
+              {
+                "source_id": 1,
+                "quote": "工具选择和参数可用程序校验,开放式回答质量可由人工与模型裁判共同判断。"
+              },
+              {
+                "source_id": 1,
+                "quote": "允许存在多条正确轨迹,主要约束关键检查点、禁用动作和完成条件,并统计成本、接管率与长尾延迟。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1支持上线更新回归集、程序校验工具参数、人工与模型裁判以及成本/接管率/长尾延迟统计。"
+          },
+          {
+            "text": "单独衡量检索质量的关键是把检索层与生成/任务完成层拆开：检索层只判断是否召回了支撑回答的知识，以及排序好坏，不直接看最终回答是否漂亮或任务是否成功[3]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 3,
+                "quote": "检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。"
+              },
+              {
+                "source_id": 3,
+                "quote": "评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 3,
+                "supported": true
+              }
+            ],
+            "reason": "资料3要求检索与生成分开评，并说明检索层关注覆盖、命中和排名质量。"
+          },
+          {
+            "text": "做法如下：1）建标注集：为每题标注相关文档/支持块和参考答案，并覆盖可回答、不可回答、多跳、精确实体和过期知识等场景，避免只测常见问题[3][4]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 3,
+                "quote": "参考答案:先构建问题、相关文档和参考答案标注集。"
+              },
+              {
+                "source_id": 3,
+                "quote": "测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景,避免只验证常见问题。"
+              },
+              {
+                "source_id": 4,
+                "quote": "对每题标注支持块,计算 Recall@1、Recall@5 与 MRR。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 3,
+                "supported": true
+              },
+              {
+                "id": 4,
+                "supported": true
+              }
+            ],
+            "reason": "资料3支持构建相关文档和参考答案标注集及测试场景；资料4支持每题标注支持块。"
+          },
+          {
+            "text": "2）计算检索指标：用 Recall@K、Precision@K、Hit@K、MRR、nDCG，分别关注覆盖、是否命中及排名质量[3]；具体可对每题标注支持块，计算 Recall@1、Recall@5 与 MRR[4]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 3,
+                "quote": "检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。"
+              },
+              {
+                "source_id": 3,
+                "quote": "检索层可测 Recall@K、Hit@K、MRR 和 nDCG,分别关注覆盖、是否命中及排名质量;生成层看正确性、完整性、与证据的一致性和引用有效性。"
+              },
+              {
+                "source_id": 4,
+                "quote": "对每题标注支持块,计算 Recall@1、Recall@5 与 MRR。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 3,
+                "supported": true
+              },
+              {
+                "id": 4,
+                "supported": true
+              }
+            ],
+            "reason": "资料3和4分别支持检索指标及Recall@1/Recall@5/MRR的具体计算。"
+          },
+          {
+            "text": "3）做诊断对照：把“超温事故”“温度越界”“TEE”作为同义查询组，比较向量与 BM25 的互补性[4]；用旧版 25% 等高词面相似干扰块，检验 reranker 与版本元数据是否把 v1.4 排在前面[4]；对无答案题检查是否引用无关块、拼接联系人信息或编造供应商[4]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 4,
+                "quote": "把“超温事故”“温度越界”“TEE”作为同义查询组,比较向量与 BM25 的互补性。"
+              },
+              {
+                "source_id": 4,
+                "quote": "将旧版 25% 作为高词面相似干扰块,检验 reranker 与版本元数据是否把 v1.4 排在前面。"
+              },
+              {
+                "source_id": 4,
+                "quote": "对无答案题检查模型是否引用无关块、拼接联系人信息或编造供应商。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 4,
+                "supported": true
+              }
+            ],
+            "reason": "资料4逐项支持同义查询对照、旧版干扰块对照和无答案题检查。"
+          },
+          {
+            "text": "4）与任务完成指标分开报告：任务成功率、关键约束满足率、工具选择/参数正确率等属于结果/过程层指标[1]，不能替代检索指标；定位失败时应区分召回失败还是生成失败[3]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "指标应同时覆盖结果、过程与成本:任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。"
+              },
+              {
+                "source_id": 3,
+                "quote": "优化要同时记录延迟与成本,并定位是召回失败还是生成失败。"
+              },
+              {
+                "source_id": 3,
+                "quote": "评分要点:检索与生成分开评,同时覆盖质量、成本和业务指标。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              },
+              {
+                "id": 3,
+                "supported": true
+              }
+            ],
+            "reason": "资料1提供任务完成指标，资料3要求分层报告并区分召回失败与生成失败。"
+          },
+          {
+            "text": "在评估助手任务完成情况时，若要把“回答质量”单独衡量，应与任务成功率、工具/动作正确性、轨迹、成本等分开，只针对最终回答内容评分。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 3,
+                "quote": "参考答案:先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG;生成层评估正确性、相关性、完整性、忠实度和引用准确率;系统层还看延迟、成本、拒答准确率及任务成功率。"
+              },
+              {
+                "source_id": 1,
+                "quote": "指标应同时覆盖结果、过程与成本:任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。"
+              }
+            ],
+            "citations": [],
+            "reason": "资料1与3支持将回答质量与任务成功、工具/动作、轨迹、成本分层区分，并只评最终回答内容。"
+          },
+          {
+            "text": "对开放式回答，可用人工评价与模型裁判共同判断[1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "工具选择和参数可用程序校验,开放式回答质量可由人工与模型裁判共同判断。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1直接支持开放式回答质量由人工与模型裁判共同判断。"
+          },
+          {
+            "text": "在生成层可分别评估正确性、相关性、完整性、忠实度和引用准确率等质量维度[3]；使用模型裁判时需要人工校准[3]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 3,
+                "quote": "生成层评估正确性、相关性、完整性、忠实度和引用准确率"
+              },
+              {
+                "source_id": 3,
+                "quote": "模型裁判需要人工校准,线上满意度也会受界面和等待时间影响。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 3,
+                "supported": true
+              }
+            ],
+            "reason": "资料3支持生成层质量维度和模型裁判需人工校准。"
+          },
+          {
+            "text": "同时，整体 Agent 评估不能只评最终文本，仍需核对任务最终状态和允许动作[1]，因此回答质量只是整体评估的一部分。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "评分要点:不能只评最终文本;指标与数据集覆盖真实失败模式。"
+              },
+              {
+                "source_id": 1,
+                "quote": "评测样本应包含输入、允许动作、目标状态和验收方法,覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料1强调不能只评最终文本，并要求样本包含允许动作、目标状态等，支持回答质量只是整体评估的一部分。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": true,
+            "reason": "答案覆盖了结果/过程/成本指标、真实分布评测集、正常/歧义/工具失败/权限/对抗样本、最终状态与允许路径、上线回归更新、退款核对例、工具参数程序校验、人工与模型裁判、多轨迹约束以及成本/接管率/长尾延迟等要点。",
+            "point": "指标应同时覆盖结果、过程与成本：任务成功率、关键约束满足率、工具选择/参数正确率、轨迹长度、重复调用率、延迟、Token与费用、安全违规率。评测集应来自真实任务分布，并包含正常、歧义、工具失败、权限不足和对抗样本；为每题定义可自动检查的最终状态及允许路径。上线后还要用人工抽检和失败案例持续更新回归集。评测样本应包含输入、允许动作、目标状态和验收方法，覆盖正常路径、缺参数、工具故障、越权诱导和长任务恢复。比如退款任务要核对订单最终状态以及是否重复退款，不能只看最终文字是否漂亮。工具选择和参数可用程序校验，开放式回答质量可由人工与模型裁判共同判断。允许存在多条正确轨迹，主要约束关键检查点、禁用动作和完成条件，并统计成本、接管率与长尾延迟。"
+          },
+          {
+            "index": 2,
+            "covered": true,
+            "reason": "答案覆盖构建标注集、Recall@K/Precision@K/Hit@K/MRR/nDCG、生成层正确性/相关性/完整性/忠实度/引用准确率、分层定位、向量与BM25及reranker对照、可回答/不可回答/多跳/精确实体/过期知识场景、模型裁判人工校准、延迟成本记录以及召回失败与生成失败定位；无答案题检查也与拒答质量相关。",
+            "point": "先构建问题、相关文档和参考答案标注集。检索层使用Recall@K、Precision@K、MRR或nDCG；生成层评估正确性、相关性、完整性、忠实度和引用准确率；系统层还看延迟、成本、拒答准确率及任务成功率。应分层定位并对向量、混合检索和重排做对照实验。检索层可测 Recall@K、Hit@K、MRR 和 nDCG，分别关注覆盖、是否命中及排名质量；生成层看正确性、完整性、与证据的一致性和引用有效性。测试集应区分可回答、不可回答、多跳、精确实体和过期知识场景，避免只验证常见问题。模型裁判需要人工校准，线上满意度也会受界面和等待时间影响。优化要同时记录延迟与成本，并定位是召回失败还是生成失败。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "答案直接回应如何评估助手任务完成情况，并分别说明如何拆开衡量检索质量和回答质量，覆盖指标、评测集、诊断对照、校准与报告等全部子问。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "V2-091",
+      "subquestions": [
+        {
+          "question": "如何评估助手任务完成情况？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "在评估助手任务完成情况时，如何单独衡量检索质量？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "在评估助手任务完成情况时，如何单独衡量回答质量？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 12.86153010000271
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 149.068,
+  "notes": [
+    "标注状态记录于dataset.label_status；人工复核不等于生产数据或独立多复核人基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。",
+    "断点复用相同输入、配置、代码与题库的已成功结果，失败项重新执行；各记录保留原耗时与调用量，benchmark_wall_seconds仅为当前启动的墙钟时间。",
+    "end_to_end运行生成及引用校验，额外答案评审独立计量。"
+  ]
+}

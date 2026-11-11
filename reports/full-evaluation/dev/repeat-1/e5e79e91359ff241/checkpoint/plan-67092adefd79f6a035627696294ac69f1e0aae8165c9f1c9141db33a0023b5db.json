@@ -1,0 +1,26 @@
+{
+  "case_id": "V2-002",
+  "subquestions": [
+    {
+      "question": "从零实现任务助手时，模型之外的整体模块架构包括哪些模块？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "从零实现任务助手时，规划模块在模型之外需要承担哪些职责？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "从零实现任务助手时，工具模块在模型之外需要承担哪些职责？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "从零实现任务助手时，除规划和工具模块外，模型之外还需要哪些模块？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 8.934758299999885
+}

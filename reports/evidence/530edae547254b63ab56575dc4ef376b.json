@@ -1,0 +1,1295 @@
+{
+  "id": "530edae547254b63ab56575dc4ef376b",
+  "kind": "offline_keyword_baseline",
+  "created_at": "2026-10-12T05:38:20.465263+00:00",
+  "dataset": {
+    "name": "知识库检索分组种子集 v2 · 120题",
+    "label_status": "seed_requires_human_review",
+    "split": "dev",
+    "selected_cases": 80,
+    "sha256": "23e6767b51bbb208887c87b63c6665b9145fffb3ce635ceaa86d051efc649d2f"
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models_called": 0,
+  "answerable_cases": 69,
+  "summary": {
+    "recall_at_3": 0.855072463768116,
+    "mrr": 0.8260869565217391,
+    "mean_search_seconds": 0.03456427374949271
+  },
+  "records": [
+    {
+      "id": "V2-106",
+      "category": "compound",
+      "question": "怎样阻止助手循环调用工具？如何识别没有执行却宣称完成的情况？",
+      "expected_sources": [
+        "interview-question://A020",
+        "interview-question://A023"
+      ],
+      "sources": [
+        "interview-question://A023",
+        "interview-question://T003",
+        "interview-question://A020"
+      ],
+      "elapsed_seconds": 0.13293949997751042,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-090",
+      "category": "cross_domain",
+      "question": "对话服务重启如何恢复阶段？工具请求失败重试时如何避免重复执行？",
+      "expected_sources": [
+        "interview-question://A018",
+        "interview-question://T018"
+      ],
+      "sources": [
+        "interview-question://A018",
+        "interview-question://T018",
+        "interview-question://A022"
+      ],
+      "elapsed_seconds": 0.034610799979418516,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-013",
+      "category": "paraphrase",
+      "question": "为何有的团队不采用现成智能体框架，选择自己实现执行循环？",
+      "expected_sources": [
+        "interview-question://A013"
+      ],
+      "sources": [
+        "interview-question://A013",
+        "interview-question://T016",
+        "interview-question://L020"
+      ],
+      "elapsed_seconds": 0.033622799994191155,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-018",
+      "category": "terminology",
+      "question": "对话进行一半服务重启，如何恢复任务阶段并防止重复执行？",
+      "expected_sources": [
+        "interview-question://A018"
+      ],
+      "sources": [
+        "interview-question://A018",
+        "interview-question://A022",
+        "interview-question://A016"
+      ],
+      "elapsed_seconds": 0.033467300003394485,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-112",
+      "category": "unanswerable",
+      "question": "哪份资料记载了虚构数据集InterviewSecret-19的训练样本数量？",
+      "expected_sources": [],
+      "sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://L010",
+        "interview-question://T003"
+      ],
+      "elapsed_seconds": 0.03463349997764453,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-095",
+      "category": "compound",
+      "question": "关键词与向量召回各适合什么问题？两个结果列表如何融合？",
+      "expected_sources": [
+        "interview-question://R011",
+        "interview-question://R013"
+      ],
+      "sources": [
+        "interview-question://R011",
+        "interview-question://R013",
+        "interview-question://R007"
+      ],
+      "elapsed_seconds": 0.0340639999776613,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-092",
+      "category": "cross_domain",
+      "question": "怎样通过轨迹定位助手的慢调用？另外KV缓存和提示缓存分别复用什么？",
+      "expected_sources": [
+        "interview-question://A021",
+        "interview-question://L014"
+      ],
+      "sources": [
+        "interview-question://A021",
+        "interview-question://L014",
+        "interview-question://T004"
+      ],
+      "elapsed_seconds": 0.033960800006752834,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-002",
+      "category": "paraphrase",
+      "question": "准备从零实现任务助手，模型之外需要规划、工具和哪些模块？",
+      "expected_sources": [
+        "interview-question://A002"
+      ],
+      "sources": [
+        "interview-question://A002",
+        "interview-question://A014",
+        "interview-question://A023"
+      ],
+      "elapsed_seconds": 0.03241459999117069,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-060",
+      "category": "terminology",
+      "question": "同时走关键词与向量召回后，如何融合排名并去重？",
+      "expected_sources": [
+        "interview-question://R013"
+      ],
+      "sources": [
+        "interview-question://R013",
+        "interview-question://R011",
+        "interview-question://R010"
+      ],
+      "elapsed_seconds": 0.03443209998658858,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-115",
+      "category": "unanswerable",
+      "question": "资料中有用户ID PRIVATE-8842最近一次模拟面试的个人得分吗？",
+      "expected_sources": [],
+      "sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://A003"
+      ],
+      "elapsed_seconds": 0.03473179999855347,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-089",
+      "category": "compound",
+      "question": "助手要保留记忆时怎样设计存储？历史太长时又怎样压缩？",
+      "expected_sources": [
+        "interview-question://A008",
+        "interview-question://A012"
+      ],
+      "sources": [
+        "interview-question://A012",
+        "interview-question://A009",
+        "interview-question://A008"
+      ],
+      "elapsed_seconds": 0.03269329998875037,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-093",
+      "category": "cross_domain",
+      "question": "频繁更新的知识应该检索还是微调？另外LoRA有哪些工程收益？",
+      "expected_sources": [
+        "interview-question://L009",
+        "interview-question://R003"
+      ],
+      "sources": [
+        "interview-question://R003",
+        "interview-question://L008",
+        "interview-question://R002"
+      ],
+      "elapsed_seconds": 0.034829000011086464,
+      "recall_at_3": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-044",
+      "category": "paraphrase",
+      "question": "CPU本地部署与GPU高并发服务，怎样选择推理运行框架？",
+      "expected_sources": [
+        "interview-question://L020"
+      ],
+      "sources": [
+        "interview-question://L020",
+        "interview-question://T007",
+        "interview-question://A013"
+      ],
+      "elapsed_seconds": 0.03292140000849031,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-069",
+      "category": "terminology",
+      "question": "模型给出函数名与参数之后，谁真正执行函数并回填结果？",
+      "expected_sources": [
+        "interview-question://T001"
+      ],
+      "sources": [
+        "interview-question://T001",
+        "interview-question://A002",
+        "interview-question://T003"
+      ],
+      "elapsed_seconds": 0.03305480000562966,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-113",
+      "category": "unanswerable",
+      "question": "请查询内部未发布的LambdaAgent团队下个月的招聘岗位名额。",
+      "expected_sources": [],
+      "sources": [
+        "interview-question://B012",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://L020"
+      ],
+      "elapsed_seconds": 0.03361740001128055,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-087",
+      "category": "compound",
+      "question": "模型变成能执行任务的助手需要什么变化？另外说明它的模块组成。",
+      "expected_sources": [
+        "interview-question://A001",
+        "interview-question://A002"
+      ],
+      "sources": [
+        "interview-question://A002",
+        "interview-question://T011",
+        "interview-question://R003"
+      ],
+      "elapsed_seconds": 0.03496760001871735,
+      "recall_at_3": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-038",
+      "category": "paraphrase",
+      "question": "KV缓存与重复提示缓存分别复用了什么，为什么能减少计算？",
+      "expected_sources": [
+        "interview-question://L014"
+      ],
+      "sources": [
+        "interview-question://L014",
+        "interview-question://L003",
+        "interview-question://L023"
+      ],
+      "elapsed_seconds": 0.03321910000522621,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-027",
+      "category": "terminology",
+      "question": "推理时注意力占用太多显存，MQA、GQA与Flash Attention各优化什么？",
+      "expected_sources": [
+        "interview-question://L003"
+      ],
+      "sources": [
+        "interview-question://L003",
+        "interview-question://L002",
+        "interview-question://L009"
+      ],
+      "elapsed_seconds": 0.03224959998624399,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-109",
+      "category": "unanswerable",
+      "question": "请提供不存在于题库的ZetaEmbed-2027的官方中文评测分数。",
+      "expected_sources": [],
+      "sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R008",
+        "interview-question://L022"
+      ],
+      "elapsed_seconds": 0.03325889998814091,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-098",
+      "category": "compound",
+      "question": "MCP与函数调用有什么边界？再说明技能包怎样与它们配合。",
+      "expected_sources": [
+        "interview-question://T006",
+        "interview-question://T011"
+      ],
+      "sources": [
+        "interview-question://T006",
+        "interview-question://T007",
+        "interview-question://R004"
+      ],
+      "elapsed_seconds": 0.0338274999812711,
+      "recall_at_3": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-032",
+      "category": "paraphrase",
+      "question": "只有有限显存，如何在全参数、LoRA等微调方式之间选择？",
+      "expected_sources": [
+        "interview-question://L008"
+      ],
+      "sources": [
+        "interview-question://L008",
+        "interview-question://T002",
+        "interview-question://R003"
+      ],
+      "elapsed_seconds": 0.03413350001210347,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-051",
+      "category": "terminology",
+      "question": "长文档怎么拆成可检索片段，片段长度与重叠如何权衡？",
+      "expected_sources": [
+        "interview-question://R004"
+      ],
+      "sources": [
+        "interview-question://R004",
+        "interview-question://R005",
+        "interview-question://L015"
+      ],
+      "elapsed_seconds": 0.033006300014676526,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-117",
+      "category": "unanswerable",
+      "question": "请提供私有仓库ZetaHost的实际工具调用失败率及统计日期。",
+      "expected_sources": [],
+      "sources": [
+        "interview-question://T016",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://A008"
+      ],
+      "elapsed_seconds": 0.03325799998128787,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-104",
+      "category": "compound",
+      "question": "部署模型时如何选择量化方案？CPU和GPU服务框架如何取舍？",
+      "expected_sources": [
+        "interview-question://L015",
+        "interview-question://L020"
+      ],
+      "sources": [
+        "interview-question://L020",
+        "interview-question://L008",
+        "interview-question://A008"
+      ],
+      "elapsed_seconds": 0.03269210000871681,
+      "recall_at_3": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-017",
+      "category": "paraphrase",
+      "question": "工具描述、历史对话、检索资料与当前目标如何组织进上下文？",
+      "expected_sources": [
+        "interview-question://A017"
+      ],
+      "sources": [
+        "interview-question://T009",
+        "interview-question://A017",
+        "interview-question://T017"
+      ],
+      "elapsed_seconds": 0.03408419998595491,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "V2-021",
+      "category": "terminology",
+      "question": "一次任务耗时突然翻倍，如何从执行轨迹定位慢在哪一环？",
+      "expected_sources": [
+        "interview-question://A021"
+      ],
+      "sources": [
+        "interview-question://A021",
+        "interview-question://A002",
+        "interview-question://A007"
+      ],
+      "elapsed_seconds": 0.03410220000660047,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-114",
+      "category": "unanswerable",
+      "question": "请给出XQ-UNPUBLISHED项目2026年8月生产故障的精确时间线。",
+      "expected_sources": [],
+      "sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R021"
+      ],
+      "elapsed_seconds": 0.03482949998578988,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-094",
+      "category": "compound",
+      "question": "资料切块时如何选长度与重叠？答案跨片段时如何保留完整上下文？",
+      "expected_sources": [
+        "interview-question://R004",
+        "interview-question://R005"
+      ],
+      "sources": [
+        "interview-question://R004",
+        "interview-question://R005",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "elapsed_seconds": 0.03215039998758584,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-011",
+      "category": "paraphrase",
+      "question": "什么情况下一个助手已经足够，什么情况下值得拆成多个角色？",
+      "expected_sources": [
+        "interview-question://A011"
+      ],
+      "sources": [
+        "interview-question://A010",
+        "interview-question://A016",
+        "interview-question://A011"
+      ],
+      "elapsed_seconds": 0.03221140001551248,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.3333333333333333
+    },
+    {
+      "id": "V2-003",
+      "category": "terminology",
+      "question": "固定流程、会自主决定下一步的助手和外部函数，分别承担什么职责？",
+      "expected_sources": [
+        "interview-question://A003"
+      ],
+      "sources": [
+        "interview-question://A003",
+        "interview-question://A001",
+        "interview-question://T005"
+      ],
+      "elapsed_seconds": 0.03274599998258054,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-108",
+      "category": "unanswerable",
+      "question": "给出代号IP-PRIVATE-73实验在未公开题库上的原始逐题召回结果。",
+      "expected_sources": [],
+      "sources": [
+        "interview-question://L021",
+        "interview-question://A008",
+        "interview-question://B005"
+      ],
+      "elapsed_seconds": 0.032419600000139326,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-101",
+      "category": "compound",
+      "question": "注意力计算的显存如何优化？位置编码又解决什么不同问题？",
+      "expected_sources": [
+        "interview-question://L003",
+        "interview-question://L004"
+      ],
+      "sources": [
+        "interview-question://L004",
+        "interview-question://L003",
+        "interview-question://L002"
+      ],
+      "elapsed_seconds": 0.03330530002131127,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-010",
+      "category": "paraphrase",
+      "question": "让多个专门的助手共同完成一个任务，核心组织方式是什么？",
+      "expected_sources": [
+        "interview-question://A010"
+      ],
+      "sources": [
+        "interview-question://A002",
+        "interview-question://L001",
+        "interview-question://A004"
+      ],
+      "elapsed_seconds": 0.03288869999232702,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0
+    },
+    {
+      "id": "V2-039",
+      "category": "terminology",
+      "question": "部署时怎样选择四位或八位量化，AWQ和GPTQ如何权衡？",
+      "expected_sources": [
+        "interview-question://L015"
+      ],
+      "sources": [
+        "interview-question://L015",
+        "interview-question://A021",
+        "interview-question://L020"
+      ],
+      "elapsed_seconds": 0.03403059998527169,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-116",
+      "category": "unanswerable",
+      "question": "请根据已有题库列出私有模型Aster-Internal的未公开训练超参数。",
+      "expected_sources": [],
+      "sources": [
+        "interview-question://R002",
+        "interview-question://L009",
+        "interview-question://L021"
+      ],
+      "elapsed_seconds": 0.032941500016022474,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-105",
+      "category": "compound",
+      "question": "更新资料后如何同步检索索引？两份资料冲突时如何处理来源？",
+      "expected_sources": [
+        "interview-question://R019",
+        "interview-question://R021"
+      ],
+      "sources": [
+        "interview-question://R021",
+        "interview-question://R019",
+        "interview-question://A022"
+      ],
+      "elapsed_seconds": 0.03205780001007952,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-047",
+      "category": "paraphrase",
+      "question": "资料明明在长提示里却被忽略，为什么中间位置容易丢失信息？",
+      "expected_sources": [
+        "interview-question://L023"
+      ],
+      "sources": [
+        "interview-question://L023",
+        "interview-question://L004",
+        "interview-question://L017"
+      ],
+      "elapsed_seconds": 0.03347420002683066,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-048",
+      "category": "terminology",
+      "question": "从资料入库到带证据回答，检索增强系统的完整数据链路是什么？",
+      "expected_sources": [
+        "interview-question://R001"
+      ],
+      "sources": [
+        "interview-question://R001",
+        "interview-question://R016",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf"
+      ],
+      "elapsed_seconds": 0.032445100019685924,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-110",
+      "category": "unanswerable",
+      "question": "这套平台维护者上周在私有服务器上部署了多少个GPU节点？",
+      "expected_sources": [],
+      "sources": [
+        "interview-question://L020",
+        "interview-question://T007",
+        "interview-question://T016"
+      ],
+      "elapsed_seconds": 0.03348179999738932,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-097",
+      "category": "compound",
+      "question": "MCP解决什么连接问题？Host、Client和Server职责是什么？",
+      "expected_sources": [
+        "interview-question://T004",
+        "interview-question://T005"
+      ],
+      "sources": [
+        "interview-question://T004",
+        "interview-question://T005",
+        "interview-question://T006"
+      ],
+      "elapsed_seconds": 0.032482000009622425,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-028",
+      "category": "paraphrase",
+      "question": "模型为何需要知道词的位置？旋转位置编码和线性偏置有什么差别？",
+      "expected_sources": [
+        "interview-question://L004"
+      ],
+      "sources": [
+        "interview-question://L004",
+        "interview-question://L005",
+        "interview-question://L015"
+      ],
+      "elapsed_seconds": 0.03319999997620471,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-009",
+      "category": "terminology",
+      "question": "正在进行的任务和几周前的历史信息，应该用同一种方式保存吗？",
+      "expected_sources": [
+        "interview-question://A009"
+      ],
+      "sources": [
+        "interview-question://A012",
+        "interview-question://A008",
+        "interview-question://R021"
+      ],
+      "elapsed_seconds": 0.03506080000079237,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0
+    },
+    {
+      "id": "V2-107",
+      "category": "unanswerable",
+      "question": "资料中记录的Nebula-Interview内部服务2026年9月实际P99延迟是多少？",
+      "expected_sources": [],
+      "sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://A009"
+      ],
+      "elapsed_seconds": 0.03575099998852238,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-080",
+      "category": "paraphrase",
+      "question": "助手之间交接任务与助手访问工具，A2A和MCP的边界是什么？",
+      "expected_sources": [
+        "interview-question://T012"
+      ],
+      "sources": [
+        "interview-question://T012",
+        "interview-question://A003",
+        "interview-question://T008"
+      ],
+      "elapsed_seconds": 0.033877699985168874,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-078",
+      "category": "terminology",
+      "question": "提供工具访问协议与提供任务操作指南，MCP和Skill各负责什么？",
+      "expected_sources": [
+        "interview-question://T010"
+      ],
+      "sources": [
+        "interview-question://T010",
+        "interview-question://T011",
+        "interview-question://T004"
+      ],
+      "elapsed_seconds": 0.03500159998657182,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-118",
+      "category": "unanswerable",
+      "question": "知识库中隐藏版本V9-NOT-RECORDED的重排阈值最终设置为多少？",
+      "expected_sources": [],
+      "sources": [
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R003"
+      ],
+      "elapsed_seconds": 0.03346830001100898,
+      "recall_at_3": null,
+      "reciprocal_rank": null
+    },
+    {
+      "id": "V2-001",
+      "category": "paraphrase",
+      "question": "聊天模型能回答问题就算智能体吗？执行任务还缺哪些能力？",
+      "expected_sources": [
+        "interview-question://A001"
+      ],
+      "sources": [
+        "interview-question://L021",
+        "interview-question://A002",
+        "interview-question://A005"
+      ],
+      "elapsed_seconds": 0.0337232000019867,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0
+    },
+    {
+      "id": "V2-054",
+      "category": "terminology",
+      "question": "除了神经网络向量，文本表示与相似匹配还用过哪些算法？",
+      "expected_sources": [
+        "interview-question://R007"
+      ],
+      "sources": [
+        "interview-question://R007",
+        "interview-question://L002",
+        "interview-question://R011"
+      ],
+      "elapsed_seconds": 0.035055299988016486,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-004",
+      "category": "paraphrase",
+      "question": "审批步骤很固定的业务，应该让模型自由规划还是预先定义流程？",
+      "expected_sources": [
+        "interview-question://A004"
+      ],
+      "sources": [
+        "interview-question://A003",
+        "interview-question://A014",
+        "interview-question://L006"
+      ],
+      "elapsed_seconds": 0.03283559999545105,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0
+    },
+    {
+      "id": "V2-075",
+      "category": "terminology",
+      "question": "仅接一个内部函数与接多个外部服务，何时采用MCP更合适？",
+      "expected_sources": [
+        "interview-question://T007"
+      ],
+      "sources": [
+        "interview-question://T007",
+        "interview-question://T010",
+        "interview-question://T005"
+      ],
+      "elapsed_seconds": 0.03596199999446981,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-073",
+      "category": "paraphrase",
+      "question": "MCP里的Host、Client、Server分别承担什么职责？",
+      "expected_sources": [
+        "interview-question://T005"
+      ],
+      "sources": [
+        "interview-question://T005",
+        "interview-question://T006",
+        "interview-question://A010"
+      ],
+      "elapsed_seconds": 0.03437350000604056,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-012",
+      "category": "terminology",
+      "question": "历史对话放不下了，除了截掉旧消息还有哪些压缩方法？",
+      "expected_sources": [
+        "interview-question://A012"
+      ],
+      "sources": [
+        "interview-question://A012",
+        "interview-question://L009",
+        "interview-question://A020"
+      ],
+      "elapsed_seconds": 0.0340208999987226,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-086",
+      "category": "paraphrase",
+      "question": "模型传错参数、工具执行超时，如何校验、重试并防止重复副作用？",
+      "expected_sources": [
+        "interview-question://T018"
+      ],
+      "sources": [
+        "interview-question://T018",
+        "interview-question://A022",
+        "interview-question://T001"
+      ],
+      "elapsed_seconds": 0.03392250000615604,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-033",
+      "category": "terminology",
+      "question": "用低秩矩阵适配模型，除了少训练参数还有什么工程收益？",
+      "expected_sources": [
+        "interview-question://L009"
+      ],
+      "sources": [
+        "interview-question://L009",
+        "interview-question://L008",
+        "interview-question://L010"
+      ],
+      "elapsed_seconds": 0.03249620000133291,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-040",
+      "category": "paraphrase",
+      "question": "想让模型稳定输出结构化结果，提示中应明确哪些约束？",
+      "expected_sources": [
+        "interview-question://L016"
+      ],
+      "sources": [
+        "interview-question://L016",
+        "interview-question://T002",
+        "interview-question://L022"
+      ],
+      "elapsed_seconds": 0.033825700025772676,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-066",
+      "category": "terminology",
+      "question": "资料修改或删除后，怎样让关键词与向量索引持续保持最新？",
+      "expected_sources": [
+        "interview-question://R019"
+      ],
+      "sources": [
+        "interview-question://R019",
+        "interview-question://R011",
+        "interview-question://R010"
+      ],
+      "elapsed_seconds": 0.03117279999423772,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-049",
+      "category": "paraphrase",
+      "question": "模型不知道企业最新资料，用检索增强能解决哪些限制？",
+      "expected_sources": [
+        "interview-question://R002"
+      ],
+      "sources": [
+        "interview-question://R001",
+        "interview-question://A001",
+        "interview-question://A003"
+      ],
+      "elapsed_seconds": 0.030659400013973936,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0
+    },
+    {
+      "id": "V2-072",
+      "category": "terminology",
+      "question": "想用统一接口把外部资源和工具接给助手，MCP规范了哪些事情？",
+      "expected_sources": [
+        "interview-question://T004"
+      ],
+      "sources": [
+        "interview-question://T004",
+        "interview-question://T006",
+        "interview-question://T007"
+      ],
+      "elapsed_seconds": 0.03225139999995008,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-061",
+      "category": "paraphrase",
+      "question": "召回效果不好时，应该从查询、切块、混合召回还是重排开始检查？",
+      "expected_sources": [
+        "interview-question://R014"
+      ],
+      "sources": [
+        "interview-question://R014",
+        "interview-question://R013",
+        "interview-question://R001"
+      ],
+      "elapsed_seconds": 0.031393100012792274,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-079",
+      "category": "paraphrase",
+      "question": "函数调用格式、任务技能包和工具连接协议如何在一个系统里配合？",
+      "expected_sources": [
+        "interview-question://T011"
+      ],
+      "sources": [
+        "interview-question://T010",
+        "interview-question://T012",
+        "interview-question://T011"
+      ],
+      "elapsed_seconds": 0.03322049998678267,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.3333333333333333
+    },
+    {
+      "id": "V2-058",
+      "category": "paraphrase",
+      "question": "精确型号匹配和同义表达匹配，关键词搜索与语义搜索各有什么长处？",
+      "expected_sources": [
+        "interview-question://R011"
+      ],
+      "sources": [
+        "interview-question://R011",
+        "interview-question://R004",
+        "interview-question://R014"
+      ],
+      "elapsed_seconds": 0.031726199988042936,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-050",
+      "category": "paraphrase",
+      "question": "知识经常更新且需要出处，检索增强与参数微调该怎么选？",
+      "expected_sources": [
+        "interview-question://R003"
+      ],
+      "sources": [
+        "interview-question://R003",
+        "interview-question://R001",
+        "interview-question://L008"
+      ],
+      "elapsed_seconds": 0.031287799996789545,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-068",
+      "category": "paraphrase",
+      "question": "两篇检索材料给出矛盾结论，系统应按什么依据选择或展示差异？",
+      "expected_sources": [
+        "interview-question://R021"
+      ],
+      "sources": [
+        "interview-question://R010",
+        "interview-question://R017",
+        "interview-question://R021"
+      ],
+      "elapsed_seconds": 0.03122919998713769,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.3333333333333333
+    },
+    {
+      "id": "V2-056",
+      "category": "paraphrase",
+      "question": "向量库的规模和响应速度应该怎样测量，瓶颈通常怎么排查？",
+      "expected_sources": [
+        "interview-question://R009"
+      ],
+      "sources": [
+        "interview-question://R008",
+        "interview-question://R009",
+        "interview-question://R010"
+      ],
+      "elapsed_seconds": 0.03236820001620799,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "V2-076",
+      "category": "paraphrase",
+      "question": "推理模型没有原生工具格式就无法接MCP吗，适配层应该放在哪里？",
+      "expected_sources": [
+        "interview-question://T008"
+      ],
+      "sources": [
+        "interview-question://T008",
+        "interview-question://A005",
+        "interview-question://L009"
+      ],
+      "elapsed_seconds": 0.0343808000034187,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-020",
+      "category": "paraphrase",
+      "question": "助手反复选同一个工具且没有推进，怎样识别并终止这种循环？",
+      "expected_sources": [
+        "interview-question://A020"
+      ],
+      "sources": [
+        "interview-question://A005",
+        "interview-question://A020",
+        "interview-question://T002"
+      ],
+      "elapsed_seconds": 0.03246810002019629,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "V2-008",
+      "category": "paraphrase",
+      "question": "助手要记住用户偏好和当前任务进度，记忆模块如何设计？",
+      "expected_sources": [
+        "interview-question://A008"
+      ],
+      "sources": [
+        "interview-question://A008",
+        "interview-question://A016",
+        "interview-question://A009"
+      ],
+      "elapsed_seconds": 0.032388799998443574,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-026",
+      "category": "paraphrase",
+      "question": "Transformer中的编码器、解码器和注意力层分别做什么？",
+      "expected_sources": [
+        "interview-question://L002"
+      ],
+      "sources": [
+        "interview-question://L002",
+        "interview-question://L004",
+        "interview-question://L003"
+      ],
+      "elapsed_seconds": 0.032185699994442984,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-052",
+      "category": "paraphrase",
+      "question": "检索到了答案的一半，另一半在相邻片段，怎样保留完整语义？",
+      "expected_sources": [
+        "interview-question://R005"
+      ],
+      "sources": [
+        "interview-question://R001",
+        "interview-question://R005",
+        "interview-question://R010"
+      ],
+      "elapsed_seconds": 0.032347300002584234,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "V2-059",
+      "category": "paraphrase",
+      "question": "用户问法太口语化，怎样改写查询且不改变原始需求？",
+      "expected_sources": [
+        "interview-question://R012"
+      ],
+      "sources": [
+        "interview-question://R012",
+        "C:\\Users\\orzlc\\Desktop\\test.pdf",
+        "interview-question://R010"
+      ],
+      "elapsed_seconds": 0.032289499999023974,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-053",
+      "category": "paraphrase",
+      "question": "选文本向量模型时，如何验证它适合中文技术题检索？",
+      "expected_sources": [
+        "interview-question://R006"
+      ],
+      "sources": [
+        "interview-question://R007",
+        "interview-question://A011",
+        "interview-question://R014"
+      ],
+      "elapsed_seconds": 0.03307500001392327,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0
+    },
+    {
+      "id": "V2-071",
+      "category": "paraphrase",
+      "question": "训练一个可靠工具调用模型，需要哪些数据与执行反馈？",
+      "expected_sources": [
+        "interview-question://T003"
+      ],
+      "sources": [
+        "interview-question://T003",
+        "interview-question://T002",
+        "interview-question://A005"
+      ],
+      "elapsed_seconds": 0.03321289998712018,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-070",
+      "category": "paraphrase",
+      "question": "语言模型为何能够生成工具调用请求，这项能力从哪里来？",
+      "expected_sources": [
+        "interview-question://T002"
+      ],
+      "sources": [
+        "interview-question://T001",
+        "interview-question://T003",
+        "interview-question://T011"
+      ],
+      "elapsed_seconds": 0.03430030000163242,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0
+    },
+    {
+      "id": "V2-062",
+      "category": "paraphrase",
+      "question": "Self-RAG、Corrective RAG和Agentic RAG控制流程有何差别？",
+      "expected_sources": [
+        "interview-question://R015"
+      ],
+      "sources": [
+        "interview-question://R015",
+        "interview-question://T011",
+        "interview-question://A003"
+      ],
+      "elapsed_seconds": 0.03361999997287057,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-077",
+      "category": "paraphrase",
+      "question": "可按需加载的任务说明与配套资源，如何帮助助手遵循操作流程？",
+      "expected_sources": [
+        "interview-question://T009"
+      ],
+      "sources": [
+        "interview-question://T009",
+        "interview-question://A022",
+        "interview-question://T010"
+      ],
+      "elapsed_seconds": 0.03300170000875369,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-022",
+      "category": "paraphrase",
+      "question": "多个助手并行写同一结果，其中一个超时，如何处理交接与冲突？",
+      "expected_sources": [
+        "interview-question://A022"
+      ],
+      "sources": [
+        "interview-question://A022",
+        "interview-question://A016",
+        "interview-question://R021"
+      ],
+      "elapsed_seconds": 0.033759100013412535,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-023",
+      "category": "paraphrase",
+      "question": "助手说文件已经保存，但没有任何工具执行记录，如何避免这种情况？",
+      "expected_sources": [
+        "interview-question://A023"
+      ],
+      "sources": [
+        "interview-question://A023",
+        "interview-question://A002",
+        "interview-question://T002"
+      ],
+      "elapsed_seconds": 0.03223260000231676,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-007",
+      "category": "paraphrase",
+      "question": "一个请求包含多个依赖步骤，应该如何拆成可验证的小任务？",
+      "expected_sources": [
+        "interview-question://A007"
+      ],
+      "sources": [
+        "interview-question://A007",
+        "interview-question://A014",
+        "interview-question://A006"
+      ],
+      "elapsed_seconds": 0.03306650000740774,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "V2-074",
+      "category": "paraphrase",
+      "question": "模型选择函数与MCP提供工具连接，为什么不是同一层的机制？",
+      "expected_sources": [
+        "interview-question://T006"
+      ],
+      "sources": [
+        "interview-question://T011",
+        "interview-question://T007",
+        "interview-question://T010"
+      ],
+      "elapsed_seconds": 0.034126500017009676,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0
+    },
+    {
+      "id": "V2-055",
+      "category": "paraphrase",
+      "question": "为向量索引选择存储引擎，需要比较哪些功能和工程约束？",
+      "expected_sources": [
+        "interview-question://R008"
+      ],
+      "sources": [
+        "interview-question://R008",
+        "interview-question://A009",
+        "interview-question://R006"
+      ],
+      "elapsed_seconds": 0.03454819999751635,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0
+    }
+  ],
+  "notes": [
+    "真实索引上的原查询BM25检索，未拆解，整题只取3个完整父块。",
+    "未运行生成、扩展、向量或拒答，不报告回答质量、拒答率或端到端时延。",
+    "复合题指标不同于按子问题各取3条的线上流程，不能直接与其宣称提升。",
+    "开发集与种子来源标注结果，不是最终测试集或人工金标准。"
+  ]
+}

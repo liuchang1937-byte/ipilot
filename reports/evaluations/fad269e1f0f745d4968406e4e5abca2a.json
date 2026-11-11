@@ -1,0 +1,752 @@
+{
+  "schema_version": 2,
+  "id": "fad269e1f0f745d4968406e4e5abca2a",
+  "created_at": "2026-10-10T07:36:55.548889+00:00",
+  "dataset": {
+    "name": "知识库检索种子集 v1",
+    "label_status": "seed_requires_human_review",
+    "sha256": "db9dc4e5e96921ae56c50a43f308bc040680d535485f6b50373c6722c0d1f582",
+    "total_cases": 20,
+    "selected_cases": 1
+  },
+  "corpus_sha256": "516b55a5a68a38e4ee5dd0b94922d3658853545a6eebe13c0b293c3f7ba337da",
+  "models": {
+    "chat": "deepseek/deepseek-v4-flash",
+    "embedding": "dashscope/text-embedding-v4",
+    "reranker": "OnnxCrossEncoder"
+  },
+  "options": {
+    "hybrid": {
+      "decompose": true,
+      "mqe": false,
+      "hyde": false,
+      "rerank": false,
+      "top_k": 3,
+      "mode": "hybrid"
+    }
+  },
+  "min_rerank_score": 0.05,
+  "summaries": [
+    {
+      "variant": "hybrid",
+      "label": "混合检索",
+      "cases": 1,
+      "completed": 1,
+      "failures": 0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333,
+      "ndcg_at_k": 1.0,
+      "hit_rate": 1,
+      "mrr": 1.0,
+      "all_sources_rate": 1,
+      "correct_refusal_rate": null,
+      "false_refusal_rate": 0,
+      "mean_seconds": 20.346,
+      "p95_seconds": 20.346,
+      "latency_seconds": {
+        "decomposition": {
+          "mean": 7.862992,
+          "p50": 7.862992,
+          "p95": 7.862992,
+          "max": 7.862992,
+          "samples": 1
+        },
+        "retrieval": {
+          "mean": 1.055987,
+          "p50": 1.055987,
+          "p95": 1.055987,
+          "max": 1.055987,
+          "samples": 1
+        },
+        "mqe": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "hyde": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "embedding": {
+          "mean": 0.749182,
+          "p50": 0.749182,
+          "p95": 0.749182,
+          "max": 0.749182,
+          "samples": 1
+        },
+        "vector_search": {
+          "mean": 0.092735,
+          "p50": 0.092735,
+          "p95": 0.092735,
+          "max": 0.092735,
+          "samples": 1
+        },
+        "keyword_search": {
+          "mean": 0.156658,
+          "p50": 0.156658,
+          "p95": 0.156658,
+          "max": 0.156658,
+          "samples": 1
+        },
+        "rerank": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "samples": 1
+        },
+        "generation": {
+          "mean": 11.426631,
+          "p50": 11.426631,
+          "p95": 11.426631,
+          "max": 11.426631,
+          "samples": 1
+        },
+        "pipeline": {
+          "mean": 12.483108,
+          "p50": 12.483108,
+          "p95": 12.483108,
+          "max": 12.483108,
+          "samples": 1
+        },
+        "total": {
+          "mean": 20.3461,
+          "p50": 20.3461,
+          "p95": 20.3461,
+          "max": 20.3461,
+          "samples": 1
+        },
+        "judge": {
+          "mean": 47.524916,
+          "p50": 47.524916,
+          "p95": 47.524916,
+          "max": 47.524916,
+          "samples": 1
+        }
+      },
+      "metric_samples": {
+        "recall_at_k": 1,
+        "precision_at_k": 1,
+        "ndcg_at_k": 1,
+        "hit": 1,
+        "reciprocal_rank": 1,
+        "correct_refusal": 0,
+        "false_refusal": 1,
+        "faithfulness": 1,
+        "answer_correctness": 1,
+        "answer_relevancy": 1,
+        "citation_precision": 1,
+        "citation_coverage": 1
+      },
+      "answer_quality": {
+        "faithfulness": 1.0,
+        "answer_correctness": 1.0,
+        "answer_relevancy": 1.0,
+        "citation_precision": 1.0,
+        "citation_coverage": 1.0
+      },
+      "judged_cases": 1,
+      "judge_failures": 0,
+      "judge_calls": 1,
+      "degraded_cases": 0,
+      "reranked_cases": 0,
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      }
+    }
+  ],
+  "records": [
+    {
+      "case_id": "K01",
+      "question": "Function Calling 是什么，模型和宿主分别做什么？",
+      "category": "exact",
+      "variant": "hybrid",
+      "expected_sources": [
+        "interview-question://T001"
+      ],
+      "answerable": true,
+      "reference_points": [
+        "模型依据用户意图和工具Schema选择工具并生成结构化参数。",
+        "宿主程序负责参数校验、鉴权和真实执行工具。",
+        "执行结果回填给模型，用于组织最终回答。"
+      ],
+      "reference_answer": null,
+      "source_relevance": {},
+      "top_k": 3,
+      "retrieved_sources": [
+        "interview-question://T001",
+        "interview-question://T006",
+        "interview-question://T007",
+        "interview-question://T011"
+      ],
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "all_sources_found": true,
+      "correct_refusal": null,
+      "false_refusal": false,
+      "result": {
+        "question": "Function Calling 是什么，模型和宿主分别做什么？",
+        "answer": "1. Function Calling 是什么？\nFunction Calling 是模型根据用户意图和工具 Schema 生成结构化调用请求的能力 [1]。模型只负责选择工具并给出参数，宿主程序负责校验、鉴权、真实执行，再把结果返回模型生成最终回答 [1]。它不是模型直接执行函数，也不能替代超时、重试、幂等和安全控制 [1]。例如，用户要查询订单物流，开发者提供查询工具的名称、描述与参数约束，模型输出工具名和订单号，服务端校验身份并查询，最后把物流结果作为工具消息回传 [1]。模型可能直接回答，也可能连续调用多个工具，所以不一定固定两次模型请求；工具结果要关联到对应调用，JSON 格式正确也不代表订单号、权限或业务条件正确，执行前仍需确定性检查，不能直接运行模型生成的任意代码 [1]。与 MCP 相比，Function Calling 是模型表达“调用哪个工具及参数”的交互能力，MCP 是宿主连接外部工具和资源的标准协议，二者处于不同层次；应用可以把 MCP 发现的工具转换成模型可理解的工具 Schema，再由 Function Calling 选择 [2]。工具少、只在单个应用内部使用时，直接 Function Calling 加本地函数注册最简单；需要跨应用复用、独立部署、动态发现或第三方维护时，可考虑 MCP，但两者并非互斥 [3]。\n\n2. 在 Function Calling 中，模型和宿主分别做什么？\n在 Function Calling 中，模型负责表达“调用意图”：它根据用户意图和工具 Schema，选择要调用的工具并生成结构化调用请求及参数，例如输出工具名和订单号；模型不直接执行函数。[1] 模型也可能直接回答，还可能连续调用多个工具，因此流程不一定固定为两次模型请求。[1]\n\n宿主/宿主程序负责把模型的调用意图真正落地：提供或转换工具 Schema，校验参数、身份与权限，进行鉴权，真实执行工具，或通过协议请求外部服务执行，并把执行结果关联到对应调用后回填给模型，让模型生成最终回答。[1][2][4] 例如查询订单物流时，开发者提供查询工具的名称、描述与参数约束，模型输出工具名和订单号，服务端校验身份并查询，最后把物流结果作为工具消息回传。[1]\n\n需要注意，执行前仍需确定性检查，因为 JSON 格式正确不代表订单号、权限或业务条件正确；不能直接运行模型生成的任意代码，也不能用 Function Calling 替代超时、重试、幂等和安全控制。[1] 在 MCP 等组合链路中，Host 可将模型选择转成真实协议请求：Client 从 Server 发现工具，Host 将描述转换成模型工具定义，模型生成调用意图，Host 校验后通过 Client 发请求，Server 执行并返回结果，Host 再向模型反馈。[2][4]",
+        "sections": [
+          {
+            "question": "Function Calling 是什么？",
+            "kind": "knowledge",
+            "answer": "Function Calling 是模型根据用户意图和工具 Schema 生成结构化调用请求的能力 [1]。模型只负责选择工具并给出参数，宿主程序负责校验、鉴权、真实执行，再把结果返回模型生成最终回答 [1]。它不是模型直接执行函数，也不能替代超时、重试、幂等和安全控制 [1]。例如，用户要查询订单物流，开发者提供查询工具的名称、描述与参数约束，模型输出工具名和订单号，服务端校验身份并查询，最后把物流结果作为工具消息回传 [1]。模型可能直接回答，也可能连续调用多个工具，所以不一定固定两次模型请求；工具结果要关联到对应调用，JSON 格式正确也不代表订单号、权限或业务条件正确，执行前仍需确定性检查，不能直接运行模型生成的任意代码 [1]。与 MCP 相比，Function Calling 是模型表达“调用哪个工具及参数”的交互能力，MCP 是宿主连接外部工具和资源的标准协议，二者处于不同层次；应用可以把 MCP 发现的工具转换成模型可理解的工具 Schema，再由 Function Calling 选择 [2]。工具少、只在单个应用内部使用时，直接 Function Calling 加本地函数注册最简单；需要跨应用复用、独立部署、动态发现或第三方维护时，可考虑 MCP，但两者并非互斥 [3]。",
+            "source_ids": [
+              1,
+              2,
+              3
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "Function Calling 是什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T001",
+                "interview-question://T006",
+                "interview-question://T007"
+              ]
+            }
+          },
+          {
+            "question": "在 Function Calling 中，模型和宿主分别做什么？",
+            "kind": "knowledge",
+            "answer": "在 Function Calling 中，模型负责表达“调用意图”：它根据用户意图和工具 Schema，选择要调用的工具并生成结构化调用请求及参数，例如输出工具名和订单号；模型不直接执行函数。[1] 模型也可能直接回答，还可能连续调用多个工具，因此流程不一定固定为两次模型请求。[1]\n\n宿主/宿主程序负责把模型的调用意图真正落地：提供或转换工具 Schema，校验参数、身份与权限，进行鉴权，真实执行工具，或通过协议请求外部服务执行，并把执行结果关联到对应调用后回填给模型，让模型生成最终回答。[1][2][4] 例如查询订单物流时，开发者提供查询工具的名称、描述与参数约束，模型输出工具名和订单号，服务端校验身份并查询，最后把物流结果作为工具消息回传。[1]\n\n需要注意，执行前仍需确定性检查，因为 JSON 格式正确不代表订单号、权限或业务条件正确；不能直接运行模型生成的任意代码，也不能用 Function Calling 替代超时、重试、幂等和安全控制。[1] 在 MCP 等组合链路中，Host 可将模型选择转成真实协议请求：Client 从 Server 发现工具，Host 将描述转换成模型工具定义，模型生成调用意图，Host 校验后通过 Client 发请求，Server 执行并返回结果，Host 再向模型反馈。[2][4]",
+            "source_ids": [
+              1,
+              2,
+              4
+            ],
+            "insufficient": false,
+            "trace": {
+              "mode": "hybrid",
+              "queries": [
+                {
+                  "kind": "original",
+                  "text": "在 Function Calling 中,模型和宿主分别做什么?"
+                }
+              ],
+              "warnings": [],
+              "reranked": false,
+              "candidate_count": 12,
+              "rerank_requested": false,
+              "selected_count": 3,
+              "selected_sources": [
+                "interview-question://T001",
+                "interview-question://T011",
+                "interview-question://T006"
+              ]
+            }
+          }
+        ],
+        "sources": [
+          {
+            "id": 1,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.8950852155685425,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.8563671708106995,
+            "keyword_score": 0.9312106377346351,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.808388739824295,
+            "keyword_score": 0.9089185502257292,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.8697088956832886,
+            "keyword_score": 0.9261975595844545,
+            "rerank_score": null
+          }
+        ],
+        "retrieved_contexts": [
+          {
+            "id": 1,
+            "chunk_id": 2985301377255987593,
+            "title": "什么是 Function Calling?原理是什么?",
+            "source": "interview-question://T001",
+            "domain": "llm-tool-calling",
+            "content": "# 什么是 Function Calling?原理是什么?\n\n题目编号:T001\n\n领域:llm-tool-calling\n\n难度:1\n\n标签:\n\n参考答案:Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。\n\n评分要点:说明 Schema、模型选择与参数生成、宿主校验执行、结果回填;不把模型生成调用请求等同于执行。",
+            "vector_score": 0.8950852155685425,
+            "keyword_score": 1.0,
+            "rerank_score": null
+          },
+          {
+            "id": 2,
+            "chunk_id": 1644641191381467949,
+            "title": "MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?",
+            "source": "interview-question://T006",
+            "domain": "llm-tool-calling",
+            "content": "# MCP 和 Function Calling 有什么区别?有没有实际跑过 MCP?\n\n题目编号:T006\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。实践回答应说明使用的Host/Server、传输方式、一次调用链路和遇到的权限或调试问题。完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。Function Calling 可以调用普通本地函数,MCP 也可被确定性的应用直接调用,所以协议本身并不依赖某个模型 API。回答实践时应说明实际做过的部分,不能把配置成功误认为权限与异常处理已经完善。\n\n评分要点:层次区分、组合关系和真实实践细节。",
+            "vector_score": 0.8563671708106995,
+            "keyword_score": 0.9312106377346351,
+            "rerank_score": null
+          },
+          {
+            "id": 3,
+            "chunk_id": 2799217389024114252,
+            "title": "Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?",
+            "source": "interview-question://T007",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling 也属于工具调用,请问什么场景下使用 Function Calling,什么场景下使用 MCP?\n\n题目编号:T007\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。选型应看复用范围、部署边界和治理成本。例如,应用内部只有一个查天气函数,直接注册通常足够;多个产品都需要共享同一订单服务,可以用 MCP 统一暴露接口。但工具多并不自动意味着必须使用 MCP,还要评估鉴权、版本管理、传输故障和运维成本。采用 MCP 后模型选择工具的过程依然可以是 Function Calling。选择的核心是部署与复用边界,而不是 Agent 一定要 MCP、聊天应用只能 Function Calling。\n\n评分要点:场景化选择,不把两者当替代关系。",
+            "vector_score": 0.808388739824295,
+            "keyword_score": 0.9089185502257292,
+            "rerank_score": null
+          },
+          {
+            "id": 4,
+            "chunk_id": 4412077096281725584,
+            "title": "Function Calling、Skill、MCP 这三个有什么区别?",
+            "source": "interview-question://T011",
+            "domain": "llm-tool-calling",
+            "content": "# Function Calling、Skill、MCP 这三个有什么区别?\n\n题目编号:T011\n\n领域:llm-tool-calling\n\n难度:2\n\n标签:\n\n参考答案:Function Calling是模型输出结构化工具意图的机制;MCP是宿主连接、发现和调用外部能力的协议;Skill是指导Agent组合能力完成任务的知识与流程。可以理解为Function Calling提供调用语言,MCP提供标准化能力接口,Skill提供如何完成任务的方法,但具体实现中三者仍需权限、执行器和状态管理配合。以订单分析为例,Skill 给出核对时间范围、查询和总结的步骤;MCP 提供订单服务的工具描述与调用接口;Function Calling 让模型选择查询工具并填写参数。Host 将选择转成真实协议请求,得到结果后继续流程。三者分别处理任务方法、能力接入与模型意图,但都不是完整 Agent 控制器,仍需要外层管理状态、停止条件、执行结果和错误恢复。\n\n评分要点:模型决策、能力接入、任务方法三个层次。",
+            "vector_score": 0.8697088956832886,
+            "keyword_score": 0.9261975595844545,
+            "rerank_score": null
+          }
+        ],
+        "warnings": [],
+        "options": {
+          "decompose": true,
+          "mqe": false,
+          "hyde": false,
+          "rerank": false,
+          "top_k": 3
+        }
+      },
+      "error": null,
+      "faithfulness": 1.0,
+      "answer_correctness": 1.0,
+      "answer_relevancy": 1.0,
+      "citation_precision": 1.0,
+      "citation_coverage": 1.0,
+      "elapsed_seconds": 20.346,
+      "timings_seconds": {
+        "decomposition": 7.862992,
+        "retrieval": 1.055987,
+        "mqe": 0.0,
+        "hyde": 0.0,
+        "embedding": 0.749182,
+        "vector_search": 0.092735,
+        "keyword_search": 0.156658,
+        "rerank": 0.0,
+        "generation": 11.426631,
+        "pipeline": 12.483108,
+        "total": 20.3461,
+        "judge": 47.524916
+      },
+      "calls": {
+        "embedding_calls": 2,
+        "embedding_texts": 2,
+        "chat_calls": 2,
+        "rerank_calls": 0,
+        "rerank_pairs": 0
+      },
+      "answer_evaluation": {
+        "status": "completed",
+        "reason": "模型评审，仅校验格式和原文出处，语义结论待人工复核。",
+        "metrics": {
+          "faithfulness": 1.0,
+          "answer_correctness": 1.0,
+          "answer_relevancy": 1.0,
+          "citation_precision": 1.0,
+          "citation_coverage": 1.0
+        },
+        "claims": [
+          {
+            "text": "Function Calling 是模型根据用户意图和工具 Schema 生成结构化调用请求的能力 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]直接给出 Function Calling 的定义。"
+          },
+          {
+            "text": "模型只负责选择工具并给出参数，宿主程序负责校验、鉴权、真实执行，再把结果返回模型生成最终回答 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]明确区分模型与宿主的职责。"
+          },
+          {
+            "text": "它不是模型直接执行函数，也不能替代超时、重试、幂等和安全控制 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]直接说明该限制。"
+          },
+          {
+            "text": "例如，用户要查询订单物流，开发者提供查询工具的名称、描述与参数约束，模型输出工具名和订单号，服务端校验身份并查询，最后把物流结果作为工具消息回传 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]包含完全对应的订单物流示例。"
+          },
+          {
+            "text": "模型可能直接回答，也可能连续调用多个工具，所以不一定固定两次模型请求；工具结果要关联到对应调用，JSON 格式正确也不代表订单号、权限或业务条件正确，执行前仍需确定性检查，不能直接运行模型生成的任意代码 [1]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。工具结果要关联到对应调用,JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]支持这些流程与安全限制。"
+          },
+          {
+            "text": "与 MCP 相比，Function Calling 是模型表达“调用哪个工具及参数”的交互能力，MCP 是宿主连接外部工具和资源的标准协议，二者处于不同层次；应用可以把 MCP 发现的工具转换成模型可理解的工具 Schema，再由 Function Calling 选择 [2]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 2,
+                "quote": "Function Calling是模型表达“调用哪个工具及参数”的交互能力;MCP是宿主连接外部工具和资源的标准协议,二者处于不同层次。应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 2,
+                "supported": true
+              }
+            ],
+            "reason": "资料[2]直接说明二者层次区别和组合关系。"
+          },
+          {
+            "text": "工具少、只在单个应用内部使用时，直接 Function Calling 加本地函数注册最简单；需要跨应用复用、独立部署、动态发现或第三方维护时，可考虑 MCP，但两者并非互斥 [3]。",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 3,
+                "quote": "如果工具少、只在单个应用内部使用,直接Function Calling加本地函数注册最简单;当工具需要跨应用复用、独立部署、动态发现或由第三方维护时,MCP可减少适配成本。两者并非互斥:MCP提供标准工具接入,模型仍可通过Function Calling表达选择。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 3,
+                "supported": true
+              }
+            ],
+            "reason": "资料[3]支持该场景选型判断和二者不互斥的表述。"
+          },
+          {
+            "text": "在 Function Calling 中，模型负责表达“调用意图”：它根据用户意图和工具 Schema，选择要调用的工具并生成结构化调用请求及参数，例如输出工具名和订单号；模型不直接执行函数。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "Function Calling是模型根据用户意图和工具Schema生成结构化调用请求的能力。模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。它不是模型直接执行函数"
+              },
+              {
+                "source_id": 1,
+                "quote": "例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]支持模型负责调用意图和参数生成，且不直接执行函数。"
+          },
+          {
+            "text": "模型也可能直接回答，还可能连续调用多个工具，因此流程不一定固定为两次模型请求。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "模型可能直接回答,也可能连续调用多个工具,所以不一定固定两次模型请求。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]直接支持该流程说明。"
+          },
+          {
+            "text": "宿主/宿主程序负责把模型的调用意图真正落地：提供或转换工具 Schema，校验参数、身份与权限，进行鉴权，真实执行工具，或通过协议请求外部服务执行，并把执行结果关联到对应调用后回填给模型，让模型生成最终回答。[1][2][4]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "模型只负责选择工具并给出参数,宿主程序负责校验、鉴权、真实执行,再把结果返回模型生成最终回答。"
+              },
+              {
+                "source_id": 1,
+                "quote": "工具结果要关联到对应调用"
+              },
+              {
+                "source_id": 2,
+                "quote": "应用可以把MCP发现的工具转换成模型可理解的工具Schema,再由Function Calling选择。"
+              },
+              {
+                "source_id": 2,
+                "quote": "完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。"
+              },
+              {
+                "source_id": 4,
+                "quote": "Host 将选择转成真实协议请求,得到结果后继续流程。"
+              },
+              {
+                "source_id": 4,
+                "quote": "具体实现中三者仍需权限、执行器和状态管理配合"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              },
+              {
+                "id": 2,
+                "supported": true
+              },
+              {
+                "id": 4,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1][2][4]分别支持宿主校验、鉴权、执行、协议请求和结果回填等职责。"
+          },
+          {
+            "text": "例如查询订单物流时，开发者提供查询工具的名称、描述与参数约束，模型输出工具名和订单号，服务端校验身份并查询，最后把物流结果作为工具消息回传。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "例如,用户要查询订单物流,开发者提供查询工具的名称、描述与参数约束,模型输出工具名和订单号,服务端校验身份并查询,最后把物流结果作为工具消息回传。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]包含该示例。"
+          },
+          {
+            "text": "需要注意，执行前仍需确定性检查，因为 JSON 格式正确不代表订单号、权限或业务条件正确；不能直接运行模型生成的任意代码，也不能用 Function Calling 替代超时、重试、幂等和安全控制。[1]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 1,
+                "quote": "JSON 格式正确也不代表订单号、权限或业务条件正确;执行前仍需确定性检查,不能直接运行模型生成的任意代码。"
+              },
+              {
+                "source_id": 1,
+                "quote": "它不是模型直接执行函数,也不能替代超时、重试、幂等和安全控制。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 1,
+                "supported": true
+              }
+            ],
+            "reason": "资料[1]支持确定性检查、不可直接运行模型代码以及不能替代安全控制。"
+          },
+          {
+            "text": "在 MCP 等组合链路中，Host 可将模型选择转成真实协议请求：Client 从 Server 发现工具，Host 将描述转换成模型工具定义，模型生成调用意图，Host 校验后通过 Client 发请求，Server 执行并返回结果，Host 再向模型反馈。[2][4]",
+            "supported": true,
+            "correct": true,
+            "evidence": [
+              {
+                "source_id": 2,
+                "quote": "完整链路可以是:Client 从 Server 发现工具,Host 将描述转换成模型工具定义,模型生成调用意图,Host 校验后通过 Client 发请求,Server 执行并返回结果,Host 再向模型反馈。"
+              },
+              {
+                "source_id": 4,
+                "quote": "Host 将选择转成真实协议请求,得到结果后继续流程。"
+              }
+            ],
+            "citations": [
+              {
+                "id": 2,
+                "supported": true
+              },
+              {
+                "id": 4,
+                "supported": true
+              }
+            ],
+            "reason": "资料[2][4]支持 Host 将模型选择转为协议请求并完成链路。"
+          }
+        ],
+        "reference_points": [
+          {
+            "index": 1,
+            "covered": true,
+            "reason": "答案明确写到模型根据用户意图和工具 Schema 选择工具并生成结构化调用请求及参数。",
+            "point": "模型依据用户意图和工具Schema选择工具并生成结构化参数。"
+          },
+          {
+            "index": 2,
+            "covered": true,
+            "reason": "答案明确写到宿主程序负责校验参数、身份与权限、鉴权以及真实执行工具。",
+            "point": "宿主程序负责参数校验、鉴权和真实执行工具。"
+          },
+          {
+            "index": 3,
+            "covered": true,
+            "reason": "答案明确写到执行结果关联到对应调用后回填给模型，让模型生成最终回答。",
+            "point": "执行结果回填给模型，用于组织最终回答。"
+          }
+        ],
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "答案直接定义 Function Calling，并分别说明模型与宿主职责，覆盖执行示例、结果回填和安全限制，完整回应原问题及其子问；MCP 内容为补充说明，不偏离问题核心。"
+        }
+      },
+      "judge_calls": {
+        "chat_calls": 1
+      }
+    }
+  ],
+  "shared_plans": [
+    {
+      "case_id": "K01",
+      "subquestions": [
+        {
+          "question": "Function Calling 是什么？",
+          "kind": "knowledge"
+        },
+        {
+          "question": "在 Function Calling 中，模型和宿主分别做什么？",
+          "kind": "knowledge"
+        }
+      ],
+      "warnings": [],
+      "calls": {
+        "chat_calls": 1
+      },
+      "elapsed_seconds": 7.863
+    }
+  ],
+  "answer_judge": {
+    "enabled": true,
+    "provider": "DashScopeDeepSeekProvider",
+    "uses_answer_model": true
+  },
+  "benchmark_wall_seconds": 67.872,
+  "notes": [
+    "内置案例为人工复核前的种子标注，不代表生产基准。",
+    "每个子问题 K=3；复合问题 Recall 统计全部标注来源覆盖率。MRR 为首个相关来源的最佳子问题倒数排名。",
+    "Precision@K 固定以K为分母，缺少结果记为未命中；对子问题求平均。nDCG@K 对子问题求平均，使用整题来源标注，复合题不等同于逐子问标注的标准nDCG。默认二元相关性；source_relevance 可指定1到3级相关程度。",
+    "标注仅列目标来源，未穷举全部等价证据；Precision和nDCG可能低估实际相关性。",
+    "失败案例不计效果均值；请结合完成率、降级率和逐题结果判断。",
+    "耗时包含查询拆解、扩展、检索、精排和生成，以及首次模型加载；方案执行顺序轮换。",
+    "每题拆解只执行一次，所有方案复用同一子问题计划以控制变量。共有拆解耗时计入各方案耗时；共有调用单独记录，不重复计入方案调用量。",
+    "分阶段耗时单位为秒，retrieval包含MQE、HyDE、Embedding、向量/BM25检索及融合，这些子阶段不能再与retrieval相加。total=共有拆解+pipeline，不含答案评审、HTTP排队或报告写盘；本接口非流式，不记录首Token延迟。judge耗时与调用单列。",
+    "Faithfulness=有资料支持的事实数/事实数；引用准确性按事实—引用对统计，引用覆盖率=带引用的事实数/事实数。拒答无事实时这些指标为未评估。",
+    "答案正确性为正确事实精确率与参考要点覆盖率的F1；无参考答案/要点时不评。相关性由评审模型按0到1打分；模型评审与生成分开调用，默认使用同一模型。程序校验连续原文、证据出处和结构，语义判断、事实拆分完整性仍需人工复核。评审失败不影响检索结果，不计入质量均值；每项指标单列有效样本数。",
+    "调用量为应用层调用次数，不是 token 用量或供应商内部重试次数。引用存在不等于结论受支持，答案正确性仍需复核。"
+  ]
+}

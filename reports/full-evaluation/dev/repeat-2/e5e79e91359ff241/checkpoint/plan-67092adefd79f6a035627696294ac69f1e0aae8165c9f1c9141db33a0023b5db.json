@@ -1,0 +1,26 @@
+{
+  "case_id": "V2-002",
+  "subquestions": [
+    {
+      "question": "从零实现任务助手时，模型之外需要哪些模块？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "从零实现任务助手时，规划模块需要包含哪些能力或组件？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "从零实现任务助手时，工具模块需要包含哪些能力或组件？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "从零实现任务助手时，除模型、规划、工具外还需要哪些模块？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 5.357840799999394
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-031",
+  "subquestions": [
+    {
+      "question": "在扩大数据、参数和计算量时，模型能力如何变化？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "在扩大数据、参数和计算量的背景下，所谓“涌现”应如何解释？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 4.206369100000302
+}

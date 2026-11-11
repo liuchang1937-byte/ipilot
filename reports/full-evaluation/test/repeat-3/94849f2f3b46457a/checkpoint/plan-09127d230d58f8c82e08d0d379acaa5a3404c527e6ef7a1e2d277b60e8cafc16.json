@@ -1,0 +1,18 @@
+{
+  "case_id": "V2-100",
+  "subquestions": [
+    {
+      "question": "模型网关提供哪些治理能力？",
+      "kind": "knowledge"
+    },
+    {
+      "question": "助手连接数据库时如何限制权限？",
+      "kind": "knowledge"
+    }
+  ],
+  "warnings": [],
+  "calls": {
+    "chat_calls": 1
+  },
+  "elapsed_seconds": 3.487209899998561
+}
